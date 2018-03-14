@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="homeTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCategoriesCell" rowHeight="152" id="KGk-i7-Jjw" userLabel="homeCategoriesCell" customClass="homeCategoriesCell" customModule="CollectionViewChurchSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjk-3t-DQZ">
+                        <rect key="frame" x="3" y="3" width="314" height="178.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUp-ni-SuJ">
+                                <rect key="frame" x="3" y="8" width="36" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fuT-dU-6Jp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1Ey-Nw-MBQ">
+                                <rect key="frame" x="3" y="30" width="308" height="148"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rew-rW-ztv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Ey-Nw-MBQ" firstAttribute="leading" secondItem="Cjk-3t-DQZ" secondAttribute="leading" constant="3" id="6iC-3N-5Dn"/>
+                            <constraint firstItem="OUp-ni-SuJ" firstAttribute="top" secondItem="Cjk-3t-DQZ" secondAttribute="top" constant="8" id="HwY-Ja-HPF"/>
+                            <constraint firstAttribute="trailing" secondItem="1Ey-Nw-MBQ" secondAttribute="trailing" constant="3" id="NwK-ob-cnY"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ey-Nw-MBQ" secondAttribute="bottom" constant="0.5" id="bRG-wd-a9s"/>
+                            <constraint firstItem="1Ey-Nw-MBQ" firstAttribute="top" secondItem="OUp-ni-SuJ" secondAttribute="bottom" constant="1" id="cNa-9d-3Vi"/>
+                            <constraint firstItem="OUp-ni-SuJ" firstAttribute="leading" secondItem="Cjk-3t-DQZ" secondAttribute="leading" constant="3" id="ump-gQ-zzC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Cjk-3t-DQZ" secondAttribute="trailing" constant="3" id="ART-QF-qhP"/>
+                    <constraint firstItem="Cjk-3t-DQZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="CXQ-71-BPu"/>
+                    <constraint firstItem="Cjk-3t-DQZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="XUM-h3-pqR"/>
+                    <constraint firstAttribute="bottom" secondItem="Cjk-3t-DQZ" secondAttribute="bottom" constant="3" id="ddw-Yg-x39"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backGroundView" destination="Cjk-3t-DQZ" id="XDE-z8-YBj"/>
+                <outlet property="categorieName" destination="OUp-ni-SuJ" id="Fnn-pm-ree"/>
+                <outlet property="homeCollectionView" destination="1Ey-Nw-MBQ" id="VYQ-ln-ADp"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="144.5"/>
+        </tableViewCell>
+    </objects>
+</document>

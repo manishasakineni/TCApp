@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -827,7 +827,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlz-Yt-3FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6061.6000000000004" y="1194.1529235382309"/>
+            <point key="canvasLocation" x="5999" y="1005"/>
+        </scene>
+        <!--Video Songs View Controller-->
+        <scene sceneID="HXc-4c-YBX">
+            <objects>
+                <viewController storyboardIdentifier="VideoSongsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ruE-iY-jZk" customClass="VideoSongsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PJW-hx-Ncv"/>
+                        <viewControllerLayoutGuide type="bottom" id="GRr-RV-kVv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VF2-mI-h0U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8b5-n6-bf8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="FK3-XZ-cux">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FK3-XZ-cux" secondAttribute="trailing" id="0Hv-eT-5aV"/>
+                                    <constraint firstItem="FK3-XZ-cux" firstAttribute="leading" secondItem="8b5-n6-bf8" secondAttribute="leading" id="Bre-qA-s3d"/>
+                                    <constraint firstAttribute="height" constant="163" id="O2h-3B-hAS"/>
+                                    <constraint firstAttribute="bottom" secondItem="FK3-XZ-cux" secondAttribute="bottom" id="PeN-6r-0sG"/>
+                                    <constraint firstItem="FK3-XZ-cux" firstAttribute="top" secondItem="8b5-n6-bf8" secondAttribute="top" id="p8I-qg-vzM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uco-YI-D7w">
+                                <rect key="frame" x="0.0" y="163" width="375" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ruE-iY-jZk" id="bf1-Xd-76w"/>
+                                    <outlet property="delegate" destination="ruE-iY-jZk" id="Zsm-R1-fGC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8b5-n6-bf8" firstAttribute="top" secondItem="VF2-mI-h0U" secondAttribute="top" id="3HT-sT-Typ"/>
+                            <constraint firstItem="uco-YI-D7w" firstAttribute="top" secondItem="8b5-n6-bf8" secondAttribute="bottom" id="5bA-ko-dCD"/>
+                            <constraint firstItem="uco-YI-D7w" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="VQ2-yL-hJA"/>
+                            <constraint firstItem="GRr-RV-kVv" firstAttribute="top" secondItem="uco-YI-D7w" secondAttribute="bottom" id="a9b-qw-omN"/>
+                            <constraint firstAttribute="trailing" secondItem="uco-YI-D7w" secondAttribute="trailing" id="cjW-9t-Rev"/>
+                            <constraint firstItem="8b5-n6-bf8" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="eTE-AA-jUj"/>
+                            <constraint firstAttribute="trailing" secondItem="8b5-n6-bf8" secondAttribute="trailing" id="nHT-kd-RlQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hometableView" destination="uco-YI-D7w" id="9Gh-KC-If6"/>
+                        <outlet property="infoImage" destination="FK3-XZ-cux" id="N5r-NM-Ogf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rnx-r2-X2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6868" y="1034.9325337331336"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">

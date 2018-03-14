@@ -45,6 +45,9 @@ let AUTHORDETAILS : String = BASEURL.appending("api/Church/GetAuthorbyId/")
 
 let GETALLCATEGORIES : String = BASEURL.appending("api/Category/GetAllCategories")
 
+
+let GETPOSTBYCATEGORYIDOFVIDEOSONGS : String = BASEURL.appending("api/Post/GetPostbyCategoryId/")
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

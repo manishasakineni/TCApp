@@ -190,6 +190,13 @@
 		CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E0C204E64AB0002CFBB /* UpConingEventInfoViewController.swift */; };
 		CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E0F204E797F0002CFBB /* GetUpComingEventInfo.swift */; };
 		CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E11204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift */; };
+		CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3794DC20594E9D002D3638 /* VideoSongsResultVo.swift */; };
+		CB3794DF20594E9D002D3638 /* VideoSongsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3794DD20594E9D002D3638 /* VideoSongsVo.swift */; };
+		CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3794E1205955AC002D3638 /* VideoSongsViewController.swift */; };
+		CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3794E420595867002D3638 /* homeCategoriesCell.swift */; };
+		CB3794E720595867002D3638 /* homeCategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3794E520595867002D3638 /* homeCategoriesCell.xib */; };
+		CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3794E820595870002D3638 /* homeCategoriesCollectionCell.swift */; };
+		CB3794EB20595870002D3638 /* homeCategoriesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3794E920595870002D3638 /* homeCategoriesCollectionCell.xib */; };
 		CB4B20F42047D11500402E59 /* CategoriesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B20F32047D11500402E59 /* CategoriesHomeViewController.swift */; };
 		CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B20F62047D2F000402E59 /* CategorieHomeCell.swift */; };
 		CB4B20FB2047D2F000402E59 /* CategorieHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4B20F72047D2F000402E59 /* CategorieHomeCell.xib */; };
@@ -414,6 +421,13 @@
 		CB356E0C204E64AB0002CFBB /* UpConingEventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpConingEventInfoViewController.swift; sourceTree = "<group>"; };
 		CB356E0F204E797F0002CFBB /* GetUpComingEventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpComingEventInfo.swift; sourceTree = "<group>"; };
 		CB356E11204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpComingEventInfoResultVo.swift; sourceTree = "<group>"; };
+		CB3794DC20594E9D002D3638 /* VideoSongsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSongsResultVo.swift; sourceTree = "<group>"; };
+		CB3794DD20594E9D002D3638 /* VideoSongsVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSongsVo.swift; sourceTree = "<group>"; };
+		CB3794E1205955AC002D3638 /* VideoSongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSongsViewController.swift; sourceTree = "<group>"; };
+		CB3794E420595867002D3638 /* homeCategoriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCategoriesCell.swift; sourceTree = "<group>"; };
+		CB3794E520595867002D3638 /* homeCategoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCategoriesCell.xib; sourceTree = "<group>"; };
+		CB3794E820595870002D3638 /* homeCategoriesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCategoriesCollectionCell.swift; sourceTree = "<group>"; };
+		CB3794E920595870002D3638 /* homeCategoriesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCategoriesCollectionCell.xib; sourceTree = "<group>"; };
 		CB4B20F32047D11500402E59 /* CategoriesHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesHomeViewController.swift; sourceTree = "<group>"; };
 		CB4B20F62047D2F000402E59 /* CategorieHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieHomeCell.swift; sourceTree = "<group>"; };
 		CB4B20F72047D2F000402E59 /* CategorieHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategorieHomeCell.xib; sourceTree = "<group>"; };
@@ -585,6 +599,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB3794E020595568002D3638 /* VideoSongsViewController */,
 				CB2045D22056A3720032E71D /* AllAndUpComingEventsViewController */,
 				CB4B20F22047D08B00402E59 /* CategoriesHomeViewController */,
 				CB03C8D0203EC72A000B96A4 /* ChurchAdminDetailViewController */,
@@ -632,6 +647,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CB3794E320595836002D3638 /* CategoriesInfoCells */,
 				CB2045D42056A8340032E71D /* AllEventsTableViewCell */,
 				CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */,
 				CBC1FB832052DBBE000063D4 /* ListOfMonthEventCell.xib */,
@@ -672,6 +688,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB3794DB20594E81002D3638 /* VideoSongsVo */,
 				35E14FFB2058135500CD11A0 /* GetAllCategories */,
 				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
 				CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */,
@@ -1017,6 +1034,34 @@
 			name = GetUpComingEventInfo;
 			sourceTree = "<group>";
 		};
+		CB3794DB20594E81002D3638 /* VideoSongsVo */ = {
+			isa = PBXGroup;
+			children = (
+				CB3794DC20594E9D002D3638 /* VideoSongsResultVo.swift */,
+				CB3794DD20594E9D002D3638 /* VideoSongsVo.swift */,
+			);
+			name = VideoSongsVo;
+			sourceTree = "<group>";
+		};
+		CB3794E020595568002D3638 /* VideoSongsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB3794E1205955AC002D3638 /* VideoSongsViewController.swift */,
+			);
+			name = VideoSongsViewController;
+			sourceTree = "<group>";
+		};
+		CB3794E320595836002D3638 /* CategoriesInfoCells */ = {
+			isa = PBXGroup;
+			children = (
+				CB3794E420595867002D3638 /* homeCategoriesCell.swift */,
+				CB3794E520595867002D3638 /* homeCategoriesCell.xib */,
+				CB3794E820595870002D3638 /* homeCategoriesCollectionCell.swift */,
+				CB3794E920595870002D3638 /* homeCategoriesCollectionCell.xib */,
+			);
+			name = CategoriesInfoCells;
+			sourceTree = "<group>";
+		};
 		CB4B20F22047D08B00402E59 /* CategoriesHomeViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1165,6 +1210,7 @@
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
 				CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */,
+				CB3794EB20595870002D3638 /* homeCategoriesCollectionCell.xib in Resources */,
 				CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */,
 				CB2045D82056A85D0032E71D /* AllEventsTableViewCell.xib in Resources */,
 				CB03C8D7203EC8F5000B96A4 /* ChurchAdminDetailCell.xib in Resources */,
@@ -1208,6 +1254,7 @@
 				CB1E30C62034416D009FB001 /* lang-en.json in Resources */,
 				AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
+				CB3794E720595867002D3638 /* homeCategoriesCell.xib in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
 				3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */,
@@ -1306,6 +1353,7 @@
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */,
 				CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */,
+				CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
 				CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */,
 				CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */,
@@ -1327,6 +1375,7 @@
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
 				CB03C8D6203EC8F5000B96A4 /* ChurchAdminDetailCell.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
+				CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
 				3D5404F42058045A008257A6 /* AuthorDetailsViewController.swift in Sources */,
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
@@ -1373,6 +1422,7 @@
 				3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */,
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
+				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
@@ -1397,6 +1447,7 @@
 				CB4B2100204834CD00402E59 /* InfoHeaderCell.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
+				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
@@ -1417,6 +1468,7 @@
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
 				CB21CE65203DA62700B3294B /* GetChurchByIDVo.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
+				CB3794DF20594E9D002D3638 /* VideoSongsVo.swift in Sources */,
 				3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */,
 				CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */,
 				CB255D6B204FBAF90080AFAD /* UpComingEventCell.swift in Sources */,
