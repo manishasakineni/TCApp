@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InfoHeaderCell" id="KGk-i7-Jjw" customClass="InfoHeaderCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCz-HR-tDd">
+                        <rect key="frame" x="2" y="2" width="316" height="39.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-8x-tnR">
+                                <rect key="frame" x="238" y="4" width="73" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Subscribe">
+                                    <color key="titleColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Subscribe"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZPX-8x-tnR" secondAttribute="trailing" constant="5" id="GXr-qg-RcV"/>
+                            <constraint firstItem="ZPX-8x-tnR" firstAttribute="top" secondItem="kCz-HR-tDd" secondAttribute="top" constant="4" id="QHh-M5-cx1"/>
+                            <constraint firstAttribute="bottom" secondItem="ZPX-8x-tnR" secondAttribute="bottom" constant="5.5" id="n9A-X0-05G"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og7-tX-w7A">
+                        <rect key="frame" x="12" y="11" width="112.5" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="og7-tX-w7A" secondAttribute="bottom" constant="11.5" id="LMP-5T-57k"/>
+                    <constraint firstItem="kCz-HR-tDd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="OS0-u4-Vzq"/>
+                    <constraint firstItem="og7-tX-w7A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="OUC-UD-WGI"/>
+                    <constraint firstAttribute="trailing" secondItem="kCz-HR-tDd" secondAttribute="trailing" constant="2" id="W0Y-rl-eLP"/>
+                    <constraint firstAttribute="bottom" secondItem="kCz-HR-tDd" secondAttribute="bottom" constant="2" id="WzI-MI-WuB"/>
+                    <constraint firstItem="kCz-HR-tDd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="lb5-A1-c5v"/>
+                    <constraint firstItem="og7-tX-w7A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="vMS-HA-qpQ"/>
+                    <constraint firstItem="ZPX-8x-tnR" firstAttribute="leading" secondItem="og7-tX-w7A" secondAttribute="trailing" constant="115.5" id="xIr-AX-GbM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headerLabel" destination="og7-tX-w7A" id="cvp-c4-WUa"/>
+                <outlet property="subscribeBtn" destination="ZPX-8x-tnR" id="cj7-M4-rQc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

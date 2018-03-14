@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListOfMonthEventCell" rowHeight="136" id="KGk-i7-Jjw" customClass="ListOfMonthEventCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4P-Te-FBz">
+                        <rect key="frame" x="3" y="3" width="314" height="129.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sX-Ee-d55">
+                                <rect key="frame" x="8" y="8" width="298" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="lBf-bL-8Rx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8V-31-W4J">
+                                <rect key="frame" x="8" y="37" width="84" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0gL-0D-ePM"/>
+                                    <constraint firstAttribute="width" constant="84" id="30s-A3-CsO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE HYDERABAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-it-ABR">
+                                <rect key="frame" x="8" y="66" width="298" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7JD-Pa-9Sd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catholic Church" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOQ-zX-iNx">
+                                <rect key="frame" x="93" y="37" width="198" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="5be-Jh-fSm"/>
+                                    <constraint firstAttribute="height" constant="21" id="uJz-SK-pIQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE HYDERABAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0j-5r-ryL">
+                                <rect key="frame" x="8" y="95" width="298" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dlf-7W-yWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcE-1d-lAh">
+                                <rect key="frame" x="90" y="119" width="135" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="1Ef-Xt-Xrj"/>
+                                    <constraint firstAttribute="width" constant="135" id="bXs-U8-T9V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.70196078431372544" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="t0j-5r-ryL" firstAttribute="leading" secondItem="fpc-it-ABR" secondAttribute="leading" id="6YN-lu-p3U"/>
+                            <constraint firstAttribute="trailing" secondItem="fpc-it-ABR" secondAttribute="trailing" constant="8" id="8i3-fD-5se"/>
+                            <constraint firstItem="h8V-31-W4J" firstAttribute="leading" secondItem="8sX-Ee-d55" secondAttribute="leading" id="9Ge-6m-V8V"/>
+                            <constraint firstAttribute="trailing" secondItem="8sX-Ee-d55" secondAttribute="trailing" constant="8" id="FUY-oF-njK"/>
+                            <constraint firstAttribute="trailing" secondItem="t0j-5r-ryL" secondAttribute="trailing" constant="8" id="H1t-2d-0P3"/>
+                            <constraint firstItem="8sX-Ee-d55" firstAttribute="top" secondItem="v4P-Te-FBz" secondAttribute="top" constant="8" id="Jsf-KR-emb"/>
+                            <constraint firstItem="h8V-31-W4J" firstAttribute="top" secondItem="8sX-Ee-d55" secondAttribute="bottom" constant="8" id="SGq-Yy-RXP"/>
+                            <constraint firstItem="t0j-5r-ryL" firstAttribute="top" secondItem="fpc-it-ABR" secondAttribute="bottom" constant="8" id="TLu-Gf-ILu"/>
+                            <constraint firstItem="vcE-1d-lAh" firstAttribute="top" secondItem="t0j-5r-ryL" secondAttribute="bottom" constant="3" id="XaS-vH-39b"/>
+                            <constraint firstItem="fpc-it-ABR" firstAttribute="leading" secondItem="h8V-31-W4J" secondAttribute="leading" id="Z55-23-KZZ"/>
+                            <constraint firstAttribute="bottom" secondItem="vcE-1d-lAh" secondAttribute="bottom" constant="0.5" id="ZxF-ir-g4U"/>
+                            <constraint firstItem="fpc-it-ABR" firstAttribute="top" secondItem="WOQ-zX-iNx" secondAttribute="bottom" constant="8" id="aWU-U8-7dc"/>
+                            <constraint firstItem="WOQ-zX-iNx" firstAttribute="leading" secondItem="h8V-31-W4J" secondAttribute="trailing" constant="1" id="bVT-Ko-qTp"/>
+                            <constraint firstItem="8sX-Ee-d55" firstAttribute="leading" secondItem="v4P-Te-FBz" secondAttribute="leading" constant="8" id="scn-tH-psE"/>
+                            <constraint firstItem="WOQ-zX-iNx" firstAttribute="centerY" secondItem="h8V-31-W4J" secondAttribute="centerY" id="sr7-lh-ruz"/>
+                            <constraint firstItem="vcE-1d-lAh" firstAttribute="centerX" secondItem="t0j-5r-ryL" secondAttribute="centerX" id="tbj-1W-94L"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="v4P-Te-FBz" secondAttribute="bottom" constant="3" id="0Op-oX-1Bs"/>
+                    <constraint firstItem="v4P-Te-FBz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="ABS-vU-fiO"/>
+                    <constraint firstItem="v4P-Te-FBz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="O5z-SR-hFZ"/>
+                    <constraint firstAttribute="trailing" secondItem="v4P-Te-FBz" secondAttribute="trailing" constant="3" id="Uby-3k-4br"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backGroundView" destination="v4P-Te-FBz" id="jd8-OA-hHW"/>
+                <outlet property="churchName" destination="8sX-Ee-d55" id="9d8-hv-ei9"/>
+                <outlet property="contactNumber" destination="fpc-it-ABR" id="f0t-CM-MDN"/>
+                <outlet property="eventStartEndDate" destination="t0j-5r-ryL" id="5k4-uR-WJX"/>
+                <outlet property="eventTitle" destination="WOQ-zX-iNx" id="7Gr-yF-Cyr"/>
+            </connections>
+            <point key="canvasLocation" x="-35" y="85"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,146 @@
+{
+    
+    
+    
+    "EditProfile": "Edit Profile",
+    "ChangepassWord": "Change Password",
+    "LogOut" : "LogOut",
+    "Login"  :  "Login",
+    "ChooseLanguage" : "Choose Language",
+    "Telugu Churches" :  "Telugu Churches",
+    "UpComing Events" :  "UPCOMING EVENTS",
+    
+    
+    "User Name" : "User Name",
+    "Password" : "Password",
+    "forgot Password" : "Forgot Password",
+    "Register" : "Register",
+    "Don't have an Account?" : "Don't Have An Account?",
+    "First Name" : "First Name",
+    "Last Name" : "Last Name",
+    "Middle Name" : "Middle Name",
+    "Mobile Number" : "Mobile Number",
+    "E-mail" : "E-mail",
+    "Confirm Password" : "Confirm Password",
+    "Submit" : "Submit",
+    "Registration" : "Registration",
+    "all ready have an Account?" : "Already Have An Account?",
+    "Message" : "Message",
+    "Please Enter UserName" : "Please Enter UserName",
+    "Please Enter Password" : "Please Enter Password",
+    "Alert" : "Alert",
+    "Ok" : "Ok",
+    "Success" :"Success",
+    "Retry" : "Retry",
+    "Please provide First Name" : "Please Provide First Name",
+    "Only AlphaBets Allowed" : "Only AlphaBets Allowed",
+    "Please provide MiddleName" :"Please Provide Middle Name",
+    "Please provide Lastname" :"Please Provide Last Name",
+    "Please provide UserName" : "Please Provide User Name",
+    "Please provide e-mail" :"Please Provide e-mail",
+    "Please provide Mobile Number" : "Please Provide Mobile Number",
+    "invalid Mobile Number" : "Invalid Mobile Number",
+    "Email Should Minimum 5-Character" : "Email Should Minimum 5-Character",
+    "Please provide valid e-maild Format" : "Please Provide Valid E-maild Format",
+    "Please provide Password" : "Please Provide Password",
+    "Please provide Confirm Password" : "Please Provide Confirm Password",
+    "Incorrect Confirm Password" : "Incorrect Confirm Password",
+    "Password Missmatch" : "Password Missmatch",
+    "Please Provide New Password" : "Please Provide New Password",
+    "Please Provide Reset-Password" : "Please Provide Reset-Password",
+    "password must have at least one uppercase letter" : "password Must have At Least One Uppercase Letter",
+    "Please Provide Your Mobile Number" : "Please Provide Your Mobile Number",
+    "Please Provide 10-Digits MobileNumber" : "Please Provide 10-Digits MobileNumber",
+    "Please Provide Minimum 8 Characters Password" : "Please Provide Minimum 8 Characters Password",
+    "Password must have at least one number" : "Password Must Have At Least One Number",
+    "Password must have at least one special Character" : "Password Must Have At Least One Special Character",
+    "Provied Old Password" : "Provied Old Password",
+    "Please Provied Old Password" : "Please Provied Old Password",
+    "Please Login" : "Please Login",
+    "Cancel" : "Cancel",
+    "Personal Detail's" : "Personal Details",
+    "Edit Profile"  : "Edit Profile",
+    "Confirm" : "Confirm",
+    "ChangePassword" : "Change Password",
+    "Old Password" : "Old Password",
+    "New Password" : "New Password",
+    "Events" : "Events",
+    "Admin List" : "Admin List",
+    "Churches List" : "Churches List",
+    "Churche Details" : "Churche Details",
+    "EventStartDate" : "Event Start Date",
+    "EventEndDate" : "Event End Date",
+    "EventName" : "Event Name",
+    "Date" : "Date",
+    "ChangePhoto" : "Change Photo",
+    "save" : "save",
+    "Gender" : "Gender",
+    "Address" : "Address",
+    "Church Author" : "Church Author",
+    "Map" : "Map",
+    "Date Of Birth" : "Date Of Birth",
+    "Registration Number" : "Registration Number",
+    "Name" : "Name",
+    "Description" : "Description",
+    "Vision" : "Vision",
+    "Mission" : "Mission",
+    "Address" : "Address",
+    "Email" : "Email",
+    "Web Address" : "Web Address",
+    "Landmark" : "Landmark",
+    "State" : "State",
+    "District" : "District",
+    "Mandal" : "Mandal",
+    "Village" : "Village",
+    "Pin Code" : "Pin Code",
+    "Author Name" : "Author Name",
+    "Contact Number" : "Contact Number",
+    "Church Name:" : "Church Name:",
+    "Church Name" : "Church Name",
+    "Church Registration Number" : "Church Registration Number",
+    "Mobile Number:" : "Mobile Number:",
+    "Posts" : "Posts",
+    "Regisration Number" : "Regisration Number",
+    "Email:" : "Email:",
+    "Name:" : "Name:",
+    "Information" : "Information",
+    "Registration Number:" : "Registration Number:",
+    "End Date:" : "End Date:",
+    "Start Date:" : "Start Date:",
+    "Event Title:" : "Event Title:",
+    "ALL EVENTS" : "ALL EVENTS",
+    "Event Name:" : "Event Name:",
+    "  Events" : "  Events",
+    "contact Number:" : "contact Number:",
+    "StartDate EndDate:" : "StartDate EndDate:",
+    "Country" : "Country",
+    "Author Details" : "Author Details",
+    "Church Details" : "Church Details",
+    "Latest Posts" : "Latest Posts",
+    "Categories" : "Categories",
+    "Event Posts" : "Event Posts",
+    " All Categories" : "All Categories",
+    "See All" : "See All",
+    "Subscribe" : "Subscribe",
+    "Bible Posts" : "Bible Posts"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}

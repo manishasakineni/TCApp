@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddMoneyCell" id="KGk-i7-Jjw" customClass="AddMoneyCell" customModule="OffersScreen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-ka-STs">
+                        <rect key="frame" x="0.0" y="5" width="320" height="39.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xs-wg-goN">
+                                <rect key="frame" x="31" y="6" width="258" height="25"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="EXa-Cy-p9l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="+Add Money">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-nS-9Rb">
+                                <rect key="frame" x="31" y="36" width="258" height="3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="GKC-5r-JwX"/>
+                                    <constraint firstAttribute="width" constant="258" id="kEo-6M-ZBk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aCh-nS-9Rb" firstAttribute="top" secondItem="4xs-wg-goN" secondAttribute="bottom" constant="5" id="57S-qr-Zlw"/>
+                            <constraint firstItem="aCh-nS-9Rb" firstAttribute="centerX" secondItem="4xs-wg-goN" secondAttribute="centerX" id="Nen-Bo-W1A"/>
+                            <constraint firstItem="4xs-wg-goN" firstAttribute="top" secondItem="xpx-ka-STs" secondAttribute="top" constant="6" id="i0z-iP-Lwe"/>
+                            <constraint firstAttribute="trailing" secondItem="4xs-wg-goN" secondAttribute="trailing" constant="31" id="lyk-j6-XVO"/>
+                            <constraint firstAttribute="bottom" secondItem="aCh-nS-9Rb" secondAttribute="bottom" constant="0.5" id="w2N-rC-zJG"/>
+                            <constraint firstItem="4xs-wg-goN" firstAttribute="leading" secondItem="xpx-ka-STs" secondAttribute="leading" constant="31" id="wVG-re-ksa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xpx-ka-STs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="L0m-Yl-UDV"/>
+                    <constraint firstItem="xpx-ka-STs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="LrM-jF-cnl"/>
+                    <constraint firstAttribute="bottom" secondItem="xpx-ka-STs" secondAttribute="bottom" constant="5" id="O5F-qv-e2l"/>
+                    <constraint firstAttribute="trailing" secondItem="xpx-ka-STs" secondAttribute="trailing" id="gwa-D2-TDp"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

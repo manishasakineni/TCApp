@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventInformationCell" rowHeight="56" id="KGk-i7-Jjw" customClass="EventInformationCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pD-dH-lBM">
+                        <rect key="frame" x="3" y="2" width="314" height="36"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Type" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOk-Rg-1Wc">
+                                <rect key="frame" x="8" y="7" width="110" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfd-90-Eei">
+                                <rect key="frame" x="267" y="7" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4YU-Bw-bQj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gei-tF-77G">
+                                <rect key="frame" x="126" y="8" width="42.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XKi-aG-i9B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gei-tF-77G" firstAttribute="centerX" secondItem="9pD-dH-lBM" secondAttribute="centerX" constant="-10" id="26O-xY-n5v"/>
+                            <constraint firstItem="yOk-Rg-1Wc" firstAttribute="top" secondItem="9pD-dH-lBM" secondAttribute="top" constant="7" id="2RR-7W-kVc"/>
+                            <constraint firstItem="Gei-tF-77G" firstAttribute="leading" secondItem="yOk-Rg-1Wc" secondAttribute="trailing" constant="8" id="I4W-Id-REU"/>
+                            <constraint firstItem="Gei-tF-77G" firstAttribute="top" secondItem="9pD-dH-lBM" secondAttribute="top" constant="8" id="WLi-g9-oYK"/>
+                            <constraint firstItem="yOk-Rg-1Wc" firstAttribute="leading" secondItem="9pD-dH-lBM" secondAttribute="leading" constant="8" id="bwl-FC-bz1"/>
+                            <constraint firstAttribute="bottom" secondItem="Gei-tF-77G" secondAttribute="bottom" constant="7" id="cbT-mI-ZAi"/>
+                            <constraint firstAttribute="bottom" secondItem="yOk-Rg-1Wc" secondAttribute="bottom" constant="8" id="gqc-vT-YOw"/>
+                            <constraint firstItem="hfd-90-Eei" firstAttribute="centerY" secondItem="9pD-dH-lBM" secondAttribute="centerY" id="lU0-uu-9PM"/>
+                            <constraint firstAttribute="trailing" secondItem="hfd-90-Eei" secondAttribute="trailing" constant="8" id="q1K-TB-IzP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="9pD-dH-lBM" secondAttribute="bottom" constant="2" id="elZ-iq-ewN"/>
+                    <constraint firstItem="9pD-dH-lBM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="id4-xF-e6W"/>
+                    <constraint firstAttribute="trailing" secondItem="9pD-dH-lBM" secondAttribute="trailing" constant="3" id="q9l-1m-9YV"/>
+                    <constraint firstItem="9pD-dH-lBM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="zNj-4g-HvU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backGroundView" destination="9pD-dH-lBM" id="43L-XI-Gh5"/>
+                <outlet property="eventEndDateLabel" destination="hfd-90-Eei" id="1la-r1-aXm"/>
+                <outlet property="eventStartDateLabel" destination="Gei-tF-77G" id="UjJ-O9-weN"/>
+                <outlet property="eventType" destination="yOk-Rg-1Wc" id="4R7-n5-aeG"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="58"/>
+        </tableViewCell>
+    </objects>
+</document>
