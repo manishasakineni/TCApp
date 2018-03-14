@@ -20,9 +20,10 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     let utillites =  Utilities()
 
     
+    
 
     
-    let imageView = ["EditProfile","ChangePSW","LogOutlightGray"]
+    let imageView = ["EditProfile","ChangePSW","Subscriptions","Seminor","event","Seminor","LogOutlightGray"]
     
 
     
@@ -42,7 +43,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"All Categories","All Churches","Events","Authors","LogOut".localize()]
 
         borderColor()
         // Do any additional setup after loading the view.
@@ -54,7 +55,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"All Categories","All Churches","Events","Authors","LogOut".localize()]
 
         
       //  menuTableView.reloadData()
@@ -115,7 +116,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
         
-        return UITableViewAutomaticDimension
+        return 43
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -130,6 +131,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuNameTableViewCell")
             as!menuNameTableViewCell
         
+        cell1.selectionStyle = .none
         
         if(indexPath.row == menuArray.count - 1){
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
@@ -268,6 +270,55 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
             
             
+        }
+        else  if cell.menuNameLabel.text == "All Categories" {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as!CategoriesHomeViewController
+//            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+            // }
+        }
+        else  if cell.menuNameLabel.text == "All Churches" {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as!ChurchDetailsViewController
+//            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+            // }
+        }
+        else  if cell.menuNameLabel.text == "Events" {
+            
+           
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as!AllEventsAndUpComingEventsViewController
+//            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+            // }
+        }
+        else  if cell.menuNameLabel.text == "Authors" {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchAdminViewController") as!ChurchAdminViewController
+//            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+            // }
         }
         else  if cell.menuNameLabel.text == "LogOut".localize() {
           

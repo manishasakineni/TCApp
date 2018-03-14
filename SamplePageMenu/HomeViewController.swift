@@ -1276,47 +1276,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             
             
-                if indexPath.row == 0 {
-                    
-//                    let  allOffersViewController = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
-//                    self.navigationController?.pushViewController(allOffersViewController, animated: true)
-                    print("allOffersViewController Tapped......")
-                    
-                    
-                                                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
-                                              //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-                                                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-                    
-                    
-                    
-                }
-//            
-//            if indexPath.item == 0 {
-//                
-//                
-//                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
-//                churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-//                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-//            }
-//            if indexPath.item == 1 {
-//                
-//                
-//                let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-//                churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
-//                
-//                self.navigationController?.pushViewController(churchAdminViewController, animated: true)
-//      
-//            }
-//            
-//            if indexPath.item == 2 {
-//                
-//                let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
-//                allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
-//                self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
-//                
-//                
-//            }
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
+            //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
             
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
         }
         
         
