@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/HomeViewController.swift"
-            timestampString = "542715371.226741"
+            timestampString = "542720888.540863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "960"
-            endingLineNumber = "960"
+            startingLineNumber = "969"
+            endingLineNumber = "969"
             landmarkName = "bannerAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/HomeViewController.swift"
-            timestampString = "542714430.735693"
+            timestampString = "542718961.090866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "bannerImageScrollAPICall()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/HomeViewController.swift"
-            timestampString = "542715371.226741"
+            timestampString = "542720888.540863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "927"
-            endingLineNumber = "927"
+            startingLineNumber = "936"
+            endingLineNumber = "936"
             landmarkName = "bannerAnimation()"
             landmarkType = "7">
          </BreakpointContent>

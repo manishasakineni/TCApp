@@ -529,19 +529,19 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="nv0-cW-zAB"/>
                                         </constraints>
-                                        <color key="pageIndicatorTintColor" red="0.40064091839999999" green="1" blue="0.96146211910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="pageIndicatorTintColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-kk-JD2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                         <color key="backgroundColor" red="0.40064091839999999" green="1" blue="0.96146211910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="165" id="FRs-PU-Vg4"/>
+                                            <constraint firstAttribute="height" constant="164" id="FRs-PU-Vg4"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PeA-cs-2Gd" secondAttribute="trailing" constant="72" id="1L9-vo-23f"/>
-                                    <constraint firstItem="PeA-cs-2Gd" firstAttribute="top" secondItem="bEU-kk-JD2" secondAttribute="bottom" id="DdS-c6-4cK"/>
+                                    <constraint firstItem="PeA-cs-2Gd" firstAttribute="top" secondItem="bEU-kk-JD2" secondAttribute="bottom" constant="1" id="DdS-c6-4cK"/>
                                     <constraint firstItem="bEU-kk-JD2" firstAttribute="top" secondItem="bQC-Li-U8u" secondAttribute="top" id="OZ9-FI-ldz"/>
                                     <constraint firstAttribute="height" constant="181" id="bdb-FF-vTV"/>
                                     <constraint firstItem="bEU-kk-JD2" firstAttribute="leading" secondItem="bQC-Li-U8u" secondAttribute="leading" id="fih-sA-mcc"/>

@@ -127,9 +127,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let autoScrollImagesCell  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
         categorieTableView.register(autoScrollImagesCell, forCellReuseIdentifier: "AutoScrollImagesCell")
         
-        let bannerCollectionViewCell  = UINib(nibName: "BannerCollectionViewCell" , bundle: nil)
-        
-        bannerCollectionView.register(bannerCollectionViewCell, forCellWithReuseIdentifier: "BannerCollectionViewCell")
+ 
         
         
         
@@ -163,8 +161,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         categorieTableView.dataSource = self
         categorieTableView.delegate = self
-        bannerCollectionView.delegate = self
-        bannerCollectionView.dataSource = self
+
         
         bannerScrollView.delegate = self
         
@@ -214,27 +211,19 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                     let isSuccess = respVO.isSuccess
                     print("StatusCode:\(String(describing: isSuccess))")
-                    
-                    
-                    //      self.churchNamesArray.removeAll()
+  
                     
                     
                     if isSuccess == true {
-                        
-                        //self.listResultArray = respVO.listResult!
+
                         
                         let listArr = respVO.listResult!
                         
                         
                         for eachArray in listArr{
-                            //  print(self.churchNamesArray)
-                            // print(eachArray)
-                            
-                            //  let imgUrl = eachArray.bannerImage
-                            
+                          
                             let imgUrl = eachArray.bannerImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
-                            
-                            //  let newString = (imgUrl == nil ? "" : imgUrl.replacingOccurrences(of: "\\", with: "//"))
+
                             let newString = imgUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
                             
                             print("filteredUrlString:\(String(describing: newString))")
@@ -250,22 +239,48 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                                 self.bannerImageArr.append(UIImage(data: dataImg!)!)
                             }
                             
-                            print(self.bannerImageArr)
-                            print(self.bannerImageArr.count)
-                            
-                            
-                            
-                            self.bannerCollectionView.reloadData()
-                            
-                            
-                            
+//                            print(self.bannerImageArr)
+//                            print(self.bannerImageArr.count)
+         
                             
                         }
                         
+                            if self.bannerImageArr.count > 0 {
+                        
+                            self.pageController.numberOfPages = self.bannerImageArr.count
+                            self.bannerScrollView.isPagingEnabled = true
+                            self.bannerScrollView.contentSize.height = 164
+                            self.bannerScrollView.backgroundColor = UIColor.white
+                            self.bannerScrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(self.bannerImageArr.count)
+                            self.bannerScrollView.showsHorizontalScrollIndicator = false
+                        
+                            self.bannerScrollView.delegate = self
+
+                            for (index, image) in self.bannerImageArr.enumerated() {
+                                let image = image
+                                let imageView = UIImageView(image: image)
+                                imageView.contentMode = .scaleToFill
+                                imageView.frame.size.width = UIScreen.main.bounds.size.width
+                                imageView.backgroundColor = UIColor.blue
+                                imageView.frame.size.height = self.bannerScrollView.contentSize.height
+                                imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
+                                print(UIScreen.main.bounds.size.width)
+                                self.bannerScrollView.addSubview(imageView)
+                                
+                                }
+                        
+                        }
+                        else {
+                        
+                         self.arrImages += [UIImage(named:"j1")!,UIImage(named: "j2")!, UIImage(named: "jesues")!, UIImage(named: "skyJSU")!, UIImage(named: "j3")!, UIImage(named: "j4")!, UIImage(named: "j6")!, UIImage(named: "jesues")!]
+                             self.bannerImageArr = self.arrImages
+                             self.categorieTableView.reloadData()
+                                    }
+                        
+                        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.doSomeAnimation), userInfo: nil, repeats: true)
+
                     }
-                    
-                    
-                    
+        
             }
             
             
@@ -317,13 +332,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                    
                     self.cagegoriesArray.append(eachArray)
                 }
-                
-                
-                
-                print(self.cagegoriesArray.count)
-                
-                
-                
+ 
+             //   print(self.cagegoriesArray.count)
+  
                 let pageCout  = (respVO.totalRecords)! / 10
                 
                 let remander = (respVO.totalRecords)! % 10
@@ -433,7 +444,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                 }
                 
-                print(self.eventImageArray.count)
+             //   print(self.eventImageArray.count)
                 
                 self.categorieTableView.reloadData()
                 
@@ -873,14 +884,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func doSomeAnimation() {
         
-        let indexPath = IndexPath.init(row: 0, section: 0)
-        
-        if let cell = categorieTableView.cellForRow(at: indexPath) as? ScrollImagesCell {
+    
             
             let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
-            let pageWidth:CGFloat = cell.scrollView.frame.width
+            let pageWidth:CGFloat = bannerScrollView.frame.width
             let maxWidth:CGFloat = pageWidth * imgsCount
-            let contentOffset:CGFloat = cell.scrollView.contentOffset.x
+            let contentOffset:CGFloat = bannerScrollView.contentOffset.x
             
             var slideToX = contentOffset + pageWidth
             
@@ -891,9 +900,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             // print(currentPage)
             // Change the indicator
-            cell.pageController.currentPage = Int(currentPage)
-            cell.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:cell.scrollView.frame.height), animated: true)
-        }
+           pageController.currentPage = Int(currentPage)
+        bannerScrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:bannerScrollView.frame.height), animated: true)
+        
     }
     
     
@@ -903,9 +912,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
-        let pageWidth:CGFloat = bannerCollectionView.frame.width
+        let pageWidth:CGFloat = bannerScrollView.frame.width
         let maxWidth:CGFloat = pageWidth * imgsCount
-        let contentOffset:CGFloat = bannerCollectionView.contentOffset.x
+        let contentOffset:CGFloat = bannerScrollView.contentOffset.x
         
         var slideToX = contentOffset + pageWidth
         
@@ -926,7 +935,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         if x < self.bannerImageArr.count {
             
             let indexPath = IndexPath(item: x, section: 0)
-            bannerCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+         //   bannerScrollView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
             
             x = (x < bannerImageArr.count - 1) ? (x + 1) : 0
@@ -962,7 +971,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         else {
             x = 0
-            bannerCollectionView.scrollToItem(at: IndexPath(item: x, section: 0), at: .centeredHorizontally, animated: true)
+//            bannerScrollView.scrollToItem(at: IndexPath(item: x, section: 0), at: .centeredHorizontally, animated: true)
             
             // print(x)
         }
@@ -1087,15 +1096,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
-        if collectionView == bannerCollectionView {
-            
-            return bannerImageArr.count
-            
-        }
-            
-        else {
+
             
             if  collectionView.tag == 0 {
                 
@@ -1111,19 +1112,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
             }
                 
-//            else  if collectionView.tag  == 2 {
-//                
-//                return imageArray2.count
-//                
-//            }
-//            else {
-//                
-//                return imageArray3.count
-//            }
-            
-            
-        }
-        
+
         
     }
     
@@ -1131,48 +1120,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
-        if collectionView == bannerCollectionView{
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as! BannerCollectionViewCell
-            
-            
-            print(bannerImageArr.count)
-            
-            if bannerImageArr.count > 0{
-                
-                bannerCollectionView.delegate = self
-                bannerCollectionView.dataSource = self
-                
-                
-                cell.bannerImage.image = bannerImageArr[indexPath.row]
-                
-                
-                var rowIndex = indexPath.item
-                
-                let numberofRecords : Int = self.bannerImageArr.count - 1
-                
-                //
-                //                if rowIndex < numberofRecords{
-                //
-                //                rowIndex = (rowIndex + 1)
-                //
-                //                }
-                //
-                //                else{
-                //
-                //                rowIndex = 0
-                //
-                //                }
-                
-                self.x = 0
-                Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
-            }
-            return cell
-            
-        }
-            
-        else {
+   
             
             if collectionView.tag  == 0 {
                 
@@ -1282,7 +1230,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             
             
-        }
+        
         
     }
     
@@ -1290,18 +1238,14 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+          var cellsPerRow = 0
+        
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
-            var cellsPerRow = 0
-            if collectionView == bannerCollectionView{
-                
-                
-                cellsPerRow = 1
-            }
-            else{
+         
                 
                 cellsPerRow = 5
-            }
+        
             
             let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
@@ -1309,18 +1253,11 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return CGSize(width: itemWidth, height: itemWidth)
         }
         else {
-            
-            
-            var cellsPerRow = 0
-            if collectionView == bannerCollectionView{
-                
-                
-                cellsPerRow = 1
-            }
-            else{
+
+           
                 
                 cellsPerRow = 3
-            }
+          
             
             
             let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -1330,53 +1267,43 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        // handle tap events
-//        print("You selected cell #\(indexPath.item)!")
-//        
-//        //        if collectionView == bannerCollectionView{
-//        //
-//        //        }
-//        //
-//        //
-//        //        else{
-//        //
-//        if collectionView.tag  == 1 {
-//            
-//            if indexPath.item == 0 {
-//                
-//                
-//                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
-//                churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-//                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-//            }
-//            if indexPath.item == 1 {
-//                
-//                
-//                let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-//                churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
-//                
-//                self.navigationController?.pushViewController(churchAdminViewController, animated: true)
-//                
-//                
-//                
-//                
-//            }
-//            
-//            if indexPath.item == 2 {
-//                
-//                let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
-//                allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
-//                self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
-//                
-//                
-//            }
-//            
-//        }
-//        
-//        
-//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+ 
+        if collectionView.tag  == 1 {
+            
+            if indexPath.item == 0 {
+                
+                
+                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+                churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
+                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+            }
+            if indexPath.item == 1 {
+                
+                
+                let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+                churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
+                
+                self.navigationController?.pushViewController(churchAdminViewController, animated: true)
+      
+            }
+            
+            if indexPath.item == 2 {
+                
+                let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
+                allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
+                self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
+                
+                
+            }
+            
+        }
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
