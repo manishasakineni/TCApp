@@ -64,6 +64,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         allOffersTableView.dataSource = self
         
         
+        self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
+        
+        
         // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         //  UserDefaults.standard.synchronize()
         
@@ -104,7 +107,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         registerTableViewCells()
         
-        getVideosAPICall()
+//        getVideosAPICall()
         
         
         
@@ -414,9 +417,11 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         UserDefaults.standard.synchronize()
         
         //   navigationItem.leftBarButtonItems = []
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
-        appDelegate.window?.rootViewController = rootController
+        self.navigationController?.popViewController(animated: true)
         
         
         print("Back Button Clicked......")
