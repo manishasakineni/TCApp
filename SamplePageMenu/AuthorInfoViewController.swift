@@ -127,6 +127,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         if indexPath.section == 0 {
             
             return 124
+            
         }else if indexPath.section == 1{
             
             return UITableViewAutomaticDimension
@@ -142,6 +143,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
         
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

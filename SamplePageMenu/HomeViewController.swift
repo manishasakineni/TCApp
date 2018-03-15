@@ -48,6 +48,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var y = 1
     
+
 //    var contentOffset = 0
 //    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
@@ -133,11 +134,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let autoScrollImagesCell  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
         categorieTableView.register(autoScrollImagesCell, forCellReuseIdentifier: "AutoScrollImagesCell")
-        
- 
-        
-        
-        
+   
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
         self.navigationItem.title = "Telugu Churches".localize()
         
@@ -147,8 +144,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        
         // definesPresentationContext = true
-        //        navigationItem.titleView  = searchController.searchBar
+        // navigationItem.titleView  = searchController.searchBar
         
       //  navigationItem.titleView = searchBar
         
@@ -265,7 +263,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             for (index, image) in self.bannerImageArr.enumerated() {
                                 let image = image
                                 let imageView = UIImageView(image: image)
-                                imageView.contentMode = .scaleToFill
+                                imageView.contentMode = .scaleAspectFill
                                 imageView.frame.size.width = UIScreen.main.bounds.size.width
                                 imageView.backgroundColor = UIColor.blue
                                 imageView.frame.size.height = self.bannerScrollView.contentSize.height
@@ -283,7 +281,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                              self.categorieTableView.reloadData()
                                     }
                         
-                        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.doSomeAnimation), userInfo: nil, repeats: true)
+                        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
 
                     }
         
@@ -307,7 +305,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func getAllCategoriesAPICall(){
         
-        let paramsDict = ["pageIndex": 1,
+        let paramsDict = ["pageIndex": PageIndex,
                             "pageSize": 15,
                             "sortbyColumnName": "UpdatedDate",
                             "sortDirection": "desc",
@@ -341,9 +339,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
  
              //   print(self.cagegoriesArray.count)
   
-                let pageCout  = (respVO.totalRecords)! / 10
+                let pageCout  = (respVO.totalRecords)! / 15
                 
-                let remander = (respVO.totalRecords)! % 10
+                let remander = (respVO.totalRecords)! % 15
                 
                 self.totalPages = pageCout
                 
@@ -691,18 +689,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             }
         }
-        
-        
-        
-        
+   
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
      
-        
-       
-        
+  
         if indexPath.row == 0 {
  
             let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
@@ -715,11 +708,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.autoScrollCollectionView.delegate = self
             cell.autoScrollCollectionView.dataSource = self
             cell.autoScrollCollectionView.reloadData()
-            
-            
-            
-            
-            
+  
             return cell
             
             
@@ -746,33 +735,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
         
-        
-//        if indexPath.row == 2 {
-//            
-//            
-//            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
-//        }
-//        if indexPath.row == 3 {
-//            
-//            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
-//        }
-        
-        //            cell.homeCollectionView.tag = indexPath.section
-        //            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        //            cell.homeCollectionView.delegate = self
-        //            cell.homeCollectionView.dataSource = self
-        //            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
-        //        cell.categoriesNameLabel.text = "Event Posts"
-        
-        
-//        if(searchActive){
-//            cell.categoriesNameLabel?.text = filtered[indexPath.row]
-//        } else {
-//            cell.categoriesNameLabel?.text = data[indexPath.row];
-//        }
-
-      //  return UITableViewCell
-    
     }
     
     
@@ -780,30 +742,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let indexPath : IndexPath = IndexPath(row: 0, section: 0)
         
-        
-        
+   
         if let autoScrollImagesCell : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath) as? AutoScrollImagesCell {
-            
-//             if let coll = autoScrollImagesCell.autoScrollCollectionView {
-//             for cell in coll.visibleCells {
-//             let indexPath: IndexPath? = coll.indexPath(for: cell)
-//             if ((indexPath?.row)! < imageArray3.count - 1){
-//             let indexPath1: IndexPath?
-//             indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-//            
-//             coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-//             }
-//             else{
-//             let indexPath1: IndexPath?
-//             indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
-//             coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-//             }
-//            
-//             }
-//             }
-            
 
-            
             if self.y < self.eventImageArray.count {
                 
                 let indexPath = IndexPath(item: y, section: 0)
@@ -843,7 +784,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 }
     }
     
-    func doSomeAnimation() {
+    func bannerAnimation() {
         
     
             
@@ -866,81 +807,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-    
-    
-    func bannerAnimation() {
-        
-        
-        
-        let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
-        let pageWidth:CGFloat = bannerScrollView.frame.width
-        let maxWidth:CGFloat = pageWidth * imgsCount
-        let contentOffset:CGFloat = bannerScrollView.contentOffset.x
-        
-        var slideToX = contentOffset + pageWidth
-        
-        if  contentOffset + pageWidth == maxWidth{
-            slideToX = 0
-        }
-        let currentPage:CGFloat = slideToX / pageWidth
-        
-        
-        //    print(currentPage)
-        
-        pageController.currentPage = Int(currentPage)
-        
-        pageController.numberOfPages = bannerImageArr.count
-        
-        
-        
-        if x < self.bannerImageArr.count {
-            
-            let indexPath = IndexPath(item: x, section: 0)
-         //   bannerScrollView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
-            
-            x = (x < bannerImageArr.count - 1) ? (x + 1) : 0
-            
-            
-            //get cell size
-            
-            //            let cellSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-            //            //get current content Offset of the Collection view
-            //            let contentOffset = bannerCollectionView.contentOffset
-            //
-            //            //scroll to next cell
-            //            bannerCollectionView.scrollRectToVisible(CGRect(x:contentOffset.x + cellSize.width, y: contentOffset.y, width:cellSize.width, height:cellSize.height), animated: true)
-            
-            
-            //            if x < bannerImageArr.count - 1{
-            //
-            //            x = x+1
-            //
-            //            }
-            //
-            //            else{
-            //
-            //
-            //            x = 0
-            //
-            //            }
-            
-            print(x)
-            
-            
-        }
-            
-        else {
-            x = 0
-//            bannerScrollView.scrollToItem(at: IndexPath(item: x, section: 0), at: .centeredHorizontally, animated: true)
-            
-            // print(x)
-        }
-        
-        
-        
-        
-    }
+
     
     //MARK: UIScrollView Delegate
     
@@ -1148,50 +1015,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 
             }
-//            else if collectionView.tag  == 2 {
-//                
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-//                
-//                cell.collectionImgView.image = imageArray2[ indexPath.row]
-//                cell.nameLabel.text = imageNameArray2[indexPath.row]
-//                
-//                // let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-//                
-//                
-//                return cell
-//                
-//            }
-//            else  {
-//                
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-//                
-//                cell.collectionImgView.image = imageArray3[ indexPath.row]
-//                cell.nameLabel.text = imageNameArray3[indexPath.row]
-//                
-//                //  let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-//                
-//                
-//                return cell
-//            }
-            
-            //        else {
-            //
-            //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AutoScrollCollectionViewCell", for: indexPath) as! AutoScrollCollectionViewCell
-            //
-            //          //  cell.autoScrollImage.image = imageArray3[ indexPath.row]
-            //
-            //          //  let nibName  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
-            //
-            //
-            //            return cell
-            //
-            //        }
-            
-        
-            
-        
-        
-        
     }
     
     

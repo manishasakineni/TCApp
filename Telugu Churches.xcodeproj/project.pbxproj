@@ -255,7 +255,7 @@
 		3D5404F12058045A008257A6 /* AuthorEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsViewController.xib; sourceTree = "<group>"; };
 		3D5404F22058045A008257A6 /* AuthorPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorPostsViewController.swift; sourceTree = "<group>"; };
 		3D5404F32058045A008257A6 /* AuthorPostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorPostsViewController.xib; sourceTree = "<group>"; };
-		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = SamplePageMenu/Constants.swift; sourceTree = "<group>"; };
 		3D551C602011F617005DB3B2 /* VideosVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVO.swift; sourceTree = "<group>"; };
 		3D551C622011F6BE005DB3B2 /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
 		3D551C642011FE59005DB3B2 /* VideosResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosResultVO.swift; sourceTree = "<group>"; };
@@ -493,6 +493,145 @@
 			name = GetAllCategories;
 			sourceTree = "<group>";
 		};
+		3D61F3E9205AB3E10022C117 /* GetEventInfoByChurchIdMonthYearVO */ = {
+			isa = PBXGroup;
+			children = (
+				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
+				CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */,
+			);
+			name = GetEventInfoByChurchIdMonthYearVO;
+			sourceTree = "<group>";
+		};
+		3D61F3EA205AB40C0022C117 /* BannerImageScrollResultVO */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */,
+				3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */,
+			);
+			name = BannerImageScrollResultVO;
+			sourceTree = "<group>";
+		};
+		3D61F3EB205AB41C0022C117 /* UpcomingEventsInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */,
+				3D2E34272053D9A800CF8F16 /* UpcomingEventsResultVO.swift */,
+			);
+			name = UpcomingEventsInfoVO;
+			sourceTree = "<group>";
+		};
+		3D61F3EC205AB4290022C117 /* AuthorDetailsVO */ = {
+			isa = PBXGroup;
+			children = (
+				3D5404E920580318008257A6 /* AuthorDetailsVO.swift */,
+				3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */,
+			);
+			name = AuthorDetailsVO;
+			sourceTree = "<group>";
+		};
+		3D61F3ED205AB4D70022C117 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
+				9A5D26061FFF795200316988 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		3D61F3EE205AB4E30022C117 /* CAPSPageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
+			);
+			name = CAPSPageMenu;
+			sourceTree = "<group>";
+		};
+		3D61F3EF205AB4F90022C117 /* EventInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB21CE5E203D505100B3294B /* EventInfoViewController.swift */,
+				CB21CE5F203D505100B3294B /* EventInfoViewController.xib */,
+			);
+			name = EventInfoViewController;
+			sourceTree = "<group>";
+		};
+		3D61F3F0205AB5030022C117 /* InfoChurchViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF102851203C25B10012411A /* InfoChurchViewControllers.swift */,
+				AF102854203C25C10012411A /* InfoChurchViewControllers.xib */,
+			);
+			name = InfoChurchViewControllers;
+			sourceTree = "<group>";
+		};
+		3D61F3F1205AB5160022C117 /* InfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AF102857203C28700012411A /* InfoTableViewCell.swift */,
+				AF102858203C28700012411A /* InfoTableViewCell.xib */,
+			);
+			name = InfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F2205AB5290022C117 /* HeadImgTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB08BC5B203E87E000E232F2 /* HeadImgTableViewCell.swift */,
+				CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */,
+			);
+			name = HeadImgTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F3205AB5350022C117 /* InformationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB03C8CC203E8D15000B96A4 /* InformationTableViewCell.swift */,
+				CB03C8CD203E8D15000B96A4 /* InformationTableViewCell.xib */,
+			);
+			name = InformationTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F4205AB53C0022C117 /* InfoMapTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AF08F1A8203D57F300498256 /* InfoMapTableViewCell.swift */,
+				AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */,
+			);
+			name = InfoMapTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F5205AB5440022C117 /* AboutInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */,
+				AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */,
+			);
+			name = AboutInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F6205AB5480022C117 /* AboutInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB4B20FE204834CD00402E59 /* InfoHeaderCell.swift */,
+				CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */,
+			);
+			name = AboutInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */,
+				3D5404EE2058045A008257A6 /* AuthorInfoViewController.swift */,
+				3D5404EF2058045A008257A6 /* AuthorInfoViewController.xib */,
+				3D5404F02058045A008257A6 /* AuthorEventsViewController.swift */,
+				3D5404F12058045A008257A6 /* AuthorEventsViewController.xib */,
+				3D5404F22058045A008257A6 /* AuthorPostsViewController.swift */,
+				3D5404F32058045A008257A6 /* AuthorPostsViewController.xib */,
+			);
+			name = AuthorDetailsViewController;
+			sourceTree = "<group>";
+		};
 		3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +701,7 @@
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
+				3D551C5E2011F462005DB3B2 /* Constants.swift */,
 				9A623B862021A56400A674F2 /* Utilities */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
@@ -585,12 +725,10 @@
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
-				9AA3AB4F2011D31C0065D4BD /* ServiceController */,
-				3D551C5E2011F462005DB3B2 /* Constants.swift */,
+				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D551C642011FE59005DB3B2 /* VideosResultVO.swift */,
-				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
-				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
-				9A5D26061FFF795200316988 /* SWRevealViewController.m */,
+				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
+				3D61F3ED205AB4D70022C117 /* SWRevealViewController */,
 				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
 				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */,
@@ -626,13 +764,7 @@
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
 				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
-				3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */,
-				3D5404EE2058045A008257A6 /* AuthorInfoViewController.swift */,
-				3D5404EF2058045A008257A6 /* AuthorInfoViewController.xib */,
-				3D5404F02058045A008257A6 /* AuthorEventsViewController.swift */,
-				3D5404F12058045A008257A6 /* AuthorEventsViewController.xib */,
-				3D5404F22058045A008257A6 /* AuthorPostsViewController.swift */,
-				3D5404F32058045A008257A6 /* AuthorPostsViewController.xib */,
+				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
 			);
 			name = ViewControllers;
@@ -659,6 +791,12 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				3D61F3F2205AB5290022C117 /* HeadImgTableViewCell */,
+				3D61F3F3205AB5350022C117 /* InformationTableViewCell */,
+				3D61F3F4205AB53C0022C117 /* InfoMapTableViewCell */,
+				3D61F3F5205AB5440022C117 /* AboutInfoTableViewCell */,
+				3D61F3F6205AB5480022C117 /* AboutInfoTableViewCell */,
+				3D61F3F1205AB5160022C117 /* InfoTableViewCell */,
 				CB3794E320595836002D3638 /* CategoriesInfoCells */,
 				CB2045D42056A8340032E71D /* AllEventsTableViewCell */,
 				CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */,
@@ -700,17 +838,15 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				9A058AFC2021F3A4005A611C /* LoginVo */,
+				9A058AF72021E02D005A611C /* RegisterVo */,
 				CB28799F205A4088005F3168 /* GetPostbyCategoryIdVo */,
+				3D61F3EA205AB40C0022C117 /* BannerImageScrollResultVO */,
+				3D61F3EB205AB41C0022C117 /* UpcomingEventsInfoVO */,
 				CB3794DB20594E81002D3638 /* VideoSongsVo */,
 				35E14FFB2058135500CD11A0 /* GetAllCategories */,
-				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
-				CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */,
-				3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */,
-				3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */,
-				3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */,
-				3D2E34272053D9A800CF8F16 /* UpcomingEventsResultVO.swift */,
-				3D5404E920580318008257A6 /* AuthorDetailsVO.swift */,
-				3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */,
+				3D61F3E9205AB3E10022C117 /* GetEventInfoByChurchIdMonthYearVO */,
+				3D61F3EC205AB4290022C117 /* AuthorDetailsVO */,
 				CB356E0E204E793C0002CFBB /* GetUpComingEventInfo */,
 				CB6111442040240D0057A030 /* GetEventByDateAndUserId */,
 				CB03C8DD203EFF15000B96A4 /* GetEventByUserIdMonthYear */,
@@ -719,9 +855,7 @@
 				CB21CE62203DA43300B3294B /* GetAllChurchDetails */,
 				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
-				9A058AF72021E02D005A611C /* RegisterVo */,
 				CB3226D3202C95C20050D06B /* GetProfileInfo */,
-				9A058AFC2021F3A4005A611C /* LoginVo */,
 			);
 			name = MapperVO;
 			sourceTree = "<group>";
@@ -762,13 +896,13 @@
 			name = LaunchScreenViewControllwe;
 			sourceTree = "<group>";
 		};
-		9AA3AB4F2011D31C0065D4BD /* ServiceController */ = {
+		9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */ = {
 			isa = PBXGroup;
 			children = (
 				3D551C622011F6BE005DB3B2 /* ServiceController.swift */,
 				9A623B912021AF1600A674F2 /* Services.swift */,
 			);
-			name = ServiceController;
+			name = "Get&PostServiceController";
 			sourceTree = "<group>";
 		};
 		9AA3AB522011D7250065D4BD /* ObjectMapper */ = {
@@ -825,22 +959,8 @@
 			isa = PBXGroup;
 			children = (
 				AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */,
-				CB21CE5E203D505100B3294B /* EventInfoViewController.swift */,
-				CB21CE5F203D505100B3294B /* EventInfoViewController.xib */,
-				AF102851203C25B10012411A /* InfoChurchViewControllers.swift */,
-				AF102854203C25C10012411A /* InfoChurchViewControllers.xib */,
-				AF102857203C28700012411A /* InfoTableViewCell.swift */,
-				AF102858203C28700012411A /* InfoTableViewCell.xib */,
-				CB08BC5B203E87E000E232F2 /* HeadImgTableViewCell.swift */,
-				CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */,
-				CB03C8CC203E8D15000B96A4 /* InformationTableViewCell.swift */,
-				CB03C8CD203E8D15000B96A4 /* InformationTableViewCell.xib */,
-				AF08F1A8203D57F300498256 /* InfoMapTableViewCell.swift */,
-				AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */,
-				AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */,
-				AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */,
-				CB4B20FE204834CD00402E59 /* InfoHeaderCell.swift */,
-				CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */,
+				3D61F3EF205AB4F90022C117 /* EventInfoViewController */,
+				3D61F3F0205AB5030022C117 /* InfoChurchViewControllers */,
 			);
 			name = ChurchInformationViewController;
 			sourceTree = "<group>";
