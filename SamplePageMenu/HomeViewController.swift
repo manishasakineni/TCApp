@@ -10,7 +10,7 @@ import UIKit
 import Localize
 
 //protocol changeSubtitleOfIndexDelegate {
-//    func nameOfItem(indexNumber: Int, countText : String)
+//    func nameOfItem(indexNumber: Int, countText : String)  AutoScrollImagesCell
 //}
 
 protocol SttingPopOverHomeDelegate {
@@ -27,10 +27,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var bannerScrollView: UIScrollView!
 
-    
+   var visibleIndexPath: IndexPath? = nil
     var offSet: CGFloat = 0
     var timer : Timer!
     var counter = 0
+    
+    var lastXAxis = Int()
+    var contentOffset = Int()
     
     var eventImage = String()
     var eventImageArray = Array<String>()
@@ -42,6 +45,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
     var x = 0
+    
+    var y = 1
+    
+//    var contentOffset = 0
 //    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
@@ -143,7 +150,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         // definesPresentationContext = true
         //        navigationItem.titleView  = searchController.searchBar
         
-        navigationItem.titleView = searchBar
+      //  navigationItem.titleView = searchBar
         
         
         print(kLoginSucessStatus)
@@ -241,8 +248,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             
 //                            print(self.bannerImageArr)
 //                            print(self.bannerImageArr.count)
-         
-                            
+                   
                         }
                         
                             if self.bannerImageArr.count > 0 {
@@ -449,7 +455,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.categorieTableView.reloadData()
                 
                 
+                if self.eventImageArray.count > 0{
                 
+                
+                
+                Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)}
                 
                 
             }
@@ -637,17 +647,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        if(searchActive) {
-            return filtered.count
-        }
-        else {
-            
-            return data.count
-        }
-        
+//        if(searchActive) {
+//            return filtered.count
+//        }
+//        else {
+//            
+//            return data.count
+//        }
+        return data.count
         
         
     }
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return  UITableViewAutomaticDimension
@@ -657,14 +668,28 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
+            if indexPath.row == 0{
             
-            return 200.0
+                return 120.0
+            }
+            
+            else {
+            return 170.0
+                
+            }
         }
+            
         else {
             
-            return 180.0
+            if indexPath.row == 0{
+                
+                return 100.0
+            }
             
+            else{
+            return 150.0
             
+            }
         }
         
         
@@ -674,97 +699,50 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        // let listStr:BannerImageScrollResultVo = bannerImageScrollArray[indexPath.row]
+     
         
-        //        if indexPath.section == 0 {
-        //
-        //            let cell = tableView.dequeueReusableCell(withIdentifier: "ScrollImagesCell", for: indexPath) as! ScrollImagesCell
-        //
-        //
-        //            cell.offSet = 0
-        //            cell.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
-        //
-        //            if bannerImageArr.count > 0 {
-        //
-        //                cell.pageController.numberOfPages = bannerImageArr.count
-        //                cell.scrollView.isPagingEnabled = true
-        //                cell.scrollView.contentSize.height = 200
-        //                cell.scrollView.backgroundColor = UIColor.white
-        //                cell.scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(bannerImageArr.count)
-        //                cell.scrollView.showsHorizontalScrollIndicator = false
-        //
-        //                cell.scrollView.delegate = self
-        //
-        //
-        //
-        //                for (index, image) in bannerImageArr.enumerated() {
-        //                    let image = image
-        //                    let imageView = UIImageView(image: image)
-        //                    imageView.contentMode = .scaleToFill
-        //
-        //                    imageView.frame.size.width = UIScreen.main.bounds.size.width
-        //                    imageView.backgroundColor = UIColor.blue
-        //                    imageView.frame.size.height = 200
-        //                    imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
-        //                    print(UIScreen.main.bounds.size.width)
-        //
-        //                    cell.scrollView.addSubview(imageView)
-        //                }
-        //
-        //            }
-        //            else {
-        //
-        //               self.arrImages += [UIImage(named:"j1")!,UIImage(named: "j2")!, UIImage(named: "jesues")!, UIImage(named: "skyJSU")!, UIImage(named: "j3")!, UIImage(named: "j4")!, UIImage(named: "j6")!, UIImage(named: "jesues")!]
-        //
-        //                self.bannerImageArr = self.arrImages
-        //
-        //                self.categorieTableView.reloadData()
-        //            }
-        //
-        //            return cell
-        //        }
-        
-        
-        
-        
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
-        //
-        //            cell.autoScrollCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-        //
-        //            cell.autoScrollCollectionView.reloadData()
-        //
-        //            cell.autoScrollCollectionView.delegate = self
-        //            cell.autoScrollCollectionView.dataSource = self
-        //
-        //
-        //
-        //            return cell
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
-        
-        cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                         forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-        
-        
-        cell.homeCollectionView.tag = indexPath.row
-        cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        cell.homeCollectionView.delegate = self
-        cell.homeCollectionView.dataSource = self
-        cell.homeCollectionView.reloadData()
+       
         
         if indexPath.row == 0 {
+ 
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
+            
+            cell.autoScrollCollectionView.register(UINib.init(nibName: "AutoScrollCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "AutoScrollCollectionViewCell")
+            
+            
+            cell.autoScrollCollectionView.tag = 0
+            cell.autoScrollCollectionView.collectionViewLayout.invalidateLayout()
+            cell.autoScrollCollectionView.delegate = self
+            cell.autoScrollCollectionView.dataSource = self
+            cell.autoScrollCollectionView.reloadData()
             
             
             
-            cell.moreButton.isHidden = true
+            
+            
+            return cell
+            
             
         }
         
-        if indexPath.row == 1 {
+        else {
             
-            cell.moreButton.isHidden = false
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
+            
+            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "CategorieCollectionViewCell")
+            
+            
+            cell.homeCollectionView.tag = 1
+            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+            cell.homeCollectionView.delegate = self
+            cell.homeCollectionView.dataSource = self
+            cell.homeCollectionView.reloadData()
+            
+         //   cell.moreButton.isHidden = false
             
             cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+            
+            return cell
             
         }
         
@@ -787,17 +765,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         //        cell.categoriesNameLabel.text = "Event Posts"
         
         
-        if(searchActive){
-            cell.categoriesNameLabel?.text = filtered[indexPath.row]
-        } else {
-            cell.categoriesNameLabel?.text = data[indexPath.row];
-        }
-        
-        
-        return cell
+//        if(searchActive){
+//            cell.categoriesNameLabel?.text = filtered[indexPath.row]
+//        } else {
+//            cell.categoriesNameLabel?.text = data[indexPath.row];
+//        }
+
+      //  return UITableViewCell
+    
     }
-    
-    
     
     
     func scrollAutomatically(_ timer1: Timer) {
@@ -806,60 +782,45 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         
-        if let autoScrollImagesCell : CategorieHomeCell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
+        if let autoScrollImagesCell : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath) as? AutoScrollImagesCell {
             
-            // if let coll = autoScrollImagesCell.autoScrollCollectionView {
-            // for cell in coll.visibleCells {
-            // let indexPath: IndexPath? = coll.indexPath(for: cell)
-            // if ((indexPath?.row)! < imageArray3.count - 1){
-            // let indexPath1: IndexPath?
-            // indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-            //
-            // coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-            // }
-            // else{
-            // let indexPath1: IndexPath?
-            // indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
-            // coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-            // }
-            //
-            // }
-            // }
+//             if let coll = autoScrollImagesCell.autoScrollCollectionView {
+//             for cell in coll.visibleCells {
+//             let indexPath: IndexPath? = coll.indexPath(for: cell)
+//             if ((indexPath?.row)! < imageArray3.count - 1){
+//             let indexPath1: IndexPath?
+//             indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+//            
+//             coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+//             }
+//             else{
+//             let indexPath1: IndexPath?
+//             indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+//             coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+//             }
+//            
+//             }
+//             }
             
-            // let cellSize = CGSizeMake(self.view.frame.width, self.view.frame.height)
+
             
-            // let cellSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-            //
-            // //get current content Offset of the Collection view
-            // let contentOffset = autoScrollImagesCell.autoScrollCollectionView.contentOffset
-            //
-            // if autoScrollImagesCell.autoScrollCollectionView.contentSize.width <= autoScrollImagesCell.autoScrollCollectionView.contentOffset.x + cellSize.width
-            // {
-            // autoScrollImagesCell.autoScrollCollectionView.scrollRectToVisible(CGSize(0, contentOffset.y, cellSize.width, cellSize.height), animated: true)
-            //
-            // } else {
-            //
-            //
-            // autoScrollImagesCell.autoScrollCollectionView.scrollRectToVisible(CGSize(width: contentOffset.x + cellSize.width, height: contentOffset.y, cellSize.width, cellSize.height), animated: true)
-            //
-            // autoScrollImagesCell.autoScrollCollectionView.scrollRectToVisible(CGRectMake(contentOffset.x + cellSize.width, contentOffset.y, cellSize.width, cellSize.height), animated: true)
-            //
-            // }
-            
-            
-            if self.x < self.eventImageArray.count {
+            if self.y < self.eventImageArray.count {
                 
-                let indexPath = IndexPath(item: x, section: 0)
-                autoScrollImagesCell.homeCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                let indexPath = IndexPath(item: y, section: 0)
+                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
                 // self.x = self.x + 1
                 
-                x = (eventImageArray.count - 1 > x) ? (x + 1) : 0
+                y = (eventImageArray.count - 1 > y) ? (y + 1) : 0
             }
                 
             else {
-                self.x = 0
-                autoScrollImagesCell.homeCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+                self.y = 0
+                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
             }
+            
+            
+            
+     
             
         }
     }
@@ -1124,18 +1085,18 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             if collectionView.tag  == 0 {
                 
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AutoScrollCollectionViewCell", for: indexPath) as! AutoScrollCollectionViewCell
                 
                 let eventImageString = eventImageArray[indexPath.row]
                 
                 print(eventImageArray.count)
                 if let url = URL(string:eventImageString) {
-                    cell.collectionImgView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                    cell.autoScrollImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                 }else{
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "Church-logo")
+                    cell.autoScrollImage.image = #imageLiteral(resourceName: "Church-logo")
                 }
-                self.x = 0
-                Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+                
+                //self.x = 0
                 
                 return cell
                 
@@ -1147,8 +1108,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 
                 let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
-                
-//                cell.collectionImgView.image = imageArray[ indexPath.row]
+
                 cell.nameLabel.text = categoryList.categoryName
                 
                 let imgUrl = categoryList.categoryImage
@@ -1227,45 +1187,45 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             //
             //        }
             
+        
             
-            
-            
+        
         
         
     }
     
     
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-          var cellsPerRow = 0
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-         
-                
-                cellsPerRow = 5
-        
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-        }
-        else {
-
-           
-                
-                cellsPerRow = 3
-          
-            
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//          var cellsPerRow = 0
+//        
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+//            
+//         
+//                
+//                cellsPerRow = 5
+//        
+//            
+//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+//            return CGSize(width: itemWidth, height: itemWidth)
+//        }
+//        else {
+//
+//           
+//                
+//                cellsPerRow =  3
+//          
+//            
+//            
+//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+//            return CGSize(width: itemWidth, height: itemWidth)
+//        }
+//    }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -1284,6 +1244,21 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         
     }
+
+    
+    
+     func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
+        
+        cell.alpha = 0
+        cell.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0.5)
+        UIView.animate(withDuration: 0.3) {
+            cell.alpha = 1
+            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
+            
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

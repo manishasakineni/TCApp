@@ -29,6 +29,10 @@ class InformationTableViewCell: UITableViewCell {
 //        backGroundView.layer.shadowOpacity = 0.6
 //        backGroundView.layer.shadowRadius = 2.0
         
+        infoLabel.numberOfLines = 0
+        
+        addressLabel.numberOfLines = 0
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -52,6 +52,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     
     var PageIndex = 1
+   // var pageSize  = 30
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     
@@ -141,8 +142,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func getAllCategoriesAPICall(){
         
-        let paramsDict = ["pageIndex": 1,
-                          "pageSize": 15,
+        let paramsDict = ["pageIndex": PageIndex,
+                          "pageSize": 30,
                           "sortbyColumnName": "UpdatedDate",
                           "sortDirection": "desc",
                           "searchName": ""
@@ -179,9 +180,9 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
                 
                 
                 
-                let pageCout  = (respVO.totalRecords)! / 10
+                let pageCout  = (respVO.totalRecords)! / 30
                 
-                let remander = (respVO.totalRecords)! % 10
+                let remander = (respVO.totalRecords)! % 30
                 
                 self.totalPages = pageCout
                 
@@ -399,6 +400,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
                 
                 
             }
+            
             if indexPath.item == 1 {
  
             
@@ -420,6 +422,24 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             
         }
    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == (cagegoriesArray.count) - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                PageIndex = PageIndex + 1
+                
+                getAllCategoriesAPICall()
+                
+                
+                
+            }
+        }
+        
     }
 
     

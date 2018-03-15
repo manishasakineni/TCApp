@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AutoScrollCollectionViewCell" id="gTV-IL-0wX" customClass="AutoScrollCollectionViewCell" customModule="Telugu_Churches" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="184" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="184" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Holy bible" translatesAutoresizingMaskIntoConstraints="NO" id="D8o-6i-3wH">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="80"/>
                     </imageView>
                 </subviews>
             </view>
@@ -29,9 +29,11 @@
                 <constraint firstItem="D8o-6i-3wH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kDn-v7-mr5"/>
                 <constraint firstItem="D8o-6i-3wH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="m3K-GL-JIP"/>
             </constraints>
+            <size key="customSize" width="184" height="80"/>
             <connections>
                 <outlet property="autoScrollImage" destination="D8o-6i-3wH" id="SBa-1s-5e7"/>
             </connections>
+            <point key="canvasLocation" x="67" y="52"/>
         </collectionViewCell>
     </objects>
     <resources>

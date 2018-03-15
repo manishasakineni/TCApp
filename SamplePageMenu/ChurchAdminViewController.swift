@@ -453,7 +453,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
-        print("filteredUrlString:\(newString)")
+        print("filteredUrlString:\(String(describing: newString))")
         
         if newString != nil {
             

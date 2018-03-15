@@ -155,15 +155,17 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 
                 
-                var churchImageLogoString = authorDetails.churchImage
+               // var churchImageLogoString = authorDetails.churchImage
                 
-                 churchImageLogoString = churchImageLogoString?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+               var  churchImageLogoString = authorDetails.churchImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
+                
+                 churchImageLogoString = churchImageLogoString.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
          
                 if(authorDetailsArray.count >= indexPath.section){
                     
                     cell.churchNameLabel.text = authorDetails.churchName
                     
-                    if let url = URL(string:churchImageLogoString!) {
+                    if let url = URL(string:churchImageLogoString) {
                         
                             cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                       }
