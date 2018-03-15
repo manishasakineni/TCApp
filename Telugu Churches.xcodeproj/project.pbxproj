@@ -181,6 +181,12 @@
 		CB259FCC203C5A430052C384 /* EventInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB259FCA203C5A430052C384 /* EventInformationCell.xib */; };
 		CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB259FCD203C63C00052C384 /* EventHeaderCell.swift */; };
 		CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB259FCE203C63C00052C384 /* EventHeaderCell.xib */; };
+		CB2879A1205A40E8005F3168 /* GetCategoriesResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A0205A40E8005F3168 /* GetCategoriesResultVo.swift */; };
+		CB2879A3205A4165005F3168 /* CategoriesListResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A2205A4165005F3168 /* CategoriesListResultVo.swift */; };
+		CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A4205A4227005F3168 /* ImagesResultVo.swift */; };
+		CB2879A7205A425C005F3168 /* VideoResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A6205A425C005F3168 /* VideoResultVo.swift */; };
+		CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A8205A428F005F3168 /* audioRessultVo.swift */; };
+		CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879AA205A42BB005F3168 /* DocumentsResultVo.swift */; };
 		CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */; };
 		CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */; };
 		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
@@ -412,6 +418,12 @@
 		CB259FCA203C5A430052C384 /* EventInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventInformationCell.xib; sourceTree = "<group>"; };
 		CB259FCD203C63C00052C384 /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
 		CB259FCE203C63C00052C384 /* EventHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderCell.xib; sourceTree = "<group>"; };
+		CB2879A0205A40E8005F3168 /* GetCategoriesResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCategoriesResultVo.swift; sourceTree = "<group>"; };
+		CB2879A2205A4165005F3168 /* CategoriesListResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesListResultVo.swift; sourceTree = "<group>"; };
+		CB2879A4205A4227005F3168 /* ImagesResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesResultVo.swift; sourceTree = "<group>"; };
+		CB2879A6205A425C005F3168 /* VideoResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoResultVo.swift; sourceTree = "<group>"; };
+		CB2879A8205A428F005F3168 /* audioRessultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audioRessultVo.swift; sourceTree = "<group>"; };
+		CB2879AA205A42BB005F3168 /* DocumentsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsResultVo.swift; sourceTree = "<group>"; };
 		CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileInfoVO.swift; sourceTree = "<group>"; };
 		CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileResultInfoVO.swift; sourceTree = "<group>"; };
 		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
@@ -688,6 +700,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB28799F205A4088005F3168 /* GetPostbyCategoryIdVo */,
 				CB3794DB20594E81002D3638 /* VideoSongsVo */,
 				35E14FFB2058135500CD11A0 /* GetAllCategories */,
 				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
@@ -1006,6 +1019,19 @@
 				CB21CE5B203D32E200B3294B /* EventButtonCell.xib */,
 			);
 			name = EventInformationCell;
+			sourceTree = "<group>";
+		};
+		CB28799F205A4088005F3168 /* GetPostbyCategoryIdVo */ = {
+			isa = PBXGroup;
+			children = (
+				CB2879A0205A40E8005F3168 /* GetCategoriesResultVo.swift */,
+				CB2879A2205A4165005F3168 /* CategoriesListResultVo.swift */,
+				CB2879A4205A4227005F3168 /* ImagesResultVo.swift */,
+				CB2879A6205A425C005F3168 /* VideoResultVo.swift */,
+				CB2879A8205A428F005F3168 /* audioRessultVo.swift */,
+				CB2879AA205A42BB005F3168 /* DocumentsResultVo.swift */,
+			);
+			name = GetPostbyCategoryIdVo;
 			sourceTree = "<group>";
 		};
 		CB3226D3202C95C20050D06B /* GetProfileInfo */ = {
@@ -1330,6 +1356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2879A1205A40E8005F3168 /* GetCategoriesResultVo.swift in Sources */,
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
@@ -1342,6 +1369,8 @@
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
+				CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */,
+				CB2879A7205A425C005F3168 /* VideoResultVo.swift in Sources */,
 				CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */,
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
@@ -1406,6 +1435,7 @@
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
+				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
@@ -1439,6 +1469,7 @@
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */,
+				CB2879A3205A4165005F3168 /* CategoriesListResultVo.swift in Sources */,
 				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
@@ -1478,6 +1509,7 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
+				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,
 				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,
 				CB03C8DC203ED22B000B96A4 /* GetAllChurchAdminsResultVo.swift in Sources */,
 				AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */,
