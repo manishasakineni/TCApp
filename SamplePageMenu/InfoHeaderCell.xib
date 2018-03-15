@@ -27,8 +27,8 @@
                         <rect key="frame" x="2" y="2" width="316" height="39.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-8x-tnR">
-                                <rect key="frame" x="238" y="4" width="73" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <rect key="frame" x="247" y="4" width="64" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Subscribe">
                                     <color key="titleColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -45,8 +45,8 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og7-tX-w7A">
-                        <rect key="frame" x="12" y="11" width="112.5" height="21"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <rect key="frame" x="12" y="11" width="98.5" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,7 +59,6 @@
                     <constraint firstAttribute="bottom" secondItem="kCz-HR-tDd" secondAttribute="bottom" constant="2" id="WzI-MI-WuB"/>
                     <constraint firstItem="kCz-HR-tDd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="lb5-A1-c5v"/>
                     <constraint firstItem="og7-tX-w7A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="vMS-HA-qpQ"/>
-                    <constraint firstItem="ZPX-8x-tnR" firstAttribute="leading" secondItem="og7-tX-w7A" secondAttribute="trailing" constant="115.5" id="xIr-AX-GbM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

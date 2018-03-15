@@ -72,7 +72,7 @@
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
-    "Event Name:" : "ఈవెంట్ పేరు:",
+    "Event Name:" : "ఈవెంట్ పేరు",
     "Date" : "తేదీ",
     "ChangePhoto" : "ఫోటో మార్చు",
     "save" : "సేవ్",
@@ -98,17 +98,16 @@
     "Author Name" : "రచయిత పేరు",
     "Contact Number" : "సంఖ్య సంప్రదించండి",
     "Posts" : "పోస్ట్లు",
-    "Church Name:" : "చర్చి పేరు:",
+    "Church Name" : "చర్చి పేరు",
     "Mobile Number:" : "మొబైల్ సంఖ్య:Up",
     "Regisration Number" : "రీజినేషన్ నంబర్",
     "Email:" : "ఇమెయిల్:",
     "Name:" : "పేరు:",
     "Church Name" : "చర్చి పేరు",
     "Information" : "సమాచారం",
-    "Registration Number:" : "రిజిస్ట్రేషన్ సంఖ్య:",
-    "End Date:" : "ఆఖరి తేది:",
-    "Start Date:" : "ప్రారంబపు తేది:",
-    "Event Title:" : "ఈవెంట్ శీర్షిక:",
+    "End Date" : "ఆఖరి తేది",
+    "Start Date" : "ప్రారంబపు తేది",
+    "Event Title" : "ఈవెంట్ శీర్షిక",
     "ALL EVENTS" : "అన్ని కార్యక్రమాలు",
     "  Events" : "  ఈవెంట్స్",
     "contact Number:" : "సంఖ్య సంప్రదించండి:",
@@ -123,7 +122,18 @@
     "Country" : "దేశం",
     "Author Details" : "రచయిత వివరాలు",
     "Church Details" : "చర్చి వివరాలు",
-    "Bible Posts" : " బైబిల్ పోస్ట్"
+    "Bible Posts" : " బైబిల్ పోస్ట్",
+    "More" : "మరింత",
+    "Authors" : "రచయితలు",
+    "All Churches" : "అన్ని చర్చిలు",
+    "Images" : "చిత్రాలు",
+    "Document" : "డాక్యుమెంట్",
+    "Audio" : "ఆడియో",
+    "Video" : "వీడియో"
+
+
+
+
     
     
     

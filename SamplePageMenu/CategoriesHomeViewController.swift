@@ -18,7 +18,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
  @IBOutlet weak var collectionView: UICollectionView!
     
     
-    
+    var churchAdminArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var categorieImageArray = Array<UIImage>()
@@ -32,13 +33,14 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     var appVersion          : String = ""
     
     var loginStatusString    =   String()
-    
+    var showNav = false
+
     var filteredData: [String]!
     
     var searchController: UISearchController!
     
     var searchActive : Bool = false
-    var filtered:[String] = []
+   // var filtered:[String] = []
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -47,7 +49,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
     
-    
+    var filtered:[CategoriesResultVo] = []
+
     var imageArray = [UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Donation"),UIImage(named:"Doubts"),UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"Gospel messages"),UIImage(named:"Gospel"),UIImage(named:"help"),UIImage(named:"Holy bible"),UIImage(named:"Images"),UIImage(named:"Live"),UIImage(named:"Map"),UIImage(named:"Messages"),UIImage(named:"Movies"),UIImage(named:"pamphlet"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Songs"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Videos"),UIImage(named:"ic_admin"),UIImage(named:"Languages"),UIImage(named:"Login"),UIImage(named:"pamphlet")]
     
     
@@ -79,7 +82,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             
             searchBar.delegate = self
             
-            filteredData = sectionTittles
+        //    filteredData = sectionTittles
             
             searchController = UISearchController(searchResultsController: nil)
             searchController.searchResultsUpdater = self
@@ -235,17 +238,19 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtered = data.filter({ (text) -> Bool in
-            let tmp: NSString = text as NSString
-            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
+        filtered = cagegoriesArray.filter({ (text) -> Bool in
+            let tmp = text
+            let range = ((tmp.categoryName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+            
+            return range
         })
         if(filtered.count == 0){
-            searchActive = false
+            searchActive = false;
         } else {
-            searchActive = true
+            searchActive = true;
         }
         self.collectionView.reloadData()
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -264,20 +269,17 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        //    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        if let searchText = searchController.searchBar.text {
+        if searchController.searchBar.text! == "" {
             
-            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
-                
-                return (dataString.range(of: searchText) != nil)
-            })
             
-            //            categorieTableView.reloadData()
+        } else {
+            
+            
+            
         }
+        
+        
     }
-    
-    
     
 
 
@@ -287,13 +289,20 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
 
         return 1
     }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return cagegoriesArray.count
-
-
-
+        
+        // return cagegoriesArray.count
+        
+        if(searchActive) {
+            
+            return filtered.count
+        }
+        else {
+            
+            return cagegoriesArray.count
+        }
+        
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -301,6 +310,9 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
 
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! homeCollectionViewCell
+        
+        if(searchActive){
+
         let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
         
         cell.nameLabel.text = categoryList.categoryName
@@ -332,14 +344,51 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         else {
             
             cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+            }
+            
+            return cell
+            
+        }else{
+            let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+            cell.nameLabel.text = categoryList.categoryName
+            
+            let imgUrl = categoryList.categoryImage
+            
+            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                if url != nil {
+                    
+                    let dataImg = try? Data(contentsOf: url!)
+                    
+                    if dataImg != nil {
+                        
+                        cell.collectionImgView.image = UIImage(data: dataImg!)
+                    }
+                    else {
+                        
+                        cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+                    }
+                }
+                
+            }
+            else {
+                
+                cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+            }
+            
+            
+            let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
         }
-        
-        
-        let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
         return cell
-
+        
     }
-
+    
+    
 
 
 

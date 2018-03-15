@@ -316,6 +316,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             textField.maxLengthTextField = 20
             textField.clearButtonMode = .never
             textField.keyboardType = .alphabet
+    
         }
             
         else if activeTextField.tag == 1{

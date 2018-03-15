@@ -42,6 +42,12 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         upComingTableView.dataSource = self
         upComingTableView.delegate = self
+//        
+//        upComingTableView.rowHeight = UITableViewAutomaticDimension
+//        upComingTableView.estimatedRowHeight = 44
+//        upComingTableView.reloadData()
+//        
+//
         
         let nibName1  = UINib(nibName: "UpComingEventCell" , bundle: nil)
         upComingTableView.register(nibName1, forCellReuseIdentifier: "UpComingEventCell")
@@ -127,35 +133,35 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         
         if let chuechName =  listStr.churchName {
-            cell.chuechName.text = "Church Name:".localize() + " " + chuechName
+            cell.chuechName.text =  chuechName
         }else{
-            cell.chuechName.text = "Church Name:".localize()
+          //  cell.chuechName.text = "Church Name:".localize()
         }
         
         if let eventTitle =  listStr.title {
-            cell.eventTitle.text = "Event Title:".localize() + " " + eventTitle
+            cell.eventTitle.text =  eventTitle
         }else{
-            cell.eventTitle.text = "Event Title:".localize()
+          //  cell.eventTitle.text = "Event Title:".localize()
         }
         
         if let eventStart =  listStr.startDate {
             
-            cell.eventStart.text = "Start Date:".localize() + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
+            cell.eventStart.text = returnEventDateWithoutTime(selectedDateString : eventStart)
         }else{
-            cell.eventStart.text = "Start Date:".localize()
+          //  cell.eventStart.text = "Start Date:".localize()
         }
         
         if let eventEndDate =  listStr.endDate {
             
             //amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
-            cell.eventEndDate.text = "End Date:".localize() + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
+            cell.eventEndDate.text =  returnEventDateWithoutTime(selectedDateString : eventEndDate)
         }else{
-            cell.eventEndDate.text = "End Date:".localize()
+           // cell.eventEndDate.text = "End Date:".localize()
         }
         if let registrationNumber = listStr.registrationNumber {
-            cell.registrationNumber.text = "Registration Number:".localize() + " " + registrationNumber
+            cell.registrationNumber.text =  registrationNumber
         }else{
-            cell.registrationNumber.text = "Registration Number:".localize()
+          //  cell.registrationNumber.text = "Registration Number:".localize()
         }
         
         

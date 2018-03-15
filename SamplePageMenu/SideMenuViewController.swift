@@ -43,7 +43,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"All Categories","All Churches","Events","Authors","LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
 
         borderColor()
         // Do any additional setup after loading the view.
@@ -55,7 +55,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"All Categories","All Churches","Events","Authors","LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
 
         
       //  menuTableView.reloadData()
@@ -271,49 +271,49 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
-        else  if cell.menuNameLabel.text == "All Categories" {
+        else  if cell.menuNameLabel.text == " All Categories".localize() {
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as!CategoriesHomeViewController
-//            desController.showNav = true
+            desController.showNav = true
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
             // }
         }
-        else  if cell.menuNameLabel.text == "All Churches" {
+        else  if cell.menuNameLabel.text == "All Churches".localize() {
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as!ChurchDetailsViewController
-//            desController.showNav = true
+            desController.showNav = true
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
             // }
         }
-        else  if cell.menuNameLabel.text == "Events" {
+        else  if cell.menuNameLabel.text == "Events".localize() {
             
            
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as!AllEventsAndUpComingEventsViewController
-//            desController.showNav = true
+                  desController.showNav = true
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
             // }
         }
-        else  if cell.menuNameLabel.text == "Authors" {
+        else  if cell.menuNameLabel.text == "Authors".localize() {
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchAdminViewController") as!ChurchAdminViewController
-//            desController.showNav = true
+            desController.showNav = true
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
@@ -375,7 +375,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 (alert: UIAlertAction!) -> Void in
                 Localize.update(language: language)
                 self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
-                self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+                
+                self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
                 self.menuTableView.reloadData()
             })
             actionSheet.addAction(languageAction)

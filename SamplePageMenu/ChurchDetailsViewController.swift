@@ -21,7 +21,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var searchActive : Bool = false
     
     var filteredData: [String]!
-    
+    var bibleInt = Int()
+
     var filtered:[ChurchDetailsListResultVO] = []
     
     var appVersion          : String = ""
@@ -29,6 +30,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var sortbyColumnName : String = ""
     
     var data = Array<String>()
+    var showNav = false
 
 
     var listResultArray = Array<Any>()
@@ -79,6 +81,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
+        self.navigationController?.isNavigationBarHidden = false
+
         
        self.searchController.searchBar.delegate = self
         
@@ -96,8 +100,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        super.viewWillAppear(true)
 
+        
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
        
         //navigationItem.leftBarButtonItems = []
 
@@ -588,7 +596,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 //        UserDefaults.standard.set("1", forKey: "1")
 //        UserDefaults.standard.synchronize()
 //        
-//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
         print("Back Button Clicked......")
         
     }

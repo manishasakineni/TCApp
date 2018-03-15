@@ -21,7 +21,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     var appVersion          : String = ""
     
-    
+    var showNav = false
+
     
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
@@ -55,7 +56,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -372,21 +375,21 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "Church Name:".localize() + " " + churchName
+            cell.churchName.text = churchName
         }else{
-            cell.churchName.text = "Church Name:".localize()
+          //  cell.churchName.text = "Church Name:".localize()
         }
         
         if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = "Mobile Number:".localize() + " " + mobileNumber
+            cell.mobileNumber.text =  mobileNumber
         }else{
-            cell.mobileNumber.text = "Mobile Number:".localize()
+         //   cell.mobileNumber.text = "Mobile Number:".localize()
         }
         
         if let email = listStr.email {
-            cell.email.text = "Email:".localize() + " " + email
+            cell.email.text = email
         }else{
-            cell.email.text = "Email:".localize()
+           // cell.email.text = "Email:".localize()
         }
         
         let imgUrl = listStr.churchImage
@@ -430,21 +433,21 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "Church Name:".localize() + " " + churchName
+            cell.churchName.text =  churchName
         }else{
-            cell.churchName.text = "Church Name:".localize()
+          //  cell.churchName.text = "Church Name:".localize()
         }
        
         if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = "Mobile Number:".localize() + " " + mobileNumber
+            cell.mobileNumber.text = mobileNumber
         }else{
-            cell.mobileNumber.text = "Mobile Number:".localize()
+         //   cell.mobileNumber.text = "Mobile Number:".localize()
         }
         
         if let email = listStr.email {
-            cell.email.text = "Email:".localize() + " " + email
+            cell.email.text =  email
         }else{
-            cell.email.text = "Email:".localize()
+        //    cell.email.text = "Email:".localize()
         }
         
         

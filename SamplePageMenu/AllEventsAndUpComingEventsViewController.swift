@@ -21,7 +21,8 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     var churchImageArrayString = ""
     
     var appVersion          : String = ""
-    
+    var showNav = false
+
     var pageMenu : CAPSPageMenu?
     
     var upConingEventInfoVC : UpConingEventInfoViewController?
@@ -31,6 +32,8 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
        
         createPageMenu()
         
@@ -70,7 +73,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)),
-                                                 CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 13.0)!),
+                                                 CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 11.0)!),
                                                  CAPSPageMenuOption.menuHeight(36),
                                                  CAPSPageMenuOption.centerMenuItems(true),
                                                  CAPSPageMenuOption.selectedMenuItemLabelColor(UIColor.black),
