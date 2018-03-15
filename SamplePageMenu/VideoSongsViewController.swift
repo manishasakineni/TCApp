@@ -48,11 +48,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     let pdfThumbnillImage = [UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf")]
     
     
-    var allCagegoryArray : [VideoResultVo] = Array<VideoResultVo>()
+    var allCagegoryArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
-    var audioArray : [audioRessultVo] = Array<audioRessultVo>()
+    var audioArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
-    var documentArray : [DocumentsResultVo] = Array<DocumentsResultVo>()
+    var documentArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
     var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
@@ -74,6 +74,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     var isResponseFromServer = false
     
+   var noOfRows : Array<Dictionary<String,Any>> = Array()
+        var numberOfRows : Dictionary<String,Any> = Dictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,33 +148,47 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let videoList = self.allCagegoryListArray?.videos
                         
+                      
+                        var i = 0
+                        
                         
                         for authorDetails in videoList!{
-                            
-                            self.allCagegoryArray.append(authorDetails)
+                         
+                            self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
+                            self.imagesArray.append(authorDetails)
                         }
+                        
+                        i = (videoList?.count)! > 0 ? i + 1 : i
                         
                         let audioList = self.allCagegoryListArray?.audios
                         
                         
                         for audioDetails in audioList!{
-                            
-                            self.audioArray.append(audioDetails)
+                         
+                           self.numberOfRows.updateValue(audioList?.count, forKey: "\(i)")
+                            self.imagesArray.append(audioDetails)
                         }
+                        
+                           i = (audioList?.count)! > 0 ? i + 1 : i
                         
                         let docsList = self.allCagegoryListArray?.documents
                         
                         
                         for docsDetails in docsList!{
-                            
-                            self.documentArray.append(docsDetails)
+                         
+                           self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
+                           
+                            self.imagesArray.append(docsDetails)
                         }
+                        
+                         i = (docsList?.count)! > 0 ? i + 1 : i
                         
                         let imageList = self.allCagegoryListArray?.images
                         
                         
                         for imageDetails in imageList!{
-                            
+                   
+                            self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
                             self.imagesArray.append(imageDetails)
                         }
                         
@@ -380,35 +396,40 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
           if(isResponseFromServer == true){
             
-        if imagesArray.isEmpty {
-            
-           return sectionTitleArray.count - 1
-        }
-            
-        else if documentArray.isEmpty {
-            
-            return sectionTitleArray.count - 1
-        }
-        else if audioArray.isEmpty {
-            
-            return sectionTitleArray.count - 1
+             return numberOfRows.count
             
         }
-        else if allCagegoryArray.isEmpty {
-            
-            return sectionTitleArray.count - 1
-        }
-        else {
-            
-          
-                return sectionTitleArray.count
-            }
-            
-        }
+        
         return 0
         
         
     }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+//    {
+//        switch section
+//        {
+//        case 0:
+//            
+//            return "Images"
+//            
+//        case 1:
+//            
+//            return "Documents"
+//            
+//        case 2:
+//            
+//            return "Audios"
+//            
+//        case 1:
+//            
+//            return "Videos"
+//            
+//        default:
+//            
+//            return "Other Devices"
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -448,7 +469,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
-        cell.categorieName.text = self.sectionTitleArray[indexPath.row]
+        //cell.categorieName.text = self.numberOfRows[indexPath.row]
         
         
         
@@ -462,22 +483,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView.tag == 0 {
-            
-            return imagesArray.count
-            
-        }else if collectionView.tag == 1 {
-            
-            return documentArray.count
-            
-        }else if collectionView.tag == 2 {
-            
-            return audioArray.count
-        }
-        else  {
-            
-            return allCagegoryArray.count
-        }
+      let totalItems = self.numberOfRows["\(collectionView.tag)"] as? Int
+    
+    return totalItems!
         
 //        return videoIDArray.count
       
@@ -492,172 +500,204 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCategoriesCollectionCell", for: indexPath) as! homeCategoriesCollectionCell
         
+        let imgArr:ImagesResultVo = imagesArray[indexPath.row]
+        
+        cell.nameLabel.text = imgArr.title
         
         
-        if collectionView.tag == 0 {
+        
+        let imgUrl = imgArr.postImage
+        
+        
+        
+        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        
+        if newString != nil {
             
-            let imgArr:ImagesResultVo = imagesArray[indexPath.row]
-            
-            cell.nameLabel.text = imgArr.title
-            
-            let imgUrl = imgArr.postImage
-            
-            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            let url = URL(string:newString!)
             
             
-            if newString != nil {
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
                 
-                let url = URL(string:newString!)
-                
-                
-                let dataImg = try? Data(contentsOf: url!)
-                
-                if dataImg != nil {
-                    
-                    cell.collectionImgView.image = UIImage(data: dataImg!)
-                }
-                else {
-                    
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                }
+                cell.collectionImgView.image = UIImage(data: dataImg!)
             }
             else {
                 
                 cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
             }
-            
         }
-            
-        else if collectionView.tag == 1 {
-            
-          let docsArr:DocumentsResultVo = documentArray[indexPath.row]
-            
-            
-            cell.nameLabel.text = docsArr.title
-            
-            if let embededUrlImage =  docsArr.embededUrl {
-                
-                let thumbnillImage : String = embededUrlImage
-                
-                
-                docsIDArray = thumbnillImage.components(separatedBy: "=")
-                
-                self.thumbnailImageURL = "https://img.youtube.com/vi/\(docsIDArray[1])/1.jpg"
-                
-                let videothumb = URL(string: self.thumbnailImageURL)
-                
-                if videothumb != nil{
-                    
-                    let request = URLRequest(url: videothumb!)
-                    
-                    let session = URLSession.shared
-                    
-                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
-                        DispatchQueue.main.async()
-                            {
-                                
-                                cell.collectionImgView.image = UIImage(data: data!)
-                                
-                        }
-                        
-                    })
-                    
-                    dataTask.resume()
-                    
-                }
-            }
-            
-        }
-        else if collectionView.tag == 2 {
-           
-            
-            let audioArr:audioRessultVo = audioArray[indexPath.row]
-            
-            cell.nameLabel.text = audioArr.title
-            
-            if let embededUrlImage =  audioArr.embededUrl {
-                
-                let thumbnillImage : String = embededUrlImage
-                
-                
-                audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-                
-                self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
-                
-                let videothumb = URL(string: self.thumbnailImageURL)
-                
-                if videothumb != nil{
-                    
-                    let request = URLRequest(url: videothumb!)
-                    
-                    let session = URLSession.shared
-                    
-                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
-                        DispatchQueue.main.async()
-                            {
-                                
-                                cell.collectionImgView.image = UIImage(data: data!)
-                                
-                        }
-                        
-                    })
-                    
-                    dataTask.resume()
-                    
-                }
-            }
-            
-        }
-    
-       else if collectionView.tag == 3 {
-            
-            
-            let videosArr:VideoResultVo = allCagegoryArray[indexPath.row]
-            
-            cell.nameLabel.text = videosArr.title
-            
-            if let embededUrlImage =  videosArr.embededUrl {
-                
-                let thumbnillImage : String = embededUrlImage
-                
-                
-                videoIDArray = thumbnillImage.components(separatedBy: "embed/")
-                
-                self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
-                
-                let videothumb = URL(string: self.thumbnailImageURL)
-                
-                if videothumb != nil{
-                    
-                    let request = URLRequest(url: videothumb!)
-                    
-                    let session = URLSession.shared
-                    
-                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
-                        DispatchQueue.main.async()
-                            {
-                                
-                                cell.collectionImgView.image = UIImage(data: data!)
-                                
-                        }
-                        
-                    })
-                    
-                    dataTask.resume()
-                    
-                }
-            }
-            
-            
-            
-        }
-        
         else {
             
+            cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
         }
+        
+//        if collectionView.tag == 0 {
+//
+//            let imgArr:ImagesResultVo = imagesArray[indexPath.row]
+//            
+//            cell.nameLabel.text = imgArr.title
+//            
+//            let imgUrl = imgArr.postImage
+//            
+//            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+//            
+//            
+//            if newString != nil {
+//                
+//                let url = URL(string:newString!)
+//                
+//                
+//                let dataImg = try? Data(contentsOf: url!)
+//                
+//                if dataImg != nil {
+//                    
+//                    cell.collectionImgView.image = UIImage(data: dataImg!)
+//                }
+//                else {
+//                    
+//                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//                }
+//            }
+//            else {
+//                
+//                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//            }
+//            
+//        }
+//            
+//        else if collectionView.tag == 1 {
+//            
+//          let docsArr:DocumentsResultVo = documentArray[indexPath.row]
+//            
+//            
+//            cell.nameLabel.text = docsArr.title
+//            
+//            if let embededUrlImage =  docsArr.embededUrl {
+//                
+//                let thumbnillImage : String = embededUrlImage
+//                
+//                
+//                docsIDArray = thumbnillImage.components(separatedBy: "=")
+//                
+//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(docsIDArray[1])/1.jpg"
+//                
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//                
+//                if videothumb != nil{
+//                    
+//                    let request = URLRequest(url: videothumb!)
+//                    
+//                    let session = URLSession.shared
+//                    
+//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//                        
+//                        DispatchQueue.main.async()
+//                            {
+//                                
+//                                cell.collectionImgView.image = UIImage(data: data!)
+//                                
+//                        }
+//                        
+//                    })
+//                    
+//                    dataTask.resume()
+//                    
+//                }
+//            }
+//            
+//        }
+//        else if collectionView.tag == 2 {
+//           
+//            
+//            let audioArr:audioRessultVo = audioArray[indexPath.row]
+//            
+//            cell.nameLabel.text = audioArr.title
+//            
+//            if let embededUrlImage =  audioArr.embededUrl {
+//                
+//                let thumbnillImage : String = embededUrlImage
+//                
+//                
+//                audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+//                
+//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
+//                
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//                
+//                if videothumb != nil{
+//                    
+//                    let request = URLRequest(url: videothumb!)
+//                    
+//                    let session = URLSession.shared
+//                    
+//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//                        
+//                        DispatchQueue.main.async()
+//                            {
+//                                
+//                                cell.collectionImgView.image = UIImage(data: data!)
+//                                
+//                        }
+//                        
+//                    })
+//                    
+//                    dataTask.resume()
+//                    
+//                }
+//            }
+//            
+//        }
+//    
+//       else if collectionView.tag == 3 {
+//            
+//            
+//            let videosArr:VideoResultVo = allCagegoryArray[indexPath.row]
+//            
+//            cell.nameLabel.text = videosArr.title
+//            
+//            if let embededUrlImage =  videosArr.embededUrl {
+//                
+//                let thumbnillImage : String = embededUrlImage
+//                
+//                
+//                videoIDArray = thumbnillImage.components(separatedBy: "embed/")
+//                
+//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
+//                
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//                
+//                if videothumb != nil{
+//                    
+//                    let request = URLRequest(url: videothumb!)
+//                    
+//                    let session = URLSession.shared
+//                    
+//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//                        
+//                        DispatchQueue.main.async()
+//                            {
+//                                
+//                                cell.collectionImgView.image = UIImage(data: data!)
+//                                
+//                        }
+//                        
+//                    })
+//                    
+//                    dataTask.resume()
+//                    
+//                }
+//            }
+//            
+//            
+//            
+//        }
+//        
+//        else {
+//            
+//        }
         
       return cell
         
@@ -712,9 +752,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         }
         if collectionView.tag == 1 {
             
-            let docsArr:DocumentsResultVo = documentArray[indexPath.row]
-            
-            savePDFWithUrl(docsArr.postImage!)
+//            let docsArr:DocumentsResultVo = documentArray[indexPath.row]
+//            
+//            savePDFWithUrl(docsArr.postImage!)
 
             
         }

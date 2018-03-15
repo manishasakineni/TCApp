@@ -12,16 +12,16 @@ class CategoriesListResultVo: Mappable {
     
     
     var images : [ImagesResultVo]?
-    var videos : [VideoResultVo]?
-    var audios : [audioRessultVo]?
-    var documents : [DocumentsResultVo]?
+    var videos : [ImagesResultVo]?
+    var audios : [ImagesResultVo]?
+    var documents : [ImagesResultVo]?
    
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(images : [ImagesResultVo]?,videos : [VideoResultVo]?, audios : [audioRessultVo]?, documents : [DocumentsResultVo]?) {
+    init(images : [ImagesResultVo]?,videos : [ImagesResultVo]?, audios : [ImagesResultVo]?, documents : [ImagesResultVo]?) {
         
         self.images = images
         self.videos = videos
