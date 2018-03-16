@@ -1063,11 +1063,22 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 let categoryId = categoryList.id
                 
+                let catImg = categoryList.categoryImage
+                
+                let catName = categoryList.categoryName
+                
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
                 
                 churchDetailsViewController.catgoryID = categoryId!
                 
-                //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
+                churchDetailsViewController.catgoryName = catName!
+                
+                if catImg != nil {
+                    
+                    churchDetailsViewController.catgoryImg = catImg!
+                }
+                
+            //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
                 
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
             }

@@ -27,6 +27,10 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     var appVersion          : String = ""
     
     var catgoryID:Int = 0
+    
+    var catgoryImg:String = ""
+    
+    var catgoryName:String = ""
 
     var imageArray3 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"books"),UIImage(named:"Churches")]
 
@@ -77,8 +81,38 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
    var noOfRows : Array<Dictionary<String,Any>> = Array()
         var numberOfRows : Dictionary<String,Any> = Dictionary()
     
+    var imagesArrayTag : Dictionary<String,Any> = Dictionary()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let newString = catgoryImg.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        
+            let url = URL(string:newString)
+        
+        if url != nil {
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                infoImage.image = UIImage(data: dataImg!)
+            }
+            else {
+                
+                infoImage.image = #imageLiteral(resourceName: "j4")
+            }
+            
+        }
+        else {
+            
+            infoImage.image = #imageLiteral(resourceName: "j4")
+        }
+        
+        
+        
         
         
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
@@ -114,7 +148,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
        // self.navigationController?.navigationBar.isHidden = !showNav
    //     Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  InfoView".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
     }
     override func didReceiveMemoryWarning() {
@@ -140,6 +174,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                     let respVO:GetCategoriesResultVo = Mapper().map(JSONObject: result)!
                     
                     let isSuccess = respVO.isSuccess
+                    
+                    self.imagesArray.removeAll()
+                    
                     if isSuccess == true {
                         
                         
@@ -155,6 +192,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         for authorDetails in videoList!{
                          
                             self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
+                            
+                            self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
+                            
                             self.imagesArray.append(authorDetails)
                         }
                         
@@ -166,6 +206,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         for audioDetails in audioList!{
                          
                            self.numberOfRows.updateValue(audioList?.count, forKey: "\(i)")
+                            
+                            self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
+                            
                             self.imagesArray.append(audioDetails)
                         }
                         
@@ -177,6 +220,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         for docsDetails in docsList!{
                          
                            self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
+                            
+                            self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
                            
                             self.imagesArray.append(docsDetails)
                         }
@@ -189,6 +234,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         for imageDetails in imageList!{
                    
                             self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
+                            
+                            self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
+                            
                             self.imagesArray.append(imageDetails)
                         }
                         
@@ -389,11 +437,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-//        if allCagegoryListArray?.audios?[0].mediaTypeId == 3 {
-//            
-//            
-//        }
-        
           if(isResponseFromServer == true){
             
              return numberOfRows.count
@@ -404,32 +447,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-//    {
-//        switch section
-//        {
-//        case 0:
-//            
-//            return "Images"
-//            
-//        case 1:
-//            
-//            return "Documents"
-//            
-//        case 2:
-//            
-//            return "Audios"
-//            
-//        case 1:
-//            
-//            return "Videos"
-//            
-//        default:
-//            
-//            return "Other Devices"
-//        }
-//    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -463,13 +480,20 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                          forCellWithReuseIdentifier: "homeCategoriesCollectionCell")
         cell.homeCollectionView.tag = indexPath.row
         
+        cell.selectionStyle = .none
         
         cell.homeCollectionView.collectionViewLayout.invalidateLayout()
         
         
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
-        //cell.categorieName.text = self.numberOfRows[indexPath.row]
+        
+        let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
+        
+        let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+        
+        
+        cell.categorieName.text = mediaTypeName
         
         
         
@@ -484,6 +508,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
       let totalItems = self.numberOfRows["\(collectionView.tag)"] as? Int
+        
+        print("totalItems:\(String(describing: totalItems))")
     
     return totalItems!
         
@@ -491,213 +517,166 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
       
     }
     
-    
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCategoriesCollectionCell", for: indexPath) as! homeCategoriesCollectionCell
         
-        let imgArr:ImagesResultVo = imagesArray[indexPath.row]
+        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
         
-        cell.nameLabel.text = imgArr.title
+        let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
+         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
+        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+
         
-        let imgUrl = imgArr.postImage
+//        print(title!)
+//        print(postImgUrl!)
         
+        cell.nameLabel.text = title
         
-        
-        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
-        
-        if newString != nil {
+        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
-            let url = URL(string:newString!)
+            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
             
-            let dataImg = try? Data(contentsOf: url!)
-            
-            if dataImg != nil {
+            if newString != nil {
                 
-                cell.collectionImgView.image = UIImage(data: dataImg!)
+                let url = URL(string:newString!)
+                
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.collectionImgView.image = UIImage(data: dataImg!)
+                }
+                else {
+                    
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                }
             }
             else {
                 
                 cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
             }
-        }
-        else {
             
-            cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
         }
         
-//        if collectionView.tag == 0 {
-//
-//            let imgArr:ImagesResultVo = imagesArray[indexPath.row]
-//            
-//            cell.nameLabel.text = imgArr.title
-//            
-//            let imgUrl = imgArr.postImage
-//            
-//            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-//            
-//            
-//            if newString != nil {
-//                
-//                let url = URL(string:newString!)
-//                
-//                
-//                let dataImg = try? Data(contentsOf: url!)
-//                
-//                if dataImg != nil {
-//                    
-//                    cell.collectionImgView.image = UIImage(data: dataImg!)
-//                }
-//                else {
-//                    
-//                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-//                }
-//            }
-//            else {
-//                
-//                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-//            }
-//            
-//        }
-//            
-//        else if collectionView.tag == 1 {
-//            
-//          let docsArr:DocumentsResultVo = documentArray[indexPath.row]
-//            
-//            
-//            cell.nameLabel.text = docsArr.title
-//            
-//            if let embededUrlImage =  docsArr.embededUrl {
-//                
-//                let thumbnillImage : String = embededUrlImage
-//                
-//                
-//                docsIDArray = thumbnillImage.components(separatedBy: "=")
-//                
-//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(docsIDArray[1])/1.jpg"
-//                
-//                let videothumb = URL(string: self.thumbnailImageURL)
-//                
-//                if videothumb != nil{
-//                    
-//                    let request = URLRequest(url: videothumb!)
-//                    
-//                    let session = URLSession.shared
-//                    
-//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//                        
-//                        DispatchQueue.main.async()
-//                            {
-//                                
-//                                cell.collectionImgView.image = UIImage(data: data!)
-//                                
-//                        }
-//                        
-//                    })
-//                    
-//                    dataTask.resume()
-//                    
-//                }
-//            }
-//            
-//        }
-//        else if collectionView.tag == 2 {
-//           
-//            
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
+            
+            
+            if let embededUrlImage =  postImgUrl {
+            
+            let thumbnillImage : String = embededUrlImage
+            
+            
+                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
+                self.thumbnailImageURL = "http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
+            
+                let videothumb = URL(string: self.thumbnailImageURL)
+            
+                if videothumb != nil{
+            
+                let request = URLRequest(url: videothumb!)
+            
+                let session = URLSession.shared
+            
+                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+            
+                DispatchQueue.main.async()
+                    {
+            
+                        cell.collectionImgView.image = UIImage(data: data!)
+                                            
+                        }
+                                    
+                                })
+                                
+                                dataTask.resume()
+                                
+                            }
+                        }
+        }
+        
+        else if (fileExtension == ".mp3") {
+            
 //            let audioArr:audioRessultVo = audioArray[indexPath.row]
-//            
-//            cell.nameLabel.text = audioArr.title
-//            
-//            if let embededUrlImage =  audioArr.embededUrl {
-//                
-//                let thumbnillImage : String = embededUrlImage
-//                
-//                
-//                audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-//                
-//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
-//                
-//                let videothumb = URL(string: self.thumbnailImageURL)
-//                
-//                if videothumb != nil{
-//                    
-//                    let request = URLRequest(url: videothumb!)
-//                    
-//                    let session = URLSession.shared
-//                    
-//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//                        
-//                        DispatchQueue.main.async()
-//                            {
-//                                
-//                                cell.collectionImgView.image = UIImage(data: data!)
-//                                
-//                        }
-//                        
-//                    })
-//                    
-//                    dataTask.resume()
-//                    
-//                }
-//            }
-//            
-//        }
-//    
-//       else if collectionView.tag == 3 {
-//            
-//            
-//            let videosArr:VideoResultVo = allCagegoryArray[indexPath.row]
-//            
-//            cell.nameLabel.text = videosArr.title
-//            
-//            if let embededUrlImage =  videosArr.embededUrl {
-//                
-//                let thumbnillImage : String = embededUrlImage
-//                
-//                
-//                videoIDArray = thumbnillImage.components(separatedBy: "embed/")
-//                
-//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
-//                
-//                let videothumb = URL(string: self.thumbnailImageURL)
-//                
-//                if videothumb != nil{
-//                    
-//                    let request = URLRequest(url: videothumb!)
-//                    
-//                    let session = URLSession.shared
-//                    
-//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//                        
-//                        DispatchQueue.main.async()
-//                            {
-//                                
-//                                cell.collectionImgView.image = UIImage(data: data!)
-//                                
-//                        }
-//                        
-//                    })
-//                    
-//                    dataTask.resume()
-//                    
-//                }
-//            }
-//            
-//            
-//            
-//        }
-//        
-//        else {
-//            
-//        }
+            
+            
+                        if let embededUrlImage =  postImgUrl {
+            
+                            let thumbnillImage : String = embededUrlImage
+            
+            
+                            audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+            
+                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
+            
+                            let videothumb = URL(string: self.thumbnailImageURL)
+            
+                            if videothumb != nil{
+            
+                                let request = URLRequest(url: videothumb!)
+            
+                                let session = URLSession.shared
+            
+                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+            
+                                    DispatchQueue.main.async()
+                                        {
+            
+                                            cell.collectionImgView.image = UIImage(data: data!)
+                                            
+                                    }
+                                    
+                                })
+                                
+                                dataTask.resume()
+                                
+                            }
+                        }
+            
+        }
+        else if fileExtension == ".mp4" {
+            
+            
+            if let embededUrlImage =  postImgUrl {
+                
+                let thumbnillImage : String = embededUrlImage
+                
+                
+                self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+                
+                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/1.jpg"
+                
+                let videothumb = URL(string: self.thumbnailImageURL)
+                
+                if videothumb != nil{
+                    
+                    let request = URLRequest(url: videothumb!)
+                    
+                    let session = URLSession.shared
+                    
+                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                        
+                        DispatchQueue.main.async()
+                            {
+                                
+                                cell.collectionImgView.image = UIImage(data: data!)
+                                
+                        }
+                        
+                    })
+                    
+                    dataTask.resume()
+                    
+                }
+            }
+        }
+       
         
       return cell
         
@@ -731,90 +710,86 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
     }
     
-    
-    
-    
     //MARK:- Collectionview didSelectItemAt indexPath
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
+        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
         
-               if collectionView.tag == 0 {
-//            if indexPath.item == 0 {
-            
-//                savePDFWithUrl(pdfUrl[0])
-                
-                let docsArr:ImagesResultVo = imagesArray[indexPath.row]
-                
-                
-                
-                let embededUrlImage =  docsArr.postImage
-                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-                
-                
-                if newString != nil {
-                    
-                    savePDFWithUrl(newString!)
-                    
-                    
-                }
-
-            
-            
-        }
-        if collectionView.tag == 1 {
-            
-                //            let docsArr:DocumentsResultVo = documentArray[indexPath.row]
-                //
-                //            let dataaaaa = docsArr.postImage!
-                //            print(dataaaaa)
-                //            savePDFWithUrl(dataaaaa)
-                
-                let docsArr:ImagesResultVo = allCagegoryArray[indexPath.row]
-                
-                
-                
-                let embededUrlImage =  docsArr.postImage
-                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-                
-                
-                if newString != nil {
-                    
-                    savePDFWithUrl(newString!)
-                    //                let url = URL(string:newString!)
-                    //
-                    //
-                    //                let dataImg = try? Data(contentsOf: url!)
-                    //
-                    //                if dataImg != nil {
-                    //
-                    //                    cell.collectionImgView.image = UIImage(data: dataImg!)
-                    //                }
-                    //                else {
-                    //                    
-                    //                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                    //                }
-                    //            }
-                    //            else {
-                    //                
-                    //                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                    //            }
-                    //            
-                }
-        }
-        if collectionView.tag == 2 {
-            
-        }
+        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
-        if collectionView.tag == 3 {
+        
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
-            let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+           print("images")
             
-            videosView.videoIDArray = videoIDArray
+        }
             
-            self.navigationController?.pushViewController(videosView, animated: true)
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
+            
+            print("Pdfs and docs")
+            
+            let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+                let embededUrlImage =  imgUrl
+                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            
+                if newString != nil {
+            
+                    savePDFWithUrl(newString!)
+                                
+                                
+                }
+            
+        }
+            
+        else if (fileExtension == ".mp3") {
+            
+           print("audio")
+            
+        }
+        else if fileExtension == ".mp4" {
+            
+            let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+                        if let embededUrlImage =  imgUrl {
+            
+                            let thumbnillImage : String = embededUrlImage
+            
+            
+                            self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+            
+                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/1.jpg"
+            
+                            let videothumb = URL(string: self.thumbnailImageURL)
+            
+                            if videothumb != nil{
+            
+                                let request = URLRequest(url: videothumb!)
+            
+                                let session = URLSession.shared
+            
+                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+            
+                                    DispatchQueue.main.async()
+                                        {
+            
+                                            let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                            
+                                            videosView.videoIDArray = self.audioIDArray
+                                            
+                                            self.navigationController?.pushViewController(videosView, animated: true)
+                                    }
+                                    
+                                })
+                                
+                                dataTask.resume()
+                                
+                            }
+                        }
             
         }
         
@@ -822,33 +797,16 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     }
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        //
-        //        UserDefaults.standard.set("1", forKey: "1")
-        //      //  UserDefaults.standard.removeObject(forKey: "1")
-        //        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        //        UserDefaults.standard.synchronize()
-        
-        
+    
         
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
         self.navigationController?.popViewController(animated: true)
         
-        
-        //let categoriesHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-        // self.navigationController?.popViewController(animated: true)
-        
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        print("Back Button Clicked......")
         
     }
     
