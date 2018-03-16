@@ -13,6 +13,13 @@ class AutoScrollCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var autoScrollImage: UIImageView!
     
+    @IBOutlet weak var churchNameLabel: UILabel!
+    
+    @IBOutlet weak var eventNameLabel: UILabel!
+    
+    @IBOutlet weak var mobileNoLabel: UILabel!
+    
+    @IBOutlet weak var eventDateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -29,8 +29,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
    var visibleIndexPath: IndexPath? = nil
     var offSet: CGFloat = 0
-    var timer : Timer!
     var counter = 0
+    var seconds = 60
     
     var lastXAxis = Int()
     var contentOffset = Int()
@@ -49,6 +49,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var y = 1
     
 
+    var timer: Timer?
+    
 //    var contentOffset = 0
 //    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
@@ -103,6 +105,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var bannerImageScrollArray:[BannerImageScrollResultVo] = Array<BannerImageScrollResultVo>()
     
     var bannerImageArr = Array<UIImage>()
+    
+    var upComingEventsArray:[UpcomingEventsResultVO] = Array<UpcomingEventsResultVO>()
     
     var eventsImages = ""
     
@@ -188,6 +192,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         super.viewWillAppear(animated)
         
         self.getAllCategoriesAPICall()
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -436,6 +442,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 self.eventImageArray.removeAll()
                 
+                let eventList = respVO.listResult
+                
+                
                 for churchDetails in respVO.listResult!{
                     
                     self.eventImage = churchDetails.eventImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
@@ -444,21 +453,30 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                     
                     self.eventImageArray.append(self.eventImage)
+                    
+                    self.upComingEventsArray.append(churchDetails)
+                    
+                    
                     // imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
                     
                 }
                 
              //   print(self.eventImageArray.count)
                 
-                self.categorieTableView.reloadData()
+                
                 
                 
                 if self.eventImageArray.count > 0{
                 
                 
+                let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+                RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
                 
-                Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)}
-                
+//             let myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+                }
+//
+//                RunLoop.current.addTimer(myTimer, forMode: RunLoopMode.commonModes)
+               self.categorieTableView.reloadData()
                 
             }
             else {
@@ -477,6 +495,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+    func updateTimer() {
+        seconds -= 1     //This will decrement(count down)the seconds.
+//        timerLabel.text = “\(seconds)” //This will update the label.
+    }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
@@ -681,7 +703,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             if indexPath.row == 0{
                 
-                return 100.0
+                return 130.0
             }
             
             else{
@@ -737,6 +759,28 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+//    func scrollAutomatically(_ timer1: Timer) {
+//        
+//        if let coll : UpcomingEventsResultVO = upComingEventsArray {
+//            for cell in coll.visibleCells {
+//                let indexPath: IndexPath? = coll.indexPath(for: cell)
+//                if ((indexPath?.row)!  < banner.count - 1){
+//                    let indexPath1: IndexPath?
+//                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+//                    
+//                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+//                }
+//                else{
+//                    let indexPath1: IndexPath?
+//                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+//                    coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+//                }
+//                
+//            }
+//        }
+//        
+//    }
+    
     
     func scrollAutomatically(_ timer1: Timer) {
         
@@ -755,12 +799,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             }
                 
             else {
+                
                 self.y = 0
                 autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
             }
             
             
-            
+//            self.categorieTableView.reloadData()
      
             
         }
@@ -956,11 +1001,18 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 let eventImageString = eventImageArray[indexPath.row]
                 
+                let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
+                
+                cell.churchNameLabel.text = eventList.churchName
+                cell.eventNameLabel.text = eventList.title
+                cell.mobileNoLabel.text = eventList.contactNumber
+                cell.eventDateLabel.text = eventList.startDate
+                
                 print(eventImageArray.count)
                 if let url = URL(string:eventImageString) {
                     cell.autoScrollImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                 }else{
-                    cell.autoScrollImage.image = #imageLiteral(resourceName: "Church-logo")
+                    cell.autoScrollImage.image = #imageLiteral(resourceName: "j4")
                 }
                 
                 //self.x = 0
@@ -1091,14 +1143,28 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
      func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         
-        cell.alpha = 0
-        cell.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0.5)
-        UIView.animate(withDuration: 0.3) {
-            cell.alpha = 1
-            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
+//        cell.alpha = 0
+//        cell.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0.5)
+//        UIView.animate(withDuration: 0.3) {
+//            cell.alpha = 1
+//            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
+        
             
+//        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+         if collectionView.tag  == 0 {
             
+           return CGSize(width: 300, height: 200)
         }
+         else {
+            
+            return CGSize(width: 100, height: 100)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

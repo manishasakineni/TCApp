@@ -21,6 +21,18 @@ class AutoScrollImagesCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        let cellSize = CGSize(width:200, height:100)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = cellSize
+        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+        layout.minimumLineSpacing = 5.0
+        layout.minimumInteritemSpacing = 5.0
+        autoScrollCollectionView.setCollectionViewLayout(layout, animated: true)
+        
+        autoScrollCollectionView.reloadData()
+        
 //        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(AutoScrollImagesCell.scrollToNextCell), userInfo: nil, repeats: true)
            }
 
@@ -32,13 +44,13 @@ class AutoScrollImagesCell: UITableViewCell {
     
     func scrollToNextCell(){
         
-        let cellSize = CGSize(width:self.contentView.frame.width, height:self.contentView.frame.height)
+        let cellSize = CGSize(width:self.contentView.frame.width + 100, height:self.contentView.frame.height)
         
         print("cellSize:",cellSize)
         
         
         
-        self.contentOffset = Int(self.autoScrollCollectionView.contentOffset.x)
+        self.contentOffset = Int(self.autoScrollCollectionView.contentOffset.x + 100)
         
         let cellWidth = Int(self.contentOffset)
         
@@ -53,11 +65,11 @@ class AutoScrollImagesCell: UITableViewCell {
         //scroll to next cell
         
        
-        self.autoScrollCollectionView.scrollRectToVisible(CGRect(x:self.contentOffset + cellWidth , y:0, width:cellWidth , height:Int(cellSize.height)), animated: true)
+        self.autoScrollCollectionView.scrollRectToVisible(CGRect(x:self.contentOffset + cellWidth + 100 , y:0, width:cellWidth + 100 , height:Int(cellSize.height)), animated: true)
         
         self.contentOffset = Int(self.contentOffset + Int(cellSize.width))
         
-        print("contentOffset",self.contentOffset + cellWidth,cellSize.width)
+        print("contentOffset",self.contentOffset + cellWidth,cellSize.width + 100)
         
         
        // self.lastXAxis = self.contentOffset
