@@ -47,11 +47,7 @@ var listResultArray = Array<Any>()
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
-    
-    
-    
-    
-    
+
     
    // var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
@@ -137,9 +133,6 @@ var listResultArray = Array<Any>()
         
         Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-       
-
-        
     }
 
     func color(){
@@ -194,11 +187,10 @@ var listResultArray = Array<Any>()
             var event = ""
             
             if let i = self.eventDateArray.index(of: dateString) {
-                                                        print("Jason is at index \(i)")
-                                                        let prevEventCount = self.eventsCountsArray[i]
-                                                         event = "\(prevEventCount)"
-                
-                                                    }
+                          print("Jason is at index \(i)")
+                           let prevEventCount = self.eventsCountsArray[i]
+                               event = "\(prevEventCount)"
+                      }
             
             return event
         }
@@ -443,7 +435,7 @@ var listResultArray = Array<Any>()
                              self.currentMonthDataArray.append(dateString)
                         }
 
-                                              //     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+          //     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                             
                     }else{
@@ -695,6 +687,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         return self.churchIdMonthYearArray.count
         
     }
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return  UITableViewAutomaticDimension
@@ -730,9 +723,9 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
             if let churchName =  churchIdMonthYearList.churchName {
-                listOfMonthEventCell.churchName.text = "Church Name:".localize() + " " + churchName
+                listOfMonthEventCell.churchName.text = "Church Name".localize() + " " + churchName
             }else{
-                listOfMonthEventCell.churchName.text = "church Name:".localize()
+                listOfMonthEventCell.churchName.text = "church Name".localize()
             }
             
             if let eventName =  churchIdMonthYearList.title {

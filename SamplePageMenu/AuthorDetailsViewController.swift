@@ -60,9 +60,6 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         authorInfoVC?.authorID = authorID
        // authorInfoVC?.churchID = churchID
         
-        
-      
-        
         authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
         authorEventsVC?.title = "Events".localize()
         authorEventsVC?.authorID = authorID
