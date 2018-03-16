@@ -741,22 +741,68 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         print("You selected cell #\(indexPath.item)!")
         
         
-        if collectionView.tag == 0 {
+               if collectionView.tag == 0 {
 //            if indexPath.item == 0 {
             
 //                savePDFWithUrl(pdfUrl[0])
                 
-            
+                let docsArr:ImagesResultVo = imagesArray[indexPath.row]
+                
+                
+                
+                let embededUrlImage =  docsArr.postImage
+                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                
+                
+                if newString != nil {
+                    
+                    savePDFWithUrl(newString!)
+                    
+                    
+                }
+
             
             
         }
         if collectionView.tag == 1 {
             
-//            let docsArr:DocumentsResultVo = documentArray[indexPath.row]
-//            
-//            savePDFWithUrl(docsArr.postImage!)
-
-            
+                //            let docsArr:DocumentsResultVo = documentArray[indexPath.row]
+                //
+                //            let dataaaaa = docsArr.postImage!
+                //            print(dataaaaa)
+                //            savePDFWithUrl(dataaaaa)
+                
+                let docsArr:ImagesResultVo = allCagegoryArray[indexPath.row]
+                
+                
+                
+                let embededUrlImage =  docsArr.postImage
+                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                
+                
+                if newString != nil {
+                    
+                    savePDFWithUrl(newString!)
+                    //                let url = URL(string:newString!)
+                    //
+                    //
+                    //                let dataImg = try? Data(contentsOf: url!)
+                    //
+                    //                if dataImg != nil {
+                    //
+                    //                    cell.collectionImgView.image = UIImage(data: dataImg!)
+                    //                }
+                    //                else {
+                    //                    
+                    //                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    //                }
+                    //            }
+                    //            else {
+                    //                
+                    //                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    //            }
+                    //            
+                }
         }
         if collectionView.tag == 2 {
             

@@ -1057,12 +1057,20 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
  
         if collectionView.tag  == 1 {
             
+            let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
             
-            
-            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
-            //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-            
-            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+            if collectionView.tag  == 1 {
+                
+                let categoryId = categoryList.id
+                
+                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
+                
+                churchDetailsViewController.catgoryID = categoryId!
+                
+                //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
+                
+                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+            }
         }
         
         
