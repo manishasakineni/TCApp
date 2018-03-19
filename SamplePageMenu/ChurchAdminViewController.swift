@@ -83,8 +83,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         definesPresentationContext = true
 
-
-
+       
         // Do any additional setup after loading the view.
     }
     
@@ -93,12 +92,20 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
             super.viewWillAppear(animated)
 
-        churchAdminArray.removeAll()
-        getChurchAdminDetailsAPICall()
+    
         
         let backgroundImage = UIImage(named: "Church-logo")
         let imageView = UIImageView(image: backgroundImage)
         self.churchAdminTableView.backgroundView = imageView
+        
+        
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        churchAdminArray.removeAll()
+        getChurchAdminDetailsAPICall()
+        
 
      //   churchAdminTableView.isHidden = true
         
@@ -182,112 +189,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
     }
-    
-    //MARK: -  Church Details API Call
-    
-    func getChurchAdminDetailsAPICall(){
-        
-        
-        
-        let paramsDict = [ "pageIndex": PageIndex,
-                           "pageSize": 10,
-                           "sortbyColumnName": "UpdatedDate",
-                           "sortDirection": "desc",
-            ] as [String : Any]
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: GETALLCHURCHEADMINS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            print(result)
-            
-            let respVO:GetAllChurchAdminsVo = Mapper().map(JSONObject: result)!
-            
-            
-            let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
-            
-            if isSuccess == true {
-                
-                let successMsg = respVO.endUserMessage
-
-                
-                self.listResultArray = respVO.listResult!
-                
-                let pageCout  = (respVO.totalRecords)! / 10
-                
-                let remander = (respVO.totalRecords)! % 10
-                
-                self.totalPages = pageCout
-                
-                if remander != 0 {
-                    
-                    self.totalPages = self.totalPages! + 1
-                    
-                }
-                
-                
-                for church in respVO.listResult!{
-                    
-                    self.churchAdminArray.append(church)
-                    
-//                    let churchName = church.churchName!
-//                    if churchName != "" {
-//                         self.churchNamesArray.append(churchName)
-//                    }
-//                    let churchAdmin = church.churchAdmin!
-//                    if churchAdmin != "" {
-//                        self.churchAdminNameArray.append(churchAdmin)
-//                    }
-//                    let mobileNumber = church.mobileNumber!
-//                    if mobileNumber != "" {
-//                       self.mobileNumberArray.append(mobileNumber)
-//                    }
-//                    
-//                    if let email = church.email {
-//                        self.emailArray.append(email)
-//                    }else{
-//                        self.emailArray.append("")
-//                    }
-//                    
-//                   
-//                    
-
-                  //  respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark
-
-                  //  self.churchAdmin.append(church.contactNumber!)
-//                    self.churchIDArray.append(church.Id!)
-                    
-                }
-                
-                
-                print("churchAdminArray", self.churchAdminArray)
-               // print("churchNamesArray.Count", self.churchNamesArray.count)
-
-                
-
-                self.churchAdminTableView.reloadData()
-                
-             //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-
-            }
-                
-            else {
-                
-                
-                
-            }
-            
-        }) { (failureMessage) in
-            
-            
-            print(failureMessage)
-            
-        }
-    }
-
-    //MARK: -  churchDetailsTableView delegate methods
+      //MARK: -  churchDetailsTableView delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -352,7 +254,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
     }
-    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -503,6 +405,111 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     
+    //MARK: -  Church Details API Call
+    
+    func getChurchAdminDetailsAPICall(){
+        
+        
+        
+        let paramsDict = [ "pageIndex": PageIndex,
+                           "pageSize": 10,
+                           "sortbyColumnName": "UpdatedDate",
+                           "sortDirection": "desc",
+                           ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETALLCHURCHEADMINS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:GetAllChurchAdminsVo = Mapper().map(JSONObject: result)!
+            
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            if isSuccess == true {
+                
+                let successMsg = respVO.endUserMessage
+                
+                
+                self.listResultArray = respVO.listResult!
+                
+                let pageCout  = (respVO.totalRecords)! / 10
+                
+                let remander = (respVO.totalRecords)! % 10
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+                
+                
+                for church in respVO.listResult!{
+                    
+                    self.churchAdminArray.append(church)
+                    
+                    //                    let churchName = church.churchName!
+                    //                    if churchName != "" {
+                    //                         self.churchNamesArray.append(churchName)
+                    //                    }
+                    //                    let churchAdmin = church.churchAdmin!
+                    //                    if churchAdmin != "" {
+                    //                        self.churchAdminNameArray.append(churchAdmin)
+                    //                    }
+                    //                    let mobileNumber = church.mobileNumber!
+                    //                    if mobileNumber != "" {
+                    //                       self.mobileNumberArray.append(mobileNumber)
+                    //                    }
+                    //
+                    //                    if let email = church.email {
+                    //                        self.emailArray.append(email)
+                    //                    }else{
+                    //                        self.emailArray.append("")
+                    //                    }
+                    //
+                    //
+                    //
+                    
+                    //  respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark
+                    
+                    //  self.churchAdmin.append(church.contactNumber!)
+                    //                    self.churchIDArray.append(church.Id!)
+                    
+                }
+                
+                
+                print("churchAdminArray", self.churchAdminArray)
+                // print("churchNamesArray.Count", self.churchNamesArray.count)
+                
+                
+                
+                self.churchAdminTableView.reloadData()
+                
+                //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+    
+
     
     func getAdminDetailsAPICall(){
     

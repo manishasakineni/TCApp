@@ -158,14 +158,14 @@ class AudioViewController: UIViewController {
         if(index < playList.count-1){
             index = index + 1
             isPaused = false
-            playButton.setImage(UIImage(named:"pause"), for: .normal)
+            playButton.setImage(UIImage(named:"puseImage"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
             
             
         }else{
             index = 0
             isPaused = false
-            playButton.setImage(UIImage(named:"pause"), for: .normal)
+            playButton.setImage(UIImage(named:"puseImage"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
         }
     }
@@ -174,7 +174,7 @@ class AudioViewController: UIViewController {
         if(index > 0){
             index = index - 1
             isPaused = false
-            playButton.setImage(UIImage(named:"pause"), for: .normal)
+            playButton.setImage(UIImage(named:"puseImage"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
             
         }
