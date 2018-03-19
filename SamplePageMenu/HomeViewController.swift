@@ -139,10 +139,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let autoScrollImagesCell  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
         categorieTableView.register(autoScrollImagesCell, forCellReuseIdentifier: "AutoScrollImagesCell")
    
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = Utilities.appColor
         self.navigationItem.title = "Telugu Churches".localize()
+        self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
-        
+        let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+
         searchBar.placeholder = "Telugu Churches"
         
         self.searchController.searchBar.delegate = self
@@ -1106,6 +1110,18 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        
+        if collectionView.tag == 0{
+            
+            let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
+        
+        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+            
+            eventDetailsViewController.eventID = eventList.id!
+            
+            self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+        
+        }
  
         if collectionView.tag  == 1 {
             

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="homeCollectionViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vm-uU-ghy">
+                        <rect key="frame" x="3" y="3" width="84" height="84"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-Lb-ANM">
+                                <rect key="frame" x="-0.5" y="68" width="85" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="zIO-lE-LAi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
+                                <rect key="frame" x="12" y="6" width="60" height="58"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oPC-5A-Fdq" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="12" id="0Kb-Kh-e2g"/>
+                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="4" id="5KZ-By-4eC"/>
+                            <constraint firstAttribute="trailing" secondItem="6yE-Lb-ANM" secondAttribute="trailing" constant="-0.5" id="Cnk-PR-mwK"/>
+                            <constraint firstAttribute="trailing" secondItem="oPC-5A-Fdq" secondAttribute="trailing" constant="12" id="IaX-Yy-nqz"/>
+                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="-0.5" id="QPF-wX-M17"/>
+                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="2" id="SA3-d8-h4n"/>
+                            <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="4Vm-uU-ghy" secondAttribute="top" constant="6" id="TBL-Mr-3HP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="4Vm-uU-ghy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="2KS-o9-SBJ"/>
+                <constraint firstItem="4Vm-uU-ghy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="9wK-fY-jri"/>
+                <constraint firstAttribute="bottom" secondItem="4Vm-uU-ghy" secondAttribute="bottom" constant="3" id="Vrv-uj-R8D"/>
+                <constraint firstAttribute="trailing" secondItem="4Vm-uU-ghy" secondAttribute="trailing" constant="3" id="zhu-4j-P3U"/>
+            </constraints>
+            <size key="customSize" width="107" height="104"/>
+            <connections>
+                <outlet property="collectionImgView" destination="oPC-5A-Fdq" id="bps-gK-veu"/>
+                <outlet property="nameLabel" destination="6yE-Lb-ANM" id="ady-Do-WNU"/>
+                <outlet property="viewOutLet" destination="4Vm-uU-ghy" id="cFP-IG-NN6"/>
+            </connections>
+            <point key="canvasLocation" x="54" y="79"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Church-logo" width="240" height="233"/>
+    </resources>
+</document>

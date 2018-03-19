@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchAdminDetailCell" id="KGk-i7-Jjw" customClass="ChurchAdminDetailCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="144.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-Qp-ne2">
+                        <rect key="frame" x="3" y="3" width="314" height="138.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIu-A1-D7r">
+                                <rect key="frame" x="8" y="8" width="33" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAK-RO-Lri">
+                                <rect key="frame" x="182" y="85" width="12" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Ko9-fy-x3v"/>
+                                    <constraint firstAttribute="width" constant="12" id="tS6-Lc-sCG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQQ-x0-vDo">
+                                <rect key="frame" x="182" y="54" width="12" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="C22-BO-KeL"/>
+                                    <constraint firstAttribute="height" constant="15" id="R4V-hj-YRW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LIu-A1-D7r" firstAttribute="leading" secondItem="gfm-Qp-ne2" secondAttribute="leading" constant="8" id="0L3-EX-5gm"/>
+                            <constraint firstItem="LIu-A1-D7r" firstAttribute="top" secondItem="gfm-Qp-ne2" secondAttribute="top" constant="8" id="SLK-K1-BWe"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Church Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ct-jI-gCT">
+                        <rect key="frame" x="96" y="26" width="99" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="BCe-x1-kE4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Church Name"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91O-GO-Rby">
+                        <rect key="frame" x="96" y="57" width="99" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="S6z-Jc-OiK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Mobile Number"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k1-XR-JSD">
+                        <rect key="frame" x="97" y="88" width="99" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="vH4-UC-uTd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Email"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="churchFather2" translatesAutoresizingMaskIntoConstraints="NO" id="gBB-Rp-WDe">
+                        <rect key="frame" x="19" y="39" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="uwz-IZ-mcG"/>
+                            <constraint firstAttribute="height" constant="70" id="vPK-5W-VBK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wma-he-6VJ">
+                        <rect key="frame" x="194" y="26" width="99" height="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqi-Sg-EY0">
+                        <rect key="frame" x="194" y="57" width="99" height="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaT-xC-G9z">
+                        <rect key="frame" x="194" y="88" width="99" height="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91u-c1-P9m">
+                        <rect key="frame" x="232" y="116" width="80" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="TBC-Sa-HeE"/>
+                            <constraint firstAttribute="width" constant="80" id="m27-hk-t7D"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <state key="normal" title="Subscribe">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpI-r9-JdF">
+                        <rect key="frame" x="233" y="138" width="78" height="5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="78" id="VCc-cP-pZr"/>
+                            <constraint firstAttribute="height" constant="5" id="u7H-CT-7DA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zem-Wb-dHf">
+                        <rect key="frame" x="185" y="26" width="12" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="Jrq-kR-zlf"/>
+                            <constraint firstAttribute="height" constant="15" id="XRQ-Vz-tbu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tpI-r9-JdF" firstAttribute="centerX" secondItem="91u-c1-P9m" secondAttribute="centerX" id="4HU-kn-WF7"/>
+                    <constraint firstAttribute="trailing" secondItem="wma-he-6VJ" secondAttribute="trailing" constant="27" id="5KJ-S4-q8N"/>
+                    <constraint firstItem="gfm-Qp-ne2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="8oD-WY-g0c"/>
+                    <constraint firstAttribute="trailing" secondItem="Eqi-Sg-EY0" secondAttribute="trailing" constant="27" id="9Kv-Xj-pmh"/>
+                    <constraint firstItem="wma-he-6VJ" firstAttribute="leading" secondItem="5Ct-jI-gCT" secondAttribute="trailing" constant="-1" id="9dl-Gq-tSE"/>
+                    <constraint firstItem="gBB-Rp-WDe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="9gn-JZ-Pnn"/>
+                    <constraint firstItem="wma-he-6VJ" firstAttribute="leading" secondItem="gBB-Rp-WDe" secondAttribute="trailing" constant="105" id="BlR-9v-abV"/>
+                    <constraint firstItem="5Ct-jI-gCT" firstAttribute="leading" secondItem="gBB-Rp-WDe" secondAttribute="trailing" constant="7" id="CQZ-9u-nX0"/>
+                    <constraint firstAttribute="bottom" secondItem="gfm-Qp-ne2" secondAttribute="bottom" constant="3" id="Cct-Uo-Hwg"/>
+                    <constraint firstItem="Eqi-Sg-EY0" firstAttribute="leading" secondItem="wma-he-6VJ" secondAttribute="leading" id="F3p-xn-VUR"/>
+                    <constraint firstItem="gfm-Qp-ne2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="Fir-2p-xPk"/>
+                    <constraint firstItem="Zem-Wb-dHf" firstAttribute="centerY" secondItem="5Ct-jI-gCT" secondAttribute="centerY" id="H4X-av-6Ra"/>
+                    <constraint firstItem="4k1-XR-JSD" firstAttribute="top" secondItem="91O-GO-Rby" secondAttribute="bottom" constant="16" id="IfP-i1-jd6"/>
+                    <constraint firstAttribute="trailing" secondItem="oaT-xC-G9z" secondAttribute="trailing" constant="27" id="J20-Ut-hSy"/>
+                    <constraint firstAttribute="bottom" secondItem="tpI-r9-JdF" secondAttribute="bottom" constant="1.5" id="LCl-NK-DoJ"/>
+                    <constraint firstItem="PAK-RO-Lri" firstAttribute="centerY" secondItem="4k1-XR-JSD" secondAttribute="centerY" id="LQ8-Dl-F1G"/>
+                    <constraint firstAttribute="trailing" secondItem="91u-c1-P9m" secondAttribute="trailing" constant="8" id="OzE-JL-eqV"/>
+                    <constraint firstAttribute="trailing" secondItem="gfm-Qp-ne2" secondAttribute="trailing" constant="3" id="UWS-v3-jEA"/>
+                    <constraint firstItem="gBB-Rp-WDe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="1.75" id="ZDq-qB-50B"/>
+                    <constraint firstItem="tpI-r9-JdF" firstAttribute="top" secondItem="91u-c1-P9m" secondAttribute="bottom" constant="4" id="bOZ-ru-C6S"/>
+                    <constraint firstItem="91O-GO-Rby" firstAttribute="top" secondItem="5Ct-jI-gCT" secondAttribute="bottom" constant="16" id="bZk-uA-0A0"/>
+                    <constraint firstItem="YQQ-x0-vDo" firstAttribute="leading" secondItem="91O-GO-Rby" secondAttribute="trailing" constant="-10" id="bhI-Do-Ckn"/>
+                    <constraint firstItem="4k1-XR-JSD" firstAttribute="leading" secondItem="91O-GO-Rby" secondAttribute="leading" constant="1" id="brs-AT-hnC"/>
+                    <constraint firstItem="5Ct-jI-gCT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="d70-qZ-34Q"/>
+                    <constraint firstItem="oaT-xC-G9z" firstAttribute="leading" secondItem="Eqi-Sg-EY0" secondAttribute="leading" id="dQG-dj-eWP"/>
+                    <constraint firstItem="wma-he-6VJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="e5F-Li-K7U"/>
+                    <constraint firstItem="4k1-XR-JSD" firstAttribute="trailing" secondItem="91O-GO-Rby" secondAttribute="trailing" constant="1" id="g1v-wd-Hvj"/>
+                    <constraint firstItem="91u-c1-P9m" firstAttribute="top" secondItem="oaT-xC-G9z" secondAttribute="bottom" constant="13" id="gfd-3b-rE5"/>
+                    <constraint firstItem="Eqi-Sg-EY0" firstAttribute="top" secondItem="wma-he-6VJ" secondAttribute="bottom" constant="16" id="kOA-cy-dov"/>
+                    <constraint firstItem="91O-GO-Rby" firstAttribute="trailing" secondItem="5Ct-jI-gCT" secondAttribute="trailing" id="kgB-sC-eUb"/>
+                    <constraint firstItem="91O-GO-Rby" firstAttribute="leading" secondItem="5Ct-jI-gCT" secondAttribute="leading" id="oXb-A5-A9M"/>
+                    <constraint firstItem="YQQ-x0-vDo" firstAttribute="centerY" secondItem="91O-GO-Rby" secondAttribute="centerY" id="qii-ss-l16"/>
+                    <constraint firstItem="PAK-RO-Lri" firstAttribute="leading" secondItem="4k1-XR-JSD" secondAttribute="trailing" constant="-11" id="r6m-2h-gK2"/>
+                    <constraint firstItem="Zem-Wb-dHf" firstAttribute="leading" secondItem="5Ct-jI-gCT" secondAttribute="trailing" constant="-10" id="yYu-S9-CjR"/>
+                    <constraint firstItem="oaT-xC-G9z" firstAttribute="top" secondItem="Eqi-Sg-EY0" secondAttribute="bottom" constant="16" id="yeq-Wp-r5x"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="adminImageView" destination="gBB-Rp-WDe" id="4gs-Zm-y2E"/>
+                <outlet property="adminNameLabel" destination="LIu-A1-D7r" id="eYe-RV-hKT"/>
+                <outlet property="backGroundView" destination="gfm-Qp-ne2" id="wIJ-e6-Iw3"/>
+                <outlet property="churchName" destination="wma-he-6VJ" id="hVl-bq-fhG"/>
+                <outlet property="email" destination="oaT-xC-G9z" id="gEO-Lo-zmE"/>
+                <outlet property="mobileNumber" destination="Eqi-Sg-EY0" id="AgE-jg-CX1"/>
+                <outlet property="subscribeButtton" destination="91u-c1-P9m" id="ZbI-q4-kDw"/>
+            </connections>
+            <point key="canvasLocation" x="30" y="96.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="churchFather2" width="800" height="890"/>
+    </resources>
+</document>

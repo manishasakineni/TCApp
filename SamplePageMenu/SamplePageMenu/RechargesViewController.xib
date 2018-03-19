@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RechargesViewController" customModule="Telugu_Churches" customModuleProvider="target">
+            <connections>
+                <outlet property="rechargeTableView" destination="FIF-z3-7ZW" id="uAE-fi-3Lq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FIF-z3-7ZW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="kpB-jw-szQ"/>
+                        <outlet property="delegate" destination="i5M-Pr-FkT" id="YbY-Ys-QzX"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="FIF-z3-7ZW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L3S-bm-t7q"/>
+                <constraint firstAttribute="bottom" secondItem="FIF-z3-7ZW" secondAttribute="bottom" id="Ylr-VJ-bVb"/>
+                <constraint firstItem="FIF-z3-7ZW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZjF-BT-COR"/>
+                <constraint firstAttribute="trailing" secondItem="FIF-z3-7ZW" secondAttribute="trailing" id="nLB-To-YaF"/>
+            </constraints>
+            <point key="canvasLocation" x="30.5" y="185.5"/>
+        </view>
+    </objects>
+</document>

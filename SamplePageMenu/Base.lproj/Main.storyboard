@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -455,7 +455,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-0I-p09">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
-                                <color key="backgroundColor" red="0.40392156862745099" green="0.6705882352941176" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="MbH-gK-Z3h"/>
                                 </constraints>
@@ -471,7 +471,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Choose Language">
-                                            <color key="titleColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="chooseLanguageClicked:" destination="42U-a2-vSM" eventType="touchUpInside" id="GJ4-4v-iis"/>
@@ -1328,6 +1328,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NC7-ag-gv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7856.8000000000002" y="333.28335832083962"/>
+        </scene>
+        <!--Event Details View Controller-->
+        <scene sceneID="NoK-qh-bzL">
+            <objects>
+                <viewController storyboardIdentifier="EventDetailsViewController" id="O47-Jy-dv0" customClass="EventDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yi8-yp-Szb"/>
+                        <viewControllerLayoutGuide type="bottom" id="RXF-IP-L3k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DDO-80-v7d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uVr-mm-aCW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uVr-mm-aCW" firstAttribute="top" secondItem="DDO-80-v7d" secondAttribute="top" id="1Sv-4z-qI0"/>
+                            <constraint firstItem="uVr-mm-aCW" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="4UW-dF-xNP"/>
+                            <constraint firstItem="RXF-IP-L3k" firstAttribute="top" secondItem="uVr-mm-aCW" secondAttribute="bottom" id="7cF-sA-qVt"/>
+                            <constraint firstAttribute="trailing" secondItem="uVr-mm-aCW" secondAttribute="trailing" id="Pqs-II-MO3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="eventDetailsTableView" destination="uVr-mm-aCW" id="3vQ-Xp-wrU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sne-3x-qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8549" y="336"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">

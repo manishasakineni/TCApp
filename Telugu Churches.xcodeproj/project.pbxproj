@@ -54,6 +54,9 @@
 		3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B83205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift */; };
 		3D927B89205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B88205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift */; };
 		3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B8A205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift */; };
+		3DD30F5D205FDF400076B0DB /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */; };
+		3DD30F5F205FE3E90076B0DB /* EventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */; };
+		3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */; };
 		3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890C2018567300918711 /* SignUpViewController.swift */; };
 		3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890E201865F600918711 /* SignUPTableViewCell.swift */; };
 		3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD890F201865F600918711 /* SignUPTableViewCell.xib */; };
@@ -294,6 +297,9 @@
 		3D927B83205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventsListResultInfoVO.swift; sourceTree = "<group>"; };
 		3D927B88205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventDateCountInfoVO.swift; sourceTree = "<group>"; };
 		3D927B8A205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventDateCountResultVO.swift; sourceTree = "<group>"; };
+		3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsVO.swift; sourceTree = "<group>"; };
+		3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsListResultVO.swift; sourceTree = "<group>"; };
 		3DDD890C2018567300918711 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3DDD890E201865F600918711 /* SignUPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPTableViewCell.swift; sourceTree = "<group>"; };
 		3DDD890F201865F600918711 /* SignUPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPTableViewCell.xib; sourceTree = "<group>"; };
@@ -699,6 +705,15 @@
 			name = AuthorEventDateCountVO;
 			sourceTree = "<group>";
 		};
+		3DD30F62205FE40A0076B0DB /* EventDetailsVO */ = {
+			isa = PBXGroup;
+			children = (
+				3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */,
+				3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */,
+			);
+			name = EventDetailsVO;
+			sourceTree = "<group>";
+		};
 		3DDD89122018662100918711 /* SignUpCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,6 +824,7 @@
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
 				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
+				3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */,
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
 			);
@@ -901,6 +917,7 @@
 				CB21CE62203DA43300B3294B /* GetAllChurchDetails */,
 				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
+				3DD30F62205FE40A0076B0DB /* EventDetailsVO */,
 				3D927B87205BA46D004A7D45 /* AuthorEventDateCountVO */,
 				3D927B80205B9B56004A7D45 /* AuthorEventsResultVO */,
 				CB3226D3202C95C20050D06B /* GetProfileInfo */,
@@ -1564,6 +1581,7 @@
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
 				3D2E34202053A0BF00CF8F16 /* BannerCollectionViewCell.swift in Sources */,
+				3DD30F5D205FDF400076B0DB /* EventDetailsViewController.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
@@ -1574,6 +1592,7 @@
 				CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
 				CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */,
+				3DD30F5F205FE3E90076B0DB /* EventDetailsVO.swift in Sources */,
 				CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */,
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
@@ -1671,6 +1690,7 @@
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
+				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,

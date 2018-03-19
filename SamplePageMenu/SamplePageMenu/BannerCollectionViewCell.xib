@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCollectionViewCell" id="gTV-IL-0wX" customClass="BannerCollectionViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Jh-9e-IKc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="9Jh-9e-IKc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="C1D-Tn-6Os"/>
+                <constraint firstAttribute="trailing" secondItem="9Jh-9e-IKc" secondAttribute="trailing" id="jS6-37-h2v"/>
+                <constraint firstItem="9Jh-9e-IKc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lzw-Bz-ye1"/>
+                <constraint firstAttribute="bottom" secondItem="9Jh-9e-IKc" secondAttribute="bottom" id="pyZ-8O-Sev"/>
+            </constraints>
+            <connections>
+                <outlet property="bannerImage" destination="9Jh-9e-IKc" id="buv-fD-21D"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchDetailsTableViewCell" rowHeight="148" id="KGk-i7-Jjw" customClass="ChurchDetailsTableViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="147.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8v-vc-qB2">
+                        <rect key="frame" x="3" y="3" width="314" height="141.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uov-51-6W6">
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="141.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-XC-cef">
+                                <rect key="frame" x="9" y="9" width="237" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aZY-UN-QRa"/>
+                                    <constraint firstAttribute="width" constant="237" id="bSt-fw-15u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adress String" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWu-Sg-5nV">
+                                <rect key="frame" x="9" y="32" width="87.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0ET-Nn-F1y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpZ-NR-shn">
+                                <rect key="frame" x="9" y="54" width="97" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hlx-QT-33x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24:24:24 - 24/12/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19A-NE-weG">
+                                <rect key="frame" x="162.5" y="104" width="140" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8Bj-nq-Pnp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49006677920000002" green="1" blue="0.59522571570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SpZ-NR-shn" firstAttribute="leading" secondItem="fWu-Sg-5nV" secondAttribute="leading" id="0AK-nR-CWr"/>
+                            <constraint firstAttribute="trailing" secondItem="Uov-51-6W6" secondAttribute="trailing" id="456-MI-ZoM"/>
+                            <constraint firstItem="fWu-Sg-5nV" firstAttribute="top" secondItem="zhC-XC-cef" secondAttribute="bottom" constant="2" id="C4j-K0-eOO"/>
+                            <constraint firstItem="SpZ-NR-shn" firstAttribute="top" secondItem="fWu-Sg-5nV" secondAttribute="bottom" constant="1" id="GjV-uA-IV9"/>
+                            <constraint firstItem="fWu-Sg-5nV" firstAttribute="leading" secondItem="zhC-XC-cef" secondAttribute="leading" id="MdK-QU-DrL"/>
+                            <constraint firstAttribute="bottom" secondItem="19A-NE-weG" secondAttribute="bottom" constant="16.5" id="Nfu-7u-cJJ"/>
+                            <constraint firstItem="Uov-51-6W6" firstAttribute="leading" secondItem="y8v-vc-qB2" secondAttribute="leading" id="Rei-WS-JNT"/>
+                            <constraint firstItem="Uov-51-6W6" firstAttribute="top" secondItem="y8v-vc-qB2" secondAttribute="top" id="TZG-oP-OBb"/>
+                            <constraint firstItem="zhC-XC-cef" firstAttribute="leading" secondItem="y8v-vc-qB2" secondAttribute="leading" constant="9" id="bHL-6c-UPZ"/>
+                            <constraint firstAttribute="trailing" secondItem="19A-NE-weG" secondAttribute="trailing" constant="11.5" id="bqe-Ty-ZJK"/>
+                            <constraint firstItem="zhC-XC-cef" firstAttribute="top" secondItem="y8v-vc-qB2" secondAttribute="top" constant="9" id="mqd-Pg-QIV"/>
+                            <constraint firstAttribute="bottom" secondItem="Uov-51-6W6" secondAttribute="bottom" id="sN6-RR-Ai2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="y8v-vc-qB2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="4iy-Jv-2nJ"/>
+                    <constraint firstAttribute="bottom" secondItem="y8v-vc-qB2" secondAttribute="bottom" constant="3" id="Cj4-yD-3mG"/>
+                    <constraint firstAttribute="trailing" secondItem="y8v-vc-qB2" secondAttribute="trailing" constant="3" id="L6l-Ux-QId"/>
+                    <constraint firstItem="y8v-vc-qB2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="MnR-dx-Eso"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="fWu-Sg-5nV" id="oef-It-fbL"/>
+                <outlet property="churchImage" destination="Uov-51-6W6" id="68X-ud-UCm"/>
+                <outlet property="churchNameLbl" destination="zhC-XC-cef" id="VU3-P5-cIw"/>
+                <outlet property="phNoLabel" destination="SpZ-NR-shn" id="xjd-8y-EME"/>
+                <outlet property="timeLabel" destination="19A-NE-weG" id="EGM-Dd-VrK"/>
+            </connections>
+            <point key="canvasLocation" x="-5" y="32"/>
+        </tableViewCell>
+    </objects>
+</document>

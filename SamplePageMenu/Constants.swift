@@ -52,6 +52,8 @@ let GETAUTHOREVENTSBYMONTHYEAR : String = BASEURL.appending("api/Events/GetEvent
 
 let GETAUTHOREVENTSCOUNTBYMONTH : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
 
+let GETEVENTDETAILSBYID : String = BASEURL.appending("api/Events/GetEventById/")
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String
