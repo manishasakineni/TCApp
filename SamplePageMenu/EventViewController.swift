@@ -723,9 +723,9 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
             if let churchName =  churchIdMonthYearList.churchName {
-                listOfMonthEventCell.churchName.text = "Church Name".localize() + " " + churchName
+                listOfMonthEventCell.churchName.text = churchName
             }else{
-                listOfMonthEventCell.churchName.text = "church Name".localize()
+              //  listOfMonthEventCell.churchName.text = "church Name".localize()
             }
             
             if let eventName =  churchIdMonthYearList.title {
@@ -735,16 +735,16 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             if let contactNumber =  churchIdMonthYearList.contactNumber {
-                listOfMonthEventCell.contactNumber.text = "contact Number:".localize() + " " + contactNumber
+                listOfMonthEventCell.contactNumber.text =  contactNumber
             }else{
-                listOfMonthEventCell.contactNumber.text = "contact Number:".localize()
+              //  listOfMonthEventCell.contactNumber.text = "contact Number:".localize()
             }
             
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!) + "-" + returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
             if startAndEndDate1 != "" {
-                listOfMonthEventCell.eventStartEndDate.text = "StartDate EndDate:".localize() + " " + startAndEndDate1
+                listOfMonthEventCell.eventStartEndDate.text = startAndEndDate1
             }else{
-                listOfMonthEventCell.eventStartEndDate.text = "contact Number:".localize()
+              //  listOfMonthEventCell.eventStartEndDate.text = "contact Number:".localize()
             }
             //  listOfMonthEventCell.churchName.text =
             

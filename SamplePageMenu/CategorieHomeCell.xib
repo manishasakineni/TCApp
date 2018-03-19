@@ -49,7 +49,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-Rj-hxm">
-                                <rect key="frame" x="237" y="5" width="90" height="23"/>
+                                <rect key="frame" x="222" y="5" width="90" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="Krc-CJ-n8u"/>
                                     <constraint firstAttribute="width" constant="90" id="VLu-mv-1Zd"/>
@@ -72,7 +72,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ham-pE-eON" firstAttribute="leading" secondItem="qCM-Rj-hxm" secondAttribute="trailing" constant="-28" id="7V3-5z-gIH"/>
+                            <constraint firstItem="Ham-pE-eON" firstAttribute="leading" secondItem="qCM-Rj-hxm" secondAttribute="trailing" constant="-13" id="7V3-5z-gIH"/>
                             <constraint firstItem="3hY-85-Zeh" firstAttribute="leading" secondItem="ok8-YS-Ugy" secondAttribute="leading" constant="8" id="7vL-LR-3Jr"/>
                             <constraint firstAttribute="trailing" secondItem="1Ey-Nw-MBQ" secondAttribute="trailing" id="DVp-Fc-xpr"/>
                             <constraint firstItem="Ham-pE-eON" firstAttribute="centerY" secondItem="3hY-85-Zeh" secondAttribute="centerY" id="FpZ-4i-K0f"/>
