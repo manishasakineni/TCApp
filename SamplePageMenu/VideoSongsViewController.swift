@@ -588,9 +588,12 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                 DispatchQueue.main.async()
                     {
-            
-                        cell.collectionImgView.image = UIImage(data: data!)
-                                            
+                        
+                        if data != nil {
+                            
+                            cell.collectionImgView.image = UIImage(data: data!)
+                        }
+                                                    
                         }
                                     
                                 })
@@ -604,39 +607,43 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         else if (fileExtension == ".mp3") {
             
             
+            cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
             
         //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
             
-            print(postImgUrl)
-
-             let audioUrlImage =  postImgUrl
-       print(audioUrlImage)
+//            print(postImgUrl)
+//
+//             let audioUrlImage =  postImgUrl
+//       print(audioUrlImage)
+//            
+//            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+//           
+//            print(newString)
+//
+//            
+//            if newString != nil {
+//                
+//                let url = URL(string:newString!)
+//                
+//                
+//                let dataImg = try? Data(contentsOf: url!)
+//                
+//                if dataImg != nil {
+//                    
+//                    cell.collectionImgView.image = UIImage(data: dataImg!)
+//                }
+//                else {
+//                    
+//                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//                }
+//            }
+//            else {
+//                
+//                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//            }
             
-            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-           
-            print(newString)
-
             
-            if newString != nil {
-                
-                let url = URL(string:newString!)
-                
-                
-                let dataImg = try? Data(contentsOf: url!)
-                
-                if dataImg != nil {
-                    
-                    cell.collectionImgView.image = UIImage(data: dataImg!)
-                }
-                else {
-                    
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                }
-            }
-            else {
-                
-                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-            }
+            
             
 //            let audioArr:audioRessultVo = audioArray[indexPath.row]
             
@@ -685,7 +692,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                 
                 self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
                 
-                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/1.jpg"
+                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
                 
                 let videothumb = URL(string: self.thumbnailImageURL)
                 
@@ -700,8 +707,12 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         DispatchQueue.main.async()
                             {
                                 
-                                cell.collectionImgView.image = UIImage(data: data!)
-                                
+                                if data != nil {
+                                    
+                                 cell.collectionImgView.image = UIImage(data: data!)
+                                    
+                                }
+                               
                         }
                         
                     })
@@ -845,7 +856,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                             self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
             
-                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/1.jpg"
+                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
             
                             let videothumb = URL(string: self.thumbnailImageURL)
             

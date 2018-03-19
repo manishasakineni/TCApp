@@ -313,7 +313,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         
         if(searchActive){
 
-        let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+        let categoryList:CategoriesResultVo = filtered[indexPath.row]
         
         cell.nameLabel.text = categoryList.categoryName
         
@@ -438,39 +438,31 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         print("You selected cell #\(indexPath.item)!")
         
         
-
-        if indexPath.item == 0{
+        let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+        
+        
+            let categoryId = categoryList.id
             
-            if bibleInt == 10 {
+            let catImg = categoryList.categoryImage
+            
+            let catName = categoryList.categoryName
+            
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
+            
+            churchDetailsViewController.catgoryID = categoryId!
+            
+            churchDetailsViewController.catgoryName = catName!
+            
+            if catImg != nil {
                 
-                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
-                churchDetailsViewController.appVersion = categorieNamesArray[indexPath.item]
-                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-                
-                
+                churchDetailsViewController.catgoryImg = catImg!
             }
             
-            if indexPath.item == 1 {
- 
+            //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
             
-            if bibleInt == 11 {
-                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-                churchDetailsViewController.appVersion = categorieNamesArray[indexPath.item]
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
 
-                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-                }
-            }
-            if bibleInt == 12 {
-                
-                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-                holyBibleViewController.appVersion = categorieNamesArray[indexPath.item]
 
-                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
-                
-            }
-            
-        }
-   
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -498,10 +490,12 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
         
-        //   navigationItem.leftBarButtonItems = []
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+         self.navigationController?.popViewController(animated: true)
         
-        appDelegate.window?.rootViewController = rootController
+        //   navigationItem.leftBarButtonItems = []
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
         
         print("Back Button Clicked......")
