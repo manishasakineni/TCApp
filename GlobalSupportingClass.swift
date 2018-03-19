@@ -34,7 +34,7 @@ class GlobalSupportingClass {
         return "Please provide Lastname".localize()
     }
     class func blankUserNameErrorMessage() -> String {
-        return "Please provide UserName"
+        return "Please Enter UserName".localize()
     }
     class func blankEmailIDErrorMessage() -> String {
         return "Please provide e-mail".localize()
@@ -55,7 +55,13 @@ class GlobalSupportingClass {
     class func invalidEmaildIDFormatErrorMessage() -> String {
         return "Please provide valid e-maild Format".localize()
     }
-    
+    class func blankDOBErrorMessage() -> String {
+        return "Please provide DOB".localize()
+    }
+    class func blankgenderErrorMessage() -> String {
+        return "Please provide Gender".localize()
+    }
+
     class func blankPassWordErrorMessage() -> String {
         return "Please provide Password".localize()
     }
@@ -76,7 +82,7 @@ class GlobalSupportingClass {
         return "Please Provide New Password".localize()
     }
     class func blankPswdErrorMessage() -> String {
-        return "Please Provide  Password".localize()
+        return "Please Enter Password".localize()
     }
     
     class func blankResetPasswordErrorMessage() -> String {

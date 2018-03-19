@@ -929,7 +929,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let emailID:NSString = self.email as NSString
         
         let dateOfbirth:NSString = self.DOB as NSString
-        
+        let gender:NSString = self.gender as NSString
+
         
         
         
@@ -979,10 +980,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         {
             errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
         }
-        //        else  if (dateOfbirth.length <= 2){
-        //            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
-        //
-        //        }
+                else  if (dateOfbirth.length <= 2){
+            alertTag = 5
+
+                    errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
+        
+                }
+//        else  if (dateOfbirth.length <= 2){
+//            alertTag = 5
+//            
+//            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
+//            
+//        }
         
         if let errorMsg = errorMessage{
             
