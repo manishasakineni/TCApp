@@ -574,7 +574,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
             
                 docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
-                self.thumbnailImageURL = "http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
+                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
             
                 let videothumb = URL(string: self.thumbnailImageURL)
             
@@ -831,6 +831,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         }
         else if fileExtension == ".mp4" {
             
+            
+            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+            
+
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             
                         if let embededUrlImage =  imgUrl {
@@ -858,6 +863,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                             let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
                                             
                                             videosView.videoIDArray = self.audioIDArray
+                                            videosView.videoIDNameArr = title!
                                             
                                             
                                             self.navigationController?.pushViewController(videosView, animated: true)

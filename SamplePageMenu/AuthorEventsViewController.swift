@@ -20,6 +20,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     var todayDate = NSDate()
     
     
+    var PageIndex = 1
+    var totalPages : Int? = 0
+    var totalRecords : Int? = 0
     
     var month = String()
     var year = String()
@@ -71,8 +74,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         month = String(calendars.component(.month, from: todayDate as Date))
         
         
-        let listOfMonthEventCell = UINib(nibName: "ListOfMonthEventCell" , bundle: nil)
-        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "ListOfMonthEventCell")
+        let listOfMonthEventCell = UINib(nibName: "AdminMonthEventListCell" , bundle: nil)
+        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "AdminMonthEventListCell")
         
         let authorEventsCalenderTableViewCell  = UINib(nibName: "AuthorEventsCalenderTableViewCell" , bundle: nil)
         authorEventsTableView.register(authorEventsCalenderTableViewCell, forCellReuseIdentifier: "AuthorEventsCalenderTableViewCell")
@@ -93,7 +96,18 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewWillAppear(_ animated: Bool) {
         
      getAthorEventsApiCall()
-    getAthorEventsCountApiCall()
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: calendar.currentPage)
+        
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: calendar.currentPage)
+
+    getAthorEventsCountApiCall(monthString, yearString)
         
         color()
         
@@ -179,7 +193,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     }
     
-    func getAthorEventsCountApiCall(){
+    func getAthorEventsCountApiCall(_ month : String, _ year : String){
         
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
@@ -275,6 +289,180 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return nil
     }
 
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+  
+        
+        return self.authorDetailsArray.count
+        
+    
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+
+    return 148
+       
+
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == authorDetailsArray.count - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                
+                PageIndex = PageIndex + 1
+                
+                let monthFormatter = DateFormatter()
+                monthFormatter.dateFormat = "M"
+                monthFormatter.timeZone = NSTimeZone.local
+                let monthString = monthFormatter.string(from: calendar.currentPage)
+                
+                let yearFormatter = DateFormatter()
+                yearFormatter.dateFormat = "YYYY"
+                yearFormatter.timeZone = NSTimeZone.local
+                let yearString = yearFormatter.string(from: calendar.currentPage)
+                
+                
+                self.getAthorEventsCountApiCall(monthString,yearString)
+                
+                
+            }
+        }
+        
+    }
+    
+
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return UITableViewAutomaticDimension
+//        
+//    }
+//    
+    
+    
+    
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        
+//        let autherIdMonthYearList:AuthorEventsListResultInfoVO = self.authorDetailsArray[indexPath.row]
+//        
+//        //  }
+//        //  let authorDetails = authorDetailsArray[indexPath.row]
+//        
+//        //  if(authorDetailsArray.count > 0){
+//        
+//        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
+//        
+//        if(self.authorDetailsArray.count > indexPath.row ){
+//            
+//            
+//            cell.churchName.text = "Church Name".localize() + " " + autherIdMonthYearList.churchName!
+//            
+//            cell.eventTitle.text = autherIdMonthYearList.title
+//            
+//            cell.contactNumber.text =  "Church Name".localize() + " " + autherIdMonthYearList.co!
+//            
+//            cell.eventStartEndDate.text = "From :".localize() + String(describing: authorDetails.startDate!) + " " + "To :".localize() + String(describing: authorDetails.endDate!)
+//            
+//            
+//            return cell
+//        }
+//        
+//        
+//        self.authorEventsTableView.reloadData()
+//        
+//        return UITableViewCell()
+//        
+//    }
+    
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        let authorDetails = authorDetailsArray[indexPath.row]
+        
+        if(authorDetailsArray.count > 0){
+            
+
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AdminMonthEventListCell", for: indexPath) as! AdminMonthEventListCell
+            
+            
+            cell.churchName.text = authorDetails.churchName!
+            
+            cell.eventName.text = authorDetails.title
+            
+        //    cell.eventAddress.text =  authorDetails.e!
+            
+            cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.startDate!))
+            cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
+
+         //   cell.toDate.text =  String(describing: authorDetails.endDate!)
+            return cell
+            }
+    
+        
+        self.authorEventsTableView.reloadData()
+        
+       return UITableViewCell()
+    
+            }
+    
+    
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
     func returnDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""
         if(selectedDateString != ""){
@@ -305,68 +493,5 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         return newDateStr
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-  
-        
-        return self.authorDetailsArray.count
-        
-    
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-
-    return 125
-       
-
-        
-    }
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return UITableViewAutomaticDimension
-//        
-//    }
-//    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        let authorDetails = authorDetailsArray[indexPath.row]
-        
-        if(authorDetailsArray.count > 0){
-            
-
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
-            
-            
-            cell.churchName.text = "Church Name :" + " " + authorDetails.churchName!
-            
-            cell.eventTitle.text = authorDetails.title
-            
-            cell.contactNumber.text =  "Church Name :" + " " + authorDetails.churchName!
-            
-            cell.eventStartEndDate.text = "From :" + String(describing: authorDetails.startDate!) + " " + "To :" + String(describing: authorDetails.endDate!)
-            
-                
-            return cell
-            }
-    
-        
-        self.authorEventsTableView.reloadData()
-        
-       return UITableViewCell()
-    
-            }
-    
-    
-    
 
 }

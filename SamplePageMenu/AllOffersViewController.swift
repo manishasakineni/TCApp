@@ -31,7 +31,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var appVersion          : String = ""
     
     var showNav = false
-    
+    var videoIDNameArr = ""
+
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
     // var embedLinksAry : Array<String> = Array()
@@ -122,10 +123,10 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         print(showNav)
         
-        self.navigationController?.navigationBar.isHidden = false
+     //   self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible apps", backTitle: "Bible apps", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " \(videoIDNameArr)", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         

@@ -68,7 +68,7 @@ class AudioViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isPaused = false
-        playButton.setImage(UIImage(named:"pause"), for: .normal)
+        playButton.setImage(UIImage(named:"puseImage"), for: .normal)
         self.playList.add(audioIDArr)
        // self.playList.add("https://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3")
        // self.playList.add("https://ia801409.us.archive.org/12/items/1HourThunderstorm/1HrThunderstorm.mp3")
@@ -96,11 +96,11 @@ class AudioViewController: UIViewController {
     @available(iOS 10.0, *)
     func togglePlayPause() {
         if avPlayer.timeControlStatus == .playing  {
-            playButton.setImage(UIImage(named:"play"), for: .normal)
+            playButton.setImage(UIImage(named:"playImage"), for: .normal)
             avPlayer.pause()
             isPaused = true
         } else {
-            playButton.setImage(UIImage(named:"pause"), for: .normal)
+            playButton.setImage(UIImage(named:"puseImage"), for: .normal)
             avPlayer.play()
             isPaused = false
         }

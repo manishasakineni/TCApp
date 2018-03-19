@@ -947,7 +947,7 @@
                                             <constraint firstAttribute="height" constant="25" id="vt7-kb-ITX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" image="prev">
+                                        <state key="normal" image="preveee">
                                             <color key="titleColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -960,7 +960,7 @@
                                             <constraint firstAttribute="height" constant="25" id="2Pi-Pg-Nk0"/>
                                             <constraint firstAttribute="width" constant="25" id="rWo-gi-nQk"/>
                                         </constraints>
-                                        <state key="normal" title="Next" image="next"/>
+                                        <state key="normal" title="Next" image="nextImage"/>
                                         <connections>
                                             <action selector="nextButtonClicked:" destination="MFD-oM-AZt" eventType="touchUpInside" id="lFK-zf-zR5"/>
                                         </connections>
@@ -972,7 +972,7 @@
                                             <constraint firstAttribute="height" constant="25" id="WKD-lI-pdZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" image="play"/>
+                                        <state key="normal" image="playImage"/>
                                         <connections>
                                             <action selector="playButtonClicked:" destination="MFD-oM-AZt" eventType="touchUpInside" id="xN2-8d-JR0"/>
                                         </connections>
@@ -1439,9 +1439,9 @@
         <image name="calvary_cross" width="400" height="400"/>
         <image name="icons8-visible" width="25" height="25"/>
         <image name="musimage" width="1200" height="1200"/>
-        <image name="next" width="100" height="100"/>
-        <image name="play" width="144" height="144"/>
-        <image name="prev" width="100" height="100"/>
+        <image name="nextImage" width="1024" height="1024"/>
+        <image name="playImage" width="626" height="626"/>
+        <image name="preveee" width="626" height="626"/>
         <image name="sidemenu" width="25" height="25"/>
     </resources>
 </document>
