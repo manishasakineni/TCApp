@@ -603,41 +603,76 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         else if (fileExtension == ".mp3") {
             
+            
+            
+        //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
+            
+            print(postImgUrl)
+
+             let audioUrlImage =  postImgUrl
+       print(audioUrlImage)
+            
+            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+           
+            print(newString)
+
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.collectionImgView.image = UIImage(data: dataImg!)
+                }
+                else {
+                    
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                }
+            }
+            else {
+                
+                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+            }
+            
 //            let audioArr:audioRessultVo = audioArray[indexPath.row]
             
-            
-                        if let embededUrlImage =  postImgUrl {
-            
-                            let thumbnillImage : String = embededUrlImage
-            
-            
-                            audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-            
-                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
-            
-                            let videothumb = URL(string: self.thumbnailImageURL)
-            
-                            if videothumb != nil{
-            
-                                let request = URLRequest(url: videothumb!)
-            
-                                let session = URLSession.shared
-            
-                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-            
-                                    DispatchQueue.main.async()
-                                        {
-            
-                                            cell.collectionImgView.image = UIImage(data: data!)
-                                            
-                                    }
-                                    
-                                })
-                                
-                                dataTask.resume()
-                                
-                            }
-                        }
+//            
+//                        if let embededUrlImage =  postImgUrl {
+//            
+//                            let thumbnillImage : String = embededUrlImage
+//            
+//            
+//                            audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+//            
+//                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
+//            
+//                            let videothumb = URL(string: self.thumbnailImageURL)
+//            
+//                            if videothumb != nil{
+//            
+//                                let request = URLRequest(url: videothumb!)
+//            
+//                                let session = URLSession.shared
+//            
+//                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//            
+//                                    DispatchQueue.main.async()
+//                                        {
+//            
+//                                            cell.collectionImgView.image = UIImage(data: data!)
+//                                            
+//                                    }
+//                                    
+//                                })
+//                                
+//                                dataTask.resume()
+//                                
+//                            }
+//                        }
             
         }
         else if fileExtension == ".mp4" {
@@ -748,6 +783,49 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
         else if (fileExtension == ".mp3") {
             
+            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+
+            
+            print(postImgUrl)
+            
+            let audioUrlImage =  postImgUrl
+            print(audioUrlImage)
+            
+            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            print(newString)
+            
+            
+            if newString != nil {
+                
+              //  let url = URL(string:newString!)
+                
+                
+                //let dataImg = try? Data(contentsOf: url!)
+                
+               // if dataImg != nil {
+                    
+                    let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
+                    
+                    audioViewController.audioIDArr = newString!
+                   audioViewController.audioIDNameArr = title!
+                    self.navigationController?.pushViewController(audioViewController, animated: true)
+                    
+              //  }
+//                else {
+//                    
+//                //    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//                }
+            }
+            else {
+                
+             //   cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+            }
+
+            
+            
+            
            print("audio")
             
         }
@@ -780,6 +858,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                             let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
                                             
                                             videosView.videoIDArray = self.audioIDArray
+                                            
                                             
                                             self.navigationController?.pushViewController(videosView, animated: true)
                                     }

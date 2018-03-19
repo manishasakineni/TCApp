@@ -172,6 +172,7 @@
 		CB1E30C220343F23009FB001 /* lang-te.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C120343F23009FB001 /* lang-te.json */; };
 		CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C320344131009FB001 /* lang-en-DE.json */; };
 		CB1E30C62034416D009FB001 /* lang-en.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C52034416D009FB001 /* lang-en.json */; };
+		CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F74CA205F7D6200FDEE8D /* AudioViewController.swift */; };
 		CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2045CC2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift */; };
 		CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2045CE2056A2970032E71D /* AllEventsViewController.swift */; };
 		CB2045D12056A2970032E71D /* AllEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2045CF2056A2970032E71D /* AllEventsViewController.xib */; };
@@ -417,6 +418,7 @@
 		CB1E30C120343F23009FB001 /* lang-te.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-te.json"; sourceTree = "<group>"; };
 		CB1E30C320344131009FB001 /* lang-en-DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-en-DE.json"; sourceTree = "<group>"; };
 		CB1E30C52034416D009FB001 /* lang-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-en.json"; sourceTree = "<group>"; };
+		CB1F74CA205F7D6200FDEE8D /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		CB2045CC2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventsAndUpComingEventsViewController.swift; sourceTree = "<group>"; };
 		CB2045CE2056A2970032E71D /* AllEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		CB2045CF2056A2970032E71D /* AllEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventsViewController.xib; sourceTree = "<group>"; };
@@ -787,6 +789,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB1F74CC205F7D7600FDEE8D /* AudioSongsViewController */,
 				CB3794E020595568002D3638 /* VideoSongsViewController */,
 				CB2045D22056A3720032E71D /* AllAndUpComingEventsViewController */,
 				CB4B20F22047D08B00402E59 /* CategoriesHomeViewController */,
@@ -1111,6 +1114,14 @@
 				CB03C8E0203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift */,
 			);
 			name = GetEventByUserIdMonthYear;
+			sourceTree = "<group>";
+		};
+		CB1F74CC205F7D7600FDEE8D /* AudioSongsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB1F74CA205F7D6200FDEE8D /* AudioViewController.swift */,
+			);
+			name = AudioSongsViewController;
 			sourceTree = "<group>";
 		};
 		CB2045D22056A3720032E71D /* AllAndUpComingEventsViewController */ = {
@@ -1619,6 +1630,7 @@
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
+				CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */,
 				CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
