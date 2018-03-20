@@ -714,6 +714,14 @@
 			name = EventDetailsVO;
 			sourceTree = "<group>";
 		};
+		3DD30F63205FF0190076B0DB /* EventDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */,
+			);
+			name = EventDetailsViewController;
+			sourceTree = "<group>";
+		};
 		3DDD89122018662100918711 /* SignUpCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,7 +832,7 @@
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
 				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
-				3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */,
+				3DD30F63205FF0190076B0DB /* EventDetailsViewController */,
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
 			);

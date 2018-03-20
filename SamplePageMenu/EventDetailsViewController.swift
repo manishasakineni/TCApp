@@ -96,7 +96,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return 7
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,6 +115,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -127,8 +134,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
         
-        headImgTableViewCell.churchNameLabel.isHidden  = true
-        
+        headImgTableViewCell.churchNameLabel.text = eventList.title
         
         
         return headImgTableViewCell
@@ -139,16 +145,65 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let informationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
+            if indexPath.row == 1 {
             
-            informationTableViewCell.infoLabel.text = "Author Name".localize()
+                informationTableViewCell.infoLabel.text = "Contact Name"
+                
+                informationTableViewCell.addressLabel.text =  eventList.churchName
             
-           informationTableViewCell.addressLabel.text =  eventList.churchName
-        
-        return informationTableViewCell
-    }
+            }
+            
+            if indexPath.row == 2 {
+                
+                informationTableViewCell.infoLabel.text = "Registration Number"
+                
+                informationTableViewCell.addressLabel.text =  eventList.registrationNumber
+                
+            }
+            
+            if indexPath.row == 3 {
+                
+                informationTableViewCell.infoLabel.text = "Event Name"
+                
+                informationTableViewCell.addressLabel.text =  eventList.title
+                
+            }
+            
+            if indexPath.row == 4 {
+                
+                informationTableViewCell.infoLabel.text = "Contact Number"
+                
+                informationTableViewCell.addressLabel.text =  eventList.contactNumber
+                
+            }
 
+            
+            if indexPath.row == 5 {
+                
+                informationTableViewCell.infoLabel.text = "Start Date"
+                
+                informationTableViewCell.addressLabel.text =  eventList.startDate! + "reeyrut iuyiuyiuyiu  iiiuoiuoi  uoiuj "
+
+            }
+            
+            if indexPath.row == 6 {
+                
+                informationTableViewCell.infoLabel.text = "End Date"
+                
+                informationTableViewCell.addressLabel.text =  eventList.endDate! + "reeyrut iuyiuyiuyiu  iiiuoiuoi  uoiuj "
+                
+                
+            }
+            
+            return informationTableViewCell
+        }
+            
         }
         
+        
         return UITableViewCell()
+        
     }
+
+    
 }

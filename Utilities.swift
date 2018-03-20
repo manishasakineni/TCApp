@@ -17,7 +17,7 @@ class Utilities: NSObject {
     static let sharedInstance : Utilities = Utilities()
     
     //MARK: - APP Color
-    static let appColor: UIColor = #colorLiteral(red: 0, green: 0.737254902, blue: 0.831372549, alpha: 1)
+    static let appColor: UIColor = #colorLiteral(red: 0, green: 0.7058823529, blue: 0.831372549, alpha: 1)
     
     static let appFontSize : UIFont = UIFont (name: "Helvetica Neue", size: 30)!
     
