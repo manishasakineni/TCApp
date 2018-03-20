@@ -488,12 +488,17 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
-        let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
-        
-        let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
-        
-        
-        cell.categorieName.text = mediaTypeName
+        if indexPath.row  > self.imagesArrayTag.count {
+            
+            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
+            
+            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+            
+            
+            cell.categorieName.text = mediaTypeName
+            
+
+        }
         
         
         

@@ -32,6 +32,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     var showNav = false
     var videoIDNameArr = ""
+    var categoryName = ""
+
+    
 
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
@@ -46,7 +49,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var gggg = String()
     
     var thumbnailImageURL = String()
-    
+    let sectionTitleArray = ["","Comments"]
     let imageView = ["bible1","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible7","bible6"]
     
     
@@ -206,8 +209,23 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         
         
-        let nibName1  = UINib(nibName: "VideoTableViewCell" , bundle: nil)
-        allOffersTableView.register(nibName1, forCellReuseIdentifier: "VideoTableViewCell")
+//        
+//        let nibName1  = UINib(nibName: "VideoTableViewCell" , bundle: nil)
+//        allOffersTableView.register(nibName1, forCellReuseIdentifier: "VideoTableViewCell")
+//        
+        
+        let nibName1  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
+        allOffersTableView.register(nibName1, forCellReuseIdentifier: "youtubeCLDSSCell")
+        
+        
+        let nibName2  = UINib(nibName: "SubscribCell" , bundle: nil)
+        allOffersTableView.register(nibName2, forCellReuseIdentifier: "SubscribCell")
+        
+        let nibName3  = UINib(nibName: "CommentsCell" , bundle: nil)
+        allOffersTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
+        
+
+        
         
     }
     
@@ -215,13 +233,19 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 1
+        return sectionTitleArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        return self.embedLinksAry.count
+        if section == 0 {
+            
+            return 2
+        }
+       // return self.embedLinksAry.count
+        return 1
+
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -237,101 +261,126 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        
-        let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
-        
-        let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-        
-        //        allOffersCell.label.text = churchNameAry[indexPath.row]
-        //
-        //        let str : String = self.embedLinksAry[indexPath.row]
-        //
-        //
-        //        videoIDArray = str.components(separatedBy: "=")
-        
-        //        let name    = videoIDArray[0]
-        //        let surname = videoIDArray[1]
-        
-        
-        
-        
-        if let title =  churchIdMonthYearList.title {
-            allOffersCell.label.text = "Church Name:" + " " + title
-        }else{
-            allOffersCell.label.text = "church Name:"
-        }
-        
-        if let embedLink =  churchIdMonthYearList.embededUrl {
-            let str : String = embedLink
+        if indexPath.section == 0 {
+            
+           if indexPath.row == 0 {
+            let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
             
-            videoIDArray = str.components(separatedBy: "embed/")
+            youtubeCLDSSCell.videoTitleName.text = categoryName
+            youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
+
+            return youtubeCLDSSCell
+           }else{
             
-            allOffersCell.label.text = "Video Name:" + " " + videoIDArray[1]
-        }else{
-            allOffersCell.label.text = "Video Name:"
-        }
-        //  print(videoIDArray[1])
-        
-        if let embededUrlImage =  churchIdMonthYearList.embededUrl {
-            
-            let thumbnillImage : String = embededUrlImage
+            let subscribCell = tableView.dequeueReusableCell(withIdentifier: "SubscribCell", for: indexPath) as! SubscribCell
             
             
-            videoIDArray = thumbnillImage.components(separatedBy: "embed/")
-            
-            self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
-            
-            let videothumb = URL(string: self.thumbnailImageURL)
-            
-            if videothumb != nil{
-                
-                let request = URLRequest(url: videothumb!)
-                
-                let session = URLSession.shared
-                
-                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                    
-                    DispatchQueue.main.async()
-                        {
-                            
-                            allOffersCell.thumbnailImageView.image = UIImage(data: data!)
-                            
-                    }
-                    
-                })
-                
-                dataTask.resume()
-                
+            subscribCell.subscribnameLbl.text = "Click Subscrib Button"
+                      return subscribCell
             }
-        }else{
-            
         }
+         let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+        
+        
+      //  commentsCell.videoTitleName.text = "Comments"
+       //
+//      //  let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
+//        
+//        let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
+//        
+//        //        allOffersCell.label.text = churchNameAry[indexPath.row]
+//        //
+//        //        let str : String = self.embedLinksAry[indexPath.row]
+//        //
+//        //
+//        //        videoIDArray = str.components(separatedBy: "=")
+//        
+//        //        let name    = videoIDArray[0]
+//        //        let surname = videoIDArray[1]
+//        
+//        
+//        
+//        
+//        if let title =  churchIdMonthYearList.title {
+//            allOffersCell.label.text = "Church Name:" + " " + title
+//        }else{
+//            allOffersCell.label.text = "church Name:"
+//        }
+//        
+//        if let embedLink =  churchIdMonthYearList.embededUrl {
+//            let str : String = embedLink
+//            
+//            
+//            videoIDArray = str.components(separatedBy: "embed/")
+//            
+//            allOffersCell.label.text = "Video Name:" + " " + videoIDArray[1]
+//        }else{
+//            allOffersCell.label.text = "Video Name:"
+//        }
+//        //  print(videoIDArray[1])
+//        
+//        if let embededUrlImage =  churchIdMonthYearList.embededUrl {
+//            
+//            let thumbnillImage : String = embededUrlImage
+//            
+//            
+//            videoIDArray = thumbnillImage.components(separatedBy: "embed/")
+//            
+//            self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
+//            
+//            let videothumb = URL(string: self.thumbnailImageURL)
+//            
+//            if videothumb != nil{
+//                
+//                let request = URLRequest(url: videothumb!)
+//                
+//                let session = URLSession.shared
+//                
+//                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//                    
+//                    DispatchQueue.main.async()
+//                        {
+//                            
+//                            allOffersCell.thumbnailImageView.image = UIImage(data: data!)
+//                            
+//                    }
+//                    
+//                })
+//                
+//                dataTask.resume()
+//                
+//            }
+//        }else{
+//            
+//        }
+//        
         
         
         
         
-        
-        return allOffersCell
+        return commentsCell
         
     }
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
-        
-        
-        
-        
-        let embedLink =  churchIdMonthYearList.embededUrl
-        let str : String = embedLink!
-        videoIDArray = str.components(separatedBy: "embed/")
-        
-        self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
-        
+//        
+//        
+//        let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
+//        
+//        
+//        
+//        
+//        let embedLink =  churchIdMonthYearList.embededUrl
+//        let str : String = embedLink!
+//        videoIDArray = str.components(separatedBy: "embed/")
+//        
+//        self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
+//        
         //
         //        if let embededUrl =  churchIdMonthYearList.embededUrl {
         //
@@ -437,5 +486,46 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 
 
     
+    func  likeButtonClick(_ sendre:UIButton) {
+        
+      print("Like Clicked.............")
+    }
+    func  unLikeButtonClick(_ sendre:UIButton) {
+        
+        print("UnLike Clicked.............")
+    }
+    func  shareButtonClick(_ sendre:UIButton) {
+        
+        print("Share Clicked.............")
+    }
 
+}
+
+extension UIView {
+    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
+        border.superlayer?.cornerRadius = 15
+        self.layer.addSublayer(border)
+    }
+    func addRightBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+    func addLeftBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+    func addTopBorderWithClr(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: width)
+        self.layer.addSublayer(border)
+    }
+    
 }

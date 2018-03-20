@@ -172,6 +172,12 @@
 		CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */; };
 		CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */; };
 		CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */; };
+		CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92420613B9F00007D9C /* CommentsCell.swift */; };
+		CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92520613B9F00007D9C /* CommentsCell.xib */; };
+		CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92820613BAA00007D9C /* SubscribCell.swift */; };
+		CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92920613BAA00007D9C /* SubscribCell.xib */; };
+		CB19E92E20613BBA00007D9C /* youtubeCLDSSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */; };
+		CB19E92F20613BBA00007D9C /* youtubeCLDSSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */; };
 		CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BD203425EE009FB001 /* Localize.framework */; };
 		CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */; };
 		CB1E30C220343F23009FB001 /* lang-te.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C120343F23009FB001 /* lang-te.json */; };
@@ -423,6 +429,12 @@
 		CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadImgTableViewCell.xib; sourceTree = "<group>"; };
 		CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordResult.swift; sourceTree = "<group>"; };
 		CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSWMessageTypeResult.swift; sourceTree = "<group>"; };
+		CB19E92420613B9F00007D9C /* CommentsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		CB19E92520613B9F00007D9C /* CommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
+		CB19E92820613BAA00007D9C /* SubscribCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribCell.swift; sourceTree = "<group>"; };
+		CB19E92920613BAA00007D9C /* SubscribCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribCell.xib; sourceTree = "<group>"; };
+		CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = youtubeCLDSSCell.swift; sourceTree = "<group>"; };
+		CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeCLDSSCell.xib; sourceTree = "<group>"; };
 		CB1E30BD203425EE009FB001 /* Localize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Localize.framework; path = "../../Library/Developer/Xcode/DerivedData/Telugu_Churches-ehialcnkpmttdzfzlawdvzxzpmib/Build/Products/Debug-iphonesimulator/Localize/Localize.framework"; sourceTree = "<group>"; };
 		CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB1E30C120343F23009FB001 /* lang-te.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-te.json"; sourceTree = "<group>"; };
@@ -860,6 +872,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */,
 				CB03596D205FBBD4008FD878 /* AdminMonthEventListCell */,
 				3D61F3F2205AB5290022C117 /* HeadImgTableViewCell */,
 				3D61F3F3205AB5350022C117 /* InformationTableViewCell */,
@@ -1155,6 +1168,43 @@
 			name = GetEventByUserIdMonthYear;
 			sourceTree = "<group>";
 		};
+		CB19E93020613C1500007D9C /* CommentsCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB19E92420613B9F00007D9C /* CommentsCell.swift */,
+				CB19E92520613B9F00007D9C /* CommentsCell.xib */,
+			);
+			name = CommentsCell;
+			sourceTree = "<group>";
+		};
+		CB19E93120613C1F00007D9C /* SubscribCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB19E92820613BAA00007D9C /* SubscribCell.swift */,
+				CB19E92920613BAA00007D9C /* SubscribCell.xib */,
+			);
+			name = SubscribCell;
+			sourceTree = "<group>";
+		};
+		CB19E93220613C2900007D9C /* youtubeCLDSSCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */,
+				CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */,
+			);
+			name = youtubeCLDSSCell;
+			sourceTree = "<group>";
+		};
+		CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */ = {
+			isa = PBXGroup;
+			children = (
+				CB19E93020613C1500007D9C /* CommentsCell */,
+				CB19E93120613C1F00007D9C /* SubscribCell */,
+				CB19E93220613C2900007D9C /* youtubeCLDSSCell */,
+			);
+			name = YouTubeFunctionalCells;
+			sourceTree = "<group>";
+		};
 		CB1F74CC205F7D7600FDEE8D /* AudioSongsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1446,6 +1496,7 @@
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
+				CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */,
 				CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */,
 				CB3794EB20595870002D3638 /* homeCategoriesCollectionCell.xib in Resources */,
 				CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */,
@@ -1470,8 +1521,10 @@
 				CBC1FB812052DBA6000063D4 /* AllEventHeaderCell.xib in Resources */,
 				CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */,
 				3D5404F62058045A008257A6 /* AuthorInfoViewController.xib in Resources */,
+				CB19E92F20613BBA00007D9C /* youtubeCLDSSCell.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
 				CB4B20FD2047D2F000402E59 /* CategorieCollectionViewCell.xib in Resources */,
+				CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */,
 				CB1E30C220343F23009FB001 /* lang-te.json in Resources */,
 				CB2045D12056A2970032E71D /* AllEventsViewController.xib in Resources */,
 				CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */,
@@ -1581,6 +1634,7 @@
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
+				CB19E92E20613BBA00007D9C /* youtubeCLDSSCell.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
 				CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */,
@@ -1714,6 +1768,7 @@
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
 				CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */,
+				CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
@@ -1730,6 +1785,7 @@
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */,
 				CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */,
+				CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
