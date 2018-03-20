@@ -125,21 +125,23 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         
         Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-        if bibleInt == 10 {
-            
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-            
-        }
-        if bibleInt == 11 {
-            
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories".localize(), backTitle: " Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-            
-        }
-        if bibleInt == 12 {
-            
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: " Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-            
-        }
+//        if bibleInt == 10 {
+//            
+//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+//            
+//        }
+//        if bibleInt == 11 {
+//            
+//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories".localize(), backTitle: " Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+//            
+//        }
+//        if bibleInt == 12 {
+//            
+//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: " Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+//            
+//        }
+        
+        
     }
     //MARK: -  Get All Categories API Call
     
@@ -492,10 +494,10 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         
          self.navigationController?.popViewController(animated: true)
         
-        //   navigationItem.leftBarButtonItems = []
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
+           navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
         
         
         print("Back Button Clicked......")

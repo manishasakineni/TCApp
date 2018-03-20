@@ -107,7 +107,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var bannerImageArr = Array<UIImage>()
     
     var upComingEventsArray:[UpcomingEventsResultVO] = Array<UpcomingEventsResultVO>()
-    
+    var vedioEventsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
+
     var eventsImages = ""
     
     
@@ -1114,10 +1115,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView.tag == 0{
             
             let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
+   
         
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
             
             eventDetailsViewController.eventID = eventList.id!
+            
+
             
             self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
         
