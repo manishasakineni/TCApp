@@ -182,7 +182,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if activeTextField.tag == 6{
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             textField.isSecureTextEntry = true
@@ -191,7 +191,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if activeTextField.tag == 7{
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             textField.isSecureTextEntry = true

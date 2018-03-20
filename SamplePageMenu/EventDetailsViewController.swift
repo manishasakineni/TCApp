@@ -272,7 +272,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         else {
         
         
-        return 120
+        return 150 
         
         }
     
@@ -343,7 +343,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 informationTableViewCell.infoLabel.text = "Start Date"
                 
-                informationTableViewCell.addressLabel.text =  eventList.startDate!             }
+                informationTableViewCell.addressLabel.text =  eventList.startDate!
+            }
             
             if indexPath.row == 6 {
                 
