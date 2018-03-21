@@ -285,7 +285,6 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
          let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         
         
-      //  commentsCell.videoTitleName.text = "Comments"
        //
 //      //  let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
 //        

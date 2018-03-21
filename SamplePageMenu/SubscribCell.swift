@@ -10,6 +10,7 @@ import UIKit
 
 class SubscribCell: UITableViewCell {
 
+    @IBOutlet weak var backGroundView: UIView!
     
     @IBOutlet weak var subscribImageView: UIImageView!
     
@@ -20,6 +21,18 @@ class SubscribCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
+        subscribImageView.layer.borderWidth = 1
+        subscribImageView.layer.masksToBounds = false
+        subscribImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        subscribImageView.layer.cornerRadius = subscribImageView.frame.height/2
+        subscribImageView.clipsToBounds = true
+        
+        
+        backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
+
         // Initialization code
     }
 
