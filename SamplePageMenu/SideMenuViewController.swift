@@ -23,7 +23,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
 
     
-    let imageView = ["EditProfile","ChangePSW","Subscriptions","Seminor","event","Seminor","LogOutlightGray"]
+    let imageView = ["EditProfile","ChangePSW","Subscriptions","Seminor","event","Seminor","Seminor","LogOutlightGray"]
     
 
     
@@ -55,7 +55,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible","LogOut".localize()]
 
         
       //  menuTableView.reloadData()
@@ -319,6 +319,20 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             // }
+        }
+            
+        else  if cell.menuNameLabel.text == "Holy Bible" {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleBooksViewController") as! BibleBooksViewController
+            
+            booksController.showNav = true
+            
+            let newController = UINavigationController.init(rootViewController:booksController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
         }
         else  if cell.menuNameLabel.text == "LogOut".localize() {
           

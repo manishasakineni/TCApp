@@ -119,6 +119,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         self.getAllCategoriesAPICall()
         
+        
         searchBar = UISearchBar()
         searchBar.sizeToFit()
         
@@ -210,6 +211,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
     }
+    
+    
     
     func bannerImageScrollAPICall(){
         

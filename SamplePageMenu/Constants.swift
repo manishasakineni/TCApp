@@ -11,14 +11,14 @@ import Foundation
 
  // MARK: -  API's
 
-let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
+let videosURL = "http://192.168.1.197/TeluguChurchesApi/api/GetEmbedLinks/"
 
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
 
 // constants
 
-var BASEURL:String = "http://192.168.1.132/TeluguChurches/"
+var BASEURL:String = "http://192.168.1.197/TeluguChurches/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -53,6 +53,8 @@ let GETAUTHOREVENTSBYMONTHYEAR : String = BASEURL.appending("api/Events/GetEvent
 let GETAUTHOREVENTSCOUNTBYMONTH : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
 
 let GETEVENTDETAILSBYID : String = BASEURL.appending("api/Events/GetEventById/")
+
+let BIBLEAPIURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/English/bible.json"
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

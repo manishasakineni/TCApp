@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1057,6 +1057,72 @@
             </objects>
             <point key="canvasLocation" x="7556" y="1028.6356821589206"/>
         </scene>
+        <!--Bible Books View Controller-->
+        <scene sceneID="kil-of-Zmx">
+            <objects>
+                <viewController storyboardIdentifier="BibleBooksViewController" id="J8r-sG-q1D" customClass="BibleBooksViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CWW-AC-wGc"/>
+                        <viewControllerLayoutGuide type="bottom" id="O6L-J3-YQv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BbH-TV-xiX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkT-eQ-vTr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bkT-eQ-vTr" firstAttribute="top" secondItem="BbH-TV-xiX" secondAttribute="top" id="JlW-EQ-iMw"/>
+                            <constraint firstItem="O6L-J3-YQv" firstAttribute="top" secondItem="bkT-eQ-vTr" secondAttribute="bottom" id="bri-ld-LJA"/>
+                            <constraint firstAttribute="trailing" secondItem="bkT-eQ-vTr" secondAttribute="trailing" id="mGI-zC-Ibv"/>
+                            <constraint firstItem="bkT-eQ-vTr" firstAttribute="leading" secondItem="BbH-TV-xiX" secondAttribute="leading" id="mVV-7E-m93"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="booksTableView" destination="bkT-eQ-vTr" id="Pl6-GG-ueJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDi-iJ-hRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8208.7999999999993" y="1028.6356821589206"/>
+        </scene>
+        <!--Bible Chapters View Controller-->
+        <scene sceneID="wOH-Tl-gQK">
+            <objects>
+                <viewController storyboardIdentifier="BibleChaptersViewController" id="RUC-I2-NbF" customClass="BibleChaptersViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SJ4-7i-Lc8"/>
+                        <viewControllerLayoutGuide type="bottom" id="D8l-uZ-qXD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="div-0g-O9s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-CQ-Tk5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b1d-CQ-Tk5" firstAttribute="leading" secondItem="div-0g-O9s" secondAttribute="leading" id="Enx-QP-CTl"/>
+                            <constraint firstItem="b1d-CQ-Tk5" firstAttribute="top" secondItem="div-0g-O9s" secondAttribute="top" id="Lyh-jo-gzw"/>
+                            <constraint firstAttribute="trailing" secondItem="b1d-CQ-Tk5" secondAttribute="trailing" id="Lzi-ja-kVV"/>
+                            <constraint firstItem="D8l-uZ-qXD" firstAttribute="top" secondItem="b1d-CQ-Tk5" secondAttribute="bottom" id="rTP-Qb-i6Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chaptersTableView" destination="b1d-CQ-Tk5" id="J4W-Bv-UYp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBB-TT-CyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8882" y="1029"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">
             <objects>
@@ -1464,6 +1530,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zs-X2-jGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328.80000000000001" y="-23.838080959520241"/>
+        </scene>
+        <!--Bible Verse View Controller-->
+        <scene sceneID="aIk-61-Uff">
+            <objects>
+                <viewController storyboardIdentifier="BibleVerseViewController" id="PMz-fO-O50" customClass="BibleVerseViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ce5-A6-7Bi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lv2-K0-GIB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bN-18-6cK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHc-cw-oTg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lv2-K0-GIB" firstAttribute="top" secondItem="AHc-cw-oTg" secondAttribute="bottom" id="649-NK-Zwy"/>
+                            <constraint firstItem="AHc-cw-oTg" firstAttribute="leading" secondItem="7bN-18-6cK" secondAttribute="leading" id="Ver-PI-Lbz"/>
+                            <constraint firstItem="AHc-cw-oTg" firstAttribute="top" secondItem="7bN-18-6cK" secondAttribute="top" id="mvI-Jb-Xtb"/>
+                            <constraint firstAttribute="trailing" secondItem="AHc-cw-oTg" secondAttribute="trailing" id="sYK-2c-qS0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="verseTableView" destination="AHc-cw-oTg" id="APR-cI-GN5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yk-Zq-mIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9570" y="1029"/>
         </scene>
     </scenes>
     <resources>
