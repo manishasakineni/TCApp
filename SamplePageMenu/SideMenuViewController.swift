@@ -321,7 +321,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             // }
         }
             
-        else  if cell.menuNameLabel.text == "Holy Bible" {
+        else  if cell.menuNameLabel.text == "Holy Bible".localize() {
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

@@ -167,6 +167,7 @@
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
 		AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */; };
 		AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */; };
+		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
 		CB0256B2202430750017E240 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B1202430750017E240 /* SettingViewController.swift */; };
 		CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */; };
 		CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */; };
@@ -437,6 +438,7 @@
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuNameTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuNameTableViewCell.xib; sourceTree = "<group>"; };
+		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		CB0256B1202430750017E240 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -856,6 +858,7 @@
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
+				AF69371F2063C40D00353909 /* MainIpad.storyboard */,
 				3D551C5E2011F462005DB3B2 /* Constants.swift */,
 				9A623B862021A56400A674F2 /* Utilities */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
@@ -1553,6 +1556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
 				3D41C7FE2063C1160086BEE7 /* BibleVerseTableViewCell.xib in Resources */,

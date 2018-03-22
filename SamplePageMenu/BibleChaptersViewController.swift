@@ -58,14 +58,16 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+        override func viewWillAppear(_ animated: Bool) {
+    
+            //   super.viewWillAppear(animated)
+    
+    
+            Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Chapters".localize(), backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+    
+        }
         
-        //   super.viewWillAppear(animated)
-        
-        
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Chapters", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
-    }
+    
 
     
 

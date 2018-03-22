@@ -656,24 +656,28 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             errorMessage=GlobalSupportingClass.blankPswdErrorMessage() as String as String as NSString?
         }
+            
+            
         else if(!GlobalSupportingClass.capitalOnly(password: passWord as String)) {
             
-            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.pswdnumberMessage() as String as String as NSString?
         }
-        else if(!GlobalSupportingClass.numberOnly(password: passWord as String)) {
+//        else if(!GlobalSupportingClass.numberOnly(password: passWord as String)) {
+//            
+//            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
+//        }
+//        else if(!GlobalSupportingClass.specialCharOnly(password: passWord as String)) {
+//
+//            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
+//        }
+//        else if (passWord.length < 8) {
+//            
+//            alertTag = 6
+//
+//            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
+//        }
             
-            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
-        }
-        else if(!GlobalSupportingClass.specialCharOnly(password: passWord as String)) {
             
-            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
-        }
-        else if (passWord.length < 8) {
-            
-            alertTag = 6
-
-            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
-        }
         else if(confirmPassWord.length<=0){
             alertTag = 7
 

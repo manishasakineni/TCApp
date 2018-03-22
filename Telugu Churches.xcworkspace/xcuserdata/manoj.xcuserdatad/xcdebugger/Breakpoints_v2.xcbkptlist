@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/ProfileViewController.swift"
-            timestampString = "543317851.49296"
+            timestampString = "543409044.217486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1328"
-            endingLineNumber = "1328">
+            startingLineNumber = "1337"
+            endingLineNumber = "1337">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/ProfileViewController.swift"
-            timestampString = "543317851.49296"
+            timestampString = "543409044.217486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1371"
-            endingLineNumber = "1371">
+            startingLineNumber = "1380"
+            endingLineNumber = "1380">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -77,54 +77,6 @@
             endingLineNumber = "437"
             landmarkName = "setVideosViewControllerNavBarColorInCntrWithColor(backImage:cntr:titleView:withText:backTitle:rightImage:secondRightImage:thirdRightImage:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorInfoViewController.swift"
-            timestampString = "543332607.934499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "getAuthorDetailsAPICall()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AuthorInfoViewController.getAuthorDetailsAPICall () -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorInfoViewController.swift"
-                  timestampString = "543401154.0751081"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "219">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AuthorInfoViewController.(getAuthorDetailsAPICall () -&gt; ()).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorInfoViewController.swift"
-                  timestampString = "543401154.0782191"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

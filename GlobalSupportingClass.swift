@@ -112,6 +112,12 @@ class GlobalSupportingClass {
     //    }
     
     
+    class func pswdnumberMessage() -> String {
+        return "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters".localize()
+    }
+    
+    
+    
     class func numberMessage() -> String {
         return "Password must have at least one number".localize()
     }
