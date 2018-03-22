@@ -16,6 +16,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     
 //    var verseCountStr:Int = 0
     
+    var indexCount:Int = 0
     
     var appVersion:String = ""
 
@@ -24,6 +25,8 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     var bibleCArr = Array<Int>()
     
     var vDetailArray = Array<String>()
+    
+    var verseStringCount : Dictionary = Dictionary<String,Any>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +139,14 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         verseViewController.verseCountStr = self.verseCountStr[indexPath.row]
         
         verseViewController.versDetailArray = self.vDetailArray
+        
+        let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
+        
+        let capter = versesDict?["\(indexPath.row)"] as? [BibleResultVo]
+        
+        verseViewController.verseStringCount = capter!
+        
+        print(capter)
         
         self.navigationController?.pushViewController(verseViewController, animated: true)
         

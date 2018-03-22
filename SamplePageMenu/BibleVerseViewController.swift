@@ -24,6 +24,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     var versDetailArray = Array<String>()
     
     var verseCountStr:Int = 0
+    
+    var verseStringCount = Array<BibleResultVo>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
             
         }
         
+        print(verseStringCount.count)
 //        self.bibleBookAPICall()
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
@@ -63,7 +66,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        return bibleCArr.count
+        return verseStringCount.count
         
         
     }
@@ -98,11 +101,13 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         //        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         
-        //        let booksList = bibleChaptersArr[indexPath.row]
+                let booksList = self.verseStringCount[indexPath.row]
         
-        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
+        cell.bibleBookLabel.text = booksList.Verse
         
-        cell.chapterCountLabel.text = "\(bibleCArr[indexPath.row])"
+//        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
+//        
+//        cell.chapterCountLabel.text = "\(bibleCArr[indexPath.row])"
         
         
         cell.selectionStyle = .none
