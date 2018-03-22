@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542896314.774444"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "getEventByUserIdMonthYearAPIService(_monthStr:_yearStr:)"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
+            landmarkName = "commentSendBtnClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542896314.774444"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "calendar(_:didSelect:at:)"
+            startingLineNumber = "542"
+            endingLineNumber = "542"
+            landmarkName = "textViewShouldBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,44 +41,156 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "554"
+            endingLineNumber = "554"
+            landmarkName = "textViewDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
+            landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "580"
+            endingLineNumber = "580"
+            landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
+            landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "694"
+            endingLineNumber = "694"
+            landmarkName = "commentSendBtnClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/HomeViewController.swift"
+            timestampString = "543322704.66757"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "bannerImageScrollAPICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/HomeViewController.swift"
+            timestampString = "543322824.289771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "bannerImageScrollAPICall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/HomeViewController.swift"
+            timestampString = "543322825.601284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "bannerImageScrollAPICall()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AuthorEventsViewController.getAthorEventsCountApiCall (Swift.String, Swift.String) -&gt; ()"
+                  symbolName = "Telugu_Churches.HomeViewController.(bannerImageScrollAPICall () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/AuthorEventsViewController.swift"
-                  timestampString = "543156795.197073"
+                  urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/HomeViewController.swift"
+                  timestampString = "543335055.578319"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "214"
-                  endingLineNumber = "214"
-                  offsetFromSymbolStart = "3650">
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "1605">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AuthorEventsViewController.(getAthorEventsCountApiCall (Swift.String, Swift.String) -&gt; ()).(closure #1)"
+                  symbolName = "Telugu_Churches.HomeViewController.(bannerImageScrollAPICall () -&gt; ()).(closure #1).(closure #1).(implicit closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/AuthorEventsViewController.swift"
-                  timestampString = "543156795.1994669"
+                  urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/HomeViewController.swift"
+                  timestampString = "543335055.58113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "217"
-                  endingLineNumber = "217"
-                  offsetFromSymbolStart = "30">
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "18">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -89,13 +201,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/HomeViewController.swift"
+            timestampString = "543322827.5687979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "bannerImageScrollAPICall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543334897.520566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "629"
+            endingLineNumber = "629"
+            landmarkName = "likeButtonClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543335813.032882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "likeButtonClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,13 +265,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542901687.061264"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543334897.520566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "getAthorEventsCountApiCall(_:_:)"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,29 +281,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AuthorEventsViewController.swift"
-            timestampString = "542899771.531736"
+            filePath = "SamplePageMenu/AllOffersViewController.swift"
+            timestampString = "543334897.520566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "dateFormatter1"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900033.638588"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "calendar(_:subtitleFor:)"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,13 +297,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900785.504607"
+            filePath = "SamplePageMenu/VideoSongsViewController.swift"
+            timestampString = "543335021.802681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "calendarCurrentPageDidChange(_:)"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "getVideosAPICall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,13 +313,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900805.215062"
+            filePath = "SamplePageMenu/VideoSongsViewController.swift"
+            timestampString = "543335022.5947061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "calendar(_:boundingRectWillChange:animated:)"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "getVideosAPICall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -233,61 +329,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900805.9118069"
+            filePath = "SamplePageMenu/VideoSongsViewController.swift"
+            timestampString = "543335131.696411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "calendar(_:didSelect:at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900810.1520211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
-            landmarkName = "calendar(_:didDeselect:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventViewController.swift"
-            timestampString = "542900811.063849"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
-            landmarkName = "calendar(_:appearance:eventDefaultColorsFor:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventDetailsViewController.swift"
-            timestampString = "543156756.173111"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "getEventDetailsByIdApiCall()"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "getVideosAPICall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

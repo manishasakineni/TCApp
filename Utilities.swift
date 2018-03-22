@@ -443,7 +443,7 @@ class Utilities: NSObject {
         
         if (titlelabel == nil) {
             
-            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
+            titlelabel = UILabel(frame: CGRect(x: 0.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
             titlelabel?.tag = 555
             titlelabel!.backgroundColor = UIColor.clear
             titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)

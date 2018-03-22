@@ -34,6 +34,8 @@
 		3D355D26205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D355D24205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift */; };
 		3D355D27205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D355D25205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib */; };
 		3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */; };
+		3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */; };
+		3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */; };
 		3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404E920580318008257A6 /* AuthorDetailsVO.swift */; };
 		3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */; };
 		3D5404F42058045A008257A6 /* AuthorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */; };
@@ -289,6 +291,8 @@
 		3D355D24205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventsCalenderTableViewCell.swift; sourceTree = "<group>"; };
 		3D355D25205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsCalenderTableViewCell.xib; sourceTree = "<group>"; };
 		3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsViewController.xib; sourceTree = "<group>"; };
+		3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersCommentsTableViewCell.xib; sourceTree = "<group>"; };
 		3D5404E920580318008257A6 /* AuthorDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsVO.swift; sourceTree = "<group>"; };
 		3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsListResultVO.swift; sourceTree = "<group>"; };
 		3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsViewController.swift; sourceTree = "<group>"; };
@@ -579,6 +583,15 @@
 				35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */,
 			);
 			name = GetAllCategories;
+			sourceTree = "<group>";
+		};
+		3D41C7F5206377250086BEE7 /* UsersCommentsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */,
+				3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */,
+			);
+			name = UsersCommentsTableViewCell;
 			sourceTree = "<group>";
 		};
 		3D61F3E9205AB3E10022C117 /* GetEventInfoByChurchIdMonthYearVO */ = {
@@ -923,6 +936,7 @@
 			children = (
 				359CC92F206287140061450A /* BibleBooksCells */,
 				CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */,
+				3D41C7F5206377250086BEE7 /* UsersCommentsTableViewCell */,
 				CB03596D205FBBD4008FD878 /* AdminMonthEventListCell */,
 				3D61F3F2205AB5290022C117 /* HeadImgTableViewCell */,
 				3D61F3F3205AB5350022C117 /* InformationTableViewCell */,
@@ -1557,6 +1571,7 @@
 				9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */,
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
 				CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */,
+				3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */,
 				3D355D27205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib in Resources */,
 				9A5D261F1FFF89EA00316988 /* TransactionCell.xib in Resources */,
 				3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */,
@@ -1775,6 +1790,7 @@
 				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
 				AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
+				3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */,
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,

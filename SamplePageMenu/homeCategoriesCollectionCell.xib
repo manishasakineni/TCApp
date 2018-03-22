@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="3" y="3" width="136" height="98"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-Lb-ANM">
-                                <rect key="frame" x="0.0" y="80" width="136" height="20"/>
+                                <rect key="frame" x="0.0" y="75" width="136" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -31,12 +31,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" id="Dc2-G3-rMt"/>
-                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="-2" id="TF8-OY-YqB"/>
+                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="1" id="TF8-OY-YqB"/>
                             <constraint firstAttribute="trailing" secondItem="6yE-Lb-ANM" secondAttribute="trailing" id="kUT-AI-5xe"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bible3" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
-                        <rect key="frame" x="8" y="11" width="125" height="70"/>
+                        <rect key="frame" x="8" y="5" width="125" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="vF1-eU-r2a"/>
                         </constraints>
@@ -47,10 +47,10 @@
                 <constraint firstItem="4Vm-uU-ghy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="2KS-o9-SBJ"/>
                 <constraint firstItem="4Vm-uU-ghy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="9wK-fY-jri"/>
                 <constraint firstAttribute="trailing" secondItem="oPC-5A-Fdq" secondAttribute="trailing" constant="9" id="AXg-mz-CY0"/>
-                <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="11" id="PAO-Oi-ZIh"/>
+                <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="PAO-Oi-ZIh"/>
                 <constraint firstAttribute="bottom" secondItem="4Vm-uU-ghy" secondAttribute="bottom" constant="3" id="Vrv-uj-R8D"/>
                 <constraint firstItem="oPC-5A-Fdq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="k3n-bA-Pot"/>
-                <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="2" id="oeb-PA-Jdf"/>
+                <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="3" id="oeb-PA-Jdf"/>
                 <constraint firstAttribute="trailing" secondItem="4Vm-uU-ghy" secondAttribute="trailing" constant="3" id="zhu-4j-P3U"/>
             </constraints>
             <size key="customSize" width="142" height="104"/>

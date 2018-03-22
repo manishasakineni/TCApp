@@ -163,7 +163,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)"
         
-        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
+        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
+        
         serviceController.getRequest(strURL: urlStr, success: { (result) in
             
             DispatchQueue.main.async()

@@ -479,8 +479,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
                 RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
-                
-//             let myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+
                 }
 //
 //                RunLoop.current.addTimer(myTimer, forMode: RunLoopMode.commonModes)

@@ -395,22 +395,28 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
 - (BOOL)webView:(UIWebView *)webView
     shouldStartLoadWithRequest:(NSURLRequest *)request
                 navigationType:(UIWebViewNavigationType)navigationType {
+    
   if ([request.URL.host isEqual: self.originURL.host]) {
     return YES;
-  } else if ([request.URL.scheme isEqual:@"ytplayer"]) {
+  }
+    else if ([request.URL.scheme isEqual:@"ytplayer"]) {
     [self notifyDelegateOfYouTubeCallbackUrl:request.URL];
     return NO;
-  } else if ([request.URL.scheme isEqual: @"http"] || [request.URL.scheme isEqual:@"https"]) {
-    return [self handleHttpNavigationToUrl:request.URL];
+  }
+      else if ([request.URL.scheme isEqual: @"http"] || [request.URL.scheme isEqual:@"https"]) {
+    
+          return [self handleHttpNavigationToUrl:request.URL];
+      
+      return YES;
   }
   return YES;
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-  if (self.initialLoadingView) {
-    [self.initialLoadingView removeFromSuperview];
-  }
-}
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+//  if (self.initialLoadingView) {
+//    [self.initialLoadingView removeFromSuperview];
+//  }
+//}
 
 /**
  * Convert a quality value from NSString to the typed enum value.
@@ -709,9 +715,7 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
   [self addSubview:self.webView];
 
   NSError *error = nil;
-  NSString *path = [[NSBundle bundleForClass:[YTPlayerView class]] pathForResource:@"YTPlayerView-iframe-player"
-                                                   ofType:@"html"
-                                              inDirectory:@"Assets"];
+  NSString *path = [[NSBundle bundleForClass:[YTPlayerView class]] pathForResource:@"YTPlayerView-iframe-player"ofType:@"html"inDirectory:@"Assets"];
     
   // in case of using Swift and embedded frameworks, resources included not in main bundle,
   // but in framework bundle

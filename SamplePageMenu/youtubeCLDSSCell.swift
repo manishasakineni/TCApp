@@ -16,7 +16,13 @@ class youtubeCLDSSCell: UITableViewCell {
     
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var likeCountLbl: UILabel!
+    
+    
     @IBOutlet weak var unlikeButton: UIButton!
+    
+    @IBOutlet weak var disLikeCountLbl: UILabel!
+    
     @IBOutlet weak var shareButton: UIButton!
 
     override func awakeFromNib() {

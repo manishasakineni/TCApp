@@ -8,9 +8,10 @@
 
 import UIKit
 import youtube_ios_player_helper
+import IQKeyboardManagerSwift
 
 
-class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate{
+class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate,UITextViewDelegate{
 
     var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
@@ -34,7 +35,15 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var videoIDNameArr = ""
     var categoryName = ""
 
+    var commentString : String = ""
     
+    var likeCount : String = "0"
+    var disLikeCount : String = "0"
+    
+    var likeClick = false
+    var disLikeClick = false
+    
+    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files"," folders into your project","123456 1233 draag"]
 
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
@@ -58,17 +67,20 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
-    //    var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
+    //  var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboard()
+        
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
+        allOffersTableView.separatorStyle = .none
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
-        
-        self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
+       
         
         
         // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -87,10 +99,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             "showinfo" : 0,
             //    "showing" : 1,
             "color" : "white",
-            "modestbranding" : 1
-            
-            
-            
+            "modestbranding" : 0
         ]
         
         //  self.loadingImg.image = UIImage(named: "Video")
@@ -112,7 +121,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         registerTableViewCells()
         
 //        getVideosAPICall()
-        
+       
+         self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
         
         
     }
@@ -224,6 +234,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         let nibName3  = UINib(nibName: "CommentsCell" , bundle: nil)
         allOffersTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
+        let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        allOffersTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
+        
 
         
         
@@ -233,7 +246,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return sectionTitleArray.count
+       // return sectionTitleArray.count
+        
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -244,8 +259,14 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             return 2
         }
        // return self.embedLinksAry.count
-        return 1
-
+        if section == 1 {
+            
+            return 1
+        }
+        else{
+            
+        return usersCommentsArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -259,6 +280,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         if indexPath.section == 0 {
@@ -266,26 +289,83 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
            if indexPath.row == 0 {
             let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
+            if likeClick == true{
+                
+            youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+           
+                
+            }
+            else{
+                
+            youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
+            
+            }
+            
+            
+            if disLikeClick == true{
+                
+                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+               
+                
+            }
+            else{
+                
+               
+                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                
+            }
+            
+            
+            youtubeCLDSSCell.likeCountLbl.text = likeCount
+            
+            youtubeCLDSSCell.disLikeCountLbl.text = disLikeCount
             youtubeCLDSSCell.videoTitleName.text = categoryName
+            
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
 
             return youtubeCLDSSCell
-           }else{
+           }
+           
+           else {
             
             let subscribCell = tableView.dequeueReusableCell(withIdentifier: "SubscribCell", for: indexPath) as! SubscribCell
             
             
-            subscribCell.subscribnameLbl.text = "Click Subscrib Button"
-                      return subscribCell
+            subscribCell.subscribnameLbl.text = "Channel Name"
+            
+            return subscribCell
+            
             }
+        
         }
+        
+        if indexPath.section == 1 {
          let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         
         
-       //
+        
+        commentsCell.commentTexView.delegate = self
+        commentsCell.sendBtn.isHidden = true
+        commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked), for: .touchUpInside)
+            
+            return commentsCell
+        
+       }
+        
+        if indexPath.section == 2 {
+            
+            let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+            
+            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row]
+            
+            
+            return usersCommentsTableViewCell
+            
+        }
+    
 //      //  let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
 //        
 //        let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
@@ -360,7 +440,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         
         
-        return commentsCell
+        return UITableViewCell()
         
     }
     
@@ -459,6 +539,67 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        
+        if textView.text == "Add a public comment..." {
+        
+        textView.text = ""
+        }
+        textView.textColor = UIColor.black
+        
+       return true
+    }
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+       
+        textView.resignFirstResponder()
+        
+     self.commentString = textView.text
+        
+        if textView.text == "" {
+        
+        textView.text = "Add a public comment..."
+        textView.textColor = UIColor.lightGray
+        
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let indexPath : IndexPath = IndexPath(row: 0, section: 1)
+        
+        if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath) as? CommentsCell {
+            
+            
+            
+            print(commentsCell.commentTexView.text.characters.count)
+            
+            self.commentString = commentsCell.commentTexView.text
+            
+            if (commentsCell.commentTexView.text.characters.count) > 0 {
+                
+                
+                
+                print(self.commentString)
+                
+                commentsCell.sendBtn.isHidden = false
+            
+            }
+            
+            else{
+            
+                commentsCell.sendBtn.isHidden = false
+            
+            }
+        }
+        
+        
+        return true
+        
+    }
+    
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
@@ -487,17 +628,82 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func  likeButtonClick(_ sendre:UIButton) {
         
+        if likeClick == false {
+        
+        likeClick = true
+        disLikeClick = false
+        }
+        
+        else{
+            
+        likeClick = false
+        disLikeClick = false
+        
+        }
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+        
+     //   self.allOffersTableView.reloadData()
+        
       print("Like Clicked.............")
     }
+    
     func  unLikeButtonClick(_ sendre:UIButton) {
         
+        if disLikeClick == false {
+            
+            disLikeClick = true
+            likeClick = false
+        }
+            
+        else{
+            disLikeClick = false
+            likeClick = false
+            
+        }
+        
         print("UnLike Clicked.............")
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
     }
+    
     func  shareButtonClick(_ sendre:UIButton) {
+        
+        let someText:String = "Hello want to share text also"
+        let objectsToShare:URL = URL(string: "http://www.google.com")!
+        let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
+        let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+//        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
+        
+        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        
+        self.present(activityViewController, animated: true, completion: nil)
         
         print("Share Clicked.............")
     }
-
+    
+    func commentSendBtnClicked(){
+    
+    
+     self.allOffersTableView.endEditing(true)
+    
+    print(self.commentString)
+    
+    self.usersCommentsArray.append(self.commentString)
+        
+        
+        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.top)
+   
+    self.commentString = ""
+        
+    }
+    
+   
+    
 }
 
 extension UIView {
@@ -527,4 +733,19 @@ extension UIView {
         self.layer.addSublayer(border)
     }
     
+}
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }

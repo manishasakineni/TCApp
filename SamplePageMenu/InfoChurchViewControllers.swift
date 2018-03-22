@@ -219,29 +219,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                     
                                 }
                                 
-                                
-                               
-                                
-                                
-                                
-                                
-                                for countryName in (respVO.listResult)!{
-                                    
-                                    let countryNameString = countryName.countryName
-                                    self.churchCountryArray.append(countryNameString!)
-                                    let stateNameString = countryName.stateName
-                                    self.churchStateArray.append(stateNameString!)
-                                    let districNameString = countryName.districtName
-                                    self.churchDistrictNameArray.append(districNameString!)
-                                    let VillageNameString = countryName.villageName
-                                    self.churchVillageNameArray.append(VillageNameString!)
-                                    
-                                    
-                                    
-                                    
-                                }
-                                
-                                
+                        
                                 print(self.churchCountryArray)
                                 
                                 
