@@ -50,6 +50,12 @@ class ForgotPassWordViewController: UIViewController {
         //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
         
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

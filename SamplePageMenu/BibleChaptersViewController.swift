@@ -16,6 +16,9 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     
 //    var verseCountStr:Int = 0
     
+    
+    var appVersion:String = ""
+
     var verseCountStr = Array<Int>()
     
     var bibleCArr = Array<Int>()
@@ -50,6 +53,17 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //   super.viewWillAppear(animated)
+        
+        
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Chapters", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+    }
+
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -127,5 +141,27 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         
         
     }
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    
+        print("Back Button Clicked......")
+        
+    }
+    
+
 
 }

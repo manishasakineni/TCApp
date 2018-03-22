@@ -332,7 +332,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     }
     else {
         
-        self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+  //      self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
         return
         
     }

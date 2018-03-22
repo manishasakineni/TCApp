@@ -359,7 +359,7 @@ var listResultArray = Array<Any>()
             }
             else {
                 
-                appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+        //        appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
                 return
             }
 
@@ -474,7 +474,7 @@ var listResultArray = Array<Any>()
         }
         else {
             
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+  //          appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
         
@@ -554,6 +554,14 @@ var listResultArray = Array<Any>()
 
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+
+        
+        UserDefaults.standard.removeObject(forKey: "1")
         
         UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
@@ -740,13 +748,18 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
               //  listOfMonthEventCell.contactNumber.text = "contact Number:".localize()
             }
             
-            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!) + "-" + returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
+        //    let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!) + "-" + returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
+            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
+            
+            
+
+            
             if startAndEndDate1 != "" {
                 listOfMonthEventCell.eventStartEndDate.text = startAndEndDate1
             }else{
-              //  listOfMonthEventCell.eventStartEndDate.text = "contact Number:".localize()
+                
+                
             }
-            //  listOfMonthEventCell.churchName.text =
             
             
             return listOfMonthEventCell

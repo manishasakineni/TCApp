@@ -35,7 +35,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
-    
+    var churchName1 : String = ""
+
 
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -56,7 +57,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
 
         
@@ -396,7 +397,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         authorDetailsViewController.authorID = listStr.Id!
         
-        authorDetailsViewController.authorName = listStr.churchAdmin!
+        authorDetailsViewController.churchName1 = listStr.churchName!
         
         self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
         
@@ -532,7 +533,11 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 //        UserDefaults.standard.synchronize()
         
         
+        UserDefaults.standard.removeObject(forKey: "1")
         
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
 

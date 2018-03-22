@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -17,8 +18,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var eventID = Int()
     
+    var eventChurchName = ""
+
     var catgoryID:Int = 0
-    
+    var churchName1 : String = ""
+
     
     var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
@@ -38,6 +42,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var audioIDArray : Array<String> = Array()
     
     var gggg = String()
+    
+    
+    var authorName : String = ""
+    var appVersion  : String = ""
+
     
     var thumbnailImageURL = String()
 
@@ -66,6 +75,20 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "Name", backTitle: "  \(authorName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
+        
+    }
+    
+
     
     
     func getEventDetailsByIdApiCall(){
@@ -295,9 +318,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
         
-        headImgTableViewCell.churchNameLabel.text = eventList.title
-        
-        
+        headImgTableViewCell.churchNameLabel.text = eventList.churchName
+        //   headImgTableViewCell.churchName1 = eventList.churchName!
+
+            
         return headImgTableViewCell
         
         }
@@ -308,7 +332,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if indexPath.row == 1 {
             
-                informationTableViewCell.infoLabel.text = "Contact Name"
+                informationTableViewCell.infoLabel.text = "Church Name".localize()
                 
                 informationTableViewCell.addressLabel.text =  eventList.churchName
             
@@ -316,7 +340,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if indexPath.row == 2 {
                 
-                informationTableViewCell.infoLabel.text = "Registration Number"
+                informationTableViewCell.infoLabel.text = "Registration Number".localize()
                 
                 informationTableViewCell.addressLabel.text =  eventList.registrationNumber
                 
@@ -324,7 +348,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if indexPath.row == 3 {
                 
-                informationTableViewCell.infoLabel.text = "Event Name"
+                informationTableViewCell.infoLabel.text = "Event Name:".localize()
                 
                 informationTableViewCell.addressLabel.text =  eventList.title
                 
@@ -332,7 +356,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if indexPath.row == 4 {
                 
-                informationTableViewCell.infoLabel.text = "Contact Number"
+                informationTableViewCell.infoLabel.text = "Contact Number".localize()
                 
                 informationTableViewCell.addressLabel.text =  eventList.contactNumber
                 
@@ -341,16 +365,23 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if indexPath.row == 5 {
                 
-                informationTableViewCell.infoLabel.text = "Start Date"
+                informationTableViewCell.infoLabel.text = "Start Date".localize()
                 
-                informationTableViewCell.addressLabel.text =  eventList.startDate!
+                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
+                
+                
+
+                
+                informationTableViewCell.addressLabel.text =  startAndEndDate1
             }
             
             if indexPath.row == 6 {
                 
-                informationTableViewCell.infoLabel.text = "End Date"
+                informationTableViewCell.infoLabel.text = "End Date".localize()
                 
-                informationTableViewCell.addressLabel.text =  eventList.endDate!
+                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+                
+                informationTableViewCell.addressLabel.text =  startAndEndDate1
                 
             }
             
@@ -392,6 +423,75 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         return UITableViewCell()
         
     }
+    
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+    
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        print("Back Button Clicked......")
+        
+    }
+
+
     
 }
 

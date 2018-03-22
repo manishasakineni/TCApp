@@ -23,13 +23,20 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var authorPostsVC : AuthorPostsViewController?
     private var controllersArray: [UIViewController] = []
     
+    var viewTitle = ""
+  var catgoryName:String = ""
+    
+    var churchName = ""
+
     var authorID : Int = 0
-    var authorName : String = ""
+    var churchName1 : String = ""
     var appVersion  : String = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
 
         createPageMenu()
         
@@ -46,7 +53,13 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         super.viewWillAppear(animated)
         
-        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: authorName, rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+//        Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(churchName1)", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
+        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
+       // Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName, backTitle: "  \(authorName)", rightImage: appVersion, secondRightImage: " ", thirdRightImage: " ")
     
     }
     
@@ -120,6 +133,9 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
+        
+        UserDefaults.standard.set("1", forKey: "1")
+
         
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)

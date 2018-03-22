@@ -102,7 +102,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             
             if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
                 print(loginSucess)
-                self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
+            //    self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
                 
                 print("defaults savedString: \(loginSucess)")
                 
@@ -125,21 +125,6 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         
         Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-//        if bibleInt == 10 {
-//            
-//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-//            
-//        }
-//        if bibleInt == 11 {
-//            
-//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories".localize(), backTitle: " Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-//            
-//        }
-//        if bibleInt == 12 {
-//            
-//            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: " Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-//            
-//        }
         
         
     }
@@ -489,8 +474,16 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+
+        
+        UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
+        
+        UserDefaults.standard.set("1", forKey: "1")
+
         
          self.navigationController?.popViewController(animated: true)
         

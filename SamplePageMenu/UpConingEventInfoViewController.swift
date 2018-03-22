@@ -60,9 +60,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        UserDefaults.standard.set("1", forKey: "1")
-//        UserDefaults.standard.synchronize()
-//        Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
         upComingEventinfoArray.removeAll()
         getUpComingEventInfoAPI()
 
@@ -87,43 +85,11 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-        //
-        //            return 180
-        //
-        //        }
-        //
-        //        else {
-        //
-        //            return 140
-        //
-        //        }
+       
         
         return UITableViewAutomaticDimension
     }
     
-//    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        
-//        if indexPath.row == churchAdminArray.count - 1 {
-//            
-//            if(self.totalPages! > PageIndex){
-//                
-//                
-//                PageIndex = PageIndex + 1
-//                
-//                getChurchAdminDetailsAPICall()
-//                
-//                
-//                
-//            }
-//        }
-//        
-    
-        
-        
-        
-  //  }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -147,21 +113,20 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         if let eventStart =  listStr.startDate {
             
             cell.eventStart.text = returnEventDateWithoutTime(selectedDateString : eventStart)
-        }else{
-          //  cell.eventStart.text = "Start Date:".localize()
+        }
+        
+        else{
+            
         }
         
         if let eventEndDate =  listStr.endDate {
             
-            //amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
             cell.eventEndDate.text =  returnEventDateWithoutTime(selectedDateString : eventEndDate)
         }else{
-           // cell.eventEndDate.text = "End Date:".localize()
         }
         if let registrationNumber = listStr.registrationNumber {
             cell.registrationNumber.text =  registrationNumber
         }else{
-          //  cell.registrationNumber.text = "Registration Number:".localize()
         }
         
         
@@ -263,18 +228,11 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                             for eventsList in respVO.listResult!{
                                 
                                self.upComingEventinfoArray.append(eventsList)
-//                                self.eventStartDateArray.append(eventsList.startDate!)
-//                                self.eventEndDateArray.append(eventsList.endDate!)
-//                                self.eventChurchNameArray.append(eventsList.churchName!)
-//                                self.registrationNumberArray.append(eventsList.registrationNumber!)
-//                                self.contactNumberArray.append(eventsList.contactNumber!)
-//
+
 
                             }
                             
-//                            print("self.eventDateArray,Count", self.eventDateArray.count)
-//                            print("self.eventsCountsArray", self.eventsCountsArray)
-//                            
+                         
                             
                             self.upComingTableView.reloadData()
                             print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
@@ -305,7 +263,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         }
         else {
             
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+       //     appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
     }
@@ -318,8 +276,17 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "", cntr:self, titleView: nil, withText: "", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+
+        
+        UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
+        
         self.navigationController?.popViewController(animated: true)
 
         //   navigationItem.leftBarButtonItems = []

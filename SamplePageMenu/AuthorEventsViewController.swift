@@ -201,7 +201,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         }  else {
                 
-                appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+        //        appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
                 return
             }
     

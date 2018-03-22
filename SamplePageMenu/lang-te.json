@@ -68,7 +68,7 @@
     "Events" : "ఈవెంట్స్",
     "Admin List" : "అడ్మిన్ జాబితా",
     "Churches List" : "చర్చిల జాబితా",
-    "Churche Details" : "చర్చి వివరాలు",
+    "Church Details" : "చర్చి వివరాలు",
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
@@ -133,7 +133,9 @@
     "To :" : "టు :",
     "Event From" : "ఈవెంట్ నుండి",
     "Please provide DOB" : "దయచేసి పుట్టిన తేదీని అందించండి",
-    "Please provide Gender" : "దయచేసి లింగం ఇవ్వండి"
+    "Please provide Gender" : "దయచేసి లింగం ఇవ్వండి",
+    "Holy Bible" : "పవిత్ర బైబిల్"
+
 
 
 

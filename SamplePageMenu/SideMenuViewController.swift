@@ -43,7 +43,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible".localize(),"LogOut".localize()]
 
         borderColor()
         // Do any additional setup after loading the view.
@@ -55,7 +55,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible","LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible".localize(),"LogOut".localize()]
 
         
       //  menuTableView.reloadData()
@@ -390,7 +390,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 Localize.update(language: language)
                 self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
-                self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"LogOut".localize()]
+                self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible".localize(),"LogOut".localize()]
                 self.menuTableView.reloadData()
             })
             actionSheet.addAction(languageAction)

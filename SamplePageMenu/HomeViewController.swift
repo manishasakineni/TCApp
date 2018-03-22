@@ -32,6 +32,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var counter = 0
     var seconds = 60
     
+    var viewTitle = ""
+
     var lastXAxis = Int()
     var contentOffset = Int()
     
@@ -1013,7 +1015,14 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 cell.churchNameLabel.text = eventList.churchName
                 cell.eventNameLabel.text = eventList.title
                 cell.mobileNoLabel.text = eventList.contactNumber
-                cell.eventDateLabel.text = eventList.startDate
+                
+                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
+                
+                cell.eventDateLabel.text = startAndEndDate1
+                
+
+                
+              //  cell.eventDateLabel.text = eventList.startDate
                 
                 print(eventImageArray.count)
                 if let url = URL(string:eventImageString) {
@@ -1122,7 +1131,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
             
             eventDetailsViewController.eventID = eventList.id!
-            
+            eventDetailsViewController.eventChurchName = eventList.churchName!
+
 
             
             self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
@@ -1140,12 +1150,17 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 let catImg = categoryList.categoryImage
                 
                 let catName = categoryList.categoryName
+                let textName = categoryList.categoryName
+
                 
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
                 
                 churchDetailsViewController.catgoryID = categoryId!
                 
                 churchDetailsViewController.catgoryName = catName!
+                
+                churchDetailsViewController.viewTitle = textName!
+
                 
                 if catImg != nil {
                     
@@ -1188,6 +1203,48 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
     }
+    
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

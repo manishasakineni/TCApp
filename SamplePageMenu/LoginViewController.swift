@@ -463,6 +463,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

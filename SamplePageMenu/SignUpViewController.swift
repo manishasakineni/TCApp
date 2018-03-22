@@ -529,6 +529,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         //   navigationItem.leftBarButtonItems = []
      //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
@@ -553,7 +558,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else {
             
-            self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+ //           self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
             
         }

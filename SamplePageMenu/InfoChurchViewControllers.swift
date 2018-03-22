@@ -538,7 +538,13 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
                 cell2.infoLabel.text = "Date Of Birth".localize()
                 
-                cell2.addressLabel.text = dobString
+                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)
+                
+                cell2.addressLabel.text = startAndEndDate1
+                
+
+                
+             //   cell2.addressLabel.text = dobString
                 
                 
             }else if indexPath.row == 4 {
@@ -591,7 +597,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Churche Details".localize()
+            infoHeaderCell.headerLabel.text = "Church Details".localize()
             return infoHeaderCell
             
         }else if section == 2 {
@@ -679,7 +685,46 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         return newDateStr + "-" + newDateStr1
     }
     
-    
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
     
     
     override func didReceiveMemoryWarning() {

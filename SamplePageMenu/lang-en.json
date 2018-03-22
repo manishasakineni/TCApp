@@ -67,7 +67,7 @@
     "Events" : "Events",
     "Admin List" : "Admin List",
     "Churches List" : "Churches List",
-    "Churche Details" : "Churche Details",
+    "Church Details" : "Church Details",
     "EventStartDate" : "Event Start Date",
     "EventEndDate" : "Event End Date",
     "EventName" : "Event Name",
@@ -131,7 +131,9 @@
     "To :" : "To :",
     "Event From" : "Event From",
     "Please provide DOB" : "Please provide Date Of Birth",
-    "Please provide Gender" : "Please provide Gender"
+    "Please provide Gender" : "Please provide Gender",
+    "Holy Bible" : "Holy Bible"
+
 
 
 

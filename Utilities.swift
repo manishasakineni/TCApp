@@ -913,7 +913,7 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
-        leftButton.frame = CGRect(x: 0, y: 0, width: 200, height: leftButtonImage.size.height)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 50, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
             
@@ -928,7 +928,6 @@ class Utilities: NSObject {
         
         
     }
-    
     class func AllInfoViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
         
         
@@ -965,7 +964,7 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
-        leftButton.frame = CGRect(x: 0, y: 0, width: 150, height: leftButtonImage.size.height)
+        leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
             
@@ -980,6 +979,114 @@ class Utilities: NSObject {
         
         
     }
+    
+    class func authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
+        
+        
+        
+        
+        var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
+        
+        if (titlelabel == nil) {
+            
+            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
+            titlelabel?.tag = 555
+            titlelabel!.backgroundColor = UIColor.clear
+            titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)
+            titlelabel?.textAlignment = .center
+            titlelabel!.textColor = UIColor.white
+            titlelabel?.lineBreakMode = .byWordWrapping
+            titlelabel?.numberOfLines = 0
+            
+            cntr.navigationController?.navigationBar.addSubview(titlelabel!)
+        }
+        
+        titlelabel!.text = title
+        
+        if(cntr.navigationController != nil) {
+            
+            cntr.navigationController!.navigationBar.isTranslucent = false
+            cntr.navigationController!.isNavigationBarHidden = false
+            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.tintColor = UIColor.white
+            //            cntr.navigationController?.navigationBar.barStyle = .black
+        }
+        
+        
+        let leftButtonImage: UIImage = UIImage(named: backImage!)!
+        let leftButton: UIButton = UIButton(type: .custom)
+        
+        leftButton.frame = CGRect(x: 0, y: 0, width: 50, height: leftButtonImage.size.height)
+        
+        if backTitle.characters.count > 0 {
+            
+            leftButton.setImage(leftButtonImage, for: .normal)
+            leftButton.setTitle(backTitle, for: .normal)
+        }
+        //  leftButton.backgroundColor = UIColor.red
+        leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+        leftButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        
+    }
+    
+
+    class func setupFailedViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
+        
+        
+        
+        
+        var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
+        
+        if (titlelabel == nil) {
+            
+            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
+            titlelabel?.tag = 555
+            titlelabel!.backgroundColor = UIColor.clear
+            titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)
+            titlelabel?.textAlignment = .center
+            titlelabel!.textColor = UIColor.white
+            titlelabel?.lineBreakMode = .byWordWrapping
+            titlelabel?.numberOfLines = 0
+            
+            cntr.navigationController?.navigationBar.addSubview(titlelabel!)
+        }
+        
+        titlelabel!.text = title
+        
+        if(cntr.navigationController != nil) {
+            
+            cntr.navigationController!.navigationBar.isTranslucent = false
+            cntr.navigationController!.isNavigationBarHidden = false
+            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.tintColor = UIColor.red
+            //            cntr.navigationController?.navigationBar.barStyle = .black
+        }
+        
+        
+        let leftButtonImage: UIImage = UIImage(named: backImage!)!
+        let leftButton: UIButton = UIButton(type: .custom)
+        
+        leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
+        leftButton.setTitle(backTitle, for: .normal)
+        if backTitle.characters.count > 0 {
+            
+            leftButton.setImage(leftButtonImage, for: .normal)
+        }
+        leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
+        leftButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        
+    }
+
+    
+    
     class func audioEventViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
         
         
@@ -1083,6 +1190,7 @@ class Utilities: NSObject {
 //        
 //    }
     
+    
     func alertWithOkAndCancelButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
         
         let capsMsg  =  messege.capitalizingFirstLetter()
@@ -1102,7 +1210,7 @@ class Utilities: NSObject {
     }
     
     
-     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
         let alertView:UIAlertView = UIAlertView();
         alertView.title=title
@@ -1111,7 +1219,7 @@ class Utilities: NSObject {
         alertView.show()
     }
     
-
+    
     
     
 }

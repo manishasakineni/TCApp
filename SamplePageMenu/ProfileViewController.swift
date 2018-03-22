@@ -1109,6 +1109,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         //   navigationItem.leftBarButtonItems = []
+        
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+
+        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()

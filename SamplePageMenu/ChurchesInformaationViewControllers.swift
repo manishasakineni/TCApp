@@ -164,8 +164,11 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 //        UserDefaults.standard.synchronize()
 //        
         
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         
+        UserDefaults.standard.removeObject(forKey: "1")
+                
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
