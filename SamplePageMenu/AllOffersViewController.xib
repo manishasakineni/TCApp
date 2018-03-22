@@ -11,8 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllOffersViewController" customModule="Telugu_Churches" customModuleProvider="target">
             <connections>
-                <outlet property="allOffersTableView" destination="haA-ox-xcZ" id="9Np-2t-fjv"/>
-                <outlet property="loadingImg" destination="07Z-Pm-yWH" id="rXk-My-JQh"/>
+                <outlet property="allOffersTableView" destination="INi-9g-vjk" id="03e-o1-XQY"/>
                 <outlet property="player" destination="Arp-zL-y3Y" id="58W-mv-1aW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,44 +21,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading.gif" translatesAutoresizingMaskIntoConstraints="NO" id="07Z-Pm-yWH">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="0XC-c0-9p8"/>
-                    </constraints>
-                </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="haA-ox-xcZ">
-                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="Jd7-Ja-VM0"/>
-                        <outlet property="delegate" destination="i5M-Pr-FkT" id="C0U-lB-bbt"/>
-                    </connections>
-                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arp-zL-y3Y" customClass="YTPlayerView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <color key="backgroundColor" red="0.9529411793" green="0.68627452850000004" blue="0.13333334029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="OF5-NS-gmA"/>
+                        <constraint firstAttribute="height" constant="200" id="P08-jH-44m"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="INi-9g-vjk">
+                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Arp-zL-y3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2vh-rN-0et"/>
-                <constraint firstItem="07Z-Pm-yWH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6CN-7R-gb0"/>
-                <constraint firstAttribute="trailing" secondItem="Arp-zL-y3Y" secondAttribute="trailing" id="8mg-80-3Sx"/>
-                <constraint firstAttribute="trailing" secondItem="07Z-Pm-yWH" secondAttribute="trailing" id="H95-cE-X3L"/>
-                <constraint firstItem="haA-ox-xcZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U2I-H7-fNg"/>
-                <constraint firstItem="Arp-zL-y3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YMr-FQ-Pme"/>
-                <constraint firstAttribute="bottom" secondItem="haA-ox-xcZ" secondAttribute="bottom" id="aZE-Ez-Kw5"/>
-                <constraint firstItem="07Z-Pm-yWH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ey8-91-CHp"/>
-                <constraint firstItem="haA-ox-xcZ" firstAttribute="top" secondItem="Arp-zL-y3Y" secondAttribute="bottom" id="of8-9y-HH5"/>
-                <constraint firstAttribute="trailing" secondItem="haA-ox-xcZ" secondAttribute="trailing" id="sib-1H-Uai"/>
+                <constraint firstItem="INi-9g-vjk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="20r-lM-ucC"/>
+                <constraint firstAttribute="bottom" secondItem="INi-9g-vjk" secondAttribute="bottom" id="Qnx-Uq-Uj0"/>
+                <constraint firstItem="Arp-zL-y3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R6c-LZ-Jih"/>
+                <constraint firstAttribute="trailing" secondItem="INi-9g-vjk" secondAttribute="trailing" id="SJk-KK-7Rh"/>
+                <constraint firstItem="Arp-zL-y3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VTA-oA-fcE"/>
+                <constraint firstItem="INi-9g-vjk" firstAttribute="top" secondItem="Arp-zL-y3Y" secondAttribute="bottom" id="dKk-4G-4kE"/>
+                <constraint firstAttribute="trailing" secondItem="Arp-zL-y3Y" secondAttribute="trailing" id="sGG-gi-K4W"/>
             </constraints>
             <point key="canvasLocation" x="91.5" y="59.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="Loading.gif" width="300" height="300"/>
-    </resources>
 </document>

@@ -36,6 +36,10 @@
 		3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */; };
 		3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */; };
 		3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */; };
+		3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7F62063B9850086BEE7 /* youtubeCLDSSCell.swift */; };
+		3D41C7F92063B9860086BEE7 /* youtubeCLDSSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41C7F72063B9860086BEE7 /* youtubeCLDSSCell.xib */; };
+		3D41C7FD2063C1160086BEE7 /* BibleVerseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7FB2063C1160086BEE7 /* BibleVerseTableViewCell.swift */; };
+		3D41C7FE2063C1160086BEE7 /* BibleVerseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41C7FC2063C1160086BEE7 /* BibleVerseTableViewCell.xib */; };
 		3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404E920580318008257A6 /* AuthorDetailsVO.swift */; };
 		3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */; };
 		3D5404F42058045A008257A6 /* AuthorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */; };
@@ -187,8 +191,6 @@
 		CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92520613B9F00007D9C /* CommentsCell.xib */; };
 		CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92820613BAA00007D9C /* SubscribCell.swift */; };
 		CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92920613BAA00007D9C /* SubscribCell.xib */; };
-		CB19E92E20613BBA00007D9C /* youtubeCLDSSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */; };
-		CB19E92F20613BBA00007D9C /* youtubeCLDSSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */; };
 		CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BD203425EE009FB001 /* Localize.framework */; };
 		CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */; };
 		CB1E30C220343F23009FB001 /* lang-te.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C120343F23009FB001 /* lang-te.json */; };
@@ -293,6 +295,10 @@
 		3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsViewController.xib; sourceTree = "<group>"; };
 		3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersCommentsTableViewCell.xib; sourceTree = "<group>"; };
+		3D41C7F62063B9850086BEE7 /* youtubeCLDSSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = youtubeCLDSSCell.swift; sourceTree = "<group>"; };
+		3D41C7F72063B9860086BEE7 /* youtubeCLDSSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeCLDSSCell.xib; sourceTree = "<group>"; };
+		3D41C7FB2063C1160086BEE7 /* BibleVerseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleVerseTableViewCell.swift; sourceTree = "<group>"; };
+		3D41C7FC2063C1160086BEE7 /* BibleVerseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BibleVerseTableViewCell.xib; sourceTree = "<group>"; };
 		3D5404E920580318008257A6 /* AuthorDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsVO.swift; sourceTree = "<group>"; };
 		3D5404EA20580318008257A6 /* AuthorDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsListResultVO.swift; sourceTree = "<group>"; };
 		3D5404ED2058045A008257A6 /* AuthorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailsViewController.swift; sourceTree = "<group>"; };
@@ -455,8 +461,6 @@
 		CB19E92520613B9F00007D9C /* CommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
 		CB19E92820613BAA00007D9C /* SubscribCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribCell.swift; sourceTree = "<group>"; };
 		CB19E92920613BAA00007D9C /* SubscribCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribCell.xib; sourceTree = "<group>"; };
-		CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = youtubeCLDSSCell.swift; sourceTree = "<group>"; };
-		CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeCLDSSCell.xib; sourceTree = "<group>"; };
 		CB1E30BD203425EE009FB001 /* Localize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Localize.framework; path = "../../Library/Developer/Xcode/DerivedData/Telugu_Churches-ehialcnkpmttdzfzlawdvzxzpmib/Build/Products/Debug-iphonesimulator/Localize/Localize.framework"; sourceTree = "<group>"; };
 		CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB1E30C120343F23009FB001 /* lang-te.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-te.json"; sourceTree = "<group>"; };
@@ -572,6 +576,8 @@
 			children = (
 				359CC9302062874D0061450A /* BibleBooksTableViewCell.swift */,
 				359CC9312062874D0061450A /* BibleBooksTableViewCell.xib */,
+				3D41C7FB2063C1160086BEE7 /* BibleVerseTableViewCell.swift */,
+				3D41C7FC2063C1160086BEE7 /* BibleVerseTableViewCell.xib */,
 			);
 			name = BibleBooksCells;
 			sourceTree = "<group>";
@@ -592,6 +598,15 @@
 				3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */,
 			);
 			name = UsersCommentsTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D41C7FA2063B9920086BEE7 /* youtubeCLDSSCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D41C7F62063B9850086BEE7 /* youtubeCLDSSCell.swift */,
+				3D41C7F72063B9860086BEE7 /* youtubeCLDSSCell.xib */,
+			);
+			name = youtubeCLDSSCell;
 			sourceTree = "<group>";
 		};
 		3D61F3E9205AB3E10022C117 /* GetEventInfoByChurchIdMonthYearVO */ = {
@@ -936,7 +951,6 @@
 			children = (
 				359CC92F206287140061450A /* BibleBooksCells */,
 				CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */,
-				3D41C7F5206377250086BEE7 /* UsersCommentsTableViewCell */,
 				CB03596D205FBBD4008FD878 /* AdminMonthEventListCell */,
 				3D61F3F2205AB5290022C117 /* HeadImgTableViewCell */,
 				3D61F3F3205AB5350022C117 /* InformationTableViewCell */,
@@ -1251,21 +1265,13 @@
 			name = SubscribCell;
 			sourceTree = "<group>";
 		};
-		CB19E93220613C2900007D9C /* youtubeCLDSSCell */ = {
-			isa = PBXGroup;
-			children = (
-				CB19E92C20613BBA00007D9C /* youtubeCLDSSCell.swift */,
-				CB19E92D20613BBA00007D9C /* youtubeCLDSSCell.xib */,
-			);
-			name = youtubeCLDSSCell;
-			sourceTree = "<group>";
-		};
 		CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */ = {
 			isa = PBXGroup;
 			children = (
 				CB19E93020613C1500007D9C /* CommentsCell */,
 				CB19E93120613C1F00007D9C /* SubscribCell */,
-				CB19E93220613C2900007D9C /* youtubeCLDSSCell */,
+				3D41C7FA2063B9920086BEE7 /* youtubeCLDSSCell */,
+				3D41C7F5206377250086BEE7 /* UsersCommentsTableViewCell */,
 			);
 			name = YouTubeFunctionalCells;
 			sourceTree = "<group>";
@@ -1549,6 +1555,7 @@
 			files = (
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
+				3D41C7FE2063C1160086BEE7 /* BibleVerseTableViewCell.xib in Resources */,
 				3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */,
 				AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */,
 				3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */,
@@ -1588,7 +1595,6 @@
 				CBC1FB812052DBA6000063D4 /* AllEventHeaderCell.xib in Resources */,
 				CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */,
 				3D5404F62058045A008257A6 /* AuthorInfoViewController.xib in Resources */,
-				CB19E92F20613BBA00007D9C /* youtubeCLDSSCell.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
 				CB4B20FD2047D2F000402E59 /* CategorieCollectionViewCell.xib in Resources */,
 				CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */,
@@ -1601,6 +1607,7 @@
 				3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */,
 				CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
+				3D41C7F92063B9860086BEE7 /* youtubeCLDSSCell.xib in Resources */,
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				CB035971205FBC15008FD878 /* AdminMonthEventListCell.xib in Resources */,
 				9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */,
@@ -1691,6 +1698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2879A1205A40E8005F3168 /* GetCategoriesResultVo.swift in Sources */,
+				3D41C7FD2063C1160086BEE7 /* BibleVerseTableViewCell.swift in Sources */,
 				359CC92E2062772F0061450A /* BibleVerseViewController.swift in Sources */,
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
@@ -1703,7 +1711,6 @@
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
-				CB19E92E20613BBA00007D9C /* youtubeCLDSSCell.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
@@ -1838,6 +1845,7 @@
 				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,
 				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
+				3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,

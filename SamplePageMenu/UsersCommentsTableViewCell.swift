@@ -18,8 +18,8 @@ class UsersCommentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backGroundView.layer.borderWidth = 0.50
-        backGroundView.layer.borderColor = UIColor.black.cgColor
+//        backGroundView.layer.borderWidth = 0.50
+//        backGroundView.layer.borderColor = UIColor.black.cgColor
 
         // Initialization code
     }

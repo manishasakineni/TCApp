@@ -248,7 +248,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
        // return sectionTitleArray.count
         
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -320,8 +320,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             youtubeCLDSSCell.likeCountLbl.text = likeCount
             
             youtubeCLDSSCell.disLikeCountLbl.text = disLikeCount
-            youtubeCLDSSCell.videoTitleName.text = categoryName
             
+            
+                        
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
@@ -679,7 +680,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         
-//        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
+//        activityViewController.excludedActivityTypes = [UIActivityType.airDrop,        UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
         
         activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
         
@@ -698,7 +699,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     self.usersCommentsArray.append(self.commentString)
         
         
-        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.top)
+    self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.top)
    
     self.commentString = ""
         

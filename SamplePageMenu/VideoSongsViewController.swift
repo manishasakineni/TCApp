@@ -870,22 +870,21 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                             if videothumb != nil{
             
-                                let request = URLRequest(url: videothumb!)
+                            let request = URLRequest(url: videothumb!)
             
-                                let session = URLSession.shared
+                            let session = URLSession.shared
             
-                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                            let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
             
-                                    DispatchQueue.main.async()
-                                        {
+                                DispatchQueue.main.async()
+                                {
             
-                                            let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                   
+                                    videosView.videoIDArray = self.audioIDArray
+                                    videosView.videoIDNameArr = title!
                                             
-                                            videosView.videoIDArray = self.audioIDArray
-                                            videosView.videoIDNameArr = title!
-                                            
-                                            
-                                            self.navigationController?.pushViewController(videosView, animated: true)
+                                   self.navigationController?.pushViewController(videosView, animated: true)
                                     }
                                     
                                 })

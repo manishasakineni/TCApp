@@ -17,7 +17,7 @@ class Utilities: NSObject {
     static let sharedInstance : Utilities = Utilities()
     
     //MARK: - APP Color
-    static let appColor: UIColor = #colorLiteral(red: 0, green: 0.7058823529, blue: 0.831372549, alpha: 1)
+    static let appColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.6823529412, blue: 0.8274509804, alpha: 1)
     
     static let appFontSize : UIFont = UIFont (name: "Helvetica Neue", size: 30)!
     
@@ -470,7 +470,7 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
-        leftButton.frame = CGRect(x: 0, y: 0, width: 200, height: leftButtonImage.size.height)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
             

@@ -19,6 +19,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var eventID = Int()
     
     var eventChurchName = ""
+    
+    var eventName = ""
 
     var catgoryID:Int = 0
     var churchName1 : String = ""
@@ -82,7 +84,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewWillAppear(animated)
         
 
-        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "Name", backTitle: "  \(authorName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -313,13 +315,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if eventsDetailsArray.count > 0 {
             
             let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
+            
+            
         
         if indexPath.row == 0{
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
         
         headImgTableViewCell.churchNameLabel.text = eventList.churchName
-        //   headImgTableViewCell.churchName1 = eventList.churchName!
+          
 
             
         return headImgTableViewCell
