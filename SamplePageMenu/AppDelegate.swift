@@ -42,6 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize()
             let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.window?.rootViewController = homeNav
+        
+        
+  
+        
      //   lunchScreenView()
 
      //   }

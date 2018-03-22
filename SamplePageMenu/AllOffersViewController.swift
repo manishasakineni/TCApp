@@ -32,16 +32,19 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var appVersion          : String = ""
     
     var showNav = false
-    var videoIDNameArr = ""
+    var videoNameStr = ""
     var categoryName = ""
 
-    var commentString : String = ""
+    var commentString : String = "Add a public comment..."
     
-    var likeCount : String = "0"
-    var disLikeCount : String = "0"
+//    var likeCount : String = "0"
+//    var disLikeCount : String = "0"
     
     var likeClick = false
     var disLikeClick = false
+    var likesCount = 0
+    var disLikesCount = 0
+    var sendCommentClick = false
     
     var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files"," folders into your project","123456 1233 draag"]
 
@@ -54,6 +57,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var strrrr : Array<String> = Array()
     
     var videoIDArray : Array<String> = Array()
+    
+    var videoEmbededIDStr = String()
     
     var gggg = String()
     
@@ -74,7 +79,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         super.viewDidLoad()
         
         hideKeyboard()
-        
+        allOffersTableView.allowsSelection = false
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
         allOffersTableView.separatorStyle = .none
@@ -121,8 +126,10 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         registerTableViewCells()
         
 //        getVideosAPICall()
+        
+        print(videoIDArray)
        
-         self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
+         self.player.load(withVideoId: videoEmbededIDStr,playerVars: self.playerVars)
         
         
     }
@@ -139,7 +146,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
      //   self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " \(videoIDNameArr)", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         
@@ -248,7 +255,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
        // return sectionTitleArray.count
         
-        return 4
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -263,7 +270,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             return 1
         }
-        else{
+                else{
             
         return usersCommentsArray.count
         }
@@ -295,7 +302,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
            
                 
             }
-            else{
+            else {
                 
             youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
@@ -317,10 +324,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             }
             
             
-            youtubeCLDSSCell.likeCountLbl.text = likeCount
-            
-            youtubeCLDSSCell.disLikeCountLbl.text = disLikeCount
-            
+           
+            youtubeCLDSSCell.videoTitleName.text = videoNameStr
             
                         
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
@@ -347,11 +352,24 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
          let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         
         
-        
+        commentsCell.commentTexView.text = self.commentString
+        commentsCell.commentCountLab.text = String(usersCommentsArray.count)
         commentsCell.commentTexView.delegate = self
-        commentsCell.sendBtn.isHidden = true
-        commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked), for: .touchUpInside)
+        
+        commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
+          
+            if sendCommentClick == false{
             
+            commentsCell.sendBtn.isHidden = true
+            
+            }
+            
+            else{
+                
+                commentsCell.sendBtn.isHidden = false
+
+            
+            }
             return commentsCell
         
        }
@@ -366,6 +384,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             return usersCommentsTableViewCell
             
         }
+        
+        
     
 //      //  let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
 //        
@@ -542,13 +562,22 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         
-        if textView.text == "Add a public comment..." {
         
-        textView.text = ""
-        }
-        textView.textColor = UIColor.black
         
        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.text == "Add a public comment..." {
+            
+            textView.text = ""
+            
+        }
+//        self.allOffersTableView.reloadSections(IndexSet(integersIn: 1...1), with: UITableViewRowAnimation.top)
+        self.sendCommentClick = false
+        textView.textColor = UIColor.black
+        
     }
     
     
@@ -635,14 +664,19 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         likeClick = true
         disLikeClick = false
+        
+            
         }
         
         else{
             
         likeClick = false
         disLikeClick = false
+    
         
         }
+        
+        
         
         let indexPath = IndexPath(item: 0, section: 0)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -658,11 +692,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             disLikeClick = true
             likeClick = false
+ 
         }
             
         else{
             disLikeClick = false
             likeClick = false
+          
             
         }
         
@@ -690,18 +726,21 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     func commentSendBtnClicked(){
-    
+     
+    self.sendCommentClick = false
     
      self.allOffersTableView.endEditing(true)
     
     print(self.commentString)
     
-    self.usersCommentsArray.append(self.commentString)
+   // self.usersCommentsArray.append(self.commentString)
         
+    self.usersCommentsArray.insert(self.commentString, at: 0)
         
-    self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.top)
+    self.commentString = "Add a public comment..."
+    self.allOffersTableView.reloadSections(IndexSet(integersIn: 1...2), with: UITableViewRowAnimation.top)
    
-    self.commentString = ""
+    
         
     }
     

@@ -11,7 +11,8 @@ import UIKit
 class CommentsCell: UITableViewCell {
 
     @IBOutlet weak var backGroundView: UIView!
-    @IBOutlet weak var commentCountLab: UITextView!
+    
+    @IBOutlet weak var commentCountLab: UILabel!
     
     @IBOutlet weak var sendBtn: UIButton!
     
@@ -23,12 +24,12 @@ class CommentsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        sendBtn.tintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        sendBtn.tintColor = Utilities.appColor
         
         commentTexView.autocorrectionType = .no
         
         backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
-        commentTexView.text = "Add a public comment..."
+       // commentTexView.text = "Add a public comment..."
         commentTexView.textColor = UIColor.lightGray
         userImageView.layer.borderWidth = 1
         userImageView.layer.masksToBounds = false

@@ -881,8 +881,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                                 let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
                                    
-                                    videosView.videoIDArray = self.audioIDArray
-                                    videosView.videoIDNameArr = title!
+                                    videosView.videoEmbededIDStr = self.audioIDArray[1]
+                                    videosView.videoNameStr = title!
                                             
                                    self.navigationController?.pushViewController(videosView, animated: true)
                                     }

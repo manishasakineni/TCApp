@@ -354,6 +354,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 }
  
              //   print(self.cagegoriesArray.count)
+                
+                
+                
   
                 let pageCout  = (respVO.totalRecords)! / 15
                 
@@ -471,7 +474,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                 }
                 
-             //   print(self.eventImageArray.count)
+          //   self.eventImageArray = self.eventImageArray.sorted()
                 
                 
                 
@@ -1001,8 +1004,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-   
+
             
             if collectionView.tag  == 0 {
                 
@@ -1041,8 +1043,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
                 
-                
-                let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+ 
+              let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
 
                 cell.nameLabel.text = categoryList.categoryName
                 

@@ -18,10 +18,13 @@ class UsersCommentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        backGroundView.layer.borderWidth = 0.50
-//        backGroundView.layer.borderColor = UIColor.black.cgColor
+        usersImageView.layer.borderWidth = 0.50
+       
 
-        // Initialization code
+        usersImageView.layer.masksToBounds = false
+        usersImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        usersImageView.layer.cornerRadius = usersImageView.frame.height/2
+        usersImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

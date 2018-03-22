@@ -107,7 +107,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backGroundView" destination="HZF-XQ-1JS" id="Mvv-7n-87x"/>
-                <outlet property="commentCountLab" destination="BX7-zB-37R" id="IIu-E6-FTf"/>
+                <outlet property="commentCountLab" destination="J7Y-Nw-m8d" id="He8-jq-708"/>
                 <outlet property="commentTexView" destination="BX7-zB-37R" id="8br-Eu-32I"/>
                 <outlet property="sendBtn" destination="ero-Jb-T3z" id="IUN-gp-XQL"/>
                 <outlet property="userImageView" destination="Yhf-1f-NyF" id="Ykc-0Z-Upj"/>

@@ -786,7 +786,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                                     let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
                                     
                                     videosView.videoIDArray = self.audioIDArray
-                                    videosView.videoIDNameArr = title!
+                                    videosView.videoNameStr = title!
                                     
                                     
                                     self.navigationController?.pushViewController(videosView, animated: true)

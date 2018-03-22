@@ -443,7 +443,7 @@ class Utilities: NSObject {
         
         if (titlelabel == nil) {
             
-            titlelabel = UILabel(frame: CGRect(x: 0.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
+            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
             titlelabel?.tag = 555
             titlelabel!.backgroundColor = UIColor.clear
             titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)
@@ -470,7 +470,7 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
-        leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: leftButtonImage.size.height)
+        leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
             
