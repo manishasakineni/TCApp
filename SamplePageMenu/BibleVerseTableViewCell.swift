@@ -9,6 +9,9 @@
 import UIKit
 
 class BibleVerseTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var verseLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

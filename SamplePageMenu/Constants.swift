@@ -11,7 +11,7 @@ import Foundation
 
  // MARK: -  API's
 
-let videosURL = "http://192.168.1.197/TeluguChurchesApi/api/GetEmbedLinks/"
+let videosURL = "http://192.168.1.181/TeluguChurchesApi/api/GetEmbedLinks/"
 
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
@@ -54,7 +54,7 @@ let GETAUTHOREVENTSCOUNTBYMONTH : String = BASEURL.appending("api/Events/GetEven
 
 let GETEVENTDETAILSBYID : String = BASEURL.appending("api/Events/GetEventById/")
 
-let BIBLEAPIURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/English/bible.json"
+let BIBLEAPIURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/Telugu/bible.json"
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

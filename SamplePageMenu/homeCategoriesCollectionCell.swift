@@ -10,6 +10,7 @@ import UIKit
 
 class homeCategoriesCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var mediaTypeLabel: UILabel!
     
     @IBOutlet weak var collectionImgView: UIImageView!
     

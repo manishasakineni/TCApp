@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
   
         
-     //   lunchScreenView()
+       lunchScreenView()
 
      //   }
             
@@ -128,11 +128,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 var imageView : UIImageView
                 imageView  = UIImageView(frame: window.bounds)
-                imageView.image = UIImage(named:"skyJSU")
+                imageView.image = UIImage(named:"Church-logo")
                 let codedLabel:UILabel = UILabel()
-               // codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
+                // codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
                 codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.width)
-
+                
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
                 
@@ -163,17 +163,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // customized launch screen
             if let window = self.window {
                 self.customizedLaunchScreenView = UIView(frame: window.bounds)
-                self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+                self.customizedLaunchScreenView?.backgroundColor = UIColor.white
+                //                    UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
                 
                 self.window?.makeKeyAndVisible()
                 
                 var imageView : UIImageView
                 imageView  = UIImageView(frame: window.bounds)
-                imageView.image = UIImage(named:"skyJSU")
+                imageView.image = UIImage(named:"Church-logo")
                 let codedLabel:UILabel = UILabel()
-               // codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
-                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
-
+                imageView.frame = CGRect(x: 80, y: 160, width: 200, height: 200)
+                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
+                //                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
+                
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
                 
@@ -182,12 +184,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(str.characters.count)
                 codedLabel.animate(newText:str, characterDelay: 0.05)
                 codedLabel.numberOfLines=0
-                codedLabel.textColor=UIColor.white
+                codedLabel.textColor=UIColor.black
                 codedLabel.font=UIFont.systemFont(ofSize: 12)
                 
                 // codedLabel.backgroundColor=UIColor.lightGray
-                imageView.addSubview(codedLabel)
+                //                imageView.addSubview(codedLabel)
                 self.customizedLaunchScreenView?.addSubview(imageView)
+                self.customizedLaunchScreenView?.addSubview(codedLabel)
                 self.window?.addSubview(self.customizedLaunchScreenView!)
                 self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
                 UIView.animate(withDuration: 1, delay: (stringCount + 0.2) * 0.1 , options: .curveEaseOut,
@@ -198,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-
+        
     }
 
 }

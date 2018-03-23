@@ -25,7 +25,13 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     
     var verseCountStr:Int = 0
     
+    var chapterCount:Int = 0
+    
     var verseStringCount = Array<BibleResultVo>()
+    
+    var backTitleStr:String = ""
+    
+    var appVersion:String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +47,22 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         print(verseStringCount.count)
 //        self.bibleBookAPICall()
         
-        let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
-        self.verseTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
+        let nibName  = UINib(nibName: "BibleVerseTableViewCell" , bundle: nil)
+        self.verseTableView.register(nibName, forCellReuseIdentifier: "BibleVerseTableViewCell")
         
         verseTableView.delegate = self
         verseTableView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //   super.viewWillAppear(animated)
+        
+        
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) \(chapterCount)", backTitle: "mbhjbhb", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,32 +93,23 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            return 50.0
-        }
-        else {
-            
-            return 60.0
-            
-            
-        }
-        
+       return UITableViewAutomaticDimension
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BibleBooksTableViewCell", for: indexPath) as! BibleBooksTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BibleVerseTableViewCell", for: indexPath) as! BibleVerseTableViewCell
         
         
         //        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         
                 let booksList = self.verseStringCount[indexPath.row]
         
-        cell.bibleBookLabel.text = booksList.Verse
+//        cell.verseLabel.text?.height(withConstrainedWidth: 100, font: .font)
+        
+        cell.verseLabel.text = booksList.Verse
         
 //        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
 //        
@@ -202,5 +208,40 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         }
         
     }
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        print("Back Button Clicked......")
+        
+    }
 
+}
+
+extension String {
+    func heightLabel(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func widthLabel(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
 }

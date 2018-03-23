@@ -491,17 +491,17 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
-        if indexPath.row  > self.imagesArrayTag.count {
-            
-            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
-            
-            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
-            
-            
-            cell.categorieName.text = mediaTypeName
-            
-
-        }
+//        if indexPath.row  > self.imagesArrayTag.count {
+//            
+//            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
+//            
+//            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+//            
+//            
+//            cell.categorieName.text = mediaTypeName
+//            
+//
+//        }
         
         
         
@@ -533,6 +533,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
+         let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+        
          let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
@@ -542,6 +544,16 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
 //        print(postImgUrl!)
         
         cell.nameLabel.text = title
+        
+        if indexPath.row == 0 {
+            
+            cell.mediaTypeLabel.text = mediaName
+        }
+        else {
+            
+            cell.mediaTypeLabel.text = ""
+        }
+        
         
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
 

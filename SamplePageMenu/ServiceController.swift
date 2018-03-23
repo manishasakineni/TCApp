@@ -292,7 +292,7 @@ class ServiceController: NSObject {
                             print("success 1")
 
                             let parsedData = try JSONSerialization.jsonObject(with:data!,options:.mutableContainers) as![String:Any]
-                            print(parsedData)
+//                            print(parsedData)
                             success(parsedData as AnyObject)
                         }
                         catch{

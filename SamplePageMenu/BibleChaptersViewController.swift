@@ -19,6 +19,8 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     var indexCount:Int = 0
     
     var appVersion:String = ""
+    
+    var backTitleStr:String = ""
 
     var verseCountStr = Array<Int>()
     
@@ -60,10 +62,10 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     
         override func viewWillAppear(_ animated: Bool) {
     
-            //   super.viewWillAppear(animated)
+            super.viewWillAppear(animated)
     
     
-            Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Chapters".localize(), backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) Chapters", backTitle: "\(backTitleStr)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     
         }
         
@@ -100,7 +102,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         }
         else {
             
-            return 60.0
+            return 40.0
             
             
         }
@@ -120,8 +122,11 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         
         cell.bibleBookLabel.text = "Chapter \(indexPath.row)"
         
-        cell.chapterCountLabel.text = "\(verseCountStr[indexPath.row])"
+//        cell.chapterCountLabel.text = "\(verseCountStr[indexPath.row])"
         
+        cell.chapterCountLabel.text = ""
+        
+         cell.accessoryType = .disclosureIndicator
         
         cell.selectionStyle = .none
         
@@ -141,6 +146,10 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         verseViewController.verseCountStr = self.verseCountStr[indexPath.row]
         
         verseViewController.versDetailArray = self.vDetailArray
+        
+        verseViewController.backTitleStr = backTitleStr
+        
+        verseViewController.chapterCount = indexPath.row
         
         let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
         

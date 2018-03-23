@@ -69,7 +69,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
             super.viewWillAppear(animated)
     
     
-            Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books", backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     
         }
     
@@ -110,7 +110,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         }
         else {
             
-            return 60.0
+            return 40.0
             
             
         }
@@ -133,7 +133,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         cell.chapterCountLabel.text = "\(self.bibleCArr[indexPath.row])"
         
         
-        
+         cell.accessoryType = .disclosureIndicator
         
         
         cell.selectionStyle = .none
@@ -183,6 +183,8 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         chapterViewController.verseStringCount = self.verseStringCount
         
+         chapterViewController.backTitleStr = self.bookList[indexPath.row]
+        
         self.navigationController?.pushViewController(chapterViewController, animated: true)
         
         
@@ -196,12 +198,14 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         print(strUrl)
         
-        
+         MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
         serviceController.getRequest(strURL:strUrl, success:{(result) in
             DispatchQueue.main.async()
                 {
                     //                    print(result)
+                    
+                     MBProgressHUD.hide(for:appDelegate.window,animated:true)
                     
                     let respVO:BibleBookVo = Mapper().map(JSONObject: result)!
                     
