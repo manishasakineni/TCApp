@@ -28,7 +28,7 @@ class CommentsCell: UITableViewCell {
         
         commentTexView.autocorrectionType = .no
         
-        backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
+       // backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
        // commentTexView.text = "Add a public comment..."
         commentTexView.textColor = UIColor.lightGray
         userImageView.layer.borderWidth = 1

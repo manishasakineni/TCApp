@@ -30,7 +30,8 @@ class youtubeCLDSSCell: UITableViewCell {
         // Initialization code
         
         
-        backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
+       // backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

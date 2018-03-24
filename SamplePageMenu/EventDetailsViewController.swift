@@ -13,6 +13,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBOutlet weak var eventDetailsTableView: UITableView!
     
+    
+    
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
   //  EventDetailsListResultVO
     

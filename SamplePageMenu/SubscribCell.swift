@@ -31,7 +31,7 @@ class SubscribCell: UITableViewCell {
         subscribImageView.clipsToBounds = true
         
         
-        backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
+//        backGroundView.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.50)
 
         // Initialization code
     }

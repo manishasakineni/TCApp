@@ -23,13 +23,16 @@ class ServiceController: NSObject {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         if appDelegate.checkInternetConnectivity() == false {
+            
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+            
             return
         }
-        MBProgressHUD.hide(for:appDelegate.window,animated:true)
-        MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        
+       // MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
         let urlStr:NSString = strURL.addingPercentEscapes(using:String.Encoding.utf8.rawValue)! as NSString
         let url: NSURL = NSURL(string: urlStr as String)!
@@ -73,7 +76,7 @@ class ServiceController: NSObject {
         catch {
             DispatchQueue.main.async(){
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                MBProgressHUD.hide(for: appDelegate.window, animated: true)
+               // MBProgressHUD.hide(for: appDelegate.window, animated: true)
                 print("JSON serialization failed:  \(error)")
                 appDelegate.window?.makeToast("Network is either slow or not Connected", duration:kToastDuration , position:CSToastPositionCenter)
             }
@@ -89,7 +92,7 @@ class ServiceController: NSObject {
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
-                MBProgressHUD.hide(for: appDelegate.window, animated: true)
+               // MBProgressHUD.hide(for: appDelegate.window, animated: true)
                 
                 if response != nil {
                     
@@ -186,15 +189,15 @@ class ServiceController: NSObject {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        if appDelegate.checkInternetConnectivity() == false
-//        {
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            appDelegate.window?.makeToast(kNetworkStatusMessage, duration: kToastDuration, position: CSToastPositionBottom)
-//            return
-//        }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        MBProgressHUD.hide(for:appDelegate.window,animated:true)
-//        MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        
+        if appDelegate.checkInternetConnectivity() == false
+        {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration: kToastDuration, position: CSToastPositionBottom)
+            return
+        }
+
+       // MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
         
         let request = NSMutableURLRequest(url: NSURL(string: strURL)! as URL)
@@ -216,7 +219,8 @@ class ServiceController: NSObject {
         
         let task = URLSession.shared.dataTask(with:request as URLRequest){(data,response,error) in
             DispatchQueue.main.async(){
-           //     MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                
+                MBProgressHUD.hide(for:appDelegate.window,animated:true)
                 
                 print(response)
                 
@@ -253,6 +257,7 @@ class ServiceController: NSObject {
                         //                    appDelegate.window?.rootViewController = viewController
                         
                     }
+                    
                     if statusCode == 404 {
                         
                         print("failuer 1")

@@ -19,6 +19,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     @IBOutlet weak var player: YTPlayerView!
     
+    
+    @IBOutlet weak var ytPlayerViewHeight: NSLayoutConstraint!
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var textView: UITextView!
     @IBOutlet var pageControl: UIPageControl!
@@ -46,7 +49,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var disLikesCount = 0
     var sendCommentClick = false
     
-    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files"," folders into your project","123456 1233 draag"]
+    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
 
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
@@ -83,7 +86,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
         allOffersTableView.separatorStyle = .none
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+     //   IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
        
         
@@ -131,6 +134,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
        
          self.player.load(withVideoId: videoEmbededIDStr,playerVars: self.playerVars)
         
+        self.allOffersTableView.reloadData()
         
     }
     
@@ -139,7 +143,15 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         super.viewWillAppear(animated)
         
+        if(UIDevice.current.userInterfaceIdiom == .phone){
         
+        self.ytPlayerViewHeight.constant = 200
+        }
+        else{
+            
+        self.ytPlayerViewHeight.constant = 300
+            
+        }
         
         print(showNav)
         
@@ -255,24 +267,21 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
        // return sectionTitleArray.count
         
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        if section == 0 {
+        if section == 3 {
             
-            return 2
+            return usersCommentsArray.count
         }
-       // return self.embedLinksAry.count
-        if section == 1 {
+       
+         else  {
             
-            return 1
-        }
-                else{
+        return 1
             
-        return usersCommentsArray.count
         }
     }
     
@@ -283,7 +292,26 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        if indexPath.section == 0  {
+        
+        return 90
+            
+        }
+            
+        if indexPath.section == 1  {
+            
+            return 60
+            
+        }
+
+        else {
+        
+        
         return UITableViewAutomaticDimension
+            
+        }
+        
+        
     }
     
     
@@ -293,7 +321,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         if indexPath.section == 0 {
             
-           if indexPath.row == 0 {
+           
             let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
             if likeClick == true{
@@ -333,9 +361,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
 
             return youtubeCLDSSCell
-           }
            
-           else {
+           
+           
+        
+        }
+        
+        if indexPath.section == 1 {
             
             let subscribCell = tableView.dequeueReusableCell(withIdentifier: "SubscribCell", for: indexPath) as! SubscribCell
             
@@ -344,11 +376,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             return subscribCell
             
-            }
-        
         }
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
          let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         
         
@@ -374,7 +404,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
        }
         
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
@@ -574,10 +604,10 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             textView.text = ""
             
         }
-//        self.allOffersTableView.reloadSections(IndexSet(integersIn: 1...1), with: UITableViewRowAnimation.top)
+        
         self.sendCommentClick = false
         textView.textColor = UIColor.black
-        
+//        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.none)
     }
     
     
@@ -597,7 +627,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        let indexPath : IndexPath = IndexPath(row: 0, section: 1)
+        let indexPath : IndexPath = IndexPath(row: 0, section: 2)
         
         if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath) as? CommentsCell {
             
@@ -607,7 +637,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             self.commentString = commentsCell.commentTexView.text
             
-            if (commentsCell.commentTexView.text.characters.count) > 0 {
+            if (commentsCell.commentTexView.text.characters.count) > 0  {
                 
                 
                 
@@ -619,7 +649,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             else{
             
-                commentsCell.sendBtn.isHidden = false
+                commentsCell.sendBtn.isHidden = true
             
             }
         }
@@ -738,7 +768,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     self.usersCommentsArray.insert(self.commentString, at: 0)
         
     self.commentString = "Add a public comment..."
-    self.allOffersTableView.reloadSections(IndexSet(integersIn: 1...2), with: UITableViewRowAnimation.top)
+    self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
    
     
         

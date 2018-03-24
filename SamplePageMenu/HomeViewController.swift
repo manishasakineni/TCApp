@@ -26,6 +26,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBOutlet weak var categorieTableView: UITableView!
     
     @IBOutlet weak var bannerScrollView: UIScrollView!
+    
+    @IBOutlet weak var bannerScrollHeight: NSLayoutConstraint!
+    
 
    var visibleIndexPath: IndexPath? = nil
     var offSet: CGFloat = 0
@@ -199,6 +202,17 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if(UIDevice.current.userInterfaceIdiom == .phone){
+          
+            self.bannerScrollHeight.constant = 200
+        }
+        
+        else{
+        
+        self.bannerScrollHeight.constant = 300
+        
+        }
+        
         self.getAllCategoriesAPICall()
         
         
@@ -269,7 +283,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                         
                             self.pageController.numberOfPages = self.bannerImageArr.count
                             self.bannerScrollView.isPagingEnabled = true
-                            self.bannerScrollView.contentSize.height = 164
+                            self.bannerScrollView.contentSize.height = 180
                             self.bannerScrollView.backgroundColor = UIColor.white
                             self.bannerScrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(self.bannerImageArr.count)
                             self.bannerScrollView.showsHorizontalScrollIndicator = false
@@ -279,10 +293,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             for (index, image) in self.bannerImageArr.enumerated() {
                                 let image = image
                                 let imageView = UIImageView(image: image)
-                                imageView.contentMode = .scaleAspectFill
-                                imageView.frame.size.width = UIScreen.main.bounds.size.width
+                                imageView.contentMode = .scaleToFill
+                                //imageView.frame.size.width = UIScreen.main.bounds.size.width
                                 imageView.backgroundColor = UIColor.blue
-                                imageView.frame.size.height = self.bannerScrollView.contentSize.height
+                                //imageView.frame.size.height = self.bannerScrollView.contentSize.height
+                                
+                                imageView.frame = self.bannerScrollView.frame
                                 imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
                                 print(UIScreen.main.bounds.size.width)
                                 self.bannerScrollView.addSubview(imageView)
@@ -296,6 +312,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                              self.bannerImageArr = self.arrImages
                              self.categorieTableView.reloadData()
                                     }
+                        
+                        print(self.bannerImageArr)
                         
                         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
 
@@ -702,7 +720,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             if indexPath.row == 0{
             
-                return 120.0
+                return 150.0
             }
             
             else {
