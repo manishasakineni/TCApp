@@ -527,6 +527,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
       
     }
     
+//    @nonobjc internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+//    {
+//        return CGSize(width: 100.0, height: 100.0)
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCategoriesCollectionCell", for: indexPath) as! homeCategoriesCollectionCell
@@ -754,27 +759,29 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            let cellsPerRow = 5
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-        }
-        else {
-            
-            let cellsPerRow = 3
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-            
-            
-        }
+        return CGSize(width: 150.0, height: 130.0)
+        
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+//            
+//            
+//            let cellsPerRow = 5
+//            
+//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+//            return CGSize(width: itemWidth, height: itemWidth)
+//        }
+//        else {
+//            
+//            let cellsPerRow = 3
+//            
+//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+//            return CGSize(width: itemWidth, height: itemWidth)
+//            
+//            
+//        }
         
     }
     

@@ -21,6 +21,8 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     var appVersion:String = ""
     
     var backTitleStr:String = ""
+    
+    var LangText:String = ""
 
     var verseCountStr = Array<Int>()
     
@@ -65,7 +67,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
             super.viewWillAppear(animated)
     
     
-           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) Chapters", backTitle: "\(backTitleStr)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr)", backTitle: "\(backTitleStr)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     
         }
         
@@ -119,8 +121,17 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         //        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         
         //        let booksList = bibleChaptersArr[indexPath.row]
+         //"అధ్యాయము"
+
+        if LangText == "English" {
+            
+            cell.bibleBookLabel.text = "Chapter \(indexPath.row)"
+        }
+        else {
+            
+            cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row)"
+        }
         
-        cell.bibleBookLabel.text = "Chapter \(indexPath.row)"
         
 //        cell.chapterCountLabel.text = "\(verseCountStr[indexPath.row])"
         

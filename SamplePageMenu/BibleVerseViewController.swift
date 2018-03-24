@@ -128,7 +128,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         
-        let strUrl = BIBLEAPIURL
+        let strUrl = BIBLEAPITELUGUURL
         
         print(strUrl)
         

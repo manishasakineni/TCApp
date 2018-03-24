@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjk-3t-DQZ">
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1Ey-Nw-MBQ">
-                                <rect key="frame" x="3" y="30" width="308" height="148"/>
+                                <rect key="frame" x="3" y="4" width="308" height="167"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rew-rW-ztv">
                                     <size key="itemSize" width="50" height="50"/>
@@ -46,8 +46,8 @@
                             <constraint firstItem="1Ey-Nw-MBQ" firstAttribute="leading" secondItem="Cjk-3t-DQZ" secondAttribute="leading" constant="3" id="6iC-3N-5Dn"/>
                             <constraint firstItem="OUp-ni-SuJ" firstAttribute="top" secondItem="Cjk-3t-DQZ" secondAttribute="top" constant="8" id="HwY-Ja-HPF"/>
                             <constraint firstAttribute="trailing" secondItem="1Ey-Nw-MBQ" secondAttribute="trailing" constant="3" id="NwK-ob-cnY"/>
-                            <constraint firstAttribute="bottom" secondItem="1Ey-Nw-MBQ" secondAttribute="bottom" constant="0.5" id="bRG-wd-a9s"/>
-                            <constraint firstItem="1Ey-Nw-MBQ" firstAttribute="top" secondItem="OUp-ni-SuJ" secondAttribute="bottom" constant="1" id="cNa-9d-3Vi"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ey-Nw-MBQ" secondAttribute="bottom" constant="7.5" id="bRG-wd-a9s"/>
+                            <constraint firstItem="1Ey-Nw-MBQ" firstAttribute="top" secondItem="OUp-ni-SuJ" secondAttribute="bottom" constant="-25" id="cNa-9d-3Vi"/>
                             <constraint firstItem="OUp-ni-SuJ" firstAttribute="leading" secondItem="Cjk-3t-DQZ" secondAttribute="leading" constant="3" id="ump-gQ-zzC"/>
                         </constraints>
                     </view>
