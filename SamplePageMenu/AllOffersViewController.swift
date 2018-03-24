@@ -49,7 +49,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var disLikesCount = 0
     var sendCommentClick = false
     
-    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
+//    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
+    
+    var usersCommentsArray = Array<Any>()
 
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
@@ -86,10 +88,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
         allOffersTableView.separatorStyle = .none
-     //   IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
        
+        self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
         
+       // UserDefaults.standard.stringArray(forKey: "usersCommentsArray")
+        UserDefaults.standard.synchronize()
         
         // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         //  UserDefaults.standard.synchronize()
@@ -408,7 +413,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
-            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row]
+            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
             
             
             return usersCommentsTableViewCell
@@ -766,6 +771,12 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
    // self.usersCommentsArray.append(self.commentString)
         
     self.usersCommentsArray.insert(self.commentString, at: 0)
+        
+       UserDefaults.standard.setValue(self.usersCommentsArray, forKey: "usersCommentsArray")
+        
+        
+        UserDefaults.standard.synchronize()
+        
         
     self.commentString = "Add a public comment..."
     self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)

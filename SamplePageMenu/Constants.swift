@@ -17,8 +17,8 @@ let videosURL = "http://192.168.1.181/TeluguChurchesApi/api/GetEmbedLinks/"
 
 
 // constants
-
-var BASEURL:String = "http://192.168.1.194/TeluguChurches/"
+//var BASEURL:String = "http://calibrage.co.in/"
+var BASEURL:String = "http://192.168.1.182/TeluguChurches/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")

@@ -195,7 +195,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         offSet = 0
         
-        
+        pageController.tintColor = Utilities.appColor
+        pageController.numberOfPages = 0
         
     }
     

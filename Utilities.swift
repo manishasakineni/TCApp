@@ -9,10 +9,7 @@
 import UIKit
 
 class Utilities: NSObject {
-    
-    
-    
-   
+
     
     static let sharedInstance : Utilities = Utilities()
     
@@ -21,7 +18,8 @@ class Utilities: NSObject {
     
     static let appFontSize : UIFont = UIFont (name: "Helvetica Neue", size: 30)!
     
-
+    static let bordrColor : CGColor = #colorLiteral(red: 0.4078431373, green: 0.6823529412, blue: 0.8274509804, alpha: 1).cgColor
+    
     
     
     
@@ -115,7 +113,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -162,7 +160,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -210,7 +208,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -260,7 +258,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -311,7 +309,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -359,7 +357,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -407,7 +405,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -461,7 +459,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -511,7 +509,7 @@ class Utilities: NSObject {
 //            
 //            cntr.navigationController!.navigationBar.isTranslucent = false
 //            cntr.navigationController!.isNavigationBarHidden = false
-//            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+//            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
 //            cntr.navigationController!.navigationBar.tintColor = UIColor.white
 //            //            cntr.navigationController?.navigationBar.barStyle = .black
 //        }
@@ -559,7 +557,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -607,7 +605,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -655,7 +653,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -703,7 +701,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -750,7 +748,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -801,7 +799,9 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+//            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
+            
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -852,7 +852,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -904,7 +904,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -955,7 +955,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -1007,7 +1007,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -1061,7 +1061,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.red
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -1114,7 +1114,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -1165,7 +1165,7 @@ class Utilities: NSObject {
 //            
 //            cntr.navigationController!.navigationBar.isTranslucent = false
 //            cntr.navigationController!.isNavigationBarHidden = false
-//            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+//            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
 //            cntr.navigationController!.navigationBar.tintColor = UIColor.white
 //            //            cntr.navigationController?.navigationBar.barStyle = .black
 //        }

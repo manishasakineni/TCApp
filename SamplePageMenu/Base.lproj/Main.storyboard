@@ -502,6 +502,7 @@
                     <navigationItem key="navigationItem" id="D82-DM-hr9"/>
                     <connections>
                         <outlet property="chooseLanguageBtn" destination="eo4-qr-8fQ" id="yIf-IH-rLT"/>
+                        <outlet property="headerView" destination="6e7-0I-p09" id="uuv-Vh-EIk"/>
                         <outlet property="menuTableView" destination="XrD-hj-EW1" id="kLT-Xz-ztg"/>
                     </connections>
                 </viewController>

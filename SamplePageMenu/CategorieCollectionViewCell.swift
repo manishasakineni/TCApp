@@ -32,9 +32,9 @@ class CategorieCollectionViewCell: UICollectionViewCell {
         
         viewOutLet.layer.cornerRadius = 5.0
         viewOutLet.layer.borderWidth = 1
-        viewOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+//        viewOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
 
-        
+        viewOutLet.layer.borderColor = Utilities.bordrColor
         
         collectionImgView.layer.cornerRadius = 3.0
         collectionImgView.layer.shadowColor = UIColor.lightGray.cgColor

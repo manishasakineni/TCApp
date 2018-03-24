@@ -32,7 +32,9 @@ class ServiceController: NSObject {
             return
         }
         
-       // MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        //MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        
+        showLoadingHUD(to_view: appDelegate.window!)
         
         let urlStr:NSString = strURL.addingPercentEscapes(using:String.Encoding.utf8.rawValue)! as NSString
         let url: NSURL = NSURL(string: urlStr as String)!
@@ -76,7 +78,7 @@ class ServiceController: NSObject {
         catch {
             DispatchQueue.main.async(){
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-               // MBProgressHUD.hide(for: appDelegate.window, animated: true)
+                
                 print("JSON serialization failed:  \(error)")
                 appDelegate.window?.makeToast("Network is either slow or not Connected", duration:kToastDuration , position:CSToastPositionCenter)
             }
@@ -89,10 +91,12 @@ class ServiceController: NSObject {
             //            print(error)
             
             DispatchQueue.main.async(){
-                
+                self.hideLoadingHUD(for_view: appDelegate.window!)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
-               // MBProgressHUD.hide(for: appDelegate.window, animated: true)
+             //   MBProgressHUD.hide(for: appDelegate.window, animated: true)
+                
+                
                 
                 if response != nil {
                     
@@ -199,6 +203,7 @@ class ServiceController: NSObject {
 
        // MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
+        showLoadingHUD(to_view: appDelegate.window!)
         
         let request = NSMutableURLRequest(url: NSURL(string: strURL)! as URL)
         request.addValue(content_type, forHTTPHeaderField: "Content-Type")
@@ -220,8 +225,8 @@ class ServiceController: NSObject {
         let task = URLSession.shared.dataTask(with:request as URLRequest){(data,response,error) in
             DispatchQueue.main.async(){
                 
-                MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                
+             //   MBProgressHUD.hide(for:appDelegate.window,animated:true)
+               self.hideLoadingHUD(for_view: appDelegate.window!) 
                 print(response)
                 
                 if response != nil {
@@ -313,11 +318,35 @@ class ServiceController: NSObject {
                     }
                 }
                 
+                else{
+                
+                
+                print(error)
+                
+                
+                
+                }
+                
             }
         }
         task.resume()
 }
 
 
+    
+    
+    func showLoadingHUD(to_view: UIView) {
+        MBProgressHUD.showAdded(to: to_view, animated: true)
+      //  hud.label.text = "Loading..."
+        
+      //  hud?.labelText = "Loading..."
+    
+    }
+    
+    func hideLoadingHUD(for_view: UIView) {
+        MBProgressHUD.hideAllHUDs(for: for_view, animated: true)
+    }
+    
+    
 
 }
