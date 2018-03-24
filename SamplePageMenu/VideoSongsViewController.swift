@@ -491,6 +491,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
+        cell.categorieName.text = ""
+        
 //        if indexPath.row  > self.imagesArrayTag.count {
 //            
 //            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray

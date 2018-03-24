@@ -131,7 +131,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageView.image = UIImage(named:"Church-logo")
                 let codedLabel:UILabel = UILabel()
                 // codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
-                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.width)
+//                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.width)
+                
+                imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                //                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
+                codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 6, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+                
                 
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
@@ -172,8 +177,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageView  = UIImageView(frame: window.bounds)
                 imageView.image = UIImage(named:"Church-logo")
                 let codedLabel:UILabel = UILabel()
-                imageView.frame = CGRect(x: 80, y: 160, width: 200, height: 200)
-                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
+//                imageView.frame = CGRect(x: 80, y: 160, width: 200, height: 200)
+                
+                imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+//                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
+                codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+                
+//                imageView.center = CGPoint(x:(customizedLaunchScreenView?.frame.size.width)!  / 2, y:(customizedLaunchScreenView?.frame.size.height)! / 2)
                 //                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
                 
                 codedLabel.textAlignment = .center
