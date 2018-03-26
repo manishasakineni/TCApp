@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1305,17 +1305,31 @@
                                     <outlet property="delegate" destination="tiA-aV-1BB" id="6Nz-OY-ETp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ef-iL-Y1D">
+                                <rect key="frame" x="0.0" y="319" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jCf-c7-IfA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Ef-iL-Y1D" firstAttribute="centerX" secondItem="53I-aR-6QA" secondAttribute="centerX" id="DvS-Bc-Onc"/>
                             <constraint firstItem="dRf-ch-tRM" firstAttribute="top" secondItem="53I-aR-6QA" secondAttribute="top" id="K4z-vv-ZG7"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ef-iL-Y1D" secondAttribute="trailing" id="YHP-dr-ORl"/>
+                            <constraint firstItem="9Ef-iL-Y1D" firstAttribute="leading" secondItem="53I-aR-6QA" secondAttribute="leading" id="h4Y-eN-pyF"/>
                             <constraint firstItem="dRf-ch-tRM" firstAttribute="leading" secondItem="53I-aR-6QA" secondAttribute="leading" id="hEn-K5-p7R"/>
                             <constraint firstAttribute="trailing" secondItem="dRf-ch-tRM" secondAttribute="trailing" id="mgN-aB-7TF"/>
+                            <constraint firstItem="9Ef-iL-Y1D" firstAttribute="centerY" secondItem="53I-aR-6QA" secondAttribute="centerY" id="nvH-10-tbU"/>
                             <constraint firstItem="dRf-ch-tRM" firstAttribute="bottom" secondItem="wYn-2k-Z5B" secondAttribute="top" id="z3l-sV-9pP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="churchDetailsTableView" destination="dRf-ch-tRM" id="BSz-8M-Yaj"/>
+                        <outlet property="noRecordLabel" destination="9Ef-iL-Y1D" id="oFp-7a-bm7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVe-6K-KuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
