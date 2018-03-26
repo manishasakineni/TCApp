@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1186,8 +1186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EFx-nb-yyL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EFx-nb-yyL">
+                                <rect key="frame" x="0.0" y="151" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mYw-wn-Z3X">
                                     <size key="itemSize" width="90" height="90"/>
@@ -1206,17 +1206,31 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-lD-nBe">
+                                <rect key="frame" x="0.0" y="316" width="375" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="C8B-el-Bto"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wrT-lD-nBe" firstAttribute="centerX" secondItem="rfy-2i-Ow6" secondAttribute="centerX" id="0yv-TK-gOY"/>
                             <constraint firstItem="EFx-nb-yyL" firstAttribute="top" secondItem="rfy-2i-Ow6" secondAttribute="top" id="1HJ-Qw-Psx"/>
+                            <constraint firstItem="wrT-lD-nBe" firstAttribute="leading" secondItem="rfy-2i-Ow6" secondAttribute="leading" id="2qV-Oc-y4r"/>
                             <constraint firstAttribute="trailing" secondItem="EFx-nb-yyL" secondAttribute="trailing" id="3EK-1r-fmZ"/>
                             <constraint firstItem="ZWG-bz-r7m" firstAttribute="top" secondItem="EFx-nb-yyL" secondAttribute="bottom" id="CXT-nA-dlz"/>
+                            <constraint firstAttribute="trailing" secondItem="wrT-lD-nBe" secondAttribute="trailing" id="OlC-5H-WUj"/>
+                            <constraint firstItem="wrT-lD-nBe" firstAttribute="centerY" secondItem="rfy-2i-Ow6" secondAttribute="centerY" id="f8A-HR-iYa"/>
                             <constraint firstItem="EFx-nb-yyL" firstAttribute="leading" secondItem="rfy-2i-Ow6" secondAttribute="leading" id="xDd-76-QQQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="EFx-nb-yyL" id="Hcp-eK-Arg"/>
+                        <outlet property="recordsLabel" destination="wrT-lD-nBe" id="E7A-Ia-zLt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrw-hw-p57" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1374,17 +1388,31 @@
                                     <outlet property="delegate" destination="Di7-N2-up5" id="QgS-WO-9eV"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUM-Cq-5Lc">
+                                <rect key="frame" x="0.0" y="315.5" width="375" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="fvU-MZ-Cg6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ed7-aD-HLo" firstAttribute="top" secondItem="8YR-xf-47E" secondAttribute="bottom" id="3Nm-QM-WAj"/>
                             <constraint firstItem="8YR-xf-47E" firstAttribute="leading" secondItem="JZi-vs-ciI" secondAttribute="leading" id="9hv-Yo-EGu"/>
+                            <constraint firstItem="pUM-Cq-5Lc" firstAttribute="centerY" secondItem="JZi-vs-ciI" secondAttribute="centerY" id="Cyu-pG-8n4"/>
+                            <constraint firstAttribute="trailing" secondItem="pUM-Cq-5Lc" secondAttribute="trailing" id="YG8-mu-S9d"/>
+                            <constraint firstItem="pUM-Cq-5Lc" firstAttribute="leading" secondItem="JZi-vs-ciI" secondAttribute="leading" id="b0C-ds-9ZL"/>
+                            <constraint firstItem="pUM-Cq-5Lc" firstAttribute="centerX" secondItem="JZi-vs-ciI" secondAttribute="centerX" id="dqD-9I-Fuc"/>
                             <constraint firstAttribute="trailing" secondItem="8YR-xf-47E" secondAttribute="trailing" id="gKF-eJ-K73"/>
                             <constraint firstItem="8YR-xf-47E" firstAttribute="top" secondItem="JZi-vs-ciI" secondAttribute="top" id="uzN-YE-7RM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="churchAdminTableView" destination="8YR-xf-47E" id="vzg-el-LGD"/>
+                        <outlet property="searchLabel" destination="pUM-Cq-5Lc" id="HP2-5k-jFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ak6-IM-PEq" userLabel="First Responder" sceneMemberID="firstResponder"/>

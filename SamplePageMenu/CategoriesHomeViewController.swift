@@ -11,6 +11,7 @@ import Localize
 
 class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating{
 
+    @IBOutlet weak var recordsLabel: UILabel!
     
 
 // this Importent
@@ -38,6 +39,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     var filteredData: [String]!
     
     var searchController: UISearchController!
+    var searchTextStr:String = ""
+
     
     var searchActive : Bool = false
    // var filtered:[String] = []
@@ -81,6 +84,9 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             searchBar.sizeToFit()
             
             searchBar.delegate = self
+            
+            self.recordsLabel.isHidden = true
+
             
         //    filteredData = sectionTittles
             
@@ -200,15 +206,101 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         }
     }
     
+    func getAllSearchCategoriesAPICall(string:String){
+        
+        let paramsDict = ["pageIndex": PageIndex,
+                          "pageSize": 50,
+                          "sortbyColumnName": "UpdatedDate",
+                          "sortDirection": "desc",
+                          "searchName": string
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETALLCATEGORIES as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:GetAllCategoriesVo = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            self.cagegoriesArray.removeAll()
+            if isSuccess == true {
+                
+                
+                let listArr = respVO.listResult!
+                if listArr.count > 0 {
+                    
+                    self.collectionView.isHidden = false
+                    
+                   self.recordsLabel.isHidden = true
+                
+                
+                for eachArray in listArr{
+                    
+                    self.cagegoriesArray.append(eachArray)
+                }
+                
+                
+                
+                print(self.cagegoriesArray.count)
+                
+                
+                
+                let pageCout  = (respVO.totalRecords)! / 50
+                
+                let remander = (respVO.totalRecords)! % 50
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+                
+                self.collectionView.reloadData()
+                
+            }
+                else {
+                self.recordsLabel.isHidden = false
+                    self.collectionView.isHidden = true
+                    
+                }
+
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+    
+
+    
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
+        
+        self.getAllSearchCategoriesAPICall(string: searchBar.text!)
+        self.collectionView.reloadData()
+        
+
         
         
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
+        
+        self.collectionView.reloadData()
+
     }
     
     private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -217,6 +309,34 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        
+        
+        self.searchTextStr = searchBar.text!
+        
+        
+        filtered = cagegoriesArray.filter({ (text) -> Bool in
+            
+            let tmp = text
+            let range = ((tmp.categoryName?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil)
+            
+            
+            return range
+        })
+        
+        
+        self.getAllSearchCategoriesAPICall(string: searchBar.text!)
+        
+        if(filtered.count == 0){
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.collectionView.reloadData()
+        
+        //        self.getChurchDetailsAPICall()
+        
+        searchBar.resignFirstResponder()
+        
     }
     
     @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
@@ -225,34 +345,60 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtered = cagegoriesArray.filter({ (text) -> Bool in
-            let tmp = text
-            let range = ((tmp.categoryName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
-            
-            return range
-        })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
-        self.collectionView.reloadData()
-        
+//        filtered = cagegoriesArray.filter({ (text) -> Bool in
+//            let tmp = text
+//            let range = ((tmp.categoryName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//            
+//            return range
+//        })
+//        if(filtered.count == 0){
+//            searchActive = false;
+//        } else {
+//            searchActive = true;
+//        }
+//        self.collectionView.reloadData()
+//        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
-        //        if(filtered.count == 0){
         searchActive = false
-        //        } else {
-        //            searchActive = true;
-        //        }
         self.collectionView.reloadData()
         searchBar.resignFirstResponder()
+      
+        
+                self.searchTextStr = searchBar.text!
         
         
-    }
+                filtered = churchAdminArray.filter({ (text) -> Bool in
+                    
+                    let tmp = text
+                    let range = ((tmp.categoryName?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.fileName?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil)
+                    
+                    
+                    return range
+                })
+                
+
+                self.getAllSearchCategoriesAPICall(string: searchBar.text!)
+                
+                if(filtered.count == 0){
+                    searchActive = false
+                } else {
+                    searchActive = true
+                }
+                self.collectionView.reloadData()
+                
+                //        self.getChurchDetailsAPICall()
+                
+                searchBar.resignFirstResponder()
+        }
+        
+    
+    
+    
+
     
     func updateSearchResults(for searchController: UISearchController) {
         
