@@ -64,6 +64,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
         
@@ -76,7 +78,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Holy Bible"
+        searchBar.placeholder = "All Churches"
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -120,8 +122,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
         PageIndex = 1
         totalPages = 0
-        churchNamesArray.removeAll()
-          getChurchDetailsAPICall()
+        
+        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        
+//          getChurchDetailsAPICall()
 
        churchDetailsTableView.isHidden = true
     
@@ -146,6 +150,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
         
+        searchActive = false
+        
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         self.churchDetailsTableView.reloadData()
         
@@ -154,33 +160,29 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
         searchActive = false
+        searchBar.resignFirstResponder()
+        
+//        self.getAllChurchSearchAPIService(string: searchBar.text!)
+//        self.churchDetailsTableView.reloadData()
         
         
-        
-        self.churchDetailsTableView.reloadData()
-        
-        
-        
-    }
-    
-    private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false
         
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchActive = false
         
-        self.searchTextStr = searchBar.text!
-        
-        
-        filtered = churchNamesArray.filter({ (text) -> Bool in
-            let tmp = text
-            let range = ((tmp.name?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil)
-            
-            
-            return range
-        })
+//        self.searchTextStr = searchBar.text!
+//        
+//        
+//        filtered = churchNamesArray.filter({ (text) -> Bool in
+//            let tmp = text
+//            let range = ((tmp.name?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//            
+//            
+//            return range
+//        })
 
         
         self.getAllChurchSearchAPIService(string: searchBar.text!)
@@ -208,28 +210,37 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
 //        self.searchTextStr = searchText
  
+        
 
         
-        if searchText == "" {
+        
+//        if searchText == "" {
         
 //            filtered = churchNamesArray
             
-            filtered = churchNamesArray.filter({ (text) -> Bool in
-                let tmp = text
-                let range = ((tmp.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
-            
-            
-                        return range
-                    })
+//            filtered = churchNamesArray.filter({ (text) -> Bool in
+//                let tmp = text
+//                let range = ((tmp.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//            
+//            
+//                        return range
+//                    })
         
-        }
+//        }
 //            else {
         
             
 //            self.getAllChurchSearchAPIService(string: searchText)
 //        }
         
+        if searchText.characters.count == 0 {
+            searchActive = false;
+            self.churchDetailsTableView.reloadData()
+            
+        } else {
+
         
+        self.getAllChurchSearchAPIService(string: searchBar.text!)
         
         if(filtered.count == 0){
             searchActive = false
@@ -240,7 +251,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
-    
+    }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
@@ -314,9 +325,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 
                 
-                let pageCout  = (respVO.totalRecords)! / 10
+                let pageCout  = (respVO.totalRecords)! / 50
                 
-                let remander = (respVO.totalRecords)! % 10
+                let remander = (respVO.totalRecords)! % 50
                 
                 self.totalPages = pageCout
                 
@@ -369,18 +380,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
        let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
         
-//        let churchID = respVO.listResult?[0].Id
-//        print("churchID" ,churchID!)
-//        
-//        let defaults = UserDefaults.standard
-//        defaults.set(churchID, forKey: kchurchID)
-//        UserDefaults.standard.synchronize()
-        
-    
         let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
 
-
+        self.churchNamesArray.removeAll()
+//        self.filtered.removeAll()
 
         if isSuccess == true {
 

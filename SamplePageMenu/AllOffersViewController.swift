@@ -90,8 +90,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         allOffersTableView.separatorStyle = .none
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
-       
-        self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
+        if UserDefaults.standard.value(forKey: "usersCommentsArray") != nil{
+            
+            self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
+            
+            
+        }
+       // self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
         
        // UserDefaults.standard.stringArray(forKey: "usersCommentsArray")
         UserDefaults.standard.synchronize()

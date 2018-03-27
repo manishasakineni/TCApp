@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,8 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9xE-6n-ecE">
+                    <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="tbx-J5-VbV"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AAW-t3-OJB">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="144" width="375" height="523"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="i5M-Pr-FkT" id="i6l-x3-7Nv"/>
@@ -31,10 +38,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="AAW-t3-OJB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DzF-rj-C41"/>
-                <constraint firstAttribute="trailing" secondItem="AAW-t3-OJB" secondAttribute="trailing" id="Zck-vo-W2L"/>
-                <constraint firstItem="AAW-t3-OJB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dOa-b9-Biq"/>
-                <constraint firstAttribute="bottom" secondItem="AAW-t3-OJB" secondAttribute="bottom" id="j2S-pJ-Yn6"/>
+                <constraint firstAttribute="trailing" secondItem="AAW-t3-OJB" secondAttribute="trailing" id="Fh1-eT-VpC"/>
+                <constraint firstItem="AAW-t3-OJB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b1M-IA-ZCw"/>
+                <constraint firstItem="9xE-6n-ecE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="cpJ-NZ-81H"/>
+                <constraint firstItem="9xE-6n-ecE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ddB-54-Pyo"/>
+                <constraint firstAttribute="bottom" secondItem="AAW-t3-OJB" secondAttribute="bottom" id="egI-dD-tw0"/>
+                <constraint firstAttribute="trailing" secondItem="9xE-6n-ecE" secondAttribute="trailing" id="qZj-86-Ktu"/>
+                <constraint firstItem="AAW-t3-OJB" firstAttribute="top" secondItem="9xE-6n-ecE" secondAttribute="bottom" id="vyP-jO-1Zs"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

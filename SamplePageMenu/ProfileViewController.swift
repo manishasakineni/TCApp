@@ -138,100 +138,105 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         print("responseString = \(respVO)")
                         
+                        let listArr = respVO.listResult
                         
-                        let statusCode = respVO.isSuccess
-                        
-                        print("StatusCode:\(String(describing: statusCode))")
-                        
-                        self.firstName = (respVO.listResult?[0].FirstName)!
-                        self.middleName = (respVO.listResult?[0].MiddleName)!
-                        self.lastName = (respVO.listResult?[0].Lastname)!
-                        self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
-                        self.email = (respVO.listResult?[0].Email)!
-                        
-                        var userImgURL : String = ""
-                        userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
-                        
-                        
-                    let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
-                        
-                        if newString != "" {
+                        if (listArr?.count)! > 0 {
+                            
+                            let statusCode = respVO.isSuccess
+                            
+                            print("StatusCode:\(String(describing: statusCode))")
+                            
+                            self.firstName = (respVO.listResult?[0].FirstName)!
+                            self.middleName = (respVO.listResult?[0].MiddleName)!
+                            self.lastName = (respVO.listResult?[0].Lastname)!
+                            self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
+                            self.email = (respVO.listResult?[0].Email)!
+                            
+                            var userImgURL : String = ""
+                            userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
                             
                             
-                            let url = URL(string:newString)
+                            let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
                             
-                            if let data = try? Data(contentsOf: url!)
-                            {
-                                let image: UIImage = UIImage(data: data)!
-                            }
-                            
-                            let dataImg = try? Data(contentsOf: url!)
-                            
-                            if dataImg != nil {
+                            if newString != "" {
                                 
-                                self.profileimage = UIImage(data: dataImg!)!
+                                
+                                let url = URL(string:newString)
+                                
+                                if let data = try? Data(contentsOf: url!)
+                                {
+                                    let image: UIImage = UIImage(data: data)!
+                                }
+                                
+                                let dataImg = try? Data(contentsOf: url!)
+                                
+                                if dataImg != nil {
+                                    
+                                    self.profileimage = UIImage(data: dataImg!)!
+                                }
+                                else {
+                                    
+                                    self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+                                }
                             }
                             else {
                                 
                                 self.profileimage = #imageLiteral(resourceName: "churchLogoo")
                             }
+                            
+                            self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
+                            
+                            if self.dateofBirth != "" {
+                                
+                                self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+                            }
+                            
+                            
+                            
+                            //                        let fff = (IDInfo?.DOB)!
+                            //
+                            //                        let stringB = self.formattedDateFromString(dateString: fff, withFormat: "MMM dd, yyyy")
+                            //
+                            //                        if stringB != nil {
+                            //
+                            //                            self.selectedDOBStr = stringB!
+                            //
+                            //                        }
+                            
+                            
+                            if let gender = respVO.listResult?[0].genderTypeId {
+                                self.genderTypeID = (gender)
+                            }
+                            else{
+                                self.genderTypeID = 0
+                            }
+                            
+                            
+                            self.editProfileTableView.reloadData()
+                            
+                            if statusCode == true
+                            {
+                                
+                                
+                                let successMsg = respVO.endUserMessage
+                                
+                                
+                                
+                                let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                
+                                
+                            }
+                            else {
+                                
+                                let failMsg = respVO.endUserMessage
+                                
+                                self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+                                
+                                return
+                                
+                            }
                         }
-                        else {
-                            
-                            self.profileimage = #imageLiteral(resourceName: "churchLogoo")
-                        }
                         
-                        self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
-                        
-                        if self.dateofBirth != "" {
-                            
-                            self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
-                        }
-                        
-                        
-                      
-//                        let fff = (IDInfo?.DOB)!
-//                        
-//                        let stringB = self.formattedDateFromString(dateString: fff, withFormat: "MMM dd, yyyy")
-//                        
-//                        if stringB != nil {
-//                            
-//                            self.selectedDOBStr = stringB!
-//                            
-//                        }
-                        
-                        
-                        if let gender = respVO.listResult?[0].genderTypeId {
-                            self.genderTypeID = (gender)
-                        }
-                        else{
-                            self.genderTypeID = 0
-                        }
-                        
-                        
-                        self.editProfileTableView.reloadData()
-                        
-                        if statusCode == true
-                        {
-                            
-                            
-                            let successMsg = respVO.endUserMessage
-                            
-                            
-                            
-                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                            
-                            
-                        }
-                        else {
-                            
-                            let failMsg = respVO.endUserMessage
-                            
-                            self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
-                            
-                            return
-                            
-                        }
                         
                         
                         

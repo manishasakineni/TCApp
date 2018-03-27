@@ -11,10 +11,15 @@ import Localize
 
 class AllEventsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating,UISearchBarDelegate {
 
-  //  @IBOutlet weak var allEventTableView: UITableView!
-    
     @IBOutlet weak var allEventTableView: UITableView!
+    
+//    @IBOutlet weak var allEventTableView: UITableView!
     var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
+    
+    @IBOutlet weak var noRecordsLbl: UILabel!
+    
+    @IBOutlet weak var searchBarText: UISearchBar!
+    
 
 //    lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -22,6 +27,8 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     let searchController = UISearchController(searchResultsController: nil)
     
     var searchActive : Bool = false
+    
+    var isSearch: Bool = false
     
     var filteredData: [String]!
     
@@ -55,7 +62,10 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         allEventTableView.estimatedRowHeight = 44
         allEventTableView.reloadData()
         
+        
+        searchBarText.delegate = self
 
+        self.noRecordsLbl.isHidden = true
         
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
@@ -67,14 +77,8 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: Date())
         
-        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
+        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
         
-        
-//        self.searchController.searchBar.delegate = self
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        //  definesPresentationContext = true
-//        self.allEventTableView.tableHeaderView = searchController.searchBar
         
         
         
@@ -84,7 +88,10 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
             
-            self.allEventTableView.tableHeaderView = controller.searchBar
+            self.searchBarText = controller.searchBar
+            
+//            self.allEventTableView.tableHeaderView = controller.searchBar
+            
         
             return controller
         })()
@@ -94,11 +101,6 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         allEventTableView.register(nibName, forCellReuseIdentifier: "AllEventsTableViewCell")
 
         
-        //initialize the defaults manager class
-        //NSUserDefaultsManager.initializeDefaults()
-        
-        //search controller
-        
         allEventTableView.delegate = self
         allEventTableView.dataSource = self
         
@@ -107,6 +109,29 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: Date())
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: Date())
+        
+        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,11 +144,101 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-
- 
-
     
-    func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String){
+    //MARK: UISearchbar delegate
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearch = false;
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: Date())
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: Date())
+        
+        
+        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+        
+
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false;
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false;
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: Date())
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: Date())
+        
+        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBar.text!)
+        
+        allEventTableView.reloadData()
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.characters.count == 0 {
+            isSearch = false;
+            self.allEventTableView.reloadData()
+        } else {
+            
+//            filteredTableData = churchIdMonthYearArray.filter({ (text) -> Bool in
+//                let tmp = text
+//                let range = ((tmp.churchName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//                
+//                
+//                return range
+//            })
+            
+            self.filteredTableData = self.churchIdMonthYearArray
+            
+            let monthFormatter = DateFormatter()
+            monthFormatter.dateFormat = "M"
+            monthFormatter.timeZone = NSTimeZone.local
+            let monthString = monthFormatter.string(from: Date())
+            
+            let yearFormatter = DateFormatter()
+            yearFormatter.dateFormat = "YYYY"
+            yearFormatter.timeZone = NSTimeZone.local
+            let yearString = yearFormatter.string(from: Date())
+            
+            self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBar.text!)
+            
+            allEventTableView.reloadData()
+
+
+            if(filteredTableData.count == 0){
+                isSearch = false;
+            } else {
+                isSearch = true;
+            }
+            self.allEventTableView.reloadData()
+        }
+    }
+    
+    
+    
+    func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String, _ str:String){
         
         
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
@@ -134,10 +249,10 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
             "month": month,
             "year": year,
             "pageIndex": PageIndex,
-            "pageSize": 10,
+            "pageSize": 50,
             "sortbyColumnName": "UpdatedDate",
             "sortDirection": "desc",
-            "searchName": ""
+            "searchName": str
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -155,49 +270,62 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
             
             let isSuccess = respVO.isSuccess
             
+            let listArr = respVO.listResult
+            
+             self.churchIdMonthYearArray.removeAll()
+            
+            
             if isSuccess == true {
                 
-                let successMsg = respVO.endUserMessage
                 
-                
-                self.listResultArray = respVO.listResult!
-                
-                let pageCout  = (respVO.totalRecords)! / 10
-                
-                let remander = (respVO.totalRecords)! % 10
-                
-                self.totalPages = pageCout
-                
-                if remander != 0 {
+                if (listArr?.count)! > 0 {
                     
-                    self.totalPages = self.totalPages! + 1
+                    self.allEventTableView.isHidden = false
+                    
+                    self.noRecordsLbl.isHidden = true
+                    
+                    self.listResultArray = respVO.listResult!
+                    
+                    let pageCout  = (respVO.totalRecords)! / 50
+                    
+                    let remander = (respVO.totalRecords)! % 50
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
+                    for church in respVO.listResult!{
+                        
+                        self.churchIdMonthYearArray.append(church)
+                        
+                    }
+                    
+                    print("churchAdminArray", self.churchIdMonthYearArray)
+                    
+                    self.allEventTableView.reloadData()
+                    
+                }
+                else {
+                    
+                    self.allEventTableView.isHidden = true
+                    
+                    self.noRecordsLbl.isHidden = false
                     
                 }
                 
-                
-                for church in respVO.listResult!{
-                    
-                    self.churchIdMonthYearArray.append(church)
-                    
-                    
-                    
-                }
-                
-                
-                print("churchAdminArray", self.churchIdMonthYearArray)
-                // print("churchNamesArray.Count", self.churchNamesArray.count)
-                
-                
-                
-                self.allEventTableView.reloadData()
-                
-                // self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                 
             }
                 
             else {
                 
+                self.allEventTableView.isHidden = true
                 
+                self.noRecordsLbl.isHidden = false
+  
                 
             }
             
@@ -222,7 +350,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        if (self.resultSearchController.isActive) {
+        if (isSearch) {
             
             if !filteredTableData.isEmpty{
                 
@@ -261,7 +389,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "AllEventsTableViewCell", for: indexPath) as! AllEventsTableViewCell
         
         
-        if (self.resultSearchController.isActive) {
+        if (isSearch) {
             
             
             
@@ -273,26 +401,35 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                 
                 
                 if let churchName =  churchIdMonthYearList.churchName {
+                    
                     listOfMonthEventCell.churchName.text = churchName
+                    
                 }else{
-                   // listOfMonthEventCell.churchName.text = "Church Name".localize()
+
                 }
                 
                 if let eventName =  churchIdMonthYearList.title {
+                    
                     listOfMonthEventCell.eventTitle.text = eventName
+                    
                 }else{
-                  //  listOfMonthEventCell.eventTitle.text = "Event Name".localize()
+
                 }
                 
                 if let contactNumber =  churchIdMonthYearList.contactNumber {
+                    
                     listOfMonthEventCell.contactNumber.text = contactNumber
+                    
                 }else{
-                //    listOfMonthEventCell.contactNumber.text = "Contact Number".localize()
+                    
                 }
                 
                 let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
+                
                 if startDate != "" {
+                    
                     listOfMonthEventCell.startDate.text = startDate
+                    
                 }else{
                   //  listOfMonthEventCell.startDate.text = "Start Date".localize()
                 }
@@ -438,7 +575,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                 let yearString = yearFormatter.string(from: Date())
                 
                 
-                GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
+                GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
                 
                 
             }
@@ -472,11 +609,11 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
-        self.allEventTableView.frame = CGRect(x: self.view.frame.origin.x, y: 130, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        
-        self.view.addSubview(self.allEventTableView)
-        
-        self.navigationController?.isNavigationBarHidden = true
+//        self.allEventTableView.frame = CGRect(x: self.view.frame.origin.x, y: 130, width: self.view.frame.size.width, height: self.view.frame.size.height)
+//        
+//        self.view.addSubview(self.allEventTableView)
+//        
+//        self.navigationController?.isNavigationBarHidden = true
         
         self.filteredTableData.removeAll()
         self.churchIdMonthYearArray.removeAll()
@@ -489,34 +626,11 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                 yearFormatter.dateFormat = "YYYY"
                 yearFormatter.timeZone = NSTimeZone.local
                 let yearString = yearFormatter.string(from: Date())
-        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
+        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
         
         
     }
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        
-////        self.allEventTableView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y + 100, width: self.view.frame.size.width, height: self.view.frame.size.height)
-////        
-////        self.view.addSubview(self.allEventTableView)
-////        
-////        self.navigationController?.isNavigationBarHidden = true
-////        
-//        self.filteredTableData.removeAll()
-//        self.churchIdMonthYearArray.removeAll()
-//        
-//        let monthFormatter = DateFormatter()
-//        monthFormatter.dateFormat = "M"
-//        monthFormatter.timeZone = NSTimeZone.local
-//        let monthString = monthFormatter.string(from: Date())
-//        
-//        let yearFormatter = DateFormatter()
-//        yearFormatter.dateFormat = "YYYY"
-//        yearFormatter.timeZone = NSTimeZone.local
-//        let yearString = yearFormatter.string(from: Date())
-//        
-//        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
-//        
-//    }
+
     
     
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
@@ -559,20 +673,5 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         return newDateStr + "," + newDateStr1
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

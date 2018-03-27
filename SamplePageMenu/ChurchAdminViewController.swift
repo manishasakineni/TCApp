@@ -13,7 +13,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     @IBOutlet weak var churchAdminTableView: UITableView!
     
+    @IBOutlet weak var searchLabel: UILabel!
     
+//    searchLabel
     var churchAdminArray:[GetAllChurchAdminsResultVo] = Array<GetAllChurchAdminsResultVo>()
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,6 +53,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.getAdminDetailsAPICall(string: searchBar.text!)
 
         
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
@@ -60,6 +64,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
 
+         self.searchLabel.isHidden = true
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -95,9 +100,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     
         
-        let backgroundImage = UIImage(named: "Church-logo")
-        let imageView = UIImageView(image: backgroundImage)
-        self.churchAdminTableView.backgroundView = imageView
+//        let backgroundImage = UIImage(named: "Church-logo")
+//        let imageView = UIImageView(image: backgroundImage)
+//        self.churchAdminTableView.backgroundView = imageView
         
         
         
@@ -105,7 +110,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         totalPages = 0
         
         churchAdminArray.removeAll()
-        getChurchAdminDetailsAPICall()
+//        getChurchAdminDetailsAPICall()
+         self.getAdminDetailsAPICall(string: searchBar.text!)
         
 
      //   churchAdminTableView.isHidden = true
@@ -124,10 +130,15 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
         
+        searchActive = false
+        
+        self.getAdminDetailsAPICall(string: searchBar.text!)
+        
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
+         searchBar.resignFirstResponder()
         
     }
     
@@ -139,9 +150,14 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         searchBar.resignFirstResponder()
+        
+        self.getAdminDetailsAPICall(string: searchBar.text!)
+        
+        self.churchAdminTableView.reloadData()
     }
     
     @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        
         searchActive = false
         
     }
@@ -150,19 +166,31 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         
-        filtered = churchAdminArray.filter({ (text) -> Bool in
-            let tmp = text
-            let range = ((tmp.churchName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.mobileNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.churchAdmin?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//        filtered = churchAdminArray.filter({ (text) -> Bool in
+//            let tmp = text
+//            let range = ((tmp.churchName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.mobileNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.churchAdmin?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//            
+//            return range
+//        })
+        
+        if searchText.characters.count == 0 {
+            searchActive = false;
+            self.churchAdminTableView.reloadData()
             
-            return range
-        })
+        } else {
+            
+        
+        self.getAdminDetailsAPICall(string: searchText)
+        
         if(filtered.count == 0){
             searchActive = false;
         } else {
             searchActive = true;
         }
         self.churchAdminTableView.reloadData()
-        
+            
+            
+        }
     }
     
     
@@ -171,6 +199,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         searchBar.text = ""
         searchActive = false
         
+        self.getAdminDetailsAPICall(string: searchBar.text!)
         self.churchAdminTableView.reloadData()
         searchBar.resignFirstResponder()
         
@@ -238,7 +267,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+//        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         
         if indexPath.row == churchAdminArray.count - 1 {
             
@@ -263,9 +292,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
       if(searchActive){
         
-        cell.backgroundColor = UIColor.clear
+//        cell.backgroundColor = UIColor.clear
         
-        cell.layer.borderColor = UIColor.red.cgColor
+//        cell.layer.borderColor = UIColor.red.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         
@@ -410,12 +439,14 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func getChurchAdminDetailsAPICall(){
         
-        
+        let null = NSNull()
         
         let paramsDict = [ "pageIndex": PageIndex,
                            "pageSize": 10,
+                           "uid": null,
                            "sortbyColumnName": "UpdatedDate",
                            "sortDirection": "desc",
+                           "searchName": ""
                            ] as [String : Any]
         
         let dictHeaders = ["":"","":""] as NSDictionary
@@ -433,11 +464,17 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
             if isSuccess == true {
                 
-                let successMsg = respVO.endUserMessage
+//                self.listResultArray = respVO.listResult!
+                
+                let listArr = respVO.listResult
                 
                 
-                self.listResultArray = respVO.listResult!
-                
+                if (listArr?.count)! > 0 {
+                    
+                    self.searchLabel.isHidden = true
+                    
+                    self.churchAdminTableView.isHidden = false
+                    
                 let pageCout  = (respVO.totalRecords)! / 10
                 
                 let remander = (respVO.totalRecords)! % 10
@@ -450,48 +487,27 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                     
                 }
                 
-                
-                for church in respVO.listResult!{
+                for church in listArr!{
                     
                     self.churchAdminArray.append(church)
                     
-                    //                    let churchName = church.churchName!
-                    //                    if churchName != "" {
-                    //                         self.churchNamesArray.append(churchName)
-                    //                    }
-                    //                    let churchAdmin = church.churchAdmin!
-                    //                    if churchAdmin != "" {
-                    //                        self.churchAdminNameArray.append(churchAdmin)
-                    //                    }
-                    //                    let mobileNumber = church.mobileNumber!
-                    //                    if mobileNumber != "" {
-                    //                       self.mobileNumberArray.append(mobileNumber)
-                    //                    }
-                    //
-                    //                    if let email = church.email {
-                    //                        self.emailArray.append(email)
-                    //                    }else{
-                    //                        self.emailArray.append("")
-                    //                    }
-                    //
-                    //
-                    //
-                    
-                    //  respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark
-                    
-                    //  self.churchAdmin.append(church.contactNumber!)
-                    //                    self.churchIDArray.append(church.Id!)
-                    
                 }
-                
                 
                 print("churchAdminArray", self.churchAdminArray)
                 // print("churchNamesArray.Count", self.churchNamesArray.count)
+                    
+                    self.churchAdminTableView.reloadData()
+                
+                }
+                else {
+                    
+                    self.searchLabel.isHidden = false
+                    
+                     self.churchAdminTableView.isHidden = true
+                }
                 
                 
-                
-                self.churchAdminTableView.reloadData()
-                
+
                 //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                 
             }
@@ -512,11 +528,99 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
 
     
-    func getAdminDetailsAPICall(){
+    func getAdminDetailsAPICall(string:String?){
     
     
     
-    
+        let null = NSNull()
+        
+        let paramsDict = [ "pageIndex": PageIndex,
+                           "pageSize": 50,
+                           "uid": null,
+                           "sortbyColumnName": "UpdatedDate",
+                           "sortDirection": "desc",
+                           "searchName": string!
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETALLCHURCHEADMINS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:GetAllChurchAdminsVo = Mapper().map(JSONObject: result)!
+            
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            self.churchAdminArray.removeAll()
+            
+            if isSuccess == true {
+                
+                //                self.listResultArray = respVO.listResult!
+                
+                let listArr = respVO.listResult
+                
+                
+                if (listArr?.count)! > 0 {
+                    
+                    self.searchLabel.isHidden = true
+                    
+                    self.churchAdminTableView.isHidden = false
+                    
+                    let pageCout  = (respVO.totalRecords)! / 50
+                    
+                    let remander = (respVO.totalRecords)! % 50
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
+                    for church in listArr!{
+                        
+                        self.churchAdminArray.append(church)
+                        
+                    }
+                    
+                    print("churchAdminArray", self.churchAdminArray)
+                    // print("churchNamesArray.Count", self.churchNamesArray.count)
+                    
+                    self.churchAdminTableView.reloadData()
+                    
+                }
+                else {
+                    
+                    self.searchLabel.isHidden = false
+                    
+                    self.churchAdminTableView.isHidden = true
+                }
+                
+                
+                
+                //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                
+            }
+                
+            else {
+                
+                self.searchLabel.isHidden = false
+                
+                self.churchAdminTableView.isHidden = true
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
     
     
     

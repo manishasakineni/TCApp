@@ -54,7 +54,7 @@ let GETAUTHOREVENTSCOUNTBYMONTH : String = BASEURL.appending("api/Events/GetEven
 
 let GETEVENTDETAILSBYID : String = BASEURL.appending("api/Events/GetEventById/")
 
-let BIBLEAPIENGLISHURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/English/bible.json"
+let BIBLEAPIENGLISHURL : String = "http://192.168.1.121/TeluguChurchesRepository/FileRepository/Bible//EnglishBible.json"
 
 let BIBLEAPITELUGUURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/Telugu/bible.json"
 

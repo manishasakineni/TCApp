@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -810,26 +810,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yxj-Rm-7zg">
+                                <rect key="frame" x="0.0" y="26" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="15Z-Ts-Prn"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-d2-ao5">
+                                <rect key="frame" x="0.0" y="318.5" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qHf-ei-NW1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-V5-7Pu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CuS-V5-7Pu" secondAttribute="trailing" id="L7z-fu-u4o"/>
-                            <constraint firstItem="S2X-Ye-2W4" firstAttribute="top" secondItem="CuS-V5-7Pu" secondAttribute="bottom" id="bHv-Po-1JN"/>
-                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="top" secondItem="Szs-LM-D9E" secondAttribute="top" id="iVF-Gx-rqV"/>
-                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="qqf-pT-HeT"/>
+                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="5Ap-9V-9dZ"/>
+                            <constraint firstItem="S2X-Ye-2W4" firstAttribute="top" secondItem="CuS-V5-7Pu" secondAttribute="bottom" id="DUR-lx-PgM"/>
+                            <constraint firstAttribute="trailing" secondItem="Ao1-d2-ao5" secondAttribute="trailing" id="SNN-CS-B0G"/>
+                            <constraint firstAttribute="trailing" secondItem="Yxj-Rm-7zg" secondAttribute="trailing" id="Xf2-iM-LEn"/>
+                            <constraint firstAttribute="trailing" secondItem="CuS-V5-7Pu" secondAttribute="trailing" id="Yl6-au-mBi"/>
+                            <constraint firstItem="Yxj-Rm-7zg" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="bbU-RA-IRL"/>
+                            <constraint firstItem="Ao1-d2-ao5" firstAttribute="centerY" secondItem="Szs-LM-D9E" secondAttribute="centerY" id="m35-aB-jvf"/>
+                            <constraint firstItem="Yxj-Rm-7zg" firstAttribute="top" secondItem="eOI-VK-ydz" secondAttribute="bottom" constant="6" id="o9f-Pm-6K0"/>
+                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="top" secondItem="Yxj-Rm-7zg" secondAttribute="bottom" id="oM2-hZ-llu"/>
+                            <constraint firstItem="Ao1-d2-ao5" firstAttribute="centerX" secondItem="Szs-LM-D9E" secondAttribute="centerX" id="rFK-m3-hx2"/>
+                            <constraint firstItem="Ao1-d2-ao5" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="tUB-qq-QaD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="allEventTableView" destination="CuS-V5-7Pu" id="Uas-AM-IGl"/>
+                        <outlet property="noRecordsLbl" destination="Ao1-d2-ao5" id="gsC-Fu-WXM"/>
+                        <outlet property="searchBarText" destination="Yxj-Rm-7zg" id="dOO-Dv-KDH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlz-Yt-3FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5999" y="1005"/>
+            <point key="canvasLocation" x="5997.6000000000004" y="1004.3478260869566"/>
         </scene>
         <!--Video Songs View Controller-->
         <scene sceneID="HXc-4c-YBX">

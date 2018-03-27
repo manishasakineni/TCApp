@@ -57,6 +57,8 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         self.bibleBookAPICall()
         
+//        self.bibleBookVerseAPICall()
+        
         //        self.booksTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
@@ -331,6 +333,50 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
                     //
                     
                     
+                    
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+    }
+    
+    func bibleBookVerseAPICall(){
+    
+    self.strUrl = BIBLEAPIENGLISHURL
+        
+        
+        MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        
+        serviceController.getRequest(strURL:self.strUrl, success:{(result) in
+            DispatchQueue.main.async()
+                {
+                    //                    print(result)
+                    
+                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                    
+                    let respVO:BibleChapterVo = Mapper().map(JSONObject: result)!
+                    
+                    let bookResp = respVO.Chapter
+                    
+                    
+                    for eachArray in bookResp! {
+                        
+                        
+                        let Obbj = eachArray.Verse
+                        
+                        print(Obbj!)
+                       
+                        }
+                        
+                    self.booksTableView.reloadData()
+                    
+
                     
             }
             
