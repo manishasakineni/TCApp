@@ -97,7 +97,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             
             
             
-            searchBar.placeholder = "All Categories".localize()
+            searchBar.placeholder = "Search by category".localize()
             
             self.searchController.searchBar.delegate = self
             searchController.searchResultsUpdater = self

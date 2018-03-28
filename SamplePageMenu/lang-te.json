@@ -141,7 +141,14 @@
     
     "Holy Bible Books" : "హోలీ బైబిల్ బుక్స్",
     "Holy Bible - English" : "హోలీ బైబిల్ - ఇంగ్లీష్",
-    "Holy Bible - Telugu" : "హోలీ బైబిల్ - తెలుగు"
+    "Holy Bible - Telugu" : "హోలీ బైబిల్ - తెలుగు",
+    
+    "Search by category" : "వర్గం ద్వారా శోధించండి",
+    "Search by Church" : "చర్చి ద్వారా శోధించండి",
+    "Search by Event" : "ఈవెంట్ ద్వారా శోధించండి",
+    "Search by Author" : "రచయిత ద్వారా శోధించండి"
+    
+
     
 
 
