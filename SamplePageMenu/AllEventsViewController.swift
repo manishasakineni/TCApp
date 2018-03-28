@@ -65,6 +65,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         
         searchBarText.delegate = self
 
+        searchBarText.placeholder = "Search by Event"
         self.noRecordsLbl.isHidden = true
         
         let monthFormatter = DateFormatter()
@@ -130,6 +131,11 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: Date())
         
+        PageIndex = 1
+        totalPages = 0
+        
+         self.churchIdMonthYearArray.removeAll()
+        
         GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
         
     }
@@ -159,7 +165,10 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: Date())
         
+        PageIndex = 1
+        totalPages = 0
         
+         self.churchIdMonthYearArray.removeAll()
         self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
         
 
@@ -185,6 +194,10 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: Date())
         
+        PageIndex = 1
+        totalPages = 0
+        
+         self.churchIdMonthYearArray.removeAll()
         self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBar.text!)
         
         allEventTableView.reloadData()
@@ -197,11 +210,11 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.characters.count == 0 {
-            isSearch = false;
-            self.allEventTableView.reloadData()
-        } else {
-            
+//        if searchText.characters.count == 0 {
+//            isSearch = false;
+//            self.allEventTableView.reloadData()
+//        } else {
+        
 //            filteredTableData = churchIdMonthYearArray.filter({ (text) -> Bool in
 //                let tmp = text
 //                let range = ((tmp.churchName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
@@ -210,30 +223,30 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
 //                return range
 //            })
             
-            self.filteredTableData = self.churchIdMonthYearArray
-            
-            let monthFormatter = DateFormatter()
-            monthFormatter.dateFormat = "M"
-            monthFormatter.timeZone = NSTimeZone.local
-            let monthString = monthFormatter.string(from: Date())
-            
-            let yearFormatter = DateFormatter()
-            yearFormatter.dateFormat = "YYYY"
-            yearFormatter.timeZone = NSTimeZone.local
-            let yearString = yearFormatter.string(from: Date())
-            
-            self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBar.text!)
-            
-            allEventTableView.reloadData()
-
-
-            if(filteredTableData.count == 0){
-                isSearch = false;
-            } else {
-                isSearch = true;
-            }
-            self.allEventTableView.reloadData()
-        }
+//            self.filteredTableData = self.churchIdMonthYearArray
+//            
+//            let monthFormatter = DateFormatter()
+//            monthFormatter.dateFormat = "M"
+//            monthFormatter.timeZone = NSTimeZone.local
+//            let monthString = monthFormatter.string(from: Date())
+//            
+//            let yearFormatter = DateFormatter()
+//            yearFormatter.dateFormat = "YYYY"
+//            yearFormatter.timeZone = NSTimeZone.local
+//            let yearString = yearFormatter.string(from: Date())
+//            
+//            self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBar.text!)
+//            
+//            allEventTableView.reloadData()
+//
+//
+//            if(filteredTableData.count == 0){
+//                isSearch = false;
+//            } else {
+//                isSearch = true;
+//            }
+//            self.allEventTableView.reloadData()
+//        }
     }
     
     
@@ -249,7 +262,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
             "month": month,
             "year": year,
             "pageIndex": PageIndex,
-            "pageSize": 50,
+            "pageSize": 10,
             "sortbyColumnName": "UpdatedDate",
             "sortDirection": "desc",
             "searchName": str
@@ -272,10 +285,12 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
             
             let listArr = respVO.listResult
             
-             self.churchIdMonthYearArray.removeAll()
+            
             
             
             if isSuccess == true {
+                
+                
                 
                 
                 if (listArr?.count)! > 0 {
@@ -286,9 +301,17 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                     
                     self.listResultArray = respVO.listResult!
                     
-                    let pageCout  = (respVO.totalRecords)! / 50
                     
-                    let remander = (respVO.totalRecords)! % 50
+                    for church in respVO.listResult!{
+                        
+                        self.churchIdMonthYearArray.append(church)
+                        
+                    }
+                    
+                    
+                    let pageCout  = (respVO.totalRecords)! / 10
+                    
+                    let remander = (respVO.totalRecords)! % 10
                     
                     self.totalPages = pageCout
                     
@@ -298,11 +321,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                         
                     }
                     
-                    for church in respVO.listResult!{
-                        
-                        self.churchIdMonthYearArray.append(church)
-                        
-                    }
+                    
                     
                     print("churchAdminArray", self.churchIdMonthYearArray)
                     
@@ -615,6 +634,8 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
 //        
 //        self.navigationController?.isNavigationBarHidden = true
         
+        PageIndex = 1
+        totalPages = 0
         self.filteredTableData.removeAll()
         self.churchIdMonthYearArray.removeAll()
                 let monthFormatter = DateFormatter()

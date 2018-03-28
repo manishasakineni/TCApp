@@ -78,7 +78,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "All Churches"
+        searchBar.placeholder = "Search by Church"
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -123,11 +123,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         PageIndex = 1
         totalPages = 0
         
+        self.churchNamesArray.removeAll()
+        
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         
 //          getChurchDetailsAPICall()
 
-       churchDetailsTableView.isHidden = true
+//       churchDetailsTableView.isHidden = true
     
     }
     
@@ -152,8 +154,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         searchActive = false
         
+        PageIndex = 1
+        totalPages = 0
+        
+        self.churchNamesArray.removeAll()
         self.getAllChurchSearchAPIService(string: searchBar.text!)
-        self.churchDetailsTableView.reloadData()
+//        self.churchDetailsTableView.reloadData()
         
     }
     
@@ -162,6 +168,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         searchActive = false
         searchBar.resignFirstResponder()
         
+//        self.churchNamesArray.removeAll()
 //        self.getAllChurchSearchAPIService(string: searchBar.text!)
 //        self.churchDetailsTableView.reloadData()
         
@@ -171,19 +178,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        searchActive = false
+//        searchActive = false
         
-//        self.searchTextStr = searchBar.text!
-//        
-//        
-//        filtered = churchNamesArray.filter({ (text) -> Bool in
-//            let tmp = text
-//            let range = ((tmp.name?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: self.searchTextStr, options: NSString.CompareOptions.caseInsensitive)) != nil)
-//            
-//            
-//            return range
-//        })
 
+        PageIndex = 1
+        totalPages = 0
+        
+        self.churchNamesArray.removeAll()
         
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         
@@ -233,23 +234,38 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 //            self.getAllChurchSearchAPIService(string: searchText)
 //        }
         
-        if searchText.characters.count == 0 {
-            searchActive = false;
-            self.churchDetailsTableView.reloadData()
+//        if searchText.characters.count == 0 {
+//            searchActive = false;
+//            self.churchDetailsTableView.reloadData()
+//            
+//        } else {
+        
+//            self.churchNamesArray.removeAll()
+        
+//        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        
             
-        } else {
-
+            
+//                        filtered = churchNamesArray.filter({ (text) -> Bool in
+//                            let tmp = text
+//                            let range = ((tmp.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+//            
+//            
+//                                    return range
+//                                })
+            
+//            self.filtered = self.churchNamesArray
+            
+//            self.churchDetailsTableView.reloadData()
         
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
-        
-        if(filtered.count == 0){
-            searchActive = false
-        } else {
-            searchActive = true
-        }
-        self.churchDetailsTableView.reloadData()
-        
-    }
+//        if(filtered.count == 0){
+//            searchActive = false
+//        } else {
+//            searchActive = true
+//        }
+//        self.churchDetailsTableView.reloadData()
+//        
+//    }
     
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -257,6 +273,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         searchBar.text = ""
         searchActive = false
         searchBar.resignFirstResponder()
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.churchNamesArray.removeAll()
+        self.getAllChurchSearchAPIService(string: searchBar.text!)
         self.churchDetailsTableView.reloadData()
         
     }
@@ -280,7 +302,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         let paramsDict = [ "pasterUserId": 0,
                            "pageIndex": PageIndex,
-                           "pageSize": 50,
+                           "pageSize": 10,
                            "sortbyColumnName": "UpdatedDate",
                            "sortDirection": "desc",
                            "searchName": string
@@ -299,7 +321,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             print("StatusCode:\(String(describing: isSuccess))")
             
             
-            self.churchNamesArray.removeAll()
+            
             
             if isSuccess == true {
                 
@@ -312,32 +334,32 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                     
                     self.noRecordLabel.isHidden = true
                     
-                for eachArray in listArr{
-                    //  print(self.churchNamesArray)
-                    // print(eachArray)
-                    self.churchNamesArray.append(eachArray)
-                    //  print(self.churchNamesArray)
-                }
-                
-                
-                
+                    for eachArray in listArr{
+                        //  print(self.churchNamesArray)
+                        // print(eachArray)
+                        self.churchNamesArray.append(eachArray)
+                        //  print(self.churchNamesArray)
+                    }
+                    
+                    self.filtered = self.churchNamesArray
+                    
+                    let pageCout  = (respVO.totalRecords)! / 10
+                    
+                    let remander = (respVO.totalRecords)! % 10
+                    
+                    self.totalPages = pageCout
+                    
+                    //                print(pageCout)
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
+                  
                 print(self.churchNamesArray.count)
                 
-                
-                
-                let pageCout  = (respVO.totalRecords)! / 50
-                
-                let remander = (respVO.totalRecords)! % 50
-                
-                self.totalPages = pageCout
-                
-//                print(pageCout)
-                
-                if remander != 0 {
-                    
-                    self.totalPages = self.totalPages! + 1
-                    
-                }
                 
                 self.churchDetailsTableView.reloadData()
                 
@@ -347,6 +369,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                     self.churchDetailsTableView.isHidden = true
 
                 }
+            }
+            else {
+                
+                self.noRecordLabel.isHidden = false
+                self.churchDetailsTableView.isHidden = true
             }
             
             
@@ -592,9 +619,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 PageIndex = PageIndex + 1
 
-                getChurchDetailsAPICall()
+//                getChurchDetailsAPICall()
                 
-                
+                self.getAllChurchSearchAPIService(string: searchBar.text!)
                 
             }
         }
@@ -646,6 +673,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         } else {
             
+            if self.churchNamesArray.count > 0 {
+                
+            
+            
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
         
         
@@ -672,12 +703,17 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             let url = URL(string:newString!)
             
-            
-            let dataImg = try? Data(contentsOf: url!)
-            
-            if dataImg != nil {
+            if url != nil {
                 
-                cell.churchImage.image = UIImage(data: dataImg!)
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.churchImage.image = UIImage(data: dataImg!)
+            }
+            
+           
             }
             else {
                 
@@ -697,7 +733,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 //            cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
 //        }
        
-
+}
         
         
         return cell

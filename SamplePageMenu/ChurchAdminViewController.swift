@@ -87,9 +87,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Admin"
+        searchBar.placeholder = "Search by Author"
         
-        
+        searchBar.showsCancelButton = false
         
         //  filteredData = sectionTittles
         
@@ -122,7 +122,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         PageIndex = 1
         totalPages = 0
-        
+        searchBar.showsCancelButton = false
         churchAdminArray.removeAll()
 //        getChurchAdminDetailsAPICall()
          self.getAdminDetailsAPICall(string: searchBar.text!)
@@ -146,6 +146,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         searchActive = false
         
+        PageIndex = 1
+        totalPages = 0
+        self.churchAdminArray.removeAll()
         self.getAdminDetailsAPICall(string: searchBar.text!)
         
     }
@@ -165,6 +168,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         searchActive = false
         searchBar.resignFirstResponder()
         
+        PageIndex = 1
+        totalPages = 0
+        self.churchAdminArray.removeAll()
         self.getAdminDetailsAPICall(string: searchBar.text!)
         
         self.churchAdminTableView.reloadData()
@@ -187,24 +193,24 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 //            return range
 //        })
         
-        if searchText.characters.count == 0 {
-            searchActive = false;
-            self.churchAdminTableView.reloadData()
-            
-        } else {
-            
-        
-        self.getAdminDetailsAPICall(string: searchText)
-        
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
-        self.churchAdminTableView.reloadData()
-            
-            
-        }
+//        if searchText.characters.count == 0 {
+//            searchActive = false;
+//            self.churchAdminTableView.reloadData()
+//            
+//        } else {
+//            
+//        
+//        self.getAdminDetailsAPICall(string: searchText)
+//        
+//        if(filtered.count == 0){
+//            searchActive = false;
+//        } else {
+//            searchActive = true;
+//        }
+//        self.churchAdminTableView.reloadData()
+//            
+//            
+//        }
     }
     
     
@@ -212,7 +218,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchActive = false
-        
+        PageIndex = 1
+        totalPages = 0
+        self.churchAdminArray.removeAll()
         self.getAdminDetailsAPICall(string: searchBar.text!)
         self.churchAdminTableView.reloadData()
         searchBar.resignFirstResponder()
@@ -391,81 +399,86 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
       }
       else {
         
-        let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
-        
-        cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
-        
-        cell.subscribeButtton.tag = indexPath.row
-        
-        isSubscribed = listStr.isSubscribed!
-        
-        if isSubscribed == 0{
+        if churchAdminArray.count > 0 {
+          
+            let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
             
-            cell.subscribeButtton.setTitle("SUBSCRIBE",for: .normal)
-        }
+            cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
             
-        else{
+            cell.subscribeButtton.tag = indexPath.row
             
-            cell.subscribeButtton.setTitle("UNSUBSCRIBE",for: .normal)
+            isSubscribed = listStr.isSubscribed!
             
-        }
-        
-        self.churchId = listStr.churchId!
-        self.authorId = listStr.Id!
-
-        
-        if let churchAdmin =  listStr.churchAdmin {
-            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin + "aaaaaaaaaaa vvvvv vvv ccc cc "
-        }else{
-            cell.adminNameLabel.text = "Name:".localize()
-        }
-        
-        if let churchName =  listStr.churchName {
-            cell.churchName.text =  churchName + "gfghfghf ghfhgfhgf gjhgjhh hgjh hhg hjhjhj"
-        }else{
-          //  cell.churchName.text = "Church Name:".localize()
-        }
-       
-        if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = mobileNumber
-        }else{
-         //   cell.mobileNumber.text = "Mobile Number:".localize()
-        }
-        
-        if let email = listStr.email {
-            cell.email.text =  email
-        }else{
-        //    cell.email.text = "Email:".localize()
-        }
-        
-        
-        
-        let imgUrl = listStr.churchImage
-        
-        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
-        print("filteredUrlString:\(String(describing: newString))")
-        
-        if newString != nil {
-            
-            let url = URL(string:newString!)
-            
-            
-            let dataImg = try? Data(contentsOf: url!)
-            
-            if dataImg != nil {
+            if isSubscribed == 0{
                 
-                cell.adminImageView.image = UIImage(data: dataImg!)
+                cell.subscribeButtton.setTitle("SUBSCRIBE",for: .normal)
+            }
+                
+            else{
+                
+                cell.subscribeButtton.setTitle("UNSUBSCRIBE",for: .normal)
+                
+            }
+            
+            self.churchId = listStr.churchId!
+            self.authorId = listStr.Id!
+            
+            
+            if let churchAdmin =  listStr.churchAdmin {
+                cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin + "aaaaaaaaaaa vvvvv vvv ccc cc "
+            }else{
+                cell.adminNameLabel.text = "Name:".localize()
+            }
+            
+            if let churchName =  listStr.churchName {
+                cell.churchName.text =  churchName + "gfghfghf ghfhgfhgf gjhgjhh hgjh hhg hjhjhj"
+            }else{
+                //  cell.churchName.text = "Church Name:".localize()
+            }
+            
+            if let mobileNumber =  listStr.mobileNumber {
+                cell.mobileNumber.text = mobileNumber
+            }else{
+                //   cell.mobileNumber.text = "Mobile Number:".localize()
+            }
+            
+            if let email = listStr.email {
+                cell.email.text =  email
+            }else{
+                //    cell.email.text = "Email:".localize()
+            }
+            
+            
+            
+            let imgUrl = listStr.churchImage
+            
+            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            print("filteredUrlString:\(String(describing: newString))")
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.adminImageView.image = UIImage(data: dataImg!)
+                }
+                else {
+                    
+                    cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
+                }
             }
             else {
                 
                 cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
             }
         }
-        else {
-            
-            cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
-        }
+        
+       
         
         return cell
         
@@ -591,7 +604,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let null = NSNull()
         
         let paramsDict = [ "pageIndex": PageIndex,
-                           "pageSize": 50,
+                           "pageSize": 10,
                            "uid": null,
                            "sortbyColumnName": "UpdatedDate",
                            "sortDirection": "desc",
@@ -611,7 +624,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             let isSuccess = respVO.isSuccess
             print("StatusCode:\(String(describing: isSuccess))")
             
-            self.churchAdminArray.removeAll()
+            
             
             if isSuccess == true {
                 
@@ -626,9 +639,15 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                     
                     self.churchAdminTableView.isHidden = false
                     
-                    let pageCout  = (respVO.totalRecords)! / 50
+                    for church in listArr!{
+                        
+                        self.churchAdminArray.append(church)
+                        
+                    }
+
+                    let pageCout  = (respVO.totalRecords)! / 10
                     
-                    let remander = (respVO.totalRecords)! % 50
+                    let remander = (respVO.totalRecords)! % 10
                     
                     self.totalPages = pageCout
                     
@@ -638,11 +657,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                         
                     }
                     
-                    for church in listArr!{
-                        
-                        self.churchAdminArray.append(church)
-                        
-                    }
                     
                     print("churchAdminArray", self.churchAdminArray)
                     // print("churchNamesArray.Count", self.churchNamesArray.count)
