@@ -33,6 +33,8 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     var catgoryName:String = ""
 
     var viewTitle = ""
+    
+     var imageView = UIImageView()
 
     var imageArray3 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"books"),UIImage(named:"Churches")]
 
@@ -633,7 +635,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         else if (fileExtension == ".mp3") {
             
-            
+            cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
             
         //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
@@ -795,10 +797,50 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
+         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+        
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
            print("images")
+            
+            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+//                    cell.collectionImgView.image = UIImage(data: dataImg!)
+                    
+                    imageView.image = UIImage(data: dataImg!)
+                    imageView.frame = self.view.bounds
+                    imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.isUserInteractionEnabled = true
+                    
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                    imageView.addGestureRecognizer(tap)
+                    
+                    self.view.addSubview(imageView)
+                }
+                else {
+                    
+                    imageView.image = #imageLiteral(resourceName: "j4")
+                }
+            }
+            else {
+                
+              imageView.image = #imageLiteral(resourceName: "j4")
+                
+            }
+            
+           
             
         }
             
@@ -918,6 +960,10 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         }
         
         
+    }
+    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
     }
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
