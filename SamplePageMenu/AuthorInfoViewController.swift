@@ -226,13 +226,18 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell2.infoLabel.text = "Date Of Birth".localize()
                     
-//                    let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: authorDetails.dob!)
-//                    
-//                    cell2.addressLabel.text = startAndEndDate1
-//                    
-//
+                    if authorDetails.dob != nil {
+                     let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: authorDetails.dob!)
                     
-                cell2.addressLabel.text = authorDetails.dob
+                    cell2.addressLabel.text = startAndEndDate1
+                    
+                    
+                        }
+                    else {
+                    
+                     cell2.addressLabel.text = ""
+                    }
+               
                     
                     
                 }else if indexPath.row == 4 {

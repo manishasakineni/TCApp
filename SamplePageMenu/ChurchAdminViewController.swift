@@ -44,6 +44,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     var isSubscribed = Int()
     
+    var subscribe : Bool = true
 
     var churchId = 0
     var authorId = 0
@@ -87,7 +88,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Search by Author"
+        searchBar.placeholder = "Search by Author".localize()
         
         searchBar.showsCancelButton = false
         
@@ -345,9 +346,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
         
         if let churchAdmin =  listStr.churchAdmin {
-            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin
+            cell.adminNameLabel.text = churchAdmin
         }else{
-            cell.adminNameLabel.text = "Name:".localize()
+          //  cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
@@ -409,12 +410,12 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
             isSubscribed = listStr.isSubscribed!
             
-            if isSubscribed == 0{
+            if isSubscribed == 0 {
                 
                 cell.subscribeButtton.setTitle("SUBSCRIBE",for: .normal)
             }
                 
-            else{
+            else if isSubscribed == 1  {
                 
                 cell.subscribeButtton.setTitle("UNSUBSCRIBE",for: .normal)
                 
@@ -425,13 +426,14 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
             
             if let churchAdmin =  listStr.churchAdmin {
-                cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin + "aaaaaaaaaaa vvvvv vvv ccc cc "
+                cell.adminNameLabel.text = churchAdmin
+            
             }else{
-                cell.adminNameLabel.text = "Name:".localize()
             }
             
             if let churchName =  listStr.churchName {
-                cell.churchName.text =  churchName + "gfghfghf ghfhgfhgf gjhgjhh hgjh hhg hjhjhj"
+                cell.churchName.text =  churchName
+                
             }else{
                 //  cell.churchName.text = "Church Name:".localize()
             }
@@ -698,7 +700,19 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func subscribeButttonClicked(sender: UIButton){
         
-        
+        if self.isSubscribed == 0{
+            
+            self.isSubscribed = 0
+            self.subscribe = false
+        }
+            
+        else {
+            
+            self.isSubscribed = 1
+            self.subscribe = true
+            
+        }
+
         
         
         if self.userId != 0{
@@ -728,18 +742,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
                 let successMsg = respVO.endUserMessage
                 
-                if self.isSubscribed == 0{
-                    
-                    self.isSubscribed = 1
-                    
-                }
-                    
-                else {
-                    
-                    self.isSubscribed = 0
-                    
-                    
-                }
+                let subscribe = respVO.isSuccess
+                
 
                 
                 let indexPath = IndexPath(item: sender.tag, section: 0)

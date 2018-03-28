@@ -16,6 +16,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     @IBOutlet weak var noRecordLabel: UILabel!
     
+     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -54,15 +55,26 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
    
     var TimingsArray = ["OPEN5AM Close5PM ","OPEN6AM Close5PM","OPEN7AM Close8PM","OPEN8AM Close5PM","OPEN9AM Close4PM","OPEN5AM Close5PM","OPEN7AM Close5PM","OPEN6AM Close5PM"]
     
+    var userId = Int()
+    var uid : Int = 0
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     
+    var isSubscribed = Int()
+    
+    var subscribe : Bool = true
 //    var noRecordlbl = UILabel()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+            
+            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            
+        }
         
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         
@@ -78,7 +90,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Search by Church"
+        searchBar.placeholder = "Search by Church".localize()
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -643,6 +655,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             cell.addressLabel.text = listStr.address1
             
+            
             let imgUrl = listStr.churchImage
             
             let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
@@ -670,8 +683,15 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 cell.churchImage.image = #imageLiteral(resourceName: "j4")
             }
             
+            cell.SubscribeBtn.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
             
-        } else {
+            
+            cell.SubscribeBtn.tag = indexPath.row
+            
+           
+        }
+        
+        else {
             
             if self.churchNamesArray.count > 0 {
                 
@@ -724,6 +744,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             cell.churchImage.image = #imageLiteral(resourceName: "j4")
         }
+                
+                cell.SubscribeBtn.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
+                
+                
+                cell.SubscribeBtn.tag = indexPath.row
        
         }
         
@@ -757,6 +782,97 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }
+    
+    
+    
+    func subscribeButttonClicked(sender: UIButton){
+        
+        if self.isSubscribed == 0{
+            
+            self.isSubscribed = 0
+            self.subscribe = false
+        }
+            
+        else {
+            
+            self.isSubscribed = 1
+            self.subscribe = true
+            
+        }
+        
+        
+        
+        if self.userId != 0{
+            
+            
+            
+            let paramsDict = [ "isSubscribed": isSubscribed,
+                               "userId": self.userId,
+                               "churchId": "null",
+                               "authorId": "null"
+                ] as [String : Any]
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            
+            serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+                print(result)
+                
+                let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
+                
+                
+                let isSuccess = respVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                if isSuccess == true {
+                    
+                    let successMsg = respVO.endUserMessage
+                    
+                    let subscribe = respVO.isSuccess
+                    
+                    
+                    
+                    let indexPath = IndexPath(item: sender.tag, section: 0)
+                    self.churchDetailsTableView.reloadRows(at: [indexPath], with: .none)
+                    
+                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+                }
+                    
+                else {
+                    
+                    
+                    
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+            
+            
+        }
+            
+            
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
+                
+                
+                
+            })
+            
+        }
+        
+    }
+    
+   
+    
+    
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         

@@ -22,6 +22,7 @@ class ChurchDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var SubscribeBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,20 @@ class ChurchDetailsTableViewCell: UITableViewCell {
         
        
         churchImage.clipsToBounds = true
+        
+        SubscribeBtn.layer.cornerRadius = 1.0
+        SubscribeBtn.layer.borderWidth = 0.5
+        SubscribeBtn.layer.borderColor = UIColor.lightGray.cgColor
+        SubscribeBtn.backgroundColor = Utilities.appColor
+        
+        
+        
+        
+        SubscribeBtn.layer.cornerRadius = 3.0
+        SubscribeBtn.layer.shadowColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        SubscribeBtn.layer.shadowOffset = CGSize(width: 0, height: 3)
+        SubscribeBtn.layer.shadowOpacity = 0.6
+        SubscribeBtn.layer.shadowRadius = 2.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
