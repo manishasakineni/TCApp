@@ -926,6 +926,14 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
+        UserDefaults.standard.removeObject(forKey: "1")
+          UserDefaults.standard.removeObject(forKey: kuserId)
+
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+
+        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController

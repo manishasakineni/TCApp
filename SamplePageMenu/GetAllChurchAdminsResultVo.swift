@@ -33,13 +33,13 @@ class GetAllChurchAdminsResultVo: Mappable {
     var churchId : Int?
     var churchName : String?
     var updatedDate : String?
-    
+    var isSubscribed : Int?
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,churchAdmin : String?,mobileNumber : String?,email : String?,churchImage : String?,userImage : String?,churchId : Int?,churchName : String?,updatedDate : String?)
+    init(Id : Int?,churchAdmin : String?,mobileNumber : String?,email : String?,churchImage : String?,userImage : String?,churchId : Int?,churchName : String?,updatedDate : String?,isSubscribed : Int?)
         
         
     {
@@ -54,6 +54,7 @@ class GetAllChurchAdminsResultVo: Mappable {
         self.churchId = churchId
         self.churchName = churchName
         self.updatedDate = updatedDate
+        self.isSubscribed = isSubscribed
         
     }
     
@@ -72,6 +73,7 @@ class GetAllChurchAdminsResultVo: Mappable {
         churchId <- map["churchId"]
         churchName <- map["churchName"]
         updatedDate <- map["updatedDate"]
+        isSubscribed <- map["isSubscribed"]
         
         
     }

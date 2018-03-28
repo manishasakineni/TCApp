@@ -365,8 +365,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
           //  UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
            // UserDefaults.standard.synchronize()
             
-            let defaults = UserDefaults.standard
-            defaults.set("false", forKey: KFirstTimeLogin)
+//            let defaults = UserDefaults.standard
+//            defaults.set("false", forKey: KFirstTimeLogin)
+            
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            
             UserDefaults.standard.synchronize()
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

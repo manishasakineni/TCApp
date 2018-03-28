@@ -22,7 +22,7 @@ class ChurchAdminDetailCell: UITableViewCell {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var subscribeButtton: UIButton!
     
-    
+
     
     override func awakeFromNib() {
         
@@ -54,8 +54,9 @@ class ChurchAdminDetailCell: UITableViewCell {
         subscribeButtton.layer.cornerRadius = 1.0
         subscribeButtton.layer.borderWidth = 0.5
         subscribeButtton.layer.borderColor = UIColor.lightGray.cgColor
-
+        subscribeButtton.backgroundColor = Utilities.appColor
         
+    
         
         
         subscribeButtton.layer.cornerRadius = 3.0

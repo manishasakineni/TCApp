@@ -625,7 +625,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
 
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserId)
+     //   UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.set("1", forKey: "1")

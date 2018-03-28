@@ -34,12 +34,20 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     var churchAdmin = Array<String>()
     
+    
+    var userId = Int()
+    var uid : Int = 0
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     var churchName1 : String = ""
 
+    var isSubscribed = Int()
+    
 
+    var churchId = 0
+    var authorId = 0
+    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     var searchController: UISearchController!
@@ -54,6 +62,12 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+            
+            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            
+        }
+        
         self.getAdminDetailsAPICall(string: searchBar.text!)
 
         
@@ -64,7 +78,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
 
-         self.searchLabel.isHidden = true
+        self.searchLabel.isHidden = true
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -276,7 +290,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
                 PageIndex = PageIndex + 1
                 
-                getChurchAdminDetailsAPICall()
+                getAdminDetailsAPICall(string: searchBar.text!)
                 
                 
                 
@@ -290,6 +304,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
+        
       if(searchActive){
         
 //        cell.backgroundColor = UIColor.clear
@@ -299,6 +314,27 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         cell.layer.cornerRadius = 5
         
         let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
+        
+        cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
+        
+        
+        cell.subscribeButtton.tag = indexPath.row
+        
+        isSubscribed = listStr.isSubscribed!
+        
+        
+        if isSubscribed == 0{
+            
+            cell.subscribeButtton.setTitle("Subscribe",for: .normal)
+        }
+            
+        else{
+            
+            cell.subscribeButtton.setTitle("Unsubscribe",for: .normal)
+            
+        }
+        
+
         
         if let churchAdmin =  listStr.churchAdmin {
             cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin
@@ -357,15 +393,35 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
         
+        cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
+        
+        cell.subscribeButtton.tag = indexPath.row
+        
+        isSubscribed = listStr.isSubscribed!
+        
+        if isSubscribed == 0{
+            
+            cell.subscribeButtton.setTitle("SUBSCRIBE",for: .normal)
+        }
+            
+        else{
+            
+            cell.subscribeButtton.setTitle("UNSUBSCRIBE",for: .normal)
+            
+        }
+        
+        self.churchId = listStr.churchId!
+        self.authorId = listStr.Id!
+
         
         if let churchAdmin =  listStr.churchAdmin {
-            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin
+            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin + "aaaaaaaaaaa vvvvv vvv ccc cc "
         }else{
             cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text =  churchName
+            cell.churchName.text =  churchName + "gfghfghf ghfhgfhgf gjhgjhh hgjh hhg hjhjhj"
         }else{
           //  cell.churchName.text = "Church Name:".localize()
         }
@@ -437,94 +493,94 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     //MARK: -  Church Details API Call
     
-    func getChurchAdminDetailsAPICall(){
-        
-        let null = NSNull()
-        
-        let paramsDict = [ "pageIndex": PageIndex,
-                           "pageSize": 10,
-                           "uid": null,
-                           "sortbyColumnName": "UpdatedDate",
-                           "sortDirection": "desc",
-                           "searchName": ""
-                           ] as [String : Any]
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: GETALLCHURCHEADMINS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            print(result)
-            
-            let respVO:GetAllChurchAdminsVo = Mapper().map(JSONObject: result)!
-            
-            
-            let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
-            
-            if isSuccess == true {
-                
-//                self.listResultArray = respVO.listResult!
-                
-                let listArr = respVO.listResult
-                
-                
-                if (listArr?.count)! > 0 {
-                    
-                    self.searchLabel.isHidden = true
-                    
-                    self.churchAdminTableView.isHidden = false
-                    
-                let pageCout  = (respVO.totalRecords)! / 10
-                
-                let remander = (respVO.totalRecords)! % 10
-                
-                self.totalPages = pageCout
-                
-                if remander != 0 {
-                    
-                    self.totalPages = self.totalPages! + 1
-                    
-                }
-                
-                for church in listArr!{
-                    
-                    self.churchAdminArray.append(church)
-                    
-                }
-                
-                print("churchAdminArray", self.churchAdminArray)
-                // print("churchNamesArray.Count", self.churchNamesArray.count)
-                    
-                    self.churchAdminTableView.reloadData()
-                
-                }
-                else {
-                    
-                    self.searchLabel.isHidden = false
-                    
-                     self.churchAdminTableView.isHidden = true
-                }
-                
-                
-
-                //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                
-            }
-                
-            else {
-                
-                
-                
-            }
-            
-        }) { (failureMessage) in
-            
-            
-            print(failureMessage)
-            
-        }
-    }
+//    func getChurchAdminDetailsAPICall(){
+//        
+//        let null = NSNull()
+//        
+//        let paramsDict = [ "pageIndex": PageIndex,
+//                           "pageSize": 10,
+//                           "uid": null,
+//                           "sortbyColumnName": "UpdatedDate",
+//                           "sortDirection": "desc",
+//                           "searchName": ""
+//                           ] as [String : Any]
+//        
+//        let dictHeaders = ["":"","":""] as NSDictionary
+//        
+//        
+//        serviceController.postRequest(strURL: GETALLCHURCHEADMINS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+//            
+//            print(result)
+//            
+//            let respVO:GetAllChurchAdminsVo = Mapper().map(JSONObject: result)!
+//            
+//            
+//            let isSuccess = respVO.isSuccess
+//            print("StatusCode:\(String(describing: isSuccess))")
+//            
+//            if isSuccess == true {
+//                
+////                self.listResultArray = respVO.listResult!
+//                
+//                let listArr = respVO.listResult
+//                
+//                
+//                if (listArr?.count)! > 0 {
+//                    
+//                    self.searchLabel.isHidden = true
+//                    
+//                    self.churchAdminTableView.isHidden = false
+//                    
+//                let pageCout  = (respVO.totalRecords)! / 10
+//                
+//                let remander = (respVO.totalRecords)! % 10
+//                
+//                self.totalPages = pageCout
+//                
+//                if remander != 0 {
+//                    
+//                    self.totalPages = self.totalPages! + 1
+//                    
+//                }
+//                
+//                for church in listArr!{
+//                    
+//                    self.churchAdminArray.append(church)
+//                    
+//                }
+//                
+//                print("churchAdminArray", self.churchAdminArray)
+//                // print("churchNamesArray.Count", self.churchNamesArray.count)
+//                    
+//                    self.churchAdminTableView.reloadData()
+//                
+//                }
+//                else {
+//                    
+//                    self.searchLabel.isHidden = false
+//                    
+//                     self.churchAdminTableView.isHidden = true
+//                }
+//                
+//                
+//
+//                //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+//                
+//            }
+//                
+//            else {
+//                
+//                
+//                
+//            }
+//            
+//        }) { (failureMessage) in
+//            
+//            
+//            print(failureMessage)
+//            
+//        }
+//    }
     
 
     
@@ -626,11 +682,95 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     }
     
+    func subscribeButttonClicked(sender: UIButton){
+        
+        
+        
+        
+        if self.userId != 0{
+        
+        
+        
+        let paramsDict = [ "isSubscribed": isSubscribed,
+                           "userId": self.userId,
+                           "churchId": "null",
+                           "authorId": authorId
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
+            
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            if isSuccess == true {
+                
+                let successMsg = respVO.endUserMessage
+                
+                if self.isSubscribed == 0{
+                    
+                    self.isSubscribed = 1
+                    
+                }
+                    
+                else {
+                    
+                    self.isSubscribed = 0
+                    
+                    
+                }
+
+                
+                let indexPath = IndexPath(item: sender.tag, section: 0)
+                self.churchAdminTableView.reloadRows(at: [indexPath], with: .none)
+                
+                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+        
+        }
+        
+        
+        else {
+        
+        
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: { 
+                
+                
+                
+            })
+        
+        }
+        
+    }
+    
+    
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-//        
+//
 //        UserDefaults.standard.set("1", forKey: "1")
 //      //  UserDefaults.standard.removeObject(forKey: "1")
 //        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)

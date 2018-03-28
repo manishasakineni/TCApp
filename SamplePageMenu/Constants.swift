@@ -58,6 +58,7 @@ let BIBLEAPIENGLISHURL : String = "http://192.168.1.121/TeluguChurchesRepository
 
 let BIBLEAPITELUGUURL : String = "https://raw.githubusercontent.com/godlytalias/Bible-Database/master/Telugu/bible.json"
 
+let CHURCHAUTHORSUBSCIPTIONAPI : String = BASEURL.appending("api/Church/ChurchAuthorSubscription")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

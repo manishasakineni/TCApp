@@ -394,6 +394,13 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kuserId)
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

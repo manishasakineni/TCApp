@@ -48,6 +48,7 @@
 		3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404F02058045A008257A6 /* AuthorEventsViewController.swift */; };
 		3D5404F92058045A008257A6 /* AuthorPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5404F22058045A008257A6 /* AuthorPostsViewController.swift */; };
 		3D5404FA2058045A008257A6 /* AuthorPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5404F32058045A008257A6 /* AuthorPostsViewController.xib */; };
+		3D540C15206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D540C14206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift */; };
 		3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C5E2011F462005DB3B2 /* Constants.swift */; };
 		3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C602011F617005DB3B2 /* VideosVO.swift */; };
 		3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C622011F6BE005DB3B2 /* ServiceController.swift */; };
@@ -308,6 +309,7 @@
 		3D5404F02058045A008257A6 /* AuthorEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventsViewController.swift; sourceTree = "<group>"; };
 		3D5404F22058045A008257A6 /* AuthorPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorPostsViewController.swift; sourceTree = "<group>"; };
 		3D5404F32058045A008257A6 /* AuthorPostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorPostsViewController.xib; sourceTree = "<group>"; };
+		3D540C14206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchAuthorSubscriptionVO.swift; sourceTree = "<group>"; };
 		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = SamplePageMenu/Constants.swift; sourceTree = "<group>"; };
 		3D551C602011F617005DB3B2 /* VideosVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVO.swift; sourceTree = "<group>"; };
 		3D551C622011F6BE005DB3B2 /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 				CB21CE62203DA43300B3294B /* GetAllChurchDetails */,
 				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
+				3D540C14206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift */,
 				3DD30F62205FE40A0076B0DB /* EventDetailsVO */,
 				3D927B87205BA46D004A7D45 /* AuthorEventDateCountVO */,
 				3D927B80205B9B56004A7D45 /* AuthorEventsResultVO */,
@@ -1727,6 +1730,7 @@
 				3DD30F5D205FDF400076B0DB /* EventDetailsViewController.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
+				3D540C15206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
 				CB21CE67203DA6B200B3294B /* GetChurchByIDResultVo.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,

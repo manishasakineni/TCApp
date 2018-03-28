@@ -1437,7 +1437,7 @@
                     </view>
                     <connections>
                         <outlet property="churchAdminTableView" destination="8YR-xf-47E" id="vzg-el-LGD"/>
-                        <outlet property="searchLabel" destination="pUM-Cq-5Lc" id="HP2-5k-jFo"/>
+                        <outlet property="searchLabel" destination="pUM-Cq-5Lc" id="82W-hP-Nc3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ak6-IM-PEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
