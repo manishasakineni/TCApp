@@ -410,19 +410,19 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
             
-            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.pswdnumberMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.numberOnly(password: newPassWordStr as String)) {
             
-            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
+       //     errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.specialCharOnly(password: newPassWordStr as String)) {
             
-            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
+         //   errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
         else if (newPassWordStr.length < 8) {
             
-            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
+        //    errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
         else if(confirmPassWordStr.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?

@@ -612,20 +612,20 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else if (emailIDStr.length<=0) {
+//        else if (emailIDStr.length<=0) {
+//            
+//            alertTag = 4
+//
+//            errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
+//        }
             
-            alertTag = 4
-
-            errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
-        }
-            
-        else  if (emailIDStr.length < 5) {
+        else  if (emailIDStr.length > 1) && (emailIDStr.length < 5) {
             
             alertTag = 4
 
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
-        else  if(!GlobalSupportingClass.isValidEmail(emailIDStr as NSString))
+        else  if (emailIDStr.length > 1) && (!GlobalSupportingClass.isValidEmail(emailIDStr as NSString))
         {
             errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
         }
@@ -670,12 +670,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //
 //            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
 //        }
-//        else if (passWord.length < 8) {
-//            
-//            alertTag = 6
-//
-//            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
-//        }
+        else if (passWord.length < 8) {
+            
+            alertTag = 6
+
+            errorMessage=GlobalSupportingClass.pswdnumberMessage() as String as String as NSString?
+        }
             
             
         else if(confirmPassWord.length<=0){
@@ -695,10 +695,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             
             
-        else if(!passWord.isEqual(to: confirmPassWord as String)){
-            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-        }
-        
+//        else if(!passWord.isEqual(to: confirmPassWord as String)){
+//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+//        }
+//        
         if let errorMsg = errorMessage{
             
 //            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
