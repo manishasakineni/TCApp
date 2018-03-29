@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import MediaPlayer
 
 class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
@@ -34,7 +37,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     let utillites =  Utilities()
     
     
+    var linksA = [String]()
     
+    var streamLink : String!
+    
+    var first : String!
+    
+    var secend : String!
     
 
     
@@ -79,6 +88,64 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let myURLString = "https://drive.google.com/open?id=1KXYJ4Q4EgWM17GAp1jQjIJZmvNmBWIzz"
+        
+        if let myURL = NSURL(string: myURLString) {
+            
+            do {
+                let myHTMLString = try String(contentsOf:(myURL as NSURL) as URL, encoding: .utf8)
+                
+                let t = myHTMLString
+                
+                if let rangeOfZero = t.range(of: "[\"fmt_stream_map\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
+                
+                    
+//                rangeOfString("[\"fmt_stream_map\"", options: NSString.CompareOptions.BackwardsSearch) {
+                
+                    let suffix = String(t.characters.suffix(from: rangeOfZero.lowerBound))
+                        
+//                        characters.suffixFrom(rangeOfZero.endIndex))
+                    
+                    first = suffix
+                    
+                    //  print(suffix)
+                    if let rangeOne = first.range(of: ",[\"fmt_list\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
+                        
+//                        .rangeOfString(",[\"fmt_list\"", options: NSString.CompareOptions.BackwardsSearch) {
+                        let endffix = String(first.characters.prefix(upTo: rangeOne.lowerBound))
+                            
+//                            characters.prefixUpTo(rangeOne.startIndex))
+                        
+                        
+                        
+                        let v = endffix.replacingOccurrences(of: "\"", with: "")
+                        
+//                        stringByReplacingOccurrencesOfString("\"", withString: "")
+                        
+                        let x = v.replacingOccurrences(of: "]", with: "")
+                        
+//                        stringByReplacingOccurrencesOfString("]", withString: "")
+                        
+                        
+                        secend = x
+                        
+                        print(x)
+                        
+                    }
+                    
+                    theLink()
+                    
+                } else {
+                    print("noooo")
+                }
+            } catch {
+                print("Error : \(error)")
+            }
+        } else {
+            print("Error: \(myURLString) doesn't  URL")
+        }
         
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
@@ -901,6 +968,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBAction func saveBtnAction(_ sender: Any) {
         
+        //https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
+        
+//         print(streamLink)
+//        
+//        let videoURL = URL(string: streamLink)
+//        let player = AVPlayer(url: videoURL!)
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//        self.present(playerViewController, animated: true) {
+//            playerViewController.player!.play()
+//        }
+        
         if self.validateAllFields()
         {
             
@@ -920,8 +999,73 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-    //MARK:- validateAllFields
+  
+
+func theLink() {
     
+    
+    /// /[u]00../g
+    
+    
+    //   let firstElement = linksA.first
+    
+    let firstElement = secend
+    
+    let t = firstElement!.replacingOccurrences(of: ",35", with: "")
+    
+//    stringByReplacingOccurrencesOfString(",35", withString: "")
+    
+    let deUrl = t.characters.split{$0 == "|"}.map(String.init)
+    
+    let link = deUrl[1]
+    
+    // let link = deUrl[0] for high
+    // let link = deUrl[2] for low
+    
+    // the link needs to be decoded
+    
+    let i = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+    
+//    cString(using: .utf8)
+    
+//    stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+    
+    
+    let p = i!.replacingOccurrences(of: "%5Cu", with: "")
+    
+//    stringByReplacingOccurrencesOfString("%5Cu", withString: "")
+    
+    
+    // you can see how the link should look like here :
+    // http://ddecode.com/hexdecoder/?results=d82d4e564eccc1a6b96ee7c5c1e1c3b2
+    
+    // %252C : ,
+    // 003d : =
+    // 0026 : &
+    
+//    let re = i.replacingOccurrences(of: ",35", with: "")
+    
+//    stringByReplacingOccurrencesOfString("003d", withString: "=")
+    
+    let w =  p.replacingOccurrences(of: "0026", with: "&")
+    
+//    stringByReplacingOccurrencesOfString("0026", withString: "&")
+    
+    let c = w.replacingOccurrences(of: "%252C", with: ",")
+    
+//    stringByReplacingOccurrencesOfString("%252C", withString: ",")
+    
+    print(c)
+    
+    let r = c
+    
+    streamLink = r
+    
+    
+}
+
+    //MARK:- validateAllFields
+
     func validateAllFields() -> Bool
     {
         

@@ -1154,6 +1154,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             eventDetailsViewController.eventID = eventList.id!
             eventDetailsViewController.eventChurchName = eventList.churchName!
             eventDetailsViewController.eventName = eventList.title!
+            
+            eventDetailsViewController.catgoryID = eventList.churchId!
 
             
             self.navigationController?.pushViewController(eventDetailsViewController, animated: true)

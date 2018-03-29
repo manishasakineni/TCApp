@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,9 +40,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bible3" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
-                                <rect key="frame" x="5" y="23" width="125" height="70"/>
+                                <rect key="frame" x="5" y="8" width="125" height="85"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="UNC-P0-BXv"/>
+                                    <constraint firstAttribute="height" constant="85" id="UNC-P0-BXv"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -51,7 +51,7 @@
                             <constraint firstItem="oPC-5A-Fdq" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="5" id="CLV-gK-f2k"/>
                             <constraint firstAttribute="trailing" secondItem="lKq-sy-xkr" secondAttribute="trailing" constant="8" id="CXg-vL-aGF"/>
                             <constraint firstItem="lKq-sy-xkr" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="8" id="Fio-Eo-cut"/>
-                            <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="lKq-sy-xkr" secondAttribute="bottom" constant="5" id="G1V-uH-Afk"/>
+                            <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="lKq-sy-xkr" secondAttribute="bottom" constant="-10" id="G1V-uH-Afk"/>
                             <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="-0.5" id="U17-rx-iET"/>
                             <constraint firstItem="lKq-sy-xkr" firstAttribute="top" secondItem="4Vm-uU-ghy" secondAttribute="top" id="UCx-Mb-s7v"/>
                             <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" id="Zod-k3-OPu"/>

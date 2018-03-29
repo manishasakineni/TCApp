@@ -9,11 +9,16 @@
 import UIKit
 import Localize
 
-class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate {
 
     @IBOutlet weak var eventDetailsTableView: UITableView!
     
+    var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
     
+    var saveLocationString : String             = ""
+    var isSavingPDF     : Bool                  = false
+    var pdfTitle        : String                = ""
+    var isDownloadingOnProgress : Bool  = false
     
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
   //  EventDetailsListResultVO
@@ -47,9 +52,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var gggg = String()
     
+    var categoryStr : Array<String> = Array()
+    
     
     var authorName : String = ""
     var appVersion  : String = ""
+    
+     var imageView = UIImageView()
 
     
     var thumbnailImageURL = String()
@@ -150,7 +159,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //        let videoSongsID : Int = 8
         
-        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "3"
+        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)"
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
         serviceController.getRequest(strURL: urlStr, success: { (result) in
@@ -177,6 +186,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         var i = 0
                         
+                        if !(videoList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Videos")
+                        }
+
                         
                         for authorDetails in videoList!{
                             
@@ -191,6 +205,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let audioList = self.allCagegoryListArray?.audios
                         
+                        if !(videoList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Audios")
+                        }
                         
                         for audioDetails in audioList!{
                             
@@ -205,6 +223,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let docsList = self.allCagegoryListArray?.documents
                         
+                        if !(videoList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Documents")
+                        }
+
                         
                         for docsDetails in docsList!{
                             
@@ -219,6 +242,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let imageList = self.allCagegoryListArray?.images
                         
+                        if !(videoList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Images")
+                        }
                         
                         for imageDetails in imageList!{
                             
@@ -261,7 +288,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 5
+        return 2
     }
     
     
@@ -274,9 +301,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
        
         else{
         
-            return 1
-        
+            if(isResponseFromServer == true){
+                
+                return numberOfRows.count
+                
+            }
+            
+        return 0
+            
         }
+        
      
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -398,14 +432,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         else{
             
-          let cell = tableView.dequeueReusableCell(withIdentifier: "homeCategoriesCell", for: indexPath) as! homeCategoriesCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "homeCategoriesCell", for: indexPath) as! homeCategoriesCell
             
             cell.homeCollectionView.register(UINib.init(nibName: "homeCategoriesCollectionCell", bundle: nil),
                                              forCellWithReuseIdentifier: "homeCategoriesCollectionCell")
-            
-            cell.homeCollectionView.delegate = self
-            cell.homeCollectionView.dataSource = self
-            
             cell.homeCollectionView.tag = indexPath.row
             
             cell.selectionStyle = .none
@@ -413,14 +443,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
             
             
-            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
+            cell.homeCollectionView.delegate = self
+            cell.homeCollectionView.dataSource = self
             
-            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
-            
-            
-            cell.categorieName.text = mediaTypeName
-            
-            cell.homeCollectionView.reloadData()
+           cell.categorieName.text = self.categoryStr[indexPath.row]
+
             
             return cell
             
@@ -516,7 +543,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if self.numberOfRows.count > 0{
+        if self.numberOfRows.count > 0 {
+        
         let totalItems = self.numberOfRows["\(collectionView.tag)"] as? Int
         
         print("totalItems:\(String(describing: totalItems))")
@@ -526,7 +554,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         return 0
-    }
+        }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -537,6 +565,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
+//        let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+        
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
@@ -546,6 +576,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         //        print(postImgUrl!)
         
         cell.nameLabel.text = title
+        
+//        if indexPath.row == 0 {
+//            
+//            cell.mediaTypeLabel.text = mediaName
+//        }
+//        else {
+//            
+//            cell.mediaTypeLabel.text = ""
+//        }
+        
         
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
         
@@ -618,11 +658,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         else if (fileExtension == ".mp3") {
             
-            
+            cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
             
-            //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
-            
+          
             
         }
         else if fileExtension == ".mp4" {
@@ -672,138 +711,177 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
 
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             // handle tap events
-            print("You selected cell #\(indexPath.item)!")
+        
+        print("You selected cell #\(indexPath.item)!")
+        
+        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
+        
+        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+        
+        let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+        
+        
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
-            let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
+            print("images")
             
-            let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
             
-            if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
+            if newString != nil {
                 
-                print("images")
-                
-            }
-                
-            else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
-                
-                print("Pdfs and docs")
-                
-                let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-                
-                let embededUrlImage =  imgUrl
-                let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                let url = URL(string:newString!)
                 
                 
-                if newString != nil {
-                    
-                 //   savePDFWithUrl(newString!)
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
                     
                     
-                }
-                
-            }
-                
-            else if (fileExtension == ".mp3") {
-                
-                let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-                let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-                
-                
-                print(postImgUrl)
-                
-                let audioUrlImage =  postImgUrl
-                print(audioUrlImage)
-                
-                let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-                
-                print(newString)
-                
-                
-                if newString != nil {
+                    imageView.image = UIImage(data: dataImg!)
+                    imageView.frame = self.view.bounds
+                    imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    imageView.contentMode = .scaleAspectFit
+                    imageView.isUserInteractionEnabled = true
                     
-                    //  let url = URL(string:newString!)
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                    imageView.addGestureRecognizer(tap)
                     
-                    
-                    //let dataImg = try? Data(contentsOf: url!)
-                    
-                    // if dataImg != nil {
-                    
-                    let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
-                    
-                    audioViewController.audioIDArr = newString!
-                    audioViewController.audioIDNameArr = title!
-                    self.navigationController?.pushViewController(audioViewController, animated: true)
-                    
-                    //  }
-                    //                else {
-                    //
-                    //                //    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                    //                }
+                    self.view.addSubview(imageView)
                 }
                 else {
                     
-                    //   cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    imageView.image = #imageLiteral(resourceName: "j4")
                 }
-                
-                
-                
-                
-                print("audio")
-                
             }
-            else if fileExtension == ".mp4" {
+            else {
                 
-                
-                let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-                let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-                
-                
-                let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-                
-                if let embededUrlImage =  imgUrl {
-                    
-                    let thumbnillImage : String = embededUrlImage
-                    
-                    
-                    self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-                    
-                    self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
-                    
-                    let videothumb = URL(string: self.thumbnailImageURL)
-                    
-                    if videothumb != nil{
-                        
-                        let request = URLRequest(url: videothumb!)
-                        
-                        let session = URLSession.shared
-                        
-                        let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                            
-                            DispatchQueue.main.async()
-                                {
-                                    
-                                    let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
-                                    
-                                    videosView.videoIDArray = self.audioIDArray
-                                    videosView.videoNameStr = title!
-                                    
-                                    
-                                    self.navigationController?.pushViewController(videosView, animated: true)
-                            }
-                            
-                        })
-                        
-                        dataTask.resume()
-                        
-                    }
-                }
+                imageView.image = #imageLiteral(resourceName: "j4")
                 
             }
             
             
+            
+        }
+            
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
+            
+            print("Pdfs and docs")
+            
+            let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+            let embededUrlImage =  imgUrl
+            let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            
+            if newString != nil {
+                
+                savePDFWithUrl(newString!)
+                
+                
+            }
+            
+        }
+            
+        else if (fileExtension == ".mp3") {
+            
+            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+            
+            
+            print(postImgUrl)
+            
+            let audioUrlImage =  postImgUrl
+            print(audioUrlImage)
+            
+            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            print(newString)
+            
+            
+            if newString != nil {
+                
+                //  let url = URL(string:newString!)
+                
+                
+                //let dataImg = try? Data(contentsOf: url!)
+                
+                // if dataImg != nil {
+                
+                let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
+                
+                audioViewController.audioIDArr = newString!
+                audioViewController.audioIDNameArr = title!
+                self.navigationController?.pushViewController(audioViewController, animated: true)
+                
+                //  }
+                //                else {
+                //
+                //                //    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                //                }
+            }
+            else {
+                
+                //   cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+            }
+            
+            
+            
+            
+            print("audio")
+            
+        }
+        else if fileExtension == ".mp4" {
+            
+            
+            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+            
+            
+            let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+            if let embededUrlImage =  imgUrl {
+                
+                let thumbnillImage : String = embededUrlImage
+                
+                
+                self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+                
+                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
+                
+                let videothumb = URL(string: self.thumbnailImageURL)
+                
+                if videothumb != nil{
+                    
+                    let request = URLRequest(url: videothumb!)
+                    
+                    let session = URLSession.shared
+                    
+                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                        
+                        DispatchQueue.main.async()
+                            {
+                                
+                                let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                
+                                videosView.videoEmbededIDStr = self.audioIDArray[1]
+                                videosView.videoNameStr = title!
+                                
+                                self.navigationController?.pushViewController(videosView, animated: true)
+                        }
+                        
+                    })
+                    
+                    dataTask.resume()
+                    
+                }
+            }
+            
+        }
+        
+        
         }
         
         
@@ -811,30 +889,174 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            let cellsPerRow = 5
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-        }
-        else {
-            
-            let cellsPerRow = 3
-            
-            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
-            
-            
-        }
+         return CGSize(width: 150.0, height: 130.0)
+    
         
     }
-    
+   
+        func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+            sender.view?.removeFromSuperview()
+        }
+        
+        private func openPDFinPDFReader() {
+            
+            //self.performSegue(withIdentifier: kToPDFVC, sender: self)
+        }
+        
+        
+        private func savePDFWithUrl(_ urlString: String) {
+            
+            var filePath : URL?
+            //self.showHUD()
+            
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
+                
+                if let url = URL.init(string: urlString) {
+                    
+                    let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+                    
+                    if let documentDirUrl = URL.init(string: documentDirUrlString) {
+                        
+                        let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+                        
+                        if let pdfName = pdfNameArray.last {
+                            
+                            let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+                            self.saveLocationString = saveLocation.absoluteString
+                            filePath = URL.init(fileURLWithPath: saveLocation.path)
+                            print( self.saveLocationString)
+                            
+                            let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+                            
+                            if fileExists {
+                                
+                                if !self.isSavingPDF {
+                                    
+                                    DispatchQueue.main.async {
+                                        
+                                        //    self.hideHUD()
+                                        
+                                        self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+                                        print( self.saveLocationString)
+                                        print(  self.openSelectedDocumentFromURL)
+                                        
+                                        
+                                        self.openPDFinPDFReader()
+                                    }
+                                    
+                                } else {
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                                        
+                                        //                                    self.hideHUD()
+                                        //                                    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: kAppTitle, messege: self.pdfTitle + " has been already downloaded. Do you want to open?", clickAction: {
+                                        //
+                                        //                                        self.openPDFinPDFReader()
+                                        //                                        return
+                                        //                                    })
+                                    })
+                                }
+                                
+                            } else {
+                                
+                                do {
+                                    
+                                    self.isDownloadingOnProgress = true
+                                    
+                                    let imageData : Data? = try Data.init(contentsOf: url)
+                                    
+                                    if imageData == nil {
+                                        
+                                        self.isDownloadingOnProgress = false
+                                        
+                                        DispatchQueue.main.async {
+                                            
+                                            //                                        self.hideHUD()
+                                            //
+                                            //                                        Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
+                                            //                                                                                         alertTitle: kAppTitle,
+                                            //                                                                                         messege: "Error while loading Catalog", clickAction: {
+                                            //
+                                            //                                        })
+                                        }
+                                        
+                                    } else {
+                                        
+                                        do {
+                                            
+                                            try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
+                                            
+                                            if !self.isSavingPDF {
+                                                
+                                                self.isDownloadingOnProgress = false
+                                                
+                                                DispatchQueue.main.async {
+                                                    
+                                                    //  self.hideHUD()
+                                                    self.openPDFinPDFReader()
+                                                }
+                                                
+                                                
+                                            } else {
+                                                
+                                                self.isDownloadingOnProgress = false
+                                                
+                                                DispatchQueue.main.async {
+                                                    
+                                                    //                                                self.hideHUD()
+                                                    //
+                                                    //                                                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: kAppTitle, messege: "Catalog has been downloaded to the download folder on your device", clickAction: {
+                                                    //                                                })
+                                                }
+                                            }
+                                            
+                                        } catch let error {
+                                            
+                                            self.isDownloadingOnProgress = false
+                                            
+                                            DispatchQueue.main.async {
+                                                
+                                                //                                            self.hideHUD()
+                                                //                                            Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
+                                                //                                                                                             alertTitle: kAppTitle,
+                                                //                                                                                             messege: error.localizedDescription, clickAction: {
+                                                //
+                                                //                                            })
+                                            }
+                                        }
+                                    }
+                                    
+                                } catch let error {
+                                    
+                                    print(error.localizedDescription)
+                                    
+                                    self.isDownloadingOnProgress = false
+                                    
+                                    DispatchQueue.main.async {
+                                        
+                                        // self.hideHUD()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        func openSelectedDocumentFromURL(documentURLString: String) {
+            let documentURL: NSURL = NSURL(fileURLWithPath: documentURLString)
+            documentController = UIDocumentInteractionController(url: documentURL as URL)
+            documentController.delegate = self
+            documentController.presentPreview(animated: true)
+        }
+        //
+        //
+        //    // MARK: - UIDocumentInteractionViewController delegate methods
+        //
+        func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+            return self
+        }
     
     }
     

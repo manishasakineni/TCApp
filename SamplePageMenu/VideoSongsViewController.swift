@@ -68,7 +68,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     var churchNameAry : Array<String> = Array()
     var splitArray : Array<String> = Array()
-    var strrrr : Array<String> = Array()
+    
+    var categoryStr : Array<String> = Array()
     
     var videoIDArray : Array<String> = Array()
     
@@ -83,7 +84,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     var isResponseFromServer = false
     
    var noOfRows : Array<Dictionary<String,Any>> = Array()
-        var numberOfRows : Dictionary<String,Any> = Dictionary()
+    
+    var numberOfRows : Dictionary<String,Any> = Dictionary()
     
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     
@@ -190,6 +192,13 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let videoList = self.allCagegoryListArray?.videos
                         
+                        var k = 0
+                        
+                        if !(videoList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Videos")
+                        }
+                        
                       
                         var i = 0
                         
@@ -207,6 +216,10 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let audioList = self.allCagegoryListArray?.audios
                         
+                        if !(audioList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Audios")
+                        }
                         
                         for audioDetails in audioList!{
                          
@@ -221,6 +234,10 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let docsList = self.allCagegoryListArray?.documents
                         
+                        if !(docsList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Documents")
+                        }
                         
                         for docsDetails in docsList!{
                          
@@ -235,6 +252,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let imageList = self.allCagegoryListArray?.images
                         
+                        if !(imageList?.isEmpty)! {
+                            
+                            self.categoryStr.append("Images")
+                        }
+                        
                         
                         for imageDetails in imageList!{
                    
@@ -244,6 +266,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             
                             self.imagesArray.append(imageDetails)
                         }
+                        
+                        print("categoryStr:\(self.categoryStr.count)")
                         
 //                        let videoList = self.allCagegoryListArray?.audios
                         self.isResponseFromServer = true
@@ -487,24 +511,25 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         cell.selectionStyle = .none
         
+        cell.homeCollectionView.showsHorizontalScrollIndicator = false
+        
         cell.homeCollectionView.collectionViewLayout.invalidateLayout()
         
         
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
-        cell.categorieName.text = ""
         
 //        if indexPath.row  > self.imagesArrayTag.count {
-//            
+        
 //            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
 //            
 //            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
-//            
-//            
-//            cell.categorieName.text = mediaTypeName
-//            
-//
+            
+            
+            cell.categorieName.text = self.categoryStr[indexPath.row]
+            
+
 //        }
         
         
@@ -542,7 +567,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
-         let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+//         let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
         
          let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
@@ -554,14 +579,14 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         cell.nameLabel.text = title
         
-        if indexPath.row == 0 {
-            
-            cell.mediaTypeLabel.text = mediaName
-        }
-        else {
-            
-            cell.mediaTypeLabel.text = ""
-        }
+//        if indexPath.row == 0 {
+//            
+//            cell.mediaTypeLabel.text = mediaName
+//        }
+//        else {
+//            
+//            cell.mediaTypeLabel.text = ""
+//        }
         
         
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
