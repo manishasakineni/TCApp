@@ -24,8 +24,8 @@ class ChurchAuthorSubscriptionVO: Mappable {
     //    }
     
     
-    var listResult : String?
-    var result    : String?
+    var listResult   : String?
+    var result       : ChurchAuthorSubscriptionResultVO?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -37,7 +37,7 @@ class ChurchAuthorSubscriptionVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : String?,  result    : String?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : String?,  result    : ChurchAuthorSubscriptionResultVO?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
         self.listResult = listResult
         self.result = result

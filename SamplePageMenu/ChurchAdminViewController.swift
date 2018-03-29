@@ -35,15 +35,15 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     var churchAdmin = Array<String>()
     
     
-    var userId = Int()
-    var uid : Int = 0
+    
+    
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     var churchName1 : String = ""
 
     var isSubscribed = Int()
-    
+    var subscribeClick = 0
     var subscribe : Bool = true
 
     var churchId = 0
@@ -62,14 +62,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        if UserDefaults.standard.value(forKey: kLoginId) != nil {
-            
-            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
-            
-        }
-        
-        self.getAdminDetailsAPICall(string: searchBar.text!)
+      //  self.getAdminDetailsAPICall(string: searchBar.text!)
 
         
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
@@ -125,11 +120,11 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         totalPages = 0
         searchBar.showsCancelButton = false
         churchAdminArray.removeAll()
-//        getChurchAdminDetailsAPICall()
+
          self.getAdminDetailsAPICall(string: searchBar.text!)
         
 
-     //   churchAdminTableView.isHidden = true
+     
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -323,11 +318,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         cell.layer.cornerRadius = 5
         
         let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
-        
-        cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
-        
-        
-        cell.subscribeButtton.tag = indexPath.row
+
         
         isSubscribed = listStr.isSubscribed!
         
@@ -403,23 +394,13 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         if churchAdminArray.count > 0 {
           
             let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
-            
-            cell.subscribeButtton.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
-            
+
             cell.subscribeButtton.tag = indexPath.row
             
             isSubscribed = listStr.isSubscribed!
             
-            if isSubscribed == 0 {
-                
-                cell.subscribeButtton.setTitle("SUBSCRIBE",for: .normal)
-            }
-                
-            else if isSubscribed == 1  {
-                
-                cell.subscribeButtton.setTitle("UNSUBSCRIBE",for: .normal)
-                
-            }
+            print(isSubscribed)
+           
             
             self.churchId = listStr.churchId!
             self.authorId = listStr.Id!
@@ -498,6 +479,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         authorDetailsViewController.authorID = listStr.Id!
         
         authorDetailsViewController.churchName1 = listStr.churchName!
+        
+        authorDetailsViewController.isSubscribed = isSubscribed
         
         self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
         
@@ -698,90 +681,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     }
     
-    func subscribeButttonClicked(sender: UIButton){
-        
-        if self.isSubscribed == 0{
-            
-            self.isSubscribed = 0
-            self.subscribe = false
-        }
-            
-        else {
-            
-            self.isSubscribed = 1
-            self.subscribe = true
-            
-        }
-
-        
-        
-        if self.userId != 0{
-        
-        
-        
-        let paramsDict = [ "isSubscribed": isSubscribed,
-                           "userId": self.userId,
-                           "churchId": "null",
-                           "authorId": authorId
-            ] as [String : Any]
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            print(result)
-            
-            let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
-            
-            
-            let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
-            
-            if isSuccess == true {
-                
-                let successMsg = respVO.endUserMessage
-                
-                let subscribe = respVO.isSuccess
-                
-
-                
-                let indexPath = IndexPath(item: sender.tag, section: 0)
-                self.churchAdminTableView.reloadRows(at: [indexPath], with: .none)
-                
-                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                
-            }
-                
-            else {
-                
-                
-                
-            }
-            
-        }) { (failureMessage) in
-            
-            
-            print(failureMessage)
-            
-        }
-        
-        
-        }
-        
-        
-        else {
-        
-        
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: { 
-                
-                
-                
-            })
-        
-        }
-        
-    }
+    
     
     
     
@@ -817,7 +717,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
 
         
-        print("Back Button Clicked......")
+         print("Back Button Clicked......")
         
     }
 

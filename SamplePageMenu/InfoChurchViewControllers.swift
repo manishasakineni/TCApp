@@ -22,7 +22,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var appVersion          : String = ""
     
-    
+ 
     
     var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
@@ -63,8 +63,11 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var dobString = ""
     var genderString = ""
     
-    
-    
+    var userId : Int = 0
+    var uid : Int = 0
+    var authorID : Int = 0
+    var isSubscribed = Int()
+    var subscribeClick = 0
     
     let utillites =  Utilities()
     
@@ -72,7 +75,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var ChurchInfoAry  = ["1".localize(),"REG001".localize(),"Holv Church".localize(),"LandMark".localize(),"Aishwarya Sateesh".localize(),"Contact No".localize(),"Church@gmail.com".localize()]
     
-    var churchID      : Int = 0
+    var churchID            : Int = 0
     var churchName          : String = ""
 
 
@@ -83,6 +86,12 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+            
+            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            
+        }
         
         infoChurchTableView.delegate = self
         infoChurchTableView.dataSource = self
@@ -592,40 +601,61 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
         
         if section == 1 {
+          
+          infoHeaderCell.subscribeBtn.isHidden = false
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            if self.subscribeClick == 0{
+                
+                infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
+            }
+                
+            else{
+                
+                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
+                
+            }
+            
+            infoHeaderCell.subscribeBtn.addTarget(self, action: #selector(subscribeBtnClicked), for: .touchUpInside)
+        }
+        else {
+        
+         infoHeaderCell.subscribeBtn.isHidden = true
+        }
+        if section == 1 {
+            
+            
             
             infoHeaderCell.headerLabel.text = "Church Details".localize()
-            return infoHeaderCell
+            
             
         }else if section == 2 {
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
             
             infoHeaderCell.headerLabel.text = "Address".localize()
-            return infoHeaderCell
+          
             
         }
         else if section == 3 {
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
             
             infoHeaderCell.headerLabel.text = "Church Author".localize()
-            return infoHeaderCell
+            
             
         }
             
         else if section == 4 {
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+           
             
             infoHeaderCell.headerLabel.text = "Map".localize()
-            return infoHeaderCell
             
         }
-               return nil
+                return infoHeaderCell
     }
     
     
@@ -641,7 +671,86 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
+    func subscribeBtnClicked(sender : UIButton){
+        
+
+        if self.userId != 0{
+            
+            
+            
+            let paramsDict = [ "isSubscribed": isSubscribed,
+                               "userId": self.userId,
+                               "churchId": churchID,
+                               "authorId": "null"
+                ] as [String : Any]
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            
+            serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+                print(result)
+                
+                let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
+                
+                
+                let isSuccess = respVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                if isSuccess == true {
+                    
+                    let successMsg = respVO.endUserMessage
+                    
+                    let subscribe = respVO.isSuccess
+                    
+                    self.subscribeClick = (respVO.result?.isSubscribed!)!
+                    
+//                    let indexPath = IndexPath(item: sender.tag, section: 0)
+//                    self.infoChurchTableView.reloadRows(at: [indexPath], with: .none)
+                    
+                    self.infoChurchTableView.reloadData()
+                    
+                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+                }
+                    
+                else {
+                    
+                    let unSuccessMsg = respVO.endUserMessage
+                    
+                    self.appDelegate.window?.makeToast(unSuccessMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+                    
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+            
+            
+        }
+            
+            
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
+                
+                
+                
+            })
+            
+        }
+        
+    }
+    
+    
+    
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    
     {
         let alertView:UIAlertView = UIAlertView();
         alertView.title=title

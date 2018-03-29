@@ -786,19 +786,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     
     func subscribeButttonClicked(sender: UIButton){
-        
-        if self.isSubscribed == 0{
-            
-            self.isSubscribed = 0
-            self.subscribe = false
-        }
-            
-        else {
-            
-            self.isSubscribed = 1
-            self.subscribe = true
-            
-        }
+ 
         
         
         

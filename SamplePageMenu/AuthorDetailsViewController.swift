@@ -31,7 +31,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var authorID : Int = 0
     var churchName1 : String = ""
     var appVersion  : String = ""
-
+    var isSubscribed = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         authorInfoVC?.title = "Information".localize()
         authorInfoVC?.delegate  = self
         authorInfoVC?.authorID = authorID
+        authorInfoVC?.isSubscribed = isSubscribed
        // authorInfoVC?.churchID = churchID
         
         authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)

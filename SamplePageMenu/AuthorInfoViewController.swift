@@ -1,4 +1,4 @@
-//
+ //
 //  AuthorInfoViewController.swift
 //  Telugu Churches
 //
@@ -17,12 +17,27 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
     var authorDetailsArray  : [AuthorDetailsListResultVO] = Array<AuthorDetailsListResultVO>()
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var userId :  Int = 0
+    var uid : Int = 0
     var authorID : Int = 0
+    var isSubscribed = 0
+    var subscribeClick = 0
+    var subscribe : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+            
+            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            
+        }
+        
+        print(isSubscribed)
+        
         self.authorInfoTableView.delegate = self
         self.authorInfoTableView.dataSource = self
         
@@ -198,6 +213,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 
                 let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+                
                 if indexPath.row == 0 {
                     
                     
@@ -374,7 +390,21 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             infoHeaderCell.subscribeBtn.isHidden = false
             infoHeaderCell.headerLabel.text = "Author Details".localize()
+            
+            if self.subscribeClick == 0{
+                
+                infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
+            }
+                
+            else{
+                
+                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
+                
+            }
+            
             infoHeaderCell.subscribeBtn.addTarget(self, action: #selector(subscribeBtnClicked), for: .touchUpInside)
+            
+            
             return infoHeaderCell
             
         }else if section == 2 {
@@ -448,13 +478,79 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
 
     func subscribeBtnClicked(sender: UIButton){
-    
-    
-    print("--->>subscribeBtnClicked")
-    
-    
-    
-    
+
+        
+        
+        if self.userId != 0{
+            
+            
+            
+            let paramsDict = [ "isSubscribed": isSubscribed,
+                               "userId": self.userId,
+                               "churchId": "null",
+                               "authorId": authorID
+                ] as [String : Any]
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            print(CHURCHAUTHORSUBSCIPTIONAPI)
+            
+            serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+                print(result)
+                
+                let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
+                
+                
+                let isSuccess = respVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                if isSuccess == true {
+                    
+                    let successMsg = respVO.endUserMessage
+                    
+                    // let subscribe = respVO.isSuccess
+                    
+                    self.subscribeClick = (respVO.result?.isSubscribed!)!
+                    
+                    
+//                    let indexPath = IndexPath(item: sender.tag, section: 0)
+//                    self.authorInfoTableView.reloadRows(at: [indexPath], with: .none)
+                    
+                    self.authorInfoTableView.reloadData()
+                    
+                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+                }
+                    
+                else {
+                    
+                  let endUserMessage = respVO.endUserMessage
+                  self.appDelegate.window?.makeToast(endUserMessage!, duration:kToastDuration, position:CSToastPositionCenter)
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+            
+            
+        }
+            
+            
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: { 
+                
+                
+                
+            })
+            
+        }
+        
     }
    
 }
