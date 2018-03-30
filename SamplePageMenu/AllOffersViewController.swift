@@ -49,6 +49,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var disLikesCount = 0
     var sendCommentClick = false
     
+    var usersLikeClick = false
+    var UsersDisLikeClick = false
+    
 //    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
     
     var usersCommentsArray = Array<Any>()
@@ -418,7 +421,37 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
-            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
+            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
+            
+            usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            
+            usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
+            
+            usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
+            
+            if usersLikeClick == true{
+                
+                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
+            
+            
+            if UsersDisLikeClick == true{
+                
+                usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+    
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
+            
+        usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
+        usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
+        usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             
             return usersCommentsTableViewCell
@@ -641,13 +674,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath) as? CommentsCell {
             
-            
+            let newString = (textView.text! as NSString).replacingCharacters(in: range, with: text)
             
             print(commentsCell.commentTexView.text.characters.count)
             
             self.commentString = commentsCell.commentTexView.text
             
-            if (commentsCell.commentTexView.text.characters.count) > 0  {
+            if (newString.characters.count) > 0  {
                 
                 
                 
@@ -791,6 +824,61 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
    
+    
+    func usersLikeBtnClick(sender : UIButton){
+    
+        if usersLikeClick == false {
+            
+            usersLikeClick = true
+            UsersDisLikeClick = false
+            
+            
+        }
+            
+        else{
+            
+            usersLikeClick = false
+            UsersDisLikeClick = false
+            
+            
+        }
+        
+        
+        
+        let indexPath = IndexPath(item: sender.tag, section: 3)
+        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+    
+    }
+    
+    func usersDislikeBtnClick(sender : UIButton){
+    
+        if UsersDisLikeClick == false {
+            
+            UsersDisLikeClick = true
+            usersLikeClick = false
+            
+        }
+            
+        else{
+            UsersDisLikeClick = false
+            usersLikeClick = false
+            
+            
+        }
+        
+        print("UnLike Clicked.............")
+        
+        let indexPath = IndexPath(item: sender.tag, section: 3)
+        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+    
+    }
+    
+    func replyCommentBtnClick(sender : UIButton){
+    
+        let indexPath = IndexPath(item: sender.tag, section: 3)
+        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+    
+    }
     
 }
 

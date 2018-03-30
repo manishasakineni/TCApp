@@ -15,6 +15,26 @@ class UsersCommentsTableViewCell: UITableViewCell {
     
 
     @IBOutlet weak var usersCommentLbl: UILabel!
+    
+    
+    @IBOutlet weak var readMoreBtn: UIButton!
+    
+    @IBOutlet weak var usersNameLbl: UILabel!
+    
+    @IBOutlet weak var usersLikeBtn: UIButton!
+    
+    @IBOutlet weak var usersLikeCoubtLbl: UILabel!
+    
+    
+    
+    @IBOutlet weak var usersDislikeBtn: UIButton!
+    
+    @IBOutlet weak var usersDislikeCoubtLbl: UILabel!
+    
+    @IBOutlet weak var replyCommentBtn: UIButton!
+    
+    @IBOutlet weak var viewCommentsBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
