@@ -23,7 +23,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var headerView: UIView!
 
-    
+    var userID = ""
     let imageView = ["EditProfile","ChangePSW","Subscriptions","Seminor","event","Seminor","Seminor","event","LogOutlightGray"]
     
 
@@ -53,7 +53,13 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         chooseLanguageBtn.setTitleColor(Utilities.appColor, for: .normal)
         
-         chooseLanguageBtn.layer.borderColor = Utilities.bordrColor
+        chooseLanguageBtn.layer.borderColor = Utilities.bordrColor
+        
+        
+        
+        
+        
+        
         
     }
     
@@ -64,7 +70,10 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
 
-        
+        if let useid = UserDefaults.standard.value(forKey: kuserId) as? String {
+            
+            self.userID = useid
+        }
       //  menuTableView.reloadData()
 
     }
@@ -122,12 +131,45 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
+        if self.userID == ""{
         
+            if indexPath.row == 0 || indexPath.row == 1 {
+                
+                
+            
+            return 0
+            
+            }
+            
+            else {
+            
+            return 43
+                
+            }
+        }
+        
+    
         return 43
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
        
+        if self.userID == ""{
+            
+            if indexPath.row == 0 || indexPath.row == 1 {
+                
+                
+                
+                return 0
+                
+            }
+                
+            else {
+                
+                return UITableViewAutomaticDimension
+                
+            }
+        }
         return UITableViewAutomaticDimension
 
     }
@@ -139,6 +181,21 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             as!menuNameTableViewCell
         
         cell1.selectionStyle = .none
+        
+        if self.userID == ""{
+            
+            if indexPath.row == 0 || indexPath.row == 1 {
+                
+              cell1.isHidden = true
+             
+            }
+        
+        }
+        
+        else{
+        
+            cell1.isHidden = false
+        }
         
         if(indexPath.row == menuArray.count - 1){
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))

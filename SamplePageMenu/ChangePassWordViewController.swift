@@ -32,8 +32,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     var PwButton = UIButton(type: .custom)
 
 
-   // var passWordTypeString = ["Old PassWord","New PassWord","Confirm PassWord"]
-  //  var passWordTypePlaceHolderString = ["Old PassWord","New PassWord","Confirm PassWord"]
 
 
     override func viewDidLoad() {
@@ -93,8 +91,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
-           // oldPassWordString = textField.text!
-
+            
+            textField.isSecureTextEntry = true
+            
         }
         else if activeTextField.tag == 1 {
             
@@ -108,7 +107,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
 
             textField.setLeftPaddingPoints(4)
 
-           // newPassWordString = textField.text!
 
         }
         else if activeTextField.tag == 2 {
@@ -118,7 +116,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             textField.keyboardType = .default
             textField.isSecureTextEntry = true
 
-          //  confirmPassWordString = textField.text!
 
         }
 
@@ -130,13 +127,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
             
             
-            //            if newRegCell.registrationTextfield.text == nil {
-            //
-            //                newRegCell.registrationTextfield.isHidden = true
-            //                newRegCell.registrationTextfield.isHidden = false
-            //
-            //
-            //            }
+
+            
         }
         return true
     }
@@ -163,19 +155,16 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if activeTextField.tag == 0{
             
-           // activeTextField.textColor = UIColor.red
             oldPassWordString = textField.text!
             
         }
         else if activeTextField.tag == 1{
             
-            // activeTextField.textColor = UIColor.red
             newPassWordString = textField.text!
             
         }
         else if activeTextField.tag == 2{
             
-            // activeTextField.textColor = UIColor.red
             confirmPassWordString = textField.text!
             
         }
@@ -211,21 +200,16 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (section == 0){
-            // UIView Creation...........
             let headerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:100))
             headerView.backgroundColor =  UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
-            // UILabel Creation...........
             
             
             let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
-            // section1HeaderLabel.text = sectionsTitle[section]
             section1HeaderLabel2.textColor = UIColor.white
             section1HeaderLabel2.text = "ChangepassWord".localize()
             section1HeaderLabel2.textAlignment = .center
-            // section1HeaderLabel2.backgroundColor = UIColor.purple
             section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 14.0)!
             headerView.addSubview(section1HeaderLabel2)
-            //  headerView.addSubview(section1HeaderLabel3)
             
             return headerView
         }
@@ -270,7 +254,10 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                
                 forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = oldPassWordString
-                forgotPasswordCell.eyeButtonOutlet.isHidden = true
+                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                
+                forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+
                 
                 return forgotPasswordCell
             }
@@ -301,7 +288,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let conformButtonPassWordCell = tableView.dequeueReusableCell(withIdentifier: "ConformButtonPassWordCell", for: indexPath) as! ConformButtonPassWordCell
         
-      //  conformButtonPassWordCell.confirmBtn.addTarget(self, action: #selector(ForgotPassWordViewController.selectClicked), for: .touchUpInside)
         
 
            conformButtonPassWordCell.confirmBtn.addTarget(self, action: #selector(confirmButtonClicked(_:)), for: UIControlEvents.touchUpInside)
@@ -332,7 +318,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     }
     else {
         
-  //      self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
         return
         
     }
@@ -362,22 +347,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         print("Eye Button Clicked......")
 
-//        if sendre.tag == 0
-//        {
-//            activeTextField.isSecureTextEntry = false
-//       //     PwButton.contentMode = .scaleAspectFit
-//
-//            sendre.tag = 1
-//        }
-//        else{
-//            
-//            activeTextField.isSecureTextEntry = true
-//        //    PwButton.contentMode = .scaleAspectFit
-//
-//            sendre.tag = 0
-//            
-//            
-//        }
+
         
         
     }
@@ -404,9 +374,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         else if (newPassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
         }
-            //        else if (confirmPassWordStr.length<=0) {
-            //            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
-            //        }
             
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
             
@@ -414,15 +381,12 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if(!GlobalSupportingClass.numberOnly(password: newPassWordStr as String)) {
             
-       //     errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.specialCharOnly(password: newPassWordStr as String)) {
             
-         //   errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
         else if (newPassWordStr.length < 8) {
             
-        //    errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
         else if(confirmPassWordStr.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
@@ -437,9 +401,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         
         
-        //        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
-        //            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-        //        }
         
         if let errorMsg = errorMessage{
             
@@ -500,10 +461,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                         let successMsg = respVO.endUserMessage
                         
                         
-                        /*   let registerStatus = successMsg
-                         let registerStatusDefaults = UserDefaults.standard
-                         registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
-                         UserDefaults.standard.synchronize() */
                         
                         
                         
@@ -513,13 +470,10 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                             
                           self.removeAnimate()
                             
-                          //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                            
-                          //  self.appDelegate.window?.rootViewController = rootController
+                         
                             
                         })
                         
-                        //self.navigationController?.popViewController(animated: true)
                         
                     }
                     else {

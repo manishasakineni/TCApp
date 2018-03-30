@@ -14,11 +14,11 @@ class Utilities: NSObject {
     static let sharedInstance : Utilities = Utilities()
     
     //MARK: - APP Color
-    static let appColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.6823529412, blue: 0.8274509804, alpha: 1)
+    static let appColor: UIColor = #colorLiteral(red: 0.3843137255, green: 0.6862745098, blue: 0.8156862745, alpha: 1)
     
     static let appFontSize : UIFont = UIFont (name: "Helvetica Neue", size: 30)!
     
-    static let bordrColor : CGColor = #colorLiteral(red: 0.4078431373, green: 0.6823529412, blue: 0.8274509804, alpha: 1).cgColor
+    static let bordrColor : CGColor = #colorLiteral(red: 0.3843137255, green: 0.6862745098, blue: 0.8156862745, alpha: 1).cgColor
     
     
     

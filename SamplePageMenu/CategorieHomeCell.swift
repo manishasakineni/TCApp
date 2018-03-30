@@ -33,7 +33,7 @@ class CategorieHomeCell: UITableViewCell {
         backGroundView.layer.shadowRadius = 2.0
         
 
-        categoriesNameLabel.textColor = Utilities.appColor
+   //     categoriesNameLabel.textColor = Utilities.appColor
 
         
         moreButton.layer.cornerRadius = 1.0

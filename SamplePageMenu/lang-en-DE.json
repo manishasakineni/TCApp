@@ -13,14 +13,14 @@
     
     "User Name" : "User Name",
     "Password" : "Password",
-    "forgot Password" : "Forgot Password",
+    "forgot Password" : "Forgot Password?",
     "Register" : "Register",
     "Don't have an Account?" : "Don't Have An Account?",
     "First Name" : "First Name",
     "Last Name" : "Last Name",
-    "Middle Name" : "Middle Name",
+    "Middle Name" : "Middle Name(Optional)",
     "Mobile Number" : "Mobile Number",
-    "E-mail" : "E-mail",
+    "E-mail" : "E-mail(Optional)",
     "Confirm Password" : "Confirm Password",
     "Submit" : "Submit",
     "Registration" : "Registration",
@@ -141,10 +141,10 @@
     "Holy Bible - English" : "Holy Bible - English",
     "Holy Bible - Telugu" : "Holy Bible - Telugu",
     
-    "Search by category" : "Search by category",
+    "Search by category" : "Search By Category",
     "Search by Church" : "Search by Church",
-    "Search by Event" : "Search by Event",
-    "Search by Author" : "Search by Author"
+    "Search by Event" : "Search By Event",
+    "Search by Author" : "Search By Author"
     
     
     
