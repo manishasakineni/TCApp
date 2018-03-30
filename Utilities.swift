@@ -1123,7 +1123,7 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
-        leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: leftButtonImage.size.height)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
             

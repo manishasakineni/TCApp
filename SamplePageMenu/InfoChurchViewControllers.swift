@@ -831,7 +831,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 print(newDateStr1)
             }
         }
-        return newDateStr + "," + newDateStr1
+        return newDateStr + "" + newDateStr1
     }
 
     

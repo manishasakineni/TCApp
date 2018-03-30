@@ -169,6 +169,14 @@
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
 		AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */; };
 		AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */; };
+		AF2EB51F206DF9B4009B3B75 /* BibleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */; };
+		AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */; };
+		AF2EB526206DFAC2009B3B75 /* BibleDetailsResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB525206DFAC2009B3B75 /* BibleDetailsResultVO.swift */; };
+		AF2EB528206DFC60009B3B75 /* BibleDetailsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB527206DFC60009B3B75 /* BibleDetailsCellViewController.swift */; };
+		AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB529206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift */; };
+		AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52B206DFCA2009B3B75 /* BibleDetailsCellVO.swift */; };
+		AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */; };
+		AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */; };
 		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
 		CB0256B2202430750017E240 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B1202430750017E240 /* SettingViewController.swift */; };
 		CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */; };
@@ -442,6 +450,14 @@
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuNameTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuNameTableViewCell.xib; sourceTree = "<group>"; };
+		AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsViewController.swift; sourceTree = "<group>"; };
+		AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsInfoVO.swift; sourceTree = "<group>"; };
+		AF2EB525206DFAC2009B3B75 /* BibleDetailsResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsResultVO.swift; sourceTree = "<group>"; };
+		AF2EB527206DFC60009B3B75 /* BibleDetailsCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellViewController.swift; sourceTree = "<group>"; };
+		AF2EB529206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellInfoVo.swift; sourceTree = "<group>"; };
+		AF2EB52B206DFCA2009B3B75 /* BibleDetailsCellVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellVO.swift; sourceTree = "<group>"; };
+		AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellIResultVo.swift; sourceTree = "<group>"; };
+		AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsVerseViewController.swift; sourceTree = "<group>"; };
 		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		CB0256B1202430750017E240 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -920,6 +936,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF2EB51D206DF986009B3B75 /* BibleDetailsBook */,
 				359CC9282062769E0061450A /* BibleBooks */,
 				CB1F74CC205F7D7600FDEE8D /* AudioSongsViewController */,
 				CB3794E020595568002D3638 /* VideoSongsViewController */,
@@ -1015,6 +1032,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				AF2EB522206DFA90009B3B75 /* BibleBookVO */,
 				359CC91F20626BDF0061450A /* BibleVo */,
 				9A058AFC2021F3A4005A611C /* LoginVo */,
 				9A058AF72021E02D005A611C /* RegisterVo */,
@@ -1155,6 +1173,28 @@
 				AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */,
 			);
 			name = SideMenuViewController;
+			sourceTree = "<group>";
+		};
+		AF2EB51D206DF986009B3B75 /* BibleDetailsBook */ = {
+			isa = PBXGroup;
+			children = (
+				AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */,
+				AF2EB527206DFC60009B3B75 /* BibleDetailsCellViewController.swift */,
+				AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */,
+			);
+			name = BibleDetailsBook;
+			sourceTree = "<group>";
+		};
+		AF2EB522206DFA90009B3B75 /* BibleBookVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */,
+				AF2EB525206DFAC2009B3B75 /* BibleDetailsResultVO.swift */,
+				AF2EB529206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift */,
+				AF2EB52B206DFCA2009B3B75 /* BibleDetailsCellVO.swift */,
+				AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */,
+			);
+			name = BibleBookVO;
 			sourceTree = "<group>";
 		};
 		B479AB571936CD8C6FA5D596 /* Frameworks */ = {
@@ -1786,6 +1826,7 @@
 				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
 				3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */,
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
+				AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
 				CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */,
 				3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */,
@@ -1803,6 +1844,7 @@
 				CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				CB03C8DA203ED202000B96A4 /* GetAllChurchAdminsVo.swift in Sources */,
+				AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */,
 				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				3DEF9133206CB15D0068BAC2 /* ChurchAuthorSubscriptionResultVO.swift in Sources */,
@@ -1826,6 +1868,7 @@
 				CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */,
 				3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */,
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
+				AF2EB528206DFC60009B3B75 /* BibleDetailsCellViewController.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
@@ -1834,6 +1877,7 @@
 				CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */,
 				CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
+				AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
@@ -1870,6 +1914,7 @@
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
 				CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */,
@@ -1878,7 +1923,9 @@
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
+				AF2EB526206DFAC2009B3B75 /* BibleDetailsResultVO.swift in Sources */,
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
+				AF2EB51F206DF9B4009B3B75 /* BibleDetailsViewController.swift in Sources */,
 				CB21CE65203DA62700B3294B /* GetChurchByIDVo.swift in Sources */,
 				3D927B89205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
@@ -1892,6 +1939,7 @@
 				CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */,
 				CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
+				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,

@@ -332,7 +332,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleBooksViewController") as! BibleBooksViewController
+            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleDetailsViewController") as! BibleDetailsViewController
             
             booksController.showNav = true
             

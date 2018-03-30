@@ -60,6 +60,10 @@ let BIBLEAPITELUGUURL : String = "https://raw.githubusercontent.com/godlytalias/
 
 let CHURCHAUTHORSUBSCIPTIONAPI : String = BASEURL.appending("api/Church/ChurchAuthorSubscription")
 
+
+let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/BibleChapter/GetBibleChapter/12"
+
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String
