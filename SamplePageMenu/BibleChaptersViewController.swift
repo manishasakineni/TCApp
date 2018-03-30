@@ -125,7 +125,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
 
         if LangText == "English" {
             
-            cell.bibleBookLabel.text = "Chapter \(indexPath.row)"
+            cell.bibleBookLabel.text = "Chapter \(indexPath.row + 1)"
         }
         else {
             

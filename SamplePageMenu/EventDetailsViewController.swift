@@ -205,7 +205,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let audioList = self.allCagegoryListArray?.audios
                         
-                        if !(videoList?.isEmpty)! {
+                        if !(audioList?.isEmpty)! {
                             
                             self.categoryStr.append("Audios")
                         }
@@ -223,7 +223,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let docsList = self.allCagegoryListArray?.documents
                         
-                        if !(videoList?.isEmpty)! {
+                        if !(docsList?.isEmpty)! {
                             
                             self.categoryStr.append("Documents")
                         }
@@ -242,7 +242,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let imageList = self.allCagegoryListArray?.images
                         
-                        if !(videoList?.isEmpty)! {
+                        if !(imageList?.isEmpty)! {
                             
                             self.categoryStr.append("Images")
                         }
@@ -446,8 +446,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
             
+            if categoryStr.count > 0 {
+            
            cell.categorieName.text = self.categoryStr[indexPath.row]
 
+            }
             
             return cell
             

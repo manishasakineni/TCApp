@@ -28,7 +28,7 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     
     var bibleCArr = Array<Int>()
     
-    
+    var BibleCountArr = ["50", "40", "27", "36", "34", "24", "21", "4", "31", "24", "22", "25", "29", "36", "10", "13", "10", "10", "150", "31", "12", "8", "66", "52", "5", "48", "12", "14", "3", "9", "1", "4", "7", "3", "3", "3", "2", "14", "4", "28", "16", "24", "21", "28", "16", "16", "13", "6", "6", "4", "4", "5", "3", "6", "4", "3", "1", "13", "5", "5", "3", "5", "1", "1", "1", "22"]
     
     var backTitleStr:String = ""
     
@@ -108,7 +108,7 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         
         cell.bibleBookLabel.text = booksList.name
         cell.accessoryType = .disclosureIndicator
-        cell.chapterCountLabel.text = ""
+        cell.chapterCountLabel.text = BibleCountArr[indexPath.row]
 
         
         //        let verseCount = booksList.id
@@ -170,6 +170,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         let chapterViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleDetailsCellViewController") as! BibleDetailsCellViewController
         
         chapterViewController.listUrl = booksList.url!
+        
+        chapterViewController.nameStr = booksList.name!
+        
         
         
         //        chapterViewController.indexCount = indexPath.row

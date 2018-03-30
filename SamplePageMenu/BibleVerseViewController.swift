@@ -61,7 +61,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         //   super.viewWillAppear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) \(chapterCount)", backTitle: "mbhjbhb", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) \(chapterCount + 1)", backTitle: "mbhjbhb", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
     }
 
@@ -109,7 +109,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
 //        cell.verseLabel.text?.height(withConstrainedWidth: 100, font: .font)
         
-        cell.verseLabel.text = booksList.Verse
+        cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
         
 //        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
 //        

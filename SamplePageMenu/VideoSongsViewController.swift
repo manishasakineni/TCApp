@@ -527,7 +527,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
 //            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
             
             
+        if categoryStr.count > 0 {
+            
             cell.categorieName.text = self.categoryStr[indexPath.row]
+            
+        }
             
 
 //        }
@@ -589,7 +593,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
 //        }
         
         
-        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+//        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
 
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
@@ -619,48 +623,51 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
         }
         
-        else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
+            
+//            cell.collectionImgView.contentMode = .scaleAspectFit
+            cell.collectionImgView.image = #imageLiteral(resourceName: "docImg")
             
             
-            if let embededUrlImage =  postImgUrl {
-            
-            let thumbnillImage : String = embededUrlImage
-            
-            
-                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
-                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
-            
-                let videothumb = URL(string: self.thumbnailImageURL)
-            
-                if videothumb != nil{
-            
-                let request = URLRequest(url: videothumb!)
-            
-                let session = URLSession.shared
-            
-                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-            
-                DispatchQueue.main.async()
-                    {
-                        
-                        if data != nil {
-                            
-                            cell.collectionImgView.image = UIImage(data: data!)
-                        }
-                                                    
-                        }
-                                    
-                                })
-                                
-                                dataTask.resume()
-                                
-                            }
-                        }
+//            if let embededUrlImage =  postImgUrl {
+//            
+//            let thumbnillImage : String = embededUrlImage
+//            
+//            
+//                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
+//                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
+//            
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//            
+//                if videothumb != nil{
+//            
+//                let request = URLRequest(url: videothumb!)
+//            
+//                let session = URLSession.shared
+//            
+//                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//            
+//                DispatchQueue.main.async()
+//                    {
+//                        
+//                        if data != nil {
+//                            
+//                            cell.collectionImgView.image = UIImage(data: data!)
+//                        }
+//                                                    
+//                        }
+//                                    
+//                                })
+//                                
+//                                dataTask.resume()
+//                                
+//                            }
+//                        }
         }
         
         else if (fileExtension == ".mp3") {
             
-            cell.collectionImgView.contentMode = .scaleAspectFit
+//            cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
             
         //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
@@ -786,7 +793,33 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 150.0, height: 130.0)
+        
+        print("You selected cell #\(indexPath.item)!")
+        
+        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
+        
+        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+        
+        
+        if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
+            
+            
+            return CGSize(width: 100.0, height: 100.0)
+            
+            
+        }
+        else if (fileExtension == ".mp3") {
+            
+            return CGSize(width: 100.0, height: 100.0)
+            
+        }
+        
+        else {
+            
+            return CGSize(width: 150.0, height: 130.0)
+        }
+        
+        
         
 //        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
 //            
@@ -869,7 +902,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
         }
             
-        else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx"){
             
             print("Pdfs and docs")
             

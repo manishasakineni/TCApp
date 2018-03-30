@@ -15,6 +15,10 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     var appVersion:String = ""
     
+    var nameStr:String = ""
+    
+    var indexCount:Int = 0
+    
     //    var bibleVerseArr = Array<String>()
     
     var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
@@ -60,7 +64,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         super.viewWillAppear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr) \(indexCount + 1)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
     }
     
@@ -104,7 +108,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         let booksList = self.verseStringCount[indexPath.row]
         
         
-        cell.verseLabel.text = booksList.Verse
+        cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
         
         
         cell.selectionStyle = .none

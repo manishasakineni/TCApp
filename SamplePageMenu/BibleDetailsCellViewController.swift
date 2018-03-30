@@ -19,6 +19,8 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
     var appVersion:String = ""
     var listUrl :String = ""
     
+    var nameStr:String = ""
+    
     var bibleCArr = Array<Int>()
     
     var chapterCount:Int = 0
@@ -77,7 +79,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         super.viewWillAppear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
     }
     
@@ -123,12 +125,13 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         let booksList:BibleDetailsCellVO = bibleChaptersArr[indexPath.row]
         
+        cell.accessoryType = .disclosureIndicator
         
         let verseCount = booksList.Verse?.count
         
         cell.chapterCountLabel.text = "\(verseCount!)"
         
-        cell.bibleBookLabel.text = "Chapter \(indexPath.row)"
+        cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row + 1)"
         
         
         return cell
@@ -246,6 +249,10 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         let capter = versesDict?["\(indexPath.row)"] as? [BibleDetailsCellIResultVo]
         
         verseViewController.verseStringCount = capter!
+        
+        verseViewController.nameStr = nameStr
+        
+        verseViewController.indexCount = indexPath.row
         
         print(capter)
         
