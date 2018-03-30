@@ -86,7 +86,7 @@ class AuthorDetailsListResultVO: Mappable {
     var createdDate : String?
     var updatedByUserId : Int?
     var updatedDate : String?
-    
+    var isSubscribed : Int?
     
     
     //MARK:-  initialization of VideosVO
@@ -96,7 +96,7 @@ class AuthorDetailsListResultVO: Mappable {
         stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId: Int?,
         mandalName : String?,villageName : String?,pinCode : Int?,churchImage : String?,userImage : String?,userName : String?,churchAddress : String?,createdByUser : String?,updatedByUser : String?,countryName : String?,
          
-         registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
+         registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, isSubscribed : Int?)
         
         
     {
@@ -144,7 +144,7 @@ class AuthorDetailsListResultVO: Mappable {
         self.fileName = fileName
         self.fileExtention = fileExtention
         self.eventImage = eventImage
-        
+        self.isSubscribed = isSubscribed
         
         
     }
@@ -199,7 +199,7 @@ class AuthorDetailsListResultVO: Mappable {
         fileName <- map["fileName"]
         fileExtention <- map["fileExtention"]
         eventImage <- map["eventImage"]
-        
+        isSubscribed <- map["isSubscribed"]
         
         
     }

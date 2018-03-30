@@ -100,7 +100,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         infoChurchTableView.estimatedRowHeight = 44
         infoChurchTableView.reloadData()
         
-        
+        self.infoChurchTableView.isHidden = true
         
         let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
         infoChurchTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
@@ -149,7 +149,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             
             
-            let strUrl = GETCHURCHEBYID + "" + "\(churchID)"
+            let strUrl = GETCHURCHEBYID + "" + "\(churchID)" + "/" + String(self.userId)
             
             
             serviceController.getRequest(strURL:strUrl, success:{(result) in
@@ -228,7 +228,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                     
                                 }
                                 
-                        
+                        self.isSubscribed = (respVO.listResult?[0].isSubscribed)!
                                 print(self.churchCountryArray)
                                 
                                 
@@ -236,6 +236,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                 print(self.churchNamesString)
                                 //self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                 self.infoChurchTableView.reloadData()
+                                
+                                self.infoChurchTableView.isHidden = false
                             }else{
                                 
                                 print("Nil Value")
@@ -607,7 +609,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
           
           infoHeaderCell.subscribeBtn.isHidden = false
             
-            if self.subscribeClick == 0{
+            if self.isSubscribed == 0{
                 
                 infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
             }
@@ -703,7 +705,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                     
                     let subscribe = respVO.isSuccess
                     
-                    self.subscribeClick = (respVO.result?.isSubscribed!)!
+                    self.isSubscribed = (respVO.result?.isSubscribed!)!
                     
 //                    let indexPath = IndexPath(item: sender.tag, section: 0)
 //                    self.infoChurchTableView.reloadRows(at: [indexPath], with: .none)

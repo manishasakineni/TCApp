@@ -104,7 +104,7 @@ class GetChurchByIDResultVo: Mappable {
     var dob : String?
     var userName : String?
     var pinCode : Int?
-    
+    var isSubscribed : Int?
     
     
     
@@ -112,7 +112,7 @@ class GetChurchByIDResultVo: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?, isSubscribed : Int?)
         
         
     {
@@ -163,7 +163,7 @@ class GetChurchByIDResultVo: Mappable {
         self.userName = userName
         self.userName = userName
         self.pinCode = pinCode
-        
+        self.isSubscribed = isSubscribed
         
         
     }
@@ -219,7 +219,7 @@ class GetChurchByIDResultVo: Mappable {
         userName <- map["userName"]
         
         pinCode <- map["pinCode"]
-        
+        isSubscribed  <- map["isSubscribed"]
     }
     
     

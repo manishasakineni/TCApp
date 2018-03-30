@@ -55,7 +55,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
         authorInfoTableView.isHidden = true
         
-        getAuthorDetailsAPICall()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,13 +63,16 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+      self.getAuthorDetailsAPICall()
+    }
     
     
     func getAuthorDetailsAPICall(){
         
         
-        let authorDetailsAPI = AUTHORDETAILS + String(authorID)
+        let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(userId)
         
         
         serviceController.getRequest(strURL: authorDetailsAPI, success: { (result) in
@@ -77,7 +80,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             if result.count > 0 {
                 
-                self.authorInfoTableView.isHidden = false
+                
                 print(result)
                 
                 let respVO:AuthorDetailsVO = Mapper().map(JSONObject: result)!
@@ -90,7 +93,14 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 }
                 
+                self.isSubscribed = self.authorDetailsArray[0].isSubscribed!
                 self.authorInfoTableView.reloadData()
+                self.authorInfoTableView.isHidden = false
+            }
+            
+            else{
+            
+            
             }
             
             
@@ -171,6 +181,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
         if(authorDetailsArray.count > 0){
             let authorDetails:AuthorDetailsListResultVO = authorDetailsArray[0]
+            
+            
             
             if (indexPath.section == 0) {
                 
@@ -381,6 +393,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+       
         
         
         let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
@@ -391,7 +404,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             infoHeaderCell.subscribeBtn.isHidden = false
             infoHeaderCell.headerLabel.text = "Author Details".localize()
             
-            if self.subscribeClick == 0{
+            if self.isSubscribed == 0{
                 
                 infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
             }
@@ -511,7 +524,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     // let subscribe = respVO.isSuccess
                     
-                    self.subscribeClick = (respVO.result?.isSubscribed!)!
+                    self.isSubscribed = (respVO.result?.isSubscribed!)!
                     
                     
 //                    let indexPath = IndexPath(item: sender.tag, section: 0)

@@ -139,7 +139,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         
-//          getChurchDetailsAPICall()
+
 
 //       churchDetailsTableView.isHidden = true
     
@@ -207,7 +207,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         }
         self.churchDetailsTableView.reloadData()
         
-//        self.getChurchDetailsAPICall()
+
         
         searchBar.resignFirstResponder()
     }
@@ -312,7 +312,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func getAllChurchSearchAPIService(string:String){
         
-        let paramsDict = [ "pasterUserId": 0,
+        let paramsDict = [ 
+                           "pasterUserId": 0,
                            "pageIndex": PageIndex,
                            "pageSize": 10,
                            "sortbyColumnName": "UpdatedDate",
@@ -631,7 +632,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 PageIndex = PageIndex + 1
 
-//                getChurchDetailsAPICall()
+
                 
                 self.getAllChurchSearchAPIService(string: searchBar.text!)
                 
