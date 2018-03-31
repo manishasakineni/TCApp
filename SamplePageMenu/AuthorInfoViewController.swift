@@ -30,11 +30,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewDidLoad()
 
         
-        if UserDefaults.standard.value(forKey: kLoginId) != nil {
-            
-            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
-            
-        }
+//        if kUserDefaults.value(forKey: kLoginId) != nil {
+//            
+//            kUserIds = kUserDefaults.value(forKey: kLoginId) as! Int
+//            
+//        }
         
         print(isSubscribed)
         
@@ -72,7 +72,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     func getAuthorDetailsAPICall(){
         
         
-        let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(userId)
+        let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(kId)
         
         
         serviceController.getRequest(strURL: authorDetailsAPI, success: { (result) in
@@ -104,7 +104,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             }
             
             
-        }) { (failureMassege) in
+     }) { (failureMassege) in
             
             
             
@@ -494,12 +494,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
 
         
         
-        if self.userId != 0{
+        if kId != 0{
             
             
             
             let paramsDict = [ "isSubscribed": isSubscribed,
-                               "userId": self.userId,
+                               "userId": kId,
                                "churchId": "null",
                                "authorId": authorID
                 ] as [String : Any]

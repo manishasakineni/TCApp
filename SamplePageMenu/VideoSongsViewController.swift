@@ -851,6 +851,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
+        if self.imagesArrayTag.count > 0 {
+        
         let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
@@ -1019,6 +1021,15 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         
     }
+        
+        else {
+        
+        appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        
+        
+        }
+        
+    }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
@@ -1031,7 +1042,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.removeObject(forKey: "1")
-          UserDefaults.standard.removeObject(forKey: kuserId)
+          UserDefaults.standard.removeObject(forKey: kuserIdKey)
 
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)

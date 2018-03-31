@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
-        
+     
         
         let localize = Localize.shared
         localize.update(provider: .json)

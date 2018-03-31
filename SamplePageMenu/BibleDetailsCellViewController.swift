@@ -158,7 +158,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                 let respVO:BibleDetailsCellInfoVo = Mapper().map(JSONObject: result)!
                 
                 
-                let verseArr = respVO.Chapter
+                _ = respVO.Chapter
                 
                 self.bibleChaptersArr = respVO.Chapter!
                 
@@ -175,7 +175,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                 var j = 0
                 for eachChapter in chapterArray!{
                     
-                    let verseCount = eachChapter.Verse?.count
+                    _ = eachChapter.Verse?.count
                     
                     let verseDict = eachChapter.Verse
                     
@@ -254,7 +254,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         verseViewController.indexCount = indexPath.row
         
-        print(capter)
+       // print(capter)
         
         //        verseViewController.verseStringCount = self.verseStringCount
         
@@ -299,7 +299,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserId)
+        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.set("1", forKey: "1")

@@ -164,7 +164,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         
-        self.loginid = UserDefaults.standard.value(forKey: kLoginId) as! Int
+        self.loginid = UserDefaults.standard.value(forKey: kIdKey) as! Int
         
         UserDefaults.standard.synchronize()
         

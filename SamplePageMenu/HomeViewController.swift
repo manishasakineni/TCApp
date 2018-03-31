@@ -468,13 +468,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             if statusCode == true
             {
                 
-                let successMsg = respVO.endUserMessage
+          //      let successMsg = respVO.endUserMessage
                 
-                print(respVO.listResult)
+            //    print(respVO.listResult)
                 
                 self.eventImageArray.removeAll()
                 
-                let eventList = respVO.listResult
+                
                 
                 
                 for churchDetails in respVO.listResult!{

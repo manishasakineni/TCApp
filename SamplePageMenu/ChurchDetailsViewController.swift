@@ -70,9 +70,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
-            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            self.userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
             
         }
         
@@ -769,6 +769,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if self.churchNamesArray.count > 0 {
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
@@ -783,8 +784,14 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }
+        
+        else {
+        
+        appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+            
+        }
     
-    
+    }
     
     func subscribeButttonClicked(sender: UIButton){
  

@@ -70,7 +70,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
 
-        if let useid = UserDefaults.standard.value(forKey: kuserId) as? String {
+        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
             
             self.userID = useid
         }

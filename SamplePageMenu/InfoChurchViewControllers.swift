@@ -87,9 +87,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
         super.viewDidLoad()
         
-        if UserDefaults.standard.value(forKey: kLoginId) != nil {
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
-            self.userId = UserDefaults.standard.value(forKey: kLoginId) as! Int
+            self.userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
             
         }
         

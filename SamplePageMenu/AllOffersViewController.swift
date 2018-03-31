@@ -113,7 +113,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         playerVars = [
             "controls" : 1 ,
-            "playsinline" : 1,
+            "playsinline" : 0,
             "autoplay" : 1,
             //   "autohide" : 1,
             "rel" : 0,
@@ -710,7 +710,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         
-        UserDefaults.standard.removeObject(forKey: kuserId)
+        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

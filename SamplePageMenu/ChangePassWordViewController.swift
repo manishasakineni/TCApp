@@ -43,7 +43,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
 
         
         
-        if let uid = defaults.string(forKey: kuserId) {
+        if let uid = defaults.string(forKey: kuserIdKey) {
             
             userId = uid
             

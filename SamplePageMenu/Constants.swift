@@ -71,8 +71,8 @@ let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/Bib
 
 let KFirstTimeLogin = "first Time Login"
 
-let kuserId:String = "kuserId"
-let kLoginId:String = "kloginId"
+let kuserIdKey:String = "kuserId"
+let kIdKey:String = "kloginId"
 let kfirstName:String  = "kfirsrName"
 let kmiddleName:String  = "kmiddleName"
 let klastName:String  = "klastName"
@@ -87,15 +87,15 @@ let kRegisterSucessStatus:String = "kRegisterSucessStatus"
 let kTokenType = "tokenType"
 let accessToken:String = "accessToken"
 
-
-
+var kUserId :  String = ""
+var kId :  Int = 0
 
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"
 let kToastDuration  = 1.5
 let kRequestTimedOutMessage = "Therequest Timed Out"
 
-
+var kUserDefaults = UserDefaults.standard
 
 
 

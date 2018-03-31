@@ -342,18 +342,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let loginid =  respVO.userDetails?.listResult?[0].id!
                               //  print("\(String(describing: respVO.userDetails?.listResult?[0].id))")
                                 
-                                let defaults = UserDefaults.standard
+                            
                                 
-                                defaults.set(userid, forKey: kuserId)
-                                defaults.set(loginid, forKey: kLoginId)
-                                defaults.synchronize()
+                                kUserDefaults.set(userid, forKey: kuserIdKey)
+                                kUserDefaults.set(loginid, forKey: kIdKey)
+                                kUserDefaults.synchronize()
                     
-                                defaults.set(loginStatus, forKey: kLoginSucessStatus)
+                                kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)
 
-                                defaults.set("true", forKey: KFirstTimeLogin)
+                                kUserDefaults.set("true", forKey: KFirstTimeLogin)
                                 
-                                UserDefaults.standard.synchronize()
+                                kUserDefaults.synchronize()
                               
+                                kUserId = kUserDefaults.value(forKey: kuserIdKey) as! String
+                                kId = kUserDefaults.value(forKey: kIdKey) as! Int
+                                kUserDefaults.synchronize()
+                                
                                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                 let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                                 self.appDelegate.window?.rootViewController = rootController
