@@ -67,6 +67,13 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
       //  self.getAdminDetailsAPICall(string: searchBar.text!)
 
         
+        
+        churchAdminTableView.rowHeight = UITableViewAutomaticDimension
+        churchAdminTableView.estimatedRowHeight = 44
+        churchAdminTableView.reloadData()
+        
+
+        
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         

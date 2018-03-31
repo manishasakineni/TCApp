@@ -38,6 +38,12 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        upComingTableView.rowHeight = UITableViewAutomaticDimension
+        upComingTableView.estimatedRowHeight = 44
+        upComingTableView.reloadData()
+        
+        
+
         
         
         upComingTableView.dataSource = self

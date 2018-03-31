@@ -154,7 +154,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-4J-e5w">
-                                <rect key="frame" x="119.5" y="517" width="137" height="20"/>
+                                <rect key="frame" x="96.5" y="517" width="137" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fHN-2T-KNP"/>
                                     <constraint firstAttribute="width" constant="137" id="sie-96-kHn"/>
@@ -173,7 +173,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlW-Ll-xCJ">
-                                <rect key="frame" x="256.5" y="517" width="46" height="20"/>
+                                <rect key="frame" x="233.5" y="517" width="46" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="4AU-t4-djO"/>
                                     <constraint firstAttribute="height" constant="20" id="lJ2-Xh-e6q"/>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-Lp-WaH">
-                                <rect key="frame" x="324" y="350" width="20" height="20"/>
+                                <rect key="frame" x="324" y="351" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5hc-cE-nhW"/>
                                     <constraint firstAttribute="width" constant="20" id="mXk-O8-AiV"/>
@@ -223,9 +223,9 @@
                             <constraint firstAttribute="trailing" secondItem="k6a-pi-HoT" secondAttribute="trailing" constant="16" id="MlN-lb-6Sq"/>
                             <constraint firstItem="Ufj-px-E5r" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="38" id="OGZ-Ys-GvL"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="top" secondItem="IDX-iR-YeI" secondAttribute="bottom" constant="25" id="PQI-uQ-njP"/>
-                            <constraint firstItem="m1e-4J-e5w" firstAttribute="centerX" secondItem="Ufj-px-E5r" secondAttribute="centerX" id="a5I-ai-JLV"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="centerX" secondItem="Ufj-px-E5r" secondAttribute="centerX" constant="-23" id="a5I-ai-JLV"/>
                             <constraint firstItem="0jY-b9-PZn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="afz-jK-Ta5"/>
-                            <constraint firstItem="ZxN-Lp-WaH" firstAttribute="centerY" secondItem="k6a-pi-HoT" secondAttribute="centerY" constant="5" id="aj9-Hd-Jk3"/>
+                            <constraint firstItem="ZxN-Lp-WaH" firstAttribute="centerY" secondItem="k6a-pi-HoT" secondAttribute="centerY" constant="6" id="aj9-Hd-Jk3"/>
                             <constraint firstAttribute="trailing" secondItem="aU1-nw-80o" secondAttribute="trailing" constant="16" id="cZr-7o-3u8"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ehy-Sc-2H7"/>
                             <constraint firstAttribute="trailing" secondItem="0jY-b9-PZn" secondAttribute="trailing" constant="106" id="fB7-TY-qwn"/>
@@ -278,7 +278,7 @@
                                 <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btN-o0-2vA">
-                                        <rect key="frame" x="10" y="10" width="355" height="30"/>
+                                        <rect key="frame" x="10" y="-8" width="355" height="30"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dr6-aE-4UZ"/>
@@ -294,7 +294,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="all ready have an Account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-wx-tl0">
-                                        <rect key="frame" x="115" y="47" width="145" height="20"/>
+                                        <rect key="frame" x="115" y="35" width="145" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="we0-ww-bAd"/>
                                         </constraints>
@@ -303,7 +303,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-dJ-Wtc">
-                                        <rect key="frame" x="266" y="44" width="30" height="26"/>
+                                        <rect key="frame" x="266" y="32" width="30" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="0.47843137250000001" green="0.72941176470000002" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -320,8 +320,8 @@
                                     <constraint firstItem="0bs-wx-tl0" firstAttribute="centerX" secondItem="btN-o0-2vA" secondAttribute="centerX" id="2yV-Gt-1JM"/>
                                     <constraint firstItem="rSx-dJ-Wtc" firstAttribute="leading" secondItem="0bs-wx-tl0" secondAttribute="trailing" constant="6" id="8qX-tZ-QEC"/>
                                     <constraint firstAttribute="trailing" secondItem="btN-o0-2vA" secondAttribute="trailing" constant="10" id="J7t-BY-q7a"/>
-                                    <constraint firstItem="btN-o0-2vA" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="top" constant="10" id="WmC-N4-F72"/>
-                                    <constraint firstItem="0bs-wx-tl0" firstAttribute="top" secondItem="btN-o0-2vA" secondAttribute="bottom" constant="7" id="cJq-Kf-pap"/>
+                                    <constraint firstItem="btN-o0-2vA" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="top" constant="-8" id="WmC-N4-F72"/>
+                                    <constraint firstItem="0bs-wx-tl0" firstAttribute="top" secondItem="btN-o0-2vA" secondAttribute="bottom" constant="13" id="cJq-Kf-pap"/>
                                     <constraint firstAttribute="height" constant="75" id="fbC-w3-MlR"/>
                                     <constraint firstItem="btN-o0-2vA" firstAttribute="leading" secondItem="HfL-NQ-1ay" secondAttribute="leading" constant="10" id="ptF-eK-nMV"/>
                                 </constraints>
