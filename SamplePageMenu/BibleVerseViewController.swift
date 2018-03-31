@@ -32,6 +32,10 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     var backTitleStr:String = ""
     
     var appVersion:String = ""
+    
+    private var activityViewController : UIActivityViewController!
+    private var isPopoverPresented  : Bool = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +115,10 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
         
+//        cell.shareBrn.tag = indexPath.row
+//        
+//        cell.shareBrn.addTarget(self, action: #selector(self.shareBtnClicked), for: .touchUpInside)
+        
 //        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
 //        
 //        cell.chapterCountLabel.text = "\(bibleCArr[indexPath.row])"
@@ -122,6 +130,46 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         return cell
+    }
+    
+    
+    //MARK:- shareBtnClicked
+    
+    func shareBtnClicked(_sender: UIButton){
+        
+        let indexPath : IndexPath = IndexPath(row: _sender.tag, section: 0)
+        
+        if let newCell : BibleVerseTableViewCell = verseTableView.cellForRow(at: indexPath) as? BibleVerseTableViewCell {
+            
+            
+//            let normalString = newCell.verseLabel
+            
+           activityViewController =  UIActivityViewController(activityItems: [MyStringItemSource()], applicationActivities: nil)
+            
+//            activityViewController = UIActivityViewController.init(activityItems: [normalString!], applicationActivities: nil)
+            
+            let subject = "Telugu Churches"
+            activityViewController.setValue(subject, forKey: "Subject")
+            
+            
+            if UIScreen.main.bounds.size.width > 500 {
+                
+                if activityViewController.responds(to: #selector(getter: UIViewController.popoverPresentationController)) {
+                    
+                    isPopoverPresented = true
+                    if let popView = activityViewController.popoverPresentationController {
+                        popView.sourceView = verseTableView
+                        popView.sourceRect = verseTableView.cellForRow(at: indexPath)!.frame
+                    }
+                }
+            }
+            
+            self.present(activityViewController, animated: true, completion: nil)
+            
+        }
+        
+        
+        
     }
 
     func bibleBookAPICall(){

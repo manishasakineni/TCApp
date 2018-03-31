@@ -570,10 +570,12 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
-        
-        let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
-        
-        
+        if cagegoriesArray.count > 0 {
+            
+            
+            let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+            
+            
             let categoryId = categoryList.id
             
             let catImg = categoryList.categoryImage
@@ -594,8 +596,12 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
             
             self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-
-
+        }
+        else {
+            
+             appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

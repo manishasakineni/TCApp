@@ -151,27 +151,34 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         
         //        let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
         
-        
-        let verseViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleVerseViewController") as! BibleVerseViewController
-        
-        verseViewController.verseCountStr = self.verseCountStr[indexPath.row]
-        
-        verseViewController.versDetailArray = self.vDetailArray
-        
-        verseViewController.backTitleStr = backTitleStr
-        
-        verseViewController.chapterCount = indexPath.row
-        
-        let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
-        
-        let capter = versesDict?["\(indexPath.row)"] as? [BibleResultVo]
-        
-        verseViewController.verseStringCount = capter!
-        
-        print(capter)
-        
-        self.navigationController?.pushViewController(verseViewController, animated: true)
-        
+        if verseCountStr.count > 0 {
+            
+            
+            let verseViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleVerseViewController") as! BibleVerseViewController
+            
+            verseViewController.verseCountStr = self.verseCountStr[indexPath.row]
+            
+            verseViewController.versDetailArray = self.vDetailArray
+            
+            verseViewController.backTitleStr = backTitleStr
+            
+            verseViewController.chapterCount = indexPath.row
+            
+            let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
+            
+            let capter = versesDict?["\(indexPath.row)"] as? [BibleResultVo]
+            
+            verseViewController.verseStringCount = capter!
+            
+            print(capter)
+            
+            self.navigationController?.pushViewController(verseViewController, animated: true)
+            
+        }
+        else {
+            
+             appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        }
         
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
+		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92020626C2D0061450A /* BibleBookVo.swift */; };
 		359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92220626CD20061450A /* BibleChapterVo.swift */; };
 		359CC92520626DE20061450A /* BibleVerseVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92420626DE20061450A /* BibleVerseVo.swift */; };
@@ -277,6 +278,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		352F87DA206F6DF5006867BD /* MyStringItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStringItemSource.swift; sourceTree = "<group>"; };
 		3550F62F2058F9A000DD4D11 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		359CC92020626C2D0061450A /* BibleBookVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleBookVo.swift; sourceTree = "<group>"; };
 		359CC92220626CD20061450A /* BibleChapterVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleChapterVo.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				359CC929206276C40061450A /* BibleBooksViewController.swift */,
 				359CC92B206277020061450A /* BibleChaptersViewController.swift */,
 				359CC92D2062772F0061450A /* BibleVerseViewController.swift */,
+				352F87DA206F6DF5006867BD /* MyStringItemSource.swift */,
 			);
 			name = BibleBooks;
 			sourceTree = "<group>";
@@ -1897,6 +1900,7 @@
 				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
 				CB4B20F42047D11500402E59 /* CategoriesHomeViewController.swift in Sources */,
 				CB4B2100204834CD00402E59 /* InfoHeaderCell.swift in Sources */,
+				352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,

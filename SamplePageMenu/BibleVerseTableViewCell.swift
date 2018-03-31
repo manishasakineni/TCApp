@@ -12,6 +12,7 @@ class BibleVerseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var verseLabel: UILabel!
     
+    @IBOutlet weak var shareBrn: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

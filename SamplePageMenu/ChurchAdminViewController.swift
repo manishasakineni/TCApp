@@ -479,19 +479,27 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
         
-        let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
-        
-        authorDetailsViewController.authorID = listStr.Id!
-        
-        authorDetailsViewController.churchName1 = listStr.churchName!
-        
-        authorDetailsViewController.isSubscribed = isSubscribed
-        
-        self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
-        
+        if churchAdminArray.count > 0 {
+            
+            
+            let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
+            
+            let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+            
+            authorDetailsViewController.authorID = listStr.Id!
+            
+            authorDetailsViewController.churchName1 = listStr.churchName!
+            
+            authorDetailsViewController.isSubscribed = isSubscribed
+            
+            self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
+        }
+        else {
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
 
+        }
         
     }
     
