@@ -113,7 +113,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         playerVars = [
             "controls" : 1 ,
-            "playsinline" : 0,
+            "playsinline" : 1,
             "autoplay" : 1,
             //   "autohide" : 1,
             "rel" : 0,
@@ -642,6 +642,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
+        if kId != 0 {
+            
         if textView.text == "Add a public comment..." {
             
             textView.text = ""
@@ -651,6 +653,17 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.sendCommentClick = false
         textView.textColor = UIColor.black
 //        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.none)
+        }
+        
+        else {
+        
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Comment", clickAction: {
+                
+                
+                
+            })
+        
+        }
     }
     
     
@@ -731,8 +744,10 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 
 
     
-    func  likeButtonClick(_ sendre:UIButton) {
+func  likeButtonClick(_ sendre:UIButton) {
         
+    if kId != 0 {
+            
         if likeClick == false {
         
         likeClick = true
@@ -754,12 +769,25 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         let indexPath = IndexPath(item: 0, section: 0)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
         
-     //   self.allOffersTableView.reloadData()
+        }
         
-      print("Like Clicked.............")
+        else {
+        
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+                
+                
+                
+            })
+        
+        }
+            
+            
     }
     
-    func  unLikeButtonClick(_ sendre:UIButton) {
+func  unLikeButtonClick(_ sendre:UIButton) {
+        
+    if kId != 0 {
         
         if disLikeClick == false {
             
@@ -780,9 +808,23 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         let indexPath = IndexPath(item: 0, section: 0)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
     }
+        
+    else {
+    
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+            
+            
+            
+        })
+    
+    }
+    
+    }
     
     func  shareButtonClick(_ sendre:UIButton) {
         
+        if kId != 0 {
+            
         let someText:String = "Hello want to share text also"
         let objectsToShare:URL = URL(string: "http://www.google.com")!
         let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
@@ -797,6 +839,18 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         print("Share Clicked.............")
     }
+        
+        else {
+        
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+                
+                
+                
+            })
+            
+        }
+    }
+        
     
     func commentSendBtnClicked(){
      
@@ -827,6 +881,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func usersLikeBtnClick(sender : UIButton){
     
+        if kId != 0 {
+            
         if usersLikeClick == false {
             
             usersLikeClick = true
@@ -849,9 +905,22 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
     
     }
+        else {
+        
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+                
+                
+                
+            })
+        }
+        
+        
+    }
     
     func usersDislikeBtnClick(sender : UIButton){
     
+       if kId != 0 {
+        
         if UsersDisLikeClick == false {
             
             UsersDisLikeClick = true
@@ -872,12 +941,33 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
     
     }
+        
+       else {
+        
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+            
+            
+            
+        })
+        }
+    }
+    
     
     func replyCommentBtnClick(sender : UIButton){
     
+        if kId != 0 {
         let indexPath = IndexPath(item: sender.tag, section: 3)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
-    
+        }
+        
+        else {
+        
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+                
+                
+                
+            })
+        }
     }
     
 }

@@ -63,14 +63,18 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        PageIndex = 1
+        totalPages = 0
+        searchBar.showsCancelButton = false
+        churchAdminArray.removeAll()
         
-      //  self.getAdminDetailsAPICall(string: searchBar.text!)
+        self.getAdminDetailsAPICall(string: searchBar.text!)
 
         
         
         churchAdminTableView.rowHeight = UITableViewAutomaticDimension
         churchAdminTableView.estimatedRowHeight = 44
-        churchAdminTableView.reloadData()
+       // churchAdminTableView.reloadData()
         
 
         
@@ -90,6 +94,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         searchBar.delegate = self
         
+        searchBar.placeholder = " "
         searchBar.placeholder = "Search by Author".localize()
         
         searchBar.showsCancelButton = false
@@ -123,12 +128,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
         
-        PageIndex = 1
-        totalPages = 0
-        searchBar.showsCancelButton = false
-        churchAdminArray.removeAll()
+        
 
-         self.getAdminDetailsAPICall(string: searchBar.text!)
+     //   self.getAdminDetailsAPICall(string: searchBar.text!)
         
 
      
@@ -479,11 +481,11 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+       
+        
         
         if churchAdminArray.count > 0 {
-            
-            
-            let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
+             let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
             
             let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
             
@@ -494,11 +496,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             authorDetailsViewController.isSubscribed = isSubscribed
             
             self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
-        }
-        else {
-            
-            appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
-
         }
         
     }

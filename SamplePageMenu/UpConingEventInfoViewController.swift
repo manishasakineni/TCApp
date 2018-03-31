@@ -274,11 +274,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         }
     }
     
-    
-    
-    
-    
-      
+ 
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "", cntr:self, titleView: nil, withText: "", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
@@ -290,7 +286,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
 
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserId)
+        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         self.navigationController?.popViewController(animated: true)

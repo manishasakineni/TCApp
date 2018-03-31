@@ -494,7 +494,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
 
         
         
-        if kId != 0{
+        if kId != 0 {
             
             
             

@@ -438,11 +438,11 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         
-        let authorDetails = authorDetailsArray[indexPath.row]
+        
         
         if(authorDetailsArray.count > 0){
             
-
+       let authorDetails = authorDetailsArray[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AdminMonthEventListCell", for: indexPath) as! AdminMonthEventListCell
             
             
