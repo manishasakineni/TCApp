@@ -1146,53 +1146,58 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if collectionView.tag == 0{
             
-            let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
-   
-        
-        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+            if upComingEventsArray.count > 0{
+                
+                
+                let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
+                
+                
+                let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+                
+                eventDetailsViewController.eventID = eventList.id!
+                eventDetailsViewController.eventChurchName = eventList.churchName!
+                eventDetailsViewController.eventName = eventList.title!
+                
+                eventDetailsViewController.catgoryID = eventList.churchId!
+                
+                
+                self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+            }
             
-            eventDetailsViewController.eventID = eventList.id!
-            eventDetailsViewController.eventChurchName = eventList.churchName!
-            eventDetailsViewController.eventName = eventList.title!
-            
-            eventDetailsViewController.catgoryID = eventList.churchId!
-
-            
-            self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
-        
         }
  
         if collectionView.tag  == 1 {
             
-            let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
-            
-            if collectionView.tag  == 1 {
+            if cagegoriesArray.count > 0 {
                 
-                let categoryId = categoryList.id
-                
-                let catImg = categoryList.categoryImage
-                
-                let catName = categoryList.categoryName
-                let textName = categoryList.categoryName
-
-                
-                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
-                
-                churchDetailsViewController.catgoryID = categoryId!
-                
-                churchDetailsViewController.catgoryName = catName!
-                
-                churchDetailsViewController.viewTitle = textName!
-
-                
-                if catImg != nil {
+                let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
                     
-                    churchDetailsViewController.catgoryImg = catImg!
-                }
-                
-            //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-                
-                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+                    let categoryId = categoryList.id
+                    
+                    let catImg = categoryList.categoryImage
+                    
+                    let catName = categoryList.categoryName
+                    let textName = categoryList.categoryName
+                    
+                    
+                    let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
+                    
+                    churchDetailsViewController.catgoryID = categoryId!
+                    
+                    churchDetailsViewController.catgoryName = catName!
+                    
+                    churchDetailsViewController.viewTitle = textName!
+                    
+                    
+                    if catImg != nil {
+                        
+                        churchDetailsViewController.catgoryImg = catImg!
+                    }
+                    
+                    //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
+                    
+                    self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+          
             }
         }
         

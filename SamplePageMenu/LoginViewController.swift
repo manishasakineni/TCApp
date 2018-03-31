@@ -214,7 +214,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }else{
-         //   appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            
             return
         }
 

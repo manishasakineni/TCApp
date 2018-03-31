@@ -162,6 +162,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let nibName2  = UINib(nibName: "HeaderProfileCell" , bundle: nil)
         editProfileTableView.register(nibName2, forCellReuseIdentifier: "HeaderProfileCell")
         
+        let nibName3  = UINib(nibName: "GenderTableViewCell" , bundle: nil)
+        editProfileTableView.register(nibName3, forCellReuseIdentifier: "GenderTableViewCell")
+        
         
         
         self.loginid = UserDefaults.standard.value(forKey: kIdKey) as! Int
@@ -596,7 +599,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 3
     }
     
     
@@ -605,7 +608,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if section == 0 {
             return 1
         }
-        return 7
+        else if section == 1 {
+            
+            return 6
+        }
+        else {
+            
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -619,6 +630,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+//        if section == 0 {
+//            return ""
+//        }
+//        else if section == 1 {
+//            
+//            return "Personal Details"
+//        }
+//        else {
+//            
+//            return ""
+//        }
         return sectionsTitle[section]
     }
     
@@ -653,7 +676,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             return profileCell
             
-        } else{
+        } else if indexPath.section == 1 {
             
             
             
@@ -718,14 +741,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 
             }
+            
+            return signUPCell
+        }
+        
+        else {
+            
+//                let signUPCell = Bundle.main.loadNibNamed("GenderTableViewCell", owner: self, options: nil)?.first as! GenderTableViewCell
+            
+                 let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
                 
-            else if indexPath.row == 6{
+                //signUPCell.genderLabel.placeholder = "Gender".localize()
                 
-                let signUPCell = Bundle.main.loadNibNamed("GenderTableViewCell", owner: self, options: nil)?.first as! GenderTableViewCell
-                
-                
-//signUPCell.genderLabel.placeholder = "Gender".localize()
-
                 signUPCell.selectionStyle = .none
                 signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
                 signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
@@ -758,12 +785,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 return signUPCell
                 
-            }
-            
-            
-            
-            
-            return signUPCell
         }
         
     }
@@ -805,21 +826,17 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         dismiss(animated: true, completion: nil)
-        profileimage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         
-        print(profileimage)
+        let image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         
-        let resizeImg = resizeImage(image: profileimage, newWidth: 150)
         
-       var imageData = UIImagePNGRepresentation(resizeImg)
-        var imageUIImage: UIImage = UIImage(data: imageData!)!
+        profileimage = resizeImage(image: image, newWidth: 150)
         
-        print(imageUIImage)
+      
+//        var imageUIImage: UIImage = UIImage(data: imageData!)!
+        
+//        print(imageUIImage)
    // let base64String = imageData.base64EncodedStringWithOptions(NSData.Base64EncodingOptions.fromRaw(0)!)
-        
-        base64String = (imageData?.base64EncodedString())!
-        
-        print(base64String)
         
         
         editProfileTableView.reloadData()
@@ -830,16 +847,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        if section == 0 {
+            
+           return nil
+        }
         
-        if section == 1 {
+        else if section == 1 {
             
             let headerProfileCell = tableView.dequeueReusableCell(withIdentifier: "HeaderProfileCell") as! HeaderProfileCell
-            
             
             return headerProfileCell
             
         }
-        return nil
+        else {
+            
+            return nil
+        }
+        
+        
     }
     
     
@@ -850,8 +875,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             return 0.0
         }
+        else if section == 1 {
+            
+            return 44.0
+        }
+        else {
+            
+             return 0.0
+        }
         
-        return 44.0
+        
         
     }
     
@@ -860,6 +893,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         let  updateProfileAPI : String = EDITPROFILEURL
+        
+        
+         var imageData = UIImagePNGRepresentation(profileimage)
+        
+         base64String = (imageData?.base64EncodedString())!
     
         
         let null = NSNull()
@@ -1298,7 +1336,7 @@ func theLink() {
     func maleBtnClicked(_ sender: UIButton) {
         
         
-        let indexPath:IndexPath = IndexPath(row: 6, section: 1)
+        let indexPath:IndexPath = IndexPath(row: 0, section: 2)
         
         
         if let cell : GenderTableViewCell = self.editProfileTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
@@ -1330,7 +1368,7 @@ func theLink() {
         
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
-        editProfileTableView.reloadData()
+//        editProfileTableView.reloadData()
         
         
     }
@@ -1340,7 +1378,7 @@ func theLink() {
     
     func femaleBtnClicked(_ sender: UIButton){
         
-        let indexPath:IndexPath = IndexPath(row: 6, section: 1)
+        let indexPath:IndexPath = IndexPath(row: 0, section: 2)
         
         
         if let cell : GenderTableViewCell = self.editProfileTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
@@ -1374,7 +1412,7 @@ func theLink() {
         
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
-        editProfileTableView.reloadData()
+//        editProfileTableView.reloadData()
         
     }
     
