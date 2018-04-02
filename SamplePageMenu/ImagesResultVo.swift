@@ -11,6 +11,7 @@ import Foundation
 class ImagesResultVo: Mappable {
     
     //MARK:-  Declaration of VideosVO
+ 
     
     var id : Int?
     var title : String?
@@ -33,6 +34,12 @@ class ImagesResultVo: Mappable {
     var mediaType : String?
     var postType : String?
     var categoryName : String?
+    var isLike: String?
+    var isDisLike : String?
+    var likeCount: Int?
+    var disLikeCount : Int?
+    var commentCount : Int?
+    var parentCommentId: String?
     var createdByUser : String?
     var updatedByUser : String?
     
@@ -40,7 +47,7 @@ class ImagesResultVo: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,postImage : String?,mediaType : String?,postType : String?,categoryName : String?,createdByUser : String?,updatedByUser : String?)
+    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,postImage : String?,mediaType : String?,postType : String?,categoryName : String?, isLike: String?, isDisLike : String?, likeCount: Int?, disLikeCount : Int?, commentCount : Int?, parentCommentId: String?, createdByUser : String?,updatedByUser : String?)
         
         
     {
@@ -67,6 +74,12 @@ class ImagesResultVo: Mappable {
         self.mediaType = mediaType
         self.postType = postType
         self.categoryName = categoryName
+        self.isLike = isLike
+        self.isDisLike = isDisLike
+        self.likeCount = likeCount
+        self.disLikeCount = disLikeCount
+        self.commentCount = commentCount
+        self.parentCommentId = parentCommentId
         self.createdByUser = createdByUser
         self.updatedByUser = updatedByUser
         
@@ -103,6 +116,14 @@ class ImagesResultVo: Mappable {
         mediaType <- map["mediaType"]
         postType <- map["postType"]
         categoryName <- map["categoryName"]
+        
+        isLike  <- map["isLike"]
+        isDisLike  <- map["isDisLike"]
+        likeCount  <- map["likeCount"]
+        disLikeCount  <- map["disLikeCount"]
+        commentCount  <- map["commentCount"]
+        parentCommentId  <- map["parentCommentId"]
+        
         createdByUser <- map["createdByUser"]
         updatedByUser <- map["updatedByUser"]
         

@@ -34,6 +34,8 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
 
     var viewTitle = ""
     
+    var null = NSNull()
+    
      var imageView = UIImageView()
 
     var imageArray3 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"books"),UIImage(named:"Churches")]
@@ -89,7 +91,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     
-    var userID:String = ""
+    var userID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,23 +146,34 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         //   https://www.antennahouse.com/XSLsample/pdf/sample-link_1.pdf
         self.navigationController?.isNavigationBarHidden = true
         
+        
+        
         getVideosAPICall()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
-            
-            self.userID = useid
-        }
+        
+        
        
         
         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        //        searchController.searchBar.resignFirstResponder()
+        //
+        //        self.searchController.isActive = false
+        
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -171,7 +184,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
 //        let videoSongsID : Int = 8
         
-        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)" + "/" + userID
+        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)" + "/" + kUserId
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         
@@ -196,7 +209,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         let videoList = self.allCagegoryListArray?.videos
                         
-                        var k = 0
+                 
                         
                         if !(videoList?.isEmpty)! {
                             
@@ -218,6 +231,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                         i = (videoList?.count)! > 0 ? i + 1 : i
                         
+                        
                         let audioList = self.allCagegoryListArray?.audios
                         
                         if !(audioList?.isEmpty)! {
@@ -236,6 +250,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                            i = (audioList?.count)! > 0 ? i + 1 : i
                         
+                        
                         let docsList = self.allCagegoryListArray?.documents
                         
                         if !(docsList?.isEmpty)! {
@@ -253,6 +268,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         }
                         
                          i = (docsList?.count)! > 0 ? i + 1 : i
+                        
                         
                         let imageList = self.allCagegoryListArray?.images
                         
@@ -523,12 +539,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
-        
-//        if indexPath.row  > self.imagesArrayTag.count {
-        
-//            let imageTag = self.imagesArrayTag["\(indexPath.row)"] as? NSArray
-//            
-//            let mediaTypeName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
+
             
             
         if categoryStr.count > 0 {
@@ -580,24 +591,18 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
          let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
-
+        
+        let likesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.likeCount
+        
+        let disLikesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.disLikeCount
+        
+        let commentCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.commentCount
         
 //        print(title!)
 //        print(postImgUrl!)
         
         cell.nameLabel.text = title
         
-//        if indexPath.row == 0 {
-//            
-//            cell.mediaTypeLabel.text = mediaName
-//        }
-//        else {
-//            
-//            cell.mediaTypeLabel.text = ""
-//        }
-        
-        
-//        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
 
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
@@ -785,6 +790,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                     dataTask.resume()
                     
                 }
+            }
+            
+            if let embededUrlImage =  postImgUrl {
+
+                
             }
         }
        
@@ -1055,9 +1065,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         self.navigationController?.popViewController(animated: true)
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        appDelegate.window?.rootViewController = rootController
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
     }
     

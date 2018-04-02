@@ -63,7 +63,11 @@ let CHURCHAUTHORSUBSCIPTIONAPI : String = BASEURL.appending("api/Church/ChurchAu
 
 let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/BibleChapter/GetBibleChapter/12"
 
+let LIKEDISLIKECOMMENTSCOUNTAPI : String = BASEURL.appending("api/Post/GetPostById/")
 
+let ADDUPDATECOMMENTAPI : String = BASEURL.appending("api/Post/AddUpdateComments")
+
+let LIKEANDDISLIKEAPI : String = BASEURL.appending("api/Post/LikeOrDislikePost")
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String
@@ -87,7 +91,7 @@ let kRegisterSucessStatus:String = "kRegisterSucessStatus"
 let kTokenType = "tokenType"
 let accessToken:String = "accessToken"
 
-var kUserId :  String = ""
+var kUserId :  String = "null"
 var kId :  Int = 0
 
 

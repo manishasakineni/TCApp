@@ -642,7 +642,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if kId != 0 {
+       
             
         if textView.text == "Add a public comment..." {
             
@@ -653,18 +653,10 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.sendCommentClick = false
         textView.textColor = UIColor.black
 //        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.none)
-        }
-        
-        else {
-        
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Comment", clickAction: {
-                
-                
-                
-            })
+
         
         }
-    }
+    
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
