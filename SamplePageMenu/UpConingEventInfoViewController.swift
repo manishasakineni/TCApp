@@ -286,7 +286,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
 
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+      //  UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         self.navigationController?.popViewController(animated: true)

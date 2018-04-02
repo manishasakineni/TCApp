@@ -720,6 +720,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     print(self.commentString)
     
+        commentSendBtnAPIService(textComment: self.commentString)
    // self.usersCommentsArray.append(self.commentString)
         
     self.usersCommentsArray.insert(self.commentString, at: 0)
@@ -737,6 +738,93 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     }
     
+    // MARK :- CommentAPIService
+    
+    func commentSendBtnAPIService(textComment : String){
+        
+        
+       
+        
+        let  strUrl = ADDUPDATECOMMENTAPI
+        
+        
+        let dictParams = [
+            "id": 0,
+            "postId": 20,
+            "description": textComment,
+            "parentCommentId": 0,
+            "userId" : kId
+            ] as [String : Any]
+        
+        print("dic params \(dictParams)")
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        print("dictHeader:\(dictHeaders)")
+        
+        
+        
+        
+        
+        
+        serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+            DispatchQueue.main.async()
+                {
+                    
+                    
+                    print("\(result)")
+                    
+                    let respVO:AddUpdateCommentsVo = Mapper().map(JSONObject: result)!
+                    print("responseString = \(respVO)")
+                    
+                    
+                    let statusCode = respVO.isSuccess
+                    
+                    print("StatusCode:\(String(describing: statusCode))")
+                    
+                    
+                    
+                    if statusCode == true
+                    {
+                        
+                        
+                        let successMsg = respVO.endUserMessage
+                        
+                        
+                        
+                        
+                        
+                        
+                        //                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
+                        //
+                        //
+                        //                            self.removeAnimate()
+                        //
+                        //
+                        //
+                        //                        })
+                        
+                        
+                    }
+                    else {
+                        
+                        let failMsg = respVO.endUserMessage
+                        
+                        //   self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+                        
+                        return
+                        
+                    }
+                    
+                    self.allOffersTableView.reloadData()
+                    
+                    
+            }
+        }, failureHandler: {(error) in
+            
+        })
+        
+        
+    }
    
     
     func usersLikeBtnClick(sender : UIButton){
@@ -880,7 +968,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         //        let videoSongsID : Int = 8
         
-        let urlStr = LIKEDISLIKECOMMENTSCOUNTAPI + "" + "20" + "/" + "8"
+        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + "20" + "/" + "8"
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         

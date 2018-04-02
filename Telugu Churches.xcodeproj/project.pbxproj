@@ -274,6 +274,8 @@
 		CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */; };
 		CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */; };
 		CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC8002037126900625179 /* DatePopUpViewController.swift */; };
+		CBA0EBF920726BAF000C16DD /* AddUpdateCommentsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0EBF720726BAF000C16DD /* AddUpdateCommentsVo.swift */; };
+		CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0EBF820726BAF000C16DD /* ResultVo.swift */; };
 		CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */; };
 		CBC1FB812052DBA6000063D4 /* AllEventHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */; };
 		CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */; };
@@ -562,6 +564,8 @@
 		CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
 		CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYExampleViewController.swift; sourceTree = "<group>"; };
 		CB9BC8002037126900625179 /* DatePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		CBA0EBF720726BAF000C16DD /* AddUpdateCommentsVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateCommentsVo.swift; sourceTree = "<group>"; };
+		CBA0EBF820726BAF000C16DD /* ResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultVo.swift; sourceTree = "<group>"; };
 		CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventHeaderCell.swift; sourceTree = "<group>"; };
 		CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventHeaderCell.xib; sourceTree = "<group>"; };
 		CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfMonthEventCell.swift; sourceTree = "<group>"; };
@@ -1067,6 +1071,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CBA0EBF620726B13000C16DD /* AddUpdateCommentsVo */,
 				AF2EB522206DFA90009B3B75 /* BibleBookVO */,
 				359CC91F20626BDF0061450A /* BibleVo */,
 				9A058AFC2021F3A4005A611C /* LoginVo */,
@@ -1575,6 +1580,15 @@
 			name = EventViewController;
 			sourceTree = "<group>";
 		};
+		CBA0EBF620726B13000C16DD /* AddUpdateCommentsVo */ = {
+			isa = PBXGroup;
+			children = (
+				CBA0EBF720726BAF000C16DD /* AddUpdateCommentsVo.swift */,
+				CBA0EBF820726BAF000C16DD /* ResultVo.swift */,
+			);
+			name = AddUpdateCommentsVo;
+			sourceTree = "<group>";
+		};
 		CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1957,6 +1971,7 @@
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,
+				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
@@ -1975,6 +1990,7 @@
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
 				CB3794DF20594E9D002D3638 /* VideoSongsVo.swift in Sources */,
 				3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */,
+				CBA0EBF920726BAF000C16DD /* AddUpdateCommentsVo.swift in Sources */,
 				CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */,
 				3D355D22205BB62000FE67D8 /* AuthorListCountTableViewCell.swift in Sources */,
 				CB255D6B204FBAF90080AFAD /* UpComingEventCell.swift in Sources */,
