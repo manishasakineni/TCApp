@@ -350,6 +350,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                         cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
                         
                     }
+                    else {
+                        
+                         cell3.addressLabel.text = ""
+                        
+                    }
                     
                 }
                 else if indexPath.row == 7 {

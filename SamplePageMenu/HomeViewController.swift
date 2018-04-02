@@ -125,17 +125,17 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.getAllCategoriesAPICall()
         
         
-        searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        
-        searchBar.delegate = self
+//        searchBar = UISearchBar()
+//        searchBar.sizeToFit()
+//        
+//        searchBar.delegate = self
         
         filteredData = sectionTittles
         
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        
-        searchController.dimsBackgroundDuringPresentation = false
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
+//        
+//        searchController.dimsBackgroundDuringPresentation = false
         
         let categorieHomeCell  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         categorieTableView.register(categorieHomeCell, forCellReuseIdentifier: "CategorieHomeCell")
@@ -154,11 +154,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
 
-        searchBar.placeholder = "Telugu Churches"
+//        searchBar.placeholder = "Telugu Churches"
         
-        self.searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+//        self.searchController.searchBar.delegate = self
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
         
         // definesPresentationContext = true
         // navigationItem.titleView  = searchController.searchBar
@@ -203,6 +203,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+//         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Telugu Churches".localize(), backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        self.navigationController?.isNavigationBarHidden = false
+
         if(UIDevice.current.userInterfaceIdiom == .phone){
           
             self.bannerScrollHeight.constant = 200
@@ -222,9 +225,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        searchController.searchBar.resignFirstResponder()
-        
-        self.searchController.isActive = false
+//        searchController.searchBar.resignFirstResponder()
+//        
+//        self.searchController.isActive = false
         
         
     }
