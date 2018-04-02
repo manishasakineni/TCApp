@@ -89,9 +89,15 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     
+    var userID:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
+            
+            self.userID = useid
+        }
         
         let newString = catgoryImg.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
@@ -146,13 +152,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         super.viewWillAppear(animated)
         
-        
-        //  self.navigationController?.navigationBar.isHidden = true
-        
-        //print(showNav)
-        
-       // self.navigationController?.navigationBar.isHidden = !showNav
-   //     Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
+            
+            self.userID = useid
+        }
+       
         
         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
@@ -167,7 +171,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
 //        let videoSongsID : Int = 8
         
-        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)"
+        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)" + "/" + userID
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         
@@ -625,7 +629,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
             
-//            cell.collectionImgView.contentMode = .scaleAspectFit
+            cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "docImg")
             
             
@@ -667,7 +671,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         else if (fileExtension == ".mp3") {
             
-//            cell.collectionImgView.contentMode = .scaleAspectFit
+            cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
             
         //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
@@ -804,13 +808,13 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
             
             
-            return CGSize(width: 100.0, height: 100.0)
+            return CGSize(width: 150.0, height: 100.0)
             
             
         }
         else if (fileExtension == ".mp3") {
             
-            return CGSize(width: 100.0, height: 100.0)
+            return CGSize(width: 130.0, height: 130.0)
             
         }
         
@@ -1042,7 +1046,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.removeObject(forKey: "1")
-          UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//          UserDefaults.standard.removeObject(forKey: kuserIdKey)
 
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)

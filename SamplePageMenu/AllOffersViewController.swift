@@ -723,7 +723,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

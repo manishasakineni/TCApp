@@ -134,7 +134,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.set("1", forKey: "1")

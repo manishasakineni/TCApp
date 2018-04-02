@@ -257,7 +257,7 @@ class AudioViewController: UIViewController {
         
         UserDefaults.standard.set("1", forKey: "1")
 
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         UserDefaults.standard.removeObject(forKey: "1")
         

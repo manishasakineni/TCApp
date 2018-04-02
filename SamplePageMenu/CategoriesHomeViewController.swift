@@ -118,7 +118,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             collectionView.dataSource = self
             collectionView.delegate = self
             self.navigationController?.isNavigationBarHidden = false
-            self.getAllCategoriesAPICall()
+//            self.getAllCategoriesAPICall()
             
     }
     

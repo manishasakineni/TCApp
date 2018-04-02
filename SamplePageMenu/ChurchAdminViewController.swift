@@ -82,9 +82,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
-
+     
         self.searchLabel.isHidden = true
         
         searchBar = UISearchBar()
@@ -120,7 +118,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
             super.viewWillAppear(animated)
 
-    
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+
         
 //        let backgroundImage = UIImage(named: "Church-logo")
 //        let imageView = UIImageView(image: backgroundImage)

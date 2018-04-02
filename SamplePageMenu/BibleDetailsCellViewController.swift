@@ -144,8 +144,9 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         let newString = listUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
+        let newStr = newString.replacingOccurrences(of: " ", with: "", options: .backwards, range: nil)
         
-        let bibleDetailsCellAPI = newString
+        let bibleDetailsCellAPI = newStr
         
         
         serviceController.getRequest(strURL: bibleDetailsCellAPI, success: { (result) in
@@ -299,7 +300,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.set("1", forKey: "1")

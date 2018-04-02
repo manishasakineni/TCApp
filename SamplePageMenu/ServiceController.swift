@@ -205,7 +205,9 @@ class ServiceController: NSObject {
         
         showLoadingHUD(to_view: appDelegate.window!)
         
-        let request = NSMutableURLRequest(url: NSURL(string: strURL)! as URL)
+        let fileUrl = NSURL(string: strURL)
+        
+        let request = NSMutableURLRequest(url: fileUrl! as URL)
         request.addValue(content_type, forHTTPHeaderField: "Content-Type")
         request.addValue(content_type, forHTTPHeaderField: "Accept")
         //// request.setValue(api_key, forHTTPHeaderField: "api_key")

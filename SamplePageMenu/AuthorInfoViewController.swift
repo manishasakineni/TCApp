@@ -345,10 +345,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell3.infoLabel.text = "Pin Code".localize()
                     
-                    
-                    cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
-                    
-                    
+                    if authorDetails.pinCode != nil {
+                        
+                        cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
+                        
+                    }
                     
                 }
                 else if indexPath.row == 7 {

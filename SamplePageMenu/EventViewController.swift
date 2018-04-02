@@ -563,7 +563,7 @@ var listResultArray = Array<Any>()
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
         
         //   navigationItem.leftBarButtonItems = []
