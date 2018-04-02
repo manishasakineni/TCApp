@@ -19,6 +19,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     @IBOutlet weak var player: YTPlayerView!
     
+    var allVideosArray : GetVideosResultVo?
     
     @IBOutlet weak var ytPlayerViewHeight: NSLayoutConstraint!
     
@@ -182,7 +183,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     
-    
+   
     
     func getVideosAPICall(){
         
@@ -367,8 +368,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
            
             youtubeCLDSSCell.videoTitleName.text = videoNameStr
+            youtubeCLDSSCell.likeCountLbl.text = String(likesCount)
+            youtubeCLDSSCell.disLikeCountLbl.text = String(disLikesCount)
             
-                        
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
@@ -459,151 +461,17 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         }
         
         
-    
-//      //  let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
-//        
-//        let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-//        
-//        //        allOffersCell.label.text = churchNameAry[indexPath.row]
-//        //
-//        //        let str : String = self.embedLinksAry[indexPath.row]
-//        //
-//        //
-//        //        videoIDArray = str.components(separatedBy: "=")
-//        
-//        //        let name    = videoIDArray[0]
-//        //        let surname = videoIDArray[1]
-//        
-//        
-//        
-//        
-//        if let title =  churchIdMonthYearList.title {
-//            allOffersCell.label.text = "Church Name:" + " " + title
-//        }else{
-//            allOffersCell.label.text = "church Name:"
-//        }
-//        
-//        if let embedLink =  churchIdMonthYearList.embededUrl {
-//            let str : String = embedLink
-//            
-//            
-//            videoIDArray = str.components(separatedBy: "embed/")
-//            
-//            allOffersCell.label.text = "Video Name:" + " " + videoIDArray[1]
-//        }else{
-//            allOffersCell.label.text = "Video Name:"
-//        }
-//        //  print(videoIDArray[1])
-//        
-//        if let embededUrlImage =  churchIdMonthYearList.embededUrl {
-//            
-//            let thumbnillImage : String = embededUrlImage
-//            
-//            
-//            videoIDArray = thumbnillImage.components(separatedBy: "embed/")
-//            
-//            self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
-//            
-//            let videothumb = URL(string: self.thumbnailImageURL)
-//            
-//            if videothumb != nil{
-//                
-//                let request = URLRequest(url: videothumb!)
-//                
-//                let session = URLSession.shared
-//                
-//                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//                    
-//                    DispatchQueue.main.async()
-//                        {
-//                            
-//                            allOffersCell.thumbnailImageView.image = UIImage(data: data!)
-//                            
-//                    }
-//                    
-//                })
-//                
-//                dataTask.resume()
-//                
-//            }
-//        }else{
-//            
-//        }
-//        
-        
-        
-        
-        
-        return UITableViewCell()
+         return UITableViewCell()
         
     }
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        
-//        let churchIdMonthYearList:VideoSongsResultVo = self.embedLinksAry[indexPath.row]
-//        
-//        
-//        
-//        
-//        let embedLink =  churchIdMonthYearList.embededUrl
-//        let str : String = embedLink!
-//        videoIDArray = str.components(separatedBy: "embed/")
-//        
-//        self.player.load(withVideoId: videoIDArray[1],playerVars: self.playerVars)
-//        
-        //
-        //        if let embededUrl =  churchIdMonthYearList.embededUrl {
-        //
-        //            self.thumbnailImageURL = "https://img.youtube.com/vi/\(embededUrl)/1.jpg"
-        //
-        //            let videothumb = URL(string: self.thumbnailImageURL)
-        //
-        //            if videothumb != nil{
-        //
-        //                let request = URLRequest(url: videothumb!)
-        //
-        //                let session = URLSession.shared
-        //
-        //                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-        //
-        //                    DispatchQueue.main.async()
-        //                        {
-        //
-        //                          //  allOffersCell.thumbnailImageView.image = UIImage(data: data!)
-        //                            self.player.load(withVideoId: embededUrl,playerVars: self.playerVars)
-        //
-        //
-        //                    }
-        //
-        //                })
-        //
-        //                dataTask.resume()
-        //
-        //            }
-        //        }
+
     }
     
-    
-    //    open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    //
-    //        let url = request.url
-    //
-    //        // Check if ytplayer event and, if so, pass to handleJSEvent
-    //        if let url = url, url.scheme == "ytplayer"
-    //
-    //
-    //
-    //        if navigationType == UIWebViewNavigationType.linkClicked {
-    //            UIApplication.sharedApplication.openURL(request.URL)
-    //            return false
-    //        }
-    //        return true
-    //    }
-    //
-    
+
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         
@@ -756,10 +624,9 @@ func  likeButtonClick(_ sendre:UIButton) {
         
         }
         
+        getLikesDislikesCommentsCountsAPICAll()
         
         
-        let indexPath = IndexPath(item: 0, section: 0)
-        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
         
         }
         
@@ -797,8 +664,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         print("UnLike Clicked.............")
         
-        let indexPath = IndexPath(item: 0, section: 0)
-        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+        getLikesDislikesCommentsCountsAPICAll()
+        
     }
         
     else {
@@ -843,6 +710,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }
     }
         
+    
     
     func commentSendBtnClicked(){
      
@@ -960,6 +828,105 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 
             })
         }
+    }
+    
+    
+    func getLikesDislikesCommentsCountsAPICAll(){
+        
+        
+        let  LIKEANDDISLIKECOUNTAPISTR = LIKEANDDISLIKECOUNTAPI
+        
+        let params = [ "postId": 20,
+                       "userId": 20,
+                       "like1": likeClick,
+                       "disLike": disLikeClick ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: LIKEANDDISLIKECOUNTAPISTR as NSString , postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            
+            print(result)
+            
+            let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
+
+            let isSuccess = responseVO.isSuccess
+            
+            if isSuccess == true {
+                
+                self.likesCount = (responseVO.result?.likeCount)!
+                self.disLikesCount = (responseVO.result?.dislikeCount)!
+                
+                let indexPath = IndexPath(item: 0, section: 0)
+                self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+                
+            }
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+        
+        
+    }
+    
+    func getVideosApiService(){
+        
+        //        let videoSongsID : Int = 8
+        
+        let urlStr = LIKEDISLIKECOMMENTSCOUNTAPI + "" + "20" + "/" + "8"
+        
+        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
+        
+        serviceController.getRequest(strURL: urlStr, success: { (result) in
+            
+            DispatchQueue.main.async()
+                {
+                    
+                    print(result)
+                    
+                    let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
+                    
+                    let isSuccess = respVO.isSuccess
+                    
+                    
+                    if isSuccess == true {
+                        
+                        
+                        let resultArr = respVO.result
+                        
+                        self.allVideosArray = resultArr
+                        
+                        
+                        
+                        
+                    }
+                        
+                    else{
+                        
+                        
+                    }
+                    
+                    
+                    //  }
+            }
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+            
+        }
+        
+        
     }
     
 }
