@@ -329,6 +329,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         var filePath : URL?
         //self.showHUD()
         
+        MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
+        
+        
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
             
             if let url = URL.init(string: urlString) {
@@ -356,6 +359,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                     
                                     //    self.hideHUD()
                                     
+                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                                    
                                     self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
                                     print( self.saveLocationString)
                                     print(  self.openSelectedDocumentFromURL)
@@ -368,6 +373,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                 
                                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                                     
+                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                     //                                    self.hideHUD()
                                     //                                    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: kAppTitle, messege: self.pdfTitle + " has been already downloaded. Do you want to open?", clickAction: {
                                     //
@@ -391,6 +397,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                     
                                     DispatchQueue.main.async {
                                         
+                                        MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                                        
                                         //                                        self.hideHUD()
                                         //
                                         //                                        Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
@@ -412,6 +420,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                             
                                             DispatchQueue.main.async {
                                                 
+                                                MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                                 //  self.hideHUD()
                                                 self.openPDFinPDFReader()
                                             }
@@ -422,6 +431,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                             self.isDownloadingOnProgress = false
                                             
                                             DispatchQueue.main.async {
+                                                
+                                                MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                                 
                                                 //                                                self.hideHUD()
                                                 //
@@ -436,6 +447,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                         
                                         DispatchQueue.main.async {
                                             
+                                            MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                             //                                            self.hideHUD()
                                             //                                            Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
                                             //                                                                                             alertTitle: kAppTitle,
@@ -454,6 +466,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                 
                                 DispatchQueue.main.async {
                                     
+                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                     // self.hideHUD()
                                 }
                             }
@@ -592,11 +605,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
-        let likesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.likeCount
-        
-        let disLikesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.disLikeCount
-        
-        let commentCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.commentCount
+//        let likesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.likeCount
+//        
+//        let disLikesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.disLikeCount
+//        
+//        let commentCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.commentCount
         
 //        print(title!)
 //        print(postImgUrl!)
@@ -814,11 +827,16 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
+            
+             return CGSize(width: 150.0, height: 130.0)
+            
+        }
         
-        if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
+        else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
             
             
-            return CGSize(width: 150.0, height: 100.0)
+            return CGSize(width: 100.0, height: 150.0)
             
             
         }

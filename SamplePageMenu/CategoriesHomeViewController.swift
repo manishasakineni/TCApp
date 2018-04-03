@@ -127,6 +127,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        self.cagegoriesArray.removeAll()
         self.getAllCategoriesAPICall()
         
         Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
