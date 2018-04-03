@@ -65,7 +65,7 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
         
         searchBarText.delegate = self
 
-        searchBarText.placeholder = "Search by Event".localize()
+        searchBarText.placeholder = "Search by Event Name".localize()
         self.noRecordsLbl.isHidden = true
         
         let monthFormatter = DateFormatter()

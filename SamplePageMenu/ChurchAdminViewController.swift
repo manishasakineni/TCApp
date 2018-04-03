@@ -93,7 +93,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         searchBar.delegate = self
         
         searchBar.placeholder = " "
-        searchBar.placeholder = "Search by Author".localize()
+        searchBar.placeholder = "Search by Author Name".localize()
         
         searchBar.showsCancelButton = false
         

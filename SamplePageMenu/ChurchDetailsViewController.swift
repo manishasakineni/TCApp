@@ -90,7 +90,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Search by Church".localize()
+        searchBar.placeholder = "Search by Church Name".localize()
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self

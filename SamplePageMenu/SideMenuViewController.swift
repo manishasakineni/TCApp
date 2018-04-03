@@ -24,7 +24,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var headerView: UIView!
 
     var userID = ""
-    let imageView = ["EditProfile","ChangePSW","Subscriptions","Seminor","event","Seminor","Seminor","event","LogOutlightGray"]
+    let imageView = ["profile_menu","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","study_bible_menu","study_bible_menu","login_menu"]
     
 
     
