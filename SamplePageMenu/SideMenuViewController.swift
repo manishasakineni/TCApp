@@ -25,7 +25,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     var userID = ""
     
-    let imageView = ["profile_menu","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","study_bible_menu","study_bible_menu","login_menu"]
+    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","login_menu"]
     
 
     
