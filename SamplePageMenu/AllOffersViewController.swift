@@ -147,11 +147,27 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         //  self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
         
         
+        if let catID = UserDefaults.standard.value(forKey: "categoryId")  as? Int {
+            
+            self.categoryId = catID
+        }
+        
+        
+        if let uID = UserDefaults.standard.value(forKey: "userID") as? Int  {
+            
+            self.ID = uID
+        }
+        
+        if let videoEmbededID = UserDefaults.standard.value(forKey: "videoEmbededIDStr") as? String  {
+            
+            self.videoEmbededIDStr = videoEmbededID
+        }
+        
+        kUserDefaults.synchronize()
         
         registerTableViewCells()
         getVideoDetailsApiService()
-        
-//        getVideosAPICall()
+
         
         print(videoIDArray)
        
@@ -201,6 +217,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(videoSongsID)"
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
+        
         serviceController.getRequest(strURL: urlStr, success: { (result) in
             
             DispatchQueue.main.async()
@@ -641,19 +658,19 @@ func  likeButtonClick(_ sendre:UIButton) {
                 
              //  let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 
-                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                
-                let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-                
-                desController.showNav = true
-                 desController.navigationString = "navigationString"
-                
-                let newController = UINavigationController.init(rootViewController:desController)
-                
-                let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
-                
-                appDelegate.window?.rootViewController = newController
+//                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                
+//                
+//                let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+//                
+//                desController.showNav = true
+//                 desController.navigationString = "navigationString"
+//                
+//                let newController = UINavigationController.init(rootViewController:desController)
+//                
+//                let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
+//                
+//                appDelegate.window?.rootViewController = newController
                 
                
 
@@ -783,7 +800,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     func commentSendBtnAPIService(textComment : String){
         
         
-//        self.usersCommentsArray.removeAll()
+//     self.usersCommentsArray.removeAll()
 
         
         let  strUrl = ADDUPDATECOMMENTAPI
@@ -795,23 +812,19 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             "description": textComment,
             "parentCommentId": 0,
             "userId" : self.videoIdString
-            ] as [String : Any]
+             ] as [String : Any]
         
         print("dic params \(dictParams)")
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
-        
-        
-        
-        
-        
+
         
         serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+            
             DispatchQueue.main.async()
                 {
-                    
-                    
+  
                     print("\(result)")
                     
                     let respVO:AddUpdateCommentsVo = Mapper().map(JSONObject: result)!

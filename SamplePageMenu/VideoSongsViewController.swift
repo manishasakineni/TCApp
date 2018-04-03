@@ -148,7 +148,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         
         
-        getVideosAPICall()
+        self.getVideosAPICall()
         
         
     }
@@ -1045,6 +1045,12 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                     videosView.categoryId = categoryId!
                                     videosView.ID = userID!
                                     
+                                    
+                                    kUserDefaults.set(categoryId!, forKey: "categoryId")
+                                    kUserDefaults.set(userID!, forKey: "userID")
+                                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
+                                    kUserDefaults.synchronize()
+
                                    self.navigationController?.pushViewController(videosView, animated: true)
                                     }
                                     

@@ -91,7 +91,7 @@ let kRegisterSucessStatus:String = "kRegisterSucessStatus"
 let kTokenType = "tokenType"
 let accessToken:String = "accessToken"
 
-var kUserId :  String = "null"
+var kUserId :  String =  "null"
 var kId =  Int ()
 
 
