@@ -92,7 +92,7 @@ let kTokenType = "tokenType"
 let accessToken:String = "accessToken"
 
 var kUserId :  String = "null"
-var kId :  Int = 0
+var kId =  Int ()
 
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"

@@ -24,6 +24,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var headerView: UIView!
 
     var userID = ""
+    
     let imageView = ["profile_menu","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","study_bible_menu","study_bible_menu","login_menu"]
     
 
@@ -131,7 +132,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        if self.userID == ""{
+        if kId == 0{
         
             if indexPath.row == 0 || indexPath.row == 1 {
                 
@@ -154,7 +155,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
        
-        if self.userID == ""{
+        if kId == 0 {
             
             if indexPath.row == 0 || indexPath.row == 1 {
                 
@@ -182,7 +183,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         cell1.selectionStyle = .none
         
-        if self.userID == ""{
+        if kId == 0 {
             
             if indexPath.row == 0 || indexPath.row == 1 {
                 

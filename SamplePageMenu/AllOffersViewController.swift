@@ -38,6 +38,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var showNav = false
     var videoNameStr = ""
     var categoryName = ""
+    var categoryId = Int()
+    var ID = Int()
 
     var commentString : String = "Add a public comment..."
     
@@ -71,6 +73,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     var gggg = String()
     
+    var userID = String()
+    
     var thumbnailImageURL = String()
     let sectionTitleArray = ["","Comments"]
     let imageView = ["bible1","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible7","bible6"]
@@ -100,13 +104,24 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             
         }
-       // self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
-        
-       // UserDefaults.standard.stringArray(forKey: "usersCommentsArray")
+      
         UserDefaults.standard.synchronize()
         
-        // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        //  UserDefaults.standard.synchronize()
+       
+        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
+        
+        self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
+        
+        
+        }
+        
+//        if kUserDefaults.value(forKey: kIdKey) as? Int != 0 {
+//            
+//            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int)!
+//            
+//            
+//        }
+
         
         
         
@@ -141,6 +156,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         
         registerTableViewCells()
+        getVideoDetailsApiService()
         
 //        getVideosAPICall()
         
@@ -250,12 +266,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     private func registerTableViewCells() {
         
-        
-        
-//        
-//        let nibName1  = UINib(nibName: "VideoTableViewCell" , bundle: nil)
-//        allOffersTableView.register(nibName1, forCellReuseIdentifier: "VideoTableViewCell")
-//        
+ 
         
         let nibName1  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
         allOffersTableView.register(nibName1, forCellReuseIdentifier: "youtubeCLDSSCell")
@@ -606,7 +617,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
 func  likeButtonClick(_ sendre:UIButton) {
         
-    if kId != 0 {
+    if !(self.userID.isEmpty) {
             
         if likeClick == false {
         
@@ -646,7 +657,7 @@ func  likeButtonClick(_ sendre:UIButton) {
     
 func  unLikeButtonClick(_ sendre:UIButton) {
         
-    if kId != 0 {
+    if !(self.userID.isEmpty) {
         
         if disLikeClick == false {
             
@@ -682,7 +693,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func  shareButtonClick(_ sendre:UIButton) {
         
-        if kId != 0 {
+        if !(self.userID.isEmpty) {
             
         let someText:String = "Hello want to share text also"
         let objectsToShare:URL = URL(string: "http://www.google.com")!
@@ -829,7 +840,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func usersLikeBtnClick(sender : UIButton){
     
-        if kId != 0 {
+        if !(self.userID.isEmpty) {
             
         if usersLikeClick == false {
             
@@ -867,7 +878,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func usersDislikeBtnClick(sender : UIButton){
     
-       if kId != 0 {
+       if !(self.userID.isEmpty) {
         
         if UsersDisLikeClick == false {
             
@@ -903,7 +914,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func replyCommentBtnClick(sender : UIButton){
     
-        if kId != 0 {
+        if !(self.userID.isEmpty) {
+            
         let indexPath = IndexPath(item: sender.tag, section: 3)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -964,11 +976,11 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     }
     
-    func getVideosApiService(){
+    func getVideoDetailsApiService(){
         
         //        let videoSongsID : Int = 8
         
-        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + "20" + "/" + "8"
+        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.ID) + "/" + String(self.categoryId)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         
@@ -987,9 +999,18 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                     if isSuccess == true {
                         
                         
-                        let resultArr = respVO.result
+                        let resultArr = respVO.result?.commentDetails
                         
-                        self.allVideosArray = resultArr
+                        for list in resultArr! {
+                            
+                            self.usersCommentsArray.append(list.comment!)
+                            
+                        }
+              
+                       self.likesCount = (respVO.result?.postDetails![0].likeCount)!
+                       self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
+                        
+                        self.allOffersTableView.reloadData()
                         
                         
                         

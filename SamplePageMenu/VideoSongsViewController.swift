@@ -989,8 +989,12 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
             
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
             
+            let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
+            
+            let userID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
 
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             
@@ -1020,7 +1024,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                    
                                     videosView.videoEmbededIDStr = self.audioIDArray[1]
                                     videosView.videoNameStr = title!
-                                            
+                                    videosView.categoryId = categoryId!
+                                    videosView.ID = userID!
+                                    
                                    self.navigationController?.pushViewController(videosView, animated: true)
                                     }
                                     
