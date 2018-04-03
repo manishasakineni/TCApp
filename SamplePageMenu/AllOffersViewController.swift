@@ -58,6 +58,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 //    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
     
     var usersCommentsArray = Array<Any>()
+     var postIDArray = Array<Any>()
 
     // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     
@@ -87,6 +88,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     //  var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
     
+    var kID: String = ""
+    var postIdString : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +107,26 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
             
             
         }
+        
+        
+        let defaults = UserDefaults.standard
+        
+        if let walletid = defaults.string(forKey: kIdKey) {
+            
+            self.kID = walletid
+            
+            print("defaults savedString: \(walletid)")
+            
+        }
+        
       
+//        if kUserDefaults.value(forKey: kIdKey) as? String != nil {
+//            
+//            self.kID = (kUserDefaults.value(forKey: kIdKey) as? Int)!
+//            
+//            
+//        }
+//        
         UserDefaults.standard.synchronize()
         
        
@@ -736,10 +758,10 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     self.usersCommentsArray.insert(self.commentString, at: 0)
         
-       UserDefaults.standard.setValue(self.usersCommentsArray, forKey: "usersCommentsArray")
-        
-        
-        UserDefaults.standard.synchronize()
+//       UserDefaults.standard.setValue(self.usersCommentsArray, forKey: "usersCommentsArray")
+//        
+//        
+//        UserDefaults.standard.synchronize()
         
         
     self.commentString = "Add a public comment..."
@@ -754,17 +776,18 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     func commentSendBtnAPIService(textComment : String){
         
         
-       
+//        self.usersCommentsArray.removeAll()
+
         
         let  strUrl = ADDUPDATECOMMENTAPI
         
         
         let dictParams = [
             "id": 0,
-            "postId": 20,
+            "postId": self.postIdString,
             "description": textComment,
             "parentCommentId": 0,
-            "userId" : kId
+            "userId" : self.kID
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -792,8 +815,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                     
                     print("StatusCode:\(String(describing: statusCode))")
                     
-                    
-                    
                     if statusCode == true
                     {
                         
@@ -816,6 +837,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         
                     }
+                        
                     else {
                         
                         let failMsg = respVO.endUserMessage
@@ -827,7 +849,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                     }
                     
                     self.allOffersTableView.reloadData()
-                    
+
                     
             }
         }, failureHandler: {(error) in
@@ -1001,14 +1023,21 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         let resultArr = respVO.result?.commentDetails
                         
+                        
+                        
+                       
+                        
                         for list in resultArr! {
                             
                             self.usersCommentsArray.append(list.comment!)
+                            
+                        //   self.postIDArray.append(list.postId!)
                             
                         }
               
                        self.likesCount = (respVO.result?.postDetails![0].likeCount)!
                        self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
+                        self.postIdString = (respVO.result?.postDetails![0].id)!
                         
                         self.allOffersTableView.reloadData()
                         

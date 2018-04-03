@@ -10,6 +10,11 @@ import Foundation
 
 
 let reachability = Reachability()!
+
+
+
+
+
 var appDelegate = AppDelegate()
 
 let content_type = "application/json; charset=utf-8"
