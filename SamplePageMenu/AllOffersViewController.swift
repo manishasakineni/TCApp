@@ -90,7 +90,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     var kID: String = ""
     var postIdString : Int = 0
-    
+    var videoIdString : Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -787,7 +788,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             "postId": self.postIdString,
             "description": textComment,
             "parentCommentId": 0,
-            "userId" : self.kID
+            "userId" : self.videoIdString
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -1038,7 +1039,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                        self.likesCount = (respVO.result?.postDetails![0].likeCount)!
                        self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                         self.postIdString = (respVO.result?.postDetails![0].id)!
-                        
+                        self.videoIdString = (respVO.result?.postDetails![0].id)!
+
                         self.allOffersTableView.reloadData()
                         
                         
