@@ -102,50 +102,20 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         allOffersTableView.separatorStyle = .none
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
-        if UserDefaults.standard.value(forKey: "usersCommentsArray") != nil{
+        
+        if kUserDefaults.value(forKey: "usersCommentsArray") != nil{
             
-            self.usersCommentsArray = UserDefaults.standard.value(forKey: "usersCommentsArray") as! Array<Any>
-            
-            
+            self.usersCommentsArray = kUserDefaults.value(forKey: "usersCommentsArray") as! Array<Any>
+
         }
-        
-        
-        let defaults = UserDefaults.standard
-        
-        if let walletid = defaults.string(forKey: kIdKey) {
-            
-            self.kID = walletid
-            
-            print("defaults savedString: \(walletid)")
-            
-        }
-        
-      
-//        if kUserDefaults.value(forKey: kIdKey) as? String != nil {
-//            
-//            self.kID = (kUserDefaults.value(forKey: kIdKey) as? Int)!
-//            
-//            
-//        }
-//        
-        UserDefaults.standard.synchronize()
-        
-       
+ 
         if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
         
         self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
-        
-        
+
         }
         
-//        if kUserDefaults.value(forKey: kIdKey) as? Int != 0 {
-//            
-//            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int)!
-//            
-//            
-//        }
-
-        
+        kUserDefaults.synchronize()
         
         
         self.player.delegate = self
@@ -658,7 +628,7 @@ func  likeButtonClick(_ sendre:UIButton) {
         
         }
         
-        getLikesDislikesCommentsCountsAPICAll()
+        clickLikesDislikesCommentsCountsAPICAll()
         
         
         
@@ -669,7 +639,29 @@ func  likeButtonClick(_ sendre:UIButton) {
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
                 
+             //  let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 
+                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                
+                let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                
+                desController.showNav = true
+                 desController.navigationString = "navigationString"
+                
+                let newController = UINavigationController.init(rootViewController:desController)
+                
+                let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
+                
+                appDelegate.window?.rootViewController = newController
+                
+               
+
+                
+                
+                
+                
+             //   self.navigationController?.pushViewController(loginVC, animated: true)
                 
             })
         
@@ -698,7 +690,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         print("UnLike Clicked.............")
         
-        getLikesDislikesCommentsCountsAPICAll()
+        clickLikesDislikesCommentsCountsAPICAll()
         
     }
         
@@ -755,10 +747,24 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     print(self.commentString)
     
         commentSendBtnAPIService(textComment: self.commentString)
+        
    // self.usersCommentsArray.append(self.commentString)
+        
+    if !(self.userID.isEmpty) {
         
     self.usersCommentsArray.insert(self.commentString, at: 0)
         
+        }
+        
+    else {
+        
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+            
+            
+            
+        })
+        
+        }
 //       UserDefaults.standard.setValue(self.usersCommentsArray, forKey: "usersCommentsArray")
 //        
 //        
@@ -954,15 +960,15 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     }
     
     
-    func getLikesDislikesCommentsCountsAPICAll(){
+    func clickLikesDislikesCommentsCountsAPICAll(){
         
         
         let  LIKEANDDISLIKECOUNTAPISTR = LIKEANDDISLIKECOUNTAPI
         
-        let params = [ "postId": 20,
-                       "userId": 20,
+        let params = [ "postId": self.postIdString,
+                       "userId": self.videoIdString,
                        "like1": likeClick,
-                       "disLike": disLikeClick ] as [String : Any]
+                       "disLike": disLikeClick   ] as [String : Any]
         
         print("dic params \(params)")
         
@@ -973,6 +979,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
             
             print(result)
+            
             
             let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
 
@@ -1001,7 +1008,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func getVideoDetailsApiService(){
         
-        //        let videoSongsID : Int = 8
+
         
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.ID) + "/" + String(self.categoryId)
         
@@ -1032,13 +1039,13 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             
                             self.usersCommentsArray.append(list.comment!)
                             
-                        //   self.postIDArray.append(list.postId!)
+                        
                             
                         }
               
-                       self.likesCount = (respVO.result?.postDetails![0].likeCount)!
-                       self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
-                        self.postIdString = (respVO.result?.postDetails![0].id)!
+                        self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
+                        self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
+                        self.postIdString  = (respVO.result?.postDetails![0].id)!
                         self.videoIdString = (respVO.result?.postDetails![0].id)!
 
                         self.allOffersTableView.reloadData()

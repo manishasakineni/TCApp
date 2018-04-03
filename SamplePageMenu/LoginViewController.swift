@@ -14,7 +14,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var appVersion          : String = ""
-
+    
+    var navigationString : String = ""
     
     @IBOutlet weak var mobileEmailTF: AkiraTextField!
     
@@ -209,7 +210,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             
             
-              loginAPIService()
+              self.loginAPIService()
                 
             }
             
@@ -360,10 +361,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 kId = kUserDefaults.value(forKey: kIdKey) as! Int
                                 kUserDefaults.synchronize()
                                 
+                                
+                        if self.navigationString == "navigationString" {
+                                
+        
+                            let allOffersVC : AllOffersViewController? =
+                              AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                    
+                              self.navigationController?.pushViewController(allOffersVC!, animated: true)
+                                    
+                                
+                                }
+                                
+                                else {
+                                    
                                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                 let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                                 self.appDelegate.window?.rootViewController = rootController
+                               
+                                }
                             }
+                            
                             else {
                                 
                             if  let failMsg = respVO.userDetails?.endUserMessage {

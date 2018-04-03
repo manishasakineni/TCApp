@@ -127,6 +127,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         pageMenu = CAPSPageMenu(viewControllers: controllersArray,
                                 frame: CGRect.init(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
                                 pageMenuOptions: parameters)
+        
         pageMenu?.delegate = self
         self.addChildViewController(pageMenu!)
         
