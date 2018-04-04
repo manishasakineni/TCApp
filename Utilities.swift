@@ -217,6 +217,9 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
@@ -224,10 +227,31 @@ class Utilities: NSObject {
             leftButton.setImage(leftButtonImage, for: .normal)
         }
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
+        
         leftButton.addTarget(cntr, action: #selector(SignUpViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        
+        rightButton.addTarget(cntr, action: #selector(SignUpViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+        
+        
         
         
     }
@@ -366,6 +390,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
@@ -373,11 +402,32 @@ class Utilities: NSObject {
             leftButton.setImage(leftButtonImage, for: .normal)
         }
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
+        
         leftButton.addTarget(cntr, action: #selector(ProfileViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        
+        rightButton.addTarget(cntr, action: #selector(ProfileViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
         
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
+        
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+        
+
         
     }
     
@@ -468,6 +518,12 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
@@ -477,61 +533,35 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         leftButton.addTarget(cntr, action: #selector(AllOffersViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        
+        rightButton.addTarget(cntr, action: #selector(AllOffersViewController.homeButtonTapped(_:)), for: .touchUpInside)
+        
+        
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+
         
         
     }
 
-    
-//    class func setVideosViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
-//        
-//        var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
-//        
-//        if (titlelabel == nil) {
-//            
-//            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
-//            titlelabel?.tag = 555
-//            titlelabel!.backgroundColor = UIColor.clear
-//            titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)
-//            titlelabel?.textAlignment = .center
-//            titlelabel!.textColor = UIColor.white
-//            titlelabel?.lineBreakMode = .byWordWrapping
-//            titlelabel?.numberOfLines = 0
-//            
-//            cntr.navigationController?.navigationBar.addSubview(titlelabel!)
-//        }
-//        
-//        titlelabel!.text = title
-//        
-//        if(cntr.navigationController != nil) {
-//            
-//            cntr.navigationController!.navigationBar.isTranslucent = false
-//            cntr.navigationController!.isNavigationBarHidden = false
-//            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
-//            cntr.navigationController!.navigationBar.tintColor = UIColor.white
-//            //            cntr.navigationController?.navigationBar.barStyle = .black
-//        }
-//        
-//        
-//        let leftButtonImage: UIImage = UIImage(named: backImage!)!
-//        let leftButton: UIButton = UIButton(type: .custom)
-//        
-//        leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: leftButtonImage.size.height)
-//        leftButton.setTitle(backTitle, for: .normal)
-//        if backTitle.characters.count > 0 {
-//            
-//            leftButton.setImage(leftButtonImage, for: .normal)
-//        }
-//        leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
-//        leftButton.addTarget(cntr, action: #selector(AllOffersViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
-//        let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-//        
-//        cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-//        
-//        
-//    }
     
     class func setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
         
@@ -566,6 +596,8 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
@@ -574,9 +606,17 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
         leftButton.addTarget(cntr, action: #selector(ChurchDetailsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        
+
         
         
     }
@@ -614,6 +654,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
@@ -622,9 +667,31 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
         leftButton.addTarget(cntr, action: #selector(ChurchesInformaationViewControllers.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        rightButton.addTarget(cntr, action: #selector(ChurchesInformaationViewControllers.homeButtonTapped(_:)), for: .touchUpInside)
+        
+        
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+
         
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+        
+
         
         
     }
@@ -861,6 +928,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: leftButtonImage.size.height)
        
         if backTitle.characters.count > 0 {
@@ -870,9 +942,29 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         leftButton.addTarget(cntr, action: #selector(AllEventsAndUpComingEventsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        
+        rightButton.addTarget(cntr, action: #selector(AllEventsAndUpComingEventsViewController.homeButtonTapped(_:)), for: .touchUpInside)
+        
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+
         
         
     }
@@ -913,6 +1005,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: 50, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
@@ -922,9 +1019,29 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         leftButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        rightButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+
+        
         
         
     }
@@ -964,6 +1081,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
@@ -972,10 +1094,31 @@ class Utilities: NSObject {
             leftButton.setTitle(backTitle, for: .normal)
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+        
         leftButton.addTarget(cntr, action: #selector(VideoSongsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        rightButton.addTarget(cntr, action: #selector(VideoSongsViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
         
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+        
+
+        
         
         
     }
@@ -1016,6 +1159,13 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+        
+
+        
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: 50, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
@@ -1026,9 +1176,29 @@ class Utilities: NSObject {
         //  leftButton.backgroundColor = UIColor.red
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         leftButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        rightButton.addTarget(cntr, action: #selector(AuthorDetailsViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
+        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+        
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+        
+
         
         
     }
@@ -1123,6 +1293,11 @@ class Utilities: NSObject {
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
+        let rightButtonImage: UIImage = UIImage(named: rightImage)!
+        let rightButton: UIButton = UIButton(type: .custom)
+        
+
+        
         leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {
@@ -1132,9 +1307,28 @@ class Utilities: NSObject {
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         leftButton.addTarget(cntr, action: #selector(AllEventsAndUpComingEventsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        
+        
+        rightButton.addTarget(cntr, action: #selector(AllEventsAndUpComingEventsViewController.homeButtonTapped(_:)), for: .touchUpInside)
+
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
+        let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+
+        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
+       
+        rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
+        rightButton.setTitle(backTitle, for: .normal)
+        
+        if backTitle.characters.count > 0 {
+            
+            rightButton.setImage(rightButtonImage, for: .normal)
+        }
+        
+        cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
+        
+
         
         
     }

@@ -56,7 +56,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
 //        Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(churchName1)", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
-        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
        // Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName, backTitle: "  \(authorName)", rightImage: appVersion, secondRightImage: " ", thirdRightImage: " ")
@@ -145,19 +145,40 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         self.navigationController?.popViewController(animated: true)
         
-        
-        
-        //   navigationItem.leftBarButtonItems = []
-        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-        //
-        //        UserDefaults.standard.set("1", forKey: "1")
-        //        UserDefaults.standard.synchronize()
-        //
-        //        self.navigationController?.popViewController(animated: true)
+
         print("Back Button Clicked......")
         
     }
     
 
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
+    
+    
+
+    
+    
 }

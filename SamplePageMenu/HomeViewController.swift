@@ -148,7 +148,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
    
         self.navigationController?.navigationBar.barTintColor = Utilities.appColor
         self.navigationItem.title = "Telugu Churches".localize()
-        self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+      //  self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
@@ -216,7 +216,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.bannerScrollHeight.constant = 300
         
         }
-        
+        self.cagegoriesArray.removeAll()
         self.getAllCategoriesAPICall()
         
         
@@ -333,9 +333,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
         
-        self.categorieTableView.reloadData()
+        self.eventImageArray.removeAll()
+        
         self.upcommingEventsAPICall()
         
+        self.categorieTableView.reloadData()
+
         
     }
     

@@ -197,7 +197,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
      //   self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         
@@ -614,6 +614,33 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         print("Back Button Clicked......")
         
+        
+    }
+    
+    
+    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
         
     }
     

@@ -68,6 +68,11 @@ let LIKEDISLIKECOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostById/")
 let ADDUPDATECOMMENTAPI : String = BASEURL.appending("api/Post/AddUpdateComments")
 
 let LIKEANDDISLIKECOUNTAPI : String = BASEURL.appending("api/Post/LikeOrDislikePost")
+
+let GETPOSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
+
+
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

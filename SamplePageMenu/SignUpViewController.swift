@@ -96,7 +96,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         //navigationItem.leftBarButtonItems = []
         
@@ -544,6 +544,38 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         print("Back Button Clicked......")
         
     }
+    
+    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+                
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+
+        
+        print("Home Button Clicked......")
+        
+    }
+
+    
+    
+    
+    
 
     @IBAction func submitButtonClicked(_ sender: Any) {
         

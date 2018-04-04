@@ -102,7 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print(showNav)
         
         self.navigationController?.navigationBar.isHidden = !showNav
-           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     }
     override func viewWillDisappear(_ animated: Bool) {
         

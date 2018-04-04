@@ -62,6 +62,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     var thumbnailImageURL = String()
+    
+    
+   
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +85,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         getEventDetailsByIdApiCall()
         getVideosAPICall()
+    //    GetPostbyEventIdAPI()
         
         
     }
@@ -95,7 +101,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewWillAppear(animated)
         
 
-        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -283,6 +289,53 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
     }
+    
+    
+//    func GetPostbyEventIdAPI() {
+//    
+//        
+//        
+//        let getpostbyeventIdApi = GETPOSTBYEVENTIDAPI + ""
+//        
+//        serviceController.getRequest(strURL: getpostbyeventIdApi, success: { (result) in
+//            
+//            print(result)
+//
+//            
+//            if result.count > 0{
+//                
+//
+//                
+//                }
+//                    
+//                    
+//                else{
+//                    
+//                    
+//                    
+//                }
+//                
+//          
+//                
+//                
+//            
+//            self.eventDetailsTableView.reloadData()
+//            
+//        }) { (failureMessege) in
+//            
+//            print(failureMessege)
+//            
+//        }
+//        
+//        
+//    }
+//    
+//    
+    
+
+        
+    
+    
     
 
     
@@ -528,6 +581,36 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
 
 
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
+    
+    
+    
+
+    
     
 }
 

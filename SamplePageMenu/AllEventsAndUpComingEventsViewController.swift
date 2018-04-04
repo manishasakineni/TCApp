@@ -44,7 +44,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
         super.viewWillAppear(true)
         
-        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
 
       
         
@@ -130,10 +130,6 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        //        UserDefaults.standard.removeObject(forKey: "1")
-        //        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        //        UserDefaults.standard.synchronize()
-        //
         
         UserDefaults.standard.removeObject(forKey: "1")
         
@@ -141,9 +137,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        //  self.navigationController?.popViewController(animated: true)
-        
-        
+
         
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
@@ -152,5 +146,32 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         print("Back Button Clicked......")
         
     }
+    
+    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
+
 
 }

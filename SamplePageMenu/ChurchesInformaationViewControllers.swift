@@ -43,7 +43,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
        
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
 
         // Do any additional setup after loading the view.
     }
@@ -160,10 +160,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-//        UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-//        UserDefaults.standard.synchronize()
-//        
+        
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
@@ -173,24 +170,41 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-      //  self.navigationController?.popViewController(animated: true)
         
 
         
-           let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+    let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         
-        //
-        //        UserDefaults.standard.set("1", forKey: "1")
-        //        UserDefaults.standard.synchronize()
-        //
-                self.navigationController?.popViewController(animated: true)
-        //
-        //
+        self.navigationController?.popViewController(animated: true)
         print("Back Button Clicked......")
         
     }
 
-    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
+
     
     
     
