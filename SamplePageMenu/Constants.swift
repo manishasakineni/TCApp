@@ -61,7 +61,7 @@ let BIBLEAPITELUGUURL : String = "https://raw.githubusercontent.com/godlytalias/
 let CHURCHAUTHORSUBSCIPTIONAPI : String = BASEURL.appending("api/Church/ChurchAuthorSubscription")
 
 
-let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/BibleChapter/GetBibleChapter/12"
+let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/BibleChapter/GetBibleChapter/"
 
 let LIKEDISLIKECOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostById/")
 

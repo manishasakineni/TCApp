@@ -19,12 +19,16 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     var indexCount:Int = 0
     
+    var index:Int = 0
+    
+    var eventNum:Int = 0
+    
     //    var bibleVerseArr = Array<String>()
     
     var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
     
     
-    //    var verseStringCount : Dictionary = Dictionary<String,Any>()
+    var verseStringDict : Dictionary = Dictionary<String,Any>()
     
     var verseStringCount = Array<BibleDetailsCellIResultVo>()
     
@@ -36,8 +40,19 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     var bibleChaptersArr:String = ""
     
+    @IBOutlet weak var chapterStr: UILabel!
+    
+    
+    @IBOutlet weak var bacwordBtn: UIButton!
+    
+    @IBOutlet weak var forwardBtn: UIButton!
+    
     
     @IBOutlet weak var BibleVerseTableView: UITableView!
+    
+    
+    @IBOutlet weak var homeIconOutLet: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +61,15 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         self.BibleVerseTableView.register(nibName, forCellReuseIdentifier: "BibleVerseTableViewCell")
         
+        eventNum = indexCount
+        
+        self.chapterStr.text = "\(nameStr) \(eventNum + 1)"
         
         BibleVerseTableView.delegate = self
         BibleVerseTableView.dataSource = self
+        
+        self.navigationController?.navigationBar.isHidden = true
+        
         
         // Do any additional setup after loading the view.
     }
@@ -64,7 +85,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         super.viewWillAppear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr) \(indexCount + 1)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+//        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr) \(indexCount + 1)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
     }
     
@@ -93,9 +114,6 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         return UITableViewAutomaticDimension
         
-        
-        
-        
     }
     
     
@@ -111,7 +129,21 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
         
         
-        cell.selectionStyle = .none
+        let colorView = UIView()
+        colorView.backgroundColor = Utilities.appColor
+        
+        // use UITableViewCell.appearance() to configure
+        // the default appearance of all UITableViewCells in your app
+//        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
+        cell.selectedBackgroundView = colorView
+        
+        cell.textLabel?.highlightedTextColor = UIColor.white
+        
+//        UITableViewCell.appearance().textLabel?.textColor = UIColor.white
+
+        
+//        cell.selectionStyle = .default
         
         
         
@@ -119,19 +151,9 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         return cell
     }
     
-    
-    
-    
-    
-    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-        
         
         UserDefaults.standard.removeObject(forKey: "1")
 //        UserDefaults.standard.removeObject(forKey: kuserIdKey)
@@ -154,6 +176,111 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         UserDefaults.standard.removeObject(forKey: "1")
         
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        print("Home Button Clicked......")
+        
+    }
+ 
+    @IBAction func backwardBtnAction(_ sender: UIButton) {
+        
+        if (eventNum >= 1) {
+            
+            eventNum = eventNum - 1
+            
+            let versesDict = verseStringDict["\(index)"] as? Dictionary<String,Any>
+            
+            let capter = versesDict?["\(eventNum)"] as? [BibleDetailsCellIResultVo]
+            
+            self.chapterStr.text = "\(nameStr) \(eventNum + 1)"
+            
+            if capter != nil {
+                
+                self.verseStringCount = capter!
+            }
+            
+        }
+        else {
+            
+            print("No Records Found")
+            
+            appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
+        }
+        
+       
+        
+        self.BibleVerseTableView.reloadData()
+        
+    }
+    
+    
+    @IBAction func forwardBtnAction(_ sender: UIButton) {
+        
+    
+         let versesDict = verseStringDict["\(index)"] as? Dictionary<String,Any>
+        
+        if (eventNum < (versesDict?.count)! - 1) {
+            
+            eventNum = eventNum + 1
+            
+            self.chapterStr.text = "\(nameStr) \(eventNum + 1)"
+            
+            let capter = versesDict?["\(eventNum)"] as? [BibleDetailsCellIResultVo]
+            
+            if capter != nil {
+                
+                self.verseStringCount = capter!
+            }
+            
+        }
+        else {
+            
+            print("No Records Found")
+            
+             appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
+        }
+        
+        
+        self.BibleVerseTableView.reloadData()
+        
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        //        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+        UserDefaults.standard.synchronize()
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        navigationItem.leftBarButtonItems = []
+        
+        print("Back Button Clicked......")
+
+        
+    }
+    
+    
+    @IBAction func homeIconAction(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
         
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
@@ -167,16 +294,9 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
         print("Home Button Clicked......")
         
     }
- 
-    
-    
-    
-    
+   
     
 }

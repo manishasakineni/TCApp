@@ -16,6 +16,8 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
     
     var catgoryName:String = ""
     
+    var LangStr:String = ""
+    
     var appVersion:String = ""
     var listUrl :String = ""
     
@@ -78,6 +80,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         super.viewWillAppear(animated)
         
+         self.navigationController?.navigationBar.isHidden = false
         
         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -131,7 +134,16 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         cell.chapterCountLabel.text = "\(verseCount!)"
         
-        cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row + 1)"
+        if LangStr == "11" {
+            
+           cell.bibleBookLabel.text = "Chapter \(indexPath.row + 1)"
+        }
+        else {
+            
+            cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row + 1)"
+        }
+        
+        
         
         
         return cell
@@ -250,6 +262,8 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         let capter = versesDict?["\(indexPath.row)"] as? [BibleDetailsCellIResultVo]
         
         verseViewController.verseStringCount = capter!
+        
+        verseViewController.verseStringDict = verseStringCount
         
         verseViewController.nameStr = nameStr
         

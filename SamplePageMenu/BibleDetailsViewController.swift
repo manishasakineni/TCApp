@@ -22,6 +22,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     
     var appVersion:String = ""
     
+    var LangStr:String = ""
+    
     
     var chapterCountStr:Int = 0
     var indexCount:Int = 0
@@ -123,7 +125,7 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     func getBibleDetailsAPICall(){
         
         
-        let bibleDetailsAPI = GETBIBLEAPITELUGUURL
+        let bibleDetailsAPI = GETBIBLEAPITELUGUURL + LangText
         
         
         serviceController.getRequest(strURL: bibleDetailsAPI, success: { (result) in
@@ -172,6 +174,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         chapterViewController.listUrl = booksList.url!
         
         chapterViewController.nameStr = booksList.name!
+        
+        chapterViewController.LangStr = LangText
         
         
         

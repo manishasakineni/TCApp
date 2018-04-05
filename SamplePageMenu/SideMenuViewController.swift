@@ -409,7 +409,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             booksController.showNav = true
             
-            booksController.LangText = "Telugu"
+            booksController.LangText = "12"
             
             let newController = UINavigationController.init(rootViewController:booksController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
@@ -418,16 +418,26 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         else  if cell.menuNameLabel.text == "Holy Bible - English".localize() {
             
-            
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleBooksViewController") as! BibleBooksViewController
+            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleDetailsViewController") as! BibleDetailsViewController
             
             booksController.showNav = true
             
-            booksController.LangText = "English"
+            booksController.LangText = "11"
             
             let newController = UINavigationController.init(rootViewController:booksController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+//            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleBooksViewController") as! BibleBooksViewController
+//            
+//            booksController.showNav = true
+//            
+//            booksController.LangText = "11"
+//            
+//            let newController = UINavigationController.init(rootViewController:booksController)
+//            revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
         }
