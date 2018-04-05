@@ -637,9 +637,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
+
         print("Home Button Clicked......")
         
     }

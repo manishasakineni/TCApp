@@ -77,7 +77,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
             super.viewWillAppear(animated)
     
     
-           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
     
         }
     
@@ -411,5 +411,32 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         appDelegate.window?.rootViewController = rootController
         
     }
+    
+    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
+
     
 }

@@ -19,11 +19,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var menuArray = [String]()
     let utillites =  Utilities()
 
-    
+    var userID = String()
     
     @IBOutlet weak var headerView: UIView!
 
-    var userID = ""
+    
     
     let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","login_menu"]
     
@@ -56,10 +56,18 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         chooseLanguageBtn.layer.borderColor = Utilities.bordrColor
         
+        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
+            
+            self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
+            
+        }
+        
+        kUserDefaults.synchronize()
         
         
+        print(kUserId)
         
-        
+        print(kId)
         
         
     }
@@ -71,10 +79,10 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
 
-        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
-            
-            self.userID = useid
-        }
+//        if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
+//            
+//            self.userID = useid
+//        }
       //  menuTableView.reloadData()
 
     }
@@ -132,7 +140,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        if kId == 0{
+        if  (self.userID.isEmpty) {
         
             if indexPath.row == 0 || indexPath.row == 1 {
                 
@@ -155,7 +163,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
        
-        if kId == 0 {
+        if (self.userID.isEmpty) {
             
             if indexPath.row == 0 || indexPath.row == 1 {
                 
@@ -183,7 +191,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         cell1.selectionStyle = .none
         
-        if kId == 0 {
+        if (self.userID.isEmpty) {
             
             if indexPath.row == 0 || indexPath.row == 1 {
                 
@@ -199,12 +207,17 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         
         if(indexPath.row == menuArray.count - 1){
+            
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
             
               if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
                   cell1.menuNameLabel.text! = "LogOut".localize()
+                
+               
+                
               }else{
                   cell1.menuNameLabel.text! = "Login".localize()
+                
             }
           
         }else{
@@ -298,10 +311,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }else{
                 
                 let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
-                // reOrderPopOverVC.delegate = self
-                
-                //    reOrderPopOverVC. singleSelection =
-                //   var imagesArray : Array<UIImage> = Array()
+
                 
                 
                 revealviewcontroller.addChildViewController(reOrderPopOverVC)
@@ -313,7 +323,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.revealViewController().revealToggle(animated: true)
                 
             }
-            }else{
+                
+            }
+            
+            else  {
+                
                 utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     
                     UserDefaults.standard.set("1", forKey: "1")
@@ -346,7 +360,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
-            // }
+            
         }
         else  if cell.menuNameLabel.text == "All Churches".localize() {
             
@@ -358,15 +372,16 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
             
-            // }
-        }
-        else  if cell.menuNameLabel.text == "Events".localize() {
-            
            
+        }
             
+        else  if cell.menuNameLabel.text == "Events".localize() {
+
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as!AllEventsAndUpComingEventsViewController
-                  desController.showNav = true
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
+            
+                desController.showNav = true
+            
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
