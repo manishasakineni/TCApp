@@ -71,6 +71,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         getUpComingEventInfoAPI()
 
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -89,6 +90,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         return UITableViewAutomaticDimension
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
        
@@ -101,6 +103,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let listStr:GetUpComingEventInfoResultVo = upComingEventinfoArray[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCell
         
         
@@ -173,6 +176,26 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
 
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let listStr:GetUpComingEventInfoResultVo = upComingEventinfoArray[indexPath.row]
+        
+        
+        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+        
+        eventDetailsViewController.eventID = listStr.id!
+        eventDetailsViewController.eventChurchName = listStr.churchName!
+        eventDetailsViewController.eventName = listStr.title!
+        
+        eventDetailsViewController.catgoryID = listStr.churchId!
+        eventDetailsViewController.navigationStr = "navigationStr"
+        
+        self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+        
+        
+        
+    }
+    
     func getUpComingEventInfoAPI(){
         
         let date =  (Calendar.current as NSCalendar).date(byAdding: .day, value: 7, to: Date(), options: [])
@@ -201,29 +224,39 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         print("fromYearString And toYearString",fromYearString,toYearString)
         
         if(appDelegate.checkInternetConnectivity()){
+            
         let strUrl = GETUPCOMIMGEVENTSINFO
             
             print(strUrl)
-            let dictParams = [
+            
+            let parameters = [
                 "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
                 "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
                 ] as [String : Any]
+//            
+//            let parameters = [
+//                "fromDate": "2018-03-09T16:23:17.9129341+05:30",
+//                "toDate": "2018-03-09T16:23:17.9129341+05:30"
+//                ] as [String : Any]
             
-            print("dic params \(dictParams)")
+            print("dic params \(parameters)")
+            
             let dictHeaders = ["":"","":""] as NSDictionary
             
             print("dictHeader:\(dictHeaders)")
             
             
-            
-            
-            
-            
-            serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+  
+            serviceController.postRequest(strURL: strUrl as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                 DispatchQueue.main.async()
                     {
-                          let respVO:GetUpComingEventInfo = Mapper().map(JSONObject: result)!
+                        
+                        print(result)
+                        
+                        let respVO:GetUpComingEventInfo = Mapper().map(JSONObject: result)!
+                        
                         let isSuccess = respVO.isSuccess
+                        
                         print("StatusCode:\(String(describing: isSuccess))")
                         
                         if isSuccess == true {

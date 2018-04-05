@@ -445,22 +445,23 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         
-        //        let paramsDict = [
-        //            "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
-        //            "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
-        //            ] as [String : Any]
+                let parameters = [
+                    "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
+                    "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
+                    ] as [String : Any]
         
         
-        let paramsDict = [
-            "fromDate": "2018-03-09T16:23:17.9129341+05:30",
-            "toDate": "2018-03-09T16:23:17.9129341+05:30"
-            ] as [String : Any]
+//        let parameters = [
+//            "fromDate": "2018-03-09T16:23:17.9129341+05:30",
+//            "toDate": "2018-03-09T16:23:17.9129341+05:30"
+//            ] as [String : Any]
         
-        print("dic params \(paramsDict)")
+        print("dic params \(parameters)")
+        
         let dictHeaders = ["":"","":""] as NSDictionary
         
         
-        serviceController.postRequest(strURL: UPCOMMINGEVENTS as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: UPCOMMINGEVENTS as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             
             let respVO:UpcomingEventsInfoVO = Mapper().map(JSONObject: result)!

@@ -89,8 +89,8 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     //  var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
     
     var kID: String = ""
-    var postIdString : Int = 0
-    var videoIdString : Int = 0
+    var postID : Int = 0
+    var videoId : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +113,12 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         
         self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
 
+        }
+        
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
         }
         
         kUserDefaults.synchronize()
@@ -153,9 +159,9 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         }
         
         
-        if let uID = UserDefaults.standard.value(forKey: "userID") as? Int  {
+        if let vID = UserDefaults.standard.value(forKey: "videoID") as? Int  {
             
-            self.ID = uID
+            self.videoId = vID
         }
         
         if let videoEmbededID = UserDefaults.standard.value(forKey: "videoEmbededIDStr") as? String  {
@@ -788,14 +794,14 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     print(self.commentString)
     
-        commentSendBtnAPIService(textComment: self.commentString)
+        
         
    // self.usersCommentsArray.append(self.commentString)
         
     if !(self.userID.isEmpty) {
         
-    self.usersCommentsArray.insert(self.commentString, at: 0)
-        
+    commentSendBtnAPIService(textComment: self.commentString)
+    
         }
         
     else {
@@ -813,8 +819,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
 //        UserDefaults.standard.synchronize()
         
         
-    self.commentString = "Add a public comment..."
-    self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+    
    
     
         
@@ -833,10 +838,10 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         let dictParams = [
             "id": 0,
-            "postId": self.postIdString,
+            "postId": self.postID,
             "description": textComment,
             "parentCommentId": 0,
-            "userId" : self.videoIdString
+            "userId" : self.ID
              ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -866,7 +871,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         let successMsg = respVO.endUserMessage
                         
-                        
+                        self.usersCommentsArray.insert(self.commentString, at: 0)
+                        self.commentString = "Add a public comment..."
+                        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
                         
                         
                         
@@ -893,7 +900,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                     }
                     
-                    self.allOffersTableView.reloadData()
+                   // self.allOffersTableView.reloadData()
 
                     
             }
@@ -1003,8 +1010,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         let  LIKEANDDISLIKECOUNTAPISTR = LIKEANDDISLIKECOUNTAPI
         
-        let params = [ "postId": self.postIdString,
-                       "userId": self.videoIdString,
+        let params = [ "postId": self.postID,
+                       "userId": self.ID,
                        "like1": likeClick,
                        "disLike": disLikeClick   ] as [String : Any]
         
@@ -1048,7 +1055,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
 
         
-        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.ID) + "/" + String(self.categoryId)
+        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         
@@ -1083,8 +1090,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
               
                         self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
                         self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
-                        self.postIdString  = (respVO.result?.postDetails![0].id)!
-                        self.videoIdString = (respVO.result?.postDetails![0].id)!
+                        self.postID  = (respVO.result?.postDetails![0].id)!
+                       // self.videoId = (respVO.result?.postDetails![0].id)!
 
                         self.allOffersTableView.reloadData()
                         

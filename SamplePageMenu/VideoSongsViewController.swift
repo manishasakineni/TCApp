@@ -94,6 +94,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     var userID = String()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
@@ -1014,7 +1015,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
             let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
-            let userID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
+            let videoID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
 
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             
@@ -1042,14 +1043,14 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                                 let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
                                    
-                                    videosView.videoEmbededIDStr = self.audioIDArray[1]
+                                //    videosView.videoEmbededIDStr = self.audioIDArray[1]
                                     videosView.videoNameStr = title!
-                                    videosView.categoryId = categoryId!
-                                    videosView.ID = userID!
+                               //     videosView.categoryId = categoryId!
+                                  //  videosView.ID = videoID!
                                     
                                     
                                     kUserDefaults.set(categoryId!, forKey: "categoryId")
-                                    kUserDefaults.set(userID!, forKey: "userID")
+                                    kUserDefaults.set(videoID!, forKey: "videoID")
                                     kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
                                     kUserDefaults.synchronize()
 

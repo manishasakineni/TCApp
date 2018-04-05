@@ -19,7 +19,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var isSavingPDF     : Bool                  = false
     var pdfTitle        : String                = ""
     var isDownloadingOnProgress : Bool  = false
-    
+    var navigationStr = String()
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
   //  EventDetailsListResultVO
     
@@ -163,9 +163,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func getVideosAPICall(){
         
-        //        let videoSongsID : Int = 8
+      
         
-        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)"
+        let urlStr = GETPOSTBYEVENTIDAPI + String(eventID)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
         serviceController.getRequest(strURL: urlStr, success: { (result) in
@@ -174,6 +174,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 {
                     
                     print(result)
+                    
+                    if result.count > 0 {
+                        
                     
                     let respVO:GetCategoriesResultVo = Mapper().map(JSONObject: result)!
                     
@@ -186,6 +189,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         self.allCagegoryListArray = respVO.result
                         
+                        if respVO.result != nil{
+                            
                         
                         let videoList = self.allCagegoryListArray?.videos
                         
@@ -266,7 +271,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.isResponseFromServer = true
                         self.eventDetailsTableView.reloadData()
                         // print(self.authorDetailsArray)
-                        
+                        }
                     }
                         
                     else{
@@ -278,8 +283,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     //  }
             }
             
-            
-            
+        }
+        
         }) { (failureMessage) in
             
             
@@ -570,9 +575,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        appDelegate.window?.rootViewController = rootController
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
         
         
@@ -924,9 +929,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-            
+            let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+            let userID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
             
             if let embededUrlImage =  imgUrl {
                 
@@ -955,6 +962,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                                 videosView.videoEmbededIDStr = self.audioIDArray[1]
                                 videosView.videoNameStr = title!
                                 
+                              //  kUserDefaults.set(categoryId!, forKey: "categoryId")
+                                
+                                kUserDefaults.set(categoryId, forKey: "categoryId")
+                                kUserDefaults.set(userID, forKey: "userID")
+                                kUserDefaults.synchronize()
                                 self.navigationController?.pushViewController(videosView, animated: true)
                         }
                         
