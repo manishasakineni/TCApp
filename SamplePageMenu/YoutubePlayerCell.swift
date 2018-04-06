@@ -1,5 +1,5 @@
 //
-//  AllOffersCell.swift
+//  YoutubePlayerCell.swift
 //  OffersScreen
 //
 //  Created by Mac OS on 21/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllOffersCell: UITableViewCell {
+class YoutubePlayerCell: UITableViewCell {
 
     @IBOutlet weak var backGroundView: UIView!
     
