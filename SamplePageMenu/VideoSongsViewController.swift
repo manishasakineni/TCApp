@@ -620,7 +620,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         cell.nameLabel.text = title
         
 
-        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG") || (fileExtension == ".PNG") || (fileExtension == ".JPEG"){
             
             let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
@@ -895,7 +895,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
          let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         
-        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
+        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG") || (fileExtension == ".PNG") || (fileExtension == ".JPEG"){
             
            print("images")
             

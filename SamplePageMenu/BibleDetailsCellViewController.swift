@@ -126,13 +126,15 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleBooksTableViewCell", for: indexPath) as! BibleBooksTableViewCell
         
         
-        let booksList:BibleDetailsCellVO = bibleChaptersArr[indexPath.row]
+//        let booksList:BibleDetailsCellVO = bibleChaptersArr[indexPath.row]
         
         cell.accessoryType = .disclosureIndicator
         
-        let verseCount = booksList.Verse?.count
+//        let verseCount = booksList.Verse?.count
+//        
+//        cell.chapterCountLabel.text = "\(verseCount!)"
         
-        cell.chapterCountLabel.text = "\(verseCount!)"
+        cell.chapterCountLabel.text = ""
         
         if LangStr == "11" {
             

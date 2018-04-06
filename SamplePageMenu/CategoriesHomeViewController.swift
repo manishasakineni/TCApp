@@ -139,7 +139,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func getAllCategoriesAPICall(){
         
-        let paramsDict = ["pageIndex": PageIndex,
+        let paramsDict = ["active": 1,
+                          "pageIndex": PageIndex,
                           "pageSize": 30,
                           "sortbyColumnName": "UpdatedDate",
                           "sortDirection": "desc",
@@ -209,7 +210,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     func getAllSearchCategoriesAPICall(string:String){
         
-        let paramsDict = ["pageIndex": PageIndex,
+        let paramsDict = ["active": 1,
+                          "pageIndex": PageIndex,
                           "pageSize": 50,
                           "sortbyColumnName": "UpdatedDate",
                           "sortDirection": "desc",

@@ -122,7 +122,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         self.bannerImageScrollAPICall()
         
-        self.getAllCategoriesAPICall()
+//        self.getAllCategoriesAPICall()
         
         
 //        searchBar = UISearchBar()
@@ -346,8 +346,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func getAllCategoriesAPICall(){
         
-        let paramsDict = ["pageIndex": PageIndex,
-                            "pageSize": 15,
+        let paramsDict = [  "active": 1,
+                            "pageIndex": PageIndex,
+                            "pageSize": 30,
                             "sortbyColumnName": "UpdatedDate",
                             "sortDirection": "desc",
                             "searchName": ""
