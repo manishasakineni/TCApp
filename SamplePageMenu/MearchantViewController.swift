@@ -39,8 +39,8 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
     
     private func registerTableViewCells() {
         
-        let nibName1  = UINib(nibName: "AllOffersCell" , bundle: nil)
-        mearchantTableView.register(nibName1, forCellReuseIdentifier: "AllOffersCell")
+        let nibName1  = UINib(nibName: "YoutubePlayerCell" , bundle: nil)
+        mearchantTableView.register(nibName1, forCellReuseIdentifier: "YoutubePlayerCell")
         
         
     }
@@ -71,17 +71,17 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "AllOffersCell", for: indexPath) as! AllOffersCell
+        let youtubePlayerCell = tableView.dequeueReusableCell(withIdentifier: "YoutubePlayerCell", for: indexPath) as! YoutubePlayerCell
         
         
-        allOffersCell.allOffersImageView.image = UIImage(named: String(imageView[indexPath.row]))
+        youtubePlayerCell.allOffersImageView.image = UIImage(named: String(imageView[indexPath.row]))
         
         
-        allOffersCell.allOffersImg.image = UIImage(named: String(imageView1[indexPath.row]))
+        youtubePlayerCell.allOffersImg.image = UIImage(named: String(imageView1[indexPath.row]))
         
 
         
-        return allOffersCell
+        return youtubePlayerCell
         
     }
     

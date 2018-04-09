@@ -957,17 +957,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         DispatchQueue.main.async()
                             {
                                 
-                                let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                 
-                                videosView.videoEmbededIDStr = self.audioIDArray[1]
-                                videosView.videoNameStr = title!
+                                videosVC.videoEmbededIDStr = self.audioIDArray[1]
+                                videosVC.videoNameStr = title!
                                 
                               //  kUserDefaults.set(categoryId!, forKey: "categoryId")
                                 
                                 kUserDefaults.set(categoryId, forKey: "categoryId")
                                 kUserDefaults.set(userID, forKey: "userID")
                                 kUserDefaults.synchronize()
-                                self.navigationController?.pushViewController(videosView, animated: true)
+                                self.navigationController?.pushViewController(videosVC, animated: true)
                         }
                         
                     })

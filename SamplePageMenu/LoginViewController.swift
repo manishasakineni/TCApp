@@ -366,10 +366,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         if self.navigationString == "navigationString" {
                                 
         
-                            let allOffersVC : AllOffersViewController? =
-                              AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                            let videosVC : YoutubePlayerViewController? =
+                              YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                     
-                              self.navigationController?.pushViewController(allOffersVC!, animated: true)
+                              self.navigationController?.pushViewController(videosVC!, animated: true)
                                     
                                 
                                 }

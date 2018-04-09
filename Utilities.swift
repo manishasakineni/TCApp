@@ -532,10 +532,10 @@ class Utilities: NSObject {
             leftButton.setTitle(backTitle, for: .normal)
         }
         leftButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
-        leftButton.addTarget(cntr, action: #selector(AllOffersViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
+        leftButton.addTarget(cntr, action: #selector(YoutubePlayerViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
         
         
-        rightButton.addTarget(cntr, action: #selector(AllOffersViewController.homeButtonTapped(_:)), for: .touchUpInside)
+        rightButton.addTarget(cntr, action: #selector(YoutubePlayerViewController.homeButtonTapped(_:)), for: .touchUpInside)
         
         
 

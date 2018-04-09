@@ -97,8 +97,8 @@
 		9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26061FFF795200316988 /* SWRevealViewController.m */; };
 		9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26081FFF7D2500316988 /* HomeViewController.swift */; };
 		9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */; };
-		9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D260C1FFF89B700316988 /* AllOffersViewController.swift */; };
-		9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D260D1FFF89B700316988 /* AllOffersViewController.xib */; };
+		9A5D260E1FFF89B700316988 /* YoutubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D260C1FFF89B700316988 /* YoutubePlayerViewController.swift */; };
+		9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D260D1FFF89B700316988 /* YoutubePlayerViewController.xib */; };
 		9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26101FFF89C300316988 /* RechargesViewController.swift */; };
 		9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26111FFF89C300316988 /* RechargesViewController.xib */; };
 		9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26141FFF89D100316988 /* DetAndBillsViewController.swift */; };
@@ -117,8 +117,8 @@
 		9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D262D1FFF8A3700316988 /* AddMoneyCell.xib */; };
 		9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26301FFF8A3F00316988 /* SendMoneyToWalletCell.swift */; };
 		9A5D26331FFF8A3F00316988 /* SendMoneyToWalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26311FFF8A3F00316988 /* SendMoneyToWalletCell.xib */; };
-		9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26341FFF8A4900316988 /* AllOffersCell.swift */; };
-		9A5D26371FFF8A4900316988 /* AllOffersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26351FFF8A4900316988 /* AllOffersCell.xib */; };
+		9A5D26361FFF8A4900316988 /* YoutubePlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26341FFF8A4900316988 /* YoutubePlayerCell.swift */; };
+		9A5D26371FFF8A4900316988 /* YoutubePlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26351FFF8A4900316988 /* YoutubePlayerCell.xib */; };
 		9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D26381FFF8A5100316988 /* PageControllCell.swift */; };
 		9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26391FFF8A5100316988 /* PageControllCell.xib */; };
 		9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */; };
@@ -383,8 +383,8 @@
 		9A5D26061FFF795200316988 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9A5D26081FFF7D2500316988 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
-		9A5D260C1FFF89B700316988 /* AllOffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllOffersViewController.swift; sourceTree = "<group>"; };
-		9A5D260D1FFF89B700316988 /* AllOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllOffersViewController.xib; sourceTree = "<group>"; };
+		9A5D260C1FFF89B700316988 /* YoutubePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerViewController.swift; sourceTree = "<group>"; };
+		9A5D260D1FFF89B700316988 /* YoutubePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubePlayerViewController.xib; sourceTree = "<group>"; };
 		9A5D26101FFF89C300316988 /* RechargesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RechargesViewController.swift; sourceTree = "<group>"; };
 		9A5D26111FFF89C300316988 /* RechargesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargesViewController.xib; sourceTree = "<group>"; };
 		9A5D26141FFF89D100316988 /* DetAndBillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetAndBillsViewController.swift; sourceTree = "<group>"; };
@@ -403,8 +403,8 @@
 		9A5D262D1FFF8A3700316988 /* AddMoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMoneyCell.xib; sourceTree = "<group>"; };
 		9A5D26301FFF8A3F00316988 /* SendMoneyToWalletCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoneyToWalletCell.swift; sourceTree = "<group>"; };
 		9A5D26311FFF8A3F00316988 /* SendMoneyToWalletCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendMoneyToWalletCell.xib; sourceTree = "<group>"; };
-		9A5D26341FFF8A4900316988 /* AllOffersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllOffersCell.swift; sourceTree = "<group>"; };
-		9A5D26351FFF8A4900316988 /* AllOffersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllOffersCell.xib; sourceTree = "<group>"; };
+		9A5D26341FFF8A4900316988 /* YoutubePlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerCell.swift; sourceTree = "<group>"; };
+		9A5D26351FFF8A4900316988 /* YoutubePlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubePlayerCell.xib; sourceTree = "<group>"; };
 		9A5D26381FFF8A5100316988 /* PageControllCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControllCell.swift; sourceTree = "<group>"; };
 		9A5D26391FFF8A5100316988 /* PageControllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControllCell.xib; sourceTree = "<group>"; };
 		9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollImagesCell.swift; sourceTree = "<group>"; };
@@ -1003,8 +1003,8 @@
 		9A5D26411FFF960000316988 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A5D260C1FFF89B700316988 /* AllOffersViewController.swift */,
-				9A5D260D1FFF89B700316988 /* AllOffersViewController.xib */,
+				9A5D260C1FFF89B700316988 /* YoutubePlayerViewController.swift */,
+				9A5D260D1FFF89B700316988 /* YoutubePlayerViewController.xib */,
 				9A5D26101FFF89C300316988 /* RechargesViewController.swift */,
 				9A5D26111FFF89C300316988 /* RechargesViewController.xib */,
 				9A5D26141FFF89D100316988 /* DetAndBillsViewController.swift */,
@@ -1058,8 +1058,8 @@
 				9A5D26311FFF8A3F00316988 /* SendMoneyToWalletCell.xib */,
 				9A5D26381FFF8A5100316988 /* PageControllCell.swift */,
 				9A5D26391FFF8A5100316988 /* PageControllCell.xib */,
-				9A5D26341FFF8A4900316988 /* AllOffersCell.swift */,
-				9A5D26351FFF8A4900316988 /* AllOffersCell.xib */,
+				9A5D26341FFF8A4900316988 /* YoutubePlayerCell.swift */,
+				9A5D26351FFF8A4900316988 /* YoutubePlayerCell.xib */,
 				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
 				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
 				AF10601B204EAA8100711938 /* GenderTableViewCell.swift */,
@@ -1674,7 +1674,7 @@
 				3D65D4B9200505F000CAB226 /* Loading.gif in Resources */,
 				CB4B20FB2047D2F000402E59 /* CategorieHomeCell.xib in Resources */,
 				CB4B2101204834CD00402E59 /* InfoHeaderCell.xib in Resources */,
-				9A5D26371FFF8A4900316988 /* AllOffersCell.xib in Resources */,
+				9A5D26371FFF8A4900316988 /* YoutubePlayerCell.xib in Resources */,
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
@@ -1719,7 +1719,7 @@
 				3D41C7F92063B9860086BEE7 /* youtubeCLDSSCell.xib in Resources */,
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				CB035971205FBC15008FD878 /* AdminMonthEventListCell.xib in Resources */,
-				9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */,
+				9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
@@ -1968,7 +1968,7 @@
 				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */,
-				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
+				9A5D26361FFF8A4900316988 /* YoutubePlayerCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,
 				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
@@ -1980,7 +1980,7 @@
 				CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
-				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
+				9A5D260E1FFF89B700316988 /* YoutubePlayerViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				AF2EB526206DFAC2009B3B75 /* BibleDetailsResultVO.swift in Sources */,
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,

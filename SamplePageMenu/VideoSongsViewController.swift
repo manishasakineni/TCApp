@@ -1041,10 +1041,10 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                 DispatchQueue.main.async()
                                 {
             
-                                let  videosView = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+                                let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                    
                                 //    videosView.videoEmbededIDStr = self.audioIDArray[1]
-                                    videosView.videoNameStr = title!
+                                    videosVC.videoNameStr = title!
                                //     videosView.categoryId = categoryId!
                                   //  videosView.ID = videoID!
                                     
@@ -1054,7 +1054,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                     kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
                                     kUserDefaults.synchronize()
 
-                                   self.navigationController?.pushViewController(videosView, animated: true)
+                                   self.navigationController?.pushViewController(videosVC, animated: true)
                                     }
                                     
                                 })

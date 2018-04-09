@@ -1,5 +1,5 @@
 //
-//  AllOffersViewController.swift
+//  YoutubePlayerViewController.swift
 //  OffersScreen
 //
 //  Created by Mac OS on 21/12/17.
@@ -11,7 +11,7 @@ import youtube_ios_player_helper
 import IQKeyboardManagerSwift
 
 
-class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate,UITextViewDelegate{
+class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate,UITextViewDelegate{
 
     var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
@@ -86,7 +86,6 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
-    //  var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
     
     var kID: String = ""
     var postID : Int = 0
@@ -281,8 +280,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     private func registerTableViewCells() {
-        
- 
+
         
         let nibName1  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
         allOffersTableView.register(nibName1, forCellReuseIdentifier: "youtubeCLDSSCell")
@@ -806,31 +804,21 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     else {
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
             
             
             
         })
         
         }
-//       UserDefaults.standard.setValue(self.usersCommentsArray, forKey: "usersCommentsArray")
-//        
-//        
-//        UserDefaults.standard.synchronize()
-        
-        
-    
-   
-    
+
         
     }
     
     // MARK :- CommentAPIService
     
     func commentSendBtnAPIService(textComment : String){
-        
-        
-//     self.usersCommentsArray.removeAll()
+
 
         
         let  strUrl = ADDUPDATECOMMENTAPI
@@ -1089,7 +1077,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         }
               
                         self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
-                        self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
+                        self.disLikesCount = (respVO.result?.postDetails![0].dislikeCount)!
                         self.postID  = (respVO.result?.postDetails![0].id)!
                        // self.videoId = (respVO.result?.postDetails![0].id)!
 

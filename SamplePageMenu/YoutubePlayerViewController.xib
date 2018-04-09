@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllOffersViewController" customModule="Telugu_Churches" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YoutubePlayerViewController" customModule="Telugu_Churches" customModuleProvider="target">
             <connections>
                 <outlet property="allOffersTableView" destination="INi-9g-vjk" id="03e-o1-XQY"/>
                 <outlet property="player" destination="Arp-zL-y3Y" id="58W-mv-1aW"/>
