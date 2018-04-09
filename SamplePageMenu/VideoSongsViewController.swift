@@ -15,6 +15,9 @@ import UIKit
 class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIDocumentInteractionControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
+    
+    
     @IBOutlet weak var infoImage: UIImageView!
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
 
@@ -96,6 +99,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.norecordsfoundLbl.isHidden = true
+
         
         if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
             
@@ -206,7 +212,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                     
                     if isSuccess == true {
                         
-                        
+                        self.norecordsfoundLbl.isHidden = true
+
                         self.allCagegoryListArray = respVO.result
                         
                         
@@ -295,6 +302,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
 //                        let videoList = self.allCagegoryListArray?.audios
                         self.isResponseFromServer = true
                         self.hometableView.reloadData()
+                        
+                        self.norecordsfoundLbl.isHidden = false
+
                         // print(self.authorDetailsArray)
                         
                     }

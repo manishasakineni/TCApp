@@ -10,6 +10,7 @@ import UIKit
 
 class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var norecordsFoundLbl: UILabel!
     var showNav = false
     
     var LangText:String = ""
@@ -41,6 +42,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.norecordsFoundLbl.isHidden = true
+
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
         self.bibleDetailsTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
@@ -135,6 +139,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
                 
                 print(result)
                 
+                self.norecordsFoundLbl.isHidden = true
+
+                
                 let respVO:BibleDetailsInfoVO = Mapper().map(JSONObject: result)!
                 
                 
@@ -145,6 +152,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
                     self.bibleChaptersArr = respVO.listResult!
                     
                 }
+                self.norecordsFoundLbl.isHidden = false
+
                 
                 self.bibleDetailsTableView.reloadData()
             }

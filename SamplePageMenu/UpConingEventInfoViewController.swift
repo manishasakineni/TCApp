@@ -18,6 +18,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
      var delegate: eventinfoSubtitleOfIndexDelegate?
     
+    @IBOutlet weak var norecordsfoundLbl: UITableView!
     
     
     var appVersion          : String = ""
@@ -37,6 +38,9 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.norecordsfoundLbl.isHidden = true
+
         
         upComingTableView.rowHeight = UITableViewAutomaticDimension
         upComingTableView.estimatedRowHeight = 44
@@ -257,6 +261,9 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                         
                         let isSuccess = respVO.isSuccess
                         
+                        self.norecordsfoundLbl.isHidden = true
+
+                        
                         print("StatusCode:\(String(describing: isSuccess))")
                         
                         if isSuccess == true {
@@ -276,6 +283,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                             self.upComingTableView.reloadData()
                             print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
                            
+                            self.norecordsfoundLbl.isHidden = false
 
                          //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                             

@@ -11,8 +11,10 @@ import UIKit
 class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
+    
     @IBOutlet weak var bibleDetailsCellTableView: UITableView!
     
+    @IBOutlet weak var noRecordsFoundLbl: UILabel!
     
     var catgoryName:String = ""
     
@@ -52,6 +54,9 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.noRecordsFoundLbl.isHidden = true
+
         
         print("verseCountStr:\(verseCountStr)")
         
@@ -169,6 +174,8 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
             if result.count > 0 {
                 
                 print(result)
+                self.noRecordsFoundLbl.isHidden = true
+
                 
                 let respVO:BibleDetailsCellInfoVo = Mapper().map(JSONObject: result)!
                 
@@ -230,6 +237,9 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                 //
                 //
                 //                }
+                
+                self.noRecordsFoundLbl.isHidden = false
+
                 
                 self.bibleDetailsCellTableView.reloadData()
             }

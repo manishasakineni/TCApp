@@ -11,6 +11,7 @@ import UIKit
 class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
     var catgoryName:String = ""
     
     var appVersion:String = ""
@@ -56,6 +57,9 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.norecordsfoundLbl.isHidden = false
+
         
         let nibName  = UINib(nibName: "BibleVerseTableViewCell" , bundle: nil)
         

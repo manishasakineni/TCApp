@@ -16,6 +16,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     @IBOutlet weak var infoChurchTableView: UITableView!
     
+    
+    @IBOutlet weak var noRecordsFoundLbl: UILabel!
     var delegate: churchChangeSubtitleOfIndexDelegate?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

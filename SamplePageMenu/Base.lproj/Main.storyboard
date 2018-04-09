@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -720,24 +720,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVY-AZ-5Uf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVY-AZ-5Uf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="d58-74-bX1" id="FN4-Mx-I1i"/>
                                     <outlet property="delegate" destination="d58-74-bX1" id="syy-HR-QRW"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-Sn-TWM">
+                                <rect key="frame" x="0.0" y="317" width="375" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="aAQ-S9-1cd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cfa-q3-gx3" firstAttribute="top" secondItem="nVY-AZ-5Uf" secondAttribute="bottom" id="0Ai-Fy-fcZ"/>
+                            <constraint firstItem="NdQ-Sn-TWM" firstAttribute="centerY" secondItem="SFZ-nx-lRD" secondAttribute="centerY" id="ESu-WF-xyn"/>
                             <constraint firstItem="nVY-AZ-5Uf" firstAttribute="top" secondItem="SFZ-nx-lRD" secondAttribute="top" id="EXI-gi-oCw"/>
+                            <constraint firstAttribute="trailing" secondItem="NdQ-Sn-TWM" secondAttribute="trailing" id="GJS-8A-Age"/>
+                            <constraint firstItem="NdQ-Sn-TWM" firstAttribute="centerX" secondItem="SFZ-nx-lRD" secondAttribute="centerX" id="OOB-fu-DZW"/>
+                            <constraint firstItem="NdQ-Sn-TWM" firstAttribute="leading" secondItem="SFZ-nx-lRD" secondAttribute="leading" id="afO-Kc-hSM"/>
                             <constraint firstAttribute="trailing" secondItem="nVY-AZ-5Uf" secondAttribute="trailing" id="wZm-Ni-ucw"/>
                             <constraint firstItem="nVY-AZ-5Uf" firstAttribute="leading" secondItem="SFZ-nx-lRD" secondAttribute="leading" id="wjS-vE-A5p"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="norecordsfoundLbl" destination="NdQ-Sn-TWM" id="NsQ-Er-dud"/>
                         <outlet property="upComingTableView" destination="nVY-AZ-5Uf" id="8Pw-n1-H9n"/>
                     </connections>
                 </viewController>
@@ -852,29 +869,46 @@
                                     <constraint firstItem="FK3-XZ-cux" firstAttribute="top" secondItem="8b5-n6-bf8" secondAttribute="top" id="p8I-qg-vzM"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uco-YI-D7w">
-                                <rect key="frame" x="0.0" y="163" width="375" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uco-YI-D7w">
+                                <rect key="frame" x="0.0" y="319" width="375" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ruE-iY-jZk" id="bf1-Xd-76w"/>
                                     <outlet property="delegate" destination="ruE-iY-jZk" id="Zsm-R1-fGC"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEC-fi-2xP">
+                                <rect key="frame" x="0.0" y="317" width="375" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="yvK-UF-RqS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8b5-n6-bf8" firstAttribute="top" secondItem="VF2-mI-h0U" secondAttribute="top" id="3HT-sT-Typ"/>
                             <constraint firstItem="uco-YI-D7w" firstAttribute="top" secondItem="8b5-n6-bf8" secondAttribute="bottom" id="5bA-ko-dCD"/>
+                            <constraint firstAttribute="trailing" secondItem="LEC-fi-2xP" secondAttribute="trailing" id="F5F-Bo-zf9"/>
                             <constraint firstItem="uco-YI-D7w" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="VQ2-yL-hJA"/>
                             <constraint firstItem="GRr-RV-kVv" firstAttribute="top" secondItem="uco-YI-D7w" secondAttribute="bottom" id="a9b-qw-omN"/>
                             <constraint firstAttribute="trailing" secondItem="uco-YI-D7w" secondAttribute="trailing" id="cjW-9t-Rev"/>
+                            <constraint firstItem="LEC-fi-2xP" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="dzI-zB-T4k"/>
                             <constraint firstItem="8b5-n6-bf8" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="eTE-AA-jUj"/>
                             <constraint firstAttribute="trailing" secondItem="8b5-n6-bf8" secondAttribute="trailing" id="nHT-kd-RlQ"/>
+                            <constraint firstItem="LEC-fi-2xP" firstAttribute="centerX" secondItem="VF2-mI-h0U" secondAttribute="centerX" id="uYL-JA-9iJ"/>
+                            <constraint firstItem="LEC-fi-2xP" firstAttribute="centerY" secondItem="VF2-mI-h0U" secondAttribute="centerY" id="xxX-MI-oRa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="hometableView" destination="uco-YI-D7w" id="9Gh-KC-If6"/>
                         <outlet property="infoImage" destination="FK3-XZ-cux" id="N5r-NM-Ogf"/>
+                        <outlet property="norecordsfoundLbl" destination="LEC-fi-2xP" id="hyW-Bw-tTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnx-r2-X2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1492,17 +1526,34 @@
                                     <outlet property="delegate" destination="uXc-WN-If1" id="TWl-zY-ab0"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88e-rw-jq7">
+                                <rect key="frame" x="0.0" y="319" width="375" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="V9y-Zh-Oqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="It7-02-OGp" firstAttribute="top" secondItem="7MZ-OU-3ep" secondAttribute="top" id="77z-7m-Wwy"/>
+                            <constraint firstItem="88e-rw-jq7" firstAttribute="leading" secondItem="7MZ-OU-3ep" secondAttribute="leading" id="Lcg-Me-SiW"/>
+                            <constraint firstAttribute="trailing" secondItem="88e-rw-jq7" secondAttribute="trailing" id="QWh-79-nM8"/>
                             <constraint firstItem="cEA-ni-Hts" firstAttribute="top" secondItem="It7-02-OGp" secondAttribute="bottom" id="QrA-Ss-Uge"/>
+                            <constraint firstItem="88e-rw-jq7" firstAttribute="centerY" secondItem="7MZ-OU-3ep" secondAttribute="centerY" id="eYZ-HS-gTc"/>
+                            <constraint firstItem="88e-rw-jq7" firstAttribute="centerX" secondItem="7MZ-OU-3ep" secondAttribute="centerX" id="hLU-0o-aeS"/>
                             <constraint firstItem="It7-02-OGp" firstAttribute="leading" secondItem="7MZ-OU-3ep" secondAttribute="leading" id="o04-Gm-7Xv"/>
                             <constraint firstAttribute="trailing" secondItem="It7-02-OGp" secondAttribute="trailing" id="x5w-cD-PUD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bibleDetailsTableView" destination="It7-02-OGp" id="btf-Q4-HyA"/>
+                        <outlet property="norecordsFoundLbl" destination="88e-rw-jq7" id="wCC-xa-KS3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g03-Sc-I1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1529,17 +1580,34 @@
                                     <outlet property="delegate" destination="3qg-ZQ-ACP" id="h3a-gN-ygH"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-EF-aDr">
+                                <rect key="frame" x="0.0" y="314" width="375" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Ouu-6K-im3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Icx-EF-aDr" firstAttribute="leading" secondItem="f3T-HK-gL1" secondAttribute="leading" id="8pT-YQ-oNS"/>
                             <constraint firstItem="T0s-ce-vFF" firstAttribute="top" secondItem="f3T-HK-gL1" secondAttribute="top" id="OTx-iW-OBN"/>
                             <constraint firstAttribute="trailing" secondItem="T0s-ce-vFF" secondAttribute="trailing" id="TQg-dW-8Wv"/>
                             <constraint firstItem="T0s-ce-vFF" firstAttribute="leading" secondItem="f3T-HK-gL1" secondAttribute="leading" id="b2a-I9-Ntv"/>
+                            <constraint firstItem="Icx-EF-aDr" firstAttribute="centerX" secondItem="f3T-HK-gL1" secondAttribute="centerX" id="dEm-qe-m7e"/>
+                            <constraint firstItem="Icx-EF-aDr" firstAttribute="centerY" secondItem="f3T-HK-gL1" secondAttribute="centerY" id="hvT-7L-aYs"/>
                             <constraint firstItem="RxA-JS-gZN" firstAttribute="top" secondItem="T0s-ce-vFF" secondAttribute="bottom" id="iK8-gq-z89"/>
+                            <constraint firstAttribute="trailing" secondItem="Icx-EF-aDr" secondAttribute="trailing" id="xU1-PH-EjZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bibleDetailsCellTableView" destination="T0s-ce-vFF" id="lEp-Ml-Qpe"/>
+                        <outlet property="noRecordsFoundLbl" destination="Icx-EF-aDr" id="xB7-5z-Dje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nV-xm-0IQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1649,11 +1717,27 @@
                                     <constraint firstAttribute="trailing" secondItem="SCf-Ti-bWa" secondAttribute="trailing" constant="7" id="wlR-r1-UcD"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSc-hc-gQ2">
+                                <rect key="frame" x="0.0" y="316.5" width="375" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="zoi-I7-bIy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gSc-hc-gQ2" firstAttribute="centerY" secondItem="mal-s2-did" secondAttribute="centerY" id="0Wu-bS-bTx"/>
                             <constraint firstAttribute="trailing" secondItem="LZh-yH-GMp" secondAttribute="trailing" id="CNE-fM-ifm"/>
                             <constraint firstAttribute="trailing" secondItem="Z1E-VW-lDZ" secondAttribute="trailing" id="EUW-h2-OFx"/>
+                            <constraint firstItem="gSc-hc-gQ2" firstAttribute="centerX" secondItem="mal-s2-did" secondAttribute="centerX" id="EzJ-Qa-W3L"/>
+                            <constraint firstItem="gSc-hc-gQ2" firstAttribute="leading" secondItem="mal-s2-did" secondAttribute="leading" id="F6j-PV-tR4"/>
+                            <constraint firstAttribute="trailing" secondItem="gSc-hc-gQ2" secondAttribute="trailing" id="Mrl-sA-V3X"/>
                             <constraint firstItem="1fu-ge-EEc" firstAttribute="top" secondItem="LZh-yH-GMp" secondAttribute="bottom" id="ROb-98-fSQ"/>
                             <constraint firstItem="LZh-yH-GMp" firstAttribute="top" secondItem="Z1E-VW-lDZ" secondAttribute="bottom" constant="2" id="RvW-Hr-2OR"/>
                             <constraint firstItem="LZh-yH-GMp" firstAttribute="leading" secondItem="mal-s2-did" secondAttribute="leading" id="Vzx-iR-npD"/>
@@ -1667,6 +1751,7 @@
                         <outlet property="chapterStr" destination="H4I-XM-1mk" id="62E-RN-sTl"/>
                         <outlet property="forwardBtn" destination="Poz-v3-BHQ" id="EZl-3j-qWV"/>
                         <outlet property="homeIconOutLet" destination="SCf-Ti-bWa" id="nPG-wf-m5c"/>
+                        <outlet property="norecordsfoundLbl" destination="gSc-hc-gQ2" id="yYN-RC-9tx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6S-pL-wVs" userLabel="First Responder" sceneMemberID="firstResponder"/>

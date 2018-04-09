@@ -11,7 +11,7 @@ import Foundation
 
  // MARK: -  API's
 
-let videosURL = "http://192.168.1.181/TeluguChurchesApi/api/GetEmbedLinks/"
+let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoChurchViewController" customModule="Telugu_Churches" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoChurchViewControllers" customModule="Telugu_Churches" customModuleProvider="target">
             <connections>
                 <outlet property="infoChurchTableView" destination="6Lv-y1-q0i" id="dMp-Iu-hTD"/>
                 <outlet property="infoChurchView" destination="PlG-Iz-TaI" id="e4U-zW-RdG"/>
+                <outlet property="noRecordsFoundLbl" destination="4bD-Gd-ous" id="Bbw-E2-cFS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,13 +34,29 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-Gd-ous">
+                            <rect key="frame" x="0.0" y="318.5" width="375" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="U7e-vn-FaO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="6Lv-y1-q0i" firstAttribute="leading" secondItem="PlG-Iz-TaI" secondAttribute="leading" id="42P-Ad-BGy"/>
+                        <constraint firstItem="4bD-Gd-ous" firstAttribute="leading" secondItem="PlG-Iz-TaI" secondAttribute="leading" id="TU5-UO-yeA"/>
                         <constraint firstAttribute="trailing" secondItem="6Lv-y1-q0i" secondAttribute="trailing" id="X77-ME-oGb"/>
                         <constraint firstItem="6Lv-y1-q0i" firstAttribute="top" secondItem="PlG-Iz-TaI" secondAttribute="top" id="XPM-3G-AKN"/>
+                        <constraint firstAttribute="trailing" secondItem="4bD-Gd-ous" secondAttribute="trailing" id="aZR-KM-q4t"/>
+                        <constraint firstItem="4bD-Gd-ous" firstAttribute="centerY" secondItem="PlG-Iz-TaI" secondAttribute="centerY" id="c77-Iu-WqB"/>
                         <constraint firstAttribute="bottom" secondItem="6Lv-y1-q0i" secondAttribute="bottom" id="qDe-tS-tud"/>
+                        <constraint firstItem="4bD-Gd-ous" firstAttribute="centerX" secondItem="PlG-Iz-TaI" secondAttribute="centerX" id="tHn-fP-Sae"/>
                     </constraints>
                 </view>
             </subviews>
@@ -45,7 +67,7 @@
                 <constraint firstItem="PlG-Iz-TaI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Sy8-Lp-Pxa"/>
                 <constraint firstItem="PlG-Iz-TaI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cEp-2z-jIn"/>
             </constraints>
-            <point key="canvasLocation" x="26.5" y="52.5"/>
+            <point key="canvasLocation" x="55.5" y="110.5"/>
         </view>
     </objects>
 </document>

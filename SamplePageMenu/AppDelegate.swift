@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
         
        lunchScreenView()
+        
 
      //   }
             
