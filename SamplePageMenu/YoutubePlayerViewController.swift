@@ -1077,7 +1077,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         }
               
                         self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
-                        self.disLikesCount = (respVO.result?.postDetails![0].dislikeCount)!
+                        self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                         self.postID  = (respVO.result?.postDetails![0].id)!
                        // self.videoId = (respVO.result?.postDetails![0].id)!
 

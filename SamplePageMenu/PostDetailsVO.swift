@@ -41,7 +41,7 @@ class PostDetailsVO: Mappable {
     var isLike : Any?
     var isDisLike : Any?
     var likeCount : Int?
-    var dislikeCount : Int?
+    var disLikeCount : Int?
     
     var commentCount : Int?
     var parentCommentId : Int?
@@ -50,7 +50,7 @@ class PostDetailsVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Any?,fileName : Any?,fileLocation : Any?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,htmlDesc : Any?,eventId : Any?,viewCount : Int?,postImage : Any?,mediaType : String?,postType : String?,categoryName : String?,isLike : Any?,isDisLike : Any?,likeCount : Int?,dislikeCount : Int?,commentCount : Int?,parentCommentId : Int?,createdByUser : String?,updatedByUser : String?)
+    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Any?,fileName : Any?,fileLocation : Any?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,htmlDesc : Any?,eventId : Any?,viewCount : Int?,postImage : Any?,mediaType : String?,postType : String?,categoryName : String?,isLike : Any?,isDisLike : Any?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,parentCommentId : Int?,createdByUser : String?,updatedByUser : String?)
         
         
     {
@@ -83,7 +83,7 @@ class PostDetailsVO: Mappable {
         self.isLike = isLike
         self.isDisLike = isDisLike
         self.likeCount = likeCount
-        self.dislikeCount = dislikeCount
+        self.disLikeCount = disLikeCount
         self.commentCount = commentCount
         self.parentCommentId = parentCommentId
         self.createdByUser = createdByUser
@@ -129,7 +129,7 @@ class PostDetailsVO: Mappable {
         likeCount <- map["likeCount"]
         
 
-        dislikeCount <- map["dislikeCount"]
+        disLikeCount <- map["disLikeCount"]
         commentCount <- map["commentCount"]
         parentCommentId <- map["parentCommentId"]
         createdByUser <- map["createdByUser"]
