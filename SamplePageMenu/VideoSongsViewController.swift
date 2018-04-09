@@ -213,97 +213,113 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                     if isSuccess == true {
                         
                         self.norecordsfoundLbl.isHidden = true
+                        self.hometableView.isHidden = false
 
                         self.allCagegoryListArray = respVO.result
                         
-                        
-                        let videoList = self.allCagegoryListArray?.videos
-                        
-                 
-                        
-                        if !(videoList?.isEmpty)! {
+                        if self.allCagegoryListArray != nil {
                             
-                            self.categoryStr.append("Videos")
+                            self.norecordsfoundLbl.isHidden = true
+                            self.hometableView.isHidden = false
+                            
+                            let videoList = self.allCagegoryListArray?.videos
+                            
+                            
+                            
+                            if !(videoList?.isEmpty)! {
+                                
+                                self.categoryStr.append("Videos")
+                            }
+                            
+                            
+                            var i = 0
+                            
+                            
+                            for authorDetails in videoList!{
+                                
+                                self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
+                                
+                                self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
+                                
+                                self.imagesArray.append(authorDetails)
+                            }
+                            
+                            i = (videoList?.count)! > 0 ? i + 1 : i
+                            
+                            
+                            let audioList = self.allCagegoryListArray?.audios
+                            
+                            if !(audioList?.isEmpty)! {
+                                
+                                self.categoryStr.append("Audios")
+                            }
+                            
+                            for audioDetails in audioList!{
+                                
+                                self.numberOfRows.updateValue(audioList?.count, forKey: "\(i)")
+                                
+                                self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
+                                
+                                self.imagesArray.append(audioDetails)
+                            }
+                            
+                            i = (audioList?.count)! > 0 ? i + 1 : i
+                            
+                            
+                            let docsList = self.allCagegoryListArray?.documents
+                            
+                            if !(docsList?.isEmpty)! {
+                                
+                                self.categoryStr.append("Documents")
+                            }
+                            
+                            for docsDetails in docsList!{
+                                
+                                self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
+                                
+                                self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
+                                
+                                self.imagesArray.append(docsDetails)
+                            }
+                            
+                            i = (docsList?.count)! > 0 ? i + 1 : i
+                            
+                            
+                            let imageList = self.allCagegoryListArray?.images
+                            
+                            if !(imageList?.isEmpty)! {
+                                
+                                self.categoryStr.append("Images")
+                            }
+                            
+                            
+                            for imageDetails in imageList!{
+                                
+                                self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
+                                
+                                self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
+                                
+                                self.imagesArray.append(imageDetails)
+                            }
+                            
+                            print("categoryStr:\(self.categoryStr.count)")
+                            
+                            //                        let videoList = self.allCagegoryListArray?.audios
+                            self.isResponseFromServer = true
+                            self.hometableView.reloadData()
+
+                            
+                        }
+                        else {
+                            
+                           self.norecordsfoundLbl.isHidden = false
+                            
+                            self.hometableView.isHidden = true
                         }
                         
-                      
-                        var i = 0
                         
                         
-                        for authorDetails in videoList!{
-                         
-                            self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
-                            
-                            self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
-                            
-                            self.imagesArray.append(authorDetails)
-                        }
                         
-                        i = (videoList?.count)! > 0 ? i + 1 : i
-                        
-                        
-                        let audioList = self.allCagegoryListArray?.audios
-                        
-                        if !(audioList?.isEmpty)! {
-                            
-                            self.categoryStr.append("Audios")
-                        }
-                        
-                        for audioDetails in audioList!{
-                         
-                           self.numberOfRows.updateValue(audioList?.count, forKey: "\(i)")
-                            
-                            self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
-                            
-                            self.imagesArray.append(audioDetails)
-                        }
-                        
-                           i = (audioList?.count)! > 0 ? i + 1 : i
-                        
-                        
-                        let docsList = self.allCagegoryListArray?.documents
-                        
-                        if !(docsList?.isEmpty)! {
-                            
-                            self.categoryStr.append("Documents")
-                        }
-                        
-                        for docsDetails in docsList!{
-                         
-                           self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
-                            
-                            self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
-                           
-                            self.imagesArray.append(docsDetails)
-                        }
-                        
-                         i = (docsList?.count)! > 0 ? i + 1 : i
-                        
-                        
-                        let imageList = self.allCagegoryListArray?.images
-                        
-                        if !(imageList?.isEmpty)! {
-                            
-                            self.categoryStr.append("Images")
-                        }
-                        
-                        
-                        for imageDetails in imageList!{
-                   
-                            self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
-                            
-                            self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
-                            
-                            self.imagesArray.append(imageDetails)
-                        }
-                        
-                        print("categoryStr:\(self.categoryStr.count)")
-                        
-//                        let videoList = self.allCagegoryListArray?.audios
-                        self.isResponseFromServer = true
-                        self.hometableView.reloadData()
-                        
-                        self.norecordsfoundLbl.isHidden = false
 
                         // print(self.authorDetailsArray)
                         
@@ -311,6 +327,9 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                     else{
                         
+                        self.norecordsfoundLbl.isHidden = false
+                        
+                        self.hometableView.isHidden = true
                         
                     }
                     

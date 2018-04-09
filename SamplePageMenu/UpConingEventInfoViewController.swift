@@ -261,31 +261,46 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                         
                         let isSuccess = respVO.isSuccess
                         
-                        self.norecordsfoundLbl.isHidden = true
+                        
 
                         
                         print("StatusCode:\(String(describing: isSuccess))")
                         
                         if isSuccess == true {
                             
-                            let successMsg = respVO.endUserMessage
+                            let listResult = respVO.listResult
                             
-                            
-                            for eventsList in respVO.listResult!{
+                            if (listResult?.count)! > 0 {
                                 
-                               self.upComingEventinfoArray.append(eventsList)
-
-
+                                self.norecordsfoundLbl.isHidden = true
+                                
+                                self.upComingTableView.isHidden = false
+                                
+                                for eventsList in respVO.listResult!{
+                                    
+                                    self.upComingEventinfoArray.append(eventsList)
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                self.upComingTableView.reloadData()
+                                print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
+                                
+                                
+                                
+                                //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                             }
                             
-                         
+                            else {
+                                
+                                self.norecordsfoundLbl.isHidden = false
+                                
+                                self.upComingTableView.isHidden = true
+                            }
                             
-                            self.upComingTableView.reloadData()
-                            print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
                            
-                            self.norecordsfoundLbl.isHidden = false
-
-                         //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                             
                             
                         }

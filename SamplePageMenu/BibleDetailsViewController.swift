@@ -135,7 +135,7 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         serviceController.getRequest(strURL: bibleDetailsAPI, success: { (result) in
             
             
-            if result.count > 0 {
+           
                 
                 print(result)
                 
@@ -149,10 +149,23 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
                 
                 if isSuccess == true {
                     
+                     if (respVO.listResult?.count)! > 0 {
+                        
+                        self.norecordsFoundLbl.isHidden = true
+                        
+                        self.bibleDetailsTableView.isHidden = false
+                    
+                    
                     self.bibleChaptersArr = respVO.listResult!
                     
                 }
-                self.norecordsFoundLbl.isHidden = false
+                else {
+                        
+                       self.norecordsFoundLbl.isHidden = false
+                        
+                        self.bibleDetailsTableView.isHidden = true
+                    }
+                
 
                 
                 self.bibleDetailsTableView.reloadData()

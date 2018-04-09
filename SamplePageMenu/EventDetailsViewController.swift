@@ -13,6 +13,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBOutlet weak var eventDetailsTableView: UITableView!
     
+    @IBOutlet weak var norecordsFoundLbl: UILabel!
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
     
     var saveLocationString : String             = ""
@@ -70,6 +71,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.norecordsFoundLbl.isHidden = false
+
 
         eventDetailsTableView.delegate = self
         eventDetailsTableView.dataSource = self
@@ -117,6 +121,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         serviceController.getRequest(strURL: getEventDetailsByIdApi, success: { (result) in
             
             if result.count > 0{
+                
+
             
                 let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
@@ -125,17 +131,33 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 if isSuccess == true{
                     
+                    let listResult = responseVO.listResult
                     
-                    self.eventsDetailsArray = (responseVO.listResult)!
-                    
-                    print(self.eventsDetailsArray)
-                
+                    if (listResult?.count)! > 0 {
+                        
+                        self.norecordsFoundLbl.isHidden = true
+                        
+                        self.eventDetailsTableView.isHidden = false
+                        
+                        self.eventsDetailsArray = (responseVO.listResult)!
+                        
+                        print(self.eventsDetailsArray)
+                        
+                         self.eventDetailsTableView.reloadData()
+                    }
+                    else {
+                        
+                        self.norecordsFoundLbl.isHidden = false
+                        
+                        self.eventDetailsTableView.isHidden = true
+                    }
+                   
                 }
-                
-                
                 else{
                 
-                
+                    self.norecordsFoundLbl.isHidden = false
+                    
+                    self.eventDetailsTableView.isHidden = true
                 
                 }
                 
@@ -148,7 +170,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 print(" No result Found ")
             
             }
-            self.eventDetailsTableView.reloadData()
+           
             
         }) { (failureMessege) in
             

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -733,7 +733,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="aAQ-S9-1cd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -882,7 +882,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="yvK-UF-RqS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -1489,22 +1489,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-j9-2Le">
+                                <rect key="frame" x="0.0" y="317.5" width="375" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="5wc-ch-zmz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uVr-mm-aCW" firstAttribute="top" secondItem="DDO-80-v7d" secondAttribute="top" id="1Sv-4z-qI0"/>
                             <constraint firstItem="uVr-mm-aCW" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="4UW-dF-xNP"/>
                             <constraint firstItem="RXF-IP-L3k" firstAttribute="top" secondItem="uVr-mm-aCW" secondAttribute="bottom" id="7cF-sA-qVt"/>
+                            <constraint firstAttribute="trailing" secondItem="f9c-j9-2Le" secondAttribute="trailing" id="FKK-QL-rlJ"/>
+                            <constraint firstItem="f9c-j9-2Le" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="PI6-CI-cgx"/>
                             <constraint firstAttribute="trailing" secondItem="uVr-mm-aCW" secondAttribute="trailing" id="Pqs-II-MO3"/>
+                            <constraint firstItem="f9c-j9-2Le" firstAttribute="centerX" secondItem="DDO-80-v7d" secondAttribute="centerX" id="SMV-H0-RiR"/>
+                            <constraint firstItem="f9c-j9-2Le" firstAttribute="centerY" secondItem="DDO-80-v7d" secondAttribute="centerY" id="p5K-GV-luV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="eventDetailsTableView" destination="uVr-mm-aCW" id="3vQ-Xp-wrU"/>
+                        <outlet property="norecordsFoundLbl" destination="f9c-j9-2Le" id="Uyt-7k-jZo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sne-3x-qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8549" y="336"/>
+            <point key="canvasLocation" x="8548" y="335.98200899550227"/>
         </scene>
         <!--Bible Details View Controller-->
         <scene sceneID="a2D-zn-lId">
@@ -1531,7 +1548,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="V9y-Zh-Oqb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -1585,7 +1602,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Ouu-6K-im3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -1722,7 +1739,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="zoi-I7-bIy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>

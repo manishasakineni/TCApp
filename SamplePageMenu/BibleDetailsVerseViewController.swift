@@ -58,7 +58,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.norecordsfoundLbl.isHidden = false
+        self.norecordsfoundLbl.isHidden = true
 
         
         let nibName  = UINib(nibName: "BibleVerseTableViewCell" , bundle: nil)
@@ -126,28 +126,41 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleVerseTableViewCell", for: indexPath) as! BibleVerseTableViewCell
         
-        
-        let booksList = self.verseStringCount[indexPath.row]
-        
-        
-        cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
-        
-        
-        let colorView = UIView()
-        colorView.backgroundColor = Utilities.appColor
-        
-        // use UITableViewCell.appearance() to configure
-        // the default appearance of all UITableViewCells in your app
-//        UITableViewCell.appearance().selectedBackgroundView = colorView
-        
-        cell.selectedBackgroundView = colorView
-        
-        cell.textLabel?.highlightedTextColor = UIColor.white
-        
-//        UITableViewCell.appearance().textLabel?.textColor = UIColor.white
+        if self.verseStringCount.count > 0 {
+            
+            self.norecordsfoundLbl.isHidden = true
 
-        
-//        cell.selectionStyle = .default
+            self.BibleVerseTableView.isHidden = false
+            
+            let booksList = self.verseStringCount[indexPath.row]
+            
+            
+            cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
+            
+            
+            let colorView = UIView()
+            colorView.backgroundColor = Utilities.appColor
+            
+            // use UITableViewCell.appearance() to configure
+            // the default appearance of all UITableViewCells in your app
+            //        UITableViewCell.appearance().selectedBackgroundView = colorView
+            
+            cell.selectedBackgroundView = colorView
+            
+            cell.textLabel?.highlightedTextColor = UIColor.white
+            
+            //        UITableViewCell.appearance().textLabel?.textColor = UIColor.white
+            
+            
+            //        cell.selectionStyle = .default
+        }
+        else {
+            
+            self.norecordsfoundLbl.isHidden = false
+            
+            self.BibleVerseTableView.isHidden = true
+        }
+       
         
         
         

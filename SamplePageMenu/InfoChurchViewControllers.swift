@@ -179,6 +179,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                             
                             if !(respVO.listResult!.isEmpty){
                                 
+                                self.noRecordsFoundLbl.isHidden = true
+                                self.infoChurchTableView.isHidden = false
+                                
                                 let successMsg = respVO.endUserMessage
                                 
                                 self.listResultArray = respVO.listResult!
@@ -239,10 +242,11 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                 //self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                 self.infoChurchTableView.reloadData()
                                 
-                                self.infoChurchTableView.isHidden = false
+                                
                             }else{
                                 
-                                print("Nil Value")
+                                self.noRecordsFoundLbl.isHidden = false
+                                self.infoChurchTableView.isHidden = true
                             }
                             
                             

@@ -174,74 +174,66 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
             if result.count > 0 {
                 
                 print(result)
-                self.noRecordsFoundLbl.isHidden = true
+                
 
                 
                 let respVO:BibleDetailsCellInfoVo = Mapper().map(JSONObject: result)!
                 
-                
-                _ = respVO.Chapter
+            
                 
                 self.bibleChaptersArr = respVO.Chapter!
                 
-                
-                var i = 0
-                
-                //                for eachArray in bookResp! {
-                
-                let countt = respVO.Chapter?.count
-                
-                self.chaptersCount.updateValue(countt!, forKey: "\(i)")
-                
-                let chapterArray = respVO.Chapter
-                var j = 0
-                for eachChapter in chapterArray!{
+                if self.bibleChaptersArr.count > 0 {
                     
-                    _ = eachChapter.Verse?.count
+                    self.noRecordsFoundLbl.isHidden = true
                     
-                    let verseDict = eachChapter.Verse
+                    self.bibleDetailsCellTableView.isHidden = false
                     
-                    for eachVerseDict in verseDict!{
+                    
+                    
+                    var i = 0
+                    
+                    let countt = respVO.Chapter?.count
+                    
+                    self.chaptersCount.updateValue(countt!, forKey: "\(i)")
+                    
+                    let chapterArray = respVO.Chapter
+                    var j = 0
+                    for eachChapter in chapterArray!{
                         
-                        print(eachVerseDict.Verse!)
+                        _ = eachChapter.Verse?.count
                         
+                        let verseDict = eachChapter.Verse
+                        
+                        for eachVerseDict in verseDict!{
+                            
+                            print(eachVerseDict.Verse!)
+                            
+                        }
+                        self.versesCount.updateValue(verseDict!, forKey: "\(j)")
+                        self.verseStringCount.updateValue(self.versesCount, forKey: "\(i)")
+                        
+                        j = j + 1
                     }
-                    self.versesCount.updateValue(verseDict!, forKey: "\(j)")
-                    self.verseStringCount.updateValue(self.versesCount, forKey: "\(i)")
                     
-                    j = j + 1
+                    
+                    
+                    self.bibleCArr.append(countt!)
+                    
+                    
+                    i = i + 1
+                    
+                    
+                    self.bibleDetailsCellTableView.reloadData()
+                }
+                else {
+                    
+                    self.noRecordsFoundLbl.isHidden = false
+                    
+                    self.bibleDetailsCellTableView.isHidden = true
                 }
                 
                 
-                
-                self.bibleCArr.append(countt!)
-                
-                //print("Count:\(countt)")
-                
-                //                    self.bibleChaptersArr.append(chapterArray)
-                i = i + 1
-                //                }
-                
-                
-                //                for obj in verseArr! {
-                //
-                //                      let verseCount = obj.Verse
-                //
-                //                    for list in verseCount! {
-                //
-                //                        let versee = list.Verse
-                //                         let verseId = list.Verseid
-                //
-                //                        self.bibleVerseArr.append(BibleDetailsCellIResultVo.init(Verseid:verseId, Verse: versee))
-                //                    }
-                //
-                //
-                //                }
-                
-                self.noRecordsFoundLbl.isHidden = false
-
-                
-                self.bibleDetailsCellTableView.reloadData()
             }
             
             

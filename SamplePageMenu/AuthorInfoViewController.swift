@@ -13,6 +13,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBOutlet weak var authorInfoTableView: UITableView!
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
     var delegate: authorChangeSubtitleOfIndexDelegate?
     
     var authorDetailsArray  : [AuthorDetailsListResultVO] = Array<AuthorDetailsListResultVO>()
@@ -29,12 +30,10 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.norecordsfoundLbl.isHidden = false
+
         
-//        if kUserDefaults.value(forKey: kLoginId) != nil {
-//            
-//            kUserIds = kUserDefaults.value(forKey: kLoginId) as! Int
-//            
-//        }
+
         
         print(isSubscribed)
         
@@ -87,15 +86,44 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 
                 let isSuccess = respVO.isSuccess
+                
+                
                 if isSuccess == true {
                     
-                  self.authorDetailsArray = respVO.listResult!
+                    let  listResult = respVO.listResult!
+                    
+                    if listResult.count > 0 {
+                        
+                        self.norecordsfoundLbl.isHidden = true
+                        
+                         self.authorInfoTableView.isHidden = false
+                        
+                        self.authorDetailsArray = respVO.listResult!
+                        
+                         self.isSubscribed = self.authorDetailsArray[0].isSubscribed!
+                        
+                        self.authorInfoTableView.reloadData()
+                    }
+                    else {
+                        
+                        self.norecordsfoundLbl.isHidden = false
+                        
+                        self.authorInfoTableView.isHidden = true
+                    }
+                    
+                  
                 
                 }
+                else {
+                    
+                    self.norecordsfoundLbl.isHidden = false
+                    
+                    self.authorInfoTableView.isHidden = true
+                }
                 
-                self.isSubscribed = self.authorDetailsArray[0].isSubscribed!
-                self.authorInfoTableView.reloadData()
-                self.authorInfoTableView.isHidden = false
+               
+                
+               
             }
             
             else{
