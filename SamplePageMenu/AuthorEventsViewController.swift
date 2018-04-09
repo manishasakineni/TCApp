@@ -15,6 +15,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBOutlet weak var authorEventsTableView: UITableView!
     
+//MARK: -  variable declaration
+  
     var authorID : Int = 0
     
     var todayDate = NSDate()
@@ -63,12 +65,11 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return formatter
     }()
     
-    
+//MARK: -   View DidLoad
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
  
         print(authorID)
         
@@ -97,9 +98,10 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //MARK: -   View WillAppear
+ 
     override func viewWillAppear(_ animated: Bool) {
         
         let monthFormatter = DateFormatter()
@@ -119,25 +121,24 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+//MARK: -   Border Colors
+ 
     func color(){
         
         
-        //  calendar.scope = .week
         calendar.scope = .month
         calendar.appearance.weekdayTextColor = UIColor.red
         calendar.appearance.headerTitleColor = UIColor.red
-        // calendar.appearance.eventColor = UIColor.green
         calendar.appearance.selectionColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0)
         calendar.appearance.todayColor = UIColor.orange
         calendar.appearance.todaySelectionColor = UIColor.black
         
         calendar.allowsMultipleSelection = true
-        // calendar.firstWeekday = 2
-        
-        // calendar.appearance.borderRadius = 0
         
     }
     
+    //MARK: -   Get Author Events API Call
+   
     func getAthorEventsApiCall(_ month : String, _ year : String){
     
         let monthFormatter = DateFormatter()
@@ -201,17 +202,17 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         }  else {
                 
-        //        appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
                 return
             }
     
     
     }
     
+//MARK: -   Calendar Current Page Did Change
+ 
   
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
-        //  let currentMonth = calendar.month(of: calendar.currentPage)
         
         print("gdfgdfgdfgdfg",calendar.currentPage)
         
@@ -256,6 +257,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         return nil
     }
+    
+//MARK: -   Get Author Events Count API Call
+   
 
     func getAthorEventsCountApiCall(_ month : String, _ year : String){
         
@@ -289,7 +293,6 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                 if isSuccess == true{
                     
                     
-                    //   self.authorDetailsCountArray = responseVO.listResult!
                     
                     self.eventDateArray.removeAll()
                     self.eventsCountsArray.removeAll()
@@ -333,6 +336,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+//MARK: -   TableView Delegate & DataSource Methods
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -387,51 +392,6 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
 
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return UITableViewAutomaticDimension
-//        
-//    }
-//    
-    
-    
-    
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        
-//        let autherIdMonthYearList:AuthorEventsListResultInfoVO = self.authorDetailsArray[indexPath.row]
-//        
-//        //  }
-//        //  let authorDetails = authorDetailsArray[indexPath.row]
-//        
-//        //  if(authorDetailsArray.count > 0){
-//        
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
-//        
-//        if(self.authorDetailsArray.count > indexPath.row ){
-//            
-//            
-//            cell.churchName.text = "Church Name".localize() + " " + autherIdMonthYearList.churchName!
-//            
-//            cell.eventTitle.text = autherIdMonthYearList.title
-//            
-//            cell.contactNumber.text =  "Church Name".localize() + " " + autherIdMonthYearList.co!
-//            
-//            cell.eventStartEndDate.text = "From :".localize() + String(describing: authorDetails.startDate!) + " " + "To :".localize() + String(describing: authorDetails.endDate!)
-//            
-//            
-//            return cell
-//        }
-//        
-//        
-//        self.authorEventsTableView.reloadData()
-//        
-//        return UITableViewCell()
-//        
-//    }
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -450,12 +410,10 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             cell.eventName.text = authorDetails.title
             
-        //    cell.eventAddress.text =  authorDetails.e!
             
             cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.startDate!))
             cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
 
-         //   cell.toDate.text =  String(describing: authorDetails.endDate!)
             return cell
             }
     
@@ -466,7 +424,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
             }
     
-    
+//MARK: -   Event Date Without Time
+
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
@@ -480,8 +439,6 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             let dateString3 = invDtArray2[0]
             
             print(dateString1)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
             
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
@@ -506,13 +463,12 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         return newDateStr + "," + newDateStr1
     }
+    
     func returnDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""
         if(selectedDateString != ""){
             let invDtArray = selectedDateString.components(separatedBy: "T")
             let dateString = invDtArray[0]
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
             
             if(dateString != ""){
                 let dateFormatter = DateFormatter()
@@ -523,17 +479,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                 newDateStr = newDateString
                 print(newDateStr)
             }
-            //            if(timeString != ""){
-            //                let dateFormatter = DateFormatter()
-            //                dateFormatter.dateStyle = .medium
-            //                dateFormatter.dateFormat = "HH:mm:ss"
-            //                let dateFromString = dateFormatter.date(from: timeString)
-            //                dateFormatter.dateFormat = "hh:mm aa"
-            //                let newDateString = dateFormatter.string(from: dateFromString!)
-            //                newDateStr = newDateString
-            //                print(newDateStr)
-            //            }
-        }
+                   }
         return newDateStr
     }
 

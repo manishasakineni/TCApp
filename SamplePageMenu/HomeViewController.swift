@@ -9,9 +9,6 @@
 import UIKit
 import Localize
 
-//protocol changeSubtitleOfIndexDelegate {
-//    func nameOfItem(indexNumber: Int, countText : String)  AutoScrollImagesCell
-//}
 
 protocol SttingPopOverHomeDelegate {
     func helpClicked()
@@ -29,25 +26,29 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var bannerScrollHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var pageController: UIPageControl!
+    
+    @IBOutlet weak var bannerCollectionView: UICollectionView!
+    
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var settingsBarButton: UIBarButtonItem!
+   
+//MARK: -  variable declaration
 
-   var visibleIndexPath: IndexPath? = nil
+    
+    var visibleIndexPath: IndexPath? = nil
     var offSet: CGFloat = 0
     var counter = 0
     var seconds = 60
     
     var viewTitle = ""
-
+    
     var lastXAxis = Int()
     var contentOffset = Int()
     
     var eventImage = String()
     var eventImageArray = Array<String>()
-    
-    @IBOutlet weak var pageController: UIPageControl!
-    @IBOutlet weak var bannerCollectionView: UICollectionView!
-    @IBOutlet weak var menuBarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
     var x = 0
     
@@ -56,8 +57,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
     var timer: Timer?
     
-//    var contentOffset = 0
-//    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -117,25 +116,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var eventsImages = ""
     
     
+//MARK: -   View DidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.bannerImageScrollAPICall()
         
-//        self.getAllCategoriesAPICall()
-        
-        
-//        searchBar = UISearchBar()
-//        searchBar.sizeToFit()
-//        
-//        searchBar.delegate = self
-        
-        filteredData = sectionTittles
-        
-//        searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchResultsUpdater = self
-//        
-//        searchController.dimsBackgroundDuringPresentation = false
         
         let categorieHomeCell  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         categorieTableView.register(categorieHomeCell, forCellReuseIdentifier: "CategorieHomeCell")
@@ -148,22 +135,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
    
         self.navigationController?.navigationBar.barTintColor = Utilities.appColor
         self.navigationItem.title = "Telugu Churches".localize()
-      //  self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
 
-//        searchBar.placeholder = "Telugu Churches"
-        
-//        self.searchController.searchBar.delegate = self
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-        
-        // definesPresentationContext = true
-        // navigationItem.titleView  = searchController.searchBar
-        
-      //  navigationItem.titleView = searchBar
         
         
         print(kLoginSucessStatus)
@@ -187,7 +163,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         sideMenu()
         
-        //  self.navigationController?.isNavigationBarHidden = true
         
         definesPresentationContext = true
         
@@ -200,10 +175,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+//MARK: -   View WillAppear
+
+    
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Telugu Churches".localize(), backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         self.navigationController?.isNavigationBarHidden = false
 
         if(UIDevice.current.userInterfaceIdiom == .phone){
@@ -222,17 +199,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+//MARK: -   View WillDisappear
+
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-//        searchController.searchBar.resignFirstResponder()
-//        
-//        self.searchController.isActive = false
-        
         
     }
     
-    
+    //MARK: -   Banner Image Scroll APICall
+
     
     func bannerImageScrollAPICall(){
         
@@ -278,9 +254,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                                 self.bannerImageArr.append(UIImage(data: dataImg!)!)
                             }
                             
-//                            print(self.bannerImageArr)
-//                            print(self.bannerImageArr.count)
-                   
+                
                         }
                         
                             if self.bannerImageArr.count > 0 {
@@ -298,9 +272,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                                 let image = image
                                 let imageView = UIImageView(image: image)
                                 imageView.contentMode = .scaleToFill
-                                //imageView.frame.size.width = UIScreen.main.bounds.size.width
                                 imageView.backgroundColor = UIColor.blue
-                                //imageView.frame.size.height = self.bannerScrollView.contentSize.height
                                 
                                 imageView.frame = self.bannerScrollView.frame
                                 imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
@@ -342,7 +314,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-    //MARK: -  Get All Categories API Call
+//MARK: -  Get All Categories API Call
     
     func getAllCategoriesAPICall(){
         
@@ -379,7 +351,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     self.cagegoriesArray.append(eachArray)
                 }
  
-             //   print(self.cagegoriesArray.count)
                 
                 
                 
@@ -415,7 +386,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
 
     
-    
+//MARK: -   upComming Events APICall
+
     func upcommingEventsAPICall(){
         
         let date =  (Calendar.current as NSCalendar).date(byAdding: .day, value: 7, to: Date(), options: [])
@@ -452,11 +424,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     ] as [String : Any]
         
         
-//        let parameters = [
-//            "fromDate": "2018-03-09T16:23:17.9129341+05:30",
-//            "toDate": "2018-03-09T16:23:17.9129341+05:30"
-//            ] as [String : Any]
-        
         print("dic params \(parameters)")
         
         let dictHeaders = ["":"","":""] as NSDictionary
@@ -476,9 +443,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             if statusCode == true
             {
                 
-          //      let successMsg = respVO.endUserMessage
-                
-            //    print(respVO.listResult)
                 
                 self.eventImageArray.removeAll()
                 
@@ -497,11 +461,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     self.upComingEventsArray.append(churchDetails)
                     
                     
-                    // imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
                     
                 }
                 
-          //   self.eventImageArray = self.eventImageArray.sorted()
                 
                 
                 
@@ -513,8 +475,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
 
                 }
-//
-//                RunLoop.current.addTimer(myTimer, forMode: RunLoopMode.commonModes)
+
                self.categorieTableView.reloadData()
                 
             }
@@ -535,23 +496,17 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-//        timerLabel.text = “\(seconds)” //This will update the label.
+        seconds -= 1
+        
     }
+    
+    //MARK: -   Search Bar Delegate & DataSource Methods
+
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
         
-        //        if let searchText = searchController.searchBar.text {
-        //
-        //            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
-        //
-        //                return (dataString.range(of: searchText) != nil)
-        //            })
-        //
-        //                        categorieTableView.reloadData()
-        //        }
-    }
+            }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
@@ -587,11 +542,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
-        //        if(filtered.count == 0){
         searchActive = false
-        //        } else {
-        //            searchActive = true;
-        //        }
         self.categorieTableView.reloadData()
         searchBar.resignFirstResponder()
         
@@ -600,7 +551,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        //    func updateSearchResultsForSearchController(searchController: UISearchController) {
         
         if let searchText = searchController.searchBar.text {
             
@@ -609,9 +559,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 return (dataString.range(of: searchText) != nil)
             })
             
-            //            categorieTableView.reloadData()
         }
     }
+    
+    //MARK: -   Side Menu Method
+
     
     func sideMenu(){
         
@@ -624,7 +576,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 revealViewController().rearViewRevealWidth = 330
                 
-                //    revealViewController().rightViewRevealWidth = 160
                 
                 
                 
@@ -640,7 +591,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 revealViewController().rearViewRevealWidth = 270
                 
-                //    revealViewController().rightViewRevealWidth = 160
                 
                 
                 
@@ -656,13 +606,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     @IBAction func settingClicked(_ sender: UIBarButtonItem) {
-        // hometableview.endEditing(true)
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         popController.delegate = self
-        // set the presentation style
         popController.modalPresentationStyle = UIModalPresentationStyle.popover
         popController.preferredContentSize = CGSize(width: 120, height: 120)
-        //  popController.delegate = self
         let popover = popController.popoverPresentationController!
         popover.delegate = self
         popover.permittedArrowDirections = .up
@@ -670,32 +617,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         popover.sourceRect = CGRect(x: UIScreen.main.bounds.size.width - 5 , y: 25, width:20, height: 30)
         
-        // present the popover
         self.present(popController, animated: true, completion: nil)
-        //  hometableview.reloadData()
     }
     
     
     
-    @IBAction func settingBarButtonTapped(_ sender: Any) {
-        
-        
-        //  print("Setting Clicked........")
-        
-        //  let settingViewController:UIViewController =  (self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController)!
-        
-        //    self.navigationController?.pushViewController(settingViewController, animated: true)
-        
-        
-    }
-    
-    // UIPopoverPresentationControllerDelegate method
+ 
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
     }
     
-    
+    //MARK: -   TableView Delegate & DataSource Methods
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -706,13 +639,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-//        if(searchActive) {
-//            return filtered.count
-//        }
-//        else {
-//            
-//            return data.count
-//        }
+
         return data.count
         
         
@@ -788,7 +715,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.homeCollectionView.dataSource = self
             cell.homeCollectionView.reloadData()
             
-         //   cell.moreButton.isHidden = false
             
             cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
             
@@ -798,27 +724,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-//    func scrollAutomatically(_ timer1: Timer) {
-//        
-//        if let coll : UpcomingEventsResultVO = upComingEventsArray {
-//            for cell in coll.visibleCells {
-//                let indexPath: IndexPath? = coll.indexPath(for: cell)
-//                if ((indexPath?.row)!  < banner.count - 1){
-//                    let indexPath1: IndexPath?
-//                    indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-//                    
-//                    coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-//                }
-//                else{
-//                    let indexPath1: IndexPath?
-//                    indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
-//                    coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-//                }
-//                
-//            }
-//        }
-//        
-//    }
     
     
     func scrollAutomatically(_ timer1: Timer) {
@@ -832,7 +737,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let indexPath = IndexPath(item: y, section: 0)
                 autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-                // self.x = self.x + 1
                 
                 y = (eventImageArray.count - 1 > y) ? (y + 1) : 0
             }
@@ -844,7 +748,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             }
             
             
-//            self.categorieTableView.reloadData()
      
             
         }
@@ -868,6 +771,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 }
     }
     
+//MARK: -   Banner Animation
+
+    
     func bannerAnimation() {
         
     
@@ -884,8 +790,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             }
             let currentPage:CGFloat = slideToX / pageWidth
             
-            // print(currentPage)
-            // Change the indicator
            pageController.currentPage = Int(currentPage)
         bannerScrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:bannerScrollView.frame.height), animated: true)
         
@@ -893,42 +797,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
 
     
-    //MARK: UIScrollView Delegate
     
-    //
-    //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //
-    //
-    //
-    //
-    //        let pageWidth: CGFloat = bannerCollectionView.frame.size.width
-    //        let currentPage = Float((bannerCollectionView.contentOffset.x / pageWidth))
-    //        if 0.0 != fmodf(currentPage, 1.0) {
-    //            pageController.currentPage = Int(currentPage + 1.0)
-    //        }
-    //        else {
-    //            pageController.currentPage = Int(currentPage)
-    //        }
-    //        print("finishPage: \(pageController.currentPage)")
-    //    }
-    //
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //
-    //        let indexPath = IndexPath.init(row: x, section: 0)
-    //
-    //        if let cell = categorieTableView.cellForRow(at: indexPath) as? ScrollImagesCell {
-    //
-    //        let viewWidth: CGFloat = cell.scrollView.frame.size.width
-    //        // content offset - tells by how much the scroll view has scrolled.
-    //        let pageNumber = floor((cell.scrollView.contentOffset.x - viewWidth / 50) / viewWidth) + 1
-    //        cell.pageController.currentPage = Int(pageNumber)
-    //    }
-    //
-    //        searchController.searchBar.resignFirstResponder()
-    //    }
-    //
-    
-    //MARK: Page tap action
+//MARK: Page tap action
     func pageChanged() {
         let indexPath = IndexPath.init(row: 1, section: 0)
         
@@ -962,7 +832,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
         churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
         churchDetailsViewController.categorieNamesArray = self.imageNameArray
-        //churchDetailsViewController.bibleString = bibleNav
         churchDetailsViewController.bibleInt = 10
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
         
@@ -998,10 +867,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-    //MARK: -  BannerImageScroll API Call
     
     
 }
+
+//MARK: -   CollectionView Delegate & DataSource Methods
+
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -1051,7 +922,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
 
                 
-              //  cell.eventDateLabel.text = eventList.startDate
                 
                 print(eventImageArray.count)
                 if let url = URL(string:eventImageString) {
@@ -1060,7 +930,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                     cell.autoScrollImage.image = #imageLiteral(resourceName: "j4")
                 }
                 
-                //self.x = 0
                 
                 return cell
                 
@@ -1106,7 +975,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 
                 
-                //   let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
                 
                 return cell
                 
@@ -1115,37 +983,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//          var cellsPerRow = 0
-//        
-//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-//            
-//         
-//                
-//                cellsPerRow = 5
-//        
-//            
-//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//            return CGSize(width: itemWidth, height: itemWidth)
-//        }
-//        else {
-//
-//           
-//                
-//                cellsPerRow =  3
-//          
-//            
-//            
-//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//            return CGSize(width: itemWidth, height: itemWidth)
-//        }
-//    }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -1202,8 +1039,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                         churchDetailsViewController.catgoryImg = catImg!
                     }
                     
-                    //  churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-                    
+                
                     self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
           
             }
@@ -1216,14 +1052,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
      func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         
-//        cell.alpha = 0
-//        cell.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0.5)
-//        UIView.animate(withDuration: 0.3) {
-//            cell.alpha = 1
-//            cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
-        
-            
-//        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -1240,6 +1068,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
+//MARK: -   Event Date Without Time
+
+    
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
@@ -1253,8 +1084,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let dateString3 = invDtArray2[0]
             
             print(dateString1)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
             
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
@@ -1284,7 +1113,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

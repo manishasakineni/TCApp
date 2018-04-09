@@ -13,13 +13,14 @@ class AutoScrollImagesCell: UITableViewCell {
     
     @IBOutlet weak var autoScrollCollectionView: UICollectionView!
     
+//MARK: -  variable declaration
+
     
     var lastXAxis = Int()
     var contentOffset = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         let cellSize = CGSize(width:200, height:100)
         
@@ -33,15 +34,15 @@ class AutoScrollImagesCell: UITableViewCell {
         
         autoScrollCollectionView.reloadData()
         
-//        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(AutoScrollImagesCell.scrollToNextCell), userInfo: nil, repeats: true)
            }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
+//MARK: -  scroll ToNextCell 
+   
     func scrollToNextCell(){
         
         let cellSize = CGSize(width:self.contentView.frame.width + 100, height:self.contentView.frame.height)
@@ -54,15 +55,9 @@ class AutoScrollImagesCell: UITableViewCell {
         
         let cellWidth = Int(self.contentOffset)
         
-//        if(self.contentOffset == 0)
-//        {
-//            self.autoScrollCollectionView.contentOffset = CGPoint.init(x: 0, y: 0)
-//            
-//        }
         
         print("",self.contentOffset)
         
-        //scroll to next cell
         
        
         self.autoScrollCollectionView.scrollRectToVisible(CGRect(x:self.contentOffset + cellWidth + 100 , y:0, width:cellWidth + 100 , height:Int(cellSize.height)), animated: true)
@@ -72,7 +67,6 @@ class AutoScrollImagesCell: UITableViewCell {
         print("contentOffset",self.contentOffset + cellWidth,cellSize.width + 100)
         
         
-       // self.lastXAxis = self.contentOffset
         
         
     }

@@ -15,6 +15,7 @@ protocol authorChangeSubtitleOfIndexDelegate {
 
 class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorChangeSubtitleOfIndexDelegate {
     
+//MARK: -  variable declaration
     
     var pageMenu : CAPSPageMenu?
     
@@ -33,10 +34,10 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var appVersion  : String = ""
     var isSubscribed = Int()
     
+//MARK: -   View DidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
 
         createPageMenu()
         
@@ -48,37 +49,35 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
        
     }
     
+//MARK: -   View WillAppear
+  
 
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-        
-//        Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(churchName1)", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
-        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+   Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
-       // Utilities.setupFailedViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName, backTitle: "  \(authorName)", rightImage: appVersion, secondRightImage: " ", thirdRightImage: " ")
     
     }
     
+//MARK: -    Create Page Menu
+  
     
     private func createPageMenu() {
         
         
-        authorInfoVC = AuthorInfoViewController(nibName: "AuthorInfoViewController", bundle: nil)
+    authorInfoVC = AuthorInfoViewController(nibName: "AuthorInfoViewController", bundle: nil)
         authorInfoVC?.title = "Information".localize()
         authorInfoVC?.delegate  = self
         authorInfoVC?.authorID = authorID
         authorInfoVC?.isSubscribed = isSubscribed
-       // authorInfoVC?.churchID = churchID
         
         authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
         authorEventsVC?.title = "Events".localize()
         authorEventsVC?.authorID = authorID
         authorEventsVC?.delegate  = self
-        //eventInfoVC?.churchID = churchID
         
         authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
         authorPostsVC?.title = "Posts".localize()
@@ -118,7 +117,6 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         view.addSubview((pageMenu?.view)!)
         pageMenu?.didMove(toParentViewController: self)
         
-
         
     }
     
@@ -131,13 +129,11 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
     }
     
+//MARK: -    Back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
-        
         UserDefaults.standard.set("1", forKey: "1")
-
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
@@ -150,16 +146,13 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
     }
     
+//MARK: -    Home Button Tapped
 
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -169,9 +162,6 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
         
         print("Home Button Clicked......")
         

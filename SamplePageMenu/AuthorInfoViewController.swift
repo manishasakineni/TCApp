@@ -14,6 +14,10 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var authorInfoTableView: UITableView!
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
+    
+    //MARK: -  variable declaration
+
+    
     var delegate: authorChangeSubtitleOfIndexDelegate?
     
     var authorDetailsArray  : [AuthorDetailsListResultVO] = Array<AuthorDetailsListResultVO>()
@@ -27,6 +31,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     var subscribeClick = 0
     var subscribe : Bool = true
     
+    //MARK: -   View DidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,12 +68,16 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: -   View WillAppear
+
+    
     override func viewWillAppear(_ animated: Bool) {
         
       self.getAuthorDetailsAPICall()
     }
     
-    
+//MARK: -    Get Author Details API Call
+
     func getAuthorDetailsAPICall(){
         
         
@@ -142,7 +152,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
-    
+//MARK: -   TableView Delegate & DataSource Methods
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 3
@@ -480,6 +491,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
+//MARK: -   Event Date Without Time
+
+    
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
@@ -493,8 +507,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             let dateString3 = invDtArray2[0]
             
             print(dateString1)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
             
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
@@ -523,6 +535,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
 
     
+    //MARK: -   SubScribe Button Clicked
 
     func subscribeBtnClicked(sender: UIButton){
 
@@ -556,13 +569,10 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     let successMsg = respVO.endUserMessage
                     
-                    // let subscribe = respVO.isSuccess
                     
                     self.isSubscribed = (respVO.result?.isSubscribed!)!
                     
                     
-//                    let indexPath = IndexPath(item: sender.tag, section: 0)
-//                    self.authorInfoTableView.reloadRows(at: [indexPath], with: .none)
                     
                     self.authorInfoTableView.reloadData()
                     
