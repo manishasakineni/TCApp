@@ -179,6 +179,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="readMoreBtn" destination="AG7-2e-tfm" id="vXK-aH-qoj"/>
+                <outlet property="readMoreBtnHeight" destination="CXb-pN-1BQ" id="2E3-V8-vdA"/>
                 <outlet property="replyCommentBtn" destination="cek-wi-O7Z" id="eEy-GS-l85"/>
                 <outlet property="usersCommentLbl" destination="E73-Xh-XTJ" id="p2z-TP-wIO"/>
                 <outlet property="usersDislikeBtn" destination="dcx-Sp-pmG" id="nYz-wT-YMs"/>

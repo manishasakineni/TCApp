@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var placeholdersAry  = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize(),"Dob".localize()]
     
+    var userID   : String = ""
     var firstName   : String = ""
     var middleName  : String = ""
     var lastName    : String = ""
@@ -216,6 +217,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             
                             print("StatusCode:\(String(describing: statusCode))")
                             
+                            self.userID = (respVO.listResult?[0].UserName)!
                             self.firstName = (respVO.listResult?[0].FirstName)!
                             self.middleName = (respVO.listResult?[0].MiddleName)!
                             self.lastName = (respVO.listResult?[0].Lastname)!
@@ -610,7 +612,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if section == 1 {
             
-            return 6
+            return 7
         }
         else {
             
@@ -687,9 +689,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             signUPCell.editProfileTF.tag = indexPath.row
             
             
-            
-            
             if indexPath.row == 0{
+                
+                signUPCell.editProfileTF.placeholder = "User Name".localize()
+                signUPCell.editProfileTF.text = self.userID
+                signUPCell.editProfileTF.isUserInteractionEnabled = false
+                signUPCell.editProfileTF.textColor = UIColor.lightGray
+                
+            }
+            
+            else if indexPath.row == 1{
                 
                 signUPCell.editProfileTF.placeholder = "First Name".localize()
                 signUPCell.editProfileTF.text = self.firstName
@@ -697,7 +706,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             }
                 
-            else if indexPath.row == 1{
+            else if indexPath.row == 2{
                 
                 
                 signUPCell.editProfileTF.placeholder = "Middle Name".localize()
@@ -706,7 +715,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 
             }
-            else if indexPath.row == 2{
+            else if indexPath.row == 3{
                 
                 
                 signUPCell.editProfileTF.placeholder = "Last Name".localize()
@@ -715,7 +724,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 
             }
-            else if indexPath.row == 3{
+            else if indexPath.row == 4{
                 
                 signUPCell.editProfileTF.placeholder = "Mobile Number".localize()
                 signUPCell.editProfileTF.isUserInteractionEnabled = false
@@ -726,7 +735,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             }
                 
-            else if indexPath.row == 4{
+            else if indexPath.row == 5{
                 
                 signUPCell.editProfileTF.placeholder = "E-mail".localize()
                 signUPCell.editProfileTF.text = self.email
@@ -734,7 +743,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             }
                 
-            else if indexPath.row == 5{
+            else if indexPath.row == 6{
                 
                 signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
                 signUPCell.editProfileTF.text = selectedDate

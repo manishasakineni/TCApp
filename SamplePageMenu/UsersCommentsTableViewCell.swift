@@ -19,6 +19,9 @@ class UsersCommentsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var readMoreBtn: UIButton!
     
+    
+    @IBOutlet weak var readMoreBtnHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var usersNameLbl: UILabel!
     
     @IBOutlet weak var usersLikeBtn: UIButton!

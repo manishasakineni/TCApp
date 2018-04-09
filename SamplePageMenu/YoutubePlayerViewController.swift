@@ -55,6 +55,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var usersLikeClick = false
     var UsersDisLikeClick = false
     
+    var readMoreBtnIsHidden = true
+    
 //    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
     
     var usersCommentsArray = Array<Any>()
@@ -450,6 +452,15 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
             
+            usersCommentsTableViewCell.usersCommentLbl.numberOfLines = 3
+            print(usersCommentsTableViewCell.usersCommentLbl.numberOfLines)
+            
+            
+            
+            if readMoreBtnIsHidden == true{
+            
+            
+            }
             usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
             usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
