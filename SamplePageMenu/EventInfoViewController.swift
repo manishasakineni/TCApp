@@ -14,6 +14,8 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
 
     @IBOutlet weak var calendar: FSCalendar!
     
+    //MARK: -  variable declaration
+    
     var delegate: churchChangeSubtitleOfIndexDelegate?
 
 
@@ -27,24 +29,13 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
     
-    //  let day: Int! = self.gregorian.component(.day, from: date)
-    
     var holidays:  [Date] = []
     let events:    [Date] = []
     let birthdays: [Date] = []
     
     var somedays : Array = [String]()
     var calendarEvents : [FSCalendar] = []
-    
-    
-    //    fileprivate lazy var dateFormatter2: DateFormatter = {
-    //        let formatter = DateFormatter()
-    //        formatter.dateFormat = "yyyy-MM-dd"
-    //        return formatter
-    //    }()
-    //
-    
-    
+
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
         let formatter = DateFormatter()
@@ -60,8 +51,8 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     }()
     let codedLabel:UILabel = UILabel()
     
+//MARK: -  view Did Load
     
-    //    let listArray = "aaaaa"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,24 +68,27 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
         
         color()
         
-        // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
     }
+    //MARK: -  view Did Appear
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
     }
+    //MARK: -  color
+
+    
     func color(){
         
-        
-        //  calendar.scope = .week
         calendar.scope = .month
         calendar.appearance.weekdayTextColor = UIColor.red
         calendar.appearance.headerTitleColor = UIColor.red
@@ -110,34 +104,12 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
         
     }
     
-    
-    //    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-    //
-    //        let dateString = self.dateFormatter2.string(from: date)
-    //
-    //        if self.datesWithEvent.contains(dateString) {
-    //            return 1
-    //        }
-    //
-    //        if self.datesWithMultipleEvents.contains(dateString) {
-    //
-    //            return 3
-    //        }
-    //
-    //        return 0
-    //    }
-    
-    
-    
+ //MARK: -  calendar
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
         
-        
-        //        if self.datesWithEvent.contains(dateString) {
-        //            return "Event"
-        //        }
         
         if self.datesWithMultipleEvents.contains(dateString) {
             
@@ -148,28 +120,7 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     
     
     
-    //    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-    //        let dateString = self.dateFormatter2.string(from: date)
-    //
-    //        if monthPosition == .previous || monthPosition == .next {
-    //            calendar.setCurrentPage(date, animated: true)
-    //
-    //            print("title date",date)
-    //        }
-    //
-    //
-    //
-    //
-    //
-    //    }
-    
-    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        // calendar.snp.updateConstraints { (make) in
-        //    make.height.equalTo(bounds.height)
-        // Do other updates
-        
-        //  }
         self.view.layoutIfNeeded()
     }
     
@@ -181,10 +132,7 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
             let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
             reOrderPopOverVC.eventsLisrArray = self.numberEvent
             reOrderPopOverVC.eventsDateString = selectedDateString
-            // reOrderPopOverVC.delegate = self
             
-            //    reOrderPopOverVC. singleSelection =
-            //   var imagesArray : Array<UIImage> = Array()
             self.addChildViewController(reOrderPopOverVC)
             reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             self.view.addSubview(reOrderPopOverVC.view)
@@ -214,7 +162,6 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
         calendar.visibleCells().forEach { (cell) in
             let date = calendar.date(for: cell)
             let position = calendar.monthPosition(for: cell)
-            // self.configure(cell: cell, for: date!, at: position)
         }
     }
     

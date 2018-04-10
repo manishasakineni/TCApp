@@ -229,7 +229,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 
                 
-               // var churchImageLogoString = authorDetails.churchImage
                 
                var  churchImageLogoString = authorDetails.churchImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
                 

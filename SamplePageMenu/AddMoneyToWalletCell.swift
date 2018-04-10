@@ -11,6 +11,9 @@ import UIKit
 class AddMoneyToWalletCell: UITableViewCell {
 
     @IBOutlet weak var backGroundView: UIView!
+    
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

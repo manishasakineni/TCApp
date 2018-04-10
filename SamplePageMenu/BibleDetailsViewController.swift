@@ -11,6 +11,9 @@ import UIKit
 class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var norecordsFoundLbl: UILabel!
+    
+    //MARK: -  variable declaration
+    
     var showNav = false
     
     var LangText:String = ""
@@ -39,6 +42,7 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     
     @IBOutlet weak var bibleDetailsTableView: UITableView!
     
+  //MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +57,10 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         bibleDetailsTableView.delegate = self
         bibleDetailsTableView.dataSource = self
         
-        
-        
-        getBibleDetailsAPICall()
-        
-        // Do any additional setup after loading the view.
-    }
+    getBibleDetailsAPICall()
+}
+    
+ //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -74,6 +76,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   //MARK:- TableView  DataSource & Delegate Methods
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
@@ -117,14 +122,11 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         cell.chapterCountLabel.text = BibleCountArr[indexPath.row]
 
         
-        //        let verseCount = booksList.id
-        //        cell.chapterCountLabel.text = "\(verseCount!)"
-        
-        
         return cell
     }
     
     
+   //MARK:- Get Bible Details API Call
     
     func getBibleDetailsAPICall(){
         
@@ -200,31 +202,19 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         chapterViewController.LangStr = LangText
         
         
-        
-        //        chapterViewController.indexCount = indexPath.row
-        
-        
         self.navigationController?.pushViewController(chapterViewController, animated: true)
         
         
     }
     
     
-    
+  //MARK:- back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
         UserDefaults.standard.synchronize()
-        
         UserDefaults.standard.set("1", forKey: "1")
         
         
@@ -239,6 +229,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         print("Back Button Clicked......")
         
     }
+    
+     //MARK: -    Home Button Tapped
+    
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         

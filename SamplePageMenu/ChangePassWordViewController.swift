@@ -10,15 +10,13 @@ import UIKit
 
 class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
-    var appDelegate = AppDelegate()
-    let sharedController = ServiceController()
-
-     let utillites =  Utilities()
     
     
     @IBOutlet weak var backGroundView: UIView!
     
     @IBOutlet weak var forgotPasswordTableView: UITableView!
+    
+     //MARK: -  variable declaration
     
     var sectionsTitle : [String] = [" "]
 
@@ -31,17 +29,17 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     var PwButton = UIButton(type: .custom)
 
-
-
-
+    var appDelegate = AppDelegate()
+    let sharedController = ServiceController()
+    
+    let utillites =  Utilities()
+    
+ //MARK: -   View DidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let defaults = UserDefaults.standard
-        
-     
-
-        
         
         if let uid = defaults.string(forKey: kuserIdKey) {
             
@@ -71,14 +69,11 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let nibName2  = UINib(nibName: "ConformButtonPassWordCell" , bundle: nil)
         forgotPasswordTableView.register(nibName2, forCellReuseIdentifier: "ConformButtonPassWordCell")
-        
-        
-        
-        
-        
+ 
         // Do any additional setup after loading the view.
     }
 
+   //MARK: -   textField Did Begin Editing
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -118,10 +113,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
 
 
         }
-
-        
-        
     }
+    
+   //MARK: -   textField Should End Editing
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
@@ -133,7 +127,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         return true
     }
 
-    
+  //MARK: -   textField should Change Characters In range
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
@@ -145,7 +139,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         return true
     }
     
-    
+  //MARK: -   textField Did End Editing
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -170,6 +164,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         
     }
+    
+ //MARK: -   TableView Delegate & DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -301,7 +297,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     
-
+//MARK: -   Confirm Button Clicked
     
    func  confirmButtonClicked(_ sendre:UIButton) {
 
@@ -332,7 +328,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     
     
- 
+ //MARK: -   Eye Button Clicked
 
     
     func  eyeButtonClicked(_ sendre:UIButton) {
@@ -353,6 +349,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         
     }
+    
+   //MARK:- validateAllFields
     
     func validateAllFields() -> Bool
     {
@@ -415,7 +413,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         return true
     }
     
-    // MARK :- SigneUpAPIService
+// MARK :- SigneUp API Service
     
     func changePassWordAPIService(){
         
@@ -434,64 +432,50 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         print("dictHeader:\(dictHeaders)")
 
-        
-      
- 
-        
-        
         serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
             DispatchQueue.main.async()
                 {
                     
                
-                    print("\(result)")
+        print("\(result)")
                     
-                   let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
-                    print("responseString = \(respVO)")
-                    
-                    
-                    let statusCode = respVO.isSuccess
-                    
-                    print("StatusCode:\(String(describing: statusCode))")
+        let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+        print("responseString = \(respVO)")
                     
                     
+        let statusCode = respVO.isSuccess
                     
-                    if statusCode == true
-                    {
-                        
-                        
-                        let successMsg = respVO.endUserMessage
-                        
-                        
-                        
-                        
-                        
-                        
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
+        print("StatusCode:\(String(describing: statusCode))")
+                    
+        if statusCode == true
+            
+            {
+                
+        let successMsg = respVO.endUserMessage
+                
+        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
                             
                             
-                          self.removeAnimate()
+        self.removeAnimate()
                             
-                         
-                            
-                        })
+            
+        })
                         
                         
-                    }
-                    else {
+        }
+    else {
                         
-                        let failMsg = respVO.endUserMessage
+    let failMsg = respVO.endUserMessage
                         
-                        self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+    self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                         
-                        return
+        return
                         
-                    }
+    }
 
-                     
-                     
-                    
+
             }
+            
         }, failureHandler: {(error) in
             
                   })
@@ -499,7 +483,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
     }
     
-    
+//MARK:- cancel Button Clicked
     
     func  cancelButtonClicked(_ sendre:UIButton) {
      
@@ -512,7 +496,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     
     
-    
+ //MARK:- Show Alert View With Title
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
@@ -522,6 +506,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         alertView.addButton(withTitle: buttonTitle)
         alertView.show()
     }
+    
+   //MARK:- remove Animation
     
     func removeAnimate()
     {
@@ -545,6 +531,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
 
     }
+
+ //MARK:- set Left Padding Points
 
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){

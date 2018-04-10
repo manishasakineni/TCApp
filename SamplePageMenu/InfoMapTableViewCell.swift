@@ -15,7 +15,7 @@ class InfoMapTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mapViewOutLet: MKMapView!
     
-    
+     //MARK: - Color
 
     override func awakeFromNib() {
         super.awakeFromNib()

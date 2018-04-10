@@ -25,7 +25,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         
         datePopUpTableView.delegate = self
         datePopUpTableView.dataSource = self
@@ -33,7 +32,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         let nibName1  = UINib(nibName: "EventInformationCell" , bundle: nil)
         datePopUpTableView.register(nibName1, forCellReuseIdentifier: "EventInformationCell")
         datePopUpTableView.register(UINib.init(nibName: "EventHeaderCell", bundle: nil),
-                                          forCellReuseIdentifier: "EventHeaderCell")
+        forCellReuseIdentifier: "EventHeaderCell")
 
         
         
@@ -99,8 +98,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-       // if indexPath.section == 0 {
-            
+        
             let eventInformationCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
         
              eventInformationCell.eventType.text = self.eventsLisrArray[indexPath.row]
@@ -108,7 +106,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
              eventInformationCell.eventEndDateLabel.text = self.eventEndDateLisrArray[indexPath.row]
  
             return eventInformationCell
-       // }
        
     }
     
@@ -125,9 +122,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     
-    
-    
-    
     func removeAnimate()
     {
         UIView.animate(withDuration: 0.25, animations: {
@@ -140,20 +134,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
             }
         });
     }
-    
-    
-    
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        
-//        self.player.load(withVideoId: self.videoIDArray[1],playerVars: playerVars)
-//        
-//        
-//    }
-//    
-    
-    
-   
 
 }

@@ -22,7 +22,8 @@ class menuNameTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+//MARK: -  View Border color
+     
         menuNameImg.layer.cornerRadius = 3
         
         backGroundView.layer.cornerRadius = 3.0
@@ -31,7 +32,6 @@ class menuNameTableViewCell: UITableViewCell {
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
 
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

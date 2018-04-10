@@ -16,11 +16,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     @IBOutlet weak var signeUpOutLet: UIButton!
-    let utillites =  Utilities()
     
     @IBOutlet weak var allreadyhaveanAccount: UILabel!
     
+//MARK: -  variable declaration
     
+    let utillites =  Utilities()
+
     var appVersion          : String = ""
 
     var toolBar = UIToolbar()
@@ -35,7 +37,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var userId:String = ""
 
     var firstName:String = ""
-   // var lastname    : String = ""
     var middleName:String = ""
     var lastName:String = ""
     var contactNumber:String = "2457561545"
@@ -49,12 +50,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var createdByUserId:Int = 1
     var createdDate : String = "2018-01-31T10:43:28.8319786+05:30"
     var updatedByUserId : Int = 1
-   // var updatedByUserId : Int = 0
     var updatedDate:String =  "2018-01-31T10:43:28.8329795+05:30"
     
     
     var sectionsTitle : [String] = [" "]
      var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
+    
+//MARK: -   View DidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,18 +93,18 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    
+//MARK: -   View WillAppear
+   
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
         Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
-        //navigationItem.leftBarButtonItems = []
         
     }
     
-    //MARK:- textFieldShouldEndEditing
+//MARK:- textField Should End Editing
     
     
     
@@ -114,32 +116,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         textField.autocorrectionType = .no
         
-        //        if  TVC1.firstNameTF.text != nil{
-        //
-        //            TVC1.FNLbl.isHidden = false
-        //        }
-        
-        
-//        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-//            
-//            if textField == newRegCell.registrationTextfield {
-//                
-//                
-//                if (newRegCell.registrationTextfield.text != nil)  {
-//                    
-//                    newRegCell.registrationTextfield.isHidden = false
-//                    newRegCell.registrationTextfield.textColor = UIColor(red: 128.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-//                    
-//                }
-//                    
-//                else{
-//                    
-//                    newRegCell.registrationTextfield.isHidden = true
-//                    
-//                    
-//                }
-//            }
-//        }
+     
         if activeTextField.tag == 0 {
             
             textField.maxLengthTextField = 50
@@ -175,7 +152,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         else if activeTextField.tag == 5{
             
-         //   textField.clearButtonMode = .never
             textField.maxLengthTextField = 10
             textField.keyboardType = .phonePad
             
@@ -200,6 +176,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
        
     }
+    
+//MARK:- textField Should Change Characters In range
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -272,7 +250,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
        
     }
     
-    
+//MARK:- textField Should Should End Editing
+  
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         
@@ -289,7 +268,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
  
     
     
-    //MARK:- textFieldDidEndEditing
+//MARK:- textField Did End Editing
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -300,25 +279,21 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         if activeTextField.tag == 0{
             
-            //  activeTextField.textColor = UIColor.red
             firstName = textField.text!
             
         }
        else if activeTextField.tag == 1{
             
-            //  activeTextField.textColor = UIColor.red
             middleName = textField.text!
             
         }
        else if activeTextField.tag == 2{
             
-            //  activeTextField.textColor = UIColor.red
             lastName = textField.text!
             
         }
        else if activeTextField.tag == 3{
             
-          //  activeTextField.textColor = UIColor.red
                 userName = textField.text!
                 
             }
@@ -349,12 +324,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             }
                 
-   //     }
         
     }
   
     
-    
+//MARK: -   TableView Delegate & DataSource Methods
+   
     func numberOfSections(in tableView: UITableView) -> Int {
         
  
@@ -393,32 +368,26 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         if indexPath.row == 0{
             
-            //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
-            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "First Name".localize()
-            signUPCell.registrationTextfield.text = firstName
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.placeholder = "First Name".localize()
+        signUPCell.registrationTextfield.text = firstName
+        signUPCell.eyeButtonOutlet.isHidden = true
             
             
         }
         else if indexPath.row == 1{
             
-            //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
-            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "Middle Name".localize()
-            signUPCell.registrationTextfield.text = middleName
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.placeholder = "Middle Name".localize()
+        signUPCell.registrationTextfield.text = middleName
+        signUPCell.eyeButtonOutlet.isHidden = true
 
             
             
         }
         else if indexPath.row == 2{
             
-            //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
-            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "Last Name".localize()
-            signUPCell.registrationTextfield.text = lastName
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.placeholder = "Last Name".localize()
+        signUPCell.registrationTextfield.text = lastName
+        signUPCell.eyeButtonOutlet.isHidden = true
 
             
             
@@ -426,11 +395,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
        else if indexPath.row == 3{
             
-         //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
-           // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "User Name".localize()
-            signUPCell.registrationTextfield.text = userName
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.placeholder = "User Name".localize()
+        signUPCell.registrationTextfield.text = userName
+        signUPCell.eyeButtonOutlet.isHidden = true
 
 
             
@@ -438,24 +405,18 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         else if indexPath.row == 4{
             
-            signUPCell.registrationTextfield.text = email
-          //  signUPCell.registrationTextfield.keyboardType = .emailAddress
-
-           // signUPCell.registrationTextfield?.text = "app.Address1".localize()
-            signUPCell.registrationTextfield.placeholder = "E-mail".localize()
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.text = email
+        signUPCell.registrationTextfield.placeholder = "E-mail".localize()
+        signUPCell.eyeButtonOutlet.isHidden = true
 
             
             
         }
         else if indexPath.row == 5{
             
-            signUPCell.registrationTextfield.text = mobileNumber
-          //  signUPCell.registrationTextfield.keyboardType = .numberPad
-
-           // signUPCell.registrationTextfield?.text = "app.Address2".localize()
-            signUPCell.registrationTextfield.placeholder = "Mobile Number".localize()
-            signUPCell.eyeButtonOutlet.isHidden = true
+        signUPCell.registrationTextfield.text = mobileNumber
+        signUPCell.registrationTextfield.placeholder = "Mobile Number".localize()
+        signUPCell.eyeButtonOutlet.isHidden = true
 
             
             
@@ -463,12 +424,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if indexPath.row == 6{
             
-            signUPCell.registrationTextfield.text = password
-          //  signUPCell.registrationTextfield.keyboardType = .emailAddress
-           // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = "Password".localize()
-            signUPCell.eyeButtonOutlet.isHidden = false
-            signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+        signUPCell.registrationTextfield.text = password
+        signUPCell.registrationTextfield.placeholder = "Password".localize()
+        signUPCell.eyeButtonOutlet.isHidden = false
+        signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
 
             
@@ -476,12 +435,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
       
         else if indexPath.row == 7{
             
-            signUPCell.registrationTextfield.text = confirmpassword
-           // signUPCell.registrationTextfield.keyboardType = .emailAddress
-            // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = "Confirm Password".localize()
-            signUPCell.eyeButtonOutlet.isHidden = false
-            signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+        signUPCell.registrationTextfield.text = confirmpassword
+        signUPCell.registrationTextfield.placeholder = "Confirm Password".localize()
+        signUPCell.eyeButtonOutlet.isHidden = false
+        signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
             
             
@@ -490,6 +447,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         return signUPCell
     }
+    
+//MARK: -   Eye Button Clicked
+
     
     func  eyeButtonClicked(_ sendre:UIButton) {
         
@@ -504,37 +464,16 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         
         
-//        print("Eye Button Clicked......")
-//        
-//        if sendre.tag == 0
-//        {
-//            activeTextField.isSecureTextEntry = false
-//            sendre.tag = 1
-//        }
-//        else{
-//            
-//            activeTextField.isSecureTextEntry = true
-//            sendre.tag = 0
-//            
-//            
-//        }
-        
-        
     }
 
+//MARK: -    Back Left Button Tapped
 
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        //   navigationItem.leftBarButtonItems = []
-     //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -545,16 +484,14 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
     }
     
+//MARK: -    Home Button Tapped
+    
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
                 
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -576,6 +513,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     
+    //MARK: -    submit Button Clicked
 
     @IBAction func submitButtonClicked(_ sender: Any) {
         
@@ -601,7 +539,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     }
 
-    //MARK:- validateAllFields
+//MARK:- validateAllFields
     
     func validateAllFields() -> Bool
     {
@@ -624,10 +562,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
-            //        else if (middleNameStr.length <= 0){
-            //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
-            //
-            //        }
+           
         else if (lastnameStr.length <= 0){
             
             alertTag = 2
@@ -644,12 +579,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-//        else if (emailIDStr.length<=0) {
-//            
-//            alertTag = 4
-//
-//            errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
-//        }
             
         else  if (emailIDStr.length > 1) && (emailIDStr.length < 5) {
             
@@ -676,13 +605,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
             
             
-            //        else if (mobileNumberStr.length > 9) {
-            //
-            //
-            //            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
-            //        }
-            
-        else if (passWord.length<=0) {
+    else if (passWord.length<=0) {
             
             alertTag = 6
 
@@ -694,14 +617,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             errorMessage=GlobalSupportingClass.pswdnumberMessage() as String as String as NSString?
         }
-//        else if(!GlobalSupportingClass.numberOnly(password: passWord as String)) {
-//            
-//            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
-//        }
-//        else if(!GlobalSupportingClass.specialCharOnly(password: passWord as String)) {
-//
-//            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
-//        }
+
         else if (passWord.length < 8) {
             
             alertTag = 6
@@ -727,13 +643,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             
             
-//        else if(!passWord.isEqual(to: confirmPassWord as String)){
-//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-//        }
-//        
         if let errorMsg = errorMessage{
             
-//            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
             
             alertWithTitle(title: "Alert".localize(), message: errorMsg as String, ViewController: self, toFocus: activeTextField)
             return false
@@ -758,12 +669,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         });
         alert.addAction(action)
-        // alert.view.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         ViewController.present(alert, animated: true, completion:nil)
     }
 
     
-// MARK :- SigneUpAPIService
+// MARK :- SigneUp API Service
     
     func signeUpAPIService(){
 
@@ -820,13 +730,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                         let successMsg = respVO.endUserMessage
                         
                         
-                     /*   let registerStatus = successMsg
-                        let registerStatusDefaults = UserDefaults.standard
-                        registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
-                        UserDefaults.standard.synchronize() */
-                        
-                    
-         
                         
                         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
                                 let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -836,7 +739,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                             self.navigationController?.pushViewController(signUpVc, animated: true)
                         })
                         
-                        //self.navigationController?.popViewController(animated: true)
                         
                     }
                     else {
@@ -853,35 +755,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             }
         }, failureHandler: {(error) in
             
-//            if(error == "unAuthorized"){
-//                serviceController.refreshTokenForLogin(successHandler:{(result) in
-//                    DispatchQueue.main.async()
-//                        {
-//                            
-//                            self.updateProfileAPIService()
-//                            
-//                    }
-//                }, failureHandler:  {(error) in
-//                    
-//                    DispatchQueue.main.async()
-//                        {
-//                            
-//                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                            
-//                            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                            appDelegate.window?.rootViewController = viewController
-//                            
-//                    }
-//                    
-//                    
-//                })
-//            }
         })
         
         
     }
     
+// MARK :- login Clicked
+  
     @IBAction func loginClicked(_ sender: Any) {
         
         

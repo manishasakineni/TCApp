@@ -19,6 +19,9 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     
     
     @IBOutlet weak var infoImage: UIImageView!
+    
+//MARK: -  variable declaration
+    
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
 
     var saveLocationString : String             = ""
@@ -95,6 +98,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     
     var userID = String()
+  
+    //MARK:- view Did Load
     
     override func viewDidLoad() {
         
@@ -132,66 +137,47 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             infoImage.image = #imageLiteral(resourceName: "j4")
         }
         
-        
-        
-        
-        
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
         hometableView.register(nibName, forCellReuseIdentifier: "homeCategoriesCell")
-        
-        
-        // let string
-        
-        
-      //  Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
+    
         hometableView.dataSource = self
         hometableView.delegate = self
         
+    self.navigationController?.isNavigationBarHidden = true
         
-        //   https://rgfigueroa.files.wordpress.com/2008/03/stevesbio.pdf
-        //   https://www.antennahouse.com/XSLsample/pdf/sample-link_1.pdf
-        self.navigationController?.isNavigationBarHidden = true
-        
-        
-        
-        self.getVideosAPICall()
+    self.getVideosAPICall()
         
         
     }
+    
+    //MARK:- view Will Appear
+  
     override func viewWillAppear(_ animated: Bool) {
         
-        super.viewWillAppear(animated)
+    super.viewWillAppear(animated)
         
-        
-        
-       
-        
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+    Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
 
     }
+    //MARK:- view Will Disappear
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        super.viewWillDisappear(animated)
-        //        searchController.searchBar.resignFirstResponder()
-        //
-        //        self.searchController.isActive = false
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
-
+    super.viewWillDisappear(animated)
         
-      //  Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-    }
+    Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+
+        }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- get Videos API Call
     
     func getVideosAPICall(){
         
-//        let videoSongsID : Int = 8
         
         let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)" + "/" + kUserId
         
@@ -304,7 +290,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             
                             print("categoryStr:\(self.categoryStr.count)")
                             
-                            //                        let videoList = self.allCagegoryListArray?.audios
                             self.isResponseFromServer = true
                             self.hometableView.reloadData()
 
@@ -317,12 +302,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             self.hometableView.isHidden = true
                         }
                         
-                        
-                        
-                        
-
-                        // print(self.authorDetailsArray)
-                        
                     }
                         
                     else{
@@ -334,15 +313,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                     }
                     
                     
-                    //  }
             }
             
             
             
         }) { (failureMessage) in
-            
-            
-            
             
         }
         
@@ -352,14 +327,13 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     private func openPDFinPDFReader() {
         
-        //self.performSegue(withIdentifier: kToPDFVC, sender: self)
     }
     
+ //MARK:- save PDF With Url
     
     private func savePDFWithUrl(_ urlString: String) {
         
         var filePath : URL?
-        //self.showHUD()
         
         MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
@@ -406,13 +380,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                                     
                                     MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                                    //                                    self.hideHUD()
-                                    //                                    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: kAppTitle, messege: self.pdfTitle + " has been already downloaded. Do you want to open?", clickAction: {
-                                    //
-                                    //                                        self.openPDFinPDFReader()
-                                    //                                        return
-                                    //                                    })
-                                })
+                        })
                             }
                             
                         } else {
@@ -431,13 +399,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                         
                                         MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                         
-                                        //                                        self.hideHUD()
-                                        //
-                                        //                                        Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
-                                        //                                                                                         alertTitle: kAppTitle,
-                                        //                                                                                         messege: "Error while loading Catalog", clickAction: {
-                                        //
-                                        //                                        })
+                                        
                                     }
                                     
                                 } else {
@@ -453,7 +415,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                             DispatchQueue.main.async {
                                                 
                                                 MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                                                //  self.hideHUD()
                                                 self.openPDFinPDFReader()
                                             }
                                             
@@ -466,10 +427,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                                 
                                                 MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                                 
-                                                //                                                self.hideHUD()
-                                                //
-                                                //                                                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: kAppTitle, messege: "Catalog has been downloaded to the download folder on your device", clickAction: {
-                                                //                                                })
+                                              
                                             }
                                         }
                                         
@@ -480,12 +438,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                         DispatchQueue.main.async {
                                             
                                             MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                                            //                                            self.hideHUD()
-                                            //                                            Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
-                                            //                                                                                             alertTitle: kAppTitle,
-                                            //                                                                                             messege: error.localizedDescription, clickAction: {
-                                            //
-                                            //                                            })
+                                           
                                         }
                                     }
                                 }
@@ -499,7 +452,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                                 DispatchQueue.main.async {
                                     
                                     MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                                    // self.hideHUD()
                                 }
                             }
                         }
@@ -515,23 +467,23 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         documentController.delegate = self
         documentController.presentPreview(animated: true)
     }
-    //
-    //
-    //    // MARK: - UIDocumentInteractionViewController delegate methods
-    //
-    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+    
+func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
         return self
     }
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    
+//MARK:- Collectionview  DataSource & Delegate Methods
+   
+public func numberOfSections(in tableView: UITableView) -> Int {
         
         
         return 1
         
-    }
+}
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-          if(isResponseFromServer == true){
+        if(isResponseFromServer == true){
             
              return numberOfRows.count
             
@@ -592,19 +544,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             cell.categorieName.text = self.categoryStr[indexPath.row]
             
         }
-            
-
-//        }
-        
         
         
         return cell
     }
     
-    //    func numberOfSections(in collectionView: UICollectionView) -> Int {
-    //
-    //        return 1
-    //    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -614,14 +558,10 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     
     return totalItems!
         
-//        return videoIDArray.count
       
     }
     
-//    @nonobjc internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-//    {
-//        return CGSize(width: 100.0, height: 100.0)
-//    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -631,20 +571,12 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
-//         let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
         
          let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
-//        let likesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.likeCount
-//        
-//        let disLikesCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.disLikeCount
-//        
-//        let commentCount = (imageTag?[indexPath.row] as? ImagesResultVo)?.commentCount
-        
-//        print(title!)
-//        print(postImgUrl!)
+
         
         cell.nameLabel.text = title
         
@@ -683,118 +615,14 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             cell.collectionImgView.image = #imageLiteral(resourceName: "docImg")
             
             
-//            if let embededUrlImage =  postImgUrl {
-//            
-//            let thumbnillImage : String = embededUrlImage
-//            
-//            
-//                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
-//                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
-//            
-//                let videothumb = URL(string: self.thumbnailImageURL)
-//            
-//                if videothumb != nil{
-//            
-//                let request = URLRequest(url: videothumb!)
-//            
-//                let session = URLSession.shared
-//            
-//                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//            
-//                DispatchQueue.main.async()
-//                    {
-//                        
-//                        if data != nil {
-//                            
-//                            cell.collectionImgView.image = UIImage(data: data!)
-//                        }
-//                                                    
-//                        }
-//                                    
-//                                })
-//                                
-//                                dataTask.resume()
-//                                
-//                            }
-//                        }
+
         }
         
         else if (fileExtension == ".mp3") {
             
             cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
-            
-        //    http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Audio//2018030912455512.mp3
-            
-//            print(postImgUrl)
-//
-//             let audioUrlImage =  postImgUrl
-//       print(audioUrlImage)
-//            
-//            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-//           
-//            print(newString)
-//
-//            
-//            if newString != nil {
-//                
-//                let url = URL(string:newString!)
-//                
-//                
-//                let dataImg = try? Data(contentsOf: url!)
-//                
-//                if dataImg != nil {
-//                    
-//                    cell.collectionImgView.image = UIImage(data: dataImg!)
-//                }
-//                else {
-//                    
-//                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-//                }
-//            }
-//            else {
-//                
-//                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-//            }
-            
-            
-            
-            
-//            let audioArr:audioRessultVo = audioArray[indexPath.row]
-            
-//            
-//                        if let embededUrlImage =  postImgUrl {
-//            
-//                            let thumbnillImage : String = embededUrlImage
-//            
-//            
-//                            audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-//            
-//                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/1.jpg"
-//            
-//                            let videothumb = URL(string: self.thumbnailImageURL)
-//            
-//                            if videothumb != nil{
-//            
-//                                let request = URLRequest(url: videothumb!)
-//            
-//                                let session = URLSession.shared
-//            
-//                                let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-//            
-//                                    DispatchQueue.main.async()
-//                                        {
-//            
-//                                            cell.collectionImgView.image = UIImage(data: data!)
-//                                            
-//                                    }
-//                                    
-//                                })
-//                                
-//                                dataTask.resume()
-//                                
-//                            }
-//                        }
+     
             
         }
         else if fileExtension == ".mp4" {
@@ -885,34 +713,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
         
         
-//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-//            
-//            
-//            let cellsPerRow = 5
-//            
-//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//            return CGSize(width: itemWidth, height: itemWidth)
-//        }
-//        else {
-//            
-//            let cellsPerRow = 3
-//            
-//            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//            return CGSize(width: itemWidth, height: itemWidth)
-//            
-//            
-//        }
         
     }
     
-    //MARK:- Collectionview didSelectItemAt indexPath
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
         if self.imagesArrayTag.count > 0 {
@@ -940,7 +745,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                 
                 if dataImg != nil {
                     
-//                    cell.collectionImgView.image = UIImage(data: dataImg!)
                     
                     imageView.image = UIImage(data: dataImg!)
                     imageView.frame = self.view.bounds
@@ -1005,28 +809,17 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
             if newString != nil {
                 
-              //  let url = URL(string:newString!)
                 
-                
-                //let dataImg = try? Data(contentsOf: url!)
-                
-               // if dataImg != nil {
-                    
                     let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
                     
                     audioViewController.audioIDArr = newString!
                    audioViewController.audioIDNameArr = title!
                     self.navigationController?.pushViewController(audioViewController, animated: true)
                     
-              //  }
-//                else {
-//                    
-//                //    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-//                }
+                
             }
             else {
                 
-             //   cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
             }
 
             
@@ -1072,10 +865,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
                                 let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                    
-                                //    videosView.videoEmbededIDStr = self.audioIDArray[1]
                                     videosVC.videoNameStr = title!
-                               //     videosView.categoryId = categoryId!
-                                  //  videosView.ID = videoID!
                                     
                                     
                                     kUserDefaults.set(categoryId!, forKey: "categoryId")
@@ -1111,6 +901,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         sender.view?.removeFromSuperview()
     }
     
+   //MARK: -    Back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
     
         
@@ -1126,6 +918,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
 
     }
     
+  //MARK: -    Home Left Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         

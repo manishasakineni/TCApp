@@ -21,6 +21,8 @@ class UpComingEventCell: UITableViewCell {
     
     @IBOutlet weak var eventImage: UIImageView!
     
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,21 +31,7 @@ class UpComingEventCell: UITableViewCell {
         eventImage.layer.borderColor = UIColor.white.cgColor
         eventImage.layer.cornerRadius = eventImage.frame.height/2
         eventImage.clipsToBounds = true
-//        
-//        eventImage.layer.masksToBounds = false
-//        eventImage.layer.cornerRadius = eventImage.frame.width/2
-//        eventImage.layer.cornerRadius = 1.0
-//        eventImage.layer.borderColor = UIColor.lightGray.cgColor
-//        eventImage.clipsToBounds = true
-//        eventImage.layer.shadowColor = UIColor.lightGray.cgColor
-//        eventImage.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        eventImage.layer.shadowOpacity = 0.6
-//        eventImage.layer.shadowRadius = 0.5
-//
-        
-        
-        
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

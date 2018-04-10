@@ -18,13 +18,14 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     
     @IBOutlet weak var noRecordsFoundLbl: UILabel!
+    
+    //MARK: -  variable declaration
+    
     var delegate: churchChangeSubtitleOfIndexDelegate?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var appVersion          : String = ""
-    
- 
     
     var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
@@ -41,8 +42,6 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var closeTimeString = ""
     var contactNumberString = ""
     var mandalNameString = ""
-    
-    // var churchCountryArray = Array<String>()
     
     var villageNamesString = ""
     var phoneNoString = ""
@@ -84,7 +83,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     let array = ["","ssss","ddddd","gggg"]
     
-    
+    //MARK: -  view Did Load
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -115,10 +114,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
         let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
         infoChurchTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
-        
-        
-        
-        
+    
         
         getChurchuByIDAPIService()
         
@@ -126,171 +122,148 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     }
     
     
-    
+    //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        //  self.navigationController?.navigationBar.isHidden = true
-        
-        
-        
-        
-        
     }
+    
+    //MARK: -  view Did Appear
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
     }
     
+    //MARK: -  Get Church By ID API Service
     
     func getChurchuByIDAPIService(){
         
         if(appDelegate.checkInternetConnectivity()){
             
+    let strUrl = GETCHURCHEBYID + "" + "\(churchID)" + "/" + String(self.userId)
             
+    serviceController.getRequest(strURL:strUrl, success:{(result) in
+    DispatchQueue.main.async()
+        {
+                        
+                        
+    print("result:\(result)")
+                        
+    let respVO:GetChurchByIDVo = Mapper().map(JSONObject: result)!
+                        
+    print("responseString = \(respVO)")
             
-            let strUrl = GETCHURCHEBYID + "" + "\(churchID)" + "/" + String(self.userId)
-            
-            
-            serviceController.getRequest(strURL:strUrl, success:{(result) in
-                DispatchQueue.main.async()
-                    {
+    let isSuccess = respVO.isSuccess
+    print("StatusCode:\(String(describing: isSuccess))")
                         
-                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+    self.churchCountryArray.removeAll()
+    self.churchStateArray.removeAll()
+    self.churchDistrictNameArray.removeAll()
+    self.churchVillageNameArray.removeAll()
                         
-                        print("result:\(result)")
-                        
-                        let respVO:GetChurchByIDVo = Mapper().map(JSONObject: result)!
-                        
-                        print("responseString = \(respVO)")
-                        
-                        
-                        let isSuccess = respVO.isSuccess
-                        print("StatusCode:\(String(describing: isSuccess))")
-                        
-                        self.churchCountryArray.removeAll()
-                        self.churchStateArray.removeAll()
-                        self.churchDistrictNameArray.removeAll()
-                        self.churchVillageNameArray.removeAll()
-                        
-                        if isSuccess == true {
+    if isSuccess == true {
                             
-                            if !(respVO.listResult!.isEmpty){
+    if !(respVO.listResult!.isEmpty){
                                 
-                                self.noRecordsFoundLbl.isHidden = true
-                                self.infoChurchTableView.isHidden = false
+    self.noRecordsFoundLbl.isHidden = true
+    self.infoChurchTableView.isHidden = false
                                 
-                                let successMsg = respVO.endUserMessage
+    let successMsg = respVO.endUserMessage
+    self.listResultArray = respVO.listResult!
                                 
-                                self.listResultArray = respVO.listResult!
+    self.churchNamesString = (respVO.listResult?[0].name == nil ? "" : respVO.listResult?[0].name)!
+    self.phoneNoString = (respVO.listResult?[0].userContactNumbar == nil ? "" : respVO.listResult?[0].userContactNumbar)!
+    self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
+    self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
+    self.nameString = (respVO.listResult?[0].pasterUser == nil ? "" : respVO.listResult?[0].pasterUser)!
+    self.descriptionString = (respVO.listResult?[0].description == nil ? "" : respVO.listResult?[0].description)!
+    self.churchImageLogoString = (respVO.listResult?[0].churchImage == nil ? "" : respVO.listResult?[0].churchImage!.replacingOccurrences(of: "\\", with: "//"))!
                                 
-                                self.churchNamesString = (respVO.listResult?[0].name == nil ? "" : respVO.listResult?[0].name)!
-                                self.phoneNoString = (respVO.listResult?[0].userContactNumbar == nil ? "" : respVO.listResult?[0].userContactNumbar)!
-                                self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
-                                self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
-                                self.nameString = (respVO.listResult?[0].pasterUser == nil ? "" : respVO.listResult?[0].pasterUser)!
-                                self.descriptionString = (respVO.listResult?[0].description == nil ? "" : respVO.listResult?[0].description)!
-                                self.churchImageLogoString = (respVO.listResult?[0].churchImage == nil ? "" : respVO.listResult?[0].churchImage!.replacingOccurrences(of: "\\", with: "//"))!
+    self.landMarkString = (respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark)!
+    self.address1String = (respVO.listResult?[0].address1 == nil ? "" : respVO.listResult?[0].address1)!
+    self.address2String = (respVO.listResult?[0].address2 == nil ? "" : respVO.listResult?[0].address2)!
+    self.openTimeString = (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)!
+    self.closeTimeString = (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!
+    self.contactNumberString = (respVO.listResult?[0].contactNumber == nil ? "" : respVO.listResult?[0].contactNumber)!
+    self.mandalNameString = (respVO.listResult?[0].mandalName == nil ? "" : respVO.listResult?[0].mandalName)!
+    self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
                                 
-                                self.landMarkString = (respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark)!
-                                self.address1String = (respVO.listResult?[0].address1 == nil ? "" : respVO.listResult?[0].address1)!
-                                self.address2String = (respVO.listResult?[0].address2 == nil ? "" : respVO.listResult?[0].address2)!
-                                self.openTimeString = (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)!
-                                self.closeTimeString = (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!
-                                self.contactNumberString = (respVO.listResult?[0].contactNumber == nil ? "" : respVO.listResult?[0].contactNumber)!
-                                self.mandalNameString = (respVO.listResult?[0].mandalName == nil ? "" : respVO.listResult?[0].mandalName)!
-                                self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
+    self.MissionString = (respVO.listResult?[0].mission == nil ? "" : (respVO.listResult?[0].mission)!)
                                 
-                                self.MissionString = (respVO.listResult?[0].mission == nil ? "" : (respVO.listResult?[0].mission)!)
+    self.VissionString = (respVO.listResult?[0].vision == nil ? "" : (respVO.listResult?[0].vision)!)
                                 
-                                self.VissionString = (respVO.listResult?[0].vision == nil ? "" : (respVO.listResult?[0].vision)!)
-                                
-                                self.stateString = (respVO.listResult?[0].stateName == nil ? "" : (respVO.listResult?[0].stateName)!)
-                                
-                                
-                                self.wedAddressString = (respVO.listResult?[0].websiteAddress == nil ? "" : (respVO.listResult?[0].websiteAddress)!)
-                                
-                                self.districtString = (respVO.listResult?[0].districtName == nil ? "" : (respVO.listResult?[0].districtName)!)
-                                
-                                self.villageString = (respVO.listResult?[0].villageName == nil ? "" : (respVO.listResult?[0].villageName)!)
+    self.stateString = (respVO.listResult?[0].stateName == nil ? "" : (respVO.listResult?[0].stateName)!)
                                 
                                 
+    self.wedAddressString = (respVO.listResult?[0].websiteAddress == nil ? "" : (respVO.listResult?[0].websiteAddress)!)
                                 
-                                self.genderString = (respVO.listResult?[0].gender == nil ? "" : (respVO.listResult?[0].gender)!)
+    self.districtString = (respVO.listResult?[0].districtName == nil ? "" : (respVO.listResult?[0].districtName)!)
+                                
+    self.villageString = (respVO.listResult?[0].villageName == nil ? "" : (respVO.listResult?[0].villageName)!)
+        
+    self.genderString = (respVO.listResult?[0].gender == nil ? "" : (respVO.listResult?[0].gender)!)
+                                
+    self.authorNameString = (respVO.listResult?[0].userName == nil ? "" : (respVO.listResult?[0].userName)!)
+                                
+    self.dobString = (respVO.listResult?[0].dob == nil ? "" : (respVO.listResult?[0].dob)!)
                                 
                                 
-                                
-                                self.authorNameString = (respVO.listResult?[0].userName == nil ? "" : (respVO.listResult?[0].userName)!)
-                                
-                                self.dobString = (respVO.listResult?[0].dob == nil ? "" : (respVO.listResult?[0].dob)!)
-                                
-                                
-                                let stringgg = (respVO.listResult?[0].pinCode)
-                                if stringgg != nil {
-                                    self.pinCodeString = "\(stringgg!)"
+    let stringgg = (respVO.listResult?[0].pinCode)
+    if stringgg != nil {
+        
+    self.pinCodeString = "\(stringgg!)"
                                     
-                                }
+    }
                                 
-                        self.isSubscribed = (respVO.listResult?[0].isSubscribed)!
-                                print(self.churchCountryArray)
-                                
-                                
-                                print(self.timeString)
-                                print(self.churchNamesString)
-                                //self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                                self.infoChurchTableView.reloadData()
+   self.isSubscribed = (respVO.listResult?[0].isSubscribed)!
+    print(self.churchCountryArray)
                                 
                                 
-                            }else{
+    print(self.timeString)
+    print(self.churchNamesString)
+    self.infoChurchTableView.reloadData()
                                 
-                                self.noRecordsFoundLbl.isHidden = false
-                                self.infoChurchTableView.isHidden = true
-                            }
+                                
+    }else{
+                                
+    self.noRecordsFoundLbl.isHidden = false
+    self.infoChurchTableView.isHidden = true
+    }
+        
+}
                             
-                            
-                            
-                        }
-                            
-                        else {
-                            
-                            
-                            
-                        }
+    else {
+        
+}
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                }
-            }, failure:  {(error) in
+}
+}, failure:  {(error) in
                 
-                print(error)
+print(error)
                 
-                if(error == "unAuthorized"){
+if(error == "unAuthorized"){
                     
                     
-                    self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
-                    
-                    
-                }
-                
-                
-                
-            })
+self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+    
+        }
+    
+    })
             
         }
         else {
             
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-            return
+    appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+    return
+            
         }
         
     }
+    
+   //MARK: -   TableView Delegate & DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -361,219 +334,202 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
             
-            if indexPath.row == 0 {
+    if indexPath.row == 0 {
                 
                 
-                cell.churchNameLabel.text = churchNamesString
+    cell.churchNameLabel.text = churchNamesString
                 
-                if(churchImageLogoArray.count >= indexPath.section){
-                    if let url = URL(string:churchImageLogoString) {
-                        cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
-                    }else{
-                        cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
-                    }
-                }
-                
-                return cell
-                
+    if(churchImageLogoArray.count >= indexPath.section){
+    if let url = URL(string:churchImageLogoString) {
+    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+        
+        }else{
+                        
+        cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+                        
             }
+        }
+                
+        return cell
+                
+    }
             
             
-            return cell
+    return cell
             
         }
         else if (indexPath.section == 1) {
             
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+    let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
-            if indexPath.row == 0 {
+        if indexPath.row == 0 {
                 
-                cell1.infoLabel.text = "Registration Number".localize()
+        cell1.infoLabel.text = "Registration Number".localize()
                 
-                cell1.addressLabel.text = regNoString
-                
-                
-                
-            } else if indexPath.row == 1 {
-                
-                cell1.infoLabel.text = "Name".localize()
+        cell1.addressLabel.text = regNoString
                 
                 
-                cell1.addressLabel.text = churchNamesString
+        } else if indexPath.row == 1 {
+                
+        cell1.infoLabel.text = "Name".localize()
+                
+        cell1.addressLabel.text = churchNamesString
                
             
-            } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 {
                 
-                cell1.infoLabel.text = "Description".localize()
+        cell1.infoLabel.text = "Description".localize()
                 
-                cell1.addressLabel.text =  descriptionString
-                
-                
-            }else if indexPath.row == 3 {
-                
-                cell1.infoLabel.text = "Vision".localize()
+        cell1.addressLabel.text =  descriptionString
                 
                 
-                cell1.addressLabel.text = VissionString
+        }else if indexPath.row == 3 {
+                
+        cell1.infoLabel.text = "Vision".localize()
+                
+        cell1.addressLabel.text = VissionString
                 
                 
-            }else if indexPath.row == 4 {
+        }else if indexPath.row == 4 {
                 
-                cell1.infoLabel.text = "Mission".localize()
+        cell1.infoLabel.text = "Mission".localize()
                 
                 
-                cell1.addressLabel.text = MissionString
+        cell1.addressLabel.text = MissionString
                 
                
-            }
-            
-            
-            
-            return cell1
         }
             
-        else if (indexPath.section == 2){
             
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+    return cell1
+    }
+            
+    else if (indexPath.section == 2){
+            
+    let cell3 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
             
+    if indexPath.row == 0 {
+                
+    cell3.infoLabel.text = "Address".localize()
+                
+    cell3.addressLabel.text = address1String
+                
+    } else if indexPath.row == 1 {
+                
+    cell3.infoLabel.text = "Email".localize()
+                
+                
+    cell3.addressLabel.text =  emailString
+                
+                
+    } else if indexPath.row == 2 {
+                
+    cell3.infoLabel.text = "Web Address".localize()
+                
+    cell3.addressLabel.text =  wedAddressString
             
-            if indexPath.row == 0 {
+        }else if indexPath.row == 3 {
                 
-                cell3.infoLabel.text = "Address".localize()
-                
-                cell3.addressLabel.text = address1String
-                //
-            } else if indexPath.row == 1 {
-                
-                cell3.infoLabel.text = "Email".localize()
+        cell3.infoLabel.text = "Landmark".localize()
                 
                 
-                cell3.addressLabel.text =  emailString
+        cell3.addressLabel.text = landMarkString
                 
                 
                 
-            } else if indexPath.row == 2 {
+        }else if indexPath.row == 4 {
                 
-                cell3.infoLabel.text = "Web Address".localize()
-                
-                cell3.addressLabel.text =  wedAddressString
+    cell3.infoLabel.text = "State".localize()
                 
                 
+    cell3.addressLabel.text = stateString
+            
+            }
+    else if indexPath.row == 5 {
+                
+    cell3.infoLabel.text = "District".localize()
                 
                 
-            }else if indexPath.row == 3 {
-                
-                cell3.infoLabel.text = "Landmark".localize()
+    cell3.addressLabel.text = districtString
                 
                 
-                cell3.addressLabel.text = landMarkString
+            }
+    else if indexPath.row == 6 {
                 
+    cell3.infoLabel.text = "Mandal".localize()
                 
+    cell3.addressLabel.text = mandalNameString
                 
-            }else if indexPath.row == 4 {
+            }
+    else if indexPath.row == 7 {
                 
-                cell3.infoLabel.text = "State".localize()
+    cell3.infoLabel.text = "Village".localize()
                 
-                
-                cell3.addressLabel.text = stateString
-                
-                
-                
+    cell3.addressLabel.text = villageString
                 
                 
                 
             }
-            else if indexPath.row == 5 {
+    else if indexPath.row == 8 {
+            
+    cell3.infoLabel.text = "Pin Code".localize()
                 
-                cell3.infoLabel.text = "District".localize()
-                
-                
-                cell3.addressLabel.text = districtString
-                
-                
-            }
-            else if indexPath.row == 6 {
-                
-                cell3.infoLabel.text = "Mandal".localize()
-                
-                cell3.addressLabel.text = mandalNameString
-                
-            }
-            else if indexPath.row == 7 {
-                
-                cell3.infoLabel.text = "Village".localize()
-                
-                cell3.addressLabel.text = villageString
-                
-                
-                
-            }
-            else if indexPath.row == 8 {
-                
-                cell3.infoLabel.text = "Pin Code".localize()
-                
-                cell3.addressLabel.text = pinCodeString
+    cell3.addressLabel.text = pinCodeString
                 
             }
             
-            
-            
-            return cell3
+        return cell3
             
             
         }
-        else if (indexPath.section == 3){
+    else if (indexPath.section == 3){
             
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
-            if indexPath.row == 0 {
+    let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+    if indexPath.row == 0 {
                 
-                cell2.infoLabel.text = "Author Name".localize()
-                
-                cell2.addressLabel.text = authorNameString
-                
-                
-            } else if indexPath.row == 1 {
-                
-                cell2.infoLabel.text = "Email".localize()
-                
-                cell2.addressLabel.text =  emailString
+    cell2.infoLabel.text = "Author Name".localize()
+        
+    cell2.addressLabel.text = authorNameString
                 
                 
-            } else if indexPath.row == 2 {
+    } else if indexPath.row == 1 {
                 
-                cell2.infoLabel.text = "Contact Number".localize()
+    cell2.infoLabel.text = "Email".localize()
                 
-                cell2.addressLabel.text =  contactNumberString
+    cell2.addressLabel.text =  emailString
                 
                 
-            }else if indexPath.row == 3 {
+    } else if indexPath.row == 2 {
                 
-                cell2.infoLabel.text = "Date Of Birth".localize()
+    cell2.infoLabel.text = "Contact Number".localize()
                 
-                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)
+    cell2.addressLabel.text =  contactNumberString
                 
-                cell2.addressLabel.text = startAndEndDate1
+                
+        }else if indexPath.row == 3 {
+                
+        cell2.infoLabel.text = "Date Of Birth".localize()
+                
+        let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)
+                
+        cell2.addressLabel.text = startAndEndDate1
                 
 
+        }else if indexPath.row == 4 {
                 
-             //   cell2.addressLabel.text = dobString
+    cell2.infoLabel.text = "Gender".localize()
                 
+    cell2.addressLabel.text = genderString
                 
-            }else if indexPath.row == 4 {
-                
-                cell2.infoLabel.text = "Gender".localize()
-                
-                cell2.addressLabel.text = genderString
-                
-            }
+        }
             
             
-            return cell2
+        return cell2
             
         }
             
@@ -581,27 +537,15 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
         else if (indexPath.section == 4){
             
+    let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
-            
-            
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
-            
-            //  cell3.aboutLabel.text = VissionString
-            
-            
-            return cell3
+        return cell3
             
         }
         
-        let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
+    let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
         
-        //    cell3.aboutLabel.text = descriptionString
-        
-        
-        
-        
-        
-        return cell3
+    return cell3
         
         
         
@@ -678,6 +622,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         return 44.0
         
     }
+   
+//MARK: -   Subscribe Btn Clicked
     
     func subscribeBtnClicked(sender : UIButton){
         
@@ -692,63 +638,54 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                "authorId": "null"
                 ] as [String : Any]
             
-            let dictHeaders = ["":"","":""] as NSDictionary
+    let dictHeaders = ["":"","":""] as NSDictionary
+            
+    serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+    print(result)
+                
+    let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
+                
+                
+    let isSuccess = respVO.isSuccess
+    print("StatusCode:\(String(describing: isSuccess))")
+                
+    if isSuccess == true {
+                    
+    let successMsg = respVO.endUserMessage
+                    
+    let subscribe = respVO.isSuccess
+                    
+    self.isSubscribed = (respVO.result?.isSubscribed!)!
+                    
+    self.infoChurchTableView.reloadData()
+        
+    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+    }
+                    
+else {
+                    
+    let unSuccessMsg = respVO.endUserMessage
+                    
+    self.appDelegate.window?.makeToast(unSuccessMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                    
+                    
+    }
+                
+}) { (failureMessage) in
+                
+                
+    print(failureMessage)
+                
+    }
             
             
-            serviceController.postRequest(strURL: CHURCHAUTHORSUBSCIPTIONAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-                
-                print(result)
-                
-                let respVO:ChurchAuthorSubscriptionVO = Mapper().map(JSONObject: result)!
-                
-                
-                let isSuccess = respVO.isSuccess
-                print("StatusCode:\(String(describing: isSuccess))")
-                
-                if isSuccess == true {
-                    
-                    let successMsg = respVO.endUserMessage
-                    
-                    let subscribe = respVO.isSuccess
-                    
-                    self.isSubscribed = (respVO.result?.isSubscribed!)!
-                    
-//                    let indexPath = IndexPath(item: sender.tag, section: 0)
-//                    self.infoChurchTableView.reloadRows(at: [indexPath], with: .none)
-                    
-                    self.infoChurchTableView.reloadData()
-                    
-                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                    
-                }
-                    
-                else {
-                    
-                    let unSuccessMsg = respVO.endUserMessage
-                    
-                    self.appDelegate.window?.makeToast(unSuccessMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                    
-                    
-                }
-                
-            }) { (failureMessage) in
-                
-                
-                print(failureMessage)
-                
-            }
+    }else {
             
             
-        }
-            
-            
-        else {
-            
-            
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
-                
-                
-                
+     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
+        
             })
             
         }
@@ -756,6 +693,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     }
     
     
+//MARK: -   show Alert View With Title
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     
@@ -802,6 +740,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         return newDateStr + "-" + newDateStr1
     }
     
+//MARK: -   Event Date Without Time
+    
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
@@ -815,9 +755,6 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             let dateString3 = invDtArray2[0]
             
             print(dateString1)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
-            
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"

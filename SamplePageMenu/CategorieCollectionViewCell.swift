@@ -17,7 +17,8 @@ class CategorieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-
+ //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,7 +33,6 @@ class CategorieCollectionViewCell: UICollectionViewCell {
         
         viewOutLet.layer.cornerRadius = 5.0
         viewOutLet.layer.borderWidth = 1
-//        viewOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
 
         viewOutLet.layer.borderColor = Utilities.bordrColor
         
@@ -42,13 +42,7 @@ class CategorieCollectionViewCell: UICollectionViewCell {
         collectionImgView.layer.shadowOpacity = 0.6
         collectionImgView.layer.shadowRadius = 0.5
         
-//        collectionImgView.layer.cornerRadius = 5.0
-//        collectionImgView.layer.borderWidth = 1
-//        collectionImgView.layer.borderColor = UIColor(red: 238.0/255.0, green: 238.0/255.0, blue: 238.0/255.0, alpha: 1.0).cgColor
-//
-//        
-      
-        // Initialization code
+
     }
 
 }

@@ -16,7 +16,7 @@ class ConformButtonPassWordCell: UITableViewCell {
     
     @IBOutlet weak var cancelBtn: UIButton!
     
-    
+     //MARK: - Color
 
     override func awakeFromNib() {
         

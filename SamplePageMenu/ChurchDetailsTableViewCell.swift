@@ -24,6 +24,8 @@ class ChurchDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var SubscribeBtn: UIButton!
     
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

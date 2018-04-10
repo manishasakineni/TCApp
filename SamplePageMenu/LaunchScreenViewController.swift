@@ -16,27 +16,23 @@ class LaunchScreenViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
+  //MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        quotationLabel.animate(newText:"The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point.", characterDelay: 0.1)
+    quotationLabel.animate(newText:"The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point.", characterDelay: 0.1)
 
         
-        
-        
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: -    skip Clicked
 
     @IBAction func skipClicked(_ sender: Any) {
         

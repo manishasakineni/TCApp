@@ -16,6 +16,9 @@ class homeCategoriesCell: UITableViewCell {
     
 
     @IBOutlet weak var categorieName: UILabel!
+    
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

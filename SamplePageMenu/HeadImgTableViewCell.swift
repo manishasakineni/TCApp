@@ -13,15 +13,17 @@ class HeadImgTableViewCell: UITableViewCell {
     @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var churchNameLabel: UILabel!
     @IBOutlet weak var churchImage: UIImageView!
+    
+  //MARK: - Color 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
-                backGroundView.layer.cornerRadius = 3.0
-                backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
-                backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-                backGroundView.layer.shadowOpacity = 0.6
-                backGroundView.layer.shadowRadius = 2.0
+    backGroundView.layer.cornerRadius = 3.0
+    backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
+    backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
+    backGroundView.layer.shadowOpacity = 0.6
+    backGroundView.layer.shadowRadius = 2.0
                 
         
     

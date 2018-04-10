@@ -19,24 +19,15 @@ class menuTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var cameraOutLet: UIButton!
-
+    
+ //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
         
-        
-        
-//        backGroundView.layer.cornerRadius = 3.0
-//        backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
-//        backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        backGroundView.layer.shadowOpacity = 0.6
-//        backGroundView.layer.shadowRadius = 2.0
-//        
-        
-        
         progileImageView.layer.borderWidth = 1
         progileImageView.layer.masksToBounds = false
-       // menuImgView.layer.borderColor = UIColor.black.cgColor
         progileImageView.layer.cornerRadius = progileImageView.frame.height/2
         progileImageView.clipsToBounds = true
         

@@ -21,6 +21,8 @@ class CategorieHomeCell: UITableViewCell {
     
     @IBOutlet weak var moreButton: UIButton!
 
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,12 +35,10 @@ class CategorieHomeCell: UITableViewCell {
         backGroundView.layer.shadowRadius = 2.0
         
 
-   //     categoriesNameLabel.textColor = Utilities.appColor
 
         
         moreButton.layer.cornerRadius = 1.0
         moreButton.layer.borderWidth = 1
-//        moreButton.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
         
         moreButton.layer.borderColor = Utilities.bordrColor
         

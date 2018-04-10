@@ -18,6 +18,7 @@ class EventInformationCell: UITableViewCell {
     
     @IBOutlet weak var eventEndDateLabel: UILabel!
     
+     //MARK: - Color
     
     override func awakeFromNib() {
         super.awakeFromNib()

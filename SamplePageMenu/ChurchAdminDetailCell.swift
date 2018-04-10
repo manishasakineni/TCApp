@@ -22,7 +22,7 @@ class ChurchAdminDetailCell: UITableViewCell {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var subscribeButtton: UIButton!
     
-
+ //MARK: - Color
     
     override func awakeFromNib() {
         
@@ -37,11 +37,6 @@ class ChurchAdminDetailCell: UITableViewCell {
         adminImageView.layer.cornerRadius = adminImageView.frame.height/2
         adminImageView.clipsToBounds = true
         
-      //  adminImageView.layer.borderWidth = 1
-//        // menuImgView.layer.borderColor = UIColor.black.cgColor
-//        adminImageView.layer.cornerRadius = adminImageView.frame.height/2
-//        adminImageView.clipsToBounds = true
-//        
         adminImageView.layer.masksToBounds = false
         adminImageView.layer.cornerRadius = adminImageView.frame.height/2
         adminImageView.clipsToBounds = true
@@ -49,7 +44,6 @@ class ChurchAdminDetailCell: UITableViewCell {
         adminImageView.layer.shadowOffset = CGSize(width: 0, height: 3)
         adminImageView.layer.shadowOpacity = 0.6
         adminImageView.layer.shadowRadius = 0.5
-      //  imageView.layer.cornerRadius = image.frame.size.width/2
         
         subscribeButtton.layer.cornerRadius = 1.0
         subscribeButtton.layer.borderWidth = 0.5

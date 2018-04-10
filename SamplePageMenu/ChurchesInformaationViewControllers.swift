@@ -15,6 +15,8 @@ protocol churchChangeSubtitleOfIndexDelegate {
 
 class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate,churchChangeSubtitleOfIndexDelegate {
     
+//MARK: -  variable declaration
+    
     var churchImageArrayString = ""
 
     var appVersion          : String = ""
@@ -45,15 +47,13 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
        
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    
+   //MARK: -  view Will Appear
 
     override func viewWillAppear(_ animated: Bool) {
         
@@ -62,17 +62,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
     }
-    
-
-//    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-//        
-//        //   navigationItem.leftBarButtonItems = []
-//        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-////        
-//        print("Back Button Clicked......")
-//        
-//    }
-
+   //MARK: - create Page Menu
     
     private func createPageMenu() {
         
@@ -83,10 +73,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         allOffersVC?.churchID = churchID
         allOffersVC?.churchName = nameStr
 
-        
-//        eventInfoVC = EventInfoViewController(nibName: "EventViewController",
-//                                              bundle: nil)
-        
+    
         eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         eventInfoVC?.title = "Events".localize()
         eventInfoVC?.delegate  = self
@@ -134,18 +121,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         view.addSubview((pageMenu?.view)!)
         pageMenu?.didMove(toParentViewController: self)
         
-        
-//   // revealViewController().addChildViewController(pageMenu!)
-//     //   pageMenu?.delegate = self
-//  //  self.view.addSubview((pageMenu?.view)!)
-//        pageMenu = CAPSPageMenu(viewControllers: controllersArray, frame: CGRect(x:0.0, y:64.0, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
-//        
-//        // Lastly add page menu as subview of base view controller view
-//        // or use pageMenu controller in you view hierachy as desired
-//        self.view.addSubview(pageMenu!.view)
-//    //pageMenu?.didMove(toParentViewController: self)
-        
-    }
+     }
     
     
     func nameOfItem(indexNumber: Int, countText :String ){
@@ -157,7 +133,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
     }
     
-
+//MARK: -    Back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
@@ -179,7 +156,9 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         print("Back Button Clicked......")
         
     }
-
+    
+//MARK: -    Home Left Button Tapped
+    
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         

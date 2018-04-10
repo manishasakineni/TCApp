@@ -13,11 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var appVersion          : String = ""
-    
-    var navigationString : String = ""
-    
-    @IBOutlet weak var mobileEmailTF: AkiraTextField!
+      @IBOutlet weak var mobileEmailTF: AkiraTextField!
     
     @IBOutlet weak var passwordTF: AkiraTextField!
 
@@ -35,14 +31,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var registerBtn: UIButton!
     
     @IBOutlet weak var dontHaveAccountLbl: UILabel!
+    
+    //MARK: -  variable declaration
+
     var email : String? = ""
     var password : String? = ""
     
+    var appVersion          : String = ""
+    
+    var navigationString : String = ""
+    
+
     var showNav = false
 
     let utillites =  Utilities()
 
     var placeHolderName = ["User Name","Password"]
+    
+  //MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,23 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         registerBtn.setTitle("Register".localize(), for: .normal)
         dontHaveAccountLbl.text = "Don't have an Account?".localize()
 
-      /*  let defaults = UserDefaults.standard
-        
-        if let gst : String = defaults.value(forKey: "1") as? String {
-        
-        if gst == "1" {}
-        
-        else {
-        
-        if let registerSucess = defaults.string(forKey: kRegisterSucessStatus) {
-            print(registerSucess)
-            self.appDelegate.window?.makeToast(registerSucess, duration:kToastDuration, position:CSToastPositionCenter)
-            
-            print("defaults savedString: \(registerSucess)")
-            
-        }
-            }
-        } */
+    
         loginBtnOutLet.layer.borderWidth = 1.0
         loginBtnOutLet.layer.cornerRadius = 6.0
         loginBtnOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
@@ -83,7 +73,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.keyboardType = .emailAddress
 
         loginLabel.text = "Login".localize()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,19 +80,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    
+    //MARK: -  View Will Appear
+  
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
         
-      //  self.navigationController?.navigationBar.isHidden = true
-
         print(showNav)
         
         self.navigationController?.navigationBar.isHidden = !showNav
            Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     }
+    
+    //MARK: -  View Will Disappear
+ 
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
@@ -111,7 +102,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    
+    //MARK: -  textField Did Begin Editing
+  
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         textField.autocorrectionType = .no
@@ -123,7 +115,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
+//MARK: -  textField should Change Characters In range
+  
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
@@ -138,7 +131,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
+ //MARK: -  textField Did End Editing
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -157,7 +150,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //MARK: -  validate pgone number
+//MARK: -  validate phone number
     
     func validatePhoneNumber(phoneNumber: String) -> Bool {
         
@@ -168,21 +161,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //MARK: -  validate password
+//MARK: -  validate password
     
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
     
-    
+// MARK :- login Clicked
+   
     @IBAction func loginClicked(_ sender: Any) {
         
-        
-      //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-     //   appDelegate.window?.rootViewController = rootController
-        
+    
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
@@ -225,7 +215,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+//MARK:- validateAllFields
     
     func validateAllFields() -> Bool
     {
@@ -235,16 +225,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
-      //  var errorMessage:NSString?
-        
-       /* if email!.isEmpty && password!.isEmpty{
-            
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter Requiredfields", clickAction: {
-                
-                
-            })
-            
-        } */
+    
          if email!.isEmpty{
             
             Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize().localize(), messege: "Please provide UserName".localize(), clickAction: {
@@ -266,9 +247,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         else {
             
-//            let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//                appDelegate.window?.rootViewController = rootController
-//            
             print("Home Page Navigate")
             
         }
@@ -279,12 +257,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //        self.view.endEditing(true)
         return true
     }
+    
+ //MARK:- Login API Service
+    
     func loginAPIService(){
         
-     //   let  strUrl = CHANGEPASSWORDURL
         
             let strUrl = LOGINURL
 
@@ -297,164 +276,125 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
-
-        
-        
-        
         
         if(appDelegate.checkInternetConnectivity()){
             
-            if !(email!.isEmpty && password!.isEmpty) {
-                
-               // email! = email!.trimmingCharacters(in: CharacterSet.whitespaces)
-               // password!=password!.trimmingCharacters(in: CharacterSet.whitespaces)
-
-                
-            //    let strUrl = LOGINURL + "" + email! + "/" + password!
-                
-                serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+        if !(email!.isEmpty && password!.isEmpty) {
+            
+    serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                     DispatchQueue.main.async()
-                        {
-               // serviceController.getRequest(strURL:strUrl, success:{(result) in
-                  //  DispatchQueue.main.async()
-//{
+            {
                             
-                          //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
-                            
-                        print("\(result)")
+        print("\(result)")
                             
                             
-                            let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
+      let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
                             
-                           print("responseString = \(respVO)")
+        print("responseString = \(respVO)")
                             
                         
-                            let statusCode = respVO.userDetails?.isSuccess
-                            print("StatusCode:\(String(describing: statusCode))")
+        let statusCode = respVO.userDetails?.isSuccess
+        print("StatusCode:\(String(describing: statusCode))")
                             
-                            
-                            
-                           if statusCode == true
-                            {
+        if statusCode == true
+            
+            {
                                 
                                 
-                                let successMsg = respVO.userDetails?.endUserMessage
-                                print(successMsg!)
-                                let loginStatus = successMsg
-                                let userid = respVO.userDetails?.listResult?[0].userId
-                                let loginid =  respVO.userDetails?.listResult?[0].id!
-                              //  print("\(String(describing: respVO.userDetails?.listResult?[0].id))")
+    let successMsg = respVO.userDetails?.endUserMessage
+    print(successMsg!)
                                 
+    let loginStatus = successMsg
+    let userid = respVO.userDetails?.listResult?[0].userId
+    let loginid =  respVO.userDetails?.listResult?[0].id!
                             
                                 
-                                kUserDefaults.set(userid, forKey: kuserIdKey)
+    kUserDefaults.set(userid, forKey: kuserIdKey)
                                
-                                kUserDefaults.set(loginid, forKey: kIdKey)
-                                kUserDefaults.synchronize()
+    kUserDefaults.set(loginid, forKey: kIdKey)
+    kUserDefaults.synchronize()
                     
-                                kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)
+    kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)
 
-                                kUserDefaults.set("true", forKey: KFirstTimeLogin)
+    kUserDefaults.set("true", forKey: KFirstTimeLogin)
                                 
-                                kUserDefaults.synchronize()
+    kUserDefaults.synchronize()
                               
-                                kUserId = kUserDefaults.value(forKey: kuserIdKey) as! String
-                                kId = kUserDefaults.value(forKey: kIdKey) as! Int
-                                kUserDefaults.synchronize()
+    kUserId = kUserDefaults.value(forKey: kuserIdKey) as! String
+    kId = kUserDefaults.value(forKey: kIdKey) as! Int
+    kUserDefaults.synchronize()
                                 
                                 
-                        if self.navigationString == "navigationString" {
+    if self.navigationString == "navigationString" {
                                 
         
-                            let videosVC : YoutubePlayerViewController? =
-                              YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+    let videosVC : YoutubePlayerViewController? =
+    YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                     
-                              self.navigationController?.pushViewController(videosVC!, animated: true)
+    self.navigationController?.pushViewController(videosVC!, animated: true)
                                     
                                 
-                                }
+    }
                                 
-                                else {
+        else {
                                     
-                                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                                let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                                self.appDelegate.window?.rootViewController = rootController
+    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+    self.appDelegate.window?.rootViewController = rootController
                                
-                                }
-                            }
+        }
+            }
                             
-                            else {
+        else {
                                 
-                            if  let failMsg = respVO.userDetails?.endUserMessage {
+        if  let failMsg = respVO.userDetails?.endUserMessage {
                             print(failMsg)
                                 
-                                self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
+        self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
                                 
-                                return
-                            }
-                            }
-                            print("success")
-                    }
-                }, failureHandler:  {(error) in
+                return
+            }
+        }
+    print("success")
+        }
                     
-                    print(error)
+    }, failureHandler:  {(error) in
                     
-                    if(error == "Enter Valid Credentials"){
+    print(error)
+                    
+        if(error == "Enter Valid Credentials"){
                     
                        
-                        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
 
                     
-                    }
+        }
                     
                     
-                    
-                })
-            }
+    })
+}
         }
         else {
             
-     //       appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
         
     }
     
+  //MARK:- Forgot Password Clicked
+    
     @IBAction func forgotPasswordClicked(_ sender: Any) {
         
-        
-        
-        
-        
-           let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
-        
-        
-      //  UserDefaults.standard.set("1", forKey: "1")
-      //  UserDefaults.standard.synchronize()
+    
+        let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
         
         self.navigationController?.pushViewController(forgotPassWordViewController, animated: true)
-      //  self.navigationController?.popViewController(animated: true)
-        
-        
-//        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
-//       // reOrderPopOverVC.delegate = self
-//        
-//            //    reOrderPopOverVC. singleSelection =
-//            //   var imagesArray : Array<UIImage> = Array()
-//        
-//        
-//                self.addChildViewController(reOrderPopOverVC)
-//                
-//                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-//                self.view.addSubview(reOrderPopOverVC.view)
-//                reOrderPopOverVC.didMove(toParentViewController: self)
-//        
-        
+    
         
         
     }
 
-    
+ //MARK:- Register Clicked
     
     @IBAction func registerClicked(_ sender: Any) {
         
@@ -464,6 +404,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+//MARK:- Eye Btn Action
 
     @IBAction func eyeBtnAction(_ sender: Any) {
         
@@ -483,15 +424,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
-    
+//MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()

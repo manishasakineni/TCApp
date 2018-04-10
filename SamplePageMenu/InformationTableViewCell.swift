@@ -20,14 +20,6 @@ class InformationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        
-//        backGroundView.layer.cornerRadius = 3.0
-//        backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
-//        backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        backGroundView.layer.shadowOpacity = 0.6
-//        backGroundView.layer.shadowRadius = 2.0
         
         infoLabel.numberOfLines = 0
         
@@ -38,7 +30,6 @@ class InformationTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }

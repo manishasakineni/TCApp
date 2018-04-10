@@ -17,6 +17,7 @@ protocol eventinfoSubtitleOfIndexDelegate {
 
 class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDelegate,eventinfoSubtitleOfIndexDelegate {
 
+   //MARK: -  variable declaration
     
     var churchImageArrayString = ""
     
@@ -29,6 +30,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     var allEventsVC : AllEventsViewController?
     private var controllersArray: [UIViewController] = []
     
+  //MARK: -   view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,23 +39,23 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
        
         createPageMenu()
         
-        // Do any additional setup after loading the view.
     }
+    
+ //MARK: -    view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
         
         Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
-
-      
         
         
     }
-    private func createPageMenu() {
-        
     
-        
+//MARK: -    Create Page Menu
+    
+private func createPageMenu() {
+    
         upConingEventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
         upConingEventInfoVC?.title = "UpComing Events".localize()
         upConingEventInfoVC?.delegate  = self
@@ -62,8 +64,6 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
         allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as! AllEventsViewController
         
-//        allEventsVC = AllEventsViewController(nibName: "AllEventsViewController",
-//                                                  bundle: nil)
         allEventsVC?.title = "ALL EVENTS".localize()
         allEventsVC?.delegate  = self
         
@@ -99,22 +99,10 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         view.addSubview((pageMenu?.view)!)
         pageMenu?.didMove(toParentViewController: self)
         
-        
-        //   // revealViewController().addChildViewController(pageMenu!)
-        //     //   pageMenu?.delegate = self
-        //  //  self.view.addSubview((pageMenu?.view)!)
-        //        pageMenu = CAPSPageMenu(viewControllers: controllersArray, frame: CGRect(x:0.0, y:64.0, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
-        //
-        //        // Lastly add page menu as subview of base view controller view
-        //        // or use pageMenu controller in you view hierachy as desired
-        //        self.view.addSubview(pageMenu!.view)
-        //    //pageMenu?.didMove(toParentViewController: self)
-        
-    }
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -127,6 +115,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
     }
     
+ //MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -137,9 +126,6 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
@@ -147,16 +133,13 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
     }
     
+ //MARK: -    Home Left Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

@@ -13,29 +13,11 @@ import MediaPlayer
 
 class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    var appVersion          : String = ""
-    
-    var selectedDate : String = ""
-    
-    var base64String : String = ""
-    
-    var alertTag = Int()
-
-    var showNav = false
-    let isActive : Bool = true
-    
-    let dateFormatter = DateFormatter()
-    
     
     
     @IBOutlet weak var editProfileTableView: UITableView!
     
-    
-    
-    let utillites =  Utilities()
-    
+//MARK: -  variable declaration
     
     var linksA = [String]()
     
@@ -45,8 +27,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var secend : String!
     
+    let utillites =  Utilities()
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var appVersion          : String = ""
+    
+    var selectedDate : String = ""
+    
+    var base64String : String = ""
+    
+    var alertTag = Int()
+    
+    var showNav = false
+    let isActive : Bool = true
+    
+    let dateFormatter = DateFormatter()
+    
+
     
     
     var placeholdersAry  = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize(),"Dob".localize()]
@@ -87,6 +85,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var female = false
     var genderTypeID:Int = 0
     
+  //MARK: -   View DidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,56 +95,50 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if let myURL = NSURL(string: myURLString) {
             
-            do {
-                let myHTMLString = try String(contentsOf:(myURL as NSURL) as URL, encoding: .utf8)
+        do {
                 
-                let t = myHTMLString
+    let myHTMLString = try String(contentsOf:(myURL as NSURL) as URL, encoding: .utf8)
                 
-                if let rangeOfZero = t.range(of: "[\"fmt_stream_map\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
+    let t = myHTMLString
+                
+    if let rangeOfZero = t.range(of: "[\"fmt_stream_map\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
                 
                     
-//                rangeOfString("[\"fmt_stream_map\"", options: NSString.CompareOptions.BackwardsSearch) {
                 
-                    let suffix = String(t.characters.suffix(from: rangeOfZero.lowerBound))
+      let suffix = String(t.characters.suffix(from: rangeOfZero.lowerBound))
+                    
+        first = suffix
+                    
+    if let rangeOne = first.range(of: ",[\"fmt_list\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
                         
-//                        characters.suffixFrom(rangeOfZero.endIndex))
-                    
-                    first = suffix
-                    
-                    //  print(suffix)
-                    if let rangeOne = first.range(of: ",[\"fmt_list\"", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
-                        
-//                        .rangeOfString(",[\"fmt_list\"", options: NSString.CompareOptions.BackwardsSearch) {
-                        let endffix = String(first.characters.prefix(upTo: rangeOne.lowerBound))
+    let endffix = String(first.characters.prefix(upTo: rangeOne.lowerBound))
                             
-//                            characters.prefixUpTo(rangeOne.startIndex))
+        
+    let v = endffix.replacingOccurrences(of: "\"", with: "")
+        
+    let x = v.replacingOccurrences(of: "]", with: "")
+        
                         
+        secend = x
                         
+        print(x)
                         
-                        let v = endffix.replacingOccurrences(of: "\"", with: "")
-                        
-//                        stringByReplacingOccurrencesOfString("\"", withString: "")
-                        
-                        let x = v.replacingOccurrences(of: "]", with: "")
-                        
-//                        stringByReplacingOccurrencesOfString("]", withString: "")
-                        
-                        
-                        secend = x
-                        
-                        print(x)
-                        
-                    }
+    }
                     
-                    theLink()
+   theLink()
                     
-                } else {
-                    print("noooo")
-                }
-            } catch {
-                print("Error : \(error)")
+} else {
+    print("noooo")
+        
+        }
+            
+    } catch {
+        
+    print("Error : \(error)")
             }
+            
         } else {
+            
             print("Error: \(myURLString) doesn't  URL")
         }
         
@@ -166,24 +160,17 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let nibName3  = UINib(nibName: "GenderTableViewCell" , bundle: nil)
         editProfileTableView.register(nibName3, forCellReuseIdentifier: "GenderTableViewCell")
         
-        
-        
-        self.loginid = UserDefaults.standard.value(forKey: kIdKey) as! Int
+       self.loginid = UserDefaults.standard.value(forKey: kIdKey) as! Int
         
         UserDefaults.standard.synchronize()
         
         print(self.loginid)
-        
         
         editProfileTableView.dataSource = self
         editProfileTableView.delegate = self
         activeTextField.delegate = self
         
         getProfileInfoAPIService()
-        
-        //   CreatedatePicker()
-        
-        
         
     }
     
@@ -192,155 +179,141 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if(appDelegate.checkInternetConnectivity()){
             
+        let strUrl = PROFILEGETINFO + "" +  "\(loginid)"
             
             
-            let strUrl = PROFILEGETINFO + "" +  "\(loginid)"
+    serviceController.getRequest(strURL:strUrl, success:{(result) in
+    DispatchQueue.main.async()
+        
+        {
+                        
+                        
+        print("result:\(result)")
+                        
+        let respVO:GetProfileResultInfoVO = Mapper().map(JSONObject: result)!
+                        
+        print("responseString = \(respVO)")
+                        
+       let listArr = respVO.listResult
+                        
+        if (listArr?.count)! > 0 {
+                            
+        let statusCode = respVO.isSuccess
+                            
+        print("StatusCode:\(String(describing: statusCode))")
+                            
+        self.userID = (respVO.listResult?[0].UserName)!
+        self.firstName = (respVO.listResult?[0].FirstName)!
+        self.middleName = (respVO.listResult?[0].MiddleName)!
+        self.lastName = (respVO.listResult?[0].Lastname)!
+        self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
+        self.email = (respVO.listResult?[0].Email)!
+                            
+        var userImgURL : String = ""
+        userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
+                            
+                            
+        let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
+                            
+        if newString != "" {
+                                
+                                
+        let url = URL(string:newString)
+                                
+        if let data = try? Data(contentsOf: url!)
             
+        {
             
-            serviceController.getRequest(strURL:strUrl, success:{(result) in
-                DispatchQueue.main.async()
-                    {
-                        
-                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
-                        
-                        print("result:\(result)")
-                        
-                        let respVO:GetProfileResultInfoVO = Mapper().map(JSONObject: result)!
-                        
-                        print("responseString = \(respVO)")
-                        
-                        let listArr = respVO.listResult
-                        
-                        if (listArr?.count)! > 0 {
-                            
-                            let statusCode = respVO.isSuccess
-                            
-                            print("StatusCode:\(String(describing: statusCode))")
-                            
-                            self.userID = (respVO.listResult?[0].UserName)!
-                            self.firstName = (respVO.listResult?[0].FirstName)!
-                            self.middleName = (respVO.listResult?[0].MiddleName)!
-                            self.lastName = (respVO.listResult?[0].Lastname)!
-                            self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
-                            self.email = (respVO.listResult?[0].Email)!
-                            
-                            var userImgURL : String = ""
-                            userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
-                            
-                            
-                            let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
-                            
-                            if newString != "" {
+        let image: UIImage = UIImage(data: data)!
+        
+        }
                                 
+        let dataImg = try? Data(contentsOf: url!)
                                 
-                                let url = URL(string:newString)
-                                
-                                if let data = try? Data(contentsOf: url!)
-                                {
-                                    let image: UIImage = UIImage(data: data)!
-                                }
-                                
-                                let dataImg = try? Data(contentsOf: url!)
-                                
-                                if dataImg != nil {
+        if dataImg != nil {
                                     
-                                    self.profileimage = UIImage(data: dataImg!)!
-                                }
-                                else {
-                                    
-                                    self.profileimage = #imageLiteral(resourceName: "churchLogoo")
-                                }
-                            }
-                            else {
-                                
-                                self.profileimage = #imageLiteral(resourceName: "churchLogoo")
-                            }
-                            
-                            self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
-                            
-                            if self.dateofBirth != "" {
-                                
-                                self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
-                            }
-                            
-                            
-                            
-                            //                        let fff = (IDInfo?.DOB)!
-                            //
-                            //                        let stringB = self.formattedDateFromString(dateString: fff, withFormat: "MMM dd, yyyy")
-                            //
-                            //                        if stringB != nil {
-                            //
-                            //                            self.selectedDOBStr = stringB!
-                            //
-                            //                        }
-                            
-                            
-                            if let gender = respVO.listResult?[0].genderTypeId {
-                                self.genderTypeID = (gender)
-                            }
-                            else{
-                                self.genderTypeID = 0
-                            }
-                            
-                            
-                            self.editProfileTableView.reloadData()
-                            
-                            if statusCode == true
-                            {
-                                
-                                
-                                let successMsg = respVO.endUserMessage
-                                
-                                
-                                
-                                let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                                
-                                
-                            }
-                            else {
-                                
-                                let failMsg = respVO.endUserMessage
-                                
-                                self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
-                                
-                                return
-                                
-                            }
-                        }
-                        
-                        
-                        
-                        
-                }
-            }, failure:  {(error) in
-                
-                print(error)
-                
-                if(error == "unAuthorized"){
-                    
-                    
-                    self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
-                    
-                    
-                }
-                
-                
-                
-            })
+        self.profileimage = UIImage(data: dataImg!)!
             
         }
         else {
+                                    
+        self.profileimage = #imageLiteral(resourceName: "churchLogoo")
             
-      //      appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-            return
         }
+    }
+            
+ else {
+                                
+ self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+            
+ }
+                            
+    self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
+                            
+    if self.dateofBirth != "" {
+                                
+    self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+        
+        }
+                            
+                            
+    if let gender = respVO.listResult?[0].genderTypeId {
+    self.genderTypeID = (gender)
+    
+        }
+        else{
+        
+        self.genderTypeID = 0
+        
+        }
+                            
+    self.editProfileTableView.reloadData()
+                            
+    if statusCode == true
+    {
+                                
+                                
+    let successMsg = respVO.endUserMessage
+                                
+   let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                
+                                
+    }
+    else {
+                                
+    let failMsg = respVO.endUserMessage
+                                
+    self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+                                
+    return
+                                
+        }
+      }
+    }
+        
+}, failure:  {(error) in
+                
+    print(error)
+                
+  if(error == "unAuthorized"){
+                    
+                    
+    self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+                    
+                    
+    }
+    
+})
+            
+  }
+ else {
+            
+    return
+    }
         
     }
     
     func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
-        
-      //  let inputFormatter = DateFormatter()
         
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
@@ -470,18 +443,21 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
             
             
-            if string.characters.count > 0 {
+    if string.characters.count > 0 {
                 
-                let currentCharacterCount = textField.text?.characters.count ?? 0
-                if (range.length + range.location > currentCharacterCount){
-                    return false
-                }
-                let newLength = currentCharacterCount + string.characters.count - range.length
+    let currentCharacterCount = textField.text?.characters.count ?? 0
+    if (range.length + range.location > currentCharacterCount){
+    return false
+        
+    }
+        
+    let newLength = currentCharacterCount + string.characters.count - range.length
                 
-                let allowedCharacters = CharacterSet.letters
-                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-                return newLength <= 50 && unwantedStr.characters.count == 0
-            }
+    let allowedCharacters = CharacterSet.letters
+    let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+    return newLength <= 50 && unwantedStr.characters.count == 0
+        
+    }
             
         }
         
@@ -493,15 +469,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if let newRegCell : EditProfileTableViewCell = textField.superview?.superview as? EditProfileTableViewCell {
             
-            
-            
         }
         return true
     }
     
     
     
-    //MARK:- textFieldDidEndEditing
+//MARK:- textFieldDidEndEditing
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -543,8 +517,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if activeTextField.tag == 5{
             
-            
-            // DOB = textField.text!
             DOB = textField.text!
             
             
@@ -553,6 +525,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
     }
+    //MARK: - Create date Picker Controller
     
     func CreatedatePicker(){
         
@@ -572,28 +545,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
     }
-    
-    //    func donepresseed(){
-    //
-    //
-    //        //For date formate
-    //        let formatter = DateFormatter()
-    //        formatter.dateFormat = "dd/MM/yyyy"
-    //        activeTextField.text = formatter.string(from: datepicker.date)
-    //        print(activeTextField.text)
-    //        //dismiss date picker dialog
-    //        self.view.endEditing(true)
-    //
-    //
-    //
-    //       //// activeTextField.text = "\(datepicker.date)"
-    //       // self.view.endEditing(true)
-    //
-    //
-    //    }
-    
-    
-    
     
     
     //MARK:- UITableView Delegate & DataSource
@@ -632,18 +583,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    
-//        if section == 0 {
-//            return ""
-//        }
-//        else if section == 1 {
-//            
-//            return "Personal Details"
-//        }
-//        else {
-//            
-//            return ""
-//        }
+        
         return sectionsTitle[section]
     }
     
@@ -655,149 +595,138 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if indexPath.section == 0 {
             
-            let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
+        let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
             
-            profileCell.selectionStyle = .none
+        profileCell.selectionStyle = .none
             
-            if indexPath.row == 0{
+        if indexPath.row == 0{
                 
-                profileCell.cameraOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
-                
-                
-                profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
-                
-                profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
-                profileCell.progileImageView.layer.borderWidth = 1
-                profileCell.progileImageView.clipsToBounds = true
-                
-                profileCell.progileImageView.image = profileimage
+    profileCell.cameraOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
                 
                 
+    profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
                 
+    profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
+    profileCell.progileImageView.layer.borderWidth = 1
+    profileCell.progileImageView.clipsToBounds = true
+                
+    profileCell.progileImageView.image = profileimage
+                
+            
+    }
+            
+    return profileCell
+            
+    } else if indexPath.section == 1 {
+            
+            
+    let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
+            
+    signUPCell.editProfileTF.delegate = self
+            
+    signUPCell.editProfileTF.tag = indexPath.row
+        
+            
+    if indexPath.row == 0{
+                
+    signUPCell.editProfileTF.placeholder = "User Name".localize()
+    signUPCell.editProfileTF.text = self.userID
+    signUPCell.editProfileTF.isUserInteractionEnabled = false
+    signUPCell.editProfileTF.textColor = UIColor.lightGray
+                
+        }
+            
+    else if indexPath.row == 1{
+                
+    signUPCell.editProfileTF.placeholder = "First Name".localize()
+    signUPCell.editProfileTF.text = self.firstName
+                
+                
+    }
+                
+    else if indexPath.row == 2{
+                
+                
+    signUPCell.editProfileTF.placeholder = "Middle Name".localize()
+    signUPCell.editProfileTF.text = self.middleName
+                
+        }
+        
+    else if indexPath.row == 3{
+        
+    signUPCell.editProfileTF.placeholder = "Last Name".localize()
+    signUPCell.editProfileTF.text = self.lastName
+        
+    }
+        
+  else if indexPath.row == 4{
+                
+    signUPCell.editProfileTF.placeholder = "Mobile Number".localize()
+    signUPCell.editProfileTF.isUserInteractionEnabled = false
+    signUPCell.editProfileTF.textColor = UIColor.lightGray
+    signUPCell.editProfileTF.text = self.mobileNumber
+        
+    }
+                
+    else if indexPath.row == 5{
+                
+    signUPCell.editProfileTF.placeholder = "E-mail".localize()
+    signUPCell.editProfileTF.text = self.email
+                
+    }
+                
+    else if indexPath.row == 6{
+                
+    signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
+    signUPCell.editProfileTF.text = selectedDate
+        
             }
             
-            return profileCell
-            
-        } else if indexPath.section == 1 {
-            
-            
-            
-            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
-            
-            signUPCell.editProfileTF.delegate = self
-            
-            signUPCell.editProfileTF.tag = indexPath.row
-            
-            
-            if indexPath.row == 0{
-                
-                signUPCell.editProfileTF.placeholder = "User Name".localize()
-                signUPCell.editProfileTF.text = self.userID
-                signUPCell.editProfileTF.isUserInteractionEnabled = false
-                signUPCell.editProfileTF.textColor = UIColor.lightGray
-                
-            }
-            
-            else if indexPath.row == 1{
-                
-                signUPCell.editProfileTF.placeholder = "First Name".localize()
-                signUPCell.editProfileTF.text = self.firstName
-                
-                
-            }
-                
-            else if indexPath.row == 2{
-                
-                
-                signUPCell.editProfileTF.placeholder = "Middle Name".localize()
-                signUPCell.editProfileTF.text = self.middleName
-                
-                
-                
-            }
-            else if indexPath.row == 3{
-                
-                
-                signUPCell.editProfileTF.placeholder = "Last Name".localize()
-                signUPCell.editProfileTF.text = self.lastName
-                
-                
-                
-            }
-            else if indexPath.row == 4{
-                
-                signUPCell.editProfileTF.placeholder = "Mobile Number".localize()
-                signUPCell.editProfileTF.isUserInteractionEnabled = false
-                signUPCell.editProfileTF.textColor = UIColor.lightGray
-                signUPCell.editProfileTF.text = self.mobileNumber
-                
-                
-                
-            }
-                
-            else if indexPath.row == 5{
-                
-                signUPCell.editProfileTF.placeholder = "E-mail".localize()
-                signUPCell.editProfileTF.text = self.email
-                
-                
-            }
-                
-            else if indexPath.row == 6{
-                
-                signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
-                signUPCell.editProfileTF.text = selectedDate
-                
-                
-            }
-            
-            return signUPCell
+    return signUPCell
         }
         
         else {
             
-//                let signUPCell = Bundle.main.loadNibNamed("GenderTableViewCell", owner: self, options: nil)?.first as! GenderTableViewCell
             
-                 let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
+    let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
                 
-                //signUPCell.genderLabel.placeholder = "Gender".localize()
+            
+    signUPCell.selectionStyle = .none
+    signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+    signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
                 
-                signUPCell.selectionStyle = .none
-                signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-                signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-                
-                if genderTypeID == 2 {
+    if genderTypeID == 2 {
                     
-                    signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
+    signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
                     
-                    signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+    signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
                     
-                }
-                else {
+    }
+else {
                     
                     
-                    signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+    signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
                     
-                    signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
-                }
+    signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+        
+    }
                 
-                signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
+    signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
                 
-                signUPCell.maleBtn.tag = 1
-                
-                
-                signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
-                
-                signUPCell.femaleBtn.tag = 2
+   signUPCell.maleBtn.tag = 1
                 
                 
+    signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
                 
-                return signUPCell
+    signUPCell.femaleBtn.tag = 2
+            
+    return signUPCell
                 
         }
         
     }
     
+   //MARK: -  edit Btn Clicked
     
     func editBtnClicked(_ sender: UIButton?)  {
         
@@ -819,40 +748,30 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         {
             UIAlertAction in
         }
-        // Add the actions
         picker.delegate = self
         alert.addAction(cameraAction)
         alert.addAction(gallaryAction)
         alert.addAction(cancelAction)
-        // Present the controller
         self.present(alert, animated: true, completion: nil)
         
         
     }
     
+    //MARK: - image Picker Controller
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         
         dismiss(animated: true, completion: nil)
-        
         let image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         
-        
         profileimage = resizeImage(image: image, newWidth: 150)
-        
-      
-//        var imageUIImage: UIImage = UIImage(data: imageData!)!
-        
-//        print(imageUIImage)
-   // let base64String = imageData.base64EncodedStringWithOptions(NSData.Base64EncodingOptions.fromRaw(0)!)
-        
         
         editProfileTableView.reloadData()
     }
     
     
-    
+   //MARK: - TableView Height for Header
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -897,6 +816,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+   //MARK: -  Save Profile API Call
     
     func saveProfileAPICall(){
         
@@ -945,87 +865,64 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         serviceController.postRequest(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-            DispatchQueue.main.async()
-                {
+    DispatchQueue.main.async()
+        {
                     
-                    print("result:\(result)")
+        print("result:\(result)")
                     
-                    let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
-                    
-                    
-                    print("responseString = \(respVO)")
+        let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
                     
                     
-                    let statusCode = respVO.isSuccess
-                    
-                    print("StatusCode:\(String(describing: statusCode))")
+        print("responseString = \(respVO)")
                     
                     
+        let statusCode = respVO.isSuccess
                     
-                    if statusCode == true
-                    {
+        print("StatusCode:\(String(describing: statusCode))")
+                    
+        if statusCode == true
+        {
                         
+        let successMsg = respVO.endUserMessage
                         
-                        let successMsg = respVO.endUserMessage
+       self.editProfileTableView.reloadData()
                         
-                        
-                        
-                        
-                        self.editProfileTableView.reloadData()
-                        
-                        
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
                             
-                            let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                             
-                            self.appDelegate.window?.rootViewController = rootController
+        self.appDelegate.window?.rootViewController = rootController
                             
-                        })
+        })
                         
+                        
+        }
+                        
+        else {
+                        
+        let failMsg = respVO.endUserMessage
+                        
+            self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                        
+            return
                         
                     }
-                    else {
-                        
-                        let failMsg = respVO.endUserMessage
-                        
-                        self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
-                        
-                        return
-                        
-                    }
-                    
-                    
-                    
-                    
-            }
+             }
             
         }, failureHandler: {(error) in
             
-            
-            
-            
-            
-        })
+    })
         
     }
     
     
     
-    
+   //MARK: -  save Btn Action
     
     @IBAction func saveBtnAction(_ sender: Any) {
         
         //https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
-        
-//         print(streamLink)
-//        
-//        let videoURL = URL(string: streamLink)
-//        let player = AVPlayer(url: videoURL!)
-//        let playerViewController = AVPlayerViewController()
-//        playerViewController.player = player
-//        self.present(playerViewController, animated: true) {
-//            playerViewController.player!.play()
-//        }
+    
         
         if self.validateAllFields()
         {
@@ -1051,56 +948,21 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
 func theLink() {
     
     
-    /// /[u]00../g
-    
-    
-    //   let firstElement = linksA.first
-    
     let firstElement = secend
     
     let t = firstElement!.replacingOccurrences(of: ",35", with: "")
-    
-//    stringByReplacingOccurrencesOfString(",35", withString: "")
     
     let deUrl = t.characters.split{$0 == "|"}.map(String.init)
     
     let link = deUrl[1]
     
-    // let link = deUrl[0] for high
-    // let link = deUrl[2] for low
-    
-    // the link needs to be decoded
-    
     let i = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
-    
-//    cString(using: .utf8)
-    
-//    stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-    
     
     let p = i!.replacingOccurrences(of: "%5Cu", with: "")
     
-//    stringByReplacingOccurrencesOfString("%5Cu", withString: "")
-    
-    
-    // you can see how the link should look like here :
-    // http://ddecode.com/hexdecoder/?results=d82d4e564eccc1a6b96ee7c5c1e1c3b2
-    
-    // %252C : ,
-    // 003d : =
-    // 0026 : &
-    
-//    let re = i.replacingOccurrences(of: ",35", with: "")
-    
-//    stringByReplacingOccurrencesOfString("003d", withString: "=")
-    
     let w =  p.replacingOccurrences(of: "0026", with: "&")
     
-//    stringByReplacingOccurrencesOfString("0026", withString: "&")
-    
     let c = w.replacingOccurrences(of: "%252C", with: ",")
-    
-//    stringByReplacingOccurrencesOfString("%252C", withString: ",")
     
     print(c)
     
@@ -1111,7 +973,7 @@ func theLink() {
     
 }
 
-    //MARK:- validateAllFields
+//MARK:- validateAllFields
 
     func validateAllFields() -> Bool
     {
@@ -1128,12 +990,6 @@ func theLink() {
         
         let emailID:NSString = self.email as NSString
         
-//        let dateOfbirth:NSString = self.DOB as NSString
-//        let gender:NSString = self.gender as NSString
-//
-//        
-        
-        
         
         if (firstName.length <= 2){
             
@@ -1143,9 +999,6 @@ func theLink() {
             
         }
             
-            //        else if (middleName.length<=2) {
-            //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
-            //        }
         else  if (lastName.length <= 0){
             
             alertTag = 2
@@ -1153,16 +1006,6 @@ func theLink() {
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
-            //        else if (mobileNumber.length <= 0){
-            //
-            //            errorMessage=GlobalSupportingClass.blankMobileNumberErrorMessage() as String as String as NSString?
-            //
-            //        }
-            //        else if (mobileNumber.length <= 9) {
-            //
-            //            errorMessage=GlobalSupportingClass.invalidMobileNumberErrorMessage() as String as String as NSString?
-            //        }
-            
         else if (emailID.length<=0) {
             
             alertTag = 4
@@ -1181,35 +1024,17 @@ func theLink() {
             errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
         }
         
-        
-        
-//                else  if (dateOfbirth.length <= 2){
-//            alertTag = 5
-//
-//                    errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
-//        
-//                }
-//        else  if (dateOfbirth.length <= 2){
-//            alertTag = 5
-//            
-//            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
-//            
-//        }
-        
-        
-        
         if let errorMsg = errorMessage{
             
             alertWithTitle(title: "Alert".localize(), message: errorMsg as String, ViewController: self, toFocus: activeTextField)
 
+        return false;
             
-          //  self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
-            return false;
         }
         return true
     }
     
-    
+ //MARK: -  show Alert With Title
     func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok".localize(), style: UIAlertActionStyle.cancel,handler: {_ in
@@ -1226,11 +1051,10 @@ func theLink() {
             
         });
         alert.addAction(action)
-        // alert.view.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         ViewController.present(alert, animated: true, completion:nil)
     }
 
-    
+  //MARK: -  done Pressed
     
     func donePressed(){
         
@@ -1239,11 +1063,6 @@ func theLink() {
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MMM dd, yyyy"
         dateofBirth = dateFormatter.string(from: datepicker.date)
-        
-      
-        
-        
-        //  dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         selectedDate = dateFormatter.string(from: datepicker.date)
         print(selectedDate)
@@ -1254,6 +1073,8 @@ func theLink() {
         
         editProfileTableView.reloadData()
     }
+    
+  //MARK: -  show Alert View With Title
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
@@ -1268,7 +1089,7 @@ func theLink() {
     @IBAction func imgBtnAction(_ sender: Any) {
     }
     
-    //MARK:- openCamera
+//MARK:- open Camera
     
     
     func openCamera() {
@@ -1284,7 +1105,7 @@ func theLink() {
         
     }
     
-    //MARK:- openGallary
+//MARK:- open Gallary
     
     
     func openGallary() {
@@ -1295,7 +1116,7 @@ func theLink() {
     }
     
     
-    //MARK:- saveImage
+//MARK:- save Image
     
     
     func saveImage (_ image: UIImage, path: String ) -> Bool{
@@ -1309,17 +1130,11 @@ func theLink() {
     }
     
     
-    
+ //MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        //   navigationItem.leftBarButtonItems = []
-        
-        
-        
         UserDefaults.standard.set("1", forKey: "1")
-
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
@@ -1333,16 +1148,13 @@ func theLink() {
         print("Back Button Clicked......")
         
     }
+  //MARK: -    Home Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -1352,20 +1164,16 @@ func theLink() {
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
         print("Home Button Clicked......")
         
     }
 
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   //MARK:- Male Btn Clicked
     
     func maleBtnClicked(_ sender: UIButton) {
         
@@ -1402,12 +1210,11 @@ func theLink() {
         
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
-//        editProfileTableView.reloadData()
         
         
     }
     
-    //MARK:- femaleBtnClicked
+    //MARK:- Female Btn Clicked
     
     
     func femaleBtnClicked(_ sender: UIButton){
@@ -1438,7 +1245,6 @@ func theLink() {
             
         }
         
-        
         genderTypeID = sender.tag
         
         print(genderTypeID)
@@ -1446,10 +1252,9 @@ func theLink() {
         
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
-//        editProfileTableView.reloadData()
-        
     }
     
+ //MARK:- resize Image
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         

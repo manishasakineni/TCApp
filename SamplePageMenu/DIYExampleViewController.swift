@@ -42,7 +42,6 @@ class DIYExampleViewController: UIViewController, FSCalendarDataSource, FSCalend
         calendar.appearance.eventOffset = CGPoint(x: 0, y: -7)
         calendar.today = nil // Hide the today circle
         calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell")
-//        calendar.clipsToBounds = true // Remove top/bottom line
         
         calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
         
@@ -71,8 +70,6 @@ class DIYExampleViewController: UIViewController, FSCalendarDataSource, FSCalend
         super.viewDidLoad()
         
         self.title = "FSCalendar"
-        // Uncomment this to perform an 'initial-week-scope'
-        // self.calendar.scope = FSCalendarScopeWeek;
         
         let dates = [
             self.gregorian.date(byAdding: .day, value: -1, to: Date()),

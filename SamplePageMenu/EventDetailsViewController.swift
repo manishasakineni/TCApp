@@ -14,6 +14,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var eventDetailsTableView: UITableView!
     
     @IBOutlet weak var norecordsFoundLbl: UILabel!
+    
+    //MARK: -  variable declaration
+    
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
     
     var saveLocationString : String             = ""
@@ -22,7 +25,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var isDownloadingOnProgress : Bool  = false
     var navigationStr = String()
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
-  //  EventDetailsListResultVO
     
     var eventID = Int()
     
@@ -66,7 +68,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
    
-
+    //MARK: -   View DidLoad
     
 
     override func viewDidLoad() {
@@ -89,7 +91,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         getEventDetailsByIdApiCall()
         getVideosAPICall()
-    //    GetPostbyEventIdAPI()
         
         
     }
@@ -99,6 +100,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+//MARK: -   View WillAppear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -112,8 +114,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
 
-    
-    
+//MARK: -    Get Event Details By Id API Call
+ 
     func getEventDetailsByIdApiCall(){
     
      let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID)
@@ -181,6 +183,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     }
     
+//MARK: -    Get Videos API Call
     
     
     func getVideosAPICall(){
@@ -289,10 +292,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                             self.imagesArray.append(imageDetails)
                         }
                         
-                        //                        let videoList = self.allCagegoryListArray?.audios
                         self.isResponseFromServer = true
                         self.eventDetailsTableView.reloadData()
-                        // print(self.authorDetailsArray)
                         }
                     }
                         
@@ -302,7 +303,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     }
                     
                     
-                    //  }
             }
             
         }
@@ -317,54 +317,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    
-//    func GetPostbyEventIdAPI() {
-//    
-//        
-//        
-//        let getpostbyeventIdApi = GETPOSTBYEVENTIDAPI + ""
-//        
-//        serviceController.getRequest(strURL: getpostbyeventIdApi, success: { (result) in
-//            
-//            print(result)
-//
-//            
-//            if result.count > 0{
-//                
-//
-//                
-//                }
-//                    
-//                    
-//                else{
-//                    
-//                    
-//                    
-//                }
-//                
-//          
-//                
-//                
-//            
-//            self.eventDetailsTableView.reloadData()
-//            
-//        }) { (failureMessege) in
-//            
-//            print(failureMessege)
-//            
-//        }
-//        
-//        
-//    }
-//    
-//    
-    
 
-        
-    
-    
-    
-
+//MARK: -   TableView Delegate & DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -540,6 +494,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+//MARK: -   Event Date Without Time
+   
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
@@ -553,8 +509,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             let dateString3 = invDtArray2[0]
             
             print(dateString1)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
             
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
@@ -580,6 +534,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         return newDateStr + "," + newDateStr1
     }
     
+//MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -597,15 +552,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
-        
-        
-        
         print("Back Button Clicked......")
         
     }
+    
+//MARK: -    Home Button Tapped
 
 
     @IBAction func homeButtonTapped(_ sender:UIButton) {
@@ -643,7 +594,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     
-   // Mark :- Collectionview  Delegate methods
+// Mark :- Collectionview  Delegate & DataSource methods
     
     extension EventDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
         
@@ -678,26 +629,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
-//        let mediaName = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaType
         
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
         
-        //        print(title!)
-        //        print(postImgUrl!)
         
         cell.nameLabel.text = title
-        
-//        if indexPath.row == 0 {
-//            
-//            cell.mediaTypeLabel.text = mediaName
-//        }
-//        else {
-//            
-//            cell.mediaTypeLabel.text = ""
-//        }
+    
         
         
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
@@ -825,7 +765,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            // handle tap events
         
         print("You selected cell #\(indexPath.item)!")
         
@@ -916,12 +855,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if newString != nil {
                 
-                //  let url = URL(string:newString!)
-                
-                
-                //let dataImg = try? Data(contentsOf: url!)
-                
-                // if dataImg != nil {
                 
                 let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
                 
@@ -929,15 +862,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 audioViewController.audioIDNameArr = title!
                 self.navigationController?.pushViewController(audioViewController, animated: true)
                 
-                //  }
-                //                else {
-                //
-                //                //    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
-                //                }
+                
             }
             else {
                 
-                //   cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
             }
             
             
@@ -984,7 +912,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                                 videosVC.videoEmbededIDStr = self.audioIDArray[1]
                                 videosVC.videoNameStr = title!
                                 
-                              //  kUserDefaults.set(categoryId!, forKey: "categoryId")
                                 
                                 kUserDefaults.set(categoryId, forKey: "categoryId")
                                 kUserDefaults.set(userID, forKey: "userID")
@@ -1020,160 +947,133 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         private func openPDFinPDFReader() {
             
-            //self.performSegue(withIdentifier: kToPDFVC, sender: self)
         }
         
         
         private func savePDFWithUrl(_ urlString: String) {
             
-            var filePath : URL?
-            //self.showHUD()
+    var filePath : URL?
             
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
                 
-                if let url = URL.init(string: urlString) {
+    if let url = URL.init(string: urlString) {
                     
-                    let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+    let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
                     
-                    if let documentDirUrl = URL.init(string: documentDirUrlString) {
+    if let documentDirUrl = URL.init(string: documentDirUrlString) {
                         
-                        let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+    let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
                         
-                        if let pdfName = pdfNameArray.last {
+   if let pdfName = pdfNameArray.last {
                             
-                            let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
-                            self.saveLocationString = saveLocation.absoluteString
-                            filePath = URL.init(fileURLWithPath: saveLocation.path)
-                            print( self.saveLocationString)
+    let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+    self.saveLocationString = saveLocation.absoluteString
+    filePath = URL.init(fileURLWithPath: saveLocation.path)
+    print( self.saveLocationString)
                             
-                            let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+    let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
                             
-                            if fileExists {
+    if fileExists {
                                 
-                                if !self.isSavingPDF {
+    if !self.isSavingPDF {
                                     
-                                    DispatchQueue.main.async {
-                                        
-                                        //    self.hideHUD()
-                                        
-                                        self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
-                                        print( self.saveLocationString)
-                                        print(  self.openSelectedDocumentFromURL)
+    DispatchQueue.main.async {
                                         
                                         
-                                        self.openPDFinPDFReader()
-                                    }
+    self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+    print( self.saveLocationString)
+    print(  self.openSelectedDocumentFromURL)
+                                        
+                                        
+    self.openPDFinPDFReader()
+}
                                     
-                                } else {
+    } else {
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                                         
-                                        //                                    self.hideHUD()
-                                        //                                    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: kAppTitle, messege: self.pdfTitle + " has been already downloaded. Do you want to open?", clickAction: {
-                                        //
-                                        //                                        self.openPDFinPDFReader()
-                                        //                                        return
-                                        //                                    })
-                                    })
-                                }
+    })
+    }
                                 
-                            } else {
+    } else {
                                 
-                                do {
+    do {
                                     
-                                    self.isDownloadingOnProgress = true
+    self.isDownloadingOnProgress = true
                                     
-                                    let imageData : Data? = try Data.init(contentsOf: url)
+    let imageData : Data? = try Data.init(contentsOf: url)
                                     
-                                    if imageData == nil {
-                                        
-                                        self.isDownloadingOnProgress = false
-                                        
-                                        DispatchQueue.main.async {
-                                            
-                                            //                                        self.hideHUD()
-                                            //
-                                            //                                        Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
-                                            //                                                                                         alertTitle: kAppTitle,
-                                            //                                                                                         messege: "Error while loading Catalog", clickAction: {
-                                            //
-                                            //                                        })
-                                        }
-                                        
-                                    } else {
-                                        
-                                        do {
-                                            
-                                            try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
-                                            
-                                            if !self.isSavingPDF {
-                                                
-                                                self.isDownloadingOnProgress = false
-                                                
-                                                DispatchQueue.main.async {
-                                                    
-                                                    //  self.hideHUD()
-                                                    self.openPDFinPDFReader()
-                                                }
-                                                
-                                                
-                                            } else {
-                                                
-                                                self.isDownloadingOnProgress = false
-                                                
-                                                DispatchQueue.main.async {
-                                                    
-                                                    //                                                self.hideHUD()
-                                                    //
-                                                    //                                                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: kAppTitle, messege: "Catalog has been downloaded to the download folder on your device", clickAction: {
-                                                    //                                                })
-                                                }
-                                            }
-                                            
-                                        } catch let error {
-                                            
-                                            self.isDownloadingOnProgress = false
-                                            
-                                            DispatchQueue.main.async {
-                                                
-                                                //                                            self.hideHUD()
-                                                //                                            Utilities.sharedInstance.alertWithOkButtonAction(vc: self,
-                                                //                                                                                             alertTitle: kAppTitle,
-                                                //                                                                                             messege: error.localizedDescription, clickAction: {
-                                                //
-                                                //                                            })
-                                            }
-                                        }
-                                    }
-                                    
-                                } catch let error {
-                                    
-                                    print(error.localizedDescription)
-                                    
-                                    self.isDownloadingOnProgress = false
-                                    
-                                    DispatchQueue.main.async {
-                                        
-                                        // self.hideHUD()
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    if imageData == nil {
         
-        func openSelectedDocumentFromURL(documentURLString: String) {
+    self.isDownloadingOnProgress = false
+                                        
+    DispatchQueue.main.async {
+        
+    }
+                                        
+} else {
+                                        
+   do {
+                                            
+    try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
+                                            
+    if !self.isSavingPDF {
+                                                
+    self.isDownloadingOnProgress = false
+                                                
+    DispatchQueue.main.async {
+                                                    
+    self.openPDFinPDFReader()
+    }
+                                                
+                                                
+} else {
+                                                
+    self.isDownloadingOnProgress = false
+                                                
+    DispatchQueue.main.async {
+                                                    
+        
+    }
+}
+                                            
+} catch let error {
+                                            
+    self.isDownloadingOnProgress = false
+                                            
+    DispatchQueue.main.async {
+                                                
+        
+        }
+    }
+}
+                                    
+} catch let error {
+                                    
+    print(error.localizedDescription)
+                                    
+    self.isDownloadingOnProgress = false
+                                    
+DispatchQueue.main.async {
+                                        
+        }
+      }
+    }
+   }
+  }
+}
+}
+            
+}
+        
+func openSelectedDocumentFromURL(documentURLString: String) {
+    
             let documentURL: NSURL = NSURL(fileURLWithPath: documentURLString)
             documentController = UIDocumentInteractionController(url: documentURL as URL)
             documentController.delegate = self
             documentController.presentPreview(animated: true)
         }
-        //
-        //
-        //    // MARK: - UIDocumentInteractionViewController delegate methods
-        //
+
         func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
             return self
         }

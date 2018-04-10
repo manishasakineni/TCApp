@@ -36,6 +36,7 @@ class AudioViewController: UIViewController {
     
     @IBOutlet weak var backGroundView: UIView!
     
+//MARK: -  variable declaration
     
     var appVersion          : String = ""
 
@@ -51,6 +52,7 @@ class AudioViewController: UIViewController {
     var isPaused: Bool!
     
     
+  //MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,16 +65,14 @@ class AudioViewController: UIViewController {
 
         Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
 
-        // Do any additional setup after loading the view.
     }
-
+//MARK: -  view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isPaused = false
         playButton.setImage(UIImage(named:"puseImage"), for: .normal)
         self.playList.add(audioIDArr)
-       // self.playList.add("https://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3")
-       // self.playList.add("https://ia801409.us.archive.org/12/items/1HourThunderstorm/1HrThunderstorm.mp3")
         self.play(url: URL(string:(playList[self.index] as! String))!)
         self.setupTimer()
     }
@@ -86,6 +86,7 @@ class AudioViewController: UIViewController {
         avPlayer.play()
     }
     
+ //MARK: -  view Will DisAppear
     
     override func viewWillDisappear( _ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -106,6 +107,8 @@ class AudioViewController: UIViewController {
             isPaused = false
         }
     }
+    
+  //MARK: -  setup Timer
     
     func setupTimer(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.didPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: nil)
@@ -187,18 +190,21 @@ class AudioViewController: UIViewController {
         let hours: Int32 = totalSeconds/3600
         return String(format: "%02d:%02d:%02d", hours,minutes,seconds)
     }
+    
+    
+ //MARK: -  play Button Clicked
+    
     @IBAction func playButtonClicked(_ sender: UIButton) {
         
         if #available(iOS 10.0, *) {
             self.togglePlayPause()
         } else {
-            // showAlert "upgrade ios version to use this feature"
             
         }
         
     }
     
-    
+  //MARK: -  next Button Clicked
     
     @IBAction func nextButtonClicked(_ sender: Any) {
         
@@ -206,6 +212,7 @@ class AudioViewController: UIViewController {
 
     }
     
+   //MARK: -  preview Button Clicked
     
     @IBAction func prevButtonClicked(_ sender: Any) {
         
@@ -213,6 +220,7 @@ class AudioViewController: UIViewController {
 
     }
     
+ //MARK: -  slider Value Change
     
     @IBAction func sliderValueChange(_ sender: UISlider) {
         
@@ -245,10 +253,7 @@ class AudioViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
+ //MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -266,7 +271,9 @@ class AudioViewController: UIViewController {
         print("Back Button Clicked......")
         
     }
-
+    
+//MARK: -    Home Left Button Tapped
+    
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
@@ -299,15 +306,5 @@ class AudioViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

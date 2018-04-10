@@ -18,6 +18,9 @@ class ListOfMonthEventCell: UITableViewCell {
     @IBOutlet weak var contactNumber: UILabel!
     
     @IBOutlet weak var eventStartEndDate: UILabel!
+    
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

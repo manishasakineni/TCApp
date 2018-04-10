@@ -17,6 +17,9 @@ class PageControllCell: UITableViewCell {
     
     var timer : Timer!
     var upDateCounter : Int!
+    
+     //MARK: - Color
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
