@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="allOffersTableView" destination="INi-9g-vjk" id="03e-o1-XQY"/>
                 <outlet property="player" destination="Arp-zL-y3Y" id="58W-mv-1aW"/>
+                <outlet property="replyCommentTW" destination="JOg-Yf-uPi" id="wwn-yU-Gat"/>
+                <outlet property="replyView" destination="waj-xg-YDz" id="WJk-cU-vJr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="ytPlayerViewHeight" destination="P08-jH-44m" id="2lI-54-kKm"/>
             </connections>
@@ -33,6 +35,41 @@
                     <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waj-xg-YDz">
+                    <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JOg-Yf-uPi">
+                            <rect key="frame" x="0.0" y="0.0" width="340" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="340" id="PBV-7M-rBZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vym-4e-NDO">
+                            <rect key="frame" x="347" y="5" width="22" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="FhR-us-Pup"/>
+                                <constraint firstAttribute="height" constant="20" id="RkQ-Jk-6VD"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="send-64"/>
+                            <connections>
+                                <action selector="replySendBtnClicked:" destination="-1" eventType="touchUpInside" id="qGM-0J-Xud"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="JOg-Yf-uPi" firstAttribute="leading" secondItem="waj-xg-YDz" secondAttribute="leading" id="AO6-PC-OAg"/>
+                        <constraint firstItem="Vym-4e-NDO" firstAttribute="centerY" secondItem="JOg-Yf-uPi" secondAttribute="centerY" id="Kdp-O6-giW"/>
+                        <constraint firstAttribute="bottom" secondItem="JOg-Yf-uPi" secondAttribute="bottom" id="SbQ-86-yFM"/>
+                        <constraint firstAttribute="height" constant="30" id="XoT-zc-1uR"/>
+                        <constraint firstItem="Vym-4e-NDO" firstAttribute="leading" secondItem="JOg-Yf-uPi" secondAttribute="trailing" constant="7" id="iRx-PP-PSX"/>
+                        <constraint firstAttribute="trailing" secondItem="Vym-4e-NDO" secondAttribute="trailing" constant="6" id="thk-I4-yUE"/>
+                        <constraint firstItem="JOg-Yf-uPi" firstAttribute="top" secondItem="waj-xg-YDz" secondAttribute="top" id="vk4-Sl-itN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -41,10 +78,16 @@
                 <constraint firstItem="Arp-zL-y3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R6c-LZ-Jih"/>
                 <constraint firstAttribute="trailing" secondItem="INi-9g-vjk" secondAttribute="trailing" id="SJk-KK-7Rh"/>
                 <constraint firstItem="Arp-zL-y3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VTA-oA-fcE"/>
+                <constraint firstAttribute="bottom" secondItem="waj-xg-YDz" secondAttribute="bottom" id="Xaf-11-nf4"/>
+                <constraint firstItem="waj-xg-YDz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ble-Gj-IpW"/>
                 <constraint firstItem="INi-9g-vjk" firstAttribute="top" secondItem="Arp-zL-y3Y" secondAttribute="bottom" id="dKk-4G-4kE"/>
                 <constraint firstAttribute="trailing" secondItem="Arp-zL-y3Y" secondAttribute="trailing" id="sGG-gi-K4W"/>
+                <constraint firstAttribute="trailing" secondItem="waj-xg-YDz" secondAttribute="trailing" id="w7y-MI-O0A"/>
             </constraints>
             <point key="canvasLocation" x="91.5" y="59.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="send-64" width="64" height="64"/>
+    </resources>
 </document>

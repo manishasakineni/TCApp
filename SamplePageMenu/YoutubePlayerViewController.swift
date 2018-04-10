@@ -42,9 +42,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var ID = Int()
 
     var commentString : String = "Add a public comment..."
-    
-//    var likeCount : String = "0"
-//    var disLikeCount : String = "0"
+
     
     var likeClick = false
     var disLikeClick = false
@@ -57,14 +55,11 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     var readMoreBtnIsHidden = true
     
-//    var usersCommentsArray = ["Drag these project", "Drag these files and folders into your project Drag these files and folders into your project", "Drag these files","folders into your project","123456 1233 draag"]
+
     
     var usersCommentsArray = Array<Any>()
      var postIDArray = Array<Any>()
 
-    // var authorDetailsArray  : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
-    
-    // var embedLinksAry : Array<String> = Array()
     var embedLinksAry : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     var churchNameAry : Array<String> = Array()
     var splitArray : Array<String> = Array()
@@ -92,17 +87,35 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var kID: String = ""
     var postID : Int = 0
     var videoId : Int = 0
+    
+    var activeLabel = UILabel()
+    var activeLblNumberofLines : Int = 3
+    
+    var parentCommentId = 0
+    var replyParentCommentId = 0
 
+    var parentCommentIdArray = Array<Int>()
+    
+    @IBOutlet weak var replyCommentTW: UITextView!
+    
+    @IBOutlet weak var replyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboard()
+        
         allOffersTableView.allowsSelection = false
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
         allOffersTableView.separatorStyle = .none
+        
+        //replyCommentTW.isHidden = true
+        replyCommentTW.delegate = self
+        replyView.isHidden = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
+        activeLabel.numberOfLines = 0
         
         if kUserDefaults.value(forKey: "usersCommentsArray") != nil{
             
@@ -450,22 +463,51 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
-            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
+           self.parentCommentId = self.parentCommentIdArray[indexPath.row]
+           self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
+            let commentString = usersCommentsArray[indexPath.row] as? String
             
-            usersCommentsTableViewCell.usersCommentLbl.numberOfLines = 3
+            let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
+            
+            
+            
+            print(commentLblHeight)
+            
+            if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
+            
+            
+                 usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
+                 usersCommentsTableViewCell.readMoreBtn.isHidden = false
+                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 15
+                 readMoreBtnIsHidden = false
+            }
+            
+            else {
+                
+                 usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
+                 usersCommentsTableViewCell.readMoreBtn.isHidden = true
+                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 0
+                 readMoreBtnIsHidden = true
+            }
+            
+            print(activeLabel.numberOfLines)
+            
+            usersCommentsTableViewCell.usersCommentLbl.text = commentString
+           // usersCommentsTableViewCell.usersCommentLbl.text = self.activeLabel.text
             print(usersCommentsTableViewCell.usersCommentLbl.numberOfLines)
             
+          //  usersCommentsTableViewCell.usersCommentLbl = activeLabel
             
             
-            if readMoreBtnIsHidden == true{
+ 
             
-            
-            }
             usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
             usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
             
             usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
+            
+            usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
             
             if usersLikeClick == true{
                 
@@ -491,8 +533,16 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
         usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
+        usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
             
+        
+            
+           
+           
             return usersCommentsTableViewCell
+            
+            
+            
             
         }
         
@@ -501,13 +551,29 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
     }
     
-    
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
 
     }
     
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+//        if readMoreBtnIsHidden == true {
+//        
+//            activeLblNumberofLines = 0
+//        }
+//        
+//        else {
+//        
+//        activeLblNumberofLines = 3
+//        }
+        
+        activeLblNumberofLines = 3
+    }
+  
+    
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         
@@ -809,6 +875,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     if !(self.userID.isEmpty) {
         
+        
+       self.parentCommentId = 0
+        
     commentSendBtnAPIService(textComment: self.commentString)
     
         }
@@ -839,7 +908,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             "id": 0,
             "postId": self.postID,
             "description": textComment,
-            "parentCommentId": 0,
+            "parentCommentId": self.parentCommentId,
             "userId" : self.ID
              ] as [String : Any]
         
@@ -984,11 +1053,28 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }
     }
     
+    func readmoreClicked(sender : UIButton){
+        
+       
+            readMoreBtnIsHidden = false
+            activeLblNumberofLines = 0
+        
+            let indexPath = IndexPath(item: sender.tag, section: 3)
+            self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        
+    }
+    
     
     func replyCommentBtnClick(sender : UIButton){
     
         if !(self.userID.isEmpty) {
             
+            replyView.isHidden = false
+            replyView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            //replyCommentTW.isHidden = false
+            replyCommentTW.becomeFirstResponder()
+            replyCommentTW.autocorrectionType = .no
         let indexPath = IndexPath(item: sender.tag, section: 3)
         self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -1075,23 +1161,34 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         let resultArr = respVO.result?.commentDetails
                         
-                        
+                        for id in (respVO.result?.commentDetails)! {
+                            
+                            self.parentCommentIdArray.append(id.id!)
+                            
+                        }
                         
                        
                         
                         for list in resultArr! {
                             
                             self.usersCommentsArray.append(list.comment!)
-                            
-                        
+
                             
                         }
               
+                        for vv in self.usersCommentsArray {
+                        
+                        self.activeLabel.text = vv as? String
+                            
+                        }
+                        
                         self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
                         self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                         self.postID  = (respVO.result?.postDetails![0].id)!
                        // self.videoId = (respVO.result?.postDetails![0].id)!
 
+                        
+                        
                         self.allOffersTableView.reloadData()
                         
                         
@@ -1113,12 +1210,24 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }) { (failureMessage) in
             
             
-            
-            
         }
         
         
     }
+    
+    
+
+    
+    @IBAction func replySendBtnClicked(_ sender: Any) {
+        
+       
+        self.parentCommentId = self.replyParentCommentId
+        commentSendBtnAPIService(textComment: self.replyCommentTW.text)
+        
+        
+    }
+   
+    
     
 }
 
@@ -1136,12 +1245,14 @@ extension UIView {
         border.frame = CGRect(x: frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
         self.layer.addSublayer(border)
     }
+    
     func addLeftBorderWithColor(color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
         self.layer.addSublayer(border)
     }
+    
     func addTopBorderWithClr(color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
@@ -1151,11 +1262,11 @@ extension UIView {
     
 }
 
-extension UIViewController
+extension YoutubePlayerViewController
 {
     func hideKeyboard()
     {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(YoutubePlayerViewController.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
     }
@@ -1163,5 +1274,7 @@ extension UIViewController
     @objc func dismissKeyboard()
     {
         view.endEditing(true)
+        //replyCommentTW.isHidden = true
+        replyView.isHidden = true
     }
 }
