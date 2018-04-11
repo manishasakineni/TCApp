@@ -199,9 +199,10 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
 
     }
+    
   //MARK: - Get Event Info By Church Id Month Year API Service
     
-func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String, _ str:String){
+func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String, _ str:String) {
         
         
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
@@ -218,6 +219,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             ] as [String : Any]
         
         print("dic params \(dictParams)")
+    
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
@@ -534,6 +536,29 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
         }
         
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
+        
+        
+        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+        
+        eventDetailsViewController.eventID = churchIdMonthYearList.id!
+        eventDetailsViewController.eventChurchName = churchIdMonthYearList.churchName!
+        eventDetailsViewController.eventName = churchIdMonthYearList.title!
+        
+        eventDetailsViewController.catgoryID = churchIdMonthYearList.churchId!
+       // eventDetailsViewController.navigationStr = "navigationStr"
+        
+        self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+        
+    }
+    
+    
+    
     //MARK: -   Search Bar
     
  func updateSearchResults(for searchController: UISearchController)

@@ -15,8 +15,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
     var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
- //   var delegate: changeSubtitleOfIndexDelegate?
     
+    @IBOutlet weak var repliesTableView: UITableView!
     @IBOutlet weak var player: YTPlayerView!
     
     var allVideosArray : GetVideosResultVo?
@@ -96,9 +96,9 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
     var parentCommentIdArray = Array<Int>()
     
-    @IBOutlet weak var replyCommentTW: UITextView!
+   
+    let buttonnn = UIButton()
     
-    @IBOutlet weak var replyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +110,10 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         allOffersTableView.dataSource = self
         allOffersTableView.separatorStyle = .none
         
-        //replyCommentTW.isHidden = true
-        replyCommentTW.delegate = self
-        replyView.isHidden = true
+        repliesTableView.delegate = self
+        repliesTableView.dataSource = self
+        repliesTableView.tableFooterView = UIView()
+      
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
         activeLabel.numberOfLines = 0
@@ -311,22 +312,38 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         allOffersTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
         
 
-        
+        let nib = UINib(nibName: "AllRepliesHeaderTVCell", bundle: nil)
+        repliesTableView.register(nib, forCellReuseIdentifier: "AllRepliesHeaderTVCell")
         
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
+        if tableView == repliesTableView {
+            
+        return 1
+            
+        }
         
-       // return sectionTitleArray.count
+        else {
         
         return 4
+            
+        }
+            
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
+       if tableView == repliesTableView{
         
+        return 5
+        
+        }
+        
+       else {
         if section == 3 {
             
             return usersCommentsArray.count
@@ -338,6 +355,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         }
     }
+    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
         
@@ -346,6 +364,12 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        if tableView == repliesTableView {
+            
+            return 40
+        }
+        
+        else {
         if indexPath.section == 0  {
         
         return 90
@@ -365,14 +389,54 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         }
         
+        }
         
+       
     }
     
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if tableView == repliesTableView {
+            
+        return 40
+        
+        }
+        
+        return 0
+    }
     
+    
+     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if tableView == repliesTableView {
+            
+     
+        let allRepliesHeaderTVCell = self.repliesTableView.dequeueReusableCell(withIdentifier: "AllRepliesHeaderTVCell") as! AllRepliesHeaderTVCell
+            
+            allRepliesHeaderTVCell.repliesCloseBtn.addTarget(self, action: #selector(repliesCloseBtnClicked), for: .touchUpInside)
+            
+            allRepliesHeaderTVCell.repliesCloseBtn = buttonnn
+            
+            return allRepliesHeaderTVCell
+
+        }
+    
+       return nil
+    }
+    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
+        if tableView == repliesTableView {
+            
+        
+            
+        }
+            
+        else {
+            
         if indexPath.section == 0 {
             
            
@@ -551,7 +615,9 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
     }
     
-
+        return UITableViewCell()
+        
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -569,11 +635,16 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 //        
 //        activeLblNumberofLines = 3
 //        }
-        
+        if tableView == repliesTableView {
+            
+            
+        }
+            
+        else {
         activeLblNumberofLines = 3
-    }
+      }
   
-    
+    }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         
@@ -1069,14 +1140,17 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     func replyCommentBtnClick(sender : UIButton){
     
         if !(self.userID.isEmpty) {
+
+   
+         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
             
-            replyView.isHidden = false
-            replyView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            //replyCommentTW.isHidden = false
-            replyCommentTW.becomeFirstResponder()
-            replyCommentTW.autocorrectionType = .no
-        let indexPath = IndexPath(item: sender.tag, section: 3)
-        self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
+            self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+              
+                
+            }, completion: {(_ finished: Bool) -> Void in
+                //position screen left after animation
+            })
+            
         }
         
         else {
@@ -1089,6 +1163,21 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }
     }
     
+    func repliesCloseBtnClicked(){
+        
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+            
+            self.repliesTableView.frame = CGRect(x: 0, y: self.allOffersTableView.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
+            
+            
+        }, completion: {(_ finished: Bool) -> Void in
+            //position screen left after animation
+        })
+        
+        
+        
+    }
     
     func clickLikesDislikesCommentsCountsAPICAll(){
         
@@ -1136,10 +1225,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     }
     
+    
     func getVideoDetailsApiService(){
-        
 
-        
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
@@ -1222,7 +1310,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
        
         self.parentCommentId = self.replyParentCommentId
-        commentSendBtnAPIService(textComment: self.replyCommentTW.text)
+       // commentSendBtnAPIService(textComment: self.replyCommentTW.text)
         
         
     }
@@ -1274,7 +1362,7 @@ extension YoutubePlayerViewController
     @objc func dismissKeyboard()
     {
         view.endEditing(true)
-        //replyCommentTW.isHidden = true
-        replyView.isHidden = true
+        
+        
     }
 }

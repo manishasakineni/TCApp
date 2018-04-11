@@ -77,6 +77,8 @@
 		3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B83205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift */; };
 		3D927B89205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B88205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift */; };
 		3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927B8A205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift */; };
+		3D9C30F7207E189A00601B75 /* AllRepliesHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C30F5207E189A00601B75 /* AllRepliesHeaderTVCell.swift */; };
+		3D9C30F8207E189A00601B75 /* AllRepliesHeaderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C30F6207E189A00601B75 /* AllRepliesHeaderTVCell.xib */; };
 		3DD30F5D205FDF400076B0DB /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */; };
 		3DD30F5F205FE3E90076B0DB /* EventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */; };
 		3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */; };
@@ -359,6 +361,8 @@
 		3D927B83205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventsListResultInfoVO.swift; sourceTree = "<group>"; };
 		3D927B88205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventDateCountInfoVO.swift; sourceTree = "<group>"; };
 		3D927B8A205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventDateCountResultVO.swift; sourceTree = "<group>"; };
+		3D9C30F5207E189A00601B75 /* AllRepliesHeaderTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRepliesHeaderTVCell.swift; sourceTree = "<group>"; };
+		3D9C30F6207E189A00601B75 /* AllRepliesHeaderTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllRepliesHeaderTVCell.xib; sourceTree = "<group>"; };
 		3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsVO.swift; sourceTree = "<group>"; };
 		3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsListResultVO.swift; sourceTree = "<group>"; };
@@ -852,6 +856,15 @@
 				3D927B8A205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift */,
 			);
 			name = AuthorEventDateCountVO;
+			sourceTree = "<group>";
+		};
+		3D9C30F4207E185300601B75 /* AllRepliesHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D9C30F5207E189A00601B75 /* AllRepliesHeaderTVCell.swift */,
+				3D9C30F6207E189A00601B75 /* AllRepliesHeaderTVCell.xib */,
+			);
+			name = AllRepliesHeaderCell;
 			sourceTree = "<group>";
 		};
 		3DD30F62205FE40A0076B0DB /* EventDetailsVO */ = {
@@ -1371,6 +1384,7 @@
 				CB19E93120613C1F00007D9C /* SubscribCell */,
 				3D41C7FA2063B9920086BEE7 /* youtubeCLDSSCell */,
 				3D41C7F5206377250086BEE7 /* UsersCommentsTableViewCell */,
+				3D9C30F4207E185300601B75 /* AllRepliesHeaderCell */,
 			);
 			name = YouTubeFunctionalCells;
 			sourceTree = "<group>";
@@ -1730,6 +1744,7 @@
 				359CC9332062874D0061450A /* BibleBooksTableViewCell.xib in Resources */,
 				AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
+				3D9C30F8207E189A00601B75 /* AllRepliesHeaderTVCell.xib in Resources */,
 				CB3794E720595867002D3638 /* homeCategoriesCell.xib in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
@@ -1963,6 +1978,7 @@
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
+				3D9C30F7207E189A00601B75 /* AllRepliesHeaderTVCell.swift in Sources */,
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
 				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,
 				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,

@@ -10,6 +10,9 @@ import UIKit
 
 class AllRepliesHeaderTVCell: UITableViewCell {
 
+    
+    @IBOutlet weak var repliesCloseBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

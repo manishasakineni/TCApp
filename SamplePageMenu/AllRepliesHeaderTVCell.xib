@@ -1,19 +1,73 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AllRepliesHeaderTVCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="AllRepliesHeaderTVCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllRepliesHeaderTVCell" rowHeight="40" id="KGk-i7-Jjw" customClass="AllRepliesHeaderTVCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Replies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPg-Qx-up3">
+                        <rect key="frame" x="15" y="11" width="239" height="17.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17.5" id="HQk-Hy-zwX"/>
+                            <constraint firstAttribute="width" constant="239" id="NtL-K8-cN6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7o-KW-f1l">
+                        <rect key="frame" x="285" y="10" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="jkb-xV-qIp"/>
+                            <constraint firstAttribute="height" constant="20" id="p8c-eA-ph5"/>
+                        </constraints>
+                        <state key="normal" image="CLOSE"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-b6-6Cz">
+                        <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="5fh-ps-I48"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zBS-b6-6Cz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4lC-PM-Gof"/>
+                    <constraint firstItem="L7o-KW-f1l" firstAttribute="centerY" secondItem="cPg-Qx-up3" secondAttribute="centerY" id="AUC-ug-VTb"/>
+                    <constraint firstAttribute="bottom" secondItem="zBS-b6-6Cz" secondAttribute="bottom" id="QSB-KW-d10"/>
+                    <constraint firstAttribute="trailing" secondItem="zBS-b6-6Cz" secondAttribute="trailing" id="TT3-iD-2ZK"/>
+                    <constraint firstItem="cPg-Qx-up3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="W1F-bQ-ysD"/>
+                    <constraint firstAttribute="trailing" secondItem="L7o-KW-f1l" secondAttribute="trailing" constant="15" id="fvs-Lg-N8O"/>
+                    <constraint firstItem="cPg-Qx-up3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="iJp-fq-ayA"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="repliesCloseBtn" destination="L7o-KW-f1l" id="pNo-RU-fxS"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="CLOSE" width="32" height="32"/>
+    </resources>
 </document>
