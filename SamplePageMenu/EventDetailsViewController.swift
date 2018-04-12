@@ -66,7 +66,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var thumbnailImageURL = String()
     
-    
+    var userID = Int()
    
     //MARK: -   View DidLoad
     
@@ -75,7 +75,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewDidLoad()
         
         self.norecordsFoundLbl.isHidden = false
-
+        
+        
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
+        }
 
         eventDetailsTableView.delegate = self
         eventDetailsTableView.dataSource = self
@@ -118,7 +124,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
  
     func getEventDetailsByIdApiCall(){
     
-     let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID)
+     let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID) + "/" + String(self.userID)
         
         serviceController.getRequest(strURL: getEventDetailsByIdApi, success: { (result) in
             

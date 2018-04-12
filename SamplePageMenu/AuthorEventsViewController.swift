@@ -291,9 +291,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
                 if isSuccess == true{
-                    
-                    
-                    
+                   
                     self.eventDateArray.removeAll()
                     self.eventsCountsArray.removeAll()
                     
@@ -312,16 +310,11 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     
                 else{
-                    
-                    
-                    
+                   
                 }
                 
             }
-            
-            
-            
-            
+          
         })
             
         { (failureMessage) in
@@ -330,10 +323,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             print(failureMessage)
             
         }
-        
-        
-        
-        
+      
     }
     
 //MARK: -   TableView Delegate & DataSource Methods
@@ -396,10 +386,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
-        
-        
+       
         if(authorDetailsArray.count > 0){
             
        let authorDetails = authorDetailsArray[indexPath.row]

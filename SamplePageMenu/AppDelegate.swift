@@ -178,14 +178,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageView  = UIImageView(frame: window.bounds)
                 imageView.image = UIImage(named:"Church-logo")
                 let codedLabel:UILabel = UILabel()
-//                imageView.frame = CGRect(x: 80, y: 160, width: 200, height: 200)
                 
-                imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
-//                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
-                codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+               
                 
-//                imageView.center = CGPoint(x:(customizedLaunchScreenView?.frame.size.width)!  / 2, y:(customizedLaunchScreenView?.frame.size.height)! / 2)
-                //                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
+                let bounds = UIScreen.main.bounds
+                let height = bounds.size.height
+                
+                switch height {
+                case 480.0:
+                    print("iPhone 3,4")
+                    
+                  
+                case 568.0:
+                    print("iPhone 5")
+                    
+                    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+                    
+                    
+                case 667.0:
+                    
+                    print("iPhone 6")
+                    
+                  
+                    
+                case 736.0:
+                    print("iPhone 6+")
+                    
+                  
+                    
+                case 1024.0:
+                    print("iPadAir")
+                    
+                    
+                    
+                    
+                default:
+                    print("not an iPhone")
+                    
+                   
+                    
+                }
+
                 
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
