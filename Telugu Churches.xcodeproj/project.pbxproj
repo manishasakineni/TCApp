@@ -188,6 +188,11 @@
 		AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */; };
 		AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */; };
 		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
+		AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */; };
+		AFE9A05E207F334D001CEE7A /* EventLikeorDislikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */; };
+		AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05F207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift */; };
+		AFE9A063207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A062207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift */; };
+		AFE9A065207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A064207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift */; };
 		CB0256B2202430750017E240 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B1202430750017E240 /* SettingViewController.swift */; };
 		CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */; };
 		CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */; };
@@ -481,6 +486,11 @@
 		AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellIResultVo.swift; sourceTree = "<group>"; };
 		AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsVerseViewController.swift; sourceTree = "<group>"; };
 		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
+		AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeInfoVO.swift; sourceTree = "<group>"; };
+		AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeResultVO.swift; sourceTree = "<group>"; };
+		AFE9A05F207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeLikeResultVO.swift; sourceTree = "<group>"; };
+		AFE9A062207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateEventCommentsInfoVO.swift; sourceTree = "<group>"; };
+		AFE9A064207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateEventCommentsResultVO.swift; sourceTree = "<group>"; };
 		CB0256B1202430750017E240 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1087,6 +1097,8 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				AFE9A061207F3801001CEE7A /* AddUpdateAndComments */,
+				AFE9A05A207F3210001CEE7A /* EventLikeorDislike */,
 				CBA0EBF620726B13000C16DD /* AddUpdateCommentsVo */,
 				AF2EB522206DFA90009B3B75 /* BibleBookVO */,
 				359CC91F20626BDF0061450A /* BibleVo */,
@@ -1253,6 +1265,25 @@
 				AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */,
 			);
 			name = BibleBookVO;
+			sourceTree = "<group>";
+		};
+		AFE9A05A207F3210001CEE7A /* EventLikeorDislike */ = {
+			isa = PBXGroup;
+			children = (
+				AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */,
+				AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */,
+				AFE9A05F207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift */,
+			);
+			name = EventLikeorDislike;
+			sourceTree = "<group>";
+		};
+		AFE9A061207F3801001CEE7A /* AddUpdateAndComments */ = {
+			isa = PBXGroup;
+			children = (
+				AFE9A062207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift */,
+				AFE9A064207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift */,
+			);
+			name = AddUpdateAndComments;
 			sourceTree = "<group>";
 		};
 		B479AB571936CD8C6FA5D596 /* Frameworks */ = {
@@ -1836,6 +1867,7 @@
 				3D5852DD2072694F00994FC2 /* GetVideosResultVo.swift in Sources */,
 				3D5852D620725D1500994FC2 /* LikeDislikeCountVO.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
+				AFE9A063207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
@@ -1892,6 +1924,7 @@
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
 				CB03C8DF203EFF54000B96A4 /* GetEventByUserIdMonthYearVo.swift in Sources */,
+				AFE9A065207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
 				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
@@ -1912,6 +1945,7 @@
 				359CC92C206277020061450A /* BibleChaptersViewController.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
+				AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */,
 				CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				CB03C8DA203ED202000B96A4 /* GetAllChurchAdminsVo.swift in Sources */,
@@ -1955,6 +1989,7 @@
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
+				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
 				3D5852DE2072694F00994FC2 /* PostDetailsVO.swift in Sources */,
 				9A623B902021A7FB00A674F2 /* Reachability.swift in Sources */,
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
@@ -1979,6 +2014,7 @@
 				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
+				AFE9A05E207F334D001CEE7A /* EventLikeorDislikeResultVO.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
 				3D9C30F7207E189A00601B75 /* AllRepliesHeaderTVCell.swift in Sources */,
