@@ -70,11 +70,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
    
     //MARK: -   View DidLoad
     
-
+    var likeClick = false
+    var disLikeClick = false
+    var likesCount = 0
+    var disLikesCount = 0
+    var ID = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.norecordsFoundLbl.isHidden = false
+        self.norecordsFoundLbl.isHidden = true
         
         
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
@@ -94,6 +99,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
         eventDetailsTableView.register(nibName, forCellReuseIdentifier: "homeCategoriesCell")
+        
+        let youtubeCLDSSCell  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
+        eventDetailsTableView.register(youtubeCLDSSCell, forCellReuseIdentifier: "youtubeCLDSSCell")
+
         
         getEventDetailsByIdApiCall()
         getVideosAPICall()
@@ -115,7 +124,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
         Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
-        
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
+        }
         
     }
     
@@ -155,7 +168,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     }
                     else {
                         
-                        self.norecordsFoundLbl.isHidden = false
+                      //  self.norecordsFoundLbl.isHidden = false
                         
                         self.eventDetailsTableView.isHidden = true
                     }
@@ -189,6 +202,48 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     }
     
+    
+    func eventLikesDislikesCountAPiCall(){
+    
+    
+        let  EVENTSLIKEDISLIKEAPISTR = EVENTSLIKEDISLIKEAPI
+        
+        let params = [ "eventId": eventID,
+                       "userId": self.ID,
+                       "like": likeClick,
+                       "disLike": disLikeClick   ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+    
+    
+        serviceController.postRequest(strURL: EVENTSLIKEDISLIKEAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            
+            let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = responseVO.isSuccess
+            
+            if isSuccess == true {
+                
+                self.likesCount = (responseVO.result?.likeCount)!
+                self.disLikesCount = (responseVO.result?.dislikeCount)!
+                
+                let indexPath = IndexPath(item: 1, section: 0)
+                self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
+                
+            }
+            
+        
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
 //MARK: -    Get Videos API Call
     
     
@@ -336,7 +391,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if section == 0 {
 
-        return 7
+        return 8
         }
        
         else{
@@ -353,6 +408,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
      
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0{
@@ -362,6 +418,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             return 140
         
         }
+            
+            if indexPath.row == 1{
+                
+                return 90
+                
+            }
 
         else{
         
@@ -394,23 +456,33 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
         
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
         
-        headImgTableViewCell.churchNameLabel.text = eventList.churchName
+        headImgTableViewCell.churchNameLabel.isHidden = true
           
 
             
         return headImgTableViewCell
         
         }
+            
+        if indexPath.row == 1{
+                
+               let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
+                
+              youtubeCLDSSCell.videoTitleName.text = eventList.churchName
+                
+                return youtubeCLDSSCell
+                
+            }
         
         else{
         
         let informationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
-            if indexPath.row == 1 {
+            if indexPath.row == 2 {
             
                 informationTableViewCell.infoLabel.text = "Church Name".localize()
                 
@@ -418,7 +490,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             }
             
-            if indexPath.row == 2 {
+            if indexPath.row == 3 {
                 
                 informationTableViewCell.infoLabel.text = "Registration Number".localize()
                 
@@ -426,7 +498,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-            if indexPath.row == 3 {
+            if indexPath.row == 4 {
                 
                 informationTableViewCell.infoLabel.text = "Event Name:".localize()
                 
@@ -434,7 +506,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-            if indexPath.row == 4 {
+            if indexPath.row == 5 {
                 
                 informationTableViewCell.infoLabel.text = "Contact Number".localize()
                 
@@ -443,7 +515,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             }
 
             
-            if indexPath.row == 5 {
+            if indexPath.row == 6 {
                 
                 informationTableViewCell.infoLabel.text = "Start Date".localize()
                 
@@ -455,7 +527,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 informationTableViewCell.addressLabel.text =  startAndEndDate1
             }
             
-            if indexPath.row == 6 {
+            if indexPath.row == 7 {
                 
                 informationTableViewCell.infoLabel.text = "End Date".localize()
                 

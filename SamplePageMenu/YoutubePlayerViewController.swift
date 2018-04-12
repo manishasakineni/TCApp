@@ -16,6 +16,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
     
+    var loginVC = LoginViewController()
+    
     @IBOutlet weak var repliesTableView: UITableView!
     @IBOutlet weak var player: YTPlayerView!
     
@@ -102,8 +104,17 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+       
         
         hideKeyboard()
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        
+        self.loginVC.showNav = true
+        self.loginVC.navigationString = "navigationString"
         
         allOffersTableView.allowsSelection = false
         allOffersTableView.delegate = self
@@ -124,17 +135,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
         }
  
-        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
         
-        self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
-
-        }
-        
-        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
-            
-            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
-            
-        }
         
         kUserDefaults.synchronize()
         
@@ -187,8 +188,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         kUserDefaults.synchronize()
         
         registerTableViewCells()
-        getVideoDetailsApiService()
-
+        
         
         print(videoIDArray)
        
@@ -220,15 +220,27 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
-        //   self.navigationItem.hidesBackButton = false
+        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
+            
+            self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
+            
+        }
         
-        //        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        //
-        //        //navigationItem.leftBarButtonItems = []
-        
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
+        }
+       
+        self.getVideoDetailsApiService()
+
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+       self.player.stopVideo()
+        
+    }
    
     
     func getVideosAPICall(){
@@ -462,6 +474,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                
                 
             }
+                
             else{
                 
                
@@ -756,7 +769,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         
-//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
+
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -832,30 +845,8 @@ func  likeButtonClick(_ sendre:UIButton) {
         
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
-                
-             //  let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                
-//                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                
-//                
-//                let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-//                
-//                desController.showNav = true
-//                 desController.navigationString = "navigationString"
-//                
-//                let newController = UINavigationController.init(rootViewController:desController)
-//                
-//                let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
-//                
-//                appDelegate.window?.rootViewController = newController
-                
-               
 
-                
-                
-                
-                
-             //   self.navigationController?.pushViewController(loginVC, animated: true)
+              self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
             })
         
@@ -892,7 +883,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
             
-            
+            self.navigationController?.pushViewController(self.loginVC, animated: true)
             
         })
     
@@ -924,7 +915,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
                 
                 
-                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
             })
             
         }
@@ -957,7 +948,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
             
-            
+            self.navigationController?.pushViewController(self.loginVC, animated: true)
             
         })
         
@@ -1081,7 +1072,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
                 
-                
+               self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
             })
         }
@@ -1118,7 +1109,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
             
-            
+            self.navigationController?.pushViewController(self.loginVC, animated: true)
             
         })
         }
@@ -1157,7 +1148,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
                 
-                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
             })
         }

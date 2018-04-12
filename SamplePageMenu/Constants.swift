@@ -71,7 +71,9 @@ let LIKEANDDISLIKECOUNTAPI : String = BASEURL.appending("api/Post/LikeOrDislikeP
 
 let GETPOSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
 
+let EVENTSLIKEDISLIKEAPI : String = BASEURL.appending("api/Events/EventLikeOrDisLike")
 
+let EVENTCOMMENTAPI : String = BASEURL.appending("api/Events/AddUpdateEventComments")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

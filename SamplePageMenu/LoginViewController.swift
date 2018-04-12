@@ -328,12 +328,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     if self.navigationString == "navigationString" {
                                 
         
-    let videosVC : YoutubePlayerViewController? =
-    YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
-                                    
-    self.navigationController?.pushViewController(videosVC!, animated: true)
-                                    
-                                
+//    let videosVC : YoutubePlayerViewController? =
+//    YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+//                                    
+//    self.navigationController?.pushViewController(videosVC!, animated: true)
+        
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                                for moveToVC in viewControllers {
+                                    if moveToVC is YoutubePlayerViewController {
+                                    _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                    }
+                                }
+        
     }
                                 
         else {
