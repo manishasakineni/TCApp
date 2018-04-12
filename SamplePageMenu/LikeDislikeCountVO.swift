@@ -14,16 +14,16 @@ class LikeDislikeCountVO: Mappable {
     
     var likeCount    : Int?
     var dislikeCount : Int?
-    
+    var likeResult   : [IsLikeIsDislikeVO]?
     
     //MARK:-  initialization of VideosVO
     
     
-    init(likeCount : Int?, dislikeCount : Int?) {
+    init(likeCount : Int?, dislikeCount : Int?, likeResult : [IsLikeIsDislikeVO]?) {
         
         self.likeCount = likeCount
         self.dislikeCount = dislikeCount
-        
+        self.likeResult = likeResult
         
     }
     
@@ -35,7 +35,7 @@ class LikeDislikeCountVO: Mappable {
         
         likeCount <- map["likeCount"]
         dislikeCount <- map["dislikeCount"]
-        
+        likeResult  <- map["likeResult"]
         
     }
 }

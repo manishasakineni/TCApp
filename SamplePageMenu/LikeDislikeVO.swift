@@ -13,7 +13,7 @@ class LikeDislikeVO: Mappable {
     //MARK:-  Declaration of VideosVO
     
     
-    var listResult : String?
+    var listResult : Any?
     var result: LikeDislikeCountVO?
     var isSuccess    : Bool?
     var totalRecords : Int?
@@ -26,7 +26,7 @@ class LikeDislikeVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : String?, result: LikeDislikeCountVO?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : Any?, result: LikeDislikeCountVO?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
         self.listResult = listResult
         self.result = result

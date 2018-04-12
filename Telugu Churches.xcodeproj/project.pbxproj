@@ -21,6 +21,7 @@
 		359CC9332062874D0061450A /* BibleBooksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359CC9312062874D0061450A /* BibleBooksTableViewCell.xib */; };
 		35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */; };
 		35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */; };
+		3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */; };
 		3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */; };
 		3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */; };
 		3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */; };
@@ -308,6 +309,7 @@
 		359CC9312062874D0061450A /* BibleBooksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BibleBooksTableViewCell.xib; sourceTree = "<group>"; };
 		35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllCategoriesVo.swift; sourceTree = "<group>"; };
 		35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResultVo.swift; sourceTree = "<group>"; };
+		3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsLikeIsDislikeVO.swift; sourceTree = "<group>"; };
 		3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollImagesCell.swift; sourceTree = "<group>"; };
 		3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoScrollImagesCell.xib; sourceTree = "<group>"; };
 		3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 			children = (
 				3D5357DB207253F300B8AB94 /* LikeDislikeVO.swift */,
 				3D5852D520725D1500994FC2 /* LikeDislikeCountVO.swift */,
+				3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */,
 			);
 			name = LikeDislikeVO;
 			sourceTree = "<group>";
@@ -1960,6 +1963,7 @@
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
+				3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */,
 				CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */,
 				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
 				3D5852DC2072694F00994FC2 /* GetAllVideosVo.swift in Sources */,

@@ -26,7 +26,11 @@ class EventDetailsListResultVO: Mappable {
     var fileName : String?
     var fileExtention : String?
     var eventImage : String?
-    
+    var isLike : Int?
+    var isDisLike : Int?
+    var likeCount : Int?
+    var disLikeCount : Int?
+    var commentCount : Int?
     var isActive : Bool?
     var createdByUserId : Int?
     var createdDate : String?
@@ -36,7 +40,7 @@ class EventDetailsListResultVO: Mappable {
 
     
     
-    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?, registrationNumber : String?, contactNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
+    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?, registrationNumber : String?, contactNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?, isLike : Int?, isDisLike : Int?, likeCount : Int?, disLikeCount : Int?, commentCount : Int?, isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         
         
     {
@@ -50,6 +54,11 @@ class EventDetailsListResultVO: Mappable {
         self.churchName = churchName
         self.registrationNumber = registrationNumber
         self.contactNumber = contactNumber
+        self.isLike = isLike
+        self.isDisLike = isDisLike
+        self.likeCount = likeCount
+        self.disLikeCount = disLikeCount
+        self.commentCount = commentCount
         self.isActive = isActive
         self.createdByUserId = createdByUserId
         self.createdDate = createdDate
@@ -79,6 +88,11 @@ class EventDetailsListResultVO: Mappable {
         churchName <- map["churchName"]
         registrationNumber <- map["registrationNumber"]
         contactNumber <- map["contactNumber"]
+        isLike <- map["isLike"]
+        isDisLike <- map["isDisLike"]
+        likeCount <- map["likeCount"]
+        disLikeCount <- map["disLikeCount"]
+        commentCount <- map["commentCount"]
         isActive <- map["isActive"]
         createdByUserId <- map["createdByUserId"]
         createdDate <- map["createdDate"]

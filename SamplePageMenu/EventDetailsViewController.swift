@@ -28,6 +28,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var eventID = Int()
     
+    var loginVC = LoginViewController()
+
     var eventChurchName = ""
     
     var eventName = ""
@@ -69,7 +71,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var userID = Int()
    
     //MARK: -   View DidLoad
-    
+    var isLike = 0
+    var isDisLike = 0
     var likeClick = false
     var disLikeClick = false
     var likesCount = 0
@@ -88,6 +91,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
 
+//        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        
+//        self.loginVC.showNav = true
+//        self.loginVC.navigationString = "eventNavigationString"
+        
+        
         eventDetailsTableView.delegate = self
         eventDetailsTableView.dataSource = self
         
@@ -124,6 +135,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
         Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
+//        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
+//            
+//            self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
+//            
+//        }
+        
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
             
             self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
@@ -143,7 +160,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if result.count > 0{
                 
-
+         print(result)
             
                 let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
@@ -161,6 +178,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.eventDetailsTableView.isHidden = false
                         
                         self.eventsDetailsArray = listResult!
+                        
+                        self.likesCount = self.eventsDetailsArray[0].likeCount!
+                        self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
+                        
+                        self.isLike = self.eventsDetailsArray[0].isLike!
+                        self.isDisLike = self.eventsDetailsArray[0].isDisLike!
                         
                         print(self.eventsDetailsArray)
                         
@@ -231,6 +254,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 self.likesCount = (responseVO.result?.likeCount)!
                 self.disLikesCount = (responseVO.result?.dislikeCount)!
+                
+                self.isLike = (responseVO.result?.likeResult?[0].like)!
+                self.isDisLike = (responseVO.result?.likeResult?[0].disLike)!
                 
                 let indexPath = IndexPath(item: 1, section: 0)
                 self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -462,7 +488,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         headImgTableViewCell.churchNameLabel.isHidden = true
           
-
+    
             
         return headImgTableViewCell
         
@@ -471,9 +497,37 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if indexPath.row == 1{
                 
                let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
+            
+            youtubeCLDSSCell.videoTitleName.text = eventList.churchName
+            
+            youtubeCLDSSCell.likeCountLbl.text = String(likesCount)
+            
+             youtubeCLDSSCell.disLikeCountLbl.text = String(disLikesCount)
+            
+            youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            
+            if self.isLike == 0{
+            
+            youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
                 
-              youtubeCLDSSCell.videoTitleName.text = eventList.churchName
+            }
+            else {
+            
+                youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            }
+            
+            if self.isDisLike == 0{
                 
+                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
+                
+            }
+            else {
+                
+                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            }
+            
                 return youtubeCLDSSCell
                 
             }
@@ -572,6 +626,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+    
+    
+    
 //MARK: -   Event Date Without Time
    
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
@@ -664,6 +721,111 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+    func  likeButtonClick(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            if likeClick == false {
+                
+                likeClick = true
+                disLikeClick = false
+                
+                
+            }
+                
+            else{
+                
+                likeClick = false
+                disLikeClick = false
+                
+                
+            }
+            
+            eventLikesDislikesCountAPiCall()
+            
+            
+            
+        }
+            
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    func  unLikeButtonClick(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            if disLikeClick == false {
+                
+                disLikeClick = true
+                likeClick = false
+                
+            }
+                
+            else{
+                disLikeClick = false
+                likeClick = false
+                
+                
+            }
+            
+            print("UnLike Clicked.............")
+            
+            eventLikesDislikesCountAPiCall()
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+    }
+    
+    func  shareButtonClick(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            let someText:String = "Hello want to share text also"
+            let objectsToShare:URL = URL(string: "http://www.google.com")!
+            let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
+            let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            //        activityViewController.excludedActivityTypes = [UIActivityType.airDrop,        UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
+            
+            activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            print("Share Clicked.............")
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+                
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+            })
+            
+        }
+    }
     
 
     
