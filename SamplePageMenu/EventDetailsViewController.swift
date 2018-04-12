@@ -139,7 +139,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 if isSuccess == true{
                     
-                    let listResult = responseVO.listResult
+                    let listResult = responseVO.result?.eventDetails
                     
                     if (listResult?.count)! > 0 {
                         
@@ -147,7 +147,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         self.eventDetailsTableView.isHidden = false
                         
-                        self.eventsDetailsArray = (responseVO.listResult)!
+                        self.eventsDetailsArray = listResult!
                         
                         print(self.eventsDetailsArray)
                         

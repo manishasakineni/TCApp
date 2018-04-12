@@ -13,7 +13,8 @@ class EventDetailsVO: Mappable {
 
     
     
-    var listResult : [EventDetailsListResultVO]?
+    var listResult : Any?
+    var result : EventDetailsResultVo?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -25,9 +26,10 @@ class EventDetailsVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : [EventDetailsListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : Any?, result : EventDetailsResultVo?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
         self.listResult = listResult
+        self.result = result
         self.isSuccess = isSuccess
         self.totalRecords = totalRecords
         self.affectedRecords = affectedRecords
@@ -45,6 +47,7 @@ class EventDetailsVO: Mappable {
     func mapping(map: Map) {
         
         listResult <- map["listResult"]
+        result <- map["result"]
         isSuccess <- map["isSuccess"]
         totalRecords <- map["totalRecords"]
         affectedRecords <- map["affectedRecords"]

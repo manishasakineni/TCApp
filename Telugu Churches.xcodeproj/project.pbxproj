@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
+		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
 		359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92020626C2D0061450A /* BibleBookVo.swift */; };
 		359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92220626CD20061450A /* BibleChapterVo.swift */; };
 		359CC92520626DE20061450A /* BibleVerseVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92420626DE20061450A /* BibleVerseVo.swift */; };
@@ -289,6 +290,7 @@
 
 /* Begin PBXFileReference section */
 		352F87DA206F6DF5006867BD /* MyStringItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStringItemSource.swift; sourceTree = "<group>"; };
+		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
 		3550F62F2058F9A000DD4D11 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		359CC92020626C2D0061450A /* BibleBookVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleBookVo.swift; sourceTree = "<group>"; };
 		359CC92220626CD20061450A /* BibleChapterVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleChapterVo.swift; sourceTree = "<group>"; };
@@ -871,6 +873,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD30F5E205FE3E90076B0DB /* EventDetailsVO.swift */,
+				354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */,
 				3DD30F60205FE4050076B0DB /* EventDetailsListResultVO.swift */,
 			);
 			name = EventDetailsVO;
@@ -1992,6 +1995,7 @@
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
+				354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */,
 				CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */,
 				CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
