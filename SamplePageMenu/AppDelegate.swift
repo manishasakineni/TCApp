@@ -121,128 +121,121 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             // customized launch screen
-            if let window = self.window {
-                self.customizedLaunchScreenView = UIView(frame: window.bounds)
-                self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+    if let window = self.window {
+    self.customizedLaunchScreenView = UIView(frame: window.bounds)
+    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
                 
-                self.window?.makeKeyAndVisible()
+    self.window?.makeKeyAndVisible()
                 
-                var imageView : UIImageView
-                imageView  = UIImageView(frame: window.bounds)
-                imageView.image = UIImage(named:"Church-logo")
-                let codedLabel:UILabel = UILabel()
-                // codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
-//                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.width)
-                
-                imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
-                //                codedLabel.frame = CGRect(x: 10, y: 310, width: 300, height: 200)
-                codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 6, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+    var imageView : UIImageView
+    imageView  = UIImageView(frame: window.bounds)
+    imageView.image = UIImage(named:"Church-logo")
+    let codedLabel:UILabel = UILabel()
+        
+    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+        
+    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 6, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
                 
                 
-                codedLabel.textAlignment = .center
-                var stringCount : Double = 0.0
+    codedLabel.textAlignment = .center
+    var stringCount : Double = 0.0
                 
-                var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
-                stringCount = Double(str.characters.count)
-                print(str.characters.count)
-                codedLabel.animate(newText:str, characterDelay: 0.05)
-                codedLabel.numberOfLines=0
-                codedLabel.textColor=UIColor.white
-                codedLabel.font=UIFont.systemFont(ofSize: 20)
+    var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+    stringCount = Double(str.characters.count)
+    print(str.characters.count)
+    codedLabel.animate(newText:str, characterDelay: 0.05)
+    codedLabel.numberOfLines=0
+    codedLabel.textColor=UIColor.white
+    codedLabel.font=UIFont.systemFont(ofSize: 20)
                 
-                // codedLabel.backgroundColor=UIColor.lightGray
-                imageView.addSubview(codedLabel)
-                self.customizedLaunchScreenView?.addSubview(imageView)
-                self.window?.addSubview(self.customizedLaunchScreenView!)
-                self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-                UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
-                               animations: { () -> Void in
-                                self.customizedLaunchScreenView?.alpha = 0 },
-                               completion: { _ in
-                                self.customizedLaunchScreenView?.removeFromSuperview() })
+    imageView.addSubview(codedLabel)
+    self.customizedLaunchScreenView?.addSubview(imageView)
+    self.window?.addSubview(self.customizedLaunchScreenView!)
+    self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+    UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
+        animations: { () -> Void in
+        self.customizedLaunchScreenView?.alpha = 0 },
+        completion: { _ in
+        self.customizedLaunchScreenView?.removeFromSuperview() })
             }
         }
         else {
             
             
             
-            // customized launch screen
-            if let window = self.window {
-                self.customizedLaunchScreenView = UIView(frame: window.bounds)
-                self.customizedLaunchScreenView?.backgroundColor = UIColor.white
-                //                    UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+    if let window = self.window {
+    self.customizedLaunchScreenView = UIView(frame: window.bounds)
+    self.customizedLaunchScreenView?.backgroundColor = UIColor.white
+        
+    self.window?.makeKeyAndVisible()
                 
-                self.window?.makeKeyAndVisible()
+    var imageView : UIImageView
+    imageView  = UIImageView(frame: window.bounds)
+    imageView.image = UIImage(named:"Church-logo")
+    let codedLabel:UILabel = UILabel()
                 
-                var imageView : UIImageView
-                imageView  = UIImageView(frame: window.bounds)
-                imageView.image = UIImage(named:"Church-logo")
-                let codedLabel:UILabel = UILabel()
+    let bounds = UIScreen.main.bounds
+    let height = bounds.size.height
                 
-               
-                
-                let bounds = UIScreen.main.bounds
-                let height = bounds.size.height
-                
-                switch height {
-                case 480.0:
-                    print("iPhone 3,4")
+    switch height {
+    case 480.0:
+      print("iPhone 3,4")
                     
                   
-                case 568.0:
-                    print("iPhone 5")
+    case 568.0:
+        print("iPhone 5")
                     
-                    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
-                    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
                     
                     
-                case 667.0:
+    case 667.0:
+        
+       print("iPhone 6")
                     
-                    print("iPhone 6")
+    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
                     
+    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 100, height: imageView.frame.size.height)
                   
                     
-                case 736.0:
-                    print("iPhone 6+")
-                    
-                  
-                    
-                case 1024.0:
-                    print("iPadAir")
-                    
-                    
-                    
-                    
-                default:
-                    print("not an iPhone")
-                    
+        case 736.0:
+        print("iPhone 6+")
                    
+        imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
                     
-                }
+        codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
+
+        
+        case 1024.0:
+        print("iPadAir")
+   
+        
+        default:
+        print("not an iPhone")
+        
+        }
 
                 
-                codedLabel.textAlignment = .center
-                var stringCount : Double = 0.0
+    codedLabel.textAlignment = .center
+    var stringCount : Double = 0.0
                 
-                var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
-                stringCount = Double(str.characters.count)
-                print(str.characters.count)
-                codedLabel.animate(newText:str, characterDelay: 0.05)
-                codedLabel.numberOfLines=0
-                codedLabel.textColor=UIColor.black
-                codedLabel.font=UIFont.systemFont(ofSize: 12)
+    var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+    stringCount = Double(str.characters.count)
+    print(str.characters.count)
+    codedLabel.animate(newText:str, characterDelay: 0.05)
+    codedLabel.numberOfLines=0
+    codedLabel.textColor=UIColor.black
+    codedLabel.font=UIFont.systemFont(ofSize: 12)
                 
-                // codedLabel.backgroundColor=UIColor.lightGray
-                //                imageView.addSubview(codedLabel)
-                self.customizedLaunchScreenView?.addSubview(imageView)
-                self.customizedLaunchScreenView?.addSubview(codedLabel)
-                self.window?.addSubview(self.customizedLaunchScreenView!)
-                self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-                UIView.animate(withDuration: 1, delay: (stringCount + 0.2) * 0.1 , options: .curveEaseOut,
-                               animations: { () -> Void in
-                                self.customizedLaunchScreenView?.alpha = 0 },
-                               completion: { _ in
-                                self.customizedLaunchScreenView?.removeFromSuperview() })
+    self.customizedLaunchScreenView?.addSubview(imageView)
+    self.customizedLaunchScreenView?.addSubview(codedLabel)
+    self.window?.addSubview(self.customizedLaunchScreenView!)
+    self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+    UIView.animate(withDuration: 1, delay: (stringCount + 0.2) * 0.1 , options: .curveEaseOut,
+    animations: { () -> Void in
+    self.customizedLaunchScreenView?.alpha = 0 },
+    completion: { _ in
+    self.customizedLaunchScreenView?.removeFromSuperview() })
             }
         }
         
@@ -251,12 +244,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 extension String {
-//    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-//        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-//        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-//        
-//        return ceil(boundingBox.height)
-//    }
     
     func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
@@ -276,7 +263,7 @@ extension UILabel {
             
             for (index, character) in newText.characters.enumerated() {
                 DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                    self.text?.append(character)
+            self.text?.append(character)
                 }
             }
         }
