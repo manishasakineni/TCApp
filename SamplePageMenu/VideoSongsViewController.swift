@@ -726,7 +726,11 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
-         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+        let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+            
+        let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
+            
+        let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG") || (fileExtension == ".PNG") || (fileExtension == ".JPEG"){
@@ -746,16 +750,25 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 if dataImg != nil {
                     
                     
-                    imageView.image = UIImage(data: dataImg!)
-                    imageView.frame = self.view.bounds
-                    imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                    imageView.contentMode = .scaleAspectFit
-                    imageView.isUserInteractionEnabled = true
+                    let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                     
-                    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-                    imageView.addGestureRecognizer(tap)
+                    videosVC.videoNameStr = title!
                     
-                    self.view.addSubview(imageView)
+                    videosVC.imgData = dataImg!
+                    
+                    videosVC.videoImgStr = "image"
+                    
+                    kUserDefaults.set(categoryId!, forKey: "categoryId")
+//                    kUserDefaults.set(videoID!, forKey: "videoID")
+//                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
+                    kUserDefaults.synchronize()
+                    
+                    self.navigationController?.pushViewController(videosVC, animated: true)
+                    
+//                    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+//                    imageView.addGestureRecognizer(tap)
+//                    
+//                    self.view.addSubview(imageView)
                 }
                 else {
                     
@@ -867,6 +880,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                                    
                                     videosVC.videoNameStr = title!
                                     
+                                    videosVC.videoImgStr = "video"
                                     
                                     kUserDefaults.set(categoryId!, forKey: "categoryId")
                                     kUserDefaults.set(videoID!, forKey: "videoID")

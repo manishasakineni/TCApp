@@ -35,7 +35,14 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
     @IBOutlet weak var loadingImg: UIImageView!
     
+    @IBOutlet weak var categoryImgView: UIImageView!
+    
+    
+    
     var appVersion          : String = ""
+    
+    var videoImgStr:String = ""
+    var imgData = Data()
     
     var showNav = false
     var videoNameStr = ""
@@ -105,6 +112,35 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        if videoImgStr == "image" {
+            
+            player.isHidden = true
+            
+            categoryImgView.isHidden = false
+            
+            if !imgData.isEmpty {
+                
+                categoryImgView.image = UIImage(data: imgData)
+                //            categoryImgView.frame = self.view.bounds
+                categoryImgView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                categoryImgView.contentMode = .scaleToFill
+                //            categoryImgView.isUserInteractionEnabled = true
+                
+            }
+            else {
+                
+                categoryImgView.image = #imageLiteral(resourceName: "j4")
+                
+            }
+            
+            
+        }
+        else {
+            
+            player.isHidden = false
+            
+            categoryImgView.isHidden = true
+        }
        
         
         hideKeyboard()

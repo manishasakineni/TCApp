@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YoutubePlayerViewController" customModule="Telugu_Churches" customModuleProvider="target">
             <connections>
                 <outlet property="allOffersTableView" destination="INi-9g-vjk" id="03e-o1-XQY"/>
+                <outlet property="categoryImgView" destination="804-03-B4p" id="kqN-Vl-JLb"/>
                 <outlet property="player" destination="Arp-zL-y3Y" id="58W-mv-1aW"/>
                 <outlet property="repliesTableView" destination="09s-5f-DAI" id="Phu-yF-0gv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,7 +32,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="INi-9g-vjk">
-                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                    <rect key="frame" x="0.0" y="202" width="375" height="465"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09s-5f-DAI">
@@ -41,6 +42,12 @@
                         <constraint firstAttribute="height" id="hAb-7m-wvh"/>
                     </constraints>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="804-03-B4p">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="0Bd-nv-VSE"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -50,9 +57,12 @@
                 <constraint firstAttribute="bottom" secondItem="INi-9g-vjk" secondAttribute="bottom" id="Qnx-Uq-Uj0"/>
                 <constraint firstItem="Arp-zL-y3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R6c-LZ-Jih"/>
                 <constraint firstAttribute="trailing" secondItem="INi-9g-vjk" secondAttribute="trailing" id="SJk-KK-7Rh"/>
+                <constraint firstItem="804-03-B4p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TgL-UW-N0n"/>
                 <constraint firstItem="Arp-zL-y3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VTA-oA-fcE"/>
-                <constraint firstItem="INi-9g-vjk" firstAttribute="top" secondItem="Arp-zL-y3Y" secondAttribute="bottom" id="dKk-4G-4kE"/>
+                <constraint firstItem="804-03-B4p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XsL-i8-QjD"/>
+                <constraint firstItem="INi-9g-vjk" firstAttribute="top" secondItem="Arp-zL-y3Y" secondAttribute="bottom" constant="2" id="dKk-4G-4kE"/>
                 <constraint firstAttribute="bottom" secondItem="09s-5f-DAI" secondAttribute="bottom" id="hKX-4c-zS9"/>
+                <constraint firstAttribute="trailing" secondItem="804-03-B4p" secondAttribute="trailing" id="kWi-Vj-Opq"/>
                 <constraint firstAttribute="trailing" secondItem="Arp-zL-y3Y" secondAttribute="trailing" id="sGG-gi-K4W"/>
             </constraints>
             <point key="canvasLocation" x="91.5" y="59.5"/>
