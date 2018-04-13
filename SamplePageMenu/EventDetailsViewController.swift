@@ -9,7 +9,7 @@
 import UIKit
 import Localize
 
-class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate {
+class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate,UITextViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var eventDetailsTableView: UITableView!
     
@@ -19,10 +19,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
     
-    var saveLocationString : String             = ""
-    var isSavingPDF     : Bool                  = false
-    var pdfTitle        : String                = ""
-    var isDownloadingOnProgress : Bool  = false
+    var saveLocationString      : String        = ""
+    var isSavingPDF             : Bool          = false
+    var pdfTitle                : String        = ""
+    var isDownloadingOnProgress : Bool          = false
     var navigationStr = String()
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
     
@@ -70,7 +70,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var userID = Int()
    
-    //MARK: -   View DidLoad
+  
     var isLike = 0
     var isDisLike = 0
     var likeClick = false
@@ -78,6 +78,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var likesCount = 0
     var disLikesCount = 0
     var ID = 0
+    var sendCommentClick = false
+    var usersCommentsArray = Array<Any>()
+    
+    var parentCommentId = 0
+    var replyParentCommentId = 0
+    
+    var commentString : String = "Add a public comment..."
+    
+      //MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +122,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let youtubeCLDSSCell  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
         eventDetailsTableView.register(youtubeCLDSSCell, forCellReuseIdentifier: "youtubeCLDSSCell")
+        
+        let nibName3  = UINib(nibName: "CommentsCell" , bundle: nil)
+        eventDetailsTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
+        
 
+        let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        eventDetailsTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
         
         getEventDetailsByIdApiCall()
         getVideosAPICall()
@@ -171,6 +186,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     let listResult = responseVO.result?.eventDetails
                     
+                    let commentDetailsVO = responseVO.result?.commentDetails
+                    
                     if (listResult?.count)! > 0 {
                         
                         self.norecordsFoundLbl.isHidden = true
@@ -178,6 +195,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.eventDetailsTableView.isHidden = false
                         
                         self.eventsDetailsArray = listResult!
+                       
+                       
+                        
+                        for commentDetails in commentDetailsVO! {
+                        
+                        self.usersCommentsArray.append(commentDetails.comment)
+                        
+                        }
+                        
                         
                         self.likesCount = self.eventsDetailsArray[0].likeCount!
                         self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
@@ -186,6 +212,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.isDisLike = self.eventsDetailsArray[0].isDisLike!
                         
                         print(self.eventsDetailsArray)
+                        
+                
                         
                          self.eventDetailsTableView.reloadData()
                     }
@@ -409,7 +437,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 4
     }
     
     
@@ -418,9 +446,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if section == 0 {
 
         return 8
+            
         }
-       
-        else{
+            
+    
+        if section == 1 {
         
             if(isResponseFromServer == true){
                 
@@ -432,39 +462,60 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
         
+        if section == 2 {
+        
+        return 1
+            
+        }
+            
+        else {
+            
+            return self.usersCommentsArray.count
+        }
+        
      
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == 0{
+        if indexPath.section == 0 {
         
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
             
             return 140
         
         }
             
-            if indexPath.row == 1{
+            if indexPath.row == 1 {
                 
                 return 90
                 
             }
 
-        else{
+        else {
         
             return UITableViewAutomaticDimension
         
         }
     }
         
-        else {
+       if  indexPath.section == 1 {
         
         
         return 150 
         
         }
     
+        if  indexPath.section == 2 {
+            
+            
+            return UITableViewAutomaticDimension
+            
+        }
+        
+        
+        return UITableViewAutomaticDimension
+        
 }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -504,11 +555,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
              youtubeCLDSSCell.disLikeCountLbl.text = String(disLikesCount)
             
-            youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
-            youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unlikeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
             
-            if self.isLike == 0{
+            if self.isLike == 0 {
             
             youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
                 
@@ -596,7 +647,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
         }
-        else{
+            
+        
+            
+        if indexPath.section == 1 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "homeCategoriesCell", for: indexPath) as! homeCategoriesCell
             
@@ -622,12 +676,129 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         
         }
+       
+        if indexPath.section == 2 {
+            
+            let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+            
+            commentsCell.commentTexView.text = self.commentString
+            commentsCell.commentCountLab.text = String(usersCommentsArray.count)
+            commentsCell.commentTexView.delegate = self
+            
+            commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
+            
+            if sendCommentClick == false{
+                
+                commentsCell.sendBtn.isHidden = true
+                
+            }
+                
+            else{
+                
+                commentsCell.sendBtn.isHidden = false
+                
+                
+            }
+            
+            
+            return commentsCell
+            
+            
+        }
+        
+        if indexPath.section == 3 {
+            
+            let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+            
+          //  let userComments =
+            
+            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
+            
+            return usersCommentsTableViewCell
+            
+            
+        }
+        
         return UITableViewCell()
+    }
+    
+ 
+//MARK: -  UITexview Delegate methods
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        
+        
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        
+        
+        if textView.text == "Add a public comment..." {
+            
+            textView.text = ""
+            
+        }
+        
+        self.sendCommentClick = false
+        textView.textColor = UIColor.black
+        //        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.none)
+        
         
     }
     
     
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        textView.resignFirstResponder()
+        
+        self.commentString = textView.text
+        
+        if textView.text == "" {
+            
+            textView.text = "Add a public comment..."
+            textView.textColor = UIColor.lightGray
+            
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let indexPath : IndexPath = IndexPath(row: 0, section: 2)
+        
+        if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath) as? CommentsCell {
+            
+            let newString = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+            
+            print(commentsCell.commentTexView.text.characters.count)
+            
+            self.commentString = commentsCell.commentTexView.text
+            
+            if (newString.characters.count) > 0  {
+                
+                
+                
+                print(self.commentString)
+                
+                commentsCell.sendBtn.isHidden = false
+                
+            }
+                
+            else{
+                
+                commentsCell.sendBtn.isHidden = true
+                
+            }
+        }
+        
+        
+        return true
+        
+    }
+
     
 //MARK: -   Event Date Without Time
    
@@ -721,7 +892,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
-    func  likeButtonClick(_ sendre:UIButton) {
+    func  likeButtonClicked(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
             
@@ -761,7 +932,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    func  unLikeButtonClick(_ sendre:UIButton) {
+    func  unlikeButtonClicked(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
             
@@ -828,6 +999,109 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
 
+    func commentSendBtnClicked(){
+        
+       self.sendCommentClick = false
+        
+        self.eventDetailsTableView.endEditing(true)
+        
+        print(self.commentString)
+        
+        
+        
+        // self.usersCommentsArray.append(self.commentString)
+        
+        if !(self.userID == 0) {
+            
+            
+            self.parentCommentId = 0
+            
+           commentSendBtnAPIService(textComment: self.commentString)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    func commentSendBtnAPIService(textComment : String){
+        
+        
+        let  EVENTCOMMENTSAPISTR = EVENTCOMMENTAPI
+        
+        let params = ["id": 0,
+                      "eventId": eventID,
+                      "description": textComment,
+                      "parentCommentId": self.parentCommentId,
+                      "userId": self.ID
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            print("\(result)")
+            
+            let respVO:AddUpdateEventCommentsInfoVO = Mapper().map(JSONObject: result)!
+            print("responseString = \(respVO)")
+            
+            
+            let statusCode = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: statusCode))")
+            
+            if statusCode == true
+            {
+                
+                
+                let successMsg = respVO.endUserMessage
+                
+                self.usersCommentsArray.insert(self.commentString, at: 0)
+                self.commentString = "Add a public comment..."
+                self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+                
+                
+                
+                
+                
+            }
+                
+            else {
+                
+                let failMsg = respVO.endUserMessage
+                
+                
+                return
+                
+                
+                
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+    
+    
     
     
 }

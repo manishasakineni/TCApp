@@ -12,13 +12,13 @@ class EventDetailsResultVo: Mappable {
     
     
     var eventDetails : [EventDetailsListResultVO]?
-    var commentDetails : Any?
+    var commentDetails : [EventCommentsVO]?
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(eventDetails : [EventDetailsListResultVO]?, commentDetails : Any?) {
+    init(eventDetails : [EventDetailsListResultVO]?, commentDetails : [EventCommentsVO]?) {
         
         self.eventDetails = eventDetails
         self.commentDetails = commentDetails
