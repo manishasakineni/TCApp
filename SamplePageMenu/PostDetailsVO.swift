@@ -38,8 +38,8 @@ class PostDetailsVO: Mappable {
     var mediaType : String?
     var postType : String?
     var categoryName : String?
-    var isLike : Any?
-    var isDisLike : Any?
+    var isLike : Int?
+    var isDisLike : Int?
     var likeCount : Int?
     var disLikeCount : Int?
     
@@ -50,7 +50,7 @@ class PostDetailsVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Any?,fileName : Any?,fileLocation : Any?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,htmlDesc : Any?,eventId : Any?,viewCount : Int?,postImage : Any?,mediaType : String?,postType : String?,categoryName : String?,isLike : Any?,isDisLike : Any?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,parentCommentId : Int?,createdByUser : String?,updatedByUser : String?)
+    init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Any?,fileName : Any?,fileLocation : Any?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,htmlDesc : Any?,eventId : Any?,viewCount : Int?,postImage : Any?,mediaType : String?,postType : String?,categoryName : String?,isLike : Int?,isDisLike : Int?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,parentCommentId : Int?,createdByUser : String?,updatedByUser : String?)
         
         
     {

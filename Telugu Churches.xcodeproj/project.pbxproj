@@ -2210,8 +2210,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesDevApp;
+				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesNewDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2231,8 +2231,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesDevApp;
+				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesNewDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

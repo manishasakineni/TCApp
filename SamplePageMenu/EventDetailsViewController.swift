@@ -164,6 +164,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+    }
+    
 
 //MARK: -    Get Event Details By Id API Call
  
@@ -213,7 +221,29 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         print(self.eventsDetailsArray)
                         
-                
+                        if self.isLike == 0{
+                            
+                            self.likeClick = false
+                            
+                        }
+                            
+                        else {
+                            
+                            self.likeClick = true
+                            
+                        }
+                        
+                        if self.isDisLike == 0{
+                            
+                            self.disLikeClick = false
+                            
+                        }
+                            
+                        else {
+                            
+                            self.disLikeClick = true
+                            
+                        }
                         
                          self.eventDetailsTableView.reloadData()
                     }

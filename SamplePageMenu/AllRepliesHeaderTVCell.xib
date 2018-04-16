@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,11 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Replies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPg-Qx-up3">
-                        <rect key="frame" x="15" y="11" width="239" height="17.5"/>
+                        <rect key="frame" x="15" y="11" width="239" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17.5" id="HQk-Hy-zwX"/>
                             <constraint firstAttribute="width" constant="239" id="NtL-K8-cN6"/>
@@ -42,24 +43,22 @@
                         <state key="normal" image="CLOSE"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-b6-6Cz">
-                        <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="39" width="320" height="0.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="5fh-ps-I48"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zBS-b6-6Cz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4lC-PM-Gof"/>
+                    <constraint firstItem="zBS-b6-6Cz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="28w-X9-6ex"/>
                     <constraint firstItem="L7o-KW-f1l" firstAttribute="centerY" secondItem="cPg-Qx-up3" secondAttribute="centerY" id="AUC-ug-VTb"/>
-                    <constraint firstAttribute="bottom" secondItem="zBS-b6-6Cz" secondAttribute="bottom" id="QSB-KW-d10"/>
-                    <constraint firstAttribute="trailing" secondItem="zBS-b6-6Cz" secondAttribute="trailing" id="TT3-iD-2ZK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zBS-b6-6Cz" secondAttribute="bottom" constant="-8" id="ByC-KU-JCj"/>
                     <constraint firstItem="cPg-Qx-up3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="W1F-bQ-ysD"/>
+                    <constraint firstAttribute="trailing" secondItem="zBS-b6-6Cz" secondAttribute="trailing" id="dP2-1b-jc0"/>
                     <constraint firstAttribute="trailing" secondItem="L7o-KW-f1l" secondAttribute="trailing" constant="15" id="fvs-Lg-N8O"/>
                     <constraint firstItem="cPg-Qx-up3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="iJp-fq-ayA"/>
+                    <constraint firstItem="zBS-b6-6Cz" firstAttribute="top" secondItem="L7o-KW-f1l" secondAttribute="bottom" constant="9" id="ssq-B3-qc7"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

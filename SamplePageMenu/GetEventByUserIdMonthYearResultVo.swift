@@ -28,13 +28,16 @@ class GetEventByUserIdMonthYearResultVo: Mappable {
     var eventsCount : Int?
     var churchId : Int?
     var churchName : String?
-    
+    var fileLocation : String?
+    var fileName : String?
+    var fileExtention : String?
+    var eventImage : String?
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(eventDate : String?,eventsCount : Int?,churchId : Int?,churchName : String?)
+    init(eventDate : String?,eventsCount : Int?,churchId : Int?,churchName : String?, fileLocation : String?, fileName : String?, fileExtention : String?, eventImage : String?)
         
         
     {
@@ -44,7 +47,10 @@ class GetEventByUserIdMonthYearResultVo: Mappable {
         self.eventsCount = eventsCount
         self.churchId = churchId
         self.churchName = churchName
-        
+        self.fileLocation = fileLocation
+        self.fileName = fileName
+        self.fileExtention = fileExtention
+        self.eventImage = eventImage
         
     }
     
@@ -58,7 +64,10 @@ class GetEventByUserIdMonthYearResultVo: Mappable {
         eventsCount <- map["eventsCount"]
         churchId <- map["churchId"]
         churchName <- map["churchName"]
-       
+        fileLocation <- map["fileLocation"]
+        fileName <- map["fileName"]
+        fileExtention <- map["fileExtention"]
+        eventImage <- map["eventImage"]
         
         
     }

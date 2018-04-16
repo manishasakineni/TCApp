@@ -120,7 +120,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
 
-        color()
+        calendarColor()
         
     }
     
@@ -134,7 +134,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
        //MARK: -  color
     
-    func color(){
+    func calendarColor(){
         
         
         calendar.scope = .month
@@ -169,6 +169,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
         return nil
     }
+    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
         print("gdfgdfgdfgdfg",calendar.currentPage)
@@ -319,11 +320,14 @@ else {
         }
     }
     
+    
     func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
         
         if(appDelegate.checkInternetConnectivity()){
-        GetEventInfoByChurchIdMonthYearAPIService(_monthStr, _yearStr)
-        let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(pasterUserId)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
+            
+       // GetEventInfoByChurchIdMonthYearAPIService(_monthStr, _yearStr) pasterUserId
+            
+        let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(1)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
             
         print(strUrl)
         serviceController.getRequest(strURL:strUrl, success:{(result) in
