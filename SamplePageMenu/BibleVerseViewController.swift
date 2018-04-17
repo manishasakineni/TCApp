@@ -288,11 +288,17 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        self.navigationController?.popViewController(animated: true)
+        var viewControllers = navigationController?.viewControllers
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        viewControllers?.removeLast(1) // views to pop
         
-        appDelegate.window?.rootViewController = rootController
+        navigationController?.setViewControllers(viewControllers!, animated: true)
+        
+//        self.navigationController?.popViewController(animated: true)
+//        
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
         
         

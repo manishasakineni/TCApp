@@ -71,6 +71,12 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

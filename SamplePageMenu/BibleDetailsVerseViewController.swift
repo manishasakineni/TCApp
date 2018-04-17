@@ -89,10 +89,12 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     override func viewWillAppear(_ animated: Bool) {
         
+//        self.navigationController?.isNavigationBarHidden = false
+        
         super.viewWillAppear(animated)
         
     }
-    
+   
    //MARK:- TableView  DataSource & Delegate Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -294,11 +296,19 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.isNavigationBarHidden = true
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        var viewControllers = navigationController?.viewControllers
         
-        appDelegate.window?.rootViewController = rootController
+        viewControllers?.removeLast(2) // views to pop
+        
+        navigationController?.setViewControllers(viewControllers!, animated: true)
+        
+//        self.navigationController?.popViewController(animated: true)
+//        
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
         print("Home Button Clicked......")
         
