@@ -89,7 +89,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         print(showNav)
         
-        self.navigationController?.navigationBar.isHidden = !showNav
+        self.navigationController?.navigationBar.isHidden = false
+        
            Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     }
     

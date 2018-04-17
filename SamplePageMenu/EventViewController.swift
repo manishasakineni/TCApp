@@ -20,7 +20,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
    //MARK: -  variable declaration
     
     var pasterUserId      : Int = 0
-       var currentMonth = 0
+    var currentMonth = 0
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
 
@@ -38,7 +38,9 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var isDateExists = false
     var currentMonthDataArray = Array<String>()
     
-    var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
+ //   var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
+    
+    var churchIdMonthYearArray:[GetEventByUserIdMonthYearResultVo] = Array<GetEventByUserIdMonthYearResultVo>()
 
     var churchID:Int = 0
 
@@ -67,22 +69,17 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
 
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
-    fileprivate lazy var dateFormatter1: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
-
-        return formatter
-    }()
+    fileprivate lazy var dateFormatter1 = DateFormatter()
     
     
     fileprivate lazy var dateFormatter2: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+        formatter.timeZone = TimeZone(abbreviation: "GMT+5:30") //Current time zone
 
         return formatter
     }()
+    
     let codedLabel:UILabel = UILabel()
 
     //MARK: -  view Did Load
@@ -208,7 +205,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             
     if(appDelegate.checkInternetConnectivity()){
                 
-        let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(pasterUserId)"
+        let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(churchID)"
                 
         print(strUrl)
         serviceController.getRequest(strURL:strUrl, success:{(result) in
@@ -327,10 +324,12 @@ else {
             
        // GetEventInfoByChurchIdMonthYearAPIService(_monthStr, _yearStr) pasterUserId
             
-        let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(1)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
+        let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(churchID)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
             
         print(strUrl)
+            
         serviceController.getRequest(strURL:strUrl, success:{(result) in
+            
         DispatchQueue.main.async()
         {
                         
@@ -340,14 +339,16 @@ else {
         let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
                         
       let isSuccess = respVO.isSuccess
+            
       print("StatusCode:\(String(describing: isSuccess))")
-                        
+            
      if isSuccess == true {
                             
     let successMsg = respVO.endUserMessage
                             
     if((respVO.listResult?.count)! > 0){
-    for eventsList in respVO.listResult!{
+        
+    for eventsList in respVO.listResult! {
                             
     let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
     self.eventDateArray.append(dateString)
@@ -355,10 +356,14 @@ else {
     self.eventsCountsArray.append(eventsCountsString!)
     self.currentMonthDataArray.append(dateString)
         
+     self.churchIdMonthYearArray.append(eventsList)
+        
     }
                             
-    }else{
-    self.currentMonthDataArray.removeAll()
+    }
+    else {
+        
+      self.currentMonthDataArray.removeAll()
     }
                             
     print("self.eventDateArray,Count", self.eventDateArray.count)
@@ -372,16 +377,16 @@ else {
                         
     }
             
-}, failure:  {(error) in
+     }, failure:  {(error) in
                 
     print(error)
                 
     if(error == "unAuthorized"){
                 
                     
-    }
+       }
                 
-})
+      })
             
         }
         else {
@@ -538,12 +543,12 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 
                 for church in respVO.listResult!{
                     
-                    self.churchIdMonthYearArray.append(church)
+                 //   self.churchIdMonthYearArray.append(church)
                     
                 }
                 
                 
-                print("churchAdminArray", self.churchIdMonthYearArray)
+           //     print("churchAdminArray", self.churchIdMonthYearArray)
                 
                 
                 self.eventTableView.reloadData()
@@ -612,7 +617,8 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         if(self.churchIdMonthYearArray.count > indexPath.row ){
-            let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
+            
+            let churchIdMonthYearList:GetEventByUserIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
             
             
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
@@ -622,7 +628,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }else{
             }
             
-            if let eventName =  churchIdMonthYearList.title {
+            if let eventName =  churchIdMonthYearList.eventName {
                 listOfMonthEventCell.eventTitle.text = eventName
             }else{
                 listOfMonthEventCell.eventTitle.text = ""
@@ -633,17 +639,17 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }else{
             }
             
-            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
-            
-            
-
-            
-            if startAndEndDate1 != "" {
-                listOfMonthEventCell.eventStartEndDate.text = startAndEndDate1
-            }else{
-                
-                
-            }
+//            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
+//            
+//            
+//
+//            
+//            if startAndEndDate1 != "" {
+//                listOfMonthEventCell.eventStartEndDate.text = startAndEndDate1
+//            }else{
+//                
+//                
+//            }
             
             
             return listOfMonthEventCell

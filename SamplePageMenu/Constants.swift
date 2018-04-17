@@ -34,7 +34,8 @@ let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdm
 
 let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByChurchIdMonthYear/")
 
-let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndUserId/")
+let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndChurchId/")
+
 let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEventsInfo/")
 
 

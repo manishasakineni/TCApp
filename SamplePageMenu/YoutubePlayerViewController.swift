@@ -1295,7 +1295,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         if !(self.userID.isEmpty) {
 
            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.20, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
                 
                self.activeTextView.becomeFirstResponder()
             })

@@ -100,12 +100,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
 
-//        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//        
-//        self.loginVC.showNav = true
-//        self.loginVC.navigationString = "eventNavigationString"
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        self.loginVC.showNav = true
+        self.loginVC.navigationString = "eventNavigationString"
         
         
         eventDetailsTableView.delegate = self
@@ -566,7 +566,39 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if indexPath.row == 0 {
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
-        
+            
+            let img = eventList.eventImage
+            
+            let newString = img?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                if url != nil {
+                    
+                    let dataImg = try? Data(contentsOf: url!)
+                    
+                    if dataImg != nil {
+                        
+                        headImgTableViewCell.churchImage.image = UIImage(data: dataImg!)
+                    }
+                    else {
+                        
+                        headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+                    }
+                    
+                }
+                else {
+                    
+                    headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+                }
+            }
+            else {
+                
+                headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+            }
+            
         headImgTableViewCell.churchNameLabel.isHidden = true
           
     
@@ -691,6 +723,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             cell.selectionStyle = .none
             
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+            
+            cell.homeCollectionView.reloadData()
             
             
             cell.homeCollectionView.delegate = self
@@ -953,7 +987,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
                 
-                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+                
+                self.navigationController?.pushViewController(loginVC!, animated: true)
                 
             })
             
@@ -1022,7 +1058,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
                 
                 
-                self.navigationController?.pushViewController(self.loginVC, animated: true)
+               self.navigationController?.pushViewController(self.loginVC, animated: true)
             })
             
         }
@@ -1162,6 +1198,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         return 0
+        
         }
     
     
