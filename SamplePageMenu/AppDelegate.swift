@@ -123,8 +123,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // customized launch screen
     if let window = self.window {
     self.customizedLaunchScreenView = UIView(frame: window.bounds)
-    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
-                
+         self.customizedLaunchScreenView?.backgroundColor = UIColor.white
+//    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+        
     self.window?.makeKeyAndVisible()
                 
     var imageView : UIImageView
@@ -132,10 +133,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     imageView.image = UIImage(named:"Church-logo")
     let codedLabel:UILabel = UILabel()
         
-    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+        imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 400, height: 400)
         
-    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 6, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
-                
+        codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 7, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
+        
                 
     codedLabel.textAlignment = .center
     var stringCount : Double = 0.0
@@ -144,14 +145,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     stringCount = Double(str.characters.count)
     print(str.characters.count)
     codedLabel.animate(newText:str, characterDelay: 0.05)
-    codedLabel.numberOfLines=0
-    codedLabel.textColor=UIColor.white
-    codedLabel.font=UIFont.systemFont(ofSize: 20)
+    codedLabel.numberOfLines = 0
+    codedLabel.textColor = UIColor.black
+    codedLabel.font = UIFont.systemFont(ofSize: 20)
                 
-    imageView.addSubview(codedLabel)
-    self.customizedLaunchScreenView?.addSubview(imageView)
-    self.window?.addSubview(self.customizedLaunchScreenView!)
-    self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+        self.customizedLaunchScreenView?.addSubview(imageView)
+        self.customizedLaunchScreenView?.addSubview(codedLabel)
+        self.window?.addSubview(self.customizedLaunchScreenView!)
+        self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
     UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
         animations: { () -> Void in
         self.customizedLaunchScreenView?.alpha = 0 },

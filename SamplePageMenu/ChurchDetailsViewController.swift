@@ -515,7 +515,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
         
-        return 180
+        return 200
         
         }
         

@@ -305,7 +305,17 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         
         if indexPath.section == 0 {
             
-            return 124
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+                
+                return 300
+            }
+            else {
+                
+                return 124
+            }
+            
+            
+            
         }else if indexPath.section == 1{
             
             return UITableViewAutomaticDimension
@@ -345,11 +355,11 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
     if(churchImageLogoArray.count >= indexPath.section){
     if let url = URL(string:churchImageLogoString) {
-    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+    cell.churchImage.sd_setImage(with:url , placeholderImage:  #imageLiteral(resourceName: "j4"))
         
         }else{
                         
-        cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+        cell.churchImage.image =  #imageLiteral(resourceName: "j4")
                         
             }
         }
