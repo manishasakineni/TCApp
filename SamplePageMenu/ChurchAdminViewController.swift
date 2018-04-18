@@ -359,33 +359,44 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     isSubscribed = listStr.isSubscribed!
             
     print(isSubscribed)
-    self.churchId = listStr.churchId!
-    self.authorId = listStr.Id!
+        
+        if listStr.churchId != nil {
             
+          self.churchId = listStr.churchId!
+        }
+        if listStr.Id != nil {
+            
+            self.authorId = listStr.Id!
+        }
+     
             
     if let churchAdmin =  listStr.churchAdmin {
-    cell.adminNameLabel.text = churchAdmin
+    
+        cell.adminNameLabel.text = churchAdmin
             
     }else{
                 
     }
             
     if let churchName =  listStr.churchName {
-    cell.churchName.text =  churchName
+   
+        cell.churchName.text =  churchName
                 
         }else{
 
     }
             
     if let mobileNumber =  listStr.mobileNumber {
-    cell.mobileNumber.text = mobileNumber
+    
+        cell.mobileNumber.text = mobileNumber
         
     }else{
         
         }
             
     if let email = listStr.email {
-    cell.email.text =  email
+  
+        cell.email.text =  email
                 
     }else{
                 
