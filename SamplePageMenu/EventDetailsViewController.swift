@@ -512,7 +512,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if indexPath.row == 0 {
             
-            return 140
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+                
+                return 300
+            }
+            else {
+                
+                return 140
+            }
+            
+            
+            
         
         }
             
@@ -698,7 +708,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 informationTableViewCell.infoLabel.text = "End Date".localize()
                 
-                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+                let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
                 
                 informationTableViewCell.addressLabel.text =  startAndEndDate1
                 

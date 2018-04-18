@@ -240,7 +240,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
         if(UIDevice.current.userInterfaceIdiom == .phone){
         
         self.ytPlayerViewHeight.constant = 200

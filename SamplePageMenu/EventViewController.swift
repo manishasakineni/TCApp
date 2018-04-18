@@ -628,29 +628,31 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }else{
             }
             
-            if let eventName =  churchIdMonthYearList.eventName {
-                listOfMonthEventCell.eventTitle.text = eventName
-            }else{
-                listOfMonthEventCell.eventTitle.text = ""
-            }
+//            if let eventName =  churchIdMonthYearList.eventName {
+//                listOfMonthEventCell.eventTitle.text = eventName
+//            }else{
+//                listOfMonthEventCell.eventTitle.text = ""
+//            }
             
             if let contactNumber =  churchIdMonthYearList.contactNumber {
                 listOfMonthEventCell.contactNumber.text =  contactNumber
             }else{
             }
             
-//            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
-//            
-//            
-//
-//            
-//            if startAndEndDate1 != "" {
-//                listOfMonthEventCell.eventStartEndDate.text = startAndEndDate1
-//            }else{
-//                
-//                
-//            }
+            let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.eventDate!)
             
+            if startAndEndDate1 != "" {
+                listOfMonthEventCell.eventTitle.text = startAndEndDate1
+            }else{
+                
+                listOfMonthEventCell.eventTitle.text = ""
+            }
+            
+//            
+//            if let startAndEndDate1 =  churchIdMonthYearList.eventDate {
+//                listOfMonthEventCell.eventStartEndDate.text =  startAndEndDate1
+//            }else{
+//            }
             
             return listOfMonthEventCell
         }

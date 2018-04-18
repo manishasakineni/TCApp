@@ -190,7 +190,14 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
         if indexPath.section == 0 {
             
-            return 124
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+                
+                return 300
+            }
+            else {
+                
+                return 124
+            }
             
         }else if indexPath.section == 1{
             
