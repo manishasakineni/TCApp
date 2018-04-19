@@ -1117,6 +1117,53 @@
             </objects>
             <point key="canvasLocation" x="8208.7999999999993" y="1028.6356821589206"/>
         </scene>
+        <!--Doc View Controller-->
+        <scene sceneID="w1A-rP-Mit">
+            <objects>
+                <viewController storyboardIdentifier="DocViewController" id="ZkC-hw-z4b" customClass="DocViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kkh-IQ-6do"/>
+                        <viewControllerLayoutGuide type="bottom" id="kSl-DU-6mB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dB4-3B-Lnk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2G-a7-d8l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZI-u1-T0W">
+                                <rect key="frame" x="86" y="323" width="203" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Smf-Tp-r61"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F2G-a7-d8l" firstAttribute="leading" secondItem="dB4-3B-Lnk" secondAttribute="leading" id="ER8-Wh-2gd"/>
+                            <constraint firstItem="kSl-DU-6mB" firstAttribute="top" secondItem="ZZI-u1-T0W" secondAttribute="bottom" constant="323" id="MOc-NO-rbW"/>
+                            <constraint firstAttribute="trailing" secondItem="F2G-a7-d8l" secondAttribute="trailing" id="Nw1-O7-A8D"/>
+                            <constraint firstItem="ZZI-u1-T0W" firstAttribute="top" secondItem="kkh-IQ-6do" secondAttribute="bottom" constant="303" id="VO6-qx-N64"/>
+                            <constraint firstItem="F2G-a7-d8l" firstAttribute="top" secondItem="dB4-3B-Lnk" secondAttribute="top" id="WNx-KD-Ly1"/>
+                            <constraint firstItem="ZZI-u1-T0W" firstAttribute="leading" secondItem="dB4-3B-Lnk" secondAttribute="leading" constant="86" id="Z08-UO-vZf"/>
+                            <constraint firstItem="kSl-DU-6mB" firstAttribute="top" secondItem="F2G-a7-d8l" secondAttribute="bottom" id="fWa-2l-FTe"/>
+                            <constraint firstAttribute="trailing" secondItem="ZZI-u1-T0W" secondAttribute="trailing" constant="86" id="sta-bd-qcs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="docWebView" destination="F2G-a7-d8l" id="Qec-Qn-FER"/>
+                        <outlet property="noRecorsLabel" destination="ZZI-u1-T0W" id="ime-29-IoW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v6z-pm-rnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7556" y="1697.9010494752624"/>
+        </scene>
         <!--Bible Chapters View Controller-->
         <scene sceneID="wOH-Tl-gQK">
             <objects>

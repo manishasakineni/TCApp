@@ -794,14 +794,31 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 let embededUrlImage =  imgUrl
                 let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
+//            if (fileExtension == ".docs") || (fileExtension == ".docx") {
             
-                if newString != nil {
-            
-                    savePDFWithUrl(newString!)
-                                
-                                
-                }
-            
+                let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
+                
+                
+                docViewController.urlStr = newString!
+                
+                docViewController.titleStr = title!
+                
+                
+                self.navigationController?.pushViewController(docViewController, animated: true)
+                
+//                self.navigationController?.present(docViewController, animated: false, completion: nil)
+
+                
+//            }
+//            
+//            
+//                if newString != nil {
+//            
+//                    savePDFWithUrl(newString!)
+//                                
+//                                
+//                }
+//            
         }
             
         else if (fileExtension == ".mp3") {
