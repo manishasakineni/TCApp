@@ -98,6 +98,8 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     
     var userID = String()
+    
+    var idStr:String = ""
   
     //MARK:- view Did Load
     
@@ -632,10 +634,17 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 
                 let thumbnillImage : String = embededUrlImage
                 
+//                let a = "1234567890"
+                self.idStr = String(thumbnillImage.characters.suffix(11))
                 
-                self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+                print(self.idStr)
                 
-                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
+//                self.audioIDArray[1].append(idStr)
+                
+//                self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+                
+//                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
+                self.thumbnailImageURL = "https://img.youtube.com/vi/\(idStr)/default.jpg"
                 
                 let videothumb = URL(string: self.thumbnailImageURL)
                 
@@ -665,10 +674,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
             }
             
-            if let embededUrlImage =  postImgUrl {
-
-                
-            }
+            
         }
        
         
@@ -750,7 +756,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 if dataImg != nil {
                     
                     
-                    let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+                    let videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                     
                     videosVC.videoNameStr = title!
                     
@@ -861,8 +867,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         else if fileExtension == ".mp4" {
             
             
-            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-            
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
             
             let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
@@ -874,13 +878,19 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                         if let embededUrlImage =  imgUrl {
             
                             let thumbnillImage : String = embededUrlImage
+                            
+                             self.idStr = String(thumbnillImage.characters.suffix(11))
+                            
+                            print(self.idStr)
+                            
+//                            self.audioIDArray[1].append(idStr)
             
             
-                            self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+//                            self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+//            
+//                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
             
-                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
-            
-                            let videothumb = URL(string: self.thumbnailImageURL)
+                            let videothumb = URL(string: idStr)
             
                             if videothumb != nil{
             
@@ -897,11 +907,13 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                                    
                                     videosVC.videoNameStr = title!
                                     
+                                    videosVC.videoEmbededIDStr = self.idStr
+                                    
                                     videosVC.videoImgStr = "video"
                                     
                                     kUserDefaults.set(categoryId!, forKey: "categoryId")
                                     kUserDefaults.set(videoID!, forKey: "videoID")
-                                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
+//                                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
                                     kUserDefaults.synchronize()
 
                                    self.navigationController?.pushViewController(videosVC, animated: true)

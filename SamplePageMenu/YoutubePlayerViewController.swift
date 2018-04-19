@@ -218,10 +218,10 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             self.videoId = vID
         }
         
-        if let videoEmbededID = UserDefaults.standard.value(forKey: "videoEmbededIDStr") as? String  {
-            
-            self.videoEmbededIDStr = videoEmbededID
-        }
+//        if let videoEmbededID = UserDefaults.standard.value(forKey: "videoEmbededIDStr") as? String  {
+//            
+//            self.videoEmbededIDStr = videoEmbededID
+//        }
         
         kUserDefaults.synchronize()
         
@@ -229,8 +229,26 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         
         print(videoIDArray)
+        
+        if !videoEmbededIDStr.isEmpty {
+            
+            categoryImgView.isHidden = true
+            
+            player.isHidden = false
+            
+             self.player.load(withVideoId: videoEmbededIDStr,playerVars: self.playerVars)
+            
+        }
+        else{
+            
+            categoryImgView.isHidden = false
+            
+            player.isHidden = true
+            
+            categoryImgView.image = #imageLiteral(resourceName: "j4")
+        }
        
-         self.player.load(withVideoId: videoEmbededIDStr,playerVars: self.playerVars)
+        
         
         self.allOffersTableView.reloadData()
         
