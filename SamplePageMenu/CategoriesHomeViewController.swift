@@ -404,40 +404,44 @@ cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
     return cell
             
     }else{
-    let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+        
+        if cagegoriesArray.count > 0 {
+           
+            let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
             cell.nameLabel.text = categoryList.categoryName
             
-    let imgUrl = categoryList.categoryImage
+            let imgUrl = categoryList.categoryImage
             
-    let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
             
-    if newString != nil {
+            if newString != nil {
                 
-    let url = URL(string:newString!)
+                let url = URL(string:newString!)
                 
-    if url != nil {
+                if url != nil {
                     
-    let dataImg = try? Data(contentsOf: url!)
+                    let dataImg = try? Data(contentsOf: url!)
                     
-    if dataImg != nil {
+                    if dataImg != nil {
                         
-    cell.collectionImgView.image = UIImage(data: dataImg!)
-    }
-        else {
+                        cell.collectionImgView.image = UIImage(data: dataImg!)
+                    }
+                    else {
                         
-    cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+                        cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+                    }
+                }
+                
+            }
+            else {
+                
+                cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+            }
+
         }
-    }
-                
-}
-    else {
-                
-   cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
-    }
-            
-            
-    let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
+        
+//    let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
         }
         return cell
         

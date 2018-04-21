@@ -534,6 +534,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         cell.homeCollectionView.collectionViewLayout.invalidateLayout()
         
+        cell.homeCollectionView.reloadData()
         
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self

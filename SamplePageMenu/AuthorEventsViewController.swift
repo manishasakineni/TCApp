@@ -392,15 +392,26 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
        let authorDetails = authorDetailsArray[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AdminMonthEventListCell", for: indexPath) as! AdminMonthEventListCell
             
+            if authorDetails.churchName != nil {
+                
+                 cell.churchName.text = authorDetails.churchName!
+            }
             
-            cell.churchName.text = authorDetails.churchName!
+            if authorDetails.title != nil {
+               
+                 cell.eventName.text = authorDetails.title
+            }
             
-            cell.eventName.text = authorDetails.title
+            if authorDetails.startDate != nil {
+                
+                cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.startDate!))
+            }
             
-            
-            cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.startDate!))
-            cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
-
+            if authorDetails.endDate != nil {
+                
+                cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
+            }
+           
             return cell
             }
     

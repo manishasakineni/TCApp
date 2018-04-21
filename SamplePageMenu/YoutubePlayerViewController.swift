@@ -113,6 +113,12 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        categoryImgView.isUserInteractionEnabled = true
+        categoryImgView.addGestureRecognizer(tapGestureRecognizer)
+        
+
       
         if videoImgStr == "image" {
             
@@ -126,7 +132,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 //            categoryImgView.frame = self.view.bounds
                 categoryImgView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 categoryImgView.contentMode = .scaleToFill
-                //            categoryImgView.isUserInteractionEnabled = true
+//                            categoryImgView.isUserInteractionEnabled = true
                 
             }
             else {
@@ -245,7 +251,20 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             player.isHidden = true
             
-            categoryImgView.image = #imageLiteral(resourceName: "j4")
+            if !imgData.isEmpty {
+                
+                categoryImgView.image = UIImage(data: imgData)
+                //            categoryImgView.frame = self.view.bounds
+                categoryImgView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                categoryImgView.contentMode = .scaleToFill
+                //            categoryImgView.isUserInteractionEnabled = true
+                
+            }
+            else {
+                
+                categoryImgView.image = #imageLiteral(resourceName: "j4")
+                
+            }
         }
        
         
@@ -298,7 +317,35 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
        self.player.stopVideo()
         
     }
+    
+    //MARK: - Add image to Library
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "Save Error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your Altered Image Has Been Saved To Your Photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        if !imgData.isEmpty {
+            
+            let imageView: UIImage = UIImage(data: imgData)!
+            
+            UIImageWriteToSavedPhotosAlbum(imageView, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+        
+       
+        // Your action
+    }
     
     func getVideosAPICall(){
         

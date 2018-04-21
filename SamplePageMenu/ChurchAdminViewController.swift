@@ -447,10 +447,16 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
             
     let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+        
+        if listStr.Id != nil {
             
-    authorDetailsViewController.authorID = listStr.Id!
+            authorDetailsViewController.authorID = listStr.Id!
+        }
+        
+        if listStr.churchName != nil {
             
-    authorDetailsViewController.churchName1 = listStr.churchName!
+            authorDetailsViewController.churchName1 = listStr.churchName!
+        }
             
     authorDetailsViewController.isSubscribed = isSubscribed
             
