@@ -1357,40 +1357,40 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func replyCommentBtnClick(sender : UIButton){
     
-        if !(self.userID.isEmpty) {
-
-           
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-                
-               self.activeTextView.becomeFirstResponder()
-            })
-            
-        self.allOffersTableView.endEditing(true)
-            
-        
-            
-         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
-            
-            self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-              
-            
-            
-            }, completion: {(_ finished: Bool) -> Void in
-                //position screen left after animation
-                
-                
-            })
-            
-        }
-        
-        else {
-        
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
-                
-                self.navigationController?.pushViewController(self.loginVC, animated: true)
-                
-            })
-        }
+//        if !(self.userID.isEmpty) {
+//
+//           
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
+//                
+//               self.activeTextView.becomeFirstResponder()
+//            })
+//            
+//        self.allOffersTableView.endEditing(true)
+//            
+//        
+//            
+//         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+//            
+//            self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//              
+//            
+//            
+//            }, completion: {(_ finished: Bool) -> Void in
+//                //position screen left after animation
+//                
+//                
+//            })
+//            
+//        }
+//        
+//        else {
+//        
+//            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+//                
+//                self.navigationController?.pushViewController(self.loginVC, animated: true)
+//                
+//            })
+//        }
     }
     
     func repliesCloseBtnClicked(){

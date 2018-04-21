@@ -192,31 +192,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.ProfileViewController.getProfileInfoAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.153304"
+                  timestampString = "546007117.702876"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "206"
                   endingLineNumber = "206"
-                  offsetFromSymbolStart = "2080">
+                  offsetFromSymbolStart = "2281">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.ProfileViewController.getProfileInfoAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.154699"
+                  timestampString = "546007117.704368"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "206"
                   endingLineNumber = "206"
-                  offsetFromSymbolStart = "13736">
+                  offsetFromSymbolStart = "14851">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -569,6 +569,38 @@
             endingLineNumber = "141"
             landmarkName = "shareBtnClicked(_sender:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.BibleVerseViewController.shareBtnClicked (_sender : __ObjC.UIButton) -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/BibleVerseViewController.swift"
+                  timestampString = "546007117.764794"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "119">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.BibleVerseViewController.shareBtnClicked (_sender : __ObjC.UIButton) -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/BibleVerseViewController.swift"
+                  timestampString = "546007117.766156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -697,38 +729,6 @@
             endingLineNumber = "828"
             landmarkName = "saveProfileAPICall()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.ProfileViewController.saveProfileAPICall() -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.236704"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "829"
-                  endingLineNumber = "829"
-                  offsetFromSymbolStart = "248">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.ProfileViewController.saveProfileAPICall() -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.238116"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "829"
-                  endingLineNumber = "829"
-                  offsetFromSymbolStart = "3176">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -782,31 +782,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.ProfileViewController.getProfileInfoAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.2467639"
+                  timestampString = "546007117.797352"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "278"
                   endingLineNumber = "278"
-                  offsetFromSymbolStart = "12504">
+                  offsetFromSymbolStart = "13294">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.ProfileViewController.getProfileInfoAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "545916284.248171"
+                  timestampString = "546007117.798929"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "278"
                   endingLineNumber = "278"
-                  offsetFromSymbolStart = "14044">
+                  offsetFromSymbolStart = "15274">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -910,31 +910,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Any) -&gt; () in Telugu_Churches.ChangePassWordViewController.changePassWordAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ChangePassWordViewController.(changePassWordAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ChangePassWordViewController.swift"
-                  timestampString = "545916284.2714421"
+                  timestampString = "546007117.816226"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "462"
                   endingLineNumber = "462"
-                  offsetFromSymbolStart = "2144">
+                  offsetFromSymbolStart = "2216">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 (Any) -&gt; () in Telugu_Churches.ChangePassWordViewController.changePassWordAPIService() -&gt; ()"
+                  symbolName = "Telugu_Churches.ChangePassWordViewController.(changePassWordAPIService () -&gt; ()).(closure #1).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/ChangePassWordViewController.swift"
-                  timestampString = "545916284.27284"
+                  timestampString = "546007117.817602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "462"
                   endingLineNumber = "462"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "35">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1310,31 +1310,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.EventDetailsViewController.getVideosAPICall() -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(getVideosAPICall () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.3342609"
+                  timestampString = "546007117.872524"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "403"
                   endingLineNumber = "403"
-                  offsetFromSymbolStart = "6004">
+                  offsetFromSymbolStart = "7174">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.AnyObject) -&gt; () in Telugu_Churches.EventDetailsViewController.getVideosAPICall() -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(getVideosAPICall () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.335646"
+                  timestampString = "546007117.873896"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "403"
                   endingLineNumber = "403"
-                  offsetFromSymbolStart = "11548">
+                  offsetFromSymbolStart = "13886">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1358,31 +1358,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; () in Telugu_Churches.EventDetailsViewController.commentSendBtnAPIService(textComment: Swift.String) -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(commentSendBtnAPIService (textComment : Swift.String) -&gt; ()).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.338852"
+                  timestampString = "546007117.87728"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1173"
                   endingLineNumber = "1173"
-                  offsetFromSymbolStart = "2592">
+                  offsetFromSymbolStart = "3086">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String) -&gt; () in Telugu_Churches.EventDetailsViewController.commentSendBtnAPIService(textComment: Swift.String) -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(commentSendBtnAPIService (textComment : Swift.String) -&gt; ()).(closure #2)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.34023"
+                  timestampString = "546007117.8786761"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1177"
                   endingLineNumber = "1177"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1422,31 +1422,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; () in Telugu_Churches.EventDetailsViewController.commentSendBtnAPIService(textComment: Swift.String) -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(commentSendBtnAPIService (textComment : Swift.String) -&gt; ()).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.346954"
+                  timestampString = "546007117.884791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1173"
                   endingLineNumber = "1173"
-                  offsetFromSymbolStart = "2592">
+                  offsetFromSymbolStart = "3086">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String) -&gt; () in Telugu_Churches.EventDetailsViewController.commentSendBtnAPIService(textComment: Swift.String) -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(commentSendBtnAPIService (textComment : Swift.String) -&gt; ()).(closure #2)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "545916284.3483419"
+                  timestampString = "546007117.886188"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1177"
                   endingLineNumber = "1177"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1522,11 +1522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/BibleDetailsVerseViewController.swift"
-            timestampString = "545659499.139411"
+            timestampString = "546007653.420181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "homeIconAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1609,6 +1609,38 @@
             endingLineNumber = "112"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.VideoSongsViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/VideoSongsViewController.swift"
+                  timestampString = "546007117.915014"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "283">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.VideoSongsViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/VideoSongsViewController.swift"
+                  timestampString = "546007117.916532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "1201">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1657,6 +1689,70 @@
             endingLineNumber = "338"
             landmarkName = "imageTapped(tapGestureRecognizer:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/BibleDetailsVerseViewController.swift"
+            timestampString = "546007653.420181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "forwardBtnAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/BibleDetailsVerseViewController.swift"
+            timestampString = "546007653.420181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "forwardBtnAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.BibleDetailsVerseViewController.forwardBtnAction (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/BibleDetailsVerseViewController.swift"
+                  timestampString = "546007117.93109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.BibleDetailsVerseViewController.forwardBtnAction (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/calibragemac02/Documents/TCApp/SamplePageMenu/BibleDetailsVerseViewController.swift"
+                  timestampString = "546007117.9324549"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "4444">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

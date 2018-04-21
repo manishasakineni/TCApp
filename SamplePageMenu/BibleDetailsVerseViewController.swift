@@ -219,6 +219,8 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
                 self.verseStringCount = capter!
             }
             
+           
+            
         }
         else {
             
@@ -228,8 +230,14 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         }
         
        
+//        let indexPath = IndexPath(item: eventNum, section: 0)
+//        self.BibleVerseTableView.reloadRows(at: [indexPath], with: .top)
         
         self.BibleVerseTableView.reloadData()
+        
+        let indexPath : IndexPath = IndexPath(row: 0, section: 0)
+        
+        self.BibleVerseTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
         
     }
     
@@ -253,6 +261,18 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
                 self.verseStringCount = capter!
             }
             
+//            let indexPath = IndexPath(item: 0, section: 0)
+//            self.BibleVerseTableView.reloadRows(at: [indexPath], with: .top)
+            
+            
+            
+//            let indexPath = IndexPath(item: 0, section: 0)
+//            if let visibleIndexPaths = self.BibleVerseTableView.indexPathsForVisibleRows?.index(of: indexPath as IndexPath) {
+//                if visibleIndexPaths != NSNotFound {
+//                    self.BibleVerseTableView.reloadRows(at: [indexPath], with: .top)
+//                }
+//            }
+            
         }
     else {
             
@@ -264,6 +284,10 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         
     self.BibleVerseTableView.reloadData()
+        
+        let indexPath : IndexPath = IndexPath(row: 0, section: 0)
+        
+        self.BibleVerseTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
         
     }
     

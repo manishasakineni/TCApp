@@ -2,7 +2,7 @@
     
     
     
-    "EditProfile": "Edit Profile",
+    "EditProfile": "Profile",
     "ChangepassWord": "Change Password",
     "LogOut" : "LogOut",
     "Login"  :  "Login",
@@ -116,13 +116,13 @@
     "Latest Posts" : "Latest Posts",
     "Categories" : "Categories",
     "Event Posts" : "Event Posts",
-    " All Categories" : "All Categories",
+    " All Categories" : "Categories",
     "See All" : "See All",
     "Subscribe" : "Subscribe",
     "Bible Posts" : "Bible Posts",
     "More" : "More",
     "Authors" : "Authors",
-    "All Churches" : "All Churches",
+    "All Churches" : "Churches",
     "Images" : "Images",
     "Document" : "Document",
     "Audio" : "Audio",
