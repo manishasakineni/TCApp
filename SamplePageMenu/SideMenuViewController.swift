@@ -281,7 +281,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
 
                 
-            }else{
+            }
+        
+        else {
                 
         let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
 

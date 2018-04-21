@@ -363,9 +363,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         activeTextField = textField
         
+        activeTextField.autocorrectionType = .no
         
-        
-        if activeTextField.tag == 0 {
+        if activeTextField.tag == 1 {
             
             textField.maxLengthTextField = 20
             textField.clearButtonMode = .never
@@ -373,7 +373,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
         }
             
-        else if activeTextField.tag == 1{
+        else if activeTextField.tag == 2{
             
             textField.maxLengthTextField = 20
             textField.clearButtonMode = .never
@@ -381,28 +381,28 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         }
             
-        else if activeTextField.tag == 2{
+        else if activeTextField.tag == 3{
             
             textField.maxLengthTextField = 20
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
         }
-        else if activeTextField.tag == 3{
+        else if activeTextField.tag == 4{
             
             textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
             textField.keyboardType = .numberPad
             
         }
-        else if activeTextField.tag == 4{
+        else if activeTextField.tag == 5{
             
             textField.maxLengthTextField = 40
             textField.clearButtonMode = .never
             textField.keyboardType = .emailAddress
             
         }
-        else if activeTextField.tag == 5{
+        else if activeTextField.tag == 6{
             
             textField.inputView = datepicker
             
@@ -784,6 +784,7 @@ else {
             
             let headerProfileCell = tableView.dequeueReusableCell(withIdentifier: "HeaderProfileCell") as! HeaderProfileCell
             
+            headerProfileCell.backgroundColor = #colorLiteral(red: 0.9999127984, green: 1, blue: 0.9998814464, alpha: 1)
             return headerProfileCell
             
         }
