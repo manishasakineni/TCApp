@@ -69,7 +69,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
     
     var usersCommentsArray = Array<Any>()
-     var postIDArray = Array<Any>()
+    var CommentsByUserArray = Array<Any>()
+    var postIDArray = Array<Any>()
 
     var embedLinksAry : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     var churchNameAry : Array<String> = Array()
@@ -718,6 +719,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
           // self.parentCommentId = self.parentCommentIdArray[indexPath.row]
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
             
+            
+           usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
             let commentString = usersCommentsArray[indexPath.row] as? String
             
             let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
@@ -1494,6 +1497,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             
                             self.usersCommentsArray.append(list.comment!)
 
+                            self.CommentsByUserArray.append(list.commentByUser)
                             
                         }
               

@@ -324,7 +324,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             "sortbyColumnName": "UpdatedDate",
                             "sortDirection": "desc",
                             "searchName": ""
-            ] as [String : Any]
+                          ] as [String : Any]
         
         let dictHeaders = ["":"","":""] as NSDictionary
 
@@ -458,15 +458,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                     self.eventImageArray.append(self.eventImage)
                     
-                    self.upComingEventsArray.append(churchDetails)
+                     self.upComingEventsArray.append(churchDetails)
                     
                     
                     
                 }
-                
-                
-                
-                
+   
                 
                 if self.eventImageArray.count > 0{
                 

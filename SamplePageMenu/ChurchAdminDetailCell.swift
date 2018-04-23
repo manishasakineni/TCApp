@@ -33,7 +33,10 @@ class ChurchAdminDetailCell: UITableViewCell {
         
         adminImageView.layer.borderWidth = 1
         adminImageView.layer.masksToBounds = false
-        adminImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+//        adminImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        
+        adminImageView.layer.borderColor = UIColor.white.cgColor
+   
         adminImageView.layer.cornerRadius = adminImageView.frame.height/2
         adminImageView.clipsToBounds = true
         
