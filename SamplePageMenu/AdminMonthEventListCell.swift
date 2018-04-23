@@ -22,6 +22,7 @@ class AdminMonthEventListCell: UITableViewCell {
     @IBOutlet weak var toDate: UILabel!
     
     @IBOutlet weak var fromDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

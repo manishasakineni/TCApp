@@ -27,15 +27,15 @@ class AuthorEventDateCountInfoVO: Mappable {
     
     var eventDate : String?
     var eventsCount : Int?
-
-    
+    var authorId : Int?
+    var authorName : String?
     var churchId : Int?
     var churchName : String?
-    
+    var mobileNumber : String?
     var fileLocation : String?
     var fileName : String?
     var fileExtention : String?
-    var eventImage : String?
+    var authorImage : String?
     
  
     
@@ -43,7 +43,7 @@ class AuthorEventDateCountInfoVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(eventsCount : Int?,churchName : String?,eventDate : String?,churchId : Int?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?)
+    init(eventsCount : Int?,churchName : String?,eventDate : String?,churchId : Int?, authorId : Int?, authorName : String?, mobileNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,authorImage : String?)
         
         
     {
@@ -51,16 +51,17 @@ class AuthorEventDateCountInfoVO: Mappable {
         
         self.eventsCount = eventsCount
         self.churchName = churchName
-       
         self.eventDate = eventDate
         self.churchId = churchId
         self.churchName = churchName
-    
+        self.authorId = authorId
+        self.authorName = authorName
+        self.mobileNumber = mobileNumber
         
         self.fileLocation = fileLocation
         self.fileName = fileName
         self.fileExtention = fileExtention
-        self.eventImage = eventImage
+        self.authorImage = authorImage
         
         
         
@@ -78,12 +79,14 @@ class AuthorEventDateCountInfoVO: Mappable {
         eventDate <- map["eventDate"]
         churchId <- map["churchId"]
       
-  
+        authorId <- map["authorId"]
+        authorName <- map["authorName"]
+        mobileNumber <- map["authorName"]
         
         fileLocation <- map["fileLocation"]
         fileName <- map["fileName"]
         fileExtention <- map["fileExtention"]
-        eventImage <- map["eventImage"]
+        authorImage <- map["authorImage"]
         
         
         

@@ -16,7 +16,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var authorEventsTableView: UITableView!
     
 //MARK: -  variable declaration
-  
+    
+   var monthString = ""
+   var yearString = ""
     var authorID : Int = 0
     
     var todayDate = NSDate()
@@ -36,10 +38,10 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     
-    var authorDetailsArray  : [AuthorEventsListResultInfoVO] = Array<AuthorEventsListResultInfoVO>()
+    var authorDetailsArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
     
     
-    var authorDetailsCountArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
+   // var authorDetailsCountArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
 
     var delegate: authorChangeSubtitleOfIndexDelegate?
     
@@ -60,7 +62,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     fileprivate lazy var dateFormatter2: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+        formatter.timeZone = TimeZone(abbreviation: "GMT+5:30") //Current time zone
         
         return formatter
     }()
@@ -94,6 +96,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         calendar.delegate = self
         calendar.dataSource = self
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,26 +109,30 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewWillAppear(_ animated: Bool) {
         
         let monthFormatter = DateFormatter()
+        
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: calendar.currentPage)
-        
+        monthString = monthFormatter.string(from: calendar.currentPage)
         
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "YYYY"
         yearFormatter.timeZone = NSTimeZone.local
-        let yearString = yearFormatter.string(from: calendar.currentPage)
+        yearString = yearFormatter.string(from: calendar.currentPage)
         
 
-     getAthorEventsApiCall (monthString,yearString)
-              color()
+    
+        
+        getAthorEventsCountApiCall(monthString, yearString)
+        
+     
+        
+     color()
         
     }
     
 //MARK: -   Border Colors
  
     func color(){
-        
         
         calendar.scope = .month
         calendar.appearance.weekdayTextColor = UIColor.red
@@ -137,107 +145,77 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    //MARK: -   Get Author Events API Call
-   
-    func getAthorEventsApiCall(_ month : String, _ year : String){
     
-        let monthFormatter = DateFormatter()
-        monthFormatter.dateFormat = "M"
-        monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: calendar.currentPage)
+    
+    //MARK: -   Get Author Events Count API Call
+    
+    
+    func getAthorEventsCountApiCall(_ month : String, _ year : String){
         
         
-        let yearFormatter = DateFormatter()
-        yearFormatter.dateFormat = "YYYY"
-        yearFormatter.timeZone = NSTimeZone.local
-        let yearString = yearFormatter.string(from: calendar.currentPage)
         
         print(monthString,yearString)
         
+        let athorEventsCountAPIString = GETAUTHOREVENTSCOUNTBYMONTH  + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
         
-
-        if(appDelegate.checkInternetConnectivity()){
-
-      let athorEventsAPIString = GETAUTHOREVENTSBYMONTHYEAR  + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
+        print(athorEventsCountAPIString)
         
-        print(athorEventsAPIString)
-    
-       
-        getAthorEventsCountApiCall(monthString, yearString)
-        
-        
-        serviceController.getRequest(strURL: athorEventsAPIString, success: { (result) in
+        serviceController.getRequest(strURL: athorEventsCountAPIString, success: { (result) in
             
-            print(result)
             
             if result.count > 0 {
                 
-            let responseVO : AuthorEventsResultVO = Mapper().map(JSONObject: result)!
-            
-            
-            let isSuccess = responseVO.isSuccess
-            
-            
-            if isSuccess == true{
-            
+                let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
                 
-                self.authorDetailsArray = responseVO.listResult!
-    
-                self.authorEventsTableView.reloadData()
+                
+                let isSuccess = responseVO.isSuccess
+                
+                
+                if isSuccess == true{
+                    
+                    self.eventDateArray.removeAll()
+                    self.eventsCountsArray.removeAll()
+                    
+                    self.authorDetailsArray = responseVO.listResult!
+                    
+                    
+                    for authorDetailsCount in responseVO.listResult! {
+                        
+                        let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
+                        
+                        self.eventDateArray.append(dateString)
+                        self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
+                        
+                        
+                    }
+                    
+                    
+                    self.calendar.reloadData()
+                    self.authorEventsTableView.reloadData()
+                }
+                    
+                    
+                else{
+                    
+                }
+                
             }
             
             
-            else{
+        })
             
-            
-            
-            }
-            
-            }
-        }) { (failureMessage) in
+        { (failureMessage) in
             
             
             print(failureMessage)
             
         }
-        }  else {
-                
-                return
-            }
-    
-    
+        
     }
+  
     
 //MARK: -   Calendar Current Page Did Change
  
-  
-    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        
-        
-        print("gdfgdfgdfgdfg",calendar.currentPage)
-        
-        let monthFormatter = DateFormatter()
-        monthFormatter.dateFormat = "M"
-        monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: calendar.currentPage)
-        
-        
-        let yearFormatter = DateFormatter()
-        yearFormatter.dateFormat = "YYYY"
-        yearFormatter.timeZone = NSTimeZone.local
-        let yearString = yearFormatter.string(from: calendar.currentPage)
-        
-        print(monthString,yearString)
-        
-        if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
-            authorDetailsArray.removeAll()
-            getAthorEventsApiCall (monthString,yearString)
-
-        }
-        print("this is the current Month \(currentMonth)")
-    }
-
-    
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
@@ -258,73 +236,98 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return nil
     }
     
-//MARK: -   Get Author Events Count API Call
-   
-
-    func getAthorEventsCountApiCall(_ month : String, _ year : String){
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        
+        
+        print("gdfgdfgdfgdfg",calendar.currentPage)
         
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: calendar.currentPage)
+        monthString = monthFormatter.string(from: calendar.currentPage)
         
         
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "YYYY"
         yearFormatter.timeZone = NSTimeZone.local
-        let yearString = yearFormatter.string(from: calendar.currentPage)
+        yearString = yearFormatter.string(from: calendar.currentPage)
         
         print(monthString,yearString)
         
-        let athorEventsCountAPIString = GETAUTHOREVENTSCOUNTBYMONTH  + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
+        if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
+            
+            authorDetailsArray.removeAll()
+            
+           //  self.authorEventsTableView.reloadData()
+            
+            getAthorEventsCountApiCall(monthString, yearString)
+         
+
+        }
+        print("this is the current Month \(currentMonth)")
+    }
+
+    
+    
+    func getAthorEventsApiCall(_ month : String, _ year : String){
         
-        print(athorEventsCountAPIString)
-        serviceController.getRequest(strURL: athorEventsCountAPIString, success: { (result) in
+        
+        self.authorDetailsArray.removeAll()
+        
+        //   print(monthString,yearString)
+        
+        
+        
+        if(appDelegate.checkInternetConnectivity()){
             
+            let athorEventsAPIString = GETAUTHOREVENTSBYMONTHYEAR  + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
             
-            if result.count > 0 {
+            print(athorEventsAPIString)
+            
+            serviceController.getRequest(strURL: athorEventsAPIString, success: { (result) in
                 
-                let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
+                print(result)
                 
-                
-                let isSuccess = responseVO.isSuccess
-                
-                
-                if isSuccess == true{
-                   
-                    self.eventDateArray.removeAll()
-                    self.eventsCountsArray.removeAll()
+                if result.count > 0 {
                     
-                    for authorDetailsCount in responseVO.listResult! {
+                    let responseVO : AuthorEventsResultVO = Mapper().map(JSONObject: result)!
+                    
+                    
+                    let isSuccess = responseVO.isSuccess
+                    
+                    
+                    
+                    if isSuccess == true{
                         
-                        let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
                         
-                        self.eventDateArray.append(dateString)
-                        self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
+                     //   self.authorDetailsArray = responseVO.listResult!
+                        
+                        self.authorEventsTableView.reloadData()
+                    }
+                        
+                        
+                    else{
+                        
                         
                         
                     }
                     
-                    self.calendar.reloadData()
                 }
-                    
-                    
-                else{
-                   
-                }
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
                 
             }
-          
-        })
+        }  else {
             
-        { (failureMessage) in
-            
-            
-            print(failureMessage)
-            
+            return
         }
-      
+        
+        
     }
+
     
 //MARK: -   TableView Delegate & DataSource Methods
 
@@ -390,6 +393,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         if(authorDetailsArray.count > 0){
             
        let authorDetails = authorDetailsArray[indexPath.row]
+            
+            
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AdminMonthEventListCell", for: indexPath) as! AdminMonthEventListCell
             
             if authorDetails.churchName != nil {
@@ -397,26 +402,37 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                  cell.churchName.text = authorDetails.churchName!
             }
             
-            if authorDetails.title != nil {
+            if authorDetails.authorName != nil {
                
-                 cell.eventName.text = authorDetails.title
+                 cell.eventName.text = authorDetails.authorName
             }
             
-            if authorDetails.startDate != nil {
+            if authorDetails.mobileNumber != nil {
                 
-                cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.startDate!))
+                cell.eventAddress.text = authorDetails.mobileNumber
             }
             
-            if authorDetails.endDate != nil {
+            if authorDetails.eventDate != nil {
                 
-                cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
+                cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.eventDate!))
             }
+//
+//            if authorDetails.endDate != nil {
+//                
+//                cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
+//            }
            
             return cell
             }
+        
+        else {
+        
+            print("author Details array is empty")
+        
+        }
     
         
-        self.authorEventsTableView.reloadData()
+      //  self.authorEventsTableView.reloadData()
         
        return UITableViewCell()
     
