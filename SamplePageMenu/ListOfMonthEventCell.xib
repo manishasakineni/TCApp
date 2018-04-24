@@ -15,22 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4P-Te-FBz">
-                        <rect key="frame" x="3" y="3" width="314" height="129.5"/>
+                        <rect key="frame" x="3" y="3" width="322" height="129.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sX-Ee-d55">
-                                <rect key="frame" x="175" y="8" width="134" height="21"/>
+                                <rect key="frame" x="175" y="8" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Pde-DQ-DbX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8V-31-W4J">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8V-31-W4J">
                                 <rect key="frame" x="8" y="37" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Nv2-bd-T9l"/>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE HYDERABAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-it-ABR">
-                                <rect key="frame" x="175" y="69" width="134" height="21"/>
+                                <rect key="frame" x="175" y="69" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bVv-Ze-ahI"/>
                                 </constraints>
@@ -53,16 +53,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catholic Church" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOQ-zX-iNx">
-                                <rect key="frame" x="175" y="37" width="134" height="21"/>
+                                <rect key="frame" x="175" y="37" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hyl-vb-Pqg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE HYDERABAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0j-5r-ryL">
-                                <rect key="frame" x="175" y="95" width="134" height="21"/>
+                                <rect key="frame" x="175" y="95" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1sR-e0-TmJ"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Church Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-uF-XTi">
-                                <rect key="frame" x="11" y="7" width="90" height="21"/>
+                                <rect key="frame" x="8" y="7" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="p2G-UA-t8k"/>
                                     <constraint firstAttribute="width" constant="90" id="wn8-pc-u0F"/>
@@ -96,7 +96,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Contact Number"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ig7-u8-LkW">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ig7-u8-LkW">
                                 <rect key="frame" x="8" y="96" width="138" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7Zq-KJ-Jqx"/>
@@ -160,15 +160,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.70196078431372544" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3843075037" green="0.68686300519999999" blue="0.81631654499999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Cwn-Ae-KUR" firstAttribute="centerX" secondItem="v4P-Te-FBz" secondAttribute="centerX" id="2Dh-Wo-Adp"/>
                             <constraint firstAttribute="trailing" secondItem="WOQ-zX-iNx" secondAttribute="trailing" constant="5" id="3wi-AL-pz9"/>
                             <constraint firstItem="8sX-Ee-d55" firstAttribute="centerY" secondItem="1o4-9d-Nmg" secondAttribute="centerY" id="ABb-NR-c9n"/>
                             <constraint firstItem="mgQ-uF-XTi" firstAttribute="top" secondItem="v4P-Te-FBz" secondAttribute="top" constant="7" id="BQL-D4-kMF"/>
                             <constraint firstItem="UId-gx-unT" firstAttribute="leading" secondItem="h8V-31-W4J" secondAttribute="trailing" constant="44" id="D9W-vW-foM"/>
                             <constraint firstItem="WOQ-zX-iNx" firstAttribute="centerY" secondItem="UId-gx-unT" secondAttribute="centerY" id="DUm-zH-3x3"/>
+                            <constraint firstItem="UId-gx-unT" firstAttribute="centerX" secondItem="v4P-Te-FBz" secondAttribute="centerX" id="FD8-Xu-1Ec"/>
                             <constraint firstItem="ig7-u8-LkW" firstAttribute="leading" secondItem="v4P-Te-FBz" secondAttribute="leading" constant="8" id="GWO-lR-VOX"/>
                             <constraint firstAttribute="trailing" secondItem="8sX-Ee-d55" secondAttribute="trailing" constant="5" id="Ife-FS-84s"/>
+                            <constraint firstItem="3d2-gT-bS6" firstAttribute="centerX" secondItem="v4P-Te-FBz" secondAttribute="centerX" id="Irf-fJ-ZAd"/>
                             <constraint firstItem="h8V-31-W4J" firstAttribute="top" secondItem="mgQ-uF-XTi" secondAttribute="bottom" constant="9" id="Kih-Sc-JzG"/>
                             <constraint firstItem="Cwn-Ae-KUR" firstAttribute="centerY" secondItem="ig7-u8-LkW" secondAttribute="centerY" id="L6b-17-CVS"/>
                             <constraint firstAttribute="trailing" secondItem="t0j-5r-ryL" secondAttribute="trailing" constant="5" id="Myu-6T-M4Z"/>
@@ -179,8 +182,8 @@
                             <constraint firstAttribute="bottom" secondItem="vcE-1d-lAh" secondAttribute="bottom" constant="2.5" id="a3y-tr-A5Q"/>
                             <constraint firstItem="kv8-SD-DWj" firstAttribute="leading" secondItem="v4P-Te-FBz" secondAttribute="leading" constant="8" id="bKg-f4-i14"/>
                             <constraint firstItem="fpc-it-ABR" firstAttribute="leading" secondItem="3d2-gT-bS6" secondAttribute="trailing" constant="5" id="bRs-PQ-Moh"/>
-                            <constraint firstItem="1o4-9d-Nmg" firstAttribute="leading" secondItem="mgQ-uF-XTi" secondAttribute="trailing" constant="51" id="bwJ-Ku-5Hb"/>
-                            <constraint firstItem="mgQ-uF-XTi" firstAttribute="leading" secondItem="v4P-Te-FBz" secondAttribute="leading" constant="11" id="dw1-n0-eqn"/>
+                            <constraint firstItem="1o4-9d-Nmg" firstAttribute="leading" secondItem="mgQ-uF-XTi" secondAttribute="trailing" constant="54" id="bwJ-Ku-5Hb"/>
+                            <constraint firstItem="mgQ-uF-XTi" firstAttribute="leading" secondItem="v4P-Te-FBz" secondAttribute="leading" constant="8" id="dw1-n0-eqn"/>
                             <constraint firstAttribute="trailing" secondItem="fpc-it-ABR" secondAttribute="trailing" constant="5" id="dza-F7-SHa"/>
                             <constraint firstItem="Cwn-Ae-KUR" firstAttribute="leading" secondItem="ig7-u8-LkW" secondAttribute="trailing" constant="6" id="eTY-RB-hjb"/>
                             <constraint firstItem="vcE-1d-lAh" firstAttribute="centerX" secondItem="ig7-u8-LkW" secondAttribute="centerX" constant="-27" id="eeC-cY-cqa"/>
@@ -191,6 +194,7 @@
                             <constraint firstItem="ig7-u8-LkW" firstAttribute="top" secondItem="kv8-SD-DWj" secondAttribute="bottom" constant="6" id="oM9-lM-USJ"/>
                             <constraint firstItem="UId-gx-unT" firstAttribute="centerY" secondItem="h8V-31-W4J" secondAttribute="centerY" id="rFv-Gn-iaV"/>
                             <constraint firstItem="3d2-gT-bS6" firstAttribute="centerY" secondItem="kv8-SD-DWj" secondAttribute="centerY" id="sba-3Q-7Ea"/>
+                            <constraint firstItem="1o4-9d-Nmg" firstAttribute="centerX" secondItem="v4P-Te-FBz" secondAttribute="centerX" id="uNz-9M-NWD"/>
                             <constraint firstItem="WOQ-zX-iNx" firstAttribute="leading" secondItem="UId-gx-unT" secondAttribute="trailing" constant="5" id="zoO-yE-om7"/>
                             <constraint firstItem="8sX-Ee-d55" firstAttribute="leading" secondItem="1o4-9d-Nmg" secondAttribute="trailing" constant="5" id="zzN-7C-l7E"/>
                         </constraints>

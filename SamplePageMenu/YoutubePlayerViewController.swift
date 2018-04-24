@@ -116,6 +116,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         super.viewDidLoad()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        
         categoryImgView.isUserInteractionEnabled = true
         categoryImgView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -168,8 +169,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         repliesTableView.delegate = self
         repliesTableView.dataSource = self
-        repliesTableView.tableFooterView = UIView()
-      
+       // repliesTableView.tableFooterView = UIView()
+      repliesTableView.tableFooterView = UIView(frame: .zero)
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
         activeLabel.numberOfLines = 0

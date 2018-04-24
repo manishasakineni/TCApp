@@ -326,23 +326,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     kUserDefaults.synchronize()
                                 
                                 
-    if self.navigationString == "navigationString" {
+    if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString" {
                                 
-        
-//    let videosVC : YoutubePlayerViewController? =
-//    YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
-//                                    
-//    self.navigationController?.pushViewController(videosVC!, animated: true)
-        
+
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers
                                 for moveToVC in viewControllers {
                                     if moveToVC is YoutubePlayerViewController {
                                     _ = self.navigationController?.popToViewController(moveToVC, animated: true)
                                     }
+                                    
+                                    else if moveToVC is AuthorDetailsViewController {
+                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                    }
+                                    
+                                    else if moveToVC is ChurchesInformaationViewControllers {
+                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                    }
+                                    
                                 }
         
     }
-                                
+        
         else {
                                     
     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
@@ -362,7 +366,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
+                
     print("success")
+                
         }
                     
     }, failureHandler:  {(error) in

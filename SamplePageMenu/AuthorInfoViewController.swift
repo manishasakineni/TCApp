@@ -31,6 +31,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     var subscribeClick = 0
     var subscribe : Bool = true
     
+    var loginVC = LoginViewController()
+    
     //MARK: -   View DidLoad
 
     override func viewDidLoad() {
@@ -59,6 +61,13 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         authorInfoTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
         
         authorInfoTableView.isHidden = true
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        
+        self.loginVC.showNav = true
+        self.loginVC.navigationString = "authorInfoString"
         
         
     }
@@ -608,7 +617,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: { 
                 
-                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
             })
             

@@ -79,7 +79,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var churchID            : Int = 0
     var churchName          : String = ""
 
-
+    var loginVC = LoginViewController()
     
     let array = ["","ssss","ddddd","gggg"]
     
@@ -115,6 +115,13 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
         infoChurchTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
     
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        
+        self.loginVC.showNav = true
+        self.loginVC.navigationString = "churchInfoString"
+        
         
         getChurchuByIDAPIService()
         
@@ -638,7 +645,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
     func subscribeBtnClicked(sender : UIButton){
         
 
-        if self.userId != 0{
+        if self.userId != 0 {
             
             
             
@@ -695,6 +702,8 @@ else {
             
             
      Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
+        
+        self.navigationController?.pushViewController(self.loginVC, animated: true)
         
             })
             

@@ -18,8 +18,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     //MARK: -  variable declaration
  
+   
     
-     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     

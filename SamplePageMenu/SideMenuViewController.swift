@@ -340,7 +340,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as!ChurchDetailsViewController
+    let desController = mainstoryboard.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
     desController.showNav = true
     let newController = UINavigationController.init(rootViewController:desController)
     revealviewcontroller.pushFrontViewController(newController, animated: true)

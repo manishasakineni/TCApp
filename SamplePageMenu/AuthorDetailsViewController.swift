@@ -19,13 +19,13 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     
     var pageMenu : CAPSPageMenu?
     
-    var authorInfoVC : AuthorInfoViewController?
+    var authorInfoVC   : AuthorInfoViewController?
     var authorEventsVC : AuthorEventsViewController?
-    var authorPostsVC : AuthorPostsViewController?
+    var authorPostsVC  : AuthorPostsViewController?
     private var controllersArray: [UIViewController] = []
     
     var viewTitle = ""
-  var catgoryName:String = ""
+    var catgoryName:String = ""
     
     var churchName = ""
 
