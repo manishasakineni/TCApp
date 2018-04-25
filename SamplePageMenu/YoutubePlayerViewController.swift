@@ -721,7 +721,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
             
             
-           usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
+        //   usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
+            
             let commentString = usersCommentsArray[indexPath.row] as? String
             
             let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
