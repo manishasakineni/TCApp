@@ -293,6 +293,7 @@
 		CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */; };
 		CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */; };
 		CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */; };
+		CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -593,6 +594,8 @@
 		CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVO.swift; sourceTree = "<group>"; };
 		CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonVO.swift; sourceTree = "<group>"; };
 		CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewController.swift; sourceTree = "<group>"; };
+		CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBFFEA1B20919AFA000077CF /* Telugu Churches.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Telugu Churches.entitlements"; sourceTree = SOURCE_ROOT; };
 		CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telugu_Churches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -960,6 +963,7 @@
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				AF69371F2063C40D00353909 /* MainIpad.storyboard */,
 				3D551C5E2011F462005DB3B2 /* Constants.swift */,
+				CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */,
 				9A623B862021A56400A674F2 /* Utilities */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
@@ -979,6 +983,7 @@
 		9A5D25EF1FFF76A300316988 /* Telugu Churches */ = {
 			isa = PBXGroup;
 			children = (
+				CBFFEA1B20919AFA000077CF /* Telugu Churches.entitlements */,
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
@@ -1705,6 +1710,14 @@
 						DevelopmentTeam = 4QGCP9MXKS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1733,6 +1746,7 @@
 			files = (
 				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
+				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
 				3D41C7FE2063C1160086BEE7 /* BibleVerseTableViewCell.xib in Resources */,
 				3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */,
@@ -1834,17 +1848,27 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize/Localize.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2219,6 +2243,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Telugu Churches.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;
@@ -2240,6 +2265,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Telugu Churches.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;

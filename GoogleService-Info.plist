@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>281866139040-74v5e8g4d46gmu9dhbvjv8mofohov9ov.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.281866139040-74v5e8g4d46gmu9dhbvjv8mofohov9ov</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzP3m1MnN8MdzMRl7KmvNKxYAJlbhve7g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>281866139040</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Calibrage.TeluguChurchesApp</string>
+	<key>PROJECT_ID</key>
+	<string>telugu-churches</string>
+	<key>STORAGE_BUCKET</key>
+	<string>telugu-churches.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:281866139040:ios:7fe07ff79a54c13c</string>
+	<key>DATABASE_URL</key>
+	<string>https://telugu-churches.firebaseio.com</string>
+</dict>
+</plist>

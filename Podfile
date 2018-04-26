@@ -12,6 +12,10 @@ pod 'Localize' , '~> 1.5.2'
 pod 'FSCalendar'
 #pod 'SDWebImage', '~> 4.0'
 pod 'SDWebImage/WebP'
+
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
  use_frameworks!
 
   # Pods for Telugu Churches

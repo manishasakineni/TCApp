@@ -15,6 +15,7 @@ import IQKeyboardManagerSwift
 //import FBSDKLoginKit
 import SystemConfiguration
 import Localize
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,8 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.sharedManager().enable = true
-        
+        FirebaseApp.configure()
      
+        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationsettings)
+        
+        
+        
         
         let localize = Localize.shared
         localize.update(provider: .json)
@@ -241,6 +249,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+    }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+        print("MessageID : \(userInfo["gcd_message_ID"]!)")
+        print(userInfo)
     }
 
 }
