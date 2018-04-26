@@ -265,66 +265,70 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         print(result)
             
-        let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
+                    let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
             
-        let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
+                    let isSuccess = respVO.isSuccess
             
-        if isSuccess == true {
+                    print("StatusCode:\(String(describing: isSuccess))")
+            
+             if isSuccess == true {
                 
                 
-        let listArr = respVO.listResult!
+                let listArr = respVO.listResult!
                 
-        if listArr.count > 0 {
+                if listArr.count > 0 {
                     
-        self.churchDetailsTableView.isHidden = false
+                    self.churchDetailsTableView.isHidden = false
                     
-        self.noRecordLabel.isHidden = true
+                    self.noRecordLabel.isHidden = true
                     
-        for eachArray in listArr{
-        self.churchNamesArray.append(eachArray)
+                    for eachArray in listArr{
+                        
+                        self.churchNamesArray.append(eachArray)
+                        
+                        
+                    }
+
             
+                    self.filtered = self.churchNamesArray
+                    
+                    let pageCout  = (respVO.totalRecords)! / 10
+                    
+                    let remander = (respVO.totalRecords)! % 10
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
                         
-    }
-                    
-    self.filtered = self.churchNamesArray
-                    
-    let pageCout  = (respVO.totalRecords)! / 10
-                    
-    let remander = (respVO.totalRecords)! % 10
-                    
-    self.totalPages = pageCout
-                    
-        if remander != 0 {
+                        self.totalPages = self.totalPages! + 1
                         
-        self.totalPages = self.totalPages! + 1
-                        
-    }
+                    }
                     
                   
-    print(self.churchNamesArray.count)
-                
-                
-    self.churchDetailsTableView.reloadData()
-                
-            }
-    else {
+                  
+                    print(self.churchNamesArray.count)
                     
-        self.noRecordLabel.isHidden = false
-        self.churchDetailsTableView.isHidden = true
                     
-
+                    self.churchDetailsTableView.reloadData()
+                    
                 }
-            }
+                else {
+                    
+                    self.noRecordLabel.isHidden = false
+                    self.churchDetailsTableView.isHidden = true
+                    
+                    
+                }
+                }
                 
-            else {
+                else {
                 
                 self.noRecordLabel.isHidden = false
                 self.churchDetailsTableView.isHidden = true
-            }
+               }
             
             
-        }) { (failureMessage) in
+               }) { (failureMessage) in
             
             
             print(failureMessage)

@@ -58,7 +58,6 @@
 		3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C5E2011F462005DB3B2 /* Constants.swift */; };
 		3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C602011F617005DB3B2 /* VideosVO.swift */; };
 		3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C622011F6BE005DB3B2 /* ServiceController.swift */; };
-		3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C642011FE59005DB3B2 /* VideosResultVO.swift */; };
 		3D5852D620725D1500994FC2 /* LikeDislikeCountVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5852D520725D1500994FC2 /* LikeDislikeCountVO.swift */; };
 		3D5852DB2072694F00994FC2 /* CommentDetailsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5852D72072694F00994FC2 /* CommentDetailsVo.swift */; };
 		3D5852DC2072694F00994FC2 /* GetAllVideosVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5852D82072694F00994FC2 /* GetAllVideosVo.swift */; };
@@ -348,7 +347,6 @@
 		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = SamplePageMenu/Constants.swift; sourceTree = "<group>"; };
 		3D551C602011F617005DB3B2 /* VideosVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVO.swift; sourceTree = "<group>"; };
 		3D551C622011F6BE005DB3B2 /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
-		3D551C642011FE59005DB3B2 /* VideosResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosResultVO.swift; sourceTree = "<group>"; };
 		3D5852D520725D1500994FC2 /* LikeDislikeCountVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeDislikeCountVO.swift; sourceTree = "<group>"; };
 		3D5852D72072694F00994FC2 /* CommentDetailsVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDetailsVo.swift; sourceTree = "<group>"; };
 		3D5852D82072694F00994FC2 /* GetAllVideosVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllVideosVo.swift; sourceTree = "<group>"; };
@@ -986,7 +984,6 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
-				3D551C642011FE59005DB3B2 /* VideosResultVO.swift */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
 				3D61F3ED205AB4D70022C117 /* SWRevealViewController */,
 				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
@@ -1024,9 +1021,8 @@
 				9AF564972020941200AEA0EF /* ChangePassWordViewController */,
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
-				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
-				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
-				3DDD890C2018567300918711 /* SignUpViewController.swift */,
+				CBF2406120904B4C00BF4E94 /* LoginViewController */,
+				CBF2406220904B6600BF4E94 /* SignUpViewController */,
 				3DD30F63205FF0190076B0DB /* EventDetailsViewController */,
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
@@ -1066,11 +1062,6 @@
 				3D61F3F1205AB5160022C117 /* InfoTableViewCell */,
 				CB3794E320595836002D3638 /* CategoriesInfoCells */,
 				CB2045D42056A8340032E71D /* AllEventsTableViewCell */,
-				CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */,
-				CBC1FB832052DBBE000063D4 /* ListOfMonthEventCell.xib */,
-				CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */,
-				CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */,
-				CB255D68204FBACB0080AFAD /* UpComingEventInfoCell */,
 				CB4B20F52047D2D100402E59 /* CategoriesHomeCell */,
 				CB03C8D3203EC8C5000B96A4 /* ChurchAdminDetailCell */,
 				CB259FC8203C59FB0052C384 /* EventInformationCell */,
@@ -1237,6 +1228,7 @@
 			isa = PBXGroup;
 			children = (
 				AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */,
+				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
 				3D61F3EF205AB4F90022C117 /* EventInfoViewController */,
 				3D61F3F0205AB5030022C117 /* InfoChurchViewControllers */,
 			);
@@ -1461,6 +1453,11 @@
 		CB2045D42056A8340032E71D /* AllEventsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */,
+				CBC1FB832052DBBE000063D4 /* ListOfMonthEventCell.xib */,
+				CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */,
+				CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */,
+				CB255D68204FBACB0080AFAD /* UpComingEventInfoCell */,
 				CB2045D52056A85D0032E71D /* AllEventsTableViewCell.swift */,
 				CB2045D62056A85D0032E71D /* AllEventsTableViewCell.xib */,
 			);
@@ -1644,6 +1641,22 @@
 				CBA0EBF820726BAF000C16DD /* ResultVo.swift */,
 			);
 			name = AddUpdateCommentsVo;
+			sourceTree = "<group>";
+		};
+		CBF2406120904B4C00BF4E94 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
+			);
+			name = LoginViewController;
+			sourceTree = "<group>";
+		};
+		CBF2406220904B6600BF4E94 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD890C2018567300918711 /* SignUpViewController.swift */,
+			);
+			name = SignUpViewController;
 			sourceTree = "<group>";
 		};
 		CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */ = {
@@ -1917,7 +1930,6 @@
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
-				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				3D5404F92058045A008257A6 /* AuthorPostsViewController.swift in Sources */,
 				3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,

@@ -26,11 +26,11 @@ class Services: NSObject {
 //        
 //        serviceController.getRequest(strURL: url, success: { (result) in
 //            
-////            if let response = result {
+//            if let response = result {
 //            
 //                completion(result as AnyObject)
 //                
-////            }
+//            }
 //            
 //            
 //        }) { (error) in

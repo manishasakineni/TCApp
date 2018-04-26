@@ -156,7 +156,14 @@ func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
     self.churchIdMonthYearArray.removeAll()
     self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
-        
+    
+    
+    
+//    if searchBar.text == ""  {
+//    
+//    searchBar.resignFirstResponder()
+//    }
+    
 
     }
     
@@ -196,15 +203,28 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+     
+     
         
-
+        // The user clicked the [X] button or otherwise cleared the text.
+        
+        if searchBar.text == nil || searchBar.text == ""
+        {
+            searchBar.perform(#selector(self.resignFirstResponder), with: nil, afterDelay: 0.1)
+        }
+        
+        
     }
+    
+    
+  
+   
     
   //MARK: - Get Event Info By Church Id Month Year API Service
     
 func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String, _ str:String) {
-        
-        
+    
+
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
     
         let dictParams = [
@@ -270,6 +290,8 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     print("churchAdminArray", self.churchIdMonthYearArray)
                     
     self.allEventTableView.reloadData()
+        
+      
                     
 }
     else {
@@ -277,6 +299,8 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     self.allEventTableView.isHidden = true
                     
     self.noRecordsLbl.isHidden = false
+        
+       
                     
     }
                 
@@ -583,25 +607,29 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     self.allEventTableView.reloadData()
         
     }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        PageIndex = 1
-        totalPages = 0
-        self.filteredTableData.removeAll()
-        self.churchIdMonthYearArray.removeAll()
-        let monthFormatter = DateFormatter()
-        monthFormatter.dateFormat = "M"
-        monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: Date())
-        
-        let yearFormatter = DateFormatter()
-        yearFormatter.dateFormat = "YYYY"
-        yearFormatter.timeZone = NSTimeZone.local
-        let yearString = yearFormatter.string(from: Date())
-        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
-        
-        
-    }
+    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        
+//      //  resignFirstResponder()
+//        
+//        searchBar.resignFirstResponder()
+//        PageIndex = 1
+//        totalPages = 0
+//        self.filteredTableData.removeAll()
+//        self.churchIdMonthYearArray.removeAll()
+//        let monthFormatter = DateFormatter()
+//        monthFormatter.dateFormat = "M"
+//        monthFormatter.timeZone = NSTimeZone.local
+//        let monthString = monthFormatter.string(from: Date())
+//        
+//        let yearFormatter = DateFormatter()
+//        yearFormatter.dateFormat = "YYYY"
+//        yearFormatter.timeZone = NSTimeZone.local
+//        let yearString = yearFormatter.string(from: Date())
+//        self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+//        
+//        
+//    }
     
   //MARK: -   Event Date Without Time
     

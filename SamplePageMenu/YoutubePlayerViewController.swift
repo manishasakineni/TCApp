@@ -721,7 +721,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
             
             
-        //   usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
+         //  usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
             
             let commentString = usersCommentsArray[indexPath.row] as? String
             
@@ -1207,6 +1207,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
              ] as [String : Any]
         
         print("dic params \(dictParams)")
+        
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
@@ -1499,7 +1500,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             
                             self.usersCommentsArray.append(list.comment!)
 
-                            self.CommentsByUserArray.append(list.commentByUser)
+                            self.CommentsByUserArray.append(list.commentByUser!)
                             
                         }
               
