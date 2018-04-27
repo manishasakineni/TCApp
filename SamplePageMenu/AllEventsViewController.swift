@@ -187,7 +187,7 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     yearFormatter.timeZone = NSTimeZone.local
     let yearString = yearFormatter.string(from: Date())
         
-    PageIndex = 1
+    PageIndex  = 1
     totalPages = 0
         
     self.churchIdMonthYearArray.removeAll()

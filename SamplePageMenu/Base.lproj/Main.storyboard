@@ -1758,7 +1758,7 @@
                                             <constraint firstAttribute="width" constant="46" id="yOc-Wk-LVx"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="home icon">
+                                        <state key="normal" image="sidemenu">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1962,7 +1962,6 @@
     <resources>
         <image name="Church-logo" width="240" height="233"/>
         <image name="calvary_cross" width="400" height="400"/>
-        <image name="home icon" width="20" height="20"/>
         <image name="icons8-arrows_long_left" width="25" height="25"/>
         <image name="icons8-visible" width="25" height="25"/>
         <image name="musimage" width="1200" height="1200"/>

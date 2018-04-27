@@ -217,7 +217,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if section == 0 {
             
-            return 40
+            return 35
         }
         return 0
         

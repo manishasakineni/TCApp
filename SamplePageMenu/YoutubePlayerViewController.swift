@@ -1500,7 +1500,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             
                             self.usersCommentsArray.append(list.comment!)
 
-                            self.CommentsByUserArray.append(list.commentByUser!)
+                           // self.CommentsByUserArray.append(list.commentByUser!)
                             
                         }
               

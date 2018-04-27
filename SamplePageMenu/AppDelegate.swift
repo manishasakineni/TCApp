@@ -161,7 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.customizedLaunchScreenView?.addSubview(codedLabel)
         self.window?.addSubview(self.customizedLaunchScreenView!)
         self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-    UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
+        UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
         animations: { () -> Void in
         self.customizedLaunchScreenView?.alpha = 0 },
         completion: { _ in
@@ -259,6 +259,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 extension String {
     
     func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
