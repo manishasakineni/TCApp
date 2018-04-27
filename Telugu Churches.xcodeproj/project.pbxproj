@@ -213,6 +213,7 @@
 		CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03C8E0203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift */; };
 		CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB08BC5B203E87E000E232F2 /* HeadImgTableViewCell.swift */; };
 		CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */; };
+		CB0C258D209323EC00AD8518 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0C258C209323EC00AD8518 /* UserNotifications.framework */; };
 		CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */; };
 		CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */; };
 		CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92420613B9F00007D9C /* CommentsCell.swift */; };
@@ -514,6 +515,7 @@
 		CB03C8E0203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByUserIdMonthYearResultVo.swift; sourceTree = "<group>"; };
 		CB08BC5B203E87E000E232F2 /* HeadImgTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadImgTableViewCell.swift; sourceTree = "<group>"; };
 		CB08BC5C203E87E000E232F2 /* HeadImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadImgTableViewCell.xib; sourceTree = "<group>"; };
+		CB0C258C209323EC00AD8518 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordResult.swift; sourceTree = "<group>"; };
 		CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSWMessageTypeResult.swift; sourceTree = "<group>"; };
 		CB19E92420613B9F00007D9C /* CommentsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB0C258D209323EC00AD8518 /* UserNotifications.framework in Frameworks */,
 				CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */,
 				CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */,
 				2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */,
@@ -1294,6 +1297,7 @@
 		B479AB571936CD8C6FA5D596 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C258C209323EC00AD8518 /* UserNotifications.framework */,
 				CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */,
 				CB1E30BD203425EE009FB001 /* Localize.framework */,
 				CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */,

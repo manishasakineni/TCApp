@@ -16,6 +16,7 @@ import IQKeyboardManagerSwift
 import SystemConfiguration
 import Localize
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,12 +31,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         FirebaseApp.configure()
      
-        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
-        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-        application.registerForRemoteNotifications()
-        application.registerUserNotificationSettings(notificationsettings)
+//        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+//        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+//        application.registerForRemoteNotifications()
+//        application.registerUserNotificationSettings(notificationsettings)
+//        
         
-        
+        if #available(iOS 10, *) {
+            
+            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
+            
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                
+                guard error == nil else {
+                    //Display Error.. Handle Error.. etc..
+                    return
+                }
+                
+                if granted {
+                    //Do stuff here..
+                    // For iOS 10 display notification (sent via APNS)
+                    UNUserNotificationCenter.current().delegate = self
+                    //FIRMessaging.messaging().remoteMessageDelegate = self
+                    
+                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
+                    application.registerForRemoteNotifications()
+                }
+                else {
+                    //Handle user denying permissions..
+                }
+            }
+            
+            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
+        }
+        else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        }
         
         
         let localize = Localize.shared
@@ -252,11 +286,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        
-        print("MessageID : \(userInfo["gcd_message_ID"]!)")
-        print(userInfo)
-    }
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+//        
+//        print("MessageID : \(userInfo["gcd_message_ID"]!)")
+//        print(userInfo)
+//    }
 
 }
 
@@ -288,3 +322,75 @@ extension UILabel {
 }
 }
 
+
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        // Print message ID.
+        print("aps: \(userInfo)")
+        // Showing notification in a popup
+        completionHandler([.badge, .alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // Called to let your app know which action was selected by the user for a given notification.
+        let userInfo = response.notification.request.content.userInfo
+        
+        print(userInfo)
+        
+//        // Print all of userInfo
+//        for (key, value) in userInfo {
+//            print("userInfo: \(key) —> value = \(value)")
+//        }
+//        
+//        if let info = userInfo["aps"] as? Dictionary<String, AnyObject> {
+//            // Default printout of info = userInfo["aps"]
+//            print("All of info: \n\(info)\n")
+//            
+//            for (key, value) in info {
+//                print("APS: \(key) —> \(value)")
+//            }
+//            
+//            
+//            if  let myType = info["type"] as? String {
+//                // Printout of (userInfo["aps"])["type"]
+//                print("\nFrom APS-dictionary with key \"type\":  \( myType)")
+//                
+//                // Do your stuff?
+//            }
+//        }
+//    
+        
+        
+        if let currentNavigationController = UIApplication.shared.delegate?.window??.rootViewController as? SWRevealViewController {
+            
+            let roootNavigation = currentNavigationController.frontViewController as? UINavigationController
+            
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            
+            
+            
+            let allOrdersDetailsVC = mainStoryboard.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
+            
+            allOrdersDetailsVC.catgoryID = 8
+            
+            
+            roootNavigation?.pushViewController(allOrdersDetailsVC, animated: true)
+            
+            
+        }
+        
+   
+        completionHandler()
+    }
+    
+    
+    
+}
