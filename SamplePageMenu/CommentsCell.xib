@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a public comment..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BX7-zB-37R">
-                                <rect key="frame" x="50" y="32" width="232" height="62"/>
+                                <rect key="frame" x="50" y="32" width="232" height="43"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -88,11 +88,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oS-ON-b9J">
+                                <rect key="frame" x="24" y="0.0" width="256" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J7Y-Nw-m8d" firstAttribute="centerY" secondItem="lZT-rg-ocl" secondAttribute="centerY" id="5xU-My-jjf"/>
-                            <constraint firstAttribute="bottom" secondItem="BX7-zB-37R" secondAttribute="bottom" id="6BI-oI-aXx"/>
+                            <constraint firstAttribute="bottom" secondItem="BX7-zB-37R" secondAttribute="bottom" constant="18.5" id="6BI-oI-aXx"/>
                             <constraint firstItem="lZT-rg-ocl" firstAttribute="leading" secondItem="HZF-XQ-1JS" secondAttribute="leading" constant="8" id="BXJ-yM-M8U"/>
                             <constraint firstItem="48T-LN-Kxm" firstAttribute="top" secondItem="uKQ-Ep-AZ3" secondAttribute="bottom" constant="10" id="D8o-hi-Z4Q"/>
                             <constraint firstItem="ero-Jb-T3z" firstAttribute="leading" secondItem="BX7-zB-37R" secondAttribute="trailing" constant="8" id="PCj-hr-gV7"/>
@@ -122,6 +127,7 @@
             <connections>
                 <outlet property="backGroundView" destination="HZF-XQ-1JS" id="Mvv-7n-87x"/>
                 <outlet property="commentCountLab" destination="J7Y-Nw-m8d" id="He8-jq-708"/>
+                <outlet property="commentTWBtn" destination="4oS-ON-b9J" id="osD-tt-7mh"/>
                 <outlet property="commentTexView" destination="BX7-zB-37R" id="8br-Eu-32I"/>
                 <outlet property="sendBtn" destination="ero-Jb-T3z" id="IUN-gp-XQL"/>
                 <outlet property="userImageView" destination="Yhf-1f-NyF" id="Ykc-0Z-Upj"/>

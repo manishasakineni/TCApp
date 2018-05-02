@@ -41,6 +41,9 @@ class UsersCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var viewCommentsBtnHeight: NSLayoutConstraint!
     
     
+    @IBOutlet weak var editCommentBn: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

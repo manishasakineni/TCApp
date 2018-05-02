@@ -12,7 +12,7 @@ class AddUpdateCommentsVo: Mappable {
     
     
     var listResult : String?
-    var result : [ResultVo]?
+    var result : ResultVo?
 
     var isSuccess    : Bool?
     var totalRecords : Int?
@@ -25,7 +25,7 @@ class AddUpdateCommentsVo: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : String?,result : [ResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : String?,result : ResultVo?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
         self.listResult = listResult
         self.result = result

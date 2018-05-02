@@ -20,6 +20,10 @@ class CommentsCell: UITableViewCell {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    
+    @IBOutlet weak var commentTWBtn: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

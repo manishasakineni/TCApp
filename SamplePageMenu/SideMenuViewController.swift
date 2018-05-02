@@ -447,6 +447,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
     self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
+        
                 self.menuTableView.reloadData()
         })
         actionSheet.addAction(languageAction)
