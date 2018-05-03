@@ -8,41 +8,72 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Localize.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-Telugu Churches.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -72,12 +103,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C6A67AEE3E6B718E4E1EDA59AEF6259B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>CA1629C533A1379A2F9B68E8326C13E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6EB7572FEC602202FAF7D6004E3FC65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D86160097C21612A40EF5EE2E25BECA5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E297D872B3908970ACA61548A81DF08F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7F76A16BEADFBC86217796289740718</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC786D720EA4DC73710F3C1127D1C216</key>
 		<dict>
 			<key>primary</key>
 			<true/>

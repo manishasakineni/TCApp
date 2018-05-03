@@ -38,6 +38,8 @@
 		3D355D26205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D355D24205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift */; };
 		3D355D27205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D355D25205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib */; };
 		3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */; };
+		3D3D5D62209B1C4D00603068 /* ReplayCommentListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */; };
+		3D3D5D64209B293700603068 /* ReplayCommentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D5D63209B293700603068 /* ReplayCommentVO.swift */; };
 		3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */; };
 		3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */; };
 		3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41C7F62063B9850086BEE7 /* youtubeCLDSSCell.swift */; };
@@ -329,6 +331,8 @@
 		3D355D24205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorEventsCalenderTableViewCell.swift; sourceTree = "<group>"; };
 		3D355D25205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsCalenderTableViewCell.xib; sourceTree = "<group>"; };
 		3D355D28205BCD9000FE67D8 /* AuthorEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorEventsViewController.xib; sourceTree = "<group>"; };
+		3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayCommentListResultVO.swift; sourceTree = "<group>"; };
+		3D3D5D63209B293700603068 /* ReplayCommentVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayCommentVO.swift; sourceTree = "<group>"; };
 		3D41C7F12063771C0086BEE7 /* UsersCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		3D41C7F22063771C0086BEE7 /* UsersCommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersCommentsTableViewCell.xib; sourceTree = "<group>"; };
 		3D41C7F62063B9850086BEE7 /* youtubeCLDSSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = youtubeCLDSSCell.swift; sourceTree = "<group>"; };
@@ -990,6 +994,8 @@
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
+				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
+				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -1529,8 +1535,8 @@
 		CB3226D3202C95C20050D06B /* GetProfileInfo */ = {
 			isa = PBXGroup;
 			children = (
-				CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */,
 				CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */,
+				CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */,
 			);
 			name = GetProfileInfo;
 			sourceTree = "<group>";
@@ -1949,6 +1955,7 @@
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				CB035970205FBC15008FD878 /* AdminMonthEventListCell.swift in Sources */,
+				3D3D5D62209B1C4D00603068 /* ReplayCommentListResultVO.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
@@ -2073,6 +2080,7 @@
 				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,
 				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
+				3D3D5D64209B293700603068 /* ReplayCommentVO.swift in Sources */,
 				3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* YoutubePlayerCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,

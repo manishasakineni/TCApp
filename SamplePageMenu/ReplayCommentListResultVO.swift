@@ -1,15 +1,16 @@
 //
-//  CommentDetailsVo.swift
+//  ReplayCommentListResultVO.swift
 //  Telugu Churches
 //
-//  Created by CalibrageMac02 on 02/04/18.
+//  Created by N@n!'$ Mac on 03/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import Foundation
 
-
-class CommentDetailsVo: Mappable {
+class ReplayCommentListResultVO: Mappable {
+    
+   
     
     var id : Int?
     var postId : Int?
@@ -58,3 +59,4 @@ class CommentDetailsVo: Mappable {
     
     
 }
+

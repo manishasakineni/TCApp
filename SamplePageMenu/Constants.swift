@@ -69,7 +69,7 @@ let CHURCHAUTHORSUBSCIPTIONAPI : String = BASEURL.appending("api/Church/ChurchAu
 
 let GETBIBLEAPITELUGUURL : String = "http://192.168.1.121/TeluguChurches/api/BibleChapter/GetBibleChapter/"
 
-let LIKEDISLIKECOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostById/")
+let LIKEDISLIKECOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostByPostId/")
 
 let ADDUPDATECOMMENTAPI : String = BASEURL.appending("api/Post/AddUpdateComments")
 
@@ -80,6 +80,10 @@ let GETPOSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/
 let EVENTSLIKEDISLIKEAPI : String = BASEURL.appending("api/Events/EventLikeOrDisLike")
 
 let EVENTCOMMENTAPI : String = BASEURL.appending("api/Events/AddUpdateEventComments")
+
+let VIDEOVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
+
+let EVENTVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
@@ -124,7 +128,6 @@ struct ScreenSize {
     static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
     
 }
-
 
 
 

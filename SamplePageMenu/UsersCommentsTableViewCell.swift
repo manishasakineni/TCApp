@@ -17,6 +17,7 @@ class UsersCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var usersCommentLbl: UILabel!
     
     
+    @IBOutlet weak var replayCountLbl: UILabel!
     @IBOutlet weak var readMoreBtn: UIButton!
     
     

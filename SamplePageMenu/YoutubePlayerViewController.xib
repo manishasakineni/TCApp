@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,7 +51,7 @@
                         <constraint firstAttribute="height" constant="200" id="0Bd-nv-VSE"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7P-vC-tgF">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7P-vC-tgF">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="TJy-5A-eN7">
@@ -79,7 +79,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="7CR-QP-hXP" firstAttribute="top" secondItem="J7P-vC-tgF" secondAttribute="top" constant="9" id="1ah-nb-W5A"/>
                         <constraint firstItem="TJy-5A-eN7" firstAttribute="top" secondItem="J7P-vC-tgF" secondAttribute="top" constant="9" id="2cU-Ar-nmV"/>
