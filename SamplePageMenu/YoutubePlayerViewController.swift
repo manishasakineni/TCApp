@@ -74,7 +74,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var readMoreBtnIsHidden = true
     
 
-   
+   var replyMainComment = ""
+   var replyMainCommentUser = ""
     
     var usersCommentsArray = Array<Any>()
     var CommentsByUserArray = Array<Any>()
@@ -600,10 +601,13 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                usersCommentsTableViewCell.replyCommentBtn.isHidden = false
                     
-                    
-                    
-               usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.8273780942, green: 0.8274977207, blue: 0.8273518682, alpha: 0.825395976)
-                    
+               usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+               usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                    if replyCountArray.count > 0{
+                usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+                    }
+               usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
+             //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
                     return usersCommentsTableViewCell
                 }
                 
@@ -746,7 +750,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
           // self.parentCommentId = self.parentCommentIdArray[indexPath.row]
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
             
-            
+           
            usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
             
             let commentString = usersCommentsArray[indexPath.row] as? String
@@ -798,7 +802,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             let replyCount : Int = replyCountArray[indexPath.row] as! Int
             
-            usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+          //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
             usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
             
@@ -1529,6 +1533,15 @@ func  unLikeButtonClick(_ sendre:UIButton) {
 //                self.activeTextView.becomeFirstResponder()
 //                
 //            })
+            let indexPath = IndexPath(item: sender.tag, section: 3)
+            
+            if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
+                
+                self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
+                self.replyMainCommentUser = self.CommentsByUserArray[sender.tag] as! String
+                
+            }
+            
             
             self.allOffersTableView.endEditing(true)
             
@@ -1636,14 +1649,19 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             self.editUserID = Int(usersCommentsTableViewCell.usersLikeCoubtLbl.text!)!
    
         }
+        
         if self.ID == self.editUserID {
         
         let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
+                
+                
             })
             let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+                
+                
                 
             })
             
@@ -1840,7 +1858,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                     }
                     else {
                         
-                        self.repliesCommentsUsernamesArray.append(listResults.comment!)
+                        self.repliesCommentsUsernamesArray.append(listResults.commentByUser!)
                     }
                     
                     
