@@ -1640,15 +1640,17 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func editCommentBnClicked(sender : UIButton){
         
-        let indexPath = IndexPath(item: sender.tag, section: 3)
+//        let indexPath = IndexPath(item: sender.tag, section: 3)
+//        
+//        if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
+// 
+//            self.editUserID = Int(usersCommentsTableViewCell.usersLikeCoubtLbl.text!)!
+//   
+//        }
         
-        if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
-            
-          //  usersCommentsTableViewCell.resetPasswordTF.isSecureTextEntry = !forgotPasswordCell.resetPasswordTF.isSecureTextEntry
-            
-            self.editUserID = Int(usersCommentsTableViewCell.usersLikeCoubtLbl.text!)!
-   
-        }
+        self.editUserID = self.commentingIdArray[sender.tag]
+        
+        
         
         if self.ID == self.editUserID {
         
@@ -1656,9 +1658,21 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
             let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
+   
+                let indexPath3 = IndexPath(item: 0, section: 2)
                 
+                
+                self.allOffersTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
+                
+                if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
+ 
+                    commentsCell.commentTexView.text = self.usersCommentsArray[sender.tag] as! String
+                    commentsCell.commentTexView.becomeFirstResponder()
+                }
+   
                 
             })
+            
             let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
                 
