@@ -23,7 +23,7 @@ class EventCommentVOO: Mappable {
     var exception : Any?
     
     
-    init(listResult: [EventCommentListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
+    init(listResult: [EventCommentListResultVOO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         
         
     {
