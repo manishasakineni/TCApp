@@ -563,26 +563,53 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     
     
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
+//        
+//        
+//        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+//        
+//        eventDetailsViewController.eventID = churchIdMonthYearList.id!
+//        eventDetailsViewController.eventChurchName = churchIdMonthYearList.churchName!
+//        eventDetailsViewController.eventName = churchIdMonthYearList.title!
+//        
+//        eventDetailsViewController.catgoryID = churchIdMonthYearList.churchId!
+//       // eventDetailsViewController.navigationStr = "navigationStr"
+//        
+//        self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+//        
+//    }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
+        let listStr:GetEventInfoByChurchIdMonthYearResultVo = churchIdMonthYearArray[indexPath.row]
         
         
-        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
-        eventDetailsViewController.eventID = churchIdMonthYearList.id!
-        eventDetailsViewController.eventChurchName = churchIdMonthYearList.churchName!
-        eventDetailsViewController.eventName = churchIdMonthYearList.title!
+        eventDetailsViewController.eventID = listStr.id!
+        eventDetailsViewController.eventChurchName = listStr.churchName!
+        eventDetailsViewController.eventName = listStr.title!
         
-        eventDetailsViewController.catgoryID = churchIdMonthYearList.churchId!
-       // eventDetailsViewController.navigationStr = "navigationStr"
+        
+        eventDetailsViewController.catgoryID = listStr.churchId!
+        eventDetailsViewController.navigationStr = "navigationStr"
+        
+        
+        if listStr.eventImage != nil {
+            eventDetailsViewController.eventImageArrayString = listStr.eventImage!
+
+        }
+        
         
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
         
+        
+        
     }
-    
-    
-    
     //MARK: -   Search Bar
     
  func updateSearchResults(for searchController: UISearchController)
@@ -607,6 +634,9 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     self.allEventTableView.reloadData()
         
     }
+    
+    
+    
     
 //    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 //        

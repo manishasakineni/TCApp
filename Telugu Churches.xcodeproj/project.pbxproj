@@ -235,6 +235,8 @@
 		CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92520613B9F00007D9C /* CommentsCell.xib */; };
 		CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19E92820613BAA00007D9C /* SubscribCell.swift */; };
 		CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB19E92920613BAA00007D9C /* SubscribCell.xib */; };
+		CB1B1BA720A17BE80093C9FF /* PostEventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1B1BA620A17BE80093C9FF /* PostEventDetailsViewController.swift */; };
+		CB1B1BA920A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1B1BA820A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift */; };
 		CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BD203425EE009FB001 /* Localize.framework */; };
 		CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */; };
 		CB1E30C220343F23009FB001 /* lang-te.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C120343F23009FB001 /* lang-te.json */; };
@@ -552,6 +554,8 @@
 		CB19E92520613B9F00007D9C /* CommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
 		CB19E92820613BAA00007D9C /* SubscribCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribCell.swift; sourceTree = "<group>"; };
 		CB19E92920613BAA00007D9C /* SubscribCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribCell.xib; sourceTree = "<group>"; };
+		CB1B1BA620A17BE80093C9FF /* PostEventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEventDetailsViewController.swift; sourceTree = "<group>"; };
+		CB1B1BA820A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsAndEventPostDetailsViewController.swift; sourceTree = "<group>"; };
 		CB1E30BD203425EE009FB001 /* Localize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Localize.framework; path = "../../Library/Developer/Xcode/DerivedData/Telugu_Churches-ehialcnkpmttdzfzlawdvzxzpmib/Build/Products/Debug-iphonesimulator/Localize/Localize.framework"; sourceTree = "<group>"; };
 		CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CB1E30C120343F23009FB001 /* lang-te.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-te.json"; sourceTree = "<group>"; };
@@ -934,7 +938,9 @@
 		3DD30F63205FF0190076B0DB /* EventDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CB1B1BA820A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift */,
 				3DD30F5C205FDF400076B0DB /* EventDetailsViewController.swift */,
+				CB1B1BA620A17BE80093C9FF /* PostEventDetailsViewController.swift */,
 			);
 			name = EventDetailsViewController;
 			sourceTree = "<group>";
@@ -2141,6 +2147,7 @@
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
 				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
+				CB1B1BA720A17BE80093C9FF /* PostEventDetailsViewController.swift in Sources */,
 				3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
@@ -2175,6 +2182,7 @@
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,
 				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
+				CB1B1BA920A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,

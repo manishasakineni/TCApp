@@ -165,14 +165,16 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         let listStr:GetUpComingEventInfoResultVo = upComingEventinfoArray[indexPath.row]
         
         
-        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
         eventDetailsViewController.eventID = listStr.id!
         eventDetailsViewController.eventChurchName = listStr.churchName!
         eventDetailsViewController.eventName = listStr.title!
+
         
         eventDetailsViewController.catgoryID = listStr.churchId!
         eventDetailsViewController.navigationStr = "navigationStr"
+        eventDetailsViewController.eventImageArrayString = listStr.eventImage!
         
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
         
