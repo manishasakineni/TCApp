@@ -85,6 +85,27 @@ let VIDEOVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommen
 
 let EVENTVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
 
+
+// :-   7/05/2018
+
+// GET
+
+let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
+
+// GET
+
+let POSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
+
+// post
+
+let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
+
+// post
+
+let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
+
+
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

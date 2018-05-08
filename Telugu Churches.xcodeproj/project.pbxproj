@@ -194,6 +194,17 @@
 		AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */; };
 		AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */; };
 		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
+		AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */; };
+		AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */; };
+		AF7C2E3320A04F8A003D623F /* EventByIdCommentDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3220A04F8A003D623F /* EventByIdCommentDetailsVO.swift */; };
+		AF7C2E3520A063AD003D623F /* PostByEventIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3420A063AD003D623F /* PostByEventIdVO.swift */; };
+		AF7C2E3720A063C6003D623F /* PostByEventIdResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3620A063C6003D623F /* PostByEventIdResultInfoVO.swift */; };
+		AF7C2E3920A0645B003D623F /* PostByEventImageVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3820A0645B003D623F /* PostByEventImageVO.swift */; };
+		AF7C2E3B20A07CA4003D623F /* PostByChurchIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3A20A07CA4003D623F /* PostByChurchIDVO.swift */; };
+		AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */; };
+		AF7C2E3F20A08222003D623F /* PostByAutorIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */; };
+		AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */; };
+		AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */; };
 		AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */; };
 		AFE9A05E207F334D001CEE7A /* EventLikeorDislikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */; };
 		AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05F207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift */; };
@@ -500,6 +511,17 @@
 		AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellIResultVo.swift; sourceTree = "<group>"; };
 		AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsVerseViewController.swift; sourceTree = "<group>"; };
 		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
+		AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdInfoVo.swift; sourceTree = "<group>"; };
+		AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdEventDetailsVO.swift; sourceTree = "<group>"; };
+		AF7C2E3220A04F8A003D623F /* EventByIdCommentDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdCommentDetailsVO.swift; sourceTree = "<group>"; };
+		AF7C2E3420A063AD003D623F /* PostByEventIdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByEventIdVO.swift; sourceTree = "<group>"; };
+		AF7C2E3620A063C6003D623F /* PostByEventIdResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByEventIdResultInfoVO.swift; sourceTree = "<group>"; };
+		AF7C2E3820A0645B003D623F /* PostByEventImageVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByEventImageVO.swift; sourceTree = "<group>"; };
+		AF7C2E3A20A07CA4003D623F /* PostByChurchIDVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByChurchIDVO.swift; sourceTree = "<group>"; };
+		AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByChurchIDResultInfoVO.swift; sourceTree = "<group>"; };
+		AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdVO.swift; sourceTree = "<group>"; };
+		AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdResultInfoVO.swift; sourceTree = "<group>"; };
+		AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdVo.swift; sourceTree = "<group>"; };
 		AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeInfoVO.swift; sourceTree = "<group>"; };
 		AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeResultVO.swift; sourceTree = "<group>"; };
 		AFE9A05F207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeLikeResultVO.swift; sourceTree = "<group>"; };
@@ -1000,8 +1022,11 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
-				3D4A0FC7209C9F0800B7BDCD /* EventCommentVOO.swift */,
-				3D4A0FC8209C9F0800B7BDCD /* EventCommentListResultVOO.swift */,
+				AF7C2E4220A08636003D623F /* EventCommentVOO */,
+				AF7C2E4320A08665003D623F /* EventByIdVo */,
+				AF7C2E4420A08693003D623F /* PostByEventIdVO */,
+				AF7C2E4520A0870F003D623F /* PostByChurchIDResultInfoVO */,
+				AF7C2E4620A0873A003D623F /* PostByAutorIdVO */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -1285,6 +1310,54 @@
 				AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */,
 			);
 			name = BibleBookVO;
+			sourceTree = "<group>";
+		};
+		AF7C2E4220A08636003D623F /* EventCommentVOO */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A0FC7209C9F0800B7BDCD /* EventCommentVOO.swift */,
+				3D4A0FC8209C9F0800B7BDCD /* EventCommentListResultVOO.swift */,
+			);
+			name = EventCommentVOO;
+			sourceTree = "<group>";
+		};
+		AF7C2E4320A08665003D623F /* EventByIdVo */ = {
+			isa = PBXGroup;
+			children = (
+				AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */,
+				AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */,
+				AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */,
+				AF7C2E3220A04F8A003D623F /* EventByIdCommentDetailsVO.swift */,
+			);
+			name = EventByIdVo;
+			sourceTree = "<group>";
+		};
+		AF7C2E4420A08693003D623F /* PostByEventIdVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF7C2E3420A063AD003D623F /* PostByEventIdVO.swift */,
+				AF7C2E3820A0645B003D623F /* PostByEventImageVO.swift */,
+				AF7C2E3620A063C6003D623F /* PostByEventIdResultInfoVO.swift */,
+			);
+			name = PostByEventIdVO;
+			sourceTree = "<group>";
+		};
+		AF7C2E4520A0870F003D623F /* PostByChurchIDResultInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */,
+				AF7C2E3A20A07CA4003D623F /* PostByChurchIDVO.swift */,
+			);
+			name = PostByChurchIDResultInfoVO;
+			sourceTree = "<group>";
+		};
+		AF7C2E4620A0873A003D623F /* PostByAutorIdVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */,
+				AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */,
+			);
+			name = PostByAutorIdVO;
 			sourceTree = "<group>";
 		};
 		AFE9A05A207F3210001CEE7A /* EventLikeorDislike */ = {
@@ -1922,6 +1995,7 @@
 				359CC92E2062772F0061450A /* BibleVerseViewController.swift in Sources */,
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
+				AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */,
 				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
 				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
 				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
@@ -1930,6 +2004,7 @@
 				3D5852D620725D1500994FC2 /* LikeDislikeCountVO.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
 				AFE9A063207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift in Sources */,
+				AF7C2E3720A063C6003D623F /* PostByEventIdResultInfoVO.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
@@ -1990,6 +2065,7 @@
 				AFE9A065207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
+				AF7C2E3320A04F8A003D623F /* EventByIdCommentDetailsVO.swift in Sources */,
 				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
 				3D4A0FCA209C9F0800B7BDCD /* EventCommentListResultVOO.swift in Sources */,
 				3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */,
@@ -2007,6 +2083,8 @@
 				9AF564992020944800AEA0EF /* ChangePassWordViewController.swift in Sources */,
 				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
 				359CC92C206277020061450A /* BibleChaptersViewController.swift in Sources */,
+				AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */,
+				AF7C2E3920A0645B003D623F /* PostByEventImageVO.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */,
@@ -2042,6 +2120,8 @@
 				3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */,
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
 				AF2EB528206DFC60009B3B75 /* BibleDetailsCellViewController.swift in Sources */,
+				AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */,
+				AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
@@ -2066,6 +2146,7 @@
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */,
 				3D5357DC207253F300B8AB94 /* LikeDislikeVO.swift in Sources */,
+				AF7C2E3F20A08222003D623F /* PostByAutorIdVO.swift in Sources */,
 				CB2879A3205A4165005F3168 /* CategoriesListResultVo.swift in Sources */,
 				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
@@ -2104,6 +2185,7 @@
 				3D504581208078E800351662 /* EventCommentsVO.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
+				AF7C2E3520A063AD003D623F /* PostByEventIdVO.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* YoutubePlayerViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				AF2EB526206DFAC2009B3B75 /* BibleDetailsResultVO.swift in Sources */,
@@ -2111,6 +2193,7 @@
 				AF2EB51F206DF9B4009B3B75 /* BibleDetailsViewController.swift in Sources */,
 				CB21CE65203DA62700B3294B /* GetChurchByIDVo.swift in Sources */,
 				3D927B89205BA4AE004A7D45 /* AuthorEventDateCountInfoVO.swift in Sources */,
+				AF7C2E3B20A07CA4003D623F /* PostByChurchIDVO.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
 				CB3794DF20594E9D002D3638 /* VideoSongsVo.swift in Sources */,
 				3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */,
@@ -2125,6 +2208,7 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
+				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,
 				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,
