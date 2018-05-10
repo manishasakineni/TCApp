@@ -122,10 +122,10 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
             cell.eventEndDate.text =  returnEventDateWithoutTime(selectedDateString : eventEndDate)
         }else{
         }
-        if let registrationNumber = listStr.registrationNumber {
-            cell.registrationNumber.text =  registrationNumber
-        }else{
-        }
+//        if let registrationNumber = listStr.registrationNumber {
+//            cell.registrationNumber.text =  registrationNumber
+//        }else{
+//        }
         
         
         let imgUrl = listStr.eventImage

@@ -17,7 +17,7 @@ class UpComingEventCell: UITableViewCell {
     @IBOutlet weak var eventStart: UILabel!
     
     @IBOutlet weak var eventEndDate: UILabel!
-    @IBOutlet weak var registrationNumber: UILabel!
+  //  @IBOutlet weak var registrationNumber: UILabel!
     
     @IBOutlet weak var eventImage: UIImageView!
     

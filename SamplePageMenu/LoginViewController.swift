@@ -15,6 +15,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
       @IBOutlet weak var mobileEmailTF: AkiraTextField!
     
+    @IBOutlet weak var forgotPWDView: UIView!
+    
+    
+    @IBOutlet weak var transparentView: UIView!
+    
     @IBOutlet weak var passwordTF: AkiraTextField!
 
     @IBOutlet weak var remembermeBtn: UIButton!
@@ -22,6 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var eyeBtnOutlet: UIButton!
     @IBOutlet weak var loginBtnOutLet: UIButton!
     
+    @IBOutlet weak var forgotEmailTF: AkiraTextField!
     
     @IBOutlet weak var loginLabel: UILabel!
     
@@ -73,6 +79,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.keyboardType = .emailAddress
 
         loginLabel.text = "Login".localize()
+        
+        forgotPWDView.isHidden = true
+        transparentView.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -267,13 +276,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
             let strUrl = LOGINURL
+        
+        let deviceId : String = kUserDefaults.value(forKey: "DeviceID") as! String
 
         let dictParams = [
             "userName": email!,
             "password": password!,
+            "deviceId": deviceId
             ] as [String : Any]
         
         print("dic params \(dictParams)")
+        
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
@@ -399,9 +412,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func forgotPasswordClicked(_ sender: Any) {
         
     
-        let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+//        let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+//        
+//        self.navigationController?.pushViewController(forgotPassWordViewController, animated: true)
+       
+     //   UIView.animate(withDuration: 1, animations: { // 3.0 are the seconds
+            
+            // Write your code here for e.g. Increasing any Subviews height.
+            self.forgotPWDView.isHidden = false
+            self.transparentView.isHidden = false
+            
+            
+//            self.view.layoutIfNeeded()
+//            
+//        })
         
-        self.navigationController?.pushViewController(forgotPassWordViewController, animated: true)
+        
     
         
         
@@ -462,6 +488,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alertView.message=message
         alertView.addButton(withTitle: buttonTitle)
         alertView.show()
+    }
+    
+    
+    @IBAction func forgotPWDSubmitAction(_ sender: Any) {
+        
+        forgotPWDView.isHidden = true
+        transparentView.isHidden = true
     }
     
     

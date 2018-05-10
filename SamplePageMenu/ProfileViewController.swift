@@ -183,9 +183,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             
     serviceController.getRequest(strURL:strUrl, success:{(result) in
-    DispatchQueue.main.async()
         
-        {
+    DispatchQueue.main.async(){
                         
                         
         print("result:\(result)")
@@ -208,6 +207,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.lastName = (respVO.listResult?[0].Lastname)!
         self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
         self.email = (respVO.listResult?[0].Email)!
+      //  self.DOB = (respVO.listResult?[0].dob)!
                             
         var userImgURL : String = ""
         userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
@@ -825,7 +825,7 @@ else {
         let  updateProfileAPI : String = EDITPROFILEURL
         
         
-         var imageData = UIImagePNGRepresentation(profileimage)
+         let imageData = UIImagePNGRepresentation(profileimage)
         
          base64String = (imageData?.base64EncodedString())!
     
@@ -870,7 +870,7 @@ else {
         {
                     
         print("result:\(result)")
-                    
+            
         let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
                     
                     
@@ -878,7 +878,7 @@ else {
                     
                     
         let statusCode = respVO.isSuccess
-                    
+                     
         print("StatusCode:\(String(describing: statusCode))")
                     
         if statusCode == true

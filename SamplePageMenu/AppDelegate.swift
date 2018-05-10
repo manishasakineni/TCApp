@@ -16,6 +16,7 @@ import IQKeyboardManagerSwift
 import SystemConfiguration
 import Localize
 import Firebase
+import FirebaseMessaging
 import UserNotifications
 
 @UIApplicationMain
@@ -73,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        printFCMToken()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
+                                               name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
+        
         let localize = Localize.shared
         localize.update(provider: .json)
         localize.update(fileName: "lang")
@@ -106,7 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            appDelegate.window?.rootViewController = newController
 //            lunchScreenView()
 //        }
-        return true
+        
+               return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -131,6 +137,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        // receiving FCM token
+        
+        
+        
+        Messaging.messaging().apnsToken = deviceToken
+        
+           }
+    
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error){
+        print("i am not available in simulator \(error)")
+    }
+    
+    
+    func printFCMToken() {
+        if let token = InstanceID.instanceID().token() {
+            
+            print("Your FCM token is \(token)")
+            
+            kUserDefaults.setValue(token, forKey: "DeviceID")
+            kUserDefaults.synchronize()
+        } else {
+            print("You don't yet have an FCM token.")
+        }
+    }
+    
+    func tokenRefreshNotificaiton(_ notification: Foundation.Notification)
+    {
+        // Refreshing FCM token
+        
+        if let refreshedToken = InstanceID.instanceID().token()
+        {
+            UserDefaults.standard.setValue(refreshedToken, forKey: "DeviceID")
+            UserDefaults.standard.synchronize()
+            debugPrint("InstanceID token: \(refreshedToken)")
+        }
+        connectToFcm()
+    }
+    func connectToFcm()
+    {
+        // Won't connect since there is no token
+        guard InstanceID.instanceID().token() != nil else
+        {
+            return;
+        }
+        // Disconnect previous FCM connection if it exists.
+        Messaging.messaging().disconnect()
+        Messaging.messaging().connect { (error) in
+            if (error != nil)
+            {
+                debugPrint("Unable to connect with FCM. \(String(describing: error))")
+            }
+            else
+            {
+                debugPrint("Connected to FCM.")
+            }
+        }
+    }
+    
     
     
     // MARK: - Check Internet Connectivity

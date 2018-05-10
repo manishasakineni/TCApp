@@ -1319,7 +1319,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
         let dictParams = [
-            "id": 0,
+            "id": 1,
             "postId": self.postID,
             "description": textComment,
             "parentCommentId": self.parentCommentId,
