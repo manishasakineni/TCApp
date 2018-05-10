@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/LoginViewController.swift"
-            timestampString = "545995555.0538909"
+            filePath = "SamplePageMenu/EventDetailsViewController.swift"
+            timestampString = "547126142.183847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "loginClicked(_:)"
+            startingLineNumber = "1112"
+            endingLineNumber = "1112"
+            landmarkName = "commentSendBtnClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,14 +67,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/LoginViewController.swift"
-            timestampString = "545995560.745173"
+            filePath = "SamplePageMenu/ChurchDetailsViewController.swift"
+            timestampString = "547474210.564106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
+            startingLineNumber = "666"
+            endingLineNumber = "666"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -83,13 +83,106 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventDetailsViewController.swift"
-            timestampString = "547126142.183847"
+            filePath = "SamplePageMenu/InfoChurchViewControllers.swift"
+            timestampString = "547474934.443265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1112"
-            endingLineNumber = "1112"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "InfoChurchViewControllers"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.__deallocating_deinit"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "547563012.203733"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Telugu_Churches.InfoChurchViewControllers"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "547563012.206021"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Telugu_Churches.InfoChurchViewControllers"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "547563012.208238"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Telugu_Churches.InfoChurchViewControllers&gt;"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "547563012.210421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Telugu_Churches.InfoChurchViewControllers&gt;"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "547563012.212606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AuthorPostsViewController.swift"
+            timestampString = "547622112.077546"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

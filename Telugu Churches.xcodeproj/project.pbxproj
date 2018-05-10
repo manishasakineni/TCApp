@@ -173,6 +173,14 @@
 		AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */; };
 		AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */; };
 		AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */; };
+		AF0B5DF320A315D70039C7A4 /* authorAudioaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */; };
+		AF0B5DF420A315D70039C7A4 /* authorAudioaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */; };
+		AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */; };
+		AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */; };
+		AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */; };
+		AF0B5DFC20A3161D0039C7A4 /* authorImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */; };
+		AF0B5DFF20A3163E0039C7A4 /* authorDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */; };
+		AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */; };
 		AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102851203C25B10012411A /* InfoChurchViewControllers.swift */; };
 		AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */; };
 		AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102854203C25C10012411A /* InfoChurchViewControllers.xib */; };
@@ -492,6 +500,14 @@
 		AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoMapTableViewCell.xib; sourceTree = "<group>"; };
 		AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInfoTableViewCell.swift; sourceTree = "<group>"; };
 		AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutInfoTableViewCell.xib; sourceTree = "<group>"; };
+		AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorAudioaViewController.swift; sourceTree = "<group>"; };
+		AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorAudioaViewController.xib; sourceTree = "<group>"; };
+		AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorVedioViewController.swift; sourceTree = "<group>"; };
+		AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorVedioViewController.xib; sourceTree = "<group>"; };
+		AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorImagesViewController.swift; sourceTree = "<group>"; };
+		AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorImagesViewController.xib; sourceTree = "<group>"; };
+		AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorDocumentsViewController.swift; sourceTree = "<group>"; };
+		AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorDocumentsViewController.xib; sourceTree = "<group>"; };
 		AF102851203C25B10012411A /* InfoChurchViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChurchViewControllers.swift; sourceTree = "<group>"; };
 		AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchesInformaationViewControllers.swift; sourceTree = "<group>"; };
 		AF102854203C25C10012411A /* InfoChurchViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoChurchViewControllers.xib; sourceTree = "<group>"; };
@@ -1755,6 +1771,14 @@
 			isa = PBXGroup;
 			children = (
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
+				AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */,
+				AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */,
+				AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */,
+				AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */,
+				AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */,
+				AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */,
+				AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */,
+				AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */,
 			);
 			name = SignUpViewController;
 			sourceTree = "<group>";
@@ -1839,6 +1863,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */,
+				AF0B5DF420A315D70039C7A4 /* authorAudioaViewController.xib in Resources */,
 				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
@@ -1848,6 +1874,7 @@
 				AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */,
 				3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */,
 				9A5D262B1FFF8A2F00316988 /* PriceSortCell.xib in Resources */,
+				AF0B5DFC20A3161D0039C7A4 /* authorImagesViewController.xib in Resources */,
 				9A5D26331FFF8A3F00316988 /* SendMoneyToWalletCell.xib in Resources */,
 				CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */,
 				3D65D4B9200505F000CAB226 /* Loading.gif in Resources */,
@@ -1901,6 +1928,7 @@
 				9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
+				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
@@ -2018,6 +2046,7 @@
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
+				AF0B5DFF20A3163E0039C7A4 /* authorDocumentsViewController.swift in Sources */,
 				CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */,
 				CB2879A7205A425C005F3168 /* VideoResultVo.swift in Sources */,
 				CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */,
@@ -2078,6 +2107,7 @@
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
 				AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
+				AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */,
 				CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */,
 				3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */,
 				CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */,
@@ -2131,6 +2161,7 @@
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
+				AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
 				CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */,
@@ -2143,6 +2174,7 @@
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
 				3D5852DE2072694F00994FC2 /* PostDetailsVO.swift in Sources */,
+				AF0B5DF320A315D70039C7A4 /* authorAudioaViewController.swift in Sources */,
 				9A623B902021A7FB00A674F2 /* Reachability.swift in Sources */,
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
 				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,

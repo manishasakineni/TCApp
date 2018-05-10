@@ -13,14 +13,8 @@ class DetAndBillsViewController: UIViewController,UITableViewDelegate ,UITableVi
     @IBOutlet weak var detAndBillsTableView: UITableView!
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
-
     
-    
-    let imageView = ["bible2","bible8","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible2","bible7","bible6"]
-    
-    let imageView1 = ["bible6","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible7","bible1"]
-    
-
+      var imageArray = ["audioImg","BibleBook","calvary_cross","audioImg","BibleBook","audioImg","calvary_cross","audioImg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,70 +22,132 @@ class DetAndBillsViewController: UIViewController,UITableViewDelegate ,UITableVi
         detAndBillsTableView.delegate = self
         detAndBillsTableView.dataSource = self
         
+        let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
+        detAndBillsTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
         
-        registerTableViewCells()
+
         
         // Do any additional setup after loading the view.
     }
     
     
     
-    private func registerTableViewCells() {
-        
-        let nibName1  = UINib(nibName: "YoutubePlayerCell" , bundle: nil)
-        detAndBillsTableView.register(nibName1, forCellReuseIdentifier: "YoutubePlayerCell")
-        
-        
-    }
-    
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        
+   
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        
-        return imageView.count
-        
-    }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
-        return UITableViewAutomaticDimension
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        return imageArray.count
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
+        
+        
+        return 124
+    }
+    
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return UITableViewAutomaticDimension
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+        
+        cell.churchImage.image = UIImage(named: String(imageArray[indexPath.row]))
+        
+        
+        
+        
+        return cell
+        
+        
+    }
+  
+    
+    
+    
+    
+    func churchIdAPIService(){
+        
+        
+        let  EVENTCOMMENTSAPISTR = GETPOSTBYCHURCHIDAPI
+        
+        let params = ["pageIndex": 1,
+                      "pageSize": 100,
+                      "sortbyColumnName": "UpdatedDate",
+                      "sortDirection": "desc",
+                      "authorId": 1,
+                      "mediaTypeId": (Any).self
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            print("\(result)")
+            
+            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
+            print("responseString = \(respVO)")
+            
+            
+            let statusCode = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: statusCode))")
+            
+            if statusCode == true
+            {
+                
+                
+                let successMsg = respVO.endUserMessage
+                
+                
+                
+                
+            }
+                
+            else {
+                
+                let failMsg = respVO.endUserMessage
+                
+                
+                return
+                
+                
+                
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
     }
     
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        let youtubePlayerCell = tableView.dequeueReusableCell(withIdentifier: "YoutubePlayerCell", for: indexPath) as! YoutubePlayerCell
-        
-        
-        youtubePlayerCell.allOffersImageView.image = UIImage(named: String(imageView[indexPath.row]))
-        
-        
-        youtubePlayerCell.allOffersImg.image = UIImage(named: String(imageView1[indexPath.row]))
-        
 
-        
-        return youtubePlayerCell
-        
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
     
     
     

@@ -628,12 +628,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }else{
             }
             
-//            if let eventName =  churchIdMonthYearList.eventName {
-//                listOfMonthEventCell.eventTitle.text = eventName
-//            }else{
-//                listOfMonthEventCell.eventTitle.text = ""
-//            }
-            
+        
             if let contactNumber =  churchIdMonthYearList.contactNumber {
                 listOfMonthEventCell.contactNumber.text =  contactNumber
             }else{

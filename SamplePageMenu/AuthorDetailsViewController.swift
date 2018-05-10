@@ -81,8 +81,8 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
         authorPostsVC?.title = "Posts".localize()
-        authorPostsVC?.authorID = authorID
-        authorPostsVC?.delegate  = self
+        //authorPostsVC?.authorID = authorID
+        //authorPostsVC?.delegate  = self
         
         controllersArray.append(authorInfoVC!)
         controllersArray.append(authorEventsVC!)

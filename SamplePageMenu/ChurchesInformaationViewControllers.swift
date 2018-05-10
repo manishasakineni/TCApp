@@ -74,7 +74,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         allOffersVC?.churchName = nameStr
 
     
-        eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as? EventViewController
         eventInfoVC?.title = "Events".localize()
         eventInfoVC?.delegate  = self
         eventInfoVC?.pasterUserId = pasterUserId
@@ -84,8 +84,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
-        detAndBillsVC?.title = "Posts".localize()
-        detAndBillsVC?.delegate  = self
+    //    detAndBillsVC?.title = "Posts".localize()
+  //      detAndBillsVC?.delegate  = self
         
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
