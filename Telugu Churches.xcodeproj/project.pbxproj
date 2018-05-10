@@ -179,7 +179,7 @@
 		AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */; };
 		AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */; };
 		AF0B5DFC20A3161D0039C7A4 /* authorImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */; };
-		AF0B5DFF20A3163E0039C7A4 /* authorDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */; };
+		AF0B5DFF20A3163E0039C7A4 /* authorDocuments1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */; };
 		AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */; };
 		AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102851203C25B10012411A /* InfoChurchViewControllers.swift */; };
 		AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */; };
@@ -506,7 +506,7 @@
 		AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorVedioViewController.xib; sourceTree = "<group>"; };
 		AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorImagesViewController.swift; sourceTree = "<group>"; };
 		AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorImagesViewController.xib; sourceTree = "<group>"; };
-		AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorDocumentsViewController.swift; sourceTree = "<group>"; };
+		AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorDocuments1ViewController.swift; sourceTree = "<group>"; };
 		AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorDocumentsViewController.xib; sourceTree = "<group>"; };
 		AF102851203C25B10012411A /* InfoChurchViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChurchViewControllers.swift; sourceTree = "<group>"; };
 		AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchesInformaationViewControllers.swift; sourceTree = "<group>"; };
@@ -1302,6 +1302,21 @@
 			name = ChurchInformationViewController;
 			sourceTree = "<group>";
 		};
+		AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */,
+				AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */,
+				AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */,
+				AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */,
+				AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */,
+				AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */,
+				AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */,
+				AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */,
+			);
+			name = AuthorandChurchPostViewController;
+			sourceTree = "<group>";
+		};
 		AF1956E320048BBC007AC82A /* SideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1771,14 +1786,7 @@
 			isa = PBXGroup;
 			children = (
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
-				AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */,
-				AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */,
-				AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */,
-				AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */,
-				AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */,
-				AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */,
-				AF0B5DFD20A3163E0039C7A4 /* authorDocumentsViewController.swift */,
-				AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */,
+				AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */,
 			);
 			name = SignUpViewController;
 			sourceTree = "<group>";
@@ -2046,7 +2054,7 @@
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
-				AF0B5DFF20A3163E0039C7A4 /* authorDocumentsViewController.swift in Sources */,
+				AF0B5DFF20A3163E0039C7A4 /* authorDocuments1ViewController.swift in Sources */,
 				CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */,
 				CB2879A7205A425C005F3168 /* VideoResultVo.swift in Sources */,
 				CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */,

@@ -82,10 +82,13 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         eventInfoVC?.churcgname = nameStr
 
 
+        
+
+        
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
-    //    detAndBillsVC?.title = "Posts".localize()
-  //      detAndBillsVC?.delegate  = self
+        detAndBillsVC?.title = "Posts".localize()
+   //     detAndBillsVC?.delegate  = self
         
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
