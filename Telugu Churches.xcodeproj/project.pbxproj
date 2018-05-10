@@ -173,8 +173,6 @@
 		AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */; };
 		AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */; };
 		AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */; };
-		AF0B5DF320A315D70039C7A4 /* authorAudioaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */; };
-		AF0B5DF420A315D70039C7A4 /* authorAudioaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */; };
 		AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */; };
 		AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */; };
 		AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */; };
@@ -212,6 +210,8 @@
 		AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */; };
 		AF7C2E3F20A08222003D623F /* PostByAutorIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */; };
 		AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */; };
+		AF9769AB20A44C1F0037F34C /* authorAudioaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */; };
+		AF9769AC20A44C1F0037F34C /* authorAudioaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */; };
 		AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */; };
 		AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */; };
 		AFE9A05E207F334D001CEE7A /* EventLikeorDislikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */; };
@@ -500,8 +500,6 @@
 		AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoMapTableViewCell.xib; sourceTree = "<group>"; };
 		AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInfoTableViewCell.swift; sourceTree = "<group>"; };
 		AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutInfoTableViewCell.xib; sourceTree = "<group>"; };
-		AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorAudioaViewController.swift; sourceTree = "<group>"; };
-		AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorAudioaViewController.xib; sourceTree = "<group>"; };
 		AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorVedioViewController.swift; sourceTree = "<group>"; };
 		AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorVedioViewController.xib; sourceTree = "<group>"; };
 		AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorImagesViewController.swift; sourceTree = "<group>"; };
@@ -539,6 +537,8 @@
 		AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByChurchIDResultInfoVO.swift; sourceTree = "<group>"; };
 		AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdVO.swift; sourceTree = "<group>"; };
 		AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdResultInfoVO.swift; sourceTree = "<group>"; };
+		AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorAudioaViewController.swift; sourceTree = "<group>"; };
+		AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorAudioaViewController.xib; sourceTree = "<group>"; };
 		AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdVo.swift; sourceTree = "<group>"; };
 		AFE9A05B207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeInfoVO.swift; sourceTree = "<group>"; };
 		AFE9A05D207F334D001CEE7A /* EventLikeorDislikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLikeorDislikeResultVO.swift; sourceTree = "<group>"; };
@@ -1305,8 +1305,8 @@
 		AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AF0B5DF120A315D70039C7A4 /* authorAudioaViewController.swift */,
-				AF0B5DF220A315D70039C7A4 /* authorAudioaViewController.xib */,
+				AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */,
+				AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */,
 				AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */,
 				AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */,
 				AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */,
@@ -1872,7 +1872,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */,
-				AF0B5DF420A315D70039C7A4 /* authorAudioaViewController.xib in Resources */,
 				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
@@ -1914,6 +1913,7 @@
 				CB03C8CF203E8D15000B96A4 /* InformationTableViewCell.xib in Resources */,
 				3D355D23205BB62000FE67D8 /* AuthorListCountTableViewCell.xib in Resources */,
 				9A5D26271FFF8A2000316988 /* AddMoneyToWalletCell.xib in Resources */,
+				AF9769AC20A44C1F0037F34C /* authorAudioaViewController.xib in Resources */,
 				CBC1FB852052DBBE000063D4 /* ListOfMonthEventCell.xib in Resources */,
 				CBC1FB812052DBA6000063D4 /* AllEventHeaderCell.xib in Resources */,
 				CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */,
@@ -2182,7 +2182,7 @@
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
 				3D5852DE2072694F00994FC2 /* PostDetailsVO.swift in Sources */,
-				AF0B5DF320A315D70039C7A4 /* authorAudioaViewController.swift in Sources */,
+				AF9769AB20A44C1F0037F34C /* authorAudioaViewController.swift in Sources */,
 				9A623B902021A7FB00A674F2 /* Reachability.swift in Sources */,
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
 				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,

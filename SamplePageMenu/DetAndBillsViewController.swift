@@ -56,6 +56,8 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         
         createPageMenu()
         
+        churchIdAPIService()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -150,14 +152,13 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     func churchIdAPIService(){
         
         
-        let  EVENTCOMMENTSAPISTR = GETPOSTBYCHURCHIDAPI
         
         let params = ["pageIndex": 1,
                       "pageSize": 100,
                       "sortbyColumnName": "UpdatedDate",
                       "sortDirection": "desc",
                       "authorId": 1,
-                      "mediaTypeId": (Any).self
+                      "mediaTypeId": ""
             
             
             ] as [String : Any]
@@ -167,13 +168,13 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         let dictHeaders = ["":"","":""] as NSDictionary
         
         
-        serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: GETPOSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
             print("\(result)")
             
-            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
+            let respVO:PostByChurchIDVO = Mapper().map(JSONObject: result)!
             print("responseString = \(respVO)")
             
             

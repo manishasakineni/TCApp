@@ -18,7 +18,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     @IBOutlet weak var authorpostTableView: UITableView!
     
     
-    
+     var mediaTypeID : Int = 0
+    var PageIndex = 1
 
     
     var eventID = Int()
@@ -55,6 +56,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         super.viewDidLoad()
         
         createPageMenu()
+        
+        authorAPIService()
         
         // Do any additional setup after loading the view.
     }
@@ -116,10 +119,10 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                                 pageMenuOptions: parameters)
         
         pageMenu?.delegate = self
-        //self.addChildViewController(pageMenu!)
+        self.addChildViewController(pageMenu!)
         
         super.view.addSubview((pageMenu?.view)!)
-        //pageMenu?.didMove(toParentViewController: self)
+        pageMenu?.didMove(toParentViewController: self)
         
     }
     
@@ -138,106 +141,84 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
-      
-        
         print("Back Button Clicked......")
         
     }
     
-    //MARK: -    Home Left Button Tapped
+//MARK: -    Home Left Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
-//        UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-//        UserDefaults.standard.set("1", forKey: "1")
-//        UserDefaults.standard.synchronize()
-//        
-//        self.navigationController?.popViewController(animated: true)
-//        
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
-//        
-//        
-//        
-//        
-//        print("Home Button Clicked......")
+
 //        
     }
-    
-    
-    
- 
-    
     
 
     
    func authorAPIService(){
-//        
-//        
- //       let  EVENTCOMMENTSAPISTR = GETPOSTBYAUTHORIDAPI
-//        
-//        let params = ["pageIndex": 1,
-//                      "pageSize": 100,
-//                      "sortbyColumnName": "UpdatedDate",
-//                      "sortDirection": "desc",
-//                      "authorId": 2,
-//                      "mediaTypeId": (Any).self
-//            
-//            
-//            ] as [String : Any]
-//        
-//        print("dic params \(params)")
-//        
-//        let dictHeaders = ["":"","":""] as NSDictionary
-//        
-//        
-//        serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-//            
-//            print(result)
-//            
-//            print("\(result)")
-//            
-//            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
-//            print("responseString = \(respVO)")
-//            
-//            
-//            let statusCode = respVO.isSuccess
-//            
-//            print("StatusCode:\(String(describing: statusCode))")
-//            
-//            if statusCode == true
-//            {
-//                
-//                
-//                let successMsg = respVO.endUserMessage
-//                
-//                
-//                
-//                
-//            }
-//                
-//            else {
-//                
-//                let failMsg = respVO.endUserMessage
-//                
-//                
-//                return
-//                
-//                
-//                
-//            }
-//            
-//            
-//        }) { (failureMessage) in
-//            
-//            
-//            
-//        }
-    }
     
+        
+        
+    
+        let params = ["pageIndex": PageIndex,
+                      "pageSize": 100,
+                      "sortbyColumnName": "UpdatedDate",
+                      "sortDirection": "desc",
+                      "authorId": 2,
+                      "mediaTypeId": ""
+            
+            
+            ] as [String : Any]
+    
+    print("dic params \(params)")
+    
+    let dictHeaders = ["":"","":""] as NSDictionary
+    
+    
+    serviceController.postRequest(strURL: GETPOSTBYAUTHORIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        
+        
+        print("\(result)")
+        
+        let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
+        
+        print("responseString = \(respVO)")
+        
+        
+        let statusCode = respVO.isSuccess
+        
+        print("StatusCode:\(String(describing: statusCode))")
+        
+        if statusCode == true
+        {
+            
+            
+            let successMsg = respVO.endUserMessage
+            
+            
+            
+            
+        }
+            
+        else {
+            
+            let failMsg = respVO.endUserMessage
+            
+            
+            return
+            
+            
+            
+        }
+        
+        
+    }) { (failureMessage) in
+        
+        
+        
+    }
+    }
     
     
     
@@ -245,9 +226,9 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
 
 
 
-    
-    
-    
-    
+
+
+
+
 
 
