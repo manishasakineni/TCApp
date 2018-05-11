@@ -313,6 +313,8 @@
 		CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC8002037126900625179 /* DatePopUpViewController.swift */; };
 		CBA0EBF920726BAF000C16DD /* AddUpdateCommentsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0EBF720726BAF000C16DD /* AddUpdateCommentsVo.swift */; };
 		CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0EBF820726BAF000C16DD /* ResultVo.swift */; };
+		CBA4995A20A5B42F000FDE98 /* DeletePostCommentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4995920A5B42F000FDE98 /* DeletePostCommentVO.swift */; };
+		CBA4995C20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4995B20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift */; };
 		CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */; };
 		CBC1FB812052DBA6000063D4 /* AllEventHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */; };
 		CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */; };
@@ -641,6 +643,8 @@
 		CB9BC8002037126900625179 /* DatePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		CBA0EBF720726BAF000C16DD /* AddUpdateCommentsVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateCommentsVo.swift; sourceTree = "<group>"; };
 		CBA0EBF820726BAF000C16DD /* ResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultVo.swift; sourceTree = "<group>"; };
+		CBA4995920A5B42F000FDE98 /* DeletePostCommentVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostCommentVO.swift; sourceTree = "<group>"; };
+		CBA4995B20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostCommentsListResultVO.swift; sourceTree = "<group>"; };
 		CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventHeaderCell.swift; sourceTree = "<group>"; };
 		CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventHeaderCell.xib; sourceTree = "<group>"; };
 		CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfMonthEventCell.swift; sourceTree = "<group>"; };
@@ -1046,6 +1050,7 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				CBA4995D20A5B453000FDE98 /* DeletePostCommentVO */,
 				AF7C2E4220A08636003D623F /* EventCommentVOO */,
 				AF7C2E4320A08665003D623F /* EventByIdVo */,
 				AF7C2E4420A08693003D623F /* PostByEventIdVO */,
@@ -1785,6 +1790,15 @@
 			name = AddUpdateCommentsVo;
 			sourceTree = "<group>";
 		};
+		CBA4995D20A5B453000FDE98 /* DeletePostCommentVO */ = {
+			isa = PBXGroup;
+			children = (
+				CBA4995920A5B42F000FDE98 /* DeletePostCommentVO.swift */,
+				CBA4995B20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift */,
+			);
+			name = DeletePostCommentVO;
+			sourceTree = "<group>";
+		};
 		CBF2406120904B4C00BF4E94 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2144,6 +2158,7 @@
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */,
 				CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */,
+				CBA4995C20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				CB03C8DA203ED202000B96A4 /* GetAllChurchAdminsVo.swift in Sources */,
 				AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */,
@@ -2264,6 +2279,7 @@
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */,
 				CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */,
+				CBA4995A20A5B42F000FDE98 /* DeletePostCommentVO.swift in Sources */,
 				CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,

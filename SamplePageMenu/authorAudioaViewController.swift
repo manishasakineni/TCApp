@@ -128,6 +128,54 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         }
     }
 
+    
+    
+    
+    
+    
+    func churchIdAPIService(){
+        
+        
+        
+        let params = ["pageIndex": PageIndex,
+                      "pageSize": 100,
+                      "sortbyColumnName": "UpdatedDate",
+                      "sortDirection": "desc",
+                      "authorId": 1,
+                      "mediaTypeId": ""
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETPOSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            print("\(result)")
+            
+            let respVO:PostByChurchIDVO = Mapper().map(JSONObject: result)!
+            print("responseString = \(respVO)")
+            
+            
+            let statusCode = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: statusCode))")
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+    
+    
 
     
 }

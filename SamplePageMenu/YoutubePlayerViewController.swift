@@ -751,7 +751,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
             
            
-           usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
+          usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
             
             let commentString = usersCommentsArray[indexPath.row] as? String
             
@@ -794,10 +794,9 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             print(activeLabel.numberOfLines)
             
             usersCommentsTableViewCell.usersCommentLbl.text = commentString
-           // usersCommentsTableViewCell.usersCommentLbl.text = self.activeLabel.text
+          
             print(usersCommentsTableViewCell.usersCommentLbl.numberOfLines)
-            
-          //  usersCommentsTableViewCell.usersCommentLbl = activeLabel
+   
             
             
             let replyCount : Int = replyCountArray[indexPath.row] as! Int
@@ -1244,6 +1243,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.present(activityViewController, animated: true, completion: nil)
         
         print("Share Clicked.............")
+            
     }
         
         else {
@@ -1296,18 +1296,18 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func commentTWBtnClicked(){
 
-//    self.commentTW.becomeFirstResponder()
+
     
     
     }
     
     
-    @IBAction func commentSendBtnAction(_ sender: Any) {
-        
-  
-        
-        
-    }
+//    @IBAction func commentSendBtnAction(_ sender: Any) {
+//        
+//  
+//        
+//        
+//    }
     
     // MARK :- CommentAPIService
     
@@ -1319,7 +1319,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
         let dictParams = [
-            "id": 1,
+            "id": 0,
             "postId": self.postID,
             "description": textComment,
             "parentCommentId": self.parentCommentId,
@@ -1356,11 +1356,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         print(respVO.result)
                         
-                        self.usersCommentsArray.insert(self.commentString, at: 0)
-                        self.commentString = "Add a public comment..."
-                        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+//                        self.usersCommentsArray.insert(self.commentString, at: 0)
+//                        self.commentString = "Add a public comment..."
+//                        
+//                        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
                         
-                        
+                        self.getVideoDetailsApiService()
                         
                         
                         //                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
@@ -1676,6 +1677,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
                 
+                self.deleteCommentAPICall(tag: sender.tag)
+                
                 
             })
             
@@ -1716,6 +1719,15 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func getVideoDetailsApiService(){
 
+        self.parentCommentIdArray.removeAll()
+        self.commentingIdArray.removeAll()
+        self.CommentsByUserArray.removeAll()
+        self.replyCountArray.removeAll()
+        self.usersCommentsArray.removeAll()
+        
+        self.allOffersTableView.isScrollEnabled = true
+        self.repliesTableView.isScrollEnabled = true
+        
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
@@ -1848,7 +1860,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 
               //  let resultArr = responseVO.listResult
                 
-               self.repliesCommentsArray.removeAll()
+                self.repliesCommentsArray.removeAll()
                 self.repliesCommentsUsernamesArray.removeAll()
                 
                 for listResults in responseVO.listResult! {
@@ -1911,6 +1923,54 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     }
    
     
+    func deleteCommentAPICall(tag : Int){
+        
+        let deletePostID : Int  = self.parentCommentIdArray[tag]
+      //  let deleteCommentID  : Int  = self.commentingIdArray[tag]
+
+        
+        let postParams = [
+            "id": deletePostID,
+            "postId": self.postID,
+            "userId": self.ID,
+            "churchId": ""
+        ] as [String : Any]
+    
+        print("dic params \(postParams)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+    serviceController.postRequest(strURL: DELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        
+        print(result)
+        
+        let responseVO : DeletePostCommentVO = Mapper().map(JSONObject: result)!
+        
+        let isSuccess = responseVO.isSuccess
+        
+        if isSuccess == true {
+            
+           
+            self.getVideoDetailsApiService()
+                
+            
+            
+        
+        }
+        
+        
+        
+        self.allOffersTableView.reloadData()
+        
+        
+        
+    }) { (failureMessage) in
+        
+        
+        
+        }
+    
+    }
     
 }
 

@@ -54,10 +54,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     var placeHolderName = ["User Name","Password"]
     
+    var deviceId = ""
+    
   //MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
+        
         
         mobileEmailTF.placeholder = "User Name".localize()
         passwordTF.placeholder = "Password".localize()
@@ -277,12 +283,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             let strUrl = LOGINURL
         
-        let deviceId : String = kUserDefaults.value(forKey: "DeviceID") as! String
+        
 
         let dictParams = [
             "userName": email!,
             "password": password!,
-            "deviceId": deviceId
+            "deviceId": self.deviceId
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -321,11 +327,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let loginStatus = successMsg
     let userid = respVO.userDetails?.listResult?[0].userId
     let loginid =  respVO.userDetails?.listResult?[0].id!
+    let userName = respVO.userDetails?.listResult?[0].name!
                             
                                 
     kUserDefaults.set(userid, forKey: kuserIdKey)
                                
     kUserDefaults.set(loginid, forKey: kIdKey)
+                kUserDefaults.set(userName, forKey: kUserName)
     kUserDefaults.synchronize()
                     
     kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)

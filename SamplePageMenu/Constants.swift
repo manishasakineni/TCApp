@@ -106,7 +106,7 @@ let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorI
 
 let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword")
 
-
+let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
@@ -117,6 +117,7 @@ let KFirstTimeLogin = "first Time Login"
 
 let kuserIdKey:String = "kuserId"
 let kIdKey:String = "kloginId"
+let kUserName : String = "kUserName"
 let kfirstName:String  = "kfirsrName"
 let kmiddleName:String  = "kmiddleName"
 let klastName:String  = "klastName"
