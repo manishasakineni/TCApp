@@ -57,7 +57,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         createPageMenu()
         
-        authorAPIService()
+   //     authorAPIService()
         
         // Do any additional setup after loading the view.
     }
@@ -190,27 +190,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         print("StatusCode:\(String(describing: statusCode))")
         
-        if statusCode == true
-        {
-            
-            
-            let successMsg = respVO.endUserMessage
-            
-            
-            
-            
-        }
-            
-        else {
-            
-            let failMsg = respVO.endUserMessage
-            
-            
-            return
-            
-            
-            
-        }
+        
         
         
     }) { (failureMessage) in

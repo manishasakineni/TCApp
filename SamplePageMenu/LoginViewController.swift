@@ -419,6 +419,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      //   UIView.animate(withDuration: 1, animations: { // 3.0 are the seconds
             
             // Write your code here for e.g. Increasing any Subviews height.
+        
             self.forgotPWDView.isHidden = false
             self.transparentView.isHidden = false
             
@@ -495,8 +496,78 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         forgotPWDView.isHidden = true
         transparentView.isHidden = true
+        
+        
+      
+      self.view.endEditing(true)
+        
+        mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+       
+        if (forgotEmailTF.text?.isEmpty)!{
+        
+        }
+        
+        else {
+        
+            self.forgotPWDAPIService()
+            
+        }
+        
+        
+        
     }
     
     
-}
+    func forgotPWDAPIService(){
+    
+        
+        let strUrl = FORGOTPASSWORDAPI
+        
+        
+        let dictParams = [
+            
+            "email": forgotEmailTF.text!
+            
+            ] as [String : Any]
+        
+        print("dic params \(dictParams)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        print("dictHeader:\(dictHeaders)")
+        
+        
+            
+
+                
+    serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+        
+        DispatchQueue.main.async(){
+                            
+            
+                            
+    let respVO:ForgotPswdVO = Mapper().map(JSONObject: result)!
+                            
+            
+                            
+    let endUserMessage = respVO.endUserMessage
+            
+    print("StatusCode:\(String(describing: endUserMessage))")
+            
+    Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: endUserMessage!, clickAction: {
+    
+    
+})
+        }  }) { (failureMessage) in
+                        
+                        
+                        
+                    }
+                }
+                
+        }
+    
+
+    
+
 

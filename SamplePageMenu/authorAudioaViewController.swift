@@ -15,6 +15,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
     var imageView  = ["bible1","bible1","bible1"]
     
+     var PageIndex = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,9 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
         authorAudioTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
 
+        
+        authorAPIService()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -77,7 +82,52 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     
+   
     
+    func authorAPIService(){
+        
+        
+        
+        
+        let params = ["pageIndex": PageIndex,
+                      "pageSize": 100,
+                      "sortbyColumnName": "UpdatedDate",
+                      "sortDirection": "desc",
+                      "authorId": 2,
+                      "mediaTypeId": ""
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETPOSTBYAUTHORIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            
+            print("\(result)")
+            
+            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
+            
+            print("responseString = \(respVO)")
+            
+            
+            let statusCode = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: statusCode))")
+            
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+
 
     
 }

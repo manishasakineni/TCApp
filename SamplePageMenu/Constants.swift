@@ -104,6 +104,8 @@ let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchI
 
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
 
+let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword")
+
 
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
