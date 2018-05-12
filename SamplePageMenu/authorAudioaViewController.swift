@@ -15,22 +15,27 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
     var imageView  = ["bible1","bible1","bible1"]
     
+      var audioArray = Array<Any>()
+    
+    var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
+
+    
      var PageIndex = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       authorAudioTableView.delegate = self
+        authorAudioTableView.delegate = self
         authorAudioTableView.dataSource = self
         
-        let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
-        authorAudioTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
+        let nibName1  = UINib(nibName: "AuthorAudiioTableViewCell" , bundle: nil)
+        authorAudioTableView.register(nibName1, forCellReuseIdentifier: "AuthorAudiioTableViewCell")
 
         
-        authorAPIService()
         
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,7 +50,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return imageView.count
+        return audioResults.count
         
         
     }
@@ -67,16 +72,33 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorAudiioTableViewCell", for: indexPath) as! AuthorAudiioTableViewCell
                 
                 
+        let postImgUrl = (audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
         
-        cell.churchImage.image = UIImage(named: String(imageView[indexPath.row]))
+        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
-     
+        let url = URL(string:newString!)
+        
+        let dataImg = try? Data(contentsOf: url!)
+        
+        if dataImg != nil {
+            
+            cell.authorAudioImage.image = UIImage(data: dataImg!)
+            
+        }
+            
+        else {
+            
+            cell.authorAudioImage.image = #imageLiteral(resourceName: "j4")
+        }
+    
         
         
         return cell
+        
+
         
         
         
@@ -84,98 +106,12 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
    
     
-    func authorAPIService(){
-        
-        
-        
-        
-        let params = ["pageIndex": PageIndex,
-                      "pageSize": 100,
-                      "sortbyColumnName": "UpdatedDate",
-                      "sortDirection": "desc",
-                      "authorId": 2,
-                      "mediaTypeId": ""
-            
-            
-            ] as [String : Any]
-        
-        print("dic params \(params)")
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: GETPOSTBYAUTHORIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            
-            print("\(result)")
-            
-            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
-            
-            print("responseString = \(respVO)")
-            
-            
-            let statusCode = respVO.isSuccess
-            
-            print("StatusCode:\(String(describing: statusCode))")
-            
-            
-            
-            
-        }) { (failureMessage) in
-            
-            
-            
-        }
+    
     }
 
     
     
-    
-    
-    
-    func churchIdAPIService(){
-        
-        
-        
-        let params = ["pageIndex": PageIndex,
-                      "pageSize": 100,
-                      "sortbyColumnName": "UpdatedDate",
-                      "sortDirection": "desc",
-                      "authorId": 1,
-                      "mediaTypeId": ""
-            
-            
-            ] as [String : Any]
-        
-        print("dic params \(params)")
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: GETPOSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            print(result)
-            
-            print("\(result)")
-            
-            let respVO:PostByChurchIDVO = Mapper().map(JSONObject: result)!
-            print("responseString = \(respVO)")
-            
-            
-            let statusCode = respVO.isSuccess
-            
-            print("StatusCode:\(String(describing: statusCode))")
-            
-            
-            
-        }) { (failureMessage) in
-            
-            
-            
-        }
-    }
-    
-    
 
     
-}
+    
+  

@@ -13,7 +13,9 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     @IBOutlet weak var authorImagesTableView: UITableView!
     
     
-    var imageView  = ["bible1","bible1","bible1"]
+//    var imageView  = ["bible1","bible1","bible1"]
+    
+     var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +23,8 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         authorImagesTableView.delegate = self
         authorImagesTableView.dataSource = self
         
-        let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
-        authorImagesTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
+        let nibName1  = UINib(nibName: "AuthorImageTableViewCell" , bundle: nil)
+        authorImagesTableView.register(nibName1, forCellReuseIdentifier: "AuthorImageTableViewCell")
         
         // Do any additional setup after loading the view.
     }
@@ -40,7 +42,7 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return imageView.count
+        return imageResults.count
         
         
     }
@@ -50,7 +52,7 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         
         
         
-        return 124
+        return 200
     }
     
     
@@ -62,11 +64,29 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorImageTableViewCell", for: indexPath) as! AuthorImageTableViewCell
+        
+        let postImgUrl = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+        
+         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+           let url = URL(string:newString!)
+        
+        let dataImg = try? Data(contentsOf: url!)
+        
+        if dataImg != nil {
+            
+            cell.authorImageView.image = UIImage(data: dataImg!)
+            
+        }
+            
+        else {
+            
+            cell.authorImageView.image = #imageLiteral(resourceName: "j4")
+        }
+
         
         
-        
-        cell.churchImage.image = UIImage(named: String(imageView[indexPath.row]))
         
         
         

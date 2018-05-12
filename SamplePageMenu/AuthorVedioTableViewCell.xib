@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="149" id="KGk-i7-Jjw" customClass="AuthorVedioTableViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="148.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v14-WQ-yap">
+                        <rect key="frame" x="3" y="3" width="314" height="142.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BJI-bt-fWf">
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="106" id="bOU-yB-A9e"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnB-DE-r59">
+                                <rect key="frame" x="0.0" y="114" width="314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MnB-DE-r59" secondAttribute="bottom" constant="7.5" id="AcL-mw-cQ3"/>
+                            <constraint firstAttribute="trailing" secondItem="BJI-bt-fWf" secondAttribute="trailing" id="LLI-99-Rha"/>
+                            <constraint firstItem="MnB-DE-r59" firstAttribute="top" secondItem="BJI-bt-fWf" secondAttribute="bottom" constant="8" id="SVB-fx-yqg"/>
+                            <constraint firstItem="BJI-bt-fWf" firstAttribute="leading" secondItem="v14-WQ-yap" secondAttribute="leading" id="lNr-0O-b2c"/>
+                            <constraint firstItem="MnB-DE-r59" firstAttribute="leading" secondItem="BJI-bt-fWf" secondAttribute="leading" id="n9R-2g-dVA"/>
+                            <constraint firstItem="MnB-DE-r59" firstAttribute="centerX" secondItem="BJI-bt-fWf" secondAttribute="centerX" id="ohf-sZ-dVs"/>
+                            <constraint firstItem="BJI-bt-fWf" firstAttribute="top" secondItem="v14-WQ-yap" secondAttribute="top" id="zSH-rb-UE4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="v14-WQ-yap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="0Vd-HM-jws"/>
+                    <constraint firstAttribute="bottom" secondItem="v14-WQ-yap" secondAttribute="bottom" constant="3" id="Kkg-Mh-MqN"/>
+                    <constraint firstAttribute="trailing" secondItem="v14-WQ-yap" secondAttribute="trailing" constant="3" id="Sft-BB-1kg"/>
+                    <constraint firstItem="v14-WQ-yap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="vut-7s-WHj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="authorVedioImage" destination="BJI-bt-fWf" id="Ykd-n1-5ac"/>
+                <outlet property="authorVedioLabel" destination="MnB-DE-r59" id="3VM-59-G4S"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="104.5"/>
+        </tableViewCell>
+    </objects>
+</document>

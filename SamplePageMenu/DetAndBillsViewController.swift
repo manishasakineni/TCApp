@@ -20,6 +20,16 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     var delegate: churchChangeSubtitleOfIndexDelegate?
     
     
+    var audioResults : Array<PostByChurchIDResultInfoVO> = Array()
+    
+    var imageResults : Array<PostByChurchIDResultInfoVO> = Array()
+    
+    var videoResults : Array<PostByChurchIDResultInfoVO> = Array()
+    
+    var documentResults : Array<PostByChurchIDResultInfoVO> = Array()
+    
+
+    
     
     var eventID = Int()
     
@@ -54,11 +64,12 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createPageMenu()
+      //  createPageMenu()
         
-        churchIdAPIService()
+       churchIdAPIService()
         
-        // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
+        
     }
     
     
@@ -170,37 +181,52 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         
         serviceController.postRequest(strURL: GETPOSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-            print(result)
-            
+                        
             print("\(result)")
             
             let respVO:PostByChurchIDVO = Mapper().map(JSONObject: result)!
+            
             print("responseString = \(respVO)")
             
+            let isSuccess = respVO.isSuccess
             
-            let statusCode = respVO.isSuccess
-            
-            print("StatusCode:\(String(describing: statusCode))")
-            
-            if statusCode == true
-            {
+            if isSuccess == true{
                 
+                for listResult in respVO.listResult!{
+                    
+                    
+                    if listResult.mediaType == "Audio"{
+                        
+                        self.audioResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "Image"{
+                        
+                        self.imageResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "Video"{
+                        
+                        self.videoResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "document"{
+                        
+                        self.documentResults.append(listResult)
+                        
+                    }
+                    
+                    
+                }
                 
-                let successMsg = respVO.endUserMessage
+                self.createPageMenu()
                 
+                let statusCode = respVO.isSuccess
                 
-                
-                
-            }
-                
-            else {
-                
-                let failMsg = respVO.endUserMessage
-                
-                
-                return
-                
-                
+                print("StatusCode:\(String(describing: statusCode))")
                 
             }
             
@@ -212,8 +238,8 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         }
     }
     
-    
 
+        
     
     
     

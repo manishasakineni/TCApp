@@ -186,6 +186,20 @@
 		AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102858203C28700012411A /* InfoTableViewCell.xib */; };
 		AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10601B204EAA8100711938 /* GenderTableViewCell.swift */; };
 		AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10601C204EAA8100711938 /* GenderTableViewCell.xib */; };
+		AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */; };
+		AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */; };
+		AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */; };
+		AF141D6620A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6520A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift */; };
+		AF141D6820A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6720A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift */; };
+		AF141D6A20A6A9E200AE9FB8 /* GetAllJobDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6920A6A9E200AE9FB8 /* GetAllJobDetailsListResultVO.swift */; };
+		AF141D7420A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D7220A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift */; };
+		AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7320A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib */; };
+		AF141D7820A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D7620A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift */; };
+		AF141D7920A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7720A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib */; };
+		AF141D7C20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D7A20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift */; };
+		AF141D7D20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7B20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib */; };
+		AF141D8020A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D7E20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift */; };
+		AF141D8120A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7F20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -516,6 +530,20 @@
 		AF102858203C28700012411A /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		AF10601B204EAA8100711938 /* GenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderTableViewCell.swift; sourceTree = "<group>"; };
 		AF10601C204EAA8100711938 /* GenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderTableViewCell.xib; sourceTree = "<group>"; };
+		AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDVO.swift; sourceTree = "<group>"; };
+		AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDListResultVO.swift; sourceTree = "<group>"; };
+		AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateJobVO.swift; sourceTree = "<group>"; };
+		AF141D6520A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateJobListResultVO.swift; sourceTree = "<group>"; };
+		AF141D6720A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsVO.swift; sourceTree = "<group>"; };
+		AF141D6920A6A9E200AE9FB8 /* GetAllJobDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsListResultVO.swift; sourceTree = "<group>"; };
+		AF141D7220A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorVedioTableViewCell.swift; sourceTree = "<group>"; };
+		AF141D7320A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorVedioTableViewCell.xib; sourceTree = "<group>"; };
+		AF141D7620A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorImageTableViewCell.swift; sourceTree = "<group>"; };
+		AF141D7720A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorImageTableViewCell.xib; sourceTree = "<group>"; };
+		AF141D7A20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorAudiioTableViewCell.swift; sourceTree = "<group>"; };
+		AF141D7B20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorAudiioTableViewCell.xib; sourceTree = "<group>"; };
+		AF141D7E20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDocumentTableViewCell.swift; sourceTree = "<group>"; };
+		AF141D7F20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorDocumentTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
@@ -1050,6 +1078,9 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF141D6D20A6AC1100AE9FB8 /* GetAllJobDetailsVO */,
+				AF141D6C20A6ABFA00AE9FB8 /* AddUpdateJobVO */,
+				AF141D6B20A6ABDA00AE9FB8 /* GetJobByIDVO */,
 				CBA4995D20A5B453000FDE98 /* DeletePostCommentVO */,
 				AF7C2E4220A08636003D623F /* EventCommentVOO */,
 				AF7C2E4320A08665003D623F /* EventByIdVo */,
@@ -1310,6 +1341,33 @@
 			name = ChurchInformationViewController;
 			sourceTree = "<group>";
 		};
+		AF141D6B20A6ABDA00AE9FB8 /* GetJobByIDVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */,
+				AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */,
+			);
+			name = GetJobByIDVO;
+			sourceTree = "<group>";
+		};
+		AF141D6C20A6ABFA00AE9FB8 /* AddUpdateJobVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */,
+				AF141D6520A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift */,
+			);
+			name = AddUpdateJobVO;
+			sourceTree = "<group>";
+		};
+		AF141D6D20A6AC1100AE9FB8 /* GetAllJobDetailsVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF141D6720A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift */,
+				AF141D6920A6A9E200AE9FB8 /* GetAllJobDetailsListResultVO.swift */,
+			);
+			name = GetAllJobDetailsVO;
+			sourceTree = "<group>";
+		};
 		AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1321,6 +1379,14 @@
 				AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */,
 				AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */,
 				AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */,
+				AF141D7A20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift */,
+				AF141D7B20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib */,
+				AF141D7220A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift */,
+				AF141D7320A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib */,
+				AF141D7620A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift */,
+				AF141D7720A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib */,
+				AF141D7E20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift */,
+				AF141D7F20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib */,
 			);
 			name = AuthorandChurchPostViewController;
 			sourceTree = "<group>";
@@ -1898,6 +1964,7 @@
 			files = (
 				AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */,
 				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
+				AF141D7920A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
@@ -1912,6 +1979,7 @@
 				3D65D4B9200505F000CAB226 /* Loading.gif in Resources */,
 				CB4B20FB2047D2F000402E59 /* CategorieHomeCell.xib in Resources */,
 				CB4B2101204834CD00402E59 /* InfoHeaderCell.xib in Resources */,
+				AF141D8120A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib in Resources */,
 				9A5D26371FFF8A4900316988 /* YoutubePlayerCell.xib in Resources */,
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
@@ -1924,6 +1992,7 @@
 				CB03C8D7203EC8F5000B96A4 /* ChurchAdminDetailCell.xib in Resources */,
 				9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */,
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
+				AF141D7D20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib in Resources */,
 				CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */,
 				3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */,
 				3D355D27205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib in Resources */,
@@ -1961,6 +2030,7 @@
 				9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
+				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
@@ -2061,6 +2131,7 @@
 				3D41C7FD2063C1160086BEE7 /* BibleVerseTableViewCell.swift in Sources */,
 				359CC92E2062772F0061450A /* BibleVerseViewController.swift in Sources */,
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
+				AF141D7820A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */,
 				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
@@ -2069,6 +2140,7 @@
 				3D355D26205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift in Sources */,
 				3D5852DD2072694F00994FC2 /* GetVideosResultVo.swift in Sources */,
 				3D5852D620725D1500994FC2 /* LikeDislikeCountVO.swift in Sources */,
+				AF141D7C20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
 				AFE9A063207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift in Sources */,
 				AF7C2E3720A063C6003D623F /* PostByEventIdResultInfoVO.swift in Sources */,
@@ -2116,6 +2188,7 @@
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
 				3D5404F92058045A008257A6 /* AuthorPostsViewController.swift in Sources */,
 				3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */,
+				AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				359CC92A206276C40061450A /* BibleBooksViewController.swift in Sources */,
 				3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */,
@@ -2128,6 +2201,7 @@
 				359CC9322062874D0061450A /* BibleBooksTableViewCell.swift in Sources */,
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
+				AF141D6620A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift in Sources */,
 				CB03C8DF203EFF54000B96A4 /* GetEventByUserIdMonthYearVo.swift in Sources */,
 				3D4A0FC9209C9F0800B7BDCD /* EventCommentVOO.swift in Sources */,
 				AFE9A065207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift in Sources */,
@@ -2137,6 +2211,7 @@
 				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
 				3D4A0FCA209C9F0800B7BDCD /* EventCommentListResultVOO.swift in Sources */,
 				3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */,
+				AF141D8020A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift in Sources */,
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
 				AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
@@ -2195,6 +2270,7 @@
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
+				AF141D6820A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift in Sources */,
 				AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
@@ -2244,6 +2320,8 @@
 				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				3D3D5D64209B293700603068 /* ReplayCommentVO.swift in Sources */,
+				AF141D6A20A6A9E200AE9FB8 /* GetAllJobDetailsListResultVO.swift in Sources */,
+				AF141D7420A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift in Sources */,
 				3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* YoutubePlayerCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
@@ -2251,6 +2329,7 @@
 				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
 				CB1B1BA920A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */,
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
@@ -2284,6 +2363,7 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
+				AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */,
 				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,

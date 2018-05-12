@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="KGk-i7-Jjw" customClass="AuthorImageTableViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="145.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXI-Vj-gQJ">
+                        <rect key="frame" x="8" y="3" width="304" height="141"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-SZ-idc">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="141"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TQv-SZ-idc" firstAttribute="top" secondItem="oXI-Vj-gQJ" secondAttribute="top" id="OuW-0d-XPh"/>
+                            <constraint firstAttribute="trailing" secondItem="TQv-SZ-idc" secondAttribute="trailing" id="dP7-4f-Oyi"/>
+                            <constraint firstAttribute="bottom" secondItem="TQv-SZ-idc" secondAttribute="bottom" id="wGw-fH-3Ad"/>
+                            <constraint firstItem="TQv-SZ-idc" firstAttribute="leading" secondItem="oXI-Vj-gQJ" secondAttribute="leading" id="zk3-fk-zBo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="0so-ws-RXY"/>
+                    <constraint firstAttribute="bottom" secondItem="oXI-Vj-gQJ" secondAttribute="bottom" constant="1.5" id="NCf-wN-24n"/>
+                    <constraint firstAttribute="trailing" secondItem="oXI-Vj-gQJ" secondAttribute="trailing" constant="8" id="byx-uA-uej"/>
+                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lbr-A3-MaA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="authorImageView" destination="TQv-SZ-idc" id="nA5-UF-t12"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="103"/>
+        </tableViewCell>
+    </objects>
+</document>

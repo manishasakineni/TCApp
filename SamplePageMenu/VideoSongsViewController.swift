@@ -575,7 +575,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
         
-         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+        let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         

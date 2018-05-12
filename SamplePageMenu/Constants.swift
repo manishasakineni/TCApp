@@ -83,30 +83,34 @@ let EVENTCOMMENTAPI : String = BASEURL.appending("api/Events/AddUpdateEventComme
 
 let VIDEOVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
 
-let EVENTVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
-
-
-// :-   7/05/2018
-
-// GET
-
-let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
-
-// GET
-
 let POSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
+
+let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword")
+
+let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
+
+
 
 // post
 
 let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
 
-// post
-
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
 
-let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword")
 
-let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
+
+
+
+// :-   7/05/2018
+let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
+
+let EVENTVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
+
+let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")
+
+let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
+
+let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

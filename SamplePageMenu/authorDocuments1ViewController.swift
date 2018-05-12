@@ -15,14 +15,16 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
     
+     var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         authordocumentTableView.delegate = self
         authordocumentTableView.dataSource = self
         
-        let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
-        authordocumentTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
+        let nibName1  = UINib(nibName: "AuthorDocumentTableViewCell" , bundle: nil)
+        authordocumentTableView.register(nibName1, forCellReuseIdentifier: "AuthorDocumentTableViewCell")
         
         // Do any additional setup after loading the view.
     }
@@ -62,11 +64,11 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDocumentTableViewCell", for: indexPath) as! AuthorDocumentTableViewCell
         
         
         
-        cell.churchImage.image = UIImage(named: String(imageView[indexPath.row]))
+   //     cell.churchImage.image = UIImage(named: String(imageView[indexPath.row]))
         
         
         

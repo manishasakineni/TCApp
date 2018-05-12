@@ -20,6 +20,13 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     
      var mediaTypeID : Int = 0
     var PageIndex = 1
+    var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
+    
+    var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
+    
+    var videoResults : Array<PostByAutorIdResultInfoVO> = Array()
+    
+    var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
 
     
     var eventID = Int()
@@ -51,15 +58,19 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var authorName : String = ""
     var nameStr          : String = ""
     
+    var audioArray = Array<Any>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createPageMenu()
+
         
-   //     authorAPIService()
+        authorAPIService()
         
-        // Do any additional setup after loading the view.
+        //    createPageMenu()
+        
+    // Do any additional setup after loading the view.
+        
     }
     
     
@@ -70,22 +81,27 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
         audioEventDetailsVC?.title = "Audio"
+        audioEventDetailsVC?.audioResults = self.audioResults
+        
         
 
         
         vedioDetailsVC = authorVedioViewController(nibName: "authorVedioViewController", bundle: nil)
         vedioDetailsVC?.title = "Video"
         
-        
+        vedioDetailsVC?.videoResults = self.videoResults
         
         imagesEventDetailsVC = authorImagesViewController(nibName: "authorImagesViewController", bundle: nil)
         imagesEventDetailsVC?.title = "Image"
         
-        
+          imagesEventDetailsVC?.imageResults = self.imageResults
         
         
         documentEventDetailsVC = authorDocumentsViewController(nibName: "authorDocumentsViewController", bundle: nil)
         documentEventDetailsVC?.title = "Document"
+        documentEventDetailsVC?.documentResults = self.documentResults
+        
+        
         
         controllersArray.append(audioEventDetailsVC!)
         controllersArray.append(vedioDetailsVC!)
@@ -136,30 +152,11 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     }
     
     
-    
-    
-    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        
-        print("Back Button Clicked......")
-        
-    }
-    
-//MARK: -    Home Left Button Tapped
-    
-    @IBAction func homeButtonTapped(_ sender:UIButton) {
-        
-        
 
-//        
-    }
-    
 
     
    func authorAPIService(){
     
-        
-        
     
         let params = ["pageIndex": PageIndex,
                       "pageSize": 100,
@@ -185,12 +182,50 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         print("responseString = \(respVO)")
         
+        let isSuccess = respVO.isSuccess
         
+        if isSuccess == true{
+        
+        for listResult in respVO.listResult!{
+        
+         
+            if listResult.mediaType == "Audio"{
+            
+            self.audioResults.append(listResult)
+            
+            }
+            
+            if listResult.mediaType == "Image"{
+                
+                self.imageResults.append(listResult)
+                
+            }
+            
+            if listResult.mediaType == "Video"{
+                
+                self.videoResults.append(listResult)
+                
+            }
+            
+            if listResult.mediaType == "document"{
+                
+                self.documentResults.append(listResult)
+                
+            }
+            
+            
+            
+            
+          
+            
+        }
+           self.createPageMenu()
+          
         let statusCode = respVO.isSuccess
         
         print("StatusCode:\(String(describing: statusCode))")
         
-        
+        }
         
         
     }) { (failureMessage) in
