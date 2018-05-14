@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var userID = String()
     
-    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","login_menu"]
+    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","login_menu","BibleBook"]
     
 
   //MARK: -   View DidLoad
@@ -45,7 +45,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Career".localize(),"LogOut".localize()]
 
         borderColor()
         
@@ -76,7 +76,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Career".localize(),"LogOut".localize()]
 
     }
     
@@ -372,6 +372,22 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
+            
+            
+        else  if cell.menuNameLabel.text == "Career".localize() {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
+            
+            desController.showNav = true
+            
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+        }
+
+            
         else  if cell.menuNameLabel.text == "Holy Bible - Telugu".localize() {
             
             
@@ -428,7 +444,10 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
-
+        
+        
+        
+       
     }
     
     //MARK: -   choose Language Clicked
@@ -446,7 +465,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     Localize.update(language: language)
     self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
-    self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize()]
+    self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize(),"Career".localize()]
         
                 self.menuTableView.reloadData()
         })

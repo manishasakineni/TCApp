@@ -29,7 +29,7 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     var documentResults : Array<PostByChurchIDResultInfoVO> = Array()
     
 
-    
+     var authorID : Int = 0
     
     var eventID = Int()
     
@@ -81,21 +81,23 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
         audioEventDetailsVC?.title = "Audio"
         
-        
+    //     audioEventDetailsVC?.audioResults = self.audioResults
         
         vedioDetailsVC = authorVedioViewController(nibName: "authorVedioViewController", bundle: nil)
         vedioDetailsVC?.title = "Video"
         
-        
+    //     vedioDetailsVC?.videoResults = self.videoResults
         
         imagesEventDetailsVC = authorImagesViewController(nibName: "authorImagesViewController", bundle: nil)
         imagesEventDetailsVC?.title = "Image"
         
-        
+     //    imagesEventDetailsVC?.imageResults = self.imageResults
         
         
         documentEventDetailsVC = authorDocumentsViewController(nibName: "authorDocumentsViewController", bundle: nil)
         documentEventDetailsVC?.title = "Document"
+        
+     //   documentEventDetailsVC?.documentResults = self.documentResults
         
         controllersArray.append(audioEventDetailsVC!)
         controllersArray.append(vedioDetailsVC!)
@@ -168,7 +170,7 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
                       "pageSize": 100,
                       "sortbyColumnName": "UpdatedDate",
                       "sortDirection": "desc",
-                      "authorId": 1,
+                      "authorId": authorID,
                       "mediaTypeId": ""
             
             

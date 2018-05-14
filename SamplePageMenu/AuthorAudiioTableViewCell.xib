@@ -21,16 +21,30 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-M4-Rkx">
                         <rect key="frame" x="9" y="7" width="303" height="137"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-gV-ubi">
-                                <rect key="frame" x="0.0" y="0.0" width="303" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-gV-ubi">
+                                <rect key="frame" x="0.0" y="0.0" width="303" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="OCq-NY-XVH"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N48-Xa-a0Q">
+                                <rect key="frame" x="0.0" y="108" width="303" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zBc-xi-qvG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dQz-gV-ubi" secondAttribute="bottom" id="GJC-Po-uWe"/>
-                            <constraint firstAttribute="trailing" secondItem="dQz-gV-ubi" secondAttribute="trailing" id="VIj-Qu-tuD"/>
-                            <constraint firstItem="dQz-gV-ubi" firstAttribute="leading" secondItem="oIX-M4-Rkx" secondAttribute="leading" id="dD1-bt-QWW"/>
-                            <constraint firstItem="dQz-gV-ubi" firstAttribute="top" secondItem="oIX-M4-Rkx" secondAttribute="top" id="xaI-06-tgC"/>
+                            <constraint firstItem="dQz-gV-ubi" firstAttribute="leading" secondItem="oIX-M4-Rkx" secondAttribute="leading" id="TDt-ap-5OE"/>
+                            <constraint firstItem="N48-Xa-a0Q" firstAttribute="top" secondItem="dQz-gV-ubi" secondAttribute="bottom" constant="8" id="VBe-ue-Tt2"/>
+                            <constraint firstAttribute="trailing" secondItem="dQz-gV-ubi" secondAttribute="trailing" id="fNo-jw-9Qn"/>
+                            <constraint firstItem="dQz-gV-ubi" firstAttribute="top" secondItem="oIX-M4-Rkx" secondAttribute="top" id="iet-3g-QsV"/>
+                            <constraint firstItem="N48-Xa-a0Q" firstAttribute="centerX" secondItem="dQz-gV-ubi" secondAttribute="centerX" id="uMN-XU-EeR"/>
+                            <constraint firstItem="N48-Xa-a0Q" firstAttribute="leading" secondItem="dQz-gV-ubi" secondAttribute="leading" id="x4w-Sg-ize"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -42,9 +56,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="audioLabel" destination="N48-Xa-a0Q" id="xVV-jn-RPO"/>
                 <outlet property="authorAudioImage" destination="dQz-gV-ubi" id="jra-d4-IKL"/>
             </connections>
             <point key="canvasLocation" x="23" y="63"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Church-logo" width="240" height="233"/>
+    </resources>
 </document>

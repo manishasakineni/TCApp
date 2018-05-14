@@ -8,7 +8,7 @@
 
 import UIKit
 
-class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate {
     
 
     @IBOutlet weak var authordocumentTableView: UITableView!
@@ -16,6 +16,14 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
     
      var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
+    var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
+    
+    var saveLocationString      : String        = ""
+    var isSavingPDF             : Bool          = false
+    var pdfTitle                : String        = ""
+    var isDownloadingOnProgress : Bool          = false
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +50,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return imageView.count
+        return documentResults.count
         
         
     }
@@ -52,7 +60,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         
-        return 124
+        return 150
     }
     
     
@@ -67,11 +75,31 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDocumentTableViewCell", for: indexPath) as! AuthorDocumentTableViewCell
         
         
-        
-   //     cell.churchImage.image = UIImage(named: String(imageView[indexPath.row]))
-        
+      //  let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         
         
+        
+        let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+        
+        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        let url = URL(string:newString!)
+        
+        let dataImg = try? Data(contentsOf: url!)
+        
+        if dataImg != nil {
+            
+            cell.documentImage.image = UIImage(data: dataImg!)
+            
+        }
+            
+        else {
+            
+            cell.documentImage.image = #imageLiteral(resourceName: "j4")
+        }
+        
+
+
         
         return cell
         
@@ -79,6 +107,161 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
     }
     
+ 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+       
+        
+          let imageTag = self.documentResults[indexPath.row]
+        
+        let imgUrl = imageTag.postImage
+        
+        let embededUrlImage =  imgUrl
+        let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        
+        if newString != nil {
+            
+            savePDFWithUrl(newString!)
+            
+            
+        }
+        
+        
+    }
+   
+    
+    private func savePDFWithUrl(_ urlString: String) {
+        
+        var filePath : URL?
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
+            
+            if let url = URL.init(string: urlString) {
+                
+                let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+                
+                if let documentDirUrl = URL.init(string: documentDirUrlString) {
+                    
+                    let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+                    
+                    if let pdfName = pdfNameArray.last {
+                        
+                        let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+                        self.saveLocationString = saveLocation.absoluteString
+                        filePath = URL.init(fileURLWithPath: saveLocation.path)
+                        print( self.saveLocationString)
+                        
+                        let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+                        
+                        if fileExists {
+                            
+                            if !self.isSavingPDF {
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    
+                                    self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+                                    print( self.saveLocationString)
+                                    print(  self.openSelectedDocumentFromURL)
+                                    
+                                    
+                                    self.openPDFinPDFReader()
+                                }
+                                
+                            } else {
+                                
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                                    
+                                })
+                            }
+                            
+                        } else {
+                            
+                            do {
+                                
+                                self.isDownloadingOnProgress = true
+                                
+                                let imageData : Data? = try Data.init(contentsOf: url)
+                                
+                                if imageData == nil {
+                                    
+                                    self.isDownloadingOnProgress = false
+                                    
+                                    DispatchQueue.main.async {
+                                        
+                                    }
+                                    
+                                } else {
+                                    
+                                    do {
+                                        
+                                        try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
+                                        
+                                        if !self.isSavingPDF {
+                                            
+                                            self.isDownloadingOnProgress = false
+                                            
+                                            DispatchQueue.main.async {
+                                                
+                                                self.openPDFinPDFReader()
+                                            }
+                                            
+                                            
+                                        } else {
+                                            
+                                            self.isDownloadingOnProgress = false
+                                            
+                                            DispatchQueue.main.async {
+                                                
+                                                
+                                            }
+                                        }
+                                        
+                                    } catch let error {
+                                        
+                                        self.isDownloadingOnProgress = false
+                                        
+                                        DispatchQueue.main.async {
+                                            
+                                            
+                                        }
+                                    }
+                                }
+                                
+                            } catch let error {
+                                
+                                print(error.localizedDescription)
+                                
+                                self.isDownloadingOnProgress = false
+                                
+                                DispatchQueue.main.async {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+    private func openPDFinPDFReader() {
+        
+    }
+    
+    func openSelectedDocumentFromURL(documentURLString: String) {
+        
+        let documentURL: NSURL = NSURL(fileURLWithPath: documentURLString)
+        documentController = UIDocumentInteractionController(url: documentURL as URL)
+        documentController.delegate = self
+        documentController.presentPreview(animated: true)
+    }
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
     
     
 

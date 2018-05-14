@@ -27,7 +27,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var videoResults : Array<PostByAutorIdResultInfoVO> = Array()
     
     var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
-
+    
+    var authorID : Int = 0
     
     var eventID = Int()
     
@@ -162,7 +163,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                       "pageSize": 100,
                       "sortbyColumnName": "UpdatedDate",
                       "sortDirection": "desc",
-                      "authorId": 2,
+                      "authorId": authorID,
                       "mediaTypeId": ""
             
             
@@ -207,7 +208,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                 
             }
             
-            if listResult.mediaType == "document"{
+            if listResult.mediaType == "Document"{
                 
                 self.documentResults.append(listResult)
                 

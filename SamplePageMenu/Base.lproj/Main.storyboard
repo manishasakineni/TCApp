@@ -2173,6 +2173,43 @@
             </objects>
             <point key="canvasLocation" x="9570" y="1029"/>
         </scene>
+        <!--Get All Job Details View Controller-->
+        <scene sceneID="oWr-37-VWO">
+            <objects>
+                <viewController storyboardIdentifier="GetAllJobDetailsViewController" id="Eey-Em-3Iy" customClass="GetAllJobDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T5E-wo-CQj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jfe-Ng-VYC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X5C-5b-frf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-AL-NoS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eey-Em-3Iy" id="Bch-l3-gTT"/>
+                                    <outlet property="delegate" destination="Eey-Em-3Iy" id="diM-RC-f2V"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G5P-AL-NoS" firstAttribute="leading" secondItem="X5C-5b-frf" secondAttribute="leading" id="4q8-d3-w2s"/>
+                            <constraint firstItem="G5P-AL-NoS" firstAttribute="top" secondItem="X5C-5b-frf" secondAttribute="top" id="7yE-pr-Nye"/>
+                            <constraint firstItem="Jfe-Ng-VYC" firstAttribute="top" secondItem="G5P-AL-NoS" secondAttribute="bottom" id="cMS-BN-JBV"/>
+                            <constraint firstAttribute="trailing" secondItem="G5P-AL-NoS" secondAttribute="trailing" id="o2B-hY-Smx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getAllJobDetailsTableView" destination="G5P-AL-NoS" id="KM2-sU-BL8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Le-ps-YVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10503.200000000001" y="1067.3163418290856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Church-logo" width="240" height="233"/>

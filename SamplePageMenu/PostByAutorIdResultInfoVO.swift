@@ -17,7 +17,7 @@ class PostByAutorIdResultInfoVO: Mappable {
     var title : String?
     var desc : String?
     var categoryId : Int?
-    var embededUrl : Any?
+    var embededUrl : String?
     var mediaTypeId : Int?
     var postTypeId : Int?
     var userId : Int?
@@ -36,7 +36,7 @@ class PostByAutorIdResultInfoVO: Mappable {
     
     
     
-    init(id: Int?,title: String?,desc: String?, categoryId:Int?, embededUrl: Any?, mediaTypeId: Int?, postTypeId: Int?,userId: Int?,postImage: String?, embedId:Any?, mediaType: String?, postType: String?, categoryName: String?,likeCount: Int?,disLikeCount: Int?,commentCount: Int?, viewCount:Any?, createdByUser: String?, updatedByUser: String?, postUpdatedDate: String?)
+    init(id: Int?,title: String?,desc: String?, categoryId:Int?, embededUrl: String?, mediaTypeId: Int?, postTypeId: Int?,userId: Int?,postImage: String?, embedId:Any?, mediaType: String?, postType: String?, categoryName: String?,likeCount: Int?,disLikeCount: Int?,commentCount: Int?, viewCount:Any?, createdByUser: String?, updatedByUser: String?, postUpdatedDate: String?)
         
         
     {

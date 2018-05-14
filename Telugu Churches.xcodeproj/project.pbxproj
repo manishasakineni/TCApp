@@ -214,6 +214,9 @@
 		AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52B206DFCA2009B3B75 /* BibleDetailsCellVO.swift */; };
 		AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */; };
 		AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */; };
+		AF39FD0820A9A74500712EF7 /* GetAllJobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */; };
+		AF39FD0B20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */; };
+		AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */; };
 		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
 		AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */; };
 		AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */; };
@@ -558,6 +561,9 @@
 		AF2EB52B206DFCA2009B3B75 /* BibleDetailsCellVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellVO.swift; sourceTree = "<group>"; };
 		AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsCellIResultVo.swift; sourceTree = "<group>"; };
 		AF2EB52F206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsVerseViewController.swift; sourceTree = "<group>"; };
+		AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsViewController.swift; sourceTree = "<group>"; };
+		AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetAllJobDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdInfoVo.swift; sourceTree = "<group>"; };
 		AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdEventDetailsVO.swift; sourceTree = "<group>"; };
@@ -1397,6 +1403,7 @@
 				AF1956E420048BE3007AC82A /* SideMenuViewController.swift */,
 				AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */,
 				AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */,
+				AF39FD0D20A9A77600712EF7 /* GetAllJobDetailsViewController */,
 			);
 			name = SideMenuViewController;
 			sourceTree = "<group>";
@@ -1429,6 +1436,16 @@
 				AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */,
 			);
 			name = BibleBookVO;
+			sourceTree = "<group>";
+		};
+		AF39FD0D20A9A77600712EF7 /* GetAllJobDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */,
+				AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */,
+				AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */,
+			);
+			name = GetAllJobDetailsViewController;
 			sourceTree = "<group>";
 		};
 		AF7C2E4220A08636003D623F /* EventCommentVOO */ = {
@@ -2031,6 +2048,7 @@
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
+				AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
@@ -2139,6 +2157,7 @@
 				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
 				3D355D26205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.swift in Sources */,
 				3D5852DD2072694F00994FC2 /* GetVideosResultVo.swift in Sources */,
+				AF39FD0B20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift in Sources */,
 				3D5852D620725D1500994FC2 /* LikeDislikeCountVO.swift in Sources */,
 				AF141D7C20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
@@ -2363,6 +2382,7 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
+				AF39FD0820A9A74500712EF7 /* GetAllJobDetailsViewController.swift in Sources */,
 				AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */,
 				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
@@ -2442,7 +2462,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
+				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2489,7 +2509,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
+				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";

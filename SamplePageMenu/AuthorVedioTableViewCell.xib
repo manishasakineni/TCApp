@@ -27,9 +27,9 @@
                                     <constraint firstAttribute="height" constant="106" id="bOU-yB-A9e"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnB-DE-r59">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnB-DE-r59">
                                 <rect key="frame" x="0.0" y="114" width="314" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,6 +39,7 @@
                             <constraint firstAttribute="bottom" secondItem="MnB-DE-r59" secondAttribute="bottom" constant="7.5" id="AcL-mw-cQ3"/>
                             <constraint firstAttribute="trailing" secondItem="BJI-bt-fWf" secondAttribute="trailing" id="LLI-99-Rha"/>
                             <constraint firstItem="MnB-DE-r59" firstAttribute="top" secondItem="BJI-bt-fWf" secondAttribute="bottom" constant="8" id="SVB-fx-yqg"/>
+                            <constraint firstAttribute="trailing" secondItem="MnB-DE-r59" secondAttribute="trailing" id="ZqQ-zr-U8Y"/>
                             <constraint firstItem="BJI-bt-fWf" firstAttribute="leading" secondItem="v14-WQ-yap" secondAttribute="leading" id="lNr-0O-b2c"/>
                             <constraint firstItem="MnB-DE-r59" firstAttribute="leading" secondItem="BJI-bt-fWf" secondAttribute="leading" id="n9R-2g-dVA"/>
                             <constraint firstItem="MnB-DE-r59" firstAttribute="centerX" secondItem="BJI-bt-fWf" secondAttribute="centerX" id="ohf-sZ-dVs"/>

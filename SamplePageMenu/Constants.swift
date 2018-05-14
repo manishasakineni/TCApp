@@ -89,8 +89,6 @@ let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword"
 
 let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
 
-
-
 // post
 
 let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
@@ -102,9 +100,10 @@ let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorI
 
 
 // :-   7/05/2018
+//not done
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
 
-let EVENTVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
+
 
 let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")
 

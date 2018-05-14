@@ -9,6 +9,11 @@
 import UIKit
 
 class AuthorDocumentTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var documentImage: UIImageView!
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -60,7 +60,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         
         
-        return 124
+        return 150
     }
     
     
@@ -75,25 +75,10 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorAudiioTableViewCell", for: indexPath) as! AuthorAudiioTableViewCell
                 
                 
-        let postImgUrl = (audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+        let title = (audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         
-        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
-        let url = URL(string:newString!)
-        
-        let dataImg = try? Data(contentsOf: url!)
-        
-        if dataImg != nil {
-            
-            cell.authorAudioImage.image = UIImage(data: dataImg!)
-            
-        }
-            
-        else {
-            
-            cell.authorAudioImage.image = #imageLiteral(resourceName: "j4")
-        }
-    
+              cell.audioLabel.text = title
         
         
         return cell
@@ -104,14 +89,45 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        
+        let postImgUrl = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+        
+        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        
+        if newString != nil {
+            
+            
+            let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
+            
+            audioViewController.audioIDArr = newString!
+            audioViewController.audioIDNameArr = title!
+            
+            self.navigationController?.pushViewController(audioViewController, animated: true)
+            
+            
+        }
+        else {
+            
+        }
+        
+        
+        
+        
+        print("audio")
+        
+        }
+    }
    
     
     
-    }
 
-    
-    
 
-    
-    
-  
+
+
+
+
+
+

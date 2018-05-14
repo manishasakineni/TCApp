@@ -1,20 +1,25 @@
 //
-//  AuthorAudiioTableViewCell.swift
+//  GetAllJobDetailsTableViewCell.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 12/05/18.
+//  Created by Manoj on 14/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import UIKit
 
-class AuthorAudiioTableViewCell: UITableViewCell {
+class GetAllJobDetailsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var jobtitleLabel: UILabel!
     
-    @IBOutlet weak var authorAudioImage: UIImageView!
+    @IBOutlet weak var qualificationLabel: UILabel!
+    
+    @IBOutlet weak var churchNameLabel: UILabel!
+    
+    @IBOutlet weak var cintactNumberLabel: UILabel!
+    
+    @IBOutlet weak var lastdateToApplyLabel: UILabel!
 
-    @IBOutlet weak var audioLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
