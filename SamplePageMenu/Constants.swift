@@ -96,19 +96,24 @@ let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchI
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
 
 
+let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")
 
+let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
+
+
+let JOBAPPLYAPI : String = BASEURL.appending("api/ApplicantInfo/AddUpdateApplicant")
 
 
 // :-   7/05/2018
+
 //not done
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
 
 
 
-let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")
 
-let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
 
+// mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO
 let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}

@@ -186,6 +186,9 @@
 		AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102858203C28700012411A /* InfoTableViewCell.xib */; };
 		AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10601B204EAA8100711938 /* GenderTableViewCell.swift */; };
 		AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10601C204EAA8100711938 /* GenderTableViewCell.xib */; };
+		AF10617020AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10616E20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift */; };
+		AF10617120AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10616F20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib */; };
+		AF10617320AA9C7C00ECEBF3 /* GetJobByIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10617220AA9C7C00ECEBF3 /* GetJobByIDViewController.swift */; };
 		AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */; };
 		AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */; };
 		AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */; };
@@ -228,6 +231,15 @@
 		AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */; };
 		AF7C2E3F20A08222003D623F /* PostByAutorIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */; };
 		AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */; };
+		AF91F12B20AAEF620050A938 /* GetJobidHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F12920AAEF620050A938 /* GetJobidHeaderTableViewCell.swift */; };
+		AF91F12C20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF91F12A20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib */; };
+		AF91F12E20AAFC1B0050A938 /* JobApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F12D20AAFC1B0050A938 /* JobApplyViewController.swift */; };
+		AF91F13020AB05820050A938 /* JobApplyVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F12F20AB05820050A938 /* JobApplyVO.swift */; };
+		AF91F13220AB05950050A938 /* JobApplyListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */; };
+		AF91F13620AB0C320050A938 /* JobApplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */; };
+		AF91F13720AB0C320050A938 /* JobApplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */; };
+		AF91F13A20AB115B0050A938 /* JobApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */; };
+		AF91F13B20AB115B0050A938 /* JobApplicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */; };
 		AF9769AB20A44C1F0037F34C /* authorAudioaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */; };
 		AF9769AC20A44C1F0037F34C /* authorAudioaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */; };
 		AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */; };
@@ -533,6 +545,9 @@
 		AF102858203C28700012411A /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		AF10601B204EAA8100711938 /* GenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderTableViewCell.swift; sourceTree = "<group>"; };
 		AF10601C204EAA8100711938 /* GenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderTableViewCell.xib; sourceTree = "<group>"; };
+		AF10616E20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDTableViewCell.swift; sourceTree = "<group>"; };
+		AF10616F20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetJobByIDTableViewCell.xib; sourceTree = "<group>"; };
+		AF10617220AA9C7C00ECEBF3 /* GetJobByIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDViewController.swift; sourceTree = "<group>"; };
 		AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDVO.swift; sourceTree = "<group>"; };
 		AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDListResultVO.swift; sourceTree = "<group>"; };
 		AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateJobVO.swift; sourceTree = "<group>"; };
@@ -575,6 +590,15 @@
 		AF7C2E3C20A07CB8003D623F /* PostByChurchIDResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByChurchIDResultInfoVO.swift; sourceTree = "<group>"; };
 		AF7C2E3E20A08222003D623F /* PostByAutorIdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdVO.swift; sourceTree = "<group>"; };
 		AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostByAutorIdResultInfoVO.swift; sourceTree = "<group>"; };
+		AF91F12920AAEF620050A938 /* GetJobidHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobidHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		AF91F12A20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetJobidHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		AF91F12D20AAFC1B0050A938 /* JobApplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyViewController.swift; sourceTree = "<group>"; };
+		AF91F12F20AB05820050A938 /* JobApplyVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyVO.swift; sourceTree = "<group>"; };
+		AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyListResultVO.swift; sourceTree = "<group>"; };
+		AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyTableViewCell.swift; sourceTree = "<group>"; };
+		AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobApplyTableViewCell.xib; sourceTree = "<group>"; };
+		AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplicationTableViewCell.swift; sourceTree = "<group>"; };
+		AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobApplicationTableViewCell.xib; sourceTree = "<group>"; };
 		AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorAudioaViewController.swift; sourceTree = "<group>"; };
 		AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorAudioaViewController.xib; sourceTree = "<group>"; };
 		AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdVo.swift; sourceTree = "<group>"; };
@@ -1084,6 +1108,7 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF91F13320AB059B0050A938 /* JobApplyVO */,
 				AF141D6D20A6AC1100AE9FB8 /* GetAllJobDetailsVO */,
 				AF141D6C20A6ABFA00AE9FB8 /* AddUpdateJobVO */,
 				AF141D6B20A6ABDA00AE9FB8 /* GetJobByIDVO */,
@@ -1444,6 +1469,16 @@
 				AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */,
 				AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */,
 				AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */,
+				AF10617220AA9C7C00ECEBF3 /* GetJobByIDViewController.swift */,
+				AF10616E20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift */,
+				AF10616F20AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib */,
+				AF91F12920AAEF620050A938 /* GetJobidHeaderTableViewCell.swift */,
+				AF91F12A20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib */,
+				AF91F12D20AAFC1B0050A938 /* JobApplyViewController.swift */,
+				AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */,
+				AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */,
+				AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */,
+				AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */,
 			);
 			name = GetAllJobDetailsViewController;
 			sourceTree = "<group>";
@@ -1494,6 +1529,15 @@
 				AF7C2E4020A0823A003D623F /* PostByAutorIdResultInfoVO.swift */,
 			);
 			name = PostByAutorIdVO;
+			sourceTree = "<group>";
+		};
+		AF91F13320AB059B0050A938 /* JobApplyVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF91F12F20AB05820050A938 /* JobApplyVO.swift */,
+				AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */,
+			);
+			name = JobApplyVO;
 			sourceTree = "<group>";
 		};
 		AFE9A05A207F3210001CEE7A /* EventLikeorDislike */ = {
@@ -2012,6 +2056,7 @@
 				AF141D7D20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib in Resources */,
 				CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */,
 				3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */,
+				AF10617120AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib in Resources */,
 				3D355D27205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib in Resources */,
 				9A5D261F1FFF89EA00316988 /* TransactionCell.xib in Resources */,
 				3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */,
@@ -2050,6 +2095,7 @@
 				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
 				AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
+				AF91F12C20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
@@ -2059,8 +2105,10 @@
 				AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
 				3D9C30F8207E189A00601B75 /* AllRepliesHeaderTVCell.xib in Resources */,
+				AF91F13B20AB115B0050A938 /* JobApplicationTableViewCell.xib in Resources */,
 				CB3794E720595867002D3638 /* homeCategoriesCell.xib in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
+				AF91F13720AB0C320050A938 /* JobApplyTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
 				3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */,
 			);
@@ -2183,6 +2231,7 @@
 				3D540C15206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
 				CB21CE67203DA6B200B3294B /* GetChurchByIDResultVo.swift in Sources */,
+				AF91F13620AB0C320050A938 /* JobApplyTableViewCell.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */,
 				CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */,
@@ -2190,6 +2239,7 @@
 				CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
 				CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */,
+				AF91F12E20AAFC1B0050A938 /* JobApplyViewController.swift in Sources */,
 				3DD30F5F205FE3E90076B0DB /* EventDetailsVO.swift in Sources */,
 				CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */,
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
@@ -2248,6 +2298,7 @@
 				359CC92C206277020061450A /* BibleChaptersViewController.swift in Sources */,
 				AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */,
 				AF7C2E3920A0645B003D623F /* PostByEventImageVO.swift in Sources */,
+				AF10617320AA9C7C00ECEBF3 /* GetJobByIDViewController.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				AFE9A060207F356D001CEE7A /* EventLikeorDislikeLikeResultVO.swift in Sources */,
@@ -2320,6 +2371,7 @@
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
+				AF91F12B20AAEF620050A938 /* GetJobidHeaderTableViewCell.swift in Sources */,
 				CB4B20F42047D11500402E59 /* CategoriesHomeViewController.swift in Sources */,
 				CB4B2100204834CD00402E59 /* InfoHeaderCell.swift in Sources */,
 				352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */,
@@ -2327,6 +2379,7 @@
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
 				AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */,
+				AF91F13020AB05820050A938 /* JobApplyVO.swift in Sources */,
 				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
@@ -2350,9 +2403,11 @@
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
 				AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */,
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
+				AF91F13220AB05950050A938 /* JobApplyListResultVO.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
 				354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */,
+				AF10617020AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift in Sources */,
 				CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */,
 				CB19E92620613B9F00007D9C /* CommentsCell.swift in Sources */,
 				3D504581208078E800351662 /* EventCommentsVO.swift in Sources */,
@@ -2382,6 +2437,7 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
+				AF91F13A20AB115B0050A938 /* JobApplicationTableViewCell.swift in Sources */,
 				AF39FD0820A9A74500712EF7 /* GetAllJobDetailsViewController.swift in Sources */,
 				AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */,
 				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,

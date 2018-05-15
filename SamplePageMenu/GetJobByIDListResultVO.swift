@@ -25,7 +25,7 @@ class GetJobByIDListResultVO: Mappable {
     var salary : Int?
     
     
-    var lastDateToApply : Int?
+    var lastDateToApply : String?
     var isActive : Bool?
     var createdByUserId : Int?
     var createdDate : String?
@@ -39,7 +39,7 @@ class GetJobByIDListResultVO: Mappable {
 
     
     
-    init(id: Int?,jobTitle: String?,vacencies: Int?, qualification: String?, jobDesc: String?, churchId: Int?, adminId: Int?, contactPerson : String?, contactNumber : String?, salary : Int?,lastDateToApply: Int?,isActive: Bool?,createdByUserId: Int?, createdDate: String?, updatedByUserId: Int?, updatedDate: String?, adminName: String?, churchName : String?, createdByUser : String?, updatedByUser : String?)
+    init(id: Int?,jobTitle: String?,vacencies: Int?, qualification: String?, jobDesc: String?, churchId: Int?, adminId: Int?, contactPerson : String?, contactNumber : String?, salary : Int?,lastDateToApply: String?,isActive: Bool?,createdByUserId: Int?, createdDate: String?, updatedByUserId: Int?, updatedDate: String?, adminName: String?, churchName : String?, createdByUser : String?, updatedByUser : String?)
         
         
     {

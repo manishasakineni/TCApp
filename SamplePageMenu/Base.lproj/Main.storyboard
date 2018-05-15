@@ -2210,6 +2210,75 @@
             </objects>
             <point key="canvasLocation" x="10503.200000000001" y="1067.3163418290856"/>
         </scene>
+        <!--Get Job ByID View Controller-->
+        <scene sceneID="R7q-IJ-rHX">
+            <objects>
+                <viewController storyboardIdentifier="GetJobByIDViewController" id="bGO-kk-XDe" customClass="GetJobByIDViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0ab-9J-4pg"/>
+                        <viewControllerLayoutGuide type="bottom" id="wiM-dL-9kz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BF1-ie-LcP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="360-eu-SPs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bGO-kk-XDe" id="vHs-br-erk"/>
+                                    <outlet property="delegate" destination="bGO-kk-XDe" id="Rt4-8C-4wz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="360-eu-SPs" secondAttribute="trailing" id="Iar-mP-9t8"/>
+                            <constraint firstItem="wiM-dL-9kz" firstAttribute="top" secondItem="360-eu-SPs" secondAttribute="bottom" id="JFm-ln-RNg"/>
+                            <constraint firstItem="360-eu-SPs" firstAttribute="top" secondItem="BF1-ie-LcP" secondAttribute="top" id="RRa-cr-V9n"/>
+                            <constraint firstItem="360-eu-SPs" firstAttribute="leading" secondItem="BF1-ie-LcP" secondAttribute="leading" id="Ueg-Ah-xQ1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getJobByIDTableView" destination="360-eu-SPs" id="7tK-jL-v4b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJj-mW-kbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11247.200000000001" y="1067.3163418290856"/>
+        </scene>
+        <!--Job Apply View Controller-->
+        <scene sceneID="9QW-QU-7VR">
+            <objects>
+                <viewController storyboardIdentifier="JobApplyViewController" id="zbf-vU-65t" customClass="JobApplyViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wQX-o3-giZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="InV-sA-PkH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e8T-Os-9zq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xsS-zq-S37">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zbf-vU-65t" id="4an-BS-qgY"/>
+                                    <outlet property="delegate" destination="zbf-vU-65t" id="Tpg-61-nBP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="jobApplyTableView" destination="xsS-zq-S37" id="I6e-xd-6wI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrl-Cs-ka7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12004" y="1066.4167916041979"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Church-logo" width="240" height="233"/>

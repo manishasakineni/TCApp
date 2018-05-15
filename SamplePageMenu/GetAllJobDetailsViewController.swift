@@ -15,7 +15,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
       var showNav = false
       var totalPages : Int? = 0
     
-    
+     var appVersion          : String = ""
     
     var jobDetailsArray:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
 
@@ -42,7 +42,18 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Careers", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
+        
+    }
 
+    
+    
     
     //MARK: -  churchDetails TableView delegate & DataSource  methods
     
@@ -120,9 +131,10 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-      //      let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+    let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
             
-          
+     
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
         
     }
 
@@ -199,6 +211,57 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }
     }
 
+   
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        print("Back Button Clicked......")
+        
+    }
+
+  
+    //MARK: -    Home Button Tapped
+    
+    
+    @IBAction func homeButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        
+        print("Home Button Clicked......")
+        
+    }
     
     
     

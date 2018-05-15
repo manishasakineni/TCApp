@@ -1,21 +1,26 @@
 //
-//  GetJobByIDVO.swift
+//  JobApplyVO.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 11/05/18.
+//  Created by Manoj on 15/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import Foundation
 
-
-class GetJobByIDVO: Mappable {
+class JobApplyVO: Mappable {
     
+//    "result": null,
+//    "isSuccess": true,
+//    "affectedRecords": 1,
+//    "totalRecords": 0,
+//    "endUserMessage": "Applied Successfully",
+//    "validationErrors": [],
+//    "exception": null
+//    
     
-    var listResult : Any?
-    
-    var result : GetJobByIDListResultVO?
-    
+    var listResult : [GetAllJobDetailsListResultVO]?
+    var result : Any?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -24,13 +29,14 @@ class GetJobByIDVO: Mappable {
     var exception : Any?
     
     
-    init(listResult:Any?, result: GetJobByIDListResultVO?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
+    init(listResult: [GetAllJobDetailsListResultVO]?, result :Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         
         
     {
         
-        self.result = result
+        
         self.listResult = listResult
+        self.result = result
         self.isSuccess = isSuccess
         self.totalRecords = totalRecords
         self.affectedRecords = affectedRecords
