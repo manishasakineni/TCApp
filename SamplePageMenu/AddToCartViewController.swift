@@ -1,37 +1,48 @@
 //
-//  GetAllItemsViewController.swift
+//  AddToCartViewController.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 16/05/18.
+//  Created by Manoj on 17/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import UIKit
 
-class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class AddToCartViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+
+    @IBOutlet weak var addToCartTableView: UITableView!
+    
+     var itemID:Int = 0
+     var quantity = ""
+    
+    
+     var userId :  Int = 0
+    
+    var allitemsArray:[GetCartListResultVO] = Array<GetCartListResultVO>()
+    
+    var filtered:[GetCartListResultVO] = []
+    
 
     
-    @IBOutlet weak var getAllitemsTableView: UITableView!
-    
-    var showNav = false
-     var appVersion          : String = ""
-    
-   
-    
-     var allitemsArray:[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
-    
-     var filtered:[GetAllitemsListResultVO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nibName1  = UINib(nibName: "GetAllItemsTableViewCell" , bundle: nil)
-        getAllitemsTableView.register(nibName1, forCellReuseIdentifier: "GetAllItemsTableViewCell")
         
-       getAllitemsTableView.dataSource = self
-        getAllitemsTableView.delegate = self
+        let nibName1  = UINib(nibName: "AddToCareTableViewCell" , bundle: nil)
+        addToCartTableView.register(nibName1, forCellReuseIdentifier: "AddToCareTableViewCell")
         
-        getallitemsAPICall()
+        addToCartTableView.dataSource = self
+        addToCartTableView.delegate = self
+        
+        getCartInfoAPIService()
+        
+        
+        
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -54,7 +65,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     
-//MARK: -  churchDetails TableView delegate & DataSource  methods
+    //MARK: -  churchDetails TableView delegate & DataSource  methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -75,6 +86,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         
         
+   return 1
         
     }
     
@@ -93,19 +105,12 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GetAllItemsTableViewCell", for: indexPath) as! GetAllItemsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddToCareTableViewCell", for: indexPath) as! AddToCareTableViewCell
         
         
-        let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
+        let listStr:GetCartListResultVO = filtered[indexPath.row]
         
-        cell.allitemsLabel.text = listStr.name
         
-         cell.allitemsDescLabel.text = listStr.desc
-         cell.allitemsauthorLabel.text = listStr.author
-        
-         cell.allitemsPriceLabel.text = "\(listStr.price!)"
-        
-    
         
         let postImgUrl = listStr.itemImage
         
@@ -117,46 +122,32 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         if dataImg != nil {
             
-            cell.allitemsImage.image = UIImage(data: dataImg!)
+            cell.addToCartImage.image = UIImage(data: dataImg!)
             
         }
             
         else {
             
-            cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
+            cell.addToCartImage.image = #imageLiteral(resourceName: "j4")
         }
         
+
         
+        cell.addToCartNameLbl.text = listStr.itemName
+        cell.addToCartQuantityLbl.text = "\(String(describing: listStr.quantity))"
+       
+        cell.addToCartPriceLbl.text = "\(String(describing: listStr.price))"
+        cell.addToCartAuthorLbl.text = listStr.author
         
-  
-               
+
         return cell
         
         
         
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        if filtered.count > 0 {
-            
-            let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
-            
-        
-        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllItemsIDViewController") as! AllItemsIDViewController
-        
-           jobIDViewController.itemID = listStr.id!
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-      
-      
-            
 
-        
-    }
-        
-    }
-  
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         UserDefaults.standard.removeObject(forKey: "1")
@@ -167,9 +158,6 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         self.navigationController?.popViewController(animated: true)
         
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        appDelegate.window?.rootViewController = rootController
         
         
         
@@ -207,59 +195,101 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
-
     
-    func getallitemsAPICall(){
+    
+    func getCartInfoAPIService(){
         
-        let paramsDict = [ 	"userId": "",
-                           	"pageIndex": 1,
-                           	"pageSize": 100,
-                           	"sortbyColumnName": "UpdatedDate",
-                           	"sortDirection": "desc",
-                           	"searchName": ""
+        let strUrl = GETCARTINFOAPI  + "\(userId)"
+        
+        serviceController.getRequest(strURL: strUrl, success: { (result) in
             
-            ] as [String : Any]
-        
-        let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
-        serviceController.postRequest(strURL: GETALLITEMSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-            print(result)
-            
-            let respVO:GetAllitemsVO = Mapper().map(JSONObject: result)!
+            let respVO:GetCartInfoVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
+  
             
-            
+        
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
                 
                 for eachArray in listArr{
+                    
                     self.filtered.append(eachArray)
                 }
                 
-                self.getAllitemsTableView.reloadData()
+                self.addToCartTableView.reloadData()
                 
             }
-                
-            else {
-                
-                
-                
-            }
+            
+        
+            
             
         }) { (failureMessage) in
             
-            
-            print(failureMessage)
-            
         }
+        
     }
     
 
     
     
+    
+    
 }
+
+
+//    func addToCatrAPICall(){
+//
+//        let paramsDict = [ 	"id": 0,
+//                           	"itemId": itemID,
+//                           	"userId": 3,
+//                           	"quantity": Int(quantity)!
+//            
+//            ] as [String : Any]
+//        
+//        let dictHeaders = ["":"","":""] as NSDictionary
+//        
+//        
+//        serviceController.postRequest(strURL: ADDTOCARTAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+//            
+//            print(result)
+//            
+//            let respVO:AddToCartVO = Mapper().map(JSONObject: result)!
+//            
+//            let isSuccess = respVO.isSuccess
+//            print("StatusCode:\(String(describing: isSuccess))")
+//            
+//            
+//            if isSuccess == true {
+//                
+//                let listArr = respVO.listResult!
+//                
+//                for eachArray in listArr{
+//                    
+//                    self.filtered.append(eachArray)
+//                }
+//                
+//                self.addToCartTableView.reloadData()
+//                
+//            }
+//                
+//            else {
+//                
+//                
+//                
+//            }
+//            
+//        }) { (failureMessage) in
+//            
+//            
+//            print(failureMessage)
+//            
+//        }
+//    }
+    
+ 
+    
+
+

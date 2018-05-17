@@ -8,18 +8,25 @@
 
 import UIKit
 
-class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
 
     @IBOutlet weak var allitemsIDTableView: UITableView!
     
+    @IBOutlet weak var quantityTF: UITextField!
+    
     var appVersion          : String = ""
 
-    var churchID:Int = 0
+    var itemID:Int = 0
+      let utillites =  Utilities()
+    var activeTextField = UITextField()
+     var alertTag = Int()
+    var userId :  Int = 0
     
     var allitemsArray:[AllItemIdListResultVO] = Array<AllItemIdListResultVO>()
     
     var filtered:[AllItemIdListResultVO] = []
     
+    var quantity = ""
     
     
     override func viewDidLoad() {
@@ -27,6 +34,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         allitemsIDTableView.delegate = self
         allitemsIDTableView.dataSource = self
+        quantityTF.delegate = self
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
         
       allitemsIDAPIService()
         
@@ -56,8 +69,59 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        
+        
+        if activeTextField.tag == 0 {
+            
+            textField.maxLengthTextField = 50
+            textField.clearButtonMode = .never
+            textField.keyboardType = .default
+        }
     
+    }
     
+   
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if !string.canBeConverted(to: String.Encoding.ascii){
+            return false
+        }
+        activeTextField = textField
+        
+        return true
+        
+    }
+    //MARK:- textField Should Should End Editing
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        
+        
+        
+        if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
+            
+            
+            
+        }
+        return true
+    }
+    
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
+        activeTextField = textField
+        
+        
+        if activeTextField.tag == 0{
+            
+             quantity = textField.text!
+            
+        }
+    }
     
     //MARK: -  churchDetails TableView delegate & DataSource  methods
     
@@ -151,6 +215,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
 
+    
+  
+    
 
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -204,7 +271,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
 
         
-        let strUrl = ALLITEMSIDAPI  + "\(churchID)" + "/0"
+        let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/0"
         
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             
@@ -241,9 +308,65 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-    
+    @IBAction func addToCartAction(_ sender: Any) {
+        
+        allitemsIDTableView.endEditing(true)
+        
+        if(quantity != "" && quantity != "0"){
+            
+ // AddToCart API
+            
+                let paramsDict = [ 	"id": 0,
+                                   	"itemId": itemID,
+                                   	"userId": userId,
+                                   	"quantity": Int(quantity)!
+                    
+                    ] as [String : Any]
+                
+                let dictHeaders = ["":"","":""] as NSDictionary
+                
+                
+                serviceController.postRequest(strURL: ADDTOCARTAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                    
+                    print(result)
+                    
+                    let respVO:AddToCartVO = Mapper().map(JSONObject: result)!
+                    
+                    let isSuccess = respVO.isSuccess
+                    print("StatusCode:\(String(describing: isSuccess))")
+                    
+                    
+            if isSuccess == true {
+                        
+            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+                        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                        
 
+                        
+                    }
+                        
+                    else {
+                        
+                        
+                        
+                    }
+                    
+                }) { (failureMessage) in
+                    
+                    
+                    print(failureMessage)
+                    
+                }
+            
+        }else{
+            
+            print("Please enter valid quantity")
+            
+        }
 
+    }
    
+ 
 
 }

@@ -105,19 +105,22 @@ let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
 
 let JOBAPPLYAPI : String = BASEURL.appending("api/ApplicantInfo/AddUpdateApplicant")
 
-
-// :-   16/05/2018
-
-
 let GETALLITEMSAPI : String = BASEURL.appending("api/ItemDetails/GetAllItems")
 
 let ALLITEMSIDAPI : String = BASEURL.appending("api/ItemDetails/GetItemById/")
 
+// :-   17/05/2018
+
+
+let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
+
+let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
+
+
+
+
 //not done
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
-
-
-
 
 
 // mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO

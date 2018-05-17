@@ -179,6 +179,13 @@
 		AF0B5DFC20A3161D0039C7A4 /* authorImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */; };
 		AF0B5DFF20A3163E0039C7A4 /* authorDocuments1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */; };
 		AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */; };
+		AF0F0D1920AD4AE700AE9BD9 /* AddToCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */; };
+		AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */; };
+		AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */; };
+		AF0F0D1E20AD52F900AE9BD9 /* AddToCartVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1D20AD52F900AE9BD9 /* AddToCartVO.swift */; };
+		AF0F0D2020AD531100AE9BD9 /* AddToCartListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1F20AD531100AE9BD9 /* AddToCartListResultVO.swift */; };
+		AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D2220AD7A1A00AE9BD9 /* GetCartInfoVO.swift */; };
+		AF0F0D2520AD7A3600AE9BD9 /* GetCartListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D2420AD7A3600AE9BD9 /* GetCartListResultVO.swift */; };
 		AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102851203C25B10012411A /* InfoChurchViewControllers.swift */; };
 		AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */; };
 		AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102854203C25C10012411A /* InfoChurchViewControllers.xib */; };
@@ -550,6 +557,13 @@
 		AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorImagesViewController.xib; sourceTree = "<group>"; };
 		AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorDocuments1ViewController.swift; sourceTree = "<group>"; };
 		AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorDocumentsViewController.xib; sourceTree = "<group>"; };
+		AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCareTableViewCell.swift; sourceTree = "<group>"; };
+		AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCareTableViewCell.xib; sourceTree = "<group>"; };
+		AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
+		AF0F0D1D20AD52F900AE9BD9 /* AddToCartVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartVO.swift; sourceTree = "<group>"; };
+		AF0F0D1F20AD531100AE9BD9 /* AddToCartListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartListResultVO.swift; sourceTree = "<group>"; };
+		AF0F0D2220AD7A1A00AE9BD9 /* GetCartInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCartInfoVO.swift; sourceTree = "<group>"; };
+		AF0F0D2420AD7A3600AE9BD9 /* GetCartListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCartListResultVO.swift; sourceTree = "<group>"; };
 		AF102851203C25B10012411A /* InfoChurchViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChurchViewControllers.swift; sourceTree = "<group>"; };
 		AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchesInformaationViewControllers.swift; sourceTree = "<group>"; };
 		AF102854203C25C10012411A /* InfoChurchViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoChurchViewControllers.xib; sourceTree = "<group>"; };
@@ -1132,6 +1146,8 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF0F0D2620AD7A3A00AE9BD9 /* GetCartInfoVO */,
+				AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */,
 				AF4EF45720AC406100F690F0 /* AllItemIdVO */,
 				AF4EF44720AC15D100F690F0 /* GetAllitemsVO */,
 				AF91F13320AB059B0050A938 /* JobApplyVO */,
@@ -1388,6 +1404,24 @@
 			name = ChangePasswordCell;
 			sourceTree = "<group>";
 		};
+		AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF0F0D1D20AD52F900AE9BD9 /* AddToCartVO.swift */,
+				AF0F0D1F20AD531100AE9BD9 /* AddToCartListResultVO.swift */,
+			);
+			name = AddToCartVO;
+			sourceTree = "<group>";
+		};
+		AF0F0D2620AD7A3A00AE9BD9 /* GetCartInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF0F0D2220AD7A1A00AE9BD9 /* GetCartInfoVO.swift */,
+				AF0F0D2420AD7A3600AE9BD9 /* GetCartListResultVO.swift */,
+			);
+			name = GetCartInfoVO;
+			sourceTree = "<group>";
+		};
 		AF102850203C251C0012411A /* ChurchInformationViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1547,6 +1581,9 @@
 				AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */,
 				AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */,
 				AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */,
+				AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */,
+				AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */,
+				AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */,
 			);
 			name = AllitemsViewController;
 			sourceTree = "<group>";
@@ -2132,6 +2169,7 @@
 				3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */,
 				3D5404FA2058045A008257A6 /* AuthorPostsViewController.xib in Resources */,
 				9A5D261B1FFF89D900316988 /* MearchantViewController.xib in Resources */,
+				AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */,
 				CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */,
 				AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */,
 				CB255D6C204FBAF90080AFAD /* UpComingEventCell.xib in Resources */,
@@ -2307,6 +2345,7 @@
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */,
 				CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */,
+				AF0F0D1920AD4AE700AE9BD9 /* AddToCareTableViewCell.swift in Sources */,
 				AF4EF45020AC171900F690F0 /* GetAllItemsViewController.swift in Sources */,
 				359CC92720626ED10061450A /* BibleResultVo.swift in Sources */,
 				CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */,
@@ -2332,6 +2371,7 @@
 				3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */,
 				AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
+				AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */,
 				359CC92A206276C40061450A /* BibleBooksViewController.swift in Sources */,
 				3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
@@ -2390,6 +2430,7 @@
 				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
+				AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */,
@@ -2411,6 +2452,7 @@
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
 				AF2EB528206DFC60009B3B75 /* BibleDetailsCellViewController.swift in Sources */,
 				AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */,
+				AF0F0D2520AD7A3600AE9BD9 /* GetCartListResultVO.swift in Sources */,
 				AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
@@ -2425,6 +2467,7 @@
 				AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
+				AF0F0D1E20AD52F900AE9BD9 /* AddToCartVO.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
@@ -2463,6 +2506,7 @@
 				AFE9A05E207F334D001CEE7A /* EventLikeorDislikeResultVO.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
+				AF0F0D2020AD531100AE9BD9 /* AddToCartListResultVO.swift in Sources */,
 				3D9C30F7207E189A00601B75 /* AllRepliesHeaderTVCell.swift in Sources */,
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
 				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,

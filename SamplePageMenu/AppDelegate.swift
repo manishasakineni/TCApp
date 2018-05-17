@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
   
         
-  //     lunchScreenView()
+       lunchScreenView()
         
 
      //   }
