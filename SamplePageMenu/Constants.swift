@@ -83,6 +83,8 @@ let EVENTCOMMENTAPI : String = BASEURL.appending("api/Events/AddUpdateEventComme
 
 let VIDEOVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
 
+//  mmmmmmmm
+
 let POSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
 
 let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword")
@@ -104,7 +106,12 @@ let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
 let JOBAPPLYAPI : String = BASEURL.appending("api/ApplicantInfo/AddUpdateApplicant")
 
 
-// :-   7/05/2018
+// :-   16/05/2018
+
+
+let GETALLITEMSAPI : String = BASEURL.appending("api/ItemDetails/GetAllItems")
+
+let ALLITEMSIDAPI : String = BASEURL.appending("api/ItemDetails/GetItemById/")
 
 //not done
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
@@ -115,6 +122,8 @@ let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
 
 // mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO
 let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
+
+
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

@@ -1,19 +1,19 @@
 //
-//  JobApplyVO.swift
+//  GetAllitemsVO.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 15/05/18.
+//  Created by Manoj on 16/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import Foundation
 
-class JobApplyVO: Mappable {
+class GetAllitemsVO: Mappable {
     
-  
     
-    var listResult : [GetAllJobDetailsListResultVO]?
-    var result : Any?
+    
+    var listResult : [GetAllitemsListResultVO]?
+   
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -22,14 +22,14 @@ class JobApplyVO: Mappable {
     var exception : Any?
     
     
-    init(listResult: [GetAllJobDetailsListResultVO]?, result :Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
+    init(listResult: [GetAllitemsListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         
         
     {
         
         
         self.listResult = listResult
-        self.result = result
+       
         self.isSuccess = isSuccess
         self.totalRecords = totalRecords
         self.affectedRecords = affectedRecords
@@ -46,7 +46,7 @@ class JobApplyVO: Mappable {
     func mapping(map: Map) {
         
         listResult <- map["listResult"]
-        result <- map["result"]
+       
         isSuccess <- map["isSuccess"]
         totalRecords <- map["totalRecords"]
         affectedRecords <- map["affectedRecords"]

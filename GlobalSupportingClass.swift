@@ -20,6 +20,31 @@ class GlobalSupportingClass {
     
     
     // MARK: - Error Messages
+    
+    class func blankjobtitleErrorMessage() -> String {
+        return "Please provide jobtitle".localize()
+    }
+    
+    
+    class func blankqualificationErrorMessage() -> String {
+        return "Please provide Qualification".localize()
+    }
+    
+    class func blankyearofexperienceErrorMessage() -> String {
+        return "Please provide Years Of Experience".localize()
+    }
+    class func blankcurrentorganizationErrorMessage() -> String {
+        return "Please provide Current Organization".localize()
+    }
+    class func blankcurrentsalaryErrorMessage() -> String {
+        return "Please provide Current Salary".localize()
+    }
+    class func blankexpectedsalaryErrorMessage() -> String {
+        return "Please provide Expected Salary".localize()
+    }
+    
+    
+    
     class func blankFirstNameErrorMessage() -> String {
         return "Please provide First Name".localize()
     }

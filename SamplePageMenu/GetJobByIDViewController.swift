@@ -69,7 +69,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Job Details", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Job Details", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -129,7 +129,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             return signUPCell
             
 
-        return signUPCell
+//        return signUPCell
         }
          if indexPath.section == 1 {
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GetJobByIDTableViewCell", for: indexPath) as! GetJobByIDTableViewCell

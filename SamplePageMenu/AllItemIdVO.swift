@@ -1,19 +1,19 @@
 //
-//  JobApplyVO.swift
+//  AllItemIdVO.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 15/05/18.
+//  Created by Manoj on 16/05/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import Foundation
 
-class JobApplyVO: Mappable {
+class AllItemIdVO: Mappable {
     
-  
+
     
-    var listResult : [GetAllJobDetailsListResultVO]?
-    var result : Any?
+    var listResult : [AllItemIdListResultVO]?
+    var result    : Any?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -22,7 +22,7 @@ class JobApplyVO: Mappable {
     var exception : Any?
     
     
-    init(listResult: [GetAllJobDetailsListResultVO]?, result :Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
+    init(listResult: [AllItemIdListResultVO]?,result: Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         
         
     {

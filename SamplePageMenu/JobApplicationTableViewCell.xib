@@ -18,22 +18,54 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEH-FQ-J3W">
-                        <rect key="frame" x="38" y="8" width="218" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEH-FQ-J3W">
+                        <rect key="frame" x="51" y="8" width="218" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="218" id="MQO-r5-dsn"/>
+                            <constraint firstAttribute="height" constant="30" id="NkO-hj-rxr"/>
+                        </constraints>
                         <state key="normal" title="Update Resume">
                             <color key="titleColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dp-Oh-8T9">
-                        <rect key="frame" x="52" y="60" width="204" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dp-Oh-8T9">
+                        <rect key="frame" x="58" y="46" width="204" height="30"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="jfI-If-Lkx"/>
+                            <constraint firstAttribute="width" constant="204" id="sDB-qh-cNR"/>
+                        </constraints>
                         <state key="normal" title="Apply">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoA-iH-8L4">
+                        <rect key="frame" x="0.0" y="87" width="320" height="6"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="6" id="AMG-s3-1j4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="FEH-FQ-J3W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0og-sE-tS2"/>
+                    <constraint firstAttribute="trailing" secondItem="UoA-iH-8L4" secondAttribute="trailing" id="5Ge-go-LaY"/>
+                    <constraint firstItem="8dp-Oh-8T9" firstAttribute="centerX" secondItem="FEH-FQ-J3W" secondAttribute="centerX" id="Yde-tL-i51"/>
+                    <constraint firstAttribute="trailing" secondItem="FEH-FQ-J3W" secondAttribute="trailing" constant="51" id="bZi-lV-Vn9"/>
+                    <constraint firstItem="UoA-iH-8L4" firstAttribute="top" secondItem="8dp-Oh-8T9" secondAttribute="bottom" constant="11" id="elW-xB-Bv0"/>
+                    <constraint firstItem="UoA-iH-8L4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hQH-Nk-pdd"/>
+                    <constraint firstAttribute="bottom" secondItem="UoA-iH-8L4" secondAttribute="bottom" constant="5.5" id="jRk-AI-vGJ"/>
+                    <constraint firstAttribute="bottom" secondItem="8dp-Oh-8T9" secondAttribute="bottom" constant="22.5" id="jsI-lR-fcu"/>
+                    <constraint firstItem="FEH-FQ-J3W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="51" id="oJm-N6-JOY"/>
+                    <constraint firstItem="FEH-FQ-J3W" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pLM-rE-iCV"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="jobApplyBtnOutLet" destination="8dp-Oh-8T9" id="4Jk-54-5HC"/>

@@ -220,6 +220,18 @@
 		AF39FD0820A9A74500712EF7 /* GetAllJobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */; };
 		AF39FD0B20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */; };
 		AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */; };
+		AF4EF44420AC15B200F690F0 /* GetAllitemsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF44320AC15B200F690F0 /* GetAllitemsVO.swift */; };
+		AF4EF44620AC15C900F690F0 /* GetAllitemsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF44520AC15C900F690F0 /* GetAllitemsListResultVO.swift */; };
+		AF4EF44D20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF44B20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift */; };
+		AF4EF44E20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4EF44C20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib */; };
+		AF4EF45020AC171900F690F0 /* GetAllItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF44F20AC171900F690F0 /* GetAllItemsViewController.swift */; };
+		AF4EF45220AC3E2200F690F0 /* AllItemsIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF45120AC3E2200F690F0 /* AllItemsIDViewController.swift */; };
+		AF4EF45420AC404A00F690F0 /* AllItemIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF45320AC404A00F690F0 /* AllItemIdVO.swift */; };
+		AF4EF45620AC405C00F690F0 /* AllItemIdListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF45520AC405C00F690F0 /* AllItemIdListResultVO.swift */; };
+		AF4EF46020AC46EC00F690F0 /* AllitemIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF45E20AC46EC00F690F0 /* AllitemIDTableViewCell.swift */; };
+		AF4EF46120AC46EC00F690F0 /* AllitemIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */; };
+		AF4EF46420AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */; };
+		AF4EF46520AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */; };
 		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
 		AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */; };
 		AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */; };
@@ -579,6 +591,18 @@
 		AF39FD0720A9A74500712EF7 /* GetAllJobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsViewController.swift; sourceTree = "<group>"; };
 		AF39FD0920A9A76900712EF7 /* GetAllJobDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllJobDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		AF39FD0A20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetAllJobDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		AF4EF44320AC15B200F690F0 /* GetAllitemsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllitemsVO.swift; sourceTree = "<group>"; };
+		AF4EF44520AC15C900F690F0 /* GetAllitemsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllitemsListResultVO.swift; sourceTree = "<group>"; };
+		AF4EF44B20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllItemsTableViewCell.swift; sourceTree = "<group>"; };
+		AF4EF44C20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetAllItemsTableViewCell.xib; sourceTree = "<group>"; };
+		AF4EF44F20AC171900F690F0 /* GetAllItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllItemsViewController.swift; sourceTree = "<group>"; };
+		AF4EF45120AC3E2200F690F0 /* AllItemsIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllItemsIDViewController.swift; sourceTree = "<group>"; };
+		AF4EF45320AC404A00F690F0 /* AllItemIdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllItemIdVO.swift; sourceTree = "<group>"; };
+		AF4EF45520AC405C00F690F0 /* AllItemIdListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllItemIdListResultVO.swift; sourceTree = "<group>"; };
+		AF4EF45E20AC46EC00F690F0 /* AllitemIDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllitemIDTableViewCell.swift; sourceTree = "<group>"; };
+		AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllitemIDTableViewCell.xib; sourceTree = "<group>"; };
+		AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllitemIdDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllitemIdDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdInfoVo.swift; sourceTree = "<group>"; };
 		AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdEventDetailsVO.swift; sourceTree = "<group>"; };
@@ -1108,6 +1132,8 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF4EF45720AC406100F690F0 /* AllItemIdVO */,
+				AF4EF44720AC15D100F690F0 /* GetAllitemsVO */,
 				AF91F13320AB059B0050A938 /* JobApplyVO */,
 				AF141D6D20A6AC1100AE9FB8 /* GetAllJobDetailsVO */,
 				AF141D6C20A6ABFA00AE9FB8 /* AddUpdateJobVO */,
@@ -1142,6 +1168,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF4EF44A20AC16C900F690F0 /* OnlineShopingViewController */,
 				AF2EB51D206DF986009B3B75 /* BibleDetailsBook */,
 				359CC9282062769E0061450A /* BibleBooks */,
 				CB1F74CC205F7D7600FDEE8D /* AudioSongsViewController */,
@@ -1481,6 +1508,47 @@
 				AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */,
 			);
 			name = GetAllJobDetailsViewController;
+			sourceTree = "<group>";
+		};
+		AF4EF44720AC15D100F690F0 /* GetAllitemsVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF4EF44320AC15B200F690F0 /* GetAllitemsVO.swift */,
+				AF4EF44520AC15C900F690F0 /* GetAllitemsListResultVO.swift */,
+			);
+			name = GetAllitemsVO;
+			sourceTree = "<group>";
+		};
+		AF4EF44A20AC16C900F690F0 /* OnlineShopingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF4EF44F20AC171900F690F0 /* GetAllItemsViewController.swift */,
+				AF4EF44B20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift */,
+				AF4EF44C20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib */,
+				AF4EF46620AC605500F690F0 /* AllitemsViewController */,
+			);
+			name = OnlineShopingViewController;
+			sourceTree = "<group>";
+		};
+		AF4EF45720AC406100F690F0 /* AllItemIdVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF4EF45320AC404A00F690F0 /* AllItemIdVO.swift */,
+				AF4EF45520AC405C00F690F0 /* AllItemIdListResultVO.swift */,
+			);
+			name = AllItemIdVO;
+			sourceTree = "<group>";
+		};
+		AF4EF46620AC605500F690F0 /* AllitemsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF4EF45120AC3E2200F690F0 /* AllItemsIDViewController.swift */,
+				AF4EF45E20AC46EC00F690F0 /* AllitemIDTableViewCell.swift */,
+				AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */,
+				AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */,
+				AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */,
+			);
+			name = AllitemsViewController;
 			sourceTree = "<group>";
 		};
 		AF7C2E4220A08636003D623F /* EventCommentVOO */ = {
@@ -2026,6 +2094,7 @@
 				AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */,
 				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
 				AF141D7920A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib in Resources */,
+				AF4EF46120AC46EC00F690F0 /* AllitemIDTableViewCell.xib in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
@@ -2044,6 +2113,7 @@
 				9A5D26371FFF8A4900316988 /* YoutubePlayerCell.xib in Resources */,
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
+				AF4EF44E20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib in Resources */,
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
 				CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */,
 				CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */,
@@ -2076,6 +2146,7 @@
 				3D5404F62058045A008257A6 /* AuthorInfoViewController.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
 				CB4B20FD2047D2F000402E59 /* CategorieCollectionViewCell.xib in Resources */,
+				AF4EF46520AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib in Resources */,
 				CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */,
 				CB1E30C220343F23009FB001 /* lang-te.json in Resources */,
 				CB2045D12056A2970032E71D /* AllEventsViewController.xib in Resources */,
@@ -2225,6 +2296,7 @@
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
 				3D2E34202053A0BF00CF8F16 /* BannerCollectionViewCell.swift in Sources */,
+				AF4EF46420AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift in Sources */,
 				3DD30F5D205FDF400076B0DB /* EventDetailsViewController.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
@@ -2235,6 +2307,7 @@
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */,
 				CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */,
+				AF4EF45020AC171900F690F0 /* GetAllItemsViewController.swift in Sources */,
 				359CC92720626ED10061450A /* BibleResultVo.swift in Sources */,
 				CB3794DE20594E9D002D3638 /* VideoSongsResultVo.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
@@ -2263,6 +2336,7 @@
 				3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
 				CB03C8D6203EC8F5000B96A4 /* ChurchAdminDetailCell.swift in Sources */,
+				AF4EF44620AC15C900F690F0 /* GetAllitemsListResultVO.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
 				CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
@@ -2295,6 +2369,7 @@
 				9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */,
 				9AF564992020944800AEA0EF /* ChangePassWordViewController.swift in Sources */,
 				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
+				AF4EF46020AC46EC00F690F0 /* AllitemIDTableViewCell.swift in Sources */,
 				359CC92C206277020061450A /* BibleChaptersViewController.swift in Sources */,
 				AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */,
 				AF7C2E3920A0645B003D623F /* PostByEventImageVO.swift in Sources */,
@@ -2359,6 +2434,7 @@
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
 				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
+				AF4EF45420AC404A00F690F0 /* AllItemIdVO.swift in Sources */,
 				CB1B1BA720A17BE80093C9FF /* PostEventDetailsViewController.swift in Sources */,
 				3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
@@ -2375,6 +2451,7 @@
 				CB4B20F42047D11500402E59 /* CategoriesHomeViewController.swift in Sources */,
 				CB4B2100204834CD00402E59 /* InfoHeaderCell.swift in Sources */,
 				352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */,
+				AF4EF44D20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
@@ -2396,6 +2473,7 @@
 				AF141D7420A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.swift in Sources */,
 				3D41C7F82063B9860086BEE7 /* youtubeCLDSSCell.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* YoutubePlayerCell.swift in Sources */,
+				AF4EF45220AC3E2200F690F0 /* AllItemsIDViewController.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				3D927B82205B9BA9004A7D45 /* AuthorEventsResultVO.swift in Sources */,
 				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
@@ -2415,6 +2493,7 @@
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				AF7C2E3520A063AD003D623F /* PostByEventIdVO.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* YoutubePlayerViewController.swift in Sources */,
+				AF4EF45620AC405C00F690F0 /* AllItemIdListResultVO.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				AF2EB526206DFAC2009B3B75 /* BibleDetailsResultVO.swift in Sources */,
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
@@ -2429,6 +2508,7 @@
 				CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */,
 				3D355D22205BB62000FE67D8 /* AuthorListCountTableViewCell.swift in Sources */,
 				CB255D6B204FBAF90080AFAD /* UpComingEventCell.swift in Sources */,
+				AF4EF44420AC15B200F690F0 /* GetAllitemsVO.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */,
 				CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */,
