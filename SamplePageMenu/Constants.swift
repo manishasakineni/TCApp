@@ -18,7 +18,7 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 
 // constants
 //var BASEURL:String = "http://calibrage.co.in/"
-var BASEURL:String = "http://192.168.1.121/TeluguChurchesTestAPI/"
+var BASEURL:String = "http://192.168.1.171/TeluguChurchesTestAPI/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -91,8 +91,6 @@ let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword"
 
 let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
 
-// post
-
 let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
 
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
@@ -109,12 +107,17 @@ let GETALLITEMSAPI : String = BASEURL.appending("api/ItemDetails/GetAllItems")
 
 let ALLITEMSIDAPI : String = BASEURL.appending("api/ItemDetails/GetItemById/")
 
-// :-   17/05/2018
-
+let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
 
 let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
 
-let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
+
+// :-   04/06/2018
+
+
+let GETALLDELIVERYADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetAllDeliveryAddress")
+
+
 
 
 

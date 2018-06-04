@@ -123,7 +123,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }
     }
     
-    //MARK: -  churchDetails TableView delegate & DataSource  methods
+//MARK: -  TableView delegate & DataSource  methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         

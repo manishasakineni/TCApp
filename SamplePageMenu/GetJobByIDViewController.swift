@@ -264,7 +264,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     self.salary = "\(String(describing: obj.salary!))"
                 self.lastdatetoapply = (obj.lastDateToApply)!
-                    self.adminname = (obj.adminName)!
+                //    self.adminname = (obj.adminName)!
                     self.churchname = (obj.churchName)!
                 }
                 

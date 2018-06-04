@@ -34,15 +34,17 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         addToCartTableView.dataSource = self
         addToCartTableView.delegate = self
         
-        getCartInfoAPIService()
-        
-        
-        
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
             
         }
+        
+        getCartInfoAPIService()
+        
+
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -83,10 +85,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         }
         
         return allitemsArray.count
-        
-        
-        
-   return 1
         
     }
     
@@ -157,11 +155,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         self.navigationController?.popViewController(animated: true)
         
-        
-        
-        
-        
-        print("Back Button Clicked......")
+           print("Back Button Clicked......")
         
     }
     
@@ -193,6 +187,35 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         print("Home Button Clicked......")
         
+    }
+    
+    
+    @IBAction func continueShopingAction(_ sender: Any) {
+        
+        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllItemsViewController") as! GetAllItemsViewController
+        desController.showNav = true
+        let newController = UINavigationController.init(rootViewController:desController)
+        revealviewcontroller.pushFrontViewController(newController, animated: true)
+        
+        
+
+    }
+    
+    
+    @IBAction func checkoutAction(_ sender: Any) {
+        
+        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+        
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desController = mainstoryboard.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+        desController.showNav = true
+        let newController = UINavigationController.init(rootViewController:desController)
+        revealviewcontroller.pushFrontViewController(newController, animated: true)
     }
     
     
@@ -232,64 +255,16 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-
+    
+    
     
     
     
     
 }
-
-
-//    func addToCatrAPICall(){
-//
-//        let paramsDict = [ 	"id": 0,
-//                           	"itemId": itemID,
-//                           	"userId": 3,
-//                           	"quantity": Int(quantity)!
-//            
-//            ] as [String : Any]
-//        
-//        let dictHeaders = ["":"","":""] as NSDictionary
-//        
-//        
-//        serviceController.postRequest(strURL: ADDTOCARTAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-//            
-//            print(result)
-//            
-//            let respVO:AddToCartVO = Mapper().map(JSONObject: result)!
-//            
-//            let isSuccess = respVO.isSuccess
-//            print("StatusCode:\(String(describing: isSuccess))")
-//            
-//            
-//            if isSuccess == true {
-//                
-//                let listArr = respVO.listResult!
-//                
-//                for eachArray in listArr{
-//                    
-//                    self.filtered.append(eachArray)
-//                }
-//                
-//                self.addToCartTableView.reloadData()
-//                
-//            }
-//                
-//            else {
-//                
-//                
-//                
-//            }
-//            
-//        }) { (failureMessage) in
-//            
-//            
-//            print(failureMessage)
-//            
-//        }
-//    }
-    
  
+
+
     
 
 

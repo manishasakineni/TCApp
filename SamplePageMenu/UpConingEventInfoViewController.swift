@@ -174,7 +174,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         eventDetailsViewController.catgoryID = listStr.churchId!
         eventDetailsViewController.navigationStr = "navigationStr"
-        eventDetailsViewController.eventImageArrayString = listStr.eventImage!
+    //    eventDetailsViewController.eventImageArrayString = listStr.eventImage!
         
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
         

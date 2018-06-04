@@ -179,6 +179,11 @@
 		AF0B5DFC20A3161D0039C7A4 /* authorImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */; };
 		AF0B5DFF20A3163E0039C7A4 /* authorDocuments1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */; };
 		AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */; };
+		AF0BC18920C5589400753E3C /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC18820C5589400753E3C /* AddressViewController.swift */; };
+		AF0BC18C20C55CE900753E3C /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC18A20C55CE900753E3C /* AddressTableViewCell.swift */; };
+		AF0BC18D20C55CE900753E3C /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */; };
+		AF0BC18F20C5685B00753E3C /* AddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC18E20C5685B00753E3C /* AddressInfoVO.swift */; };
+		AF0BC19120C5686D00753E3C /* AddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */; };
 		AF0F0D1920AD4AE700AE9BD9 /* AddToCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */; };
 		AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */; };
 		AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */; };
@@ -557,6 +562,11 @@
 		AF0B5DFA20A3161D0039C7A4 /* authorImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorImagesViewController.xib; sourceTree = "<group>"; };
 		AF0B5DFD20A3163E0039C7A4 /* authorDocuments1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorDocuments1ViewController.swift; sourceTree = "<group>"; };
 		AF0B5DFE20A3163E0039C7A4 /* authorDocumentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorDocumentsViewController.xib; sourceTree = "<group>"; };
+		AF0BC18820C5589400753E3C /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		AF0BC18A20C55CE900753E3C /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		AF0BC18E20C5685B00753E3C /* AddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInfoVO.swift; sourceTree = "<group>"; };
+		AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInfoResultVO.swift; sourceTree = "<group>"; };
 		AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCareTableViewCell.swift; sourceTree = "<group>"; };
 		AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCareTableViewCell.xib; sourceTree = "<group>"; };
 		AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
@@ -1146,6 +1156,7 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF0BC19220C5687400753E3C /* AddressInfoVO */,
 				AF0F0D2620AD7A3A00AE9BD9 /* GetCartInfoVO */,
 				AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */,
 				AF4EF45720AC406100F690F0 /* AllItemIdVO */,
@@ -1184,6 +1195,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF0BC18720C5586B00753E3C /* AddressView */,
 				AF4EF44A20AC16C900F690F0 /* OnlineShopingViewController */,
 				AF2EB51D206DF986009B3B75 /* BibleDetailsBook */,
 				359CC9282062769E0061450A /* BibleBooks */,
@@ -1402,6 +1414,25 @@
 				9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */,
 			);
 			name = ChangePasswordCell;
+			sourceTree = "<group>";
+		};
+		AF0BC18720C5586B00753E3C /* AddressView */ = {
+			isa = PBXGroup;
+			children = (
+				AF0BC18820C5589400753E3C /* AddressViewController.swift */,
+				AF0BC18A20C55CE900753E3C /* AddressTableViewCell.swift */,
+				AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */,
+			);
+			name = AddressView;
+			sourceTree = "<group>";
+		};
+		AF0BC19220C5687400753E3C /* AddressInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF0BC18E20C5685B00753E3C /* AddressInfoVO.swift */,
+				AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */,
+			);
+			name = AddressInfoVO;
 			sourceTree = "<group>";
 		};
 		AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */ = {
@@ -2135,6 +2166,7 @@
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				CBFFEA1A20919AC4000077CF /* GoogleService-Info.plist in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
+				AF0BC18D20C55CE900753E3C /* AddressTableViewCell.xib in Resources */,
 				3D41C7FE2063C1160086BEE7 /* BibleVerseTableViewCell.xib in Resources */,
 				3D355D29205BCD9000FE67D8 /* AuthorEventsViewController.xib in Resources */,
 				AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */,
@@ -2376,6 +2408,7 @@
 				3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
 				CB03C8D6203EC8F5000B96A4 /* ChurchAdminDetailCell.swift in Sources */,
+				AF0BC19120C5686D00753E3C /* AddressInfoResultVO.swift in Sources */,
 				AF4EF44620AC15C900F690F0 /* GetAllitemsListResultVO.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
 				CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */,
@@ -2457,6 +2490,7 @@
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
+				AF0BC18F20C5685B00753E3C /* AddressInfoVO.swift in Sources */,
 				AF141D6820A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift in Sources */,
 				AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
@@ -2488,6 +2522,7 @@
 				CB2879A3205A4165005F3168 /* CategoriesListResultVo.swift in Sources */,
 				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
+				AF0BC18920C5589400753E3C /* AddressViewController.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
 				AF91F12B20AAEF620050A938 /* GetJobidHeaderTableViewCell.swift in Sources */,
@@ -2523,6 +2558,7 @@
 				CBA0EBFA20726BAF000C16DD /* ResultVo.swift in Sources */,
 				CB1B1BA920A17C680093C9FF /* EventDetailsAndEventPostDetailsViewController.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				AF0BC18C20C55CE900753E3C /* AddressTableViewCell.swift in Sources */,
 				AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */,
 				AF2EB52A206DFC84009B3B75 /* BibleDetailsCellInfoVo.swift in Sources */,
 				AF91F13220AB05950050A938 /* JobApplyListResultVO.swift in Sources */,
