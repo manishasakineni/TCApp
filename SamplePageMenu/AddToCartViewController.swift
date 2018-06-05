@@ -208,14 +208,16 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     @IBAction func checkoutAction(_ sender: Any) {
         
-        let revealviewcontroller:SWRevealViewController = self.revealViewController()
         
         
-        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let desController = mainstoryboard.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
-        desController.showNav = true
-        let newController = UINavigationController.init(rootViewController:desController)
-        revealviewcontroller.pushFrontViewController(newController, animated: true)
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+        
+        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+        
+        
+
+        
     }
     
     

@@ -118,6 +118,11 @@ let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
 let GETALLDELIVERYADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetAllDeliveryAddress")
 
 
+// :-   05/06/2018
+let GETSTATESAPI : String = BASEURL.appending("api/States/GetAllStates")
+let GETCOUNTRYSAPI : String = BASEURL.appending("api/Countries/GetAllCountries")
+
+
 
 
 

@@ -105,8 +105,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         cell.fullNameLbl.text = listStr.fullName
         
-        cell.addresslineLbl.text = listStr.addressLine1
-        cell.statecountryLbl.text = listStr.countryName
+        cell.addresslineLbl.text = listStr.addressLine1! + listStr.addressLine2!
+        cell.statecountryLbl.text = listStr.countryName! + listStr.stateName!
         
         cell.pincodeLbl.text = "\(listStr.pinCode!)"
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
@@ -122,6 +122,15 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
 
     @IBAction func addNewAddressAction(_ sender: Any) {
+        
+
+//        
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
+        
+        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+
+        
     }
     
     
@@ -133,11 +142,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         UserDefaults.standard.synchronize()
         
         self.navigationController?.popViewController(animated: true)
-        
-        
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        appDelegate.window?.rootViewController = rootController
         
         
         

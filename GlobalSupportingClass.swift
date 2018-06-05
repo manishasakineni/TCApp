@@ -43,6 +43,31 @@ class GlobalSupportingClass {
         return "Please provide Expected Salary".localize()
     }
     
+    class func blankFullNameErrorMessage() -> String {
+        return "Please provide Full Name".localize()
+    }
+    class func blankFlatnoErrorMessage() -> String {
+        return "Please provide Flat No".localize()
+    }
+    
+    class func blankAreaErrorMessage() -> String {
+        return "Please provide Area".localize()
+    }
+ 
+    class func blankPinCodeErrorMessage() -> String {
+        return "Please provide PinCode".localize()
+    }
+    class func blankLandmarkErrorMessage() -> String {
+        return "Please provide Landmark".localize()
+    }
+    class func blankStateErrorMessage() -> String {
+        return "Please Select State".localize()
+    }
+    class func blankCountryErrorMessage() -> String {
+        return "Please Select Country".localize()
+    }
+    
+    
     
     
     class func blankFirstNameErrorMessage() -> String {

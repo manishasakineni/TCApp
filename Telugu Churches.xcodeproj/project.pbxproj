@@ -220,6 +220,17 @@
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
 		AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */; };
 		AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */; };
+		AF1B89B020C656500016D395 /* AddNewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89AF20C656500016D395 /* AddNewAddressViewController.swift */; };
+		AF1B89B320C658060016D395 /* AddnewAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89B120C658060016D395 /* AddnewAddressTableViewCell.swift */; };
+		AF1B89B420C658060016D395 /* AddnewAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1B89B220C658060016D395 /* AddnewAddressTableViewCell.xib */; };
+		AF1B89B720C659EA0016D395 /* statecountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89B520C659EA0016D395 /* statecountryTableViewCell.swift */; };
+		AF1B89B820C659EA0016D395 /* statecountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1B89B620C659EA0016D395 /* statecountryTableViewCell.xib */; };
+		AF1B89BC20C66A910016D395 /* StateInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89BB20C66A910016D395 /* StateInfoVO.swift */; };
+		AF1B89BE20C66AA60016D395 /* StateInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89BD20C66AA60016D395 /* StateInfoResultVO.swift */; };
+		AF1B89C220C685BA0016D395 /* CountryInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C120C685BA0016D395 /* CountryInfoVO.swift */; };
+		AF1B89C420C685CD0016D395 /* CountryInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C320C685CD0016D395 /* CountryInfoResultVO.swift */; };
+		AF1B89C720C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C620C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift */; };
+		AF1B89C920C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C820C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift */; };
 		AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2396F020A561DE00B0320D /* ForgotPswdVO.swift */; };
 		AF2EB51F206DF9B4009B3B75 /* BibleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */; };
 		AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */; };
@@ -603,6 +614,17 @@
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuNameTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuNameTableViewCell.xib; sourceTree = "<group>"; };
+		AF1B89AF20C656500016D395 /* AddNewAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewAddressViewController.swift; sourceTree = "<group>"; };
+		AF1B89B120C658060016D395 /* AddnewAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddnewAddressTableViewCell.swift; sourceTree = "<group>"; };
+		AF1B89B220C658060016D395 /* AddnewAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddnewAddressTableViewCell.xib; sourceTree = "<group>"; };
+		AF1B89B520C659EA0016D395 /* statecountryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statecountryTableViewCell.swift; sourceTree = "<group>"; };
+		AF1B89B620C659EA0016D395 /* statecountryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = statecountryTableViewCell.xib; sourceTree = "<group>"; };
+		AF1B89BB20C66A910016D395 /* StateInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateInfoVO.swift; sourceTree = "<group>"; };
+		AF1B89BD20C66AA60016D395 /* StateInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateInfoResultVO.swift; sourceTree = "<group>"; };
+		AF1B89C120C685BA0016D395 /* CountryInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryInfoVO.swift; sourceTree = "<group>"; };
+		AF1B89C320C685CD0016D395 /* CountryInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryInfoResultVO.swift; sourceTree = "<group>"; };
+		AF1B89C620C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedeliveryAddressInfoVO.swift; sourceTree = "<group>"; };
+		AF1B89C820C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedeliveryAddressInfoResultVO.swift; sourceTree = "<group>"; };
 		AF2396F020A561DE00B0320D /* ForgotPswdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPswdVO.swift; sourceTree = "<group>"; };
 		AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsViewController.swift; sourceTree = "<group>"; };
 		AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsInfoVO.swift; sourceTree = "<group>"; };
@@ -1156,6 +1178,9 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF1B89CA20C691DA0016D395 /* UpdatedeliveryAddressInfoVO */,
+				AF1B89C520C685D30016D395 /* CountryInfoVO */,
+				AF1B89C020C66B510016D395 /* StateInfoVO */,
 				AF0BC19220C5687400753E3C /* AddressInfoVO */,
 				AF0F0D2620AD7A3A00AE9BD9 /* GetCartInfoVO */,
 				AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */,
@@ -1422,6 +1447,11 @@
 				AF0BC18820C5589400753E3C /* AddressViewController.swift */,
 				AF0BC18A20C55CE900753E3C /* AddressTableViewCell.swift */,
 				AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */,
+				AF1B89AF20C656500016D395 /* AddNewAddressViewController.swift */,
+				AF1B89B120C658060016D395 /* AddnewAddressTableViewCell.swift */,
+				AF1B89B220C658060016D395 /* AddnewAddressTableViewCell.xib */,
+				AF1B89B520C659EA0016D395 /* statecountryTableViewCell.swift */,
+				AF1B89B620C659EA0016D395 /* statecountryTableViewCell.xib */,
 			);
 			name = AddressView;
 			sourceTree = "<group>";
@@ -1523,6 +1553,33 @@
 				AF39FD0D20A9A77600712EF7 /* GetAllJobDetailsViewController */,
 			);
 			name = SideMenuViewController;
+			sourceTree = "<group>";
+		};
+		AF1B89C020C66B510016D395 /* StateInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF1B89BB20C66A910016D395 /* StateInfoVO.swift */,
+				AF1B89BD20C66AA60016D395 /* StateInfoResultVO.swift */,
+			);
+			name = StateInfoVO;
+			sourceTree = "<group>";
+		};
+		AF1B89C520C685D30016D395 /* CountryInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF1B89C120C685BA0016D395 /* CountryInfoVO.swift */,
+				AF1B89C320C685CD0016D395 /* CountryInfoResultVO.swift */,
+			);
+			name = CountryInfoVO;
+			sourceTree = "<group>";
+		};
+		AF1B89CA20C691DA0016D395 /* UpdatedeliveryAddressInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF1B89C620C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift */,
+				AF1B89C820C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift */,
+			);
+			name = UpdatedeliveryAddressInfoVO;
 			sourceTree = "<group>";
 		};
 		AF2396EF20A561B300B0320D /* ForgotPSWD */ = {
@@ -2204,6 +2261,7 @@
 				AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */,
 				CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */,
 				AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */,
+				AF1B89B420C658060016D395 /* AddnewAddressTableViewCell.xib in Resources */,
 				CB255D6C204FBAF90080AFAD /* UpComingEventCell.xib in Resources */,
 				3D2E34212053A0BF00CF8F16 /* BannerCollectionViewCell.xib in Resources */,
 				CB03C8CF203E8D15000B96A4 /* InformationTableViewCell.xib in Resources */,
@@ -2231,6 +2289,7 @@
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				CB035971205FBC15008FD878 /* AdminMonthEventListCell.xib in Resources */,
 				9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */,
+				AF1B89B820C659EA0016D395 /* statecountryTableViewCell.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
@@ -2341,6 +2400,7 @@
 				AF141D7820A6D31A00AE9FB8 /* AuthorImageTableViewCell.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */,
+				AF1B89C920C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift in Sources */,
 				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
 				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
 				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
@@ -2394,8 +2454,10 @@
 				CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				359CC92520626DE20061450A /* BibleVerseVo.swift in Sources */,
+				AF1B89B320C658060016D395 /* AddnewAddressTableViewCell.swift in Sources */,
 				CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */,
 				3D2E342A2053D9A800CF8F16 /* UpcomingEventsInfoVO.swift in Sources */,
+				AF1B89C220C685BA0016D395 /* CountryInfoVO.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
@@ -2429,9 +2491,11 @@
 				3D5404EC20580318008257A6 /* AuthorDetailsListResultVO.swift in Sources */,
 				AF141D8020A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift in Sources */,
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
+				AF1B89B020C656500016D395 /* AddNewAddressViewController.swift in Sources */,
 				AF2EB52C206DFCA2009B3B75 /* BibleDetailsCellVO.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
 				AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */,
+				AF1B89C420C685CD0016D395 /* CountryInfoResultVO.swift in Sources */,
 				CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */,
 				3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */,
 				CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */,
@@ -2454,6 +2518,7 @@
 				CBA4995C20A5B44A000FDE98 /* DeletePostCommentsListResultVO.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				CB03C8DA203ED202000B96A4 /* GetAllChurchAdminsVo.swift in Sources */,
+				AF1B89BC20C66A910016D395 /* StateInfoVO.swift in Sources */,
 				AF2EB530206DFD0C009B3B75 /* BibleDetailsVerseViewController.swift in Sources */,
 				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
@@ -2503,6 +2568,7 @@
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				AF0F0D1E20AD52F900AE9BD9 /* AddToCartVO.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
+				AF1B89C720C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift in Sources */,
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
 				3D5852DE2072694F00994FC2 /* PostDetailsVO.swift in Sources */,
@@ -2564,6 +2630,7 @@
 				AF91F13220AB05950050A938 /* JobApplyListResultVO.swift in Sources */,
 				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				3D927B8B205BA4C8004A7D45 /* AuthorEventDateCountResultVO.swift in Sources */,
+				AF1B89B720C659EA0016D395 /* statecountryTableViewCell.swift in Sources */,
 				354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */,
 				AF10617020AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.swift in Sources */,
 				CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */,
@@ -2592,6 +2659,7 @@
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */,
 				CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */,
+				AF1B89BE20C66AA60016D395 /* StateInfoResultVO.swift in Sources */,
 				CBA4995A20A5B42F000FDE98 /* DeletePostCommentVO.swift in Sources */,
 				CB19E92A20613BAA00007D9C /* SubscribCell.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
