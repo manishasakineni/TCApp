@@ -16,10 +16,11 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var filtered:[AddressInfoResultVO] = []
 
+    var editaddress:[EditAddressInfoResultVO] = []
     
      var showNav = false
      var userId :  Int = 0
-    
+     var Id :  Int = 0
     
     
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         }
         
-        addressAPICall()
+       // addressAPICall()
         
         
         
@@ -56,6 +57,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        addressAPICall()
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -110,8 +112,18 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         cell.pincodeLbl.text = "\(listStr.pinCode!)"
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
+        
+       ///////  delete  ///////
+        
 
         
+        cell.deleteBtn.addTarget(self, action: #selector(self.deleteaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
+        cell.deleteBtn.tag = indexPath.row
+        
+        ///////  edit ////
+        
+        cell.editBtn.addTarget(self, action: #selector(self.editaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
+        cell.editBtn.tag = indexPath.row
         
         
         return cell
@@ -124,7 +136,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func addNewAddressAction(_ sender: Any) {
         
 
-//        
+        
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
         
         
@@ -132,6 +144,22 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
         
     }
+   
+    
+    
+    
+    func  editaddressClicked( sender:UIGestureRecognizer){
+        
+        
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
+        
+        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+
+        
+        
+    }
+
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -157,11 +185,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -172,9 +196,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
         print("Home Button Clicked......")
         
     }
@@ -182,6 +203,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     
     func addressAPICall(){
+        
+        self.filtered.removeAll()
         
         let paramsDict = [ 	"userId": userId,
                            	"pageIndex": 1,
@@ -206,12 +229,72 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             
             if isSuccess == true {
-                
-                let listArr = respVO.listResult!
-                
-                for eachArray in listArr{
-                    self.filtered.append(eachArray)
+                if(respVO.listResult != nil){
+                    
+                    let listArr = respVO.listResult!
+                    
+                    for eachArray in listArr{
+                        
+                        self.filtered.append(eachArray)
+                        
+                    }
+                    
+                    self.addressTableview.reloadData()
+                    
+                }else{
+                    
                 }
+               
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+    
+   
+    
+    func deleteaddressAPICall(_ sender : UIButton){
+        
+        if(filtered.count > sender.tag){
+            
+        let deleteAddressInfo  = filtered[sender.tag]
+            
+            
+        let paramsDict = [
+                            "id": deleteAddressInfo.id!,
+                            "userId": userId,
+                                 
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: DELETEADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:DeleteAddressInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.endUserMessage!
+                
+               self.addressAPICall()
                 
                 self.addressTableview.reloadData()
                 
@@ -231,8 +314,58 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
+
+    }
     
 
+    
+func editaddressAPICall(_ sender : UIButton){
+        
+    
+            
+    serviceController.getRequest(strURL: EDITADDRESSAPI , success: { (result) in
+            
+            
+    let respVO:EditAddressInfoVO = Mapper().map(JSONObject: result)!
+                
+    let isSuccess = respVO.isSuccess
+        
+        print("StatusCode:\(String(describing: isSuccess))")
+                
+                
+        if isSuccess == true {
+                    
+            let listArr = respVO.listResult!
+                    
+            for eachArray in listArr{
+                
+                self.editaddress.append(eachArray)
+                
+            }
+      
+            
+            self.addressTableview.reloadData()
+                    
+                }
+                    
+                else {
+                    
+                    
+                    
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+        
+        
+        
+    }
+
+    
     
     
 

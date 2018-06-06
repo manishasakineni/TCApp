@@ -10,12 +10,21 @@ import Foundation
 
 class CountryInfoResultVO: Mappable {
     
+   
     
+//    "id": 1,
+//    "code": "IN",
+//    "name": "India",
+//    "isActive": true,
+//    "createdByUserId": 2,
+//    "createdDate": "2018-01-30T19:37:22.663",
+//    "updatedByUserId": 2,
+//    "updatedDate": "2018-01-30T19:37:22.663"
+
     var id : Int?
-    var mandalId : Int?
+   
     var code : String?
     var name : String?
-    var pinCode : Int?
     var isActive : Bool?
     var createdByUserId : Int?
     var createdDate : String?
@@ -23,17 +32,17 @@ class CountryInfoResultVO: Mappable {
     var updatedDate : String?
     
     
-    init(id: Int?,mandalId: Int?,code : String?,name : String?, pinCode : Int?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
+    init(id: Int?,code : String?,name : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         
         
     {
         
         
         self.id = id
-        self.mandalId = mandalId
+        
         self.code = code
         self.name = name
-        self.pinCode = pinCode
+        
         self.isActive = isActive
         self.createdByUserId = createdByUserId
         self.createdDate = createdDate
@@ -50,10 +59,10 @@ class CountryInfoResultVO: Mappable {
     func mapping(map: Map) {
         
         id <- map["id"]
-        mandalId <- map["mandalId"]
+       
         code <- map["code"]
         name <- map["name"]
-        pinCode <- map["pinCode"]
+        
         isActive <- map["isActive"]
         createdByUserId <- map["createdByUserId"]
         createdDate <- map["createdDate"]

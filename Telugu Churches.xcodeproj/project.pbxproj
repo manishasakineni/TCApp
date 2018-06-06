@@ -184,6 +184,9 @@
 		AF0BC18D20C55CE900753E3C /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */; };
 		AF0BC18F20C5685B00753E3C /* AddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC18E20C5685B00753E3C /* AddressInfoVO.swift */; };
 		AF0BC19120C5686D00753E3C /* AddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */; };
+		AF0E1E0F20C7B7B70064EA0B /* DeleteAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */; };
+		AF0E1E1120C7B7CF0064EA0B /* EditAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */; };
+		AF0E1E1320C7FD3C0064EA0B /* EditAddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */; };
 		AF0F0D1920AD4AE700AE9BD9 /* AddToCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */; };
 		AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */; };
 		AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */; };
@@ -578,6 +581,9 @@
 		AF0BC18B20C55CE900753E3C /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		AF0BC18E20C5685B00753E3C /* AddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInfoVO.swift; sourceTree = "<group>"; };
 		AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInfoResultVO.swift; sourceTree = "<group>"; };
+		AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAddressInfoVO.swift; sourceTree = "<group>"; };
+		AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAddressInfoVO.swift; sourceTree = "<group>"; };
+		AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAddressInfoResultVO.swift; sourceTree = "<group>"; };
 		AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCareTableViewCell.swift; sourceTree = "<group>"; };
 		AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCareTableViewCell.xib; sourceTree = "<group>"; };
 		AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
@@ -1178,6 +1184,9 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */,
+				AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */,
+				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
 				AF1B89CA20C691DA0016D395 /* UpdatedeliveryAddressInfoVO */,
 				AF1B89C520C685D30016D395 /* CountryInfoVO */,
 				AF1B89C020C66B510016D395 /* StateInfoVO */,
@@ -2415,6 +2424,7 @@
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
+				AF0E1E0F20C7B7B70064EA0B /* DeleteAddressInfoVO.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */,
@@ -2504,6 +2514,7 @@
 				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
 				9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */,
+				AF0E1E1320C7FD3C0064EA0B /* EditAddressInfoResultVO.swift in Sources */,
 				9AF564992020944800AEA0EF /* ChangePassWordViewController.swift in Sources */,
 				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
 				AF4EF46020AC46EC00F690F0 /* AllitemIDTableViewCell.swift in Sources */,
@@ -2538,6 +2549,7 @@
 				AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
 				3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */,
+				AF0E1E1120C7B7CF0064EA0B /* EditAddressInfoVO.swift in Sources */,
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,

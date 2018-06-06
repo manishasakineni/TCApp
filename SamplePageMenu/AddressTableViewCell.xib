@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,11 +24,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wax-vr-5qn">
-                        <rect key="frame" x="38" y="2" width="45" height="15"/>
+                        <rect key="frame" x="38" y="2" width="32.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="mxD-U8-YA1"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -36,38 +41,38 @@
                         <state key="normal" title="Button" image="icons8-Unchecked Circle-50"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRi-uz-pwK">
-                        <rect key="frame" x="38" y="22" width="42" height="15"/>
+                        <rect key="frame" x="38" y="22" width="30.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="IIJ-oQ-daa"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ1-H5-May">
-                        <rect key="frame" x="38" y="42" width="42" height="15"/>
+                        <rect key="frame" x="38" y="42" width="30.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="l2M-Ww-8ml"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-Ky-hQ5">
-                        <rect key="frame" x="38" y="62" width="42" height="15"/>
+                        <rect key="frame" x="38" y="62" width="30.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="fe0-Ix-sG6"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqe-pi-Ffu">
-                        <rect key="frame" x="38" y="82" width="42" height="15"/>
+                        <rect key="frame" x="38" y="82" width="30.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="BpJ-zz-V7v"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -87,7 +92,7 @@
                             <constraint firstAttribute="height" constant="19" id="eRB-9e-o6m"/>
                             <constraint firstAttribute="width" constant="27" id="xkc-Lq-9xE"/>
                         </constraints>
-                        <state key="normal" image="ChangePSW"/>
+                        <state key="normal" image="edit"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVd-YI-fX2">
                         <rect key="frame" x="285" y="72" width="27" height="19"/>
@@ -95,7 +100,7 @@
                             <constraint firstAttribute="height" constant="19" id="nhg-48-slQ"/>
                             <constraint firstAttribute="width" constant="27" id="wEO-NI-Ht4"/>
                         </constraints>
-                        <state key="normal" image="EditProfile"/>
+                        <state key="normal" image="payment_del_icon"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -123,6 +128,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addresslineLbl" destination="gRi-uz-pwK" id="HUm-Jg-NXv"/>
+                <outlet property="deleteBtn" destination="RVd-YI-fX2" id="QhS-tQ-JU7"/>
+                <outlet property="editBtn" destination="sny-mv-Q36" id="CKC-h3-bvs"/>
                 <outlet property="fullNameLbl" destination="wax-vr-5qn" id="7pw-xv-zph"/>
                 <outlet property="mobileNoLbl" destination="Zqe-pi-Ffu" id="wIY-yZ-oMF"/>
                 <outlet property="pincodeLbl" destination="vLc-Ky-hQ5" id="KDa-fE-MfT"/>
@@ -132,8 +139,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ChangePSW" width="750" height="750"/>
-        <image name="EditProfile" width="512" height="512"/>
+        <image name="edit" width="512" height="512"/>
         <image name="icons8-Unchecked Circle-50" width="50" height="50"/>
+        <image name="payment_del_icon" width="13" height="15"/>
     </resources>
 </document>

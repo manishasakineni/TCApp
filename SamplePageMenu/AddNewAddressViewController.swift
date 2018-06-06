@@ -30,8 +30,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     var createdDate : String = "2018-06-05"
     var updatedByUserId : Int = 1
     var updatedDate:String =  "2018-06-05"
-    var address1:String = "Kphp"
-    var address2:String = "Jntufdf"
+    
     var stateID : Int = 1
     var countryID : Int = 1
     
@@ -663,9 +662,9 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                            	"stateId": stateID,
                            	"countryId": countryID,
                            	"isActive": isActive,
-                           	"createdByUserId": createdByUserId,
+                           	"createdByUserId": userId,
                            	"createdDate": createdDate,
-                           	"updatedByUserId": updatedByUserId,
+                           	"updatedByUserId": userId,
                            	"updatedDate": updatedDate
             
             ] as [String : Any]
@@ -673,7 +672,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         let dictHeaders = ["":"","":""] as NSDictionary
         
         
-        serviceController.postRequest(strURL: GETALLDELIVERYADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: GETALLADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
