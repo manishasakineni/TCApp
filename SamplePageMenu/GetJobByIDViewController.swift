@@ -69,7 +69,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Job Details", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Job Details".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -143,7 +143,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     signUPCell.jobIDDetailsLabel.text = jobTitle
                     
-                    signUPCell.jobIDNameLabel.text = "Job Totle"
+                    signUPCell.jobIDNameLabel.text = "Job Title".localize()
                 }
                 
                
@@ -152,13 +152,13 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             else if indexPath.row == 1{
                 
                 signUPCell.jobIDDetailsLabel.text = vacencies
-                signUPCell.jobIDNameLabel.text = "Vacencies"
+                signUPCell.jobIDNameLabel.text = "Vacencies".localize()
                 
             }
             else if indexPath.row == 2{
                 
                 signUPCell.jobIDDetailsLabel.text = Qualification
-                signUPCell.jobIDNameLabel.text = "Qualification"
+                signUPCell.jobIDNameLabel.text = "Qualification".localize()
                 
             }
             else if indexPath.row == 3{
@@ -171,7 +171,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             else if indexPath.row == 4{
                 
                 signUPCell.jobIDDetailsLabel.text = contactperson
-                signUPCell.jobIDNameLabel.text = "Contact Person"
+                signUPCell.jobIDNameLabel.text = "Contact Person".localize()
                 
                 
                 
@@ -179,21 +179,21 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             else if indexPath.row == 5{
                 
                 signUPCell.jobIDDetailsLabel.text = contactnumber
-                signUPCell.jobIDNameLabel.text = "Contact Number"
+                signUPCell.jobIDNameLabel.text = "Contact Number".localize()
                 
                 
             }
             else if indexPath.row == 6{
                 
                 signUPCell.jobIDDetailsLabel.text = salary
-                signUPCell.jobIDNameLabel.text = "Salary"
+                signUPCell.jobIDNameLabel.text = "Salary".localize()
                 
                 
             }
             else if indexPath.row == 7{
                 
                 signUPCell.jobIDDetailsLabel.text = lastdatetoapply
-                signUPCell.jobIDNameLabel.text = "Last Date To Apply"
+                signUPCell.jobIDNameLabel.text = "Last Date To Apply".localize()
                 
 //                if(userDetails?.lastDateToApply! != ""){
 //                    let dobStringArray = userDetails?.lastDateToApply?.components(separatedBy: "T")
@@ -215,14 +215,14 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     
                 signUPCell.jobIDDetailsLabel.text = adminname
-                signUPCell.jobIDNameLabel.text = "Admin Name"
+                signUPCell.jobIDNameLabel.text = "Admin Name".localize()
                 
         }
             }
             else if indexPath.row == 9{
                 
                 signUPCell.jobIDDetailsLabel.text = churchname
-                signUPCell.jobIDNameLabel.text = "Church Name"
+                signUPCell.jobIDNameLabel.text = "Church Name".localize()
                 
                 
             }

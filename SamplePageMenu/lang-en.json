@@ -146,7 +146,50 @@
     "Search by Author Name" : "Search",
     
     "No Records Found" : "No Records Found",
-     "  All Events in Month" : "  All Events in Month"
+     "  All Events in Month" : "  All Events in Month",
+    
+    "Careers" : "Careers",
+    "Online Shoping" : "Online Shopping",
+    "Job Details" : "Job Details",
+    "Apply" : "Apply",
+    "Address" : "Address",
+    
+    "Item details" : "Item details",
+    "Item Availability" : "Item Availability",
+    "Please Enter Quantity" : "Please Enter Quantity",
+    "InStock" : "InStock",
+    "Out Of Stock" : "Out Of Stock",
+    "Quantity:" : "Quantity",
+    
+    "ADD TO CART" : "ADD TO CART",
+    
+    "Author    :" : "Author    ",
+    "Price      :" : "Price      ",
+    "Continue Shopping " : "Continue Shopping ",
+    "CheckOut" : "CheckOut",
+    "Add New Address" : "Add New Address",
+    "Continue" : "Continue",
+    "Job Title" : "Job Title",
+    "Last Date To Apply" : "Last Date To Apply",
+    "Qualification" : "Qualification",
+    "Vacencies" : "Vacencies",
+    
+    "Contact Person" : "Contact Person",
+    "Job Description" : "Job Description",
+    "Salary" : "Salary",
+    "Update Resume" : "Update Resume",
+    "Year Of Experience" : "Year Of Experience",
+    "Current Organization" : "Current Organization",
+    "Current Salary" : "Current Salary",
+    "Expected Salary" : "Expected Salary",
+    "Admin Name" : "Admin Name",
+    "Full Name" : "Full Name",
+    "Flat,House No,Building,Company,Apartment" : "Flat,House No,Building,Company,Apartment",
+    "Area,Colony,Street,Sector,Village" : "Area,Colony,Street,Sector,Village"
+
+
+    
+
 
     
 

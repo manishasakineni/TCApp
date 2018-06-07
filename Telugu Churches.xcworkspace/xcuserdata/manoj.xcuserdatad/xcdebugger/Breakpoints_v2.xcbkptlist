@@ -105,52 +105,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/Constants.swift"
-            timestampString = "549782265.853377"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "9"
-            endingLineNumber = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_030E11030BD0B010819DFB3CD320F1FD_func0"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/Constants.swift"
-                  timestampString = "549978163.625007"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.videosURL.unsafeMutableAddressor : Swift.String"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/Constants.swift"
-                  timestampString = "549978163.6281739"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/UpConingEventInfoViewController.swift"
             timestampString = "549798745.479084"
             startingColumnNumber = "9223372036854775807"
@@ -167,13 +121,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AddressViewController.swift"
+            timestampString = "550044509.890787"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "editaddressAPICall(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AddressViewController.swift"
+            timestampString = "550044509.890787"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "editaddressAPICall(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/AddToCartViewController.swift"
-            timestampString = "549803015.6744339"
+            timestampString = "549982519.857391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "continueShopingAction(_:)"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "deleteAPIService(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -183,13 +169,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "549977681.308092"
+            filePath = "SamplePageMenu/AddToCartViewController.swift"
+            timestampString = "549982581.987712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "editaddressAPICall(_:)"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "deleteAPIService(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -199,14 +185,123 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "549977877.292978"
+            filePath = "SamplePageMenu/ChurchAdminViewController.swift"
+            timestampString = "550065086.459641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
-            landmarkName = "editaddressAPICall(_:)"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/ChurchDetailsViewController.swift"
+            timestampString = "550065398.453271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "666"
+            endingLineNumber = "666"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/AuthorPostsViewController.swift"
+            timestampString = "550065602.43725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "AuthorPostsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.AuthorPostsViewController.__deallocating_deinit"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorPostsViewController.swift"
+                  timestampString = "550065602.447353"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.AuthorPostsViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Telugu_Churches.AuthorPostsViewController"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorPostsViewController.swift"
+                  timestampString = "550065602.451035"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.AuthorPostsViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Telugu_Churches.AuthorPostsViewController"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorPostsViewController.swift"
+                  timestampString = "550065602.454742"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.AuthorPostsViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Telugu_Churches.AuthorPostsViewController&gt;"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorPostsViewController.swift"
+                  timestampString = "550065602.458842"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Telugu_Churches.AuthorPostsViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Telugu_Churches.AuthorPostsViewController&gt;"
+                  moduleName = "Telugu Churches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AuthorPostsViewController.swift"
+                  timestampString = "550065602.462424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

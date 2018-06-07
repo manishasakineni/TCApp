@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         
-        self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
+    //    self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
         
         
         mobileEmailTF.placeholder = "User Name".localize()

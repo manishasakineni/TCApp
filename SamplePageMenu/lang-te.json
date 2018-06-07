@@ -148,7 +148,49 @@
     "Search by Event Name" : "శోధన",
     "Search by Author Name" : "శోధన",
     "No Records Found" : "ఎటువంటి పత్రాలు లభించలేదు",
-    "  All Events in Month" : "  నెల అన్ని ఈవెంట్స్"
+    "  All Events in Month" : "  నెల అన్ని ఈవెంట్స్",
+    
+    "Careers" : "కెరీర్లు",
+    "Online Shoping" : "ఆన్లైన్ షాపింగ్",
+    "Job Details" : "ఉద్యోగ వివరాలు",
+    "Apply" : "వర్తించు",
+    "Address" : "చిరునామా",
+    
+    "Item details" : "అంశం వివరాలు",
+    "Item Availability" : "అంశం లభ్యత",
+    "Please Enter Quantity" : "దయచేసి పరిమాణాన్ని నమోదు చేయండి",
+   
+    "Quantity:" : "మొత్తము",
+    
+    "ADD TO CART" : "CART ను జోడించు",
+    
+    "Author    :" : "రచయిత    ",
+    "Price      :" : "ధర      ",
+    "Continue Shopping " : "షాపింగ్ కొనసాగించడానికి ",
+    "CheckOut" : "తనిఖీ చేయండి",
+    "Add New Address" : "క్రొత్త చిరునామాను జోడించండి",
+    "Continue" : "కొనసాగించు",
+    "Job Title" : "ఉద్యోగ శీర్షిక",
+    "Last Date To Apply" : "చివరి తేదీ వర్తించు",
+    "Qualification" : "అర్హతలు",
+    "Vacencies" : "ఖాళీలు",
+    
+    "Contact Person" : "వ్యక్తి సంప్రదించండి",
+    "Job Description" : "ఉద్యోగ వివరణ",
+    "Salary" : "జీతం",
+    "Update Resume" : "నవీకరణ రెస్యూమ్",
+    "Year Of Experience" : "అనుభవ సంవత్సరం",
+    "Current Organization" : "ప్రస్తుత సంస్థ",
+    "Current Salary" : "ప్రస్తుత జీతం",
+    "Expected Salary" : "ఆశిస్తున్న జీతం",
+    "Admin Name" : "అడ్మిన్ పేరు",
+    "Full Name" : "పూర్తి పేరు",
+    "Flat,House No,Building,Company,Apartment" : "ఫ్లాట్, హౌస్ నం, బిల్డింగ్, కంపెనీ, అపార్ట్మెంట్",
+    "Area,Colony,Street,Sector,Village" : "ప్రాంతం, కాలనీ, వీధి, సెక్టార్, విలేజ్"
+
+
+    
+
 
     
 

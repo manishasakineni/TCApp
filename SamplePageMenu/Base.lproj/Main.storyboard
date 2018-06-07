@@ -2261,7 +2261,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xsS-zq-S37">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zbf-vU-65t" id="4an-BS-qgY"/>
@@ -2269,24 +2269,29 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-4v-LXl">
-                                <rect key="frame" x="0.0" y="591" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="606" width="375" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q69-Cx-B1u">
-                                        <rect key="frame" x="91" y="0.0" width="192" height="30"/>
+                                        <rect key="frame" x="91" y="-2" width="192" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="B10-Sd-jaa"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <state key="normal" title="Update Resume">
                                             <color key="titleColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Update Resume"/>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-O3-rO9">
-                                        <rect key="frame" x="91" y="38" width="192" height="30"/>
+                                        <rect key="frame" x="91" y="26" width="192" height="30"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="192" id="pCj-hu-tjz"/>
                                             <constraint firstAttribute="height" constant="30" id="uYR-f2-bZJ"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Apply">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -2297,12 +2302,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="q69-Cx-B1u" firstAttribute="top" secondItem="NK8-4v-LXl" secondAttribute="top" id="B5f-ca-Rg4"/>
-                                    <constraint firstItem="dTg-O3-rO9" firstAttribute="top" secondItem="q69-Cx-B1u" secondAttribute="bottom" constant="8" id="CUr-OJ-w0p"/>
+                                    <constraint firstItem="q69-Cx-B1u" firstAttribute="top" secondItem="NK8-4v-LXl" secondAttribute="top" constant="-2" id="B5f-ca-Rg4"/>
+                                    <constraint firstItem="dTg-O3-rO9" firstAttribute="top" secondItem="q69-Cx-B1u" secondAttribute="bottom" constant="-2" id="CUr-OJ-w0p"/>
                                     <constraint firstItem="q69-Cx-B1u" firstAttribute="leading" secondItem="NK8-4v-LXl" secondAttribute="leading" constant="91" id="GkN-uH-QJa"/>
-                                    <constraint firstAttribute="bottom" secondItem="dTg-O3-rO9" secondAttribute="bottom" constant="8" id="MMb-Jv-ATx"/>
+                                    <constraint firstAttribute="bottom" secondItem="dTg-O3-rO9" secondAttribute="bottom" constant="5" id="MMb-Jv-ATx"/>
                                     <constraint firstAttribute="trailing" secondItem="q69-Cx-B1u" secondAttribute="trailing" constant="92" id="Mp8-2l-bc7"/>
-                                    <constraint firstAttribute="height" constant="76" id="STO-78-Orj"/>
+                                    <constraint firstAttribute="height" constant="61" id="STO-78-Orj"/>
                                     <constraint firstItem="dTg-O3-rO9" firstAttribute="centerX" secondItem="q69-Cx-B1u" secondAttribute="centerX" id="vuY-Nt-UL6"/>
                                 </constraints>
                             </view>
@@ -2315,7 +2320,7 @@
                             <constraint firstItem="NK8-4v-LXl" firstAttribute="leading" secondItem="e8T-Os-9zq" secondAttribute="leading" id="NhE-ro-Qxo"/>
                             <constraint firstAttribute="trailing" secondItem="NK8-4v-LXl" secondAttribute="trailing" id="cxM-xJ-lkI"/>
                             <constraint firstItem="InV-sA-PkH" firstAttribute="top" secondItem="NK8-4v-LXl" secondAttribute="bottom" id="fHB-1f-7Er"/>
-                            <constraint firstItem="NK8-4v-LXl" firstAttribute="top" secondItem="xsS-zq-S37" secondAttribute="bottom" constant="1" id="sqe-zp-7D6"/>
+                            <constraint firstItem="NK8-4v-LXl" firstAttribute="top" secondItem="xsS-zq-S37" secondAttribute="bottom" constant="5" id="sqe-zp-7D6"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2393,10 +2398,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="nDu-C8-3sO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="ADD TO CART">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="ADD TO CART"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addToCartAction:" destination="UJu-RF-rhl" eventType="touchUpInside" id="QJa-w6-jF3"/>
                                         </connections>
@@ -2407,9 +2415,12 @@
                                             <constraint firstAttribute="width" constant="54.5" id="90M-Nr-3mp"/>
                                             <constraint firstAttribute="height" constant="21" id="Pda-aU-3Ep"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Quantity:"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-mR-45d">
                                         <rect key="frame" x="188" y="-3.5" width="103" height="30"/>
@@ -2419,7 +2430,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2481,10 +2492,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-BU-b0n">
                                         <rect key="frame" x="2" y="2" width="183" height="57"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Continue Shopping ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Continue Shopping "/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="continueShopingAction:" destination="dWI-SM-ZSb" eventType="touchUpInside" id="S7W-hk-8Cs"/>
                                         </connections>
@@ -2492,10 +2506,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nw-aa-VaJ">
                                         <rect key="frame" x="190" y="2" width="183" height="57"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="CheckOut">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="CheckOut"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="checkoutAction:" destination="dWI-SM-ZSb" eventType="touchUpInside" id="5bu-pL-xB5"/>
                                         </connections>
@@ -2571,24 +2588,30 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-T3-PbR">
-                                        <rect key="frame" x="2" y="2" width="183" height="57"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <rect key="frame" x="2" y="2" width="202" height="57"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                         <state key="normal" title="Add New Address">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Add New Address"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addNewAddressAction:" destination="DTU-hF-Oir" eventType="touchUpInside" id="h3h-83-Jgf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUw-UY-Jdm">
                                         <rect key="frame" x="190" y="2" width="183" height="57"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                         <state key="normal" title="Continue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Continue"/>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEe-FO-KZ2">
-                                        <rect key="frame" x="187" y="1" width="1" height="58"/>
+                                        <rect key="frame" x="209" y="1" width="1" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="34L-ok-7OD"/>
@@ -2601,12 +2624,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jEe-FO-KZ2" firstAttribute="leading" secondItem="lm9-T3-PbR" secondAttribute="trailing" constant="2" id="3qk-uw-n5n"/>
+                                    <constraint firstItem="jEe-FO-KZ2" firstAttribute="leading" secondItem="lm9-T3-PbR" secondAttribute="trailing" constant="5" id="3qk-uw-n5n"/>
                                     <constraint firstAttribute="bottom" secondItem="jUw-UY-Jdm" secondAttribute="bottom" constant="1" id="6Fl-IX-Ttf"/>
                                     <constraint firstAttribute="trailing" secondItem="jUw-UY-Jdm" secondAttribute="trailing" constant="2" id="Euf-Ck-JxT"/>
                                     <constraint firstAttribute="bottom" secondItem="lm9-T3-PbR" secondAttribute="bottom" constant="1" id="Her-ub-BJA"/>
-                                    <constraint firstItem="jEe-FO-KZ2" firstAttribute="centerX" secondItem="M4v-MO-Gpg" secondAttribute="centerX" id="IH2-Th-nBT"/>
-                                    <constraint firstItem="jUw-UY-Jdm" firstAttribute="leading" secondItem="jEe-FO-KZ2" secondAttribute="trailing" constant="2" id="IfM-uM-Fce"/>
+                                    <constraint firstItem="jEe-FO-KZ2" firstAttribute="centerX" secondItem="M4v-MO-Gpg" secondAttribute="centerX" constant="22" id="IH2-Th-nBT"/>
+                                    <constraint firstItem="jUw-UY-Jdm" firstAttribute="leading" secondItem="jEe-FO-KZ2" secondAttribute="trailing" constant="-20" id="IfM-uM-Fce"/>
                                     <constraint firstItem="lm9-T3-PbR" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="top" constant="2" id="c3t-zS-avE"/>
                                     <constraint firstAttribute="height" constant="60" id="eGv-rY-XF2"/>
                                     <constraint firstItem="lm9-T3-PbR" firstAttribute="leading" secondItem="M4v-MO-Gpg" secondAttribute="leading" constant="2" id="l2n-xO-QnN"/>
@@ -2660,9 +2683,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="moE-9g-6c8"/>
                                 </constraints>
-                                <state key="normal" title="Save">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="save"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveAction:" destination="qxY-5h-g6c" eventType="touchUpInside" id="Qh2-EB-dcV"/>
                                 </connections>

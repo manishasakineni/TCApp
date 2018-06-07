@@ -22,7 +22,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     var filtered:[GetCartListResultVO] = []
     
-
+     var deletelist:[deleteCartInfoResultVO] = []
     
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shoping", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shoping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -136,6 +136,11 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
        
         cell.addToCartPriceLbl.text = "\(String(describing: listStr.price))"
         cell.addToCartAuthorLbl.text = listStr.author
+        
+        
+        
+        cell.deleteBtn.addTarget(self, action: #selector(self.deleteAPIService(_:)), for: UIControlEvents.touchUpInside)
+        cell.deleteBtn.tag = indexPath.row
         
 
         return cell
@@ -257,7 +262,47 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
+ 
     
+    
+    
+    
+    func deleteAPIService(_ sender : UIButton){
+        
+        
+        serviceController.getRequest(strURL: ADDTOCARTAPI , success: { (result) in
+            
+            
+            let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.listResult!
+                
+                for eachArray in listArr{
+                    
+                    self.deletelist.append(eachArray)
+                }
+                
+                self.addToCartTableView.reloadData()
+                
+            }
+            
+            
+            
+            
+        }) { (failureMessage) in
+            
+        }
+        
+    }
+    
+    
+
     
     
     

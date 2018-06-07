@@ -59,7 +59,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewWillAppear(animated)
         addressAPICall()
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -320,10 +320,17 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     
 func editaddressAPICall(_ sender : UIButton){
-        
     
+    
+    if(editaddress.count > sender.tag){
+        
+        let editAddressInfo  = editaddress[sender.tag]
+        
+
+        
+      let strUrl = EDITADDRESSAPI  + "\(editAddressInfo.id!)"
             
-    serviceController.getRequest(strURL: EDITADDRESSAPI , success: { (result) in
+     serviceController.getRequest(strURL: strUrl, success: { (result) in
             
             
     let respVO:EditAddressInfoVO = Mapper().map(JSONObject: result)!
@@ -361,8 +368,8 @@ func editaddressAPICall(_ sender : UIButton){
                 
             }
         
-        
-        
+    }
+    
     }
 
     

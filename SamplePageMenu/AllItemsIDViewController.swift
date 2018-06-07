@@ -35,6 +35,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         allitemsIDTableView.delegate = self
         allitemsIDTableView.dataSource = self
         quantityTF.delegate = self
+        quantityTF.keyboardType = .numberPad
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
@@ -62,7 +63,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Careers", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shoping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
 
@@ -77,7 +78,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .numberPad
         }
     
     }
@@ -206,7 +207,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
          cell.nameLabel.text = listStr.name
          cell.priceLabel.text = "\(String(describing: listStr.price))"
          cell.authorLabel.text = listStr.author
-        cell.isactiveLabel.text = listStr.isActive == true ? "InStock" : "Out Of Stock"
+        cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
         
         return cell
         

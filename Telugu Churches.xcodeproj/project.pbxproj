@@ -187,6 +187,8 @@
 		AF0E1E0F20C7B7B70064EA0B /* DeleteAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */; };
 		AF0E1E1120C7B7CF0064EA0B /* EditAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */; };
 		AF0E1E1320C7FD3C0064EA0B /* EditAddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */; };
+		AF0E1E1620C80C1F0064EA0B /* deleteCartInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1520C80C1F0064EA0B /* deleteCartInfoVO.swift */; };
+		AF0E1E1820C80C310064EA0B /* deleteCartInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E1E1720C80C310064EA0B /* deleteCartInfoResultVO.swift */; };
 		AF0F0D1920AD4AE700AE9BD9 /* AddToCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */; };
 		AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */; };
 		AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */; };
@@ -584,6 +586,8 @@
 		AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAddressInfoVO.swift; sourceTree = "<group>"; };
 		AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAddressInfoVO.swift; sourceTree = "<group>"; };
 		AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAddressInfoResultVO.swift; sourceTree = "<group>"; };
+		AF0E1E1520C80C1F0064EA0B /* deleteCartInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteCartInfoVO.swift; sourceTree = "<group>"; };
+		AF0E1E1720C80C310064EA0B /* deleteCartInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteCartInfoResultVO.swift; sourceTree = "<group>"; };
 		AF0F0D1720AD4AE700AE9BD9 /* AddToCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCareTableViewCell.swift; sourceTree = "<group>"; };
 		AF0F0D1820AD4AE700AE9BD9 /* AddToCareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCareTableViewCell.xib; sourceTree = "<group>"; };
 		AF0F0D1B20AD4B0700AE9BD9 /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
@@ -1184,9 +1188,9 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
-				AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */,
-				AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */,
 				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
+				AF0E1E1920C80C360064EA0B /* deleteCartInfoVO */,
+				AF0E1E1420C80BCE0064EA0B /* EditAddressInfoVO */,
 				AF1B89CA20C691DA0016D395 /* UpdatedeliveryAddressInfoVO */,
 				AF1B89C520C685D30016D395 /* CountryInfoVO */,
 				AF1B89C020C66B510016D395 /* StateInfoVO */,
@@ -1472,6 +1476,24 @@
 				AF0BC19020C5686D00753E3C /* AddressInfoResultVO.swift */,
 			);
 			name = AddressInfoVO;
+			sourceTree = "<group>";
+		};
+		AF0E1E1420C80BCE0064EA0B /* EditAddressInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1E1020C7B7CF0064EA0B /* EditAddressInfoVO.swift */,
+				AF0E1E1220C7FD3C0064EA0B /* EditAddressInfoResultVO.swift */,
+			);
+			name = EditAddressInfoVO;
+			sourceTree = "<group>";
+		};
+		AF0E1E1920C80C360064EA0B /* deleteCartInfoVO */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E1E1520C80C1F0064EA0B /* deleteCartInfoVO.swift */,
+				AF0E1E1720C80C310064EA0B /* deleteCartInfoResultVO.swift */,
+			);
+			name = deleteCartInfoVO;
 			sourceTree = "<group>";
 		};
 		AF0F0D2120AD531B00AE9BD9 /* AddToCartVO */ = {
@@ -2442,6 +2464,7 @@
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
 				3D540C15206A95F5001A9E25 /* ChurchAuthorSubscriptionVO.swift in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
+				AF0E1E1620C80C1F0064EA0B /* deleteCartInfoVO.swift in Sources */,
 				CB21CE67203DA6B200B3294B /* GetChurchByIDResultVo.swift in Sources */,
 				AF91F13620AB0C320050A938 /* JobApplyTableViewCell.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
@@ -2585,6 +2608,7 @@
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,
 				3D5852DE2072694F00994FC2 /* PostDetailsVO.swift in Sources */,
 				AF9769AB20A44C1F0037F34C /* authorAudioaViewController.swift in Sources */,
+				AF0E1E1820C80C310064EA0B /* deleteCartInfoResultVO.swift in Sources */,
 				9A623B902021A7FB00A674F2 /* Reachability.swift in Sources */,
 				AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */,
 				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,

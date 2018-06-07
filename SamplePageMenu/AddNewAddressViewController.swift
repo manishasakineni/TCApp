@@ -98,7 +98,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -139,7 +139,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         }
         else if activeTextField.tag == 3 {
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
@@ -181,7 +181,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         else if activeTextField.tag == 7{
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         
@@ -359,7 +359,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
         else if indexPath.row == 3{
             
-            cell.addNewAddressTF.placeholder = "PinCode".localize()
+            cell.addNewAddressTF.placeholder = "Pin Code".localize()
             cell.addNewAddressTF.text = pincode
           
             

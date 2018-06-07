@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var userID = String()
     
-    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","login_menu","BibleBook","BibleBook"]
+    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","category_menu","churches_menu","BibleBook"]
     
 
   //MARK: -   View DidLoad
@@ -374,33 +374,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             
-        else  if cell.menuNameLabel.text == "Careers".localize() {
             
-            
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
-            
-            desController.showNav = true
-            
-            let newController = UINavigationController.init(rootViewController:desController)
-            revealviewcontroller.pushFrontViewController(newController, animated: true)
-            
-        }
-
       
-        else  if cell.menuNameLabel.text == "Online Shoping".localize() {
-            
-            
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllItemsViewController") as! GetAllItemsViewController
-            
-            desController.showNav = true
-            
-            let newController = UINavigationController.init(rootViewController:desController)
-            revealviewcontroller.pushFrontViewController(newController, animated: true)
-            
-        }
-            
 
         else  if cell.menuNameLabel.text == "Holy Bible - Telugu".localize() {
             
@@ -431,6 +406,36 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
+            
+        else  if cell.menuNameLabel.text == "Careers".localize() {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
+            
+            desController.showNav = true
+            
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+        }
+            
+        else  if cell.menuNameLabel.text == "Online Shoping".localize() {
+            
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllItemsViewController") as! GetAllItemsViewController
+            
+            desController.showNav = true
+            
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+        }
+            
+            
+            
+            
     else  if cell.menuNameLabel.text == "LogOut".localize() {
             
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -479,7 +484,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     Localize.update(language: language)
     self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
-    self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"LogOut".localize(),"Careers".localize(),"Online Shoping".localize()]
+    self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Online Shoping".localize(),"Careers".localize(),"LogOut".localize()]
         
                 self.menuTableView.reloadData()
         })

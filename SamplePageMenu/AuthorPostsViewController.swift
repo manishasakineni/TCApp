@@ -81,25 +81,25 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     private func createPageMenu() {
         
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
-        audioEventDetailsVC?.title = "Audio"
+        audioEventDetailsVC?.title = "Audio".localize()
         audioEventDetailsVC?.audioResults = self.audioResults
         
         
 
         
         vedioDetailsVC = authorVedioViewController(nibName: "authorVedioViewController", bundle: nil)
-        vedioDetailsVC?.title = "Video"
+        vedioDetailsVC?.title = "Video".localize()
         
         vedioDetailsVC?.videoResults = self.videoResults
         
         imagesEventDetailsVC = authorImagesViewController(nibName: "authorImagesViewController", bundle: nil)
-        imagesEventDetailsVC?.title = "Image"
+        imagesEventDetailsVC?.title = "Images".localize()
         
           imagesEventDetailsVC?.imageResults = self.imageResults
         
         
         documentEventDetailsVC = authorDocumentsViewController(nibName: "authorDocumentsViewController", bundle: nil)
-        documentEventDetailsVC?.title = "Document"
+        documentEventDetailsVC?.title = "Document".localize()
         documentEventDetailsVC?.documentResults = self.documentResults
         
         

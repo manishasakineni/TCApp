@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -46,7 +47,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Careers", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Careers".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         

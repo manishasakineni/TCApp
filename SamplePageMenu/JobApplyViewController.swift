@@ -67,7 +67,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply", backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -343,69 +343,69 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             if indexPath.row == 0{
                 
-            signUPCell.jobApplyTF.placeholder = "Job Title"
+            signUPCell.jobApplyTF.placeholder = "Job Title".localize()
             signUPCell.jobApplyTF.text = jobtitle
                 
             }
             else if indexPath.row == 1{
                 
-                signUPCell.jobApplyTF.placeholder = "First Name"
+                signUPCell.jobApplyTF.placeholder = "First Name".localize()
                 signUPCell.jobApplyTF.text = firstname
             }
             else if indexPath.row == 2{
                 
-                signUPCell.jobApplyTF.placeholder = "Middle Name(Optional)"
+                signUPCell.jobApplyTF.placeholder = "Middle Name".localize()
                 signUPCell.jobApplyTF.text = middlename
                 
             }
             else if indexPath.row == 3{
                 
                 
-            signUPCell.jobApplyTF.placeholder = "Last Name"
+            signUPCell.jobApplyTF.placeholder = "Last Name".localize()
              signUPCell.jobApplyTF.text = lastname
                 
             }
             else if indexPath.row == 4{
                 
-            signUPCell.jobApplyTF.placeholder = "Email"
+            signUPCell.jobApplyTF.placeholder = "Email".localize()
               signUPCell.jobApplyTF.text = email
                 
             }
             else if indexPath.row == 5{
                 
-            signUPCell.jobApplyTF.placeholder = "Mobile Number"
+            signUPCell.jobApplyTF.placeholder = "Mobile Number".localize()
               signUPCell.jobApplyTF.text = mobileNumber
                 
             }
             else if indexPath.row == 6{
                 
-            signUPCell.jobApplyTF.placeholder = "Qualification"
+            signUPCell.jobApplyTF.placeholder = "Qualification".localize()
                 
              signUPCell.jobApplyTF.text = qualification
             }
             else if indexPath.row == 7{
                 
-            signUPCell.jobApplyTF.placeholder = "Year Of Experience"
+            signUPCell.jobApplyTF.placeholder = "Year Of Experience".localize()
             signUPCell.jobApplyTF.text = yearofexperience
                 
             }
             else if indexPath.row == 8{
                 
                     
-        signUPCell.jobApplyTF.placeholder = "Current Organization"
+        signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
               signUPCell.jobApplyTF.text = currentorganization
                 
             }
             else if indexPath.row == 9{
                 
-                signUPCell.jobApplyTF.placeholder = "Current Salary"
+                signUPCell.jobApplyTF.placeholder = "Current Salary".localize()
                 
                 signUPCell.jobApplyTF.text = currentsalary
             }
         
             else if indexPath.row == 10{
                 
-                signUPCell.jobApplyTF.placeholder = "Expected Salary"
+                signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
                 signUPCell.jobApplyTF.text = expectedsalary
                 
         }

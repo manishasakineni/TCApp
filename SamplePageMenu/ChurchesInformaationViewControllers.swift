@@ -25,7 +25,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
     var allOffersVC : InfoChurchViewControllers?
     var eventInfoVC : EventViewController?
-    var detAndBillsVC : DetAndBillsViewController?
+    var authorPostsVC  : AuthorPostsViewController?
+    
     private var controllersArray: [UIViewController] = []
     
     var pasterUserId          : Int = 0
@@ -83,16 +84,14 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
 
         
+        authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+        authorPostsVC?.title = "Posts".localize()
 
-        
-        detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
-                                                  bundle: nil)
-        detAndBillsVC?.title = "Posts".localize()
-   //     detAndBillsVC?.delegate  = self
         
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
-         controllersArray.append(detAndBillsVC!)
+        controllersArray.append(authorPostsVC!)
+
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),

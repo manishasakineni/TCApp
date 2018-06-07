@@ -22,6 +22,7 @@ class AddToCareTableViewCell: UITableViewCell {
     
     @IBOutlet weak var addToCartPriceLbl: UILabel!
     
+    @IBOutlet weak var deleteBtn: UIButton!
     
 
     override func awakeFromNib() {
