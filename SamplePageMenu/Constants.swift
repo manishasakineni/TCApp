@@ -126,12 +126,14 @@ let GETALLDELIVERYADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/G
 
 let GETALLADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/AddUpdateDeliveryAddress")
 
+let DELETEADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/DeleteDeliveryAddress")
+
+// :-   08/06/2018
 
 let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDeliveryAddressById/")
 
-// :-   07/06/2018
 
-let DELETEADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/DeleteDeliveryAddress")
+
 
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")
 

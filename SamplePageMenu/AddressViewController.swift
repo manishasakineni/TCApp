@@ -120,9 +120,14 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.deleteBtn.addTarget(self, action: #selector(self.deleteaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
         cell.deleteBtn.tag = indexPath.row
         
+        
         ///////  edit ////
         
-        cell.editBtn.addTarget(self, action: #selector(self.editaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
+    
+        let editTap = UITapGestureRecognizer(target: self, action: #selector(self.editaddressClicked))
+        
+        cell.editBtn.isUserInteractionEnabled = true
+        cell.editBtn.addGestureRecognizer(editTap)
         cell.editBtn.tag = indexPath.row
         
         
@@ -144,18 +149,11 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
         
     }
-   
     
     
-    
-    func  editaddressClicked( sender:UIGestureRecognizer){
+func  editaddressClicked( sender:UIGestureRecognizer){
         
-        
-        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
-        
-        
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-
+      self.editaddressAPICall(filtered[(sender.view?.tag)!].id!)
         
         
     }
@@ -264,7 +262,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
    
     
-    func deleteaddressAPICall(_ sender : UIButton){
+func deleteaddressAPICall(_ sender : UIButton){
         
         if(filtered.count > sender.tag){
             
@@ -318,21 +316,16 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
 
+//EditaddressAPICall
     
-func editaddressAPICall(_ sender : UIButton){
     
+func editaddressAPICall( _ id : Int){
     
-    if(editaddress.count > sender.tag){
-        
-        let editAddressInfo  = editaddress[sender.tag]
-        
+
+    
+    serviceController.getRequest(strURL: EDITADDRESSAPI + "\(id)" , success: { (result) in
 
         
-      let strUrl = EDITADDRESSAPI  + "\(editAddressInfo.id!)"
-            
-     serviceController.getRequest(strURL: strUrl, success: { (result) in
-            
-            
     let respVO:EditAddressInfoVO = Mapper().map(JSONObject: result)!
                 
     let isSuccess = respVO.isSuccess
@@ -344,22 +337,17 @@ func editaddressAPICall(_ sender : UIButton){
                     
             let listArr = respVO.listResult!
                     
-            for eachArray in listArr{
-                
-                self.editaddress.append(eachArray)
-                
-            }
       
             
-            self.addressTableview.reloadData()
+            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
+            
+            jobIDViewController.isFromEdit = true
+            jobIDViewController.addressInfo = listArr
+            self.navigationController?.pushViewController(jobIDViewController, animated: true)
                     
                 }
                     
-                else {
-                    
-                    
-                    
-                }
+                
                 
             }) { (failureMessage) in
                 
@@ -368,9 +356,9 @@ func editaddressAPICall(_ sender : UIButton){
                 
             }
         
-    }
+   }
     
-    }
+ 
 
     
     

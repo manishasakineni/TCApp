@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource  {
     
     
     @IBOutlet weak var jobApplyTableView: UITableView!
@@ -39,8 +39,19 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var updatedByUserId : Int = 1
     var updatedDate:String =  "2018-05-14T11:15:41.9952665+05:30"
     
-
+    let dateFormatter = DateFormatter()
     
+    let datepicker = UIDatePicker()
+    
+    var selectedDate : String = ""
+    var pickerData = Array<String>()
+    var myPickerView: UIPickerView!
+      var dateString :String = ""
+      var selectedData : String = ""
+    var financierType : Array = Array<String>()
+    
+    
+    var createddate : String = "2018-04-24T11:17:41.5268377+05:30"
     
   var alertTag = Int()
     
@@ -137,8 +148,28 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else if activeTextField.tag == 7{
             
             textField.maxLengthTextField = 10
-            textField.clearButtonMode = .never
             textField.keyboardType = .default
+            
+         
+            textField.clearButtonMode = .never
+            
+            
+            textField.inputView = datepicker
+            let todayDate = NSDate()
+            self.datepicker.maximumDate = todayDate as Date
+            datepicker.datePickerMode = .date
+            let toolBar = UIToolbar()
+            toolBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            toolBar.sizeToFit()
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+            
+            toolBar.setItems([doneButton], animated: true)
+            
+            textField.inputAccessoryView = toolBar
+            
+            activeTextField.text = selectedDate
+     
             
             
         }
@@ -287,8 +318,37 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
  
     
+    func donePressed(){
+        
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateString = dateFormatter.string(from: datepicker.date)
+        
+        
+        selectedDate = dateFormatter.string(from: datepicker.date)
+        
+        createddate = dateFormatter.string(from: Date())
+        print(selectedDate)
+        
+        print(dateString)
+        
+        self.view.endEditing(true)
+        
+        jobApplyTableView.reloadData()
+    }
+  
+    //MARK:-  cancel Clicked
     
-    
+    func cancel(){
+        
+        activeTextField.resignFirstResponder()
+        jobApplyTableView.endEditing(true)
+        
+        
+    }
+  
     
     
     
@@ -386,7 +446,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             else if indexPath.row == 7{
                 
             signUPCell.jobApplyTF.placeholder = "Year Of Experience".localize()
-            signUPCell.jobApplyTF.text = yearofexperience
+         //   signUPCell.jobApplyTF.text = yearofexperience
+                signUPCell.jobApplyTF.text = selectedDate
+                signUPCell.jobApplyTF.tag = 7
+   
+                
                 
             }
             else if indexPath.row == 8{
@@ -705,13 +769,7 @@ func getjobApplicationAPICall(){
     
                     self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:String( statusMsg), clickAction: {
                         
-              //          let signUpVc  : ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        
-                        
-                        
-            //self.navigationController?.pushViewController(signUpVc, animated: true)
-                        
-                        
+              
                     })
                     
                     
@@ -736,8 +794,79 @@ func getjobApplicationAPICall(){
         }
     
     
- 
+    //MARK: -  UIpickerView delegate & DataSource  methods
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return pickerData.count
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedData = pickerData[row]
+    }
+
+    func pickerUp(_ textField : UITextField){
+        
+        // UIPickerView
+        
+        if(self.myPickerView == nil){
+            
+            self.myPickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216))
+        }
+        self.myPickerView.delegate = self
+        self.myPickerView.dataSource = self
+        self.myPickerView.backgroundColor = UIColor.white
+        self.myPickerView.tag = textField.tag
+        textField.inputView = self.myPickerView
+        
+        // ToolBar
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        // Adding Button ToolBar
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancel))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        toolBar.isUserInteractionEnabled = true
+        textField.inputAccessoryView = toolBar
+        
+    }
+    //MARK:-  done Clicked
+    
+    func done() {
+        
+        
+        if(activeTextField.tag == 7){
+            
+            selectedDate = selectedData
+            
+        }
+
+        
+        self.selectedData.removeAll()
+        activeTextField.resignFirstResponder()
+        jobApplyTableView.reloadData()
+        
+        
+    }
+    
+
     
     
     

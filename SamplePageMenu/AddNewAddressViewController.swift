@@ -13,6 +13,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var addNewAddressTableView: UITableView!
     
     var showNav = false
+    var isFromEdit = false
     var userId :  Int = 0
     
     var fullName:String = ""
@@ -53,6 +54,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     var countryInfoDetails : [CountryInfoResultVO] = Array<CountryInfoResultVO>()
     
      var filtered:[UpdatedeliveryAddressInfoResultVO] = Array<UpdatedeliveryAddressInfoResultVO>()
+    
+     var addressInfo:[EditAddressInfoResultVO] = Array<EditAddressInfoResultVO>()
     
     var addressTFPlaceholdersArray = ["FullName".localize(),"Flat,House No,Building,Company,Apartment".localize(),"Area,Colony,Street,Sector,Village".localize(),"PinCode".localize(),"Landmark".localize()]
 
@@ -141,14 +144,14 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .numberPad
         }
             
         else if activeTextField.tag == 4{
             
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
-            textField.keyboardType = .emailAddress
+            textField.keyboardType = .default
             
         }
         
@@ -183,7 +186,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .phonePad
         
         }
     
@@ -631,7 +634,9 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                     }
                     
                 }
-                
+                if(self.isFromEdit == true){
+                    self.readDataSource()
+                }
                 self.addNewAddressTableView.reloadData()
                 
             }
@@ -733,6 +738,25 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
    
         
+    }
+    
+func readDataSource(){
+        
+        if(addressInfo.count > 0){
+            
+            let model = addressInfo[0]
+            fullName = model.fullName!
+            flatNo = model.addressLine1!
+            area = model.addressLine2!
+            pincode = "\(model.pinCode!)"
+            landmark = model.landmark!
+            state = model.stateName!
+            country = model.countryName!
+            mobileNumber = model.mobileNumber!
+            
+            
+            
+        }
     }
     
 

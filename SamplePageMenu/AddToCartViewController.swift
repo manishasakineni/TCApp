@@ -17,6 +17,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
      var userId :  Int = 0
+//     var itemId :  Int = 102
     
     var allitemsArray:[GetCartListResultVO] = Array<GetCartListResultVO>()
     
@@ -267,33 +268,30 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
     
-    func deleteAPIService(_ sender : UIButton){
+func deleteAPIService(_ sender : UIButton){
+    
+    
+     let deleteAddressInfo  = filtered[sender.tag]
+    
+     let strUrl = DELETEFROMCARTAPI  + "\(userId)" + "/" + "\(deleteAddressInfo.itemId!)"
         
+    
+       serviceController.getRequest(strURL: strUrl, success: { (result) in
         
-        serviceController.getRequest(strURL: ADDTOCARTAPI , success: { (result) in
+        let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
             
+      let isSuccess = respVO.isSuccess
             
-            let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
-            
-            let isSuccess = respVO.isSuccess
-            
-            
-            
-            if isSuccess == true {
+        if isSuccess == true {
                 
-                let listArr = respVO.listResult!
-                
-                for eachArray in listArr{
-                    
-                    self.deletelist.append(eachArray)
-                }
-                
-                self.addToCartTableView.reloadData()
+      self.filtered.remove(at: sender.tag)
+            self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+            
+        self.addToCartTableView.reloadData()
+            
+         //   self.getCartInfoAPIService()
                 
             }
-            
-            
-            
             
         }) { (failureMessage) in
             
@@ -301,12 +299,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-    
-
-    
-    
-    
-    
+ 
     
 }
  
