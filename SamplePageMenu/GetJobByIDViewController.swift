@@ -211,13 +211,13 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             else if indexPath.row == 8{
                 
-                 if !adminname.isEmpty {
+                // if !adminname.isEmpty {
                     
                     
                 signUPCell.jobIDDetailsLabel.text = adminname
                 signUPCell.jobIDNameLabel.text = "Admin Name".localize()
                 
-        }
+     //   }
             }
             else if indexPath.row == 9{
                 

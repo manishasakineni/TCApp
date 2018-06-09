@@ -17,7 +17,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
      var userId :  Int = 0
-//     var itemId :  Int = 102
     
     var allitemsArray:[GetCartListResultVO] = Array<GetCartListResultVO>()
     
@@ -230,6 +229,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     func getCartInfoAPIService(){
         
+          self.filtered.removeAll()
+        
         let strUrl = GETCARTINFOAPI  + "\(userId)"
         
         serviceController.getRequest(strURL: strUrl, success: { (result) in
@@ -270,11 +271,12 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
 func deleteAPIService(_ sender : UIButton){
     
-    
+
      let deleteAddressInfo  = filtered[sender.tag]
     
-     let strUrl = DELETEFROMCARTAPI  + "\(userId)" + "/" + "\(deleteAddressInfo.itemId!)"
-        
+   
+    
+     let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
     
        serviceController.getRequest(strURL: strUrl, success: { (result) in
         
@@ -285,11 +287,10 @@ func deleteAPIService(_ sender : UIButton){
         if isSuccess == true {
                 
       self.filtered.remove(at: sender.tag)
+            
             self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
             
-        self.addToCartTableView.reloadData()
-            
-         //   self.getCartInfoAPIService()
+     
                 
             }
             

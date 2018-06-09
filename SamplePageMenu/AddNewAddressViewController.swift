@@ -15,7 +15,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     var showNav = false
     var isFromEdit = false
     var userId :  Int = 0
-    
+    var addressID : Int = 0
     var fullName:String = ""
     var flatNo:String = ""
     var area:String = ""
@@ -655,8 +655,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     }
     
     func saveaddressAPICall(){
-        
-        let paramsDict = [ 	"id": 0,
+       
+        let paramsDict = [ 	"id": addressID,
                            	"fullName": fullName,
                            	"mobileNumber": mobileNumber,
                            	"addressLine1": flatNo,
@@ -690,6 +690,14 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
+                
+                
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+                
+                
+     //   self.navigationController?.pushViewController(jobIDViewController, animated: true)
+       self.navigationController?.popViewController(animated: true)          
+
                 
                 for eachArray in listArr{
                     self.filtered.append(eachArray)
@@ -729,6 +737,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                 
                 
                 saveaddressAPICall()
+                
+                
             }
         }
                
@@ -753,7 +763,8 @@ func readDataSource(){
             state = model.stateName!
             country = model.countryName!
             mobileNumber = model.mobileNumber!
-            
+            addressID = model.id!
+           self.addNewAddressTableView.reloadData()
             
             
         }
