@@ -220,6 +220,7 @@
 		AF141D7D20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7B20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib */; };
 		AF141D8020A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D7E20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift */; };
 		AF141D8120A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF141D7F20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib */; };
+		AF15246B20CBB5CC004AA420 /* splashmessageInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -278,8 +279,6 @@
 		AF91F13220AB05950050A938 /* JobApplyListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */; };
 		AF91F13620AB0C320050A938 /* JobApplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */; };
 		AF91F13720AB0C320050A938 /* JobApplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */; };
-		AF91F13A20AB115B0050A938 /* JobApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */; };
-		AF91F13B20AB115B0050A938 /* JobApplicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */; };
 		AF9769AB20A44C1F0037F34C /* authorAudioaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */; };
 		AF9769AC20A44C1F0037F34C /* authorAudioaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */; };
 		AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */; };
@@ -619,6 +618,7 @@
 		AF141D7B20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorAudiioTableViewCell.xib; sourceTree = "<group>"; };
 		AF141D7E20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDocumentTableViewCell.swift; sourceTree = "<group>"; };
 		AF141D7F20A6D35B00AE9FB8 /* AuthorDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorDocumentTableViewCell.xib; sourceTree = "<group>"; };
+		AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = splashmessageInfoVO.swift; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
@@ -677,8 +677,6 @@
 		AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyListResultVO.swift; sourceTree = "<group>"; };
 		AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplyTableViewCell.swift; sourceTree = "<group>"; };
 		AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobApplyTableViewCell.xib; sourceTree = "<group>"; };
-		AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobApplicationTableViewCell.swift; sourceTree = "<group>"; };
-		AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobApplicationTableViewCell.xib; sourceTree = "<group>"; };
 		AF9769A920A44C1F0037F34C /* authorAudioaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorAudioaViewController.swift; sourceTree = "<group>"; };
 		AF9769AA20A44C1F0037F34C /* authorAudioaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorAudioaViewController.xib; sourceTree = "<group>"; };
 		AF98E37F20A04C15000C34E1 /* EventByIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdVo.swift; sourceTree = "<group>"; };
@@ -1188,6 +1186,7 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */,
 				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
 				AF0E1E1920C80C360064EA0B /* deleteCartInfoVO */,
 				AF0E1E1420C80BCE0064EA0B /* EditAddressInfoVO */,
@@ -1657,8 +1656,6 @@
 				AF91F12D20AAFC1B0050A938 /* JobApplyViewController.swift */,
 				AF91F13420AB0C320050A938 /* JobApplyTableViewCell.swift */,
 				AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */,
-				AF91F13820AB115B0050A938 /* JobApplicationTableViewCell.swift */,
-				AF91F13920AB115B0050A938 /* JobApplicationTableViewCell.xib */,
 			);
 			name = GetAllJobDetailsViewController;
 			sourceTree = "<group>";
@@ -2336,7 +2333,6 @@
 				AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
 				3D9C30F8207E189A00601B75 /* AllRepliesHeaderTVCell.xib in Resources */,
-				AF91F13B20AB115B0050A938 /* JobApplicationTableViewCell.xib in Resources */,
 				CB3794E720595867002D3638 /* homeCategoriesCell.xib in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				AF91F13720AB0C320050A938 /* JobApplyTableViewCell.xib in Resources */,
@@ -2560,6 +2556,7 @@
 				CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
+				AF15246B20CBB5CC004AA420 /* splashmessageInfoVO.swift in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */,
@@ -2701,7 +2698,6 @@
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
-				AF91F13A20AB115B0050A938 /* JobApplicationTableViewCell.swift in Sources */,
 				AF39FD0820A9A74500712EF7 /* GetAllJobDetailsViewController.swift in Sources */,
 				AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */,
 				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,

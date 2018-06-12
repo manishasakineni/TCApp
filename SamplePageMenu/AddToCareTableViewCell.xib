@@ -117,10 +117,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-lc-zHg">
-                        <rect key="frame" x="292" y="61" width="20" height="17"/>
+                        <rect key="frame" x="283" y="47" width="32" height="31"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="NHi-Gi-y2w"/>
-                            <constraint firstAttribute="width" constant="20" id="QZ5-Lb-MHJ"/>
+                            <constraint firstAttribute="height" constant="31" id="NHi-Gi-y2w"/>
+                            <constraint firstAttribute="width" constant="32" id="QZ5-Lb-MHJ"/>
                         </constraints>
                         <state key="normal" image="payment_del_icon"/>
                     </button>
@@ -145,7 +145,7 @@
                     <constraint firstItem="7DZ-bQ-t8h" firstAttribute="leading" secondItem="gUk-Tx-8Kq" secondAttribute="trailing" constant="22" id="k7s-aK-5dQ"/>
                     <constraint firstItem="c6G-2Z-Ojz" firstAttribute="top" secondItem="7FQ-i2-SIP" secondAttribute="bottom" constant="5" id="mx1-vZ-SAv"/>
                     <constraint firstItem="gUk-Tx-8Kq" firstAttribute="top" secondItem="bU7-25-Ter" secondAttribute="bottom" constant="5" id="my7-0F-sPE"/>
-                    <constraint firstAttribute="trailing" secondItem="Ufz-lc-zHg" secondAttribute="trailing" constant="8" id="oIA-yH-W4K"/>
+                    <constraint firstAttribute="trailing" secondItem="Ufz-lc-zHg" secondAttribute="trailing" constant="5" id="oIA-yH-W4K"/>
                     <constraint firstItem="bU7-25-Ter" firstAttribute="leading" secondItem="Tl9-f2-Ym0" secondAttribute="trailing" constant="8" id="oUL-fx-LKO"/>
                     <constraint firstItem="DqL-4H-3LP" firstAttribute="centerY" secondItem="bU7-25-Ter" secondAttribute="centerY" id="pSN-4d-eYO"/>
                     <constraint firstItem="gUk-Tx-8Kq" firstAttribute="leading" secondItem="Tl9-f2-Ym0" secondAttribute="trailing" constant="8" id="uAq-b4-kko"/>

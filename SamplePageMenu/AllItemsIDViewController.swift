@@ -205,7 +205,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
         
          cell.nameLabel.text = listStr.name
-         cell.priceLabel.text = "\(String(describing: listStr.price))"
+         cell.priceLabel.text = "\(listStr.price!)"
          cell.authorLabel.text = listStr.author
         cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
         

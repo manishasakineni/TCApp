@@ -194,6 +194,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                 
                 signUPCell.jobIDDetailsLabel.text = lastdatetoapply
                 signUPCell.jobIDNameLabel.text = "Last Date To Apply".localize()
+
                 
 //                if(userDetails?.lastDateToApply! != ""){
 //                    let dobStringArray = userDetails?.lastDateToApply?.components(separatedBy: "T")
@@ -202,7 +203,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
 //                }else{
 //                    signUPCell.jobIDDetailsLabel.text  = ""
 //                }
-                
+//                
                 
 
                 
@@ -256,9 +257,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     self.jobTitle = (obj.jobTitle)!
                     self.vacencies = String(obj.vacencies!)
-                    self.Qualification = (obj.qualification)!
+                    self.Qualification = (obj.qualification!)
                     
-                    self.jobdescription = (obj.jobDesc)!
+                    self.jobdescription = (obj.jobDesc!)
                     self.contactperson = (obj.contactPerson)!
                     self.contactnumber = (obj.contactNumber)!
                     
