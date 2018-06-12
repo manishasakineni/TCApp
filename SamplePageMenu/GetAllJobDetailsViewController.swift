@@ -9,14 +9,30 @@
 import UIKit
 import Localize
 
-class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
     
     @IBOutlet weak var getAllJobDetailsTableView: UITableView!
+    
+    @IBOutlet weak var norecordsFoundLbl: UILabel!
     
       var showNav = false
       var totalPages : Int? = 0
     
      var appVersion          : String = ""
+    
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    
+    
+    var searchController: UISearchController!
+    
+    var searchActive : Bool = false
+     var searchTextStr:String = ""
+    
+    var uid : Int = 0
+    var PageIndex = 1
+   /// var totalPages : Int? = 0
+    var totalRecords : Int? = 0
+    var sortbyColumnName : String = ""
     
     var jobDetailsArray:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
 
@@ -25,14 +41,42 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+          self.getjobdetailsAPICall(string: searchBar.text!)
+        
         getAllJobDetailsTableView.dataSource = self
         getAllJobDetailsTableView.delegate = self
 
+        self.norecordsFoundLbl.isHidden = true
         
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        searchBar.tintColor = UIColor.black
+        
+        searchBar.delegate = self
+        
+        searchBar.placeholder = "Search by Church Name".localize()
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        navigationItem.titleView = searchBar
+  
         
         let nibName1  = UINib(nibName: "GetAllJobDetailsTableViewCell" , bundle: nil)
         getAllJobDetailsTableView.register(nibName1, forCellReuseIdentifier: "GetAllJobDetailsTableViewCell")
-       getjobdetailsAPICall()
+    //   getjobdetailsAPICall()
+        
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+        
+        self.searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
+
         
         
         // Do any additional setup after loading the view.
@@ -47,13 +91,107 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Careers".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        
+          Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        searchBar.text = ""
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.jobDetailsArray.removeAll()
+        
+        self.getjobdetailsAPICall(string: searchBar.text!)
+ 
+        
+    }
+
+    //MARK: -  Search function
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+        
+        searchActive = false
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.jobDetailsArray.removeAll()
+        self.getjobdetailsAPICall(string: searchBar.text!)
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        searchActive = false
+        searchBar.resignFirstResponder()
+        
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.jobDetailsArray.removeAll()
+        
+        self.getjobdetailsAPICall(string: searchBar.text!)
+        
+        if(filtered.count == 0){
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.getAllJobDetailsTableView.reloadData()
+        
+        
+        
+        searchBar.resignFirstResponder()
+    }
+    
+    @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        searchActive = false
+        
+        print(sortbyColumnName)
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         
         
     }
-
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchActive = false
+        searchBar.resignFirstResponder()
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.jobDetailsArray.removeAll()
+        self.getjobdetailsAPICall(string: searchBar.text!)
+        self.getAllJobDetailsTableView.reloadData()
+        
+    }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.searchBar.text! == "" {
+            
+            sortbyColumnName = ""
+            
+        } else {
+            
+            sortbyColumnName = searchController.searchBar.text!
+            
+        }
+        
+    }
+ 
     
     
     //MARK: -  churchDetails TableView delegate & DataSource  methods
@@ -133,7 +271,9 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         
     let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
-            
+        if(filtered.count > indexPath.row){
+             jobIDViewController.jobId = filtered[indexPath.row].id!
+        }
      
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
         
@@ -143,7 +283,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     
     
-    func getjobdetailsAPICall(){
+    func getjobdetailsAPICall(string:String){
         
         let paramsDict = [ "userId": 0,
                            "pageIndex": 1,
@@ -171,7 +311,15 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
                 
                 let listArr = respVO.listResult!
                 
+                
+                if listArr.count > 0 {
+                    
+                    self.getAllJobDetailsTableView.isHidden = false
+                    
+                    self.norecordsFoundLbl.isHidden = true
+                
                 for eachArray in listArr{
+                    
                     self.jobDetailsArray.append(eachArray)
                 }
                 
@@ -197,10 +345,20 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
                 self.getAllJobDetailsTableView.reloadData()
                 
             }
-                
+                    
+            
             else {
                 
+                self.norecordsFoundLbl.isHidden = false
+                self.getAllJobDetailsTableView.isHidden = true
+            }
                 
+            }
+            
+            else {
+                
+                self.norecordsFoundLbl.isHidden = false
+                self.getAllJobDetailsTableView.isHidden = true
                 
             }
             

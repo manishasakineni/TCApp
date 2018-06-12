@@ -16,6 +16,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var applyBtnOutLet: UIButton!
 
+    
+    
+    
      var activeTextField = UITextField()
       var appVersion          : String = ""
     
@@ -54,6 +57,12 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var createddate : String = "2018-04-24T11:17:41.5268377+05:30"
     
   var alertTag = Int()
+    
+    var isjobtitle = false
+    
+    var addressInfo:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
+    
+    // GetAllJobDetailsListResultVO
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -405,6 +414,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
             signUPCell.jobApplyTF.placeholder = "Job Title".localize()
             signUPCell.jobApplyTF.text = jobtitle
+           signUPCell.jobApplyTF.isUserInteractionEnabled = false
+                if(self.isjobtitle == true){
+                    self.readDataSource()
+                }
+
                 
             }
             else if indexPath.row == 1{
@@ -773,7 +787,7 @@ func getjobApplicationAPICall(){
                     })
                     
                     
-
+                   
     
         self.jobApplyTableView.reloadData()
     
@@ -866,7 +880,17 @@ func getjobApplicationAPICall(){
         
     }
     
-
+    func readDataSource(){
+        
+        if(addressInfo.count > 0){
+            
+            let model = addressInfo[0]
+            jobtitle = model.jobTitle!
+                       
+        }
+        
+    }
+    
     
     
     

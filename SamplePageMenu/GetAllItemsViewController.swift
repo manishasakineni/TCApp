@@ -8,15 +8,31 @@
 
 import UIKit
 
-class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
     
     @IBOutlet weak var getAllitemsTableView: UITableView!
     
+    @IBOutlet weak var norecordsFoundLbl: UILabel!
+    
+    
     var showNav = false
      var appVersion          : String = ""
     
-   
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    
+    
+    var searchController: UISearchController!
+    
+    var searchActive : Bool = false
+    var searchTextStr:String = ""
+    
+    var uid : Int = 0
+    var PageIndex = 1
+     var totalPages : Int? = 0
+    var totalRecords : Int? = 0
+    var sortbyColumnName : String = ""
+
     
      var allitemsArray:[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
     
@@ -24,14 +40,45 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+         self.getallitemsAPICall(string: searchBar.text!)
+        
+     self.norecordsFoundLbl.isHidden = true
+        
+        
         let nibName1  = UINib(nibName: "GetAllItemsTableViewCell" , bundle: nil)
         getAllitemsTableView.register(nibName1, forCellReuseIdentifier: "GetAllItemsTableViewCell")
         
        getAllitemsTableView.dataSource = self
         getAllitemsTableView.delegate = self
         
-        getallitemsAPICall()
+        
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        searchBar.tintColor = UIColor.black
+        
+        searchBar.delegate = self
+        
+        searchBar.placeholder = "Search by Church Name".localize()
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        navigationItem.titleView = searchBar
+
+        self.navigationController?.isNavigationBarHidden = false
+        
+        
+        self.searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
+        
+
+        
+    //    getallitemsAPICall()
         
         // Do any additional setup after loading the view.
     }
@@ -45,13 +92,109 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shoping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
+      
+        searchBar.text = ""
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.allitemsArray.removeAll()
+        
+        self.getallitemsAPICall(string: searchBar.text!)
+
         
         
     }
     
+    //MARK: -  Search function
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+        
+        searchActive = false
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.allitemsArray.removeAll()
+        self.getallitemsAPICall(string: searchBar.text!)
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        searchActive = false
+        searchBar.resignFirstResponder()
+        
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.allitemsArray.removeAll()
+        
+        self.getallitemsAPICall(string: searchBar.text!)
+        
+        if(filtered.count == 0){
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.getAllitemsTableView.reloadData()
+        
+        
+        
+        searchBar.resignFirstResponder()
+    }
+    
+    @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        searchActive = false
+        
+        print(sortbyColumnName)
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchActive = false
+        searchBar.resignFirstResponder()
+        
+        PageIndex = 1
+        totalPages = 0
+        
+        self.allitemsArray.removeAll()
+        self.getallitemsAPICall(string: searchBar.text!)
+        self.getAllitemsTableView.reloadData()
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.searchBar.text! == "" {
+            
+            sortbyColumnName = ""
+            
+        } else {
+            
+            sortbyColumnName = searchController.searchBar.text!
+            
+        }
+        
+    }
+    
+   
     
     
 //MARK: -  churchDetails TableView delegate & DataSource  methods
@@ -209,7 +352,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
 
     
-    func getallitemsAPICall(){
+    func getallitemsAPICall(string:String){
         
         let paramsDict = [ 	"userId": "",
                            	"pageIndex": 1,
@@ -237,6 +380,12 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                 
                 let listArr = respVO.listResult!
                 
+                if listArr.count > 0 {
+                    
+                    self.getAllitemsTableView.isHidden = false
+                    
+                    self.norecordsFoundLbl.isHidden = true
+                
                 for eachArray in listArr{
                     self.filtered.append(eachArray)
                 }
@@ -244,10 +393,19 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                 self.getAllitemsTableView.reloadData()
                 
             }
+                    
+                else {
+                    
+                    self.norecordsFoundLbl.isHidden = false
+                    self.getAllitemsTableView.isHidden = true
+                }
+                
+            }
                 
             else {
                 
-                
+                self.norecordsFoundLbl.isHidden = false
+                self.getAllitemsTableView.isHidden = true
                 
             }
             

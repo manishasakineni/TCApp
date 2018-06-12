@@ -168,11 +168,11 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
         eventDetailsViewController.eventID = listStr.id!
-        eventDetailsViewController.eventChurchName = listStr.churchName!
+     //   eventDetailsViewController.eventChurchName = listStr.churchName!
         eventDetailsViewController.eventName = listStr.title!
 
         
-        eventDetailsViewController.catgoryID = listStr.churchId!
+ //       eventDetailsViewController.catgoryID = listStr.churchId!
         eventDetailsViewController.navigationStr = "navigationStr"
     //    eventDetailsViewController.eventImageArrayString = listStr.eventImage!
         

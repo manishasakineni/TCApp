@@ -75,7 +75,6 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDocumentTableViewCell", for: indexPath) as! AuthorDocumentTableViewCell
         
         
-      //  let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         
         
         
@@ -95,7 +94,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
             
         else {
             
-            cell.documentImage.image = #imageLiteral(resourceName: "j4")
+            cell.documentImage.image = #imageLiteral(resourceName: "docImg")
         }
         
 

@@ -19,6 +19,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var jobTitle:String = ""
     var vacencies : String = ""
      var Qualification:String = ""
+    var jobId : Int = 0
     
     var jobdescription:String = ""
     var contactperson : String = ""
@@ -28,22 +29,22 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var salary:String = ""
     var lastdatetoapply : String = ""
     var adminname:String = ""
-     var churchname:String = ""
-
+    var churchname:String = ""
     
+    var selectNameType : Array = Array<String>()
     
-    
-      var selectNameType : Array = Array<String>()
-    
-  //  var listResultArray:[GetJobByIDListResultVO]?
-    
-    let utillites =  Utilities()
+     let utillites =  Utilities()
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getJobByIDTableView.rowHeight = UITableViewAutomaticDimension
+        getJobByIDTableView.estimatedRowHeight = 44
+        getJobByIDTableView.reloadData()
+
        
         getJobByIDTableView.dataSource = self
         getJobByIDTableView.delegate = self
@@ -57,6 +58,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         getJobByIDTableView.register(categorieHomeCell, forCellReuseIdentifier: "GetJobByIDTableViewCell")
 
         // Do any additional setup after loading the view.
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,13 +131,10 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             return signUPCell
             
 
-//        return signUPCell
         }
          if indexPath.section == 1 {
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GetJobByIDTableViewCell", for: indexPath) as! GetJobByIDTableViewCell
             
-            
-        
             
             if indexPath.row == 0{
                 
@@ -145,7 +144,6 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     signUPCell.jobIDNameLabel.text = "Job Title".localize()
                 }
-                
                
                 
             }
@@ -196,17 +194,14 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                 signUPCell.jobIDNameLabel.text = "Last Date To Apply".localize()
 
                 
-//                if(userDetails?.lastDateToApply! != ""){
-//                    let dobStringArray = userDetails?.lastDateToApply?.components(separatedBy: "T")
-//                    let dateString = dobStringArray?[0]
-//                    signUPCell.jobIDDetailsLabel.text  = dateString!
-//                }else{
-//                    signUPCell.jobIDDetailsLabel.text  = ""
-//                }
-//                
-                
+                if(lastdatetoapply != ""){
+                    let dobStringArray = lastdatetoapply.components(separatedBy: "T")
+                    let dateString = dobStringArray[0]
+                    signUPCell.jobIDDetailsLabel.text  = dateString
+                }else{
+                    signUPCell.jobIDDetailsLabel.text  = ""
+                }
 
-                
                 
                 
             }
@@ -240,7 +235,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func getJobIDAPIService(){
 
-        let strUrl = GETJOBBYIDAPI  + "null/"
+        let strUrl = GETJOBBYIDAPI  + "\(jobId)"
         
             serviceController.getRequest(strURL: strUrl, success: { (result) in
                 
@@ -279,18 +274,6 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             
         }
  
-        
-        
-        
-        
-    
-   
-    
-    
-    
-    
-    
-    
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -353,7 +336,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
             let historyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobApplyViewController") as! JobApplyViewController
-        
+        historyViewController.jobtitle = jobTitle
             self.navigationController?.pushViewController(historyViewController, animated: true)
         
         

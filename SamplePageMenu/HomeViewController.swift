@@ -965,6 +965,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                     }
                     
                 }
+                    
                 else {
                     
                     cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
@@ -997,10 +998,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
                 
                 eventDetailsViewController.eventID = eventList.id!
-                eventDetailsViewController.eventChurchName = eventList.churchName!
+    //            eventDetailsViewController.eventChurchName = eventList.churchName!
                 eventDetailsViewController.eventName = eventList.title!
                 
-                eventDetailsViewController.catgoryID = eventList.churchId!
+      //          eventDetailsViewController.catgoryID = eventList.churchId!
                 
                 
                 self.navigationController?.pushViewController(eventDetailsViewController, animated: true)

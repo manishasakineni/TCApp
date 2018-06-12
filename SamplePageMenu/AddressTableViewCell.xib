@@ -86,19 +86,19 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sny-mv-Q36">
-                        <rect key="frame" x="271" y="8" width="41" height="29"/>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sny-mv-Q36">
+                        <rect key="frame" x="277" y="8" width="35" height="19"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="29" id="eRB-9e-o6m"/>
-                            <constraint firstAttribute="width" constant="41" id="xkc-Lq-9xE"/>
+                            <constraint firstAttribute="height" constant="19" id="eRB-9e-o6m"/>
+                            <constraint firstAttribute="width" constant="35" id="xkc-Lq-9xE"/>
                         </constraints>
                         <state key="normal" image="edit"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVd-YI-fX2">
-                        <rect key="frame" x="271" y="56" width="41" height="35"/>
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVd-YI-fX2">
+                        <rect key="frame" x="268" y="56" width="44" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="nhg-48-slQ"/>
-                            <constraint firstAttribute="width" constant="41" id="wEO-NI-Ht4"/>
+                            <constraint firstAttribute="height" constant="45" id="nhg-48-slQ"/>
+                            <constraint firstAttribute="width" constant="44" id="wEO-NI-Ht4"/>
                         </constraints>
                         <state key="normal" image="payment_del_icon"/>
                     </button>
@@ -113,7 +113,7 @@
                     <constraint firstItem="qJ1-H5-May" firstAttribute="top" secondItem="gRi-uz-pwK" secondAttribute="bottom" constant="5" id="OU4-qG-Wfo"/>
                     <constraint firstItem="vLc-Ky-hQ5" firstAttribute="leading" secondItem="qJ1-H5-May" secondAttribute="leading" id="PF1-3N-9VA"/>
                     <constraint firstItem="sny-mv-Q36" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="QJN-Xu-PB3"/>
-                    <constraint firstItem="m9D-9D-CWT" firstAttribute="top" secondItem="RVd-YI-fX2" secondAttribute="bottom" constant="8" id="So7-Ox-uVn"/>
+                    <constraint firstItem="m9D-9D-CWT" firstAttribute="top" secondItem="RVd-YI-fX2" secondAttribute="bottom" constant="-2" id="So7-Ox-uVn"/>
                     <constraint firstItem="Zqe-pi-Ffu" firstAttribute="leading" secondItem="vLc-Ky-hQ5" secondAttribute="leading" id="beb-8q-0me"/>
                     <constraint firstAttribute="bottom" secondItem="m9D-9D-CWT" secondAttribute="bottom" constant="5.5" id="cqB-Cd-yCE"/>
                     <constraint firstAttribute="trailing" secondItem="sny-mv-Q36" secondAttribute="trailing" constant="8" id="eB9-JF-McK"/>
@@ -139,7 +139,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="edit" width="512" height="512"/>
+        <image name="edit" width="30" height="30"/>
         <image name="icons8-Unchecked Circle-50" width="50" height="50"/>
         <image name="payment_del_icon" width="13" height="15"/>
     </resources>

@@ -27,7 +27,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     var filtered:[AllItemIdListResultVO] = []
     
     var quantity = ""
-    
+     var email : String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,7 +213,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         }
         return UITableViewCell()
-        
+                                       
     }
 
     
@@ -346,11 +346,11 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
 
                         
                     }
+                
                         
                     else {
                         
-                        
-                        
+                            
                     }
                     
                 }) { (failureMessage) in
@@ -361,6 +361,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                 }
             
         }else{
+            
+            
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please provide Quantity".localize(), clickAction: {
+                
+                
+            })
             
             print("Please enter valid quantity")
             

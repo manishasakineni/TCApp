@@ -2194,17 +2194,34 @@
                                     <outlet property="delegate" destination="Eey-Em-3Iy" id="diM-RC-f2V"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-mU-AQO">
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Vdt-mr-bLL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="G5P-AL-NoS" firstAttribute="leading" secondItem="X5C-5b-frf" secondAttribute="leading" id="4q8-d3-w2s"/>
                             <constraint firstItem="G5P-AL-NoS" firstAttribute="top" secondItem="X5C-5b-frf" secondAttribute="top" id="7yE-pr-Nye"/>
+                            <constraint firstItem="EUn-mU-AQO" firstAttribute="centerY" secondItem="X5C-5b-frf" secondAttribute="centerY" id="XLM-ff-vm6"/>
                             <constraint firstItem="Jfe-Ng-VYC" firstAttribute="top" secondItem="G5P-AL-NoS" secondAttribute="bottom" id="cMS-BN-JBV"/>
+                            <constraint firstItem="EUn-mU-AQO" firstAttribute="centerX" secondItem="X5C-5b-frf" secondAttribute="centerX" id="iF2-86-8i5"/>
                             <constraint firstAttribute="trailing" secondItem="G5P-AL-NoS" secondAttribute="trailing" id="o2B-hY-Smx"/>
+                            <constraint firstAttribute="trailing" secondItem="EUn-mU-AQO" secondAttribute="trailing" id="qg4-Sp-OdW"/>
+                            <constraint firstItem="EUn-mU-AQO" firstAttribute="leading" secondItem="X5C-5b-frf" secondAttribute="leading" id="sBN-Z8-dQi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="getAllJobDetailsTableView" destination="G5P-AL-NoS" id="KM2-sU-BL8"/>
+                        <outlet property="norecordsFoundLbl" destination="EUn-mU-AQO" id="tJW-NG-fcL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Le-ps-YVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2277,11 +2294,11 @@
                                             <constraint firstAttribute="height" constant="30" id="B10-Sd-jaa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                        <state key="normal" title="Update Resume">
+                                        <state key="normal" title="Upload Resume">
                                             <color key="titleColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Update Resume"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Upload Resume"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-O3-rO9">
@@ -2352,17 +2369,34 @@
                                     <outlet property="delegate" destination="42G-s9-754" id="dn6-zC-Udz"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZV-bA-xGJ">
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Nnc-7f-ABt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KZV-bA-xGJ" firstAttribute="centerX" secondItem="7eZ-xC-4rK" secondAttribute="centerX" id="1h2-sk-8UB"/>
+                            <constraint firstItem="KZV-bA-xGJ" firstAttribute="leading" secondItem="7eZ-xC-4rK" secondAttribute="leading" id="6qc-TW-TDq"/>
                             <constraint firstItem="JbZ-WY-ISG" firstAttribute="top" secondItem="7eZ-xC-4rK" secondAttribute="top" id="6x0-tO-nCg"/>
                             <constraint firstAttribute="trailing" secondItem="JbZ-WY-ISG" secondAttribute="trailing" id="Udx-EP-xfP"/>
+                            <constraint firstItem="KZV-bA-xGJ" firstAttribute="centerY" secondItem="7eZ-xC-4rK" secondAttribute="centerY" id="XGp-i5-2G5"/>
+                            <constraint firstAttribute="trailing" secondItem="KZV-bA-xGJ" secondAttribute="trailing" id="lpd-rb-oZr"/>
                             <constraint firstItem="JbZ-WY-ISG" firstAttribute="leading" secondItem="7eZ-xC-4rK" secondAttribute="leading" id="qjI-8r-krc"/>
                             <constraint firstItem="rNN-wA-Fd9" firstAttribute="top" secondItem="JbZ-WY-ISG" secondAttribute="bottom" id="uSx-y5-WEP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="getAllitemsTableView" destination="JbZ-WY-ISG" id="eKY-LQ-Tpe"/>
+                        <outlet property="norecordsFoundLbl" destination="KZV-bA-xGJ" id="Qso-Bc-l31"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhV-qI-Eag" userLabel="First Responder" sceneMemberID="firstResponder"/>

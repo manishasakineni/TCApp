@@ -152,7 +152,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewWillAppear(animated)
         
 
-      //  Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
 //        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
 //            
