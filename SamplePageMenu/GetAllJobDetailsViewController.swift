@@ -30,7 +30,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     var uid : Int = 0
     var PageIndex = 1
-   /// var totalPages : Int? = 0
     var totalRecords : Int? = 0
     var sortbyColumnName : String = ""
     
@@ -205,13 +204,30 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if filtered.count > 0 {
+        if(searchActive) {
             
-            return filtered.count
-            
+            if filtered.count > 0 {
+                
+                return filtered.count
+                
+            }
+            else {
+                
+                return 0
+            }
         }
-        
-        return jobDetailsArray.count
+        else {
+            
+            if jobDetailsArray.count > 0 {
+                
+                return jobDetailsArray.count
+                
+            }
+            else {
+                
+                return 0
+            }
+        }
         
         
         
@@ -228,6 +244,24 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         return UITableViewAutomaticDimension
     }
     
+   
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == (jobDetailsArray.count) - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                PageIndex = PageIndex + 1
+                
+                self.getjobdetailsAPICall(string: searchBar.text!)
+                
+            }
+        }
+        
+    }
+
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -236,6 +270,10 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "GetAllJobDetailsTableViewCell", for: indexPath) as! GetAllJobDetailsTableViewCell
         
 
+        if(searchActive){
+            
+            if filtered.count > 0 {
+        
         let listStr:GetAllJobDetailsListResultVO = filtered[indexPath.row]
         
         cell.jobtitleLabel.text = listStr.jobTitle
@@ -257,9 +295,41 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }else{
             cell.lastdateToApplyLabel.text  = ""
         }
+            }
+        
+        
+        }
+            
+
+        else {
+            
+             if jobDetailsArray.count > 0 {
+            
+            let listStr:GetAllJobDetailsListResultVO = jobDetailsArray[indexPath.row]
+            
+            cell.jobtitleLabel.text = listStr.jobTitle
+            
+            cell.qualificationLabel.text = listStr.qualification
+            
+            cell.churchNameLabel.text = listStr.churchName
+            
+            cell.cintactNumberLabel.text = listStr.contactNumber
+            
+            cell.lastdateToApplyLabel.text = listStr.lastDateToApply
+            
+            
+            
+            if(listStr.lastDateToApply! != ""){
+                let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
+                let dateString = dobStringArray?[0]
+                cell.lastdateToApplyLabel.text  = dateString!
+            }else{
+                cell.lastdateToApplyLabel.text  = ""
+            }
+        }
         
 
-        
+        }
             return cell
         
         
@@ -286,11 +356,11 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     func getjobdetailsAPICall(string:String){
         
         let paramsDict = [ "userId": 0,
-                           "pageIndex": 1,
+                           "pageIndex": PageIndex,
                            "pageSize": 200,
                            "sortbyColumnName": "LastdateToApply",
                            "sortDirection": "desc",
-                           "searchName": ""
+                           "searchName": string
     
             ] as [String : Any]
         
@@ -324,23 +394,20 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
                 }
                 
                 
-                print(self.jobDetailsArray.count)
-                self.filtered = self.jobDetailsArray
-
-                
-                let pageCout  = (respVO.totalRecords)! / 10
-                
-                let remander = (respVO.totalRecords)! % 10
-                
-                self.totalPages = pageCout
-                
-                print(pageCout)
-                
-                if remander != 0 {
+                    self.filtered = self.jobDetailsArray
                     
-                    self.totalPages = self.totalPages! + 1
+                    let pageCout  = (respVO.totalRecords)! / 10
                     
-                }
+                    let remander = (respVO.totalRecords)! % 10
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
                 
                 self.getAllJobDetailsTableView.reloadData()
                 

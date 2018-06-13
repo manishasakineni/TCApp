@@ -108,6 +108,24 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
+    //MARK: -  View Did Appear
+    override func viewDidAppear(_ animated: Bool) {
+        
+       getAllitemsTableView.isHidden = false
+        
+    }
+    //MARK: -  View Will DisAppear
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
+        
+        self.searchController.isActive = false
+        
+        
+    }
+    
     //MARK: -  Search function
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -208,13 +226,30 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if filtered.count > 0 {
+        if(searchActive) {
             
-            return filtered.count
-            
+            if filtered.count > 0 {
+                
+                return filtered.count
+                
+            }
+            else {
+                
+                return 0
+            }
         }
-        
-        return allitemsArray.count
+        else {
+            
+            if allitemsArray.count > 0 {
+                
+                return allitemsArray.count
+                
+            }
+            else {
+                
+                return 0
+            }
+        }
         
         
         
@@ -231,6 +266,21 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         return UITableViewAutomaticDimension
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == (allitemsArray.count) - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                PageIndex = PageIndex + 1
+                
+                self.getallitemsAPICall(string: searchBar.text!)
+                
+            }
+        }
+        
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -238,6 +288,9 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "GetAllItemsTableViewCell", for: indexPath) as! GetAllItemsTableViewCell
         
+        if(searchActive){
+            
+            if filtered.count > 0 {
         
         let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
         
@@ -268,9 +321,47 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
             
             cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
         }
+            
+        }
         
-        
-        
+        }
+        else {
+            
+            if allitemsArray.count > 0 {
+            
+            let listStr:GetAllitemsListResultVO = allitemsArray[indexPath.row]
+            
+            cell.allitemsLabel.text = listStr.name
+            
+            cell.allitemsDescLabel.text = listStr.desc
+            cell.allitemsauthorLabel.text = listStr.author
+            
+            cell.allitemsPriceLabel.text = "\(listStr.price!)"
+            
+            
+            
+            let postImgUrl = listStr.itemImage
+            
+            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            let url = URL(string:newString!)
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.allitemsImage.image = UIImage(data: dataImg!)
+                
+            }
+                
+            else {
+                
+                cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
+            }
+                
+            }
+            
+        }
   
                
         return cell
@@ -290,6 +381,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllItemsIDViewController") as! AllItemsIDViewController
         
            jobIDViewController.itemID = listStr.id!
+            
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
       
       
@@ -355,11 +447,11 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     func getallitemsAPICall(string:String){
         
         let paramsDict = [ 	"userId": "",
-                           	"pageIndex": 1,
-                           	"pageSize": 100,
+                           	"pageIndex": PageIndex,
+                           	"pageSize": 10,
                            	"sortbyColumnName": "UpdatedDate",
                            	"sortDirection": "desc",
-                           	"searchName": ""
+                           	"searchName": string
             
             ] as [String : Any]
         
@@ -387,9 +479,23 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                     self.norecordsFoundLbl.isHidden = true
                 
                 for eachArray in listArr{
-                    self.filtered.append(eachArray)
+                    self.allitemsArray.append(eachArray)
                 }
                 
+                    self.filtered = self.allitemsArray
+                    
+                    let pageCout  = (respVO.totalRecords)! / 10
+                    
+                    let remander = (respVO.totalRecords)! % 10
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
                 self.getAllitemsTableView.reloadData()
                 
             }

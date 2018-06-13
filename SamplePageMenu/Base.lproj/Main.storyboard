@@ -2748,6 +2748,24 @@
             </objects>
             <point key="canvasLocation" x="15432.799999999999" y="1086.2068965517242"/>
         </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="7FC-bY-vK4">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsViewController" id="02l-R5-PY0" customClass="NotificationsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8LD-7d-nF5"/>
+                        <viewControllerLayoutGuide type="bottom" id="AnH-xe-qhv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Lx-5u-i5d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFG-0S-nd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16092" y="1151"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Church-logo" width="240" height="233"/>

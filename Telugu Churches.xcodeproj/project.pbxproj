@@ -173,6 +173,7 @@
 		AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */; };
 		AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */; };
 		AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */; };
+		AF0A392220D0E89F00265B7A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */; };
 		AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */; };
 		AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */; };
 		AF0B5DFB20A3161D0039C7A4 /* authorImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */; };
@@ -571,6 +572,7 @@
 		AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoMapTableViewCell.xib; sourceTree = "<group>"; };
 		AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInfoTableViewCell.swift; sourceTree = "<group>"; };
 		AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutInfoTableViewCell.xib; sourceTree = "<group>"; };
+		AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		AF0B5DF520A315F90039C7A4 /* authorVedioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorVedioViewController.swift; sourceTree = "<group>"; };
 		AF0B5DF620A315F90039C7A4 /* authorVedioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = authorVedioViewController.xib; sourceTree = "<group>"; };
 		AF0B5DF920A3161D0039C7A4 /* authorImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authorImagesViewController.swift; sourceTree = "<group>"; };
@@ -1254,6 +1256,7 @@
 				3DD30F63205FF0190076B0DB /* EventDetailsViewController */,
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
+				AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -2614,6 +2617,7 @@
 				CB1B1BA720A17BE80093C9FF /* PostEventDetailsViewController.swift in Sources */,
 				3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
+				AF0A392220D0E89F00265B7A /* NotificationsViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */,
 				3D5357DC207253F300B8AB94 /* LikeDislikeVO.swift in Sources */,

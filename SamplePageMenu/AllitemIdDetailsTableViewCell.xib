@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPY-j5-Ydo">
-                        <rect key="frame" x="22" y="60" width="33" height="15"/>
+                        <rect key="frame" x="40" y="59" width="33" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="YUE-EZ-fdP"/>
                         </constraints>
@@ -97,10 +97,18 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Please Enter Quantity"/>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzG-ZI-te4">
+                        <rect key="frame" x="22" y="59" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="aP6-Wu-ayl"/>
+                            <constraint firstAttribute="width" constant="17" id="fJt-nr-083"/>
+                        </constraints>
+                        <state key="normal" image="Rupee"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JPY-j5-Ydo" firstAttribute="leading" secondItem="mV9-5e-FKZ" secondAttribute="leading" id="95M-Tu-ja6"/>
-                    <constraint firstItem="zSP-M5-ik0" firstAttribute="leading" secondItem="JPY-j5-Ydo" secondAttribute="leading" id="98g-mp-QDJ"/>
+                    <constraint firstItem="JPY-j5-Ydo" firstAttribute="leading" secondItem="mV9-5e-FKZ" secondAttribute="leading" constant="18" id="95M-Tu-ja6"/>
+                    <constraint firstItem="zSP-M5-ik0" firstAttribute="leading" secondItem="JPY-j5-Ydo" secondAttribute="leading" constant="-18" id="98g-mp-QDJ"/>
                     <constraint firstItem="rrw-Gc-8t2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="CIq-jN-CAS"/>
                     <constraint firstItem="ZTQ-Ty-XYq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cc9-b1-ZOx"/>
                     <constraint firstItem="JDU-fe-tds" firstAttribute="leading" secondItem="RTV-Qp-Rdb" secondAttribute="leading" id="NTy-Zr-zux"/>
@@ -111,10 +119,12 @@
                     <constraint firstItem="rrw-Gc-8t2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xzc-AI-zZb"/>
                     <constraint firstAttribute="bottom" secondItem="ZTQ-Ty-XYq" secondAttribute="bottom" constant="9.5" id="aLF-Nh-DxP"/>
                     <constraint firstItem="mV9-5e-FKZ" firstAttribute="top" secondItem="rrw-Gc-8t2" secondAttribute="bottom" constant="8" id="d38-Gb-Pbo"/>
-                    <constraint firstItem="zSP-M5-ik0" firstAttribute="top" secondItem="JPY-j5-Ydo" secondAttribute="bottom" constant="8" id="hVh-tB-G01"/>
+                    <constraint firstItem="zSP-M5-ik0" firstAttribute="top" secondItem="JPY-j5-Ydo" secondAttribute="bottom" constant="9" id="hVh-tB-G01"/>
+                    <constraint firstItem="CzG-ZI-te4" firstAttribute="top" secondItem="mV9-5e-FKZ" secondAttribute="bottom" constant="7" id="jqd-Ak-j49"/>
                     <constraint firstItem="RTV-Qp-Rdb" firstAttribute="top" secondItem="zSP-M5-ik0" secondAttribute="bottom" constant="8" id="qD5-cp-IZl"/>
-                    <constraint firstItem="JPY-j5-Ydo" firstAttribute="top" secondItem="mV9-5e-FKZ" secondAttribute="bottom" constant="8" id="tPu-gc-n3y"/>
+                    <constraint firstItem="JPY-j5-Ydo" firstAttribute="top" secondItem="mV9-5e-FKZ" secondAttribute="bottom" constant="7" id="tPu-gc-n3y"/>
                     <constraint firstItem="ZTQ-Ty-XYq" firstAttribute="top" secondItem="JDU-fe-tds" secondAttribute="bottom" constant="6" id="ygo-eO-q7l"/>
+                    <constraint firstItem="CzG-ZI-te4" firstAttribute="leading" secondItem="mV9-5e-FKZ" secondAttribute="leading" id="zAH-WS-g8b"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -126,4 +136,7 @@
             <point key="canvasLocation" x="25" y="106"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Rupee" width="206" height="218"/>
+    </resources>
 </document>

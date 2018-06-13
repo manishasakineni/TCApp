@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -54,7 +59,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiU-KS-0Cl">
-                        <rect key="frame" x="98" y="62" width="204" height="15"/>
+                        <rect key="frame" x="116" y="61" width="186" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="qhi-TI-EAW"/>
                         </constraints>
@@ -72,6 +77,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBf-dv-bKH">
+                        <rect key="frame" x="98" y="61" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="Xs1-5N-0Vv"/>
+                            <constraint firstAttribute="height" constant="17" id="yvZ-86-Voj"/>
+                        </constraints>
+                        <state key="normal" image="Rupee"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qX9-qR-qjO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0eU-KN-DW5"/>
@@ -81,15 +94,17 @@
                     <constraint firstItem="X38-AX-LDg" firstAttribute="top" secondItem="MNC-yZ-bOY" secondAttribute="bottom" constant="3" id="Pkv-nV-PoT"/>
                     <constraint firstItem="5KQ-hf-DK1" firstAttribute="leading" secondItem="qX9-qR-qjO" secondAttribute="trailing" constant="17" id="S0F-8q-Jjd"/>
                     <constraint firstItem="MNC-yZ-bOY" firstAttribute="leading" secondItem="5KQ-hf-DK1" secondAttribute="leading" id="UGi-XR-kNZ"/>
-                    <constraint firstItem="tA5-ru-MUX" firstAttribute="top" secondItem="WiU-KS-0Cl" secondAttribute="bottom" constant="2" id="UVa-2T-CQ7"/>
-                    <constraint firstItem="WiU-KS-0Cl" firstAttribute="leading" secondItem="X38-AX-LDg" secondAttribute="leading" id="Y4Q-Ss-e40"/>
+                    <constraint firstItem="tA5-ru-MUX" firstAttribute="top" secondItem="WiU-KS-0Cl" secondAttribute="bottom" constant="3" id="UVa-2T-CQ7"/>
+                    <constraint firstItem="WiU-KS-0Cl" firstAttribute="leading" secondItem="X38-AX-LDg" secondAttribute="leading" constant="18" id="Y4Q-Ss-e40"/>
                     <constraint firstAttribute="trailing" secondItem="X38-AX-LDg" secondAttribute="trailing" constant="18" id="cB9-bc-6pD"/>
+                    <constraint firstItem="sBf-dv-bKH" firstAttribute="top" secondItem="X38-AX-LDg" secondAttribute="bottom" constant="3" id="f7S-Zm-NVF"/>
                     <constraint firstItem="tA5-ru-MUX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g1W-42-ALn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="5KQ-hf-DK1" secondAttribute="trailing" constant="10" id="gQd-GD-ADB"/>
                     <constraint firstItem="X38-AX-LDg" firstAttribute="leading" secondItem="MNC-yZ-bOY" secondAttribute="leading" id="hsb-FW-TMi"/>
                     <constraint firstItem="MNC-yZ-bOY" firstAttribute="top" secondItem="5KQ-hf-DK1" secondAttribute="bottom" constant="4" id="iOs-XK-nvq"/>
+                    <constraint firstItem="sBf-dv-bKH" firstAttribute="leading" secondItem="X38-AX-LDg" secondAttribute="leading" id="l64-zO-N35"/>
                     <constraint firstAttribute="trailing" secondItem="tA5-ru-MUX" secondAttribute="trailing" id="lfY-Vs-gJk"/>
-                    <constraint firstItem="WiU-KS-0Cl" firstAttribute="top" secondItem="X38-AX-LDg" secondAttribute="bottom" constant="4" id="tsD-XH-xlb"/>
+                    <constraint firstItem="WiU-KS-0Cl" firstAttribute="top" secondItem="X38-AX-LDg" secondAttribute="bottom" constant="3" id="tsD-XH-xlb"/>
                     <constraint firstAttribute="trailing" secondItem="MNC-yZ-bOY" secondAttribute="trailing" constant="18" id="ubO-8z-bcr"/>
                     <constraint firstItem="qX9-qR-qjO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="wb1-KY-A8Z"/>
                 </constraints>
@@ -106,5 +121,6 @@
     </objects>
     <resources>
         <image name="Bible apps" width="240" height="320"/>
+        <image name="Rupee" width="206" height="218"/>
     </resources>
 </document>
