@@ -46,13 +46,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     let datepicker = UIDatePicker()
     
-    var selectedDate : String = ""
+    var selectedMonths : String = ""
+     var selectedYears : String = ""
     var pickerData = Array<String>()
     var myPickerView: UIPickerView!
       var dateString :String = ""
       var selectedData : String = ""
     var financierType : Array = Array<String>()
-    
     
     var createddate : String = "2018-04-24T11:17:41.5268377+05:30"
     
@@ -61,6 +61,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var isjobtitle = false
     
     var addressInfo:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
+    
+    var months = ""
+    
+    
+    var yearsArray : Array = ["0 Year","1 Year","2 Year","3 Year","4 Year","5 Year","6 Year","7 Year","8 Year","9 Year","10 Year","11 Year","12 Year","13 Year","14 Year","15 Year","16 Year","17 Year","18 Year","19 Year","20 Year","21 Year","22 Year","23 Year","24 Year","25 Year","26 Year","27 Year","28 Year","29 Year","30 Year","31 Year","32 Year","33 Year","34 Year","35 Year","36 Year","37 Year","38 Year","39 Year","40 Year","41 Year","42 Year","43 Year","44 Year","45 Year","46 Year","47 Year","48 Year","49 Year","50 Year"]
+
+     var monthArray : Array = ["0 Month","1 Month","2 Month","3 Month","4 Month","5 Month","6 Month","7 Month","8 Month","9 Month","10 Month","11 Month","12 Month"]
     
     // GetAllJobDetailsListResultVO
     
@@ -74,6 +81,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let categorieHomeCell  = UINib(nibName: "JobApplyTableViewCell" , bundle: nil)
         jobApplyTableView.register(categorieHomeCell, forCellReuseIdentifier: "JobApplyTableViewCell")
+        
+        let jobApplymonthTableViewCell  = UINib(nibName: "jobApplymonthTableViewCell" , bundle: nil)
+        jobApplyTableView.register(jobApplymonthTableViewCell, forCellReuseIdentifier: "jobApplymonthTableViewCell")
+        
+
 
         
         // Do any additional setup after loading the view.
@@ -160,32 +172,12 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             textField.keyboardType = .default
             
          
-            textField.clearButtonMode = .never
-            
-            
-            textField.inputView = datepicker
-            let todayDate = NSDate()
-            self.datepicker.maximumDate = todayDate as Date
-            datepicker.datePickerMode = .date
-            let toolBar = UIToolbar()
-            toolBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            toolBar.sizeToFit()
-            
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-            
-            toolBar.setItems([doneButton], animated: true)
-            
-            textField.inputAccessoryView = toolBar
-            
-            activeTextField.text = selectedDate
-     
-            
             
         }
         
         else if activeTextField.tag == 8{
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 30
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
@@ -196,7 +188,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             textField.maxLengthTextField = 7
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .numberPad
             
             
         }
@@ -205,10 +197,36 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             textField.maxLengthTextField = 7
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .numberPad
             
             
         }
+        
+        else if activeTextField.tag == 20{
+           
+            
+            self.pickerUp(textField)
+            pickerData = yearsArray
+            myPickerView.reloadAllComponents()
+            myPickerView.selectRow(0, inComponent: 0, animated: false)
+            
+        
+        }
+
+        
+        else if activeTextField.tag == 30{
+            
+            self.pickerUp(textField)
+            pickerData = monthArray
+            myPickerView.reloadAllComponents()
+            myPickerView.selectRow(0, inComponent: 0, animated: false)
+            
+            
+            
+            
+            
+        }
+
 
     }
     
@@ -336,10 +354,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         dateString = dateFormatter.string(from: datepicker.date)
         
         
-        selectedDate = dateFormatter.string(from: datepicker.date)
-        
-        createddate = dateFormatter.string(from: Date())
-        print(selectedDate)
+    
         
         print(dateString)
         
@@ -364,14 +379,22 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-    
+        if section == 0 {
+            
+            return 7
+        }
+        else if section == 1  {
+            
+            return 1
         
-        return 11
+        }
+        
+        return 3
     }
     
     
@@ -392,7 +415,10 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else
         {
             // Iphone
-
+            if indexPath.section == 1 {
+                return 60;
+            
+            }
             
             return 45;
         }
@@ -402,7 +428,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         
-        
+        if indexPath.section == 0 {
+  
         
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
@@ -457,39 +484,82 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
              signUPCell.jobApplyTF.text = qualification
             }
-            else if indexPath.row == 7{
-                
-            signUPCell.jobApplyTF.placeholder = "Year Of Experience".localize()
-         //   signUPCell.jobApplyTF.text = yearofexperience
-                signUPCell.jobApplyTF.text = selectedDate
-                signUPCell.jobApplyTF.tag = 7
-   
-                
-                
-            }
-            else if indexPath.row == 8{
-                
-                    
-        signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
-              signUPCell.jobApplyTF.text = currentorganization
-                
-            }
-            else if indexPath.row == 9{
-                
-                signUPCell.jobApplyTF.placeholder = "Current Salary".localize()
-                
-                signUPCell.jobApplyTF.text = currentsalary
-            }
+            
+         return signUPCell
         
-            else if indexPath.row == 10{
-                
-                signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
-                signUPCell.jobApplyTF.text = expectedsalary
-                
+        }
+         else  if indexPath.section == 1 {
+            
+            
+            let signUPCell1 = jobApplyTableView.dequeueReusableCell(withIdentifier: "jobApplymonthTableViewCell", for: indexPath) as! jobApplymonthTableViewCell
+            
+             signUPCell1.monthTF.text = yearofexperience
+            
+            signUPCell1.yearTF.text = yearofexperience
+            
+              signUPCell1.monthTF.delegate = self
+            
+              signUPCell1.yearTF.delegate = self
+            
+            signUPCell1.monthTF.text = selectedMonths
+            signUPCell1.yearTF.text = selectedYears
+            
+            
+           signUPCell1.yearTF.tag = 20
+            signUPCell1.monthTF.tag = 30
+            
+            
+            
+        return signUPCell1
+            
+        }
+            
+        else{
+        
+        
+            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
+            
+            signUPCell.jobApplyTF.delegate = self
+            signUPCell.jobApplyTF.tag = indexPath.row
+            
+            
+            
+                 if indexPath.row == 0{
+            
+            
+    signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
+    signUPCell.jobApplyTF.text = currentorganization
+                    
+                  signUPCell.jobApplyTF.maxLengthTextField = 30
+            
+        }
+       else if indexPath.row == 1{
+            
+            signUPCell.jobApplyTF.placeholder = "Current Salary".localize()
+            
+            signUPCell.jobApplyTF.text = currentsalary
+                   signUPCell.jobApplyTF.maxLengthTextField = 7
+                    
+                    }
+                    
+    else if indexPath.row == 2{
+                            
+        signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
+        signUPCell.jobApplyTF.text = expectedsalary
+        signUPCell.jobApplyTF.isUserInteractionEnabled = true
+                    
+        signUPCell.jobApplyTF.maxLengthTextField = 7
+                            
+                    }
+
+        return signUPCell
+        
         }
         
         
-            return signUPCell
+        
+        
+            return UITableViewCell()
         }
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -575,7 +645,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if (jobtitleStr.length <= 2){
             
-            alertTag = 0
             
             errorMessage=GlobalSupportingClass.blankjobtitleErrorMessage() as String as String as NSString?
             
@@ -583,7 +652,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (firstnameStr.length <= 0){
             
-            alertTag = 1
             
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
@@ -591,7 +659,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (lastnameStr.length <= 2){
             
-            alertTag = 3
             
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
@@ -600,14 +667,12 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (emailStr.length<=0) {
             
-            alertTag = 4
             
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
         else  if (emailStr.length < 5) {
             
-            alertTag = 4
             
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
@@ -617,14 +682,12 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
             
         else if (mobileNumberStr.length <= 0){
-            alertTag = 5
             
             
             errorMessage=GlobalSupportingClass.blankMobilenumberErrorMessage() as String as String as NSString?
             
         }
         else if (mobileNumberStr.length <= 9) {
-            alertTag = 5
             
             
             errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
@@ -632,7 +695,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (qualificationStr.length <= 0){
             
-            alertTag = 6
             
             errorMessage=GlobalSupportingClass.blankqualificationErrorMessage() as String as String as NSString?
             
@@ -640,15 +702,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (yearofexperienceStr.length <= 2){
             
-            alertTag = 7
             
             errorMessage=GlobalSupportingClass.blankyearofexperienceErrorMessage() as String as String as NSString?
             
         }
-    
+
         else if (currentorganizationStr.length <= 0){
             
-            alertTag = 8
             
             errorMessage=GlobalSupportingClass.blankcurrentorganizationErrorMessage() as String as String as NSString?
             
@@ -656,7 +716,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else if (currentsalaryStr.length <= 2){
             
-            alertTag = 9
             
             errorMessage=GlobalSupportingClass.blankcurrentsalaryErrorMessage() as String as String as NSString?
             
@@ -664,7 +723,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
         else if (expectedsalaryStr.length <= 2){
             
-            alertTag = 10
             
             errorMessage=GlobalSupportingClass.blankexpectedsalaryErrorMessage() as String as String as NSString?
             
@@ -720,7 +778,6 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         }
         else {
             
-     //       self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
             
         }
@@ -808,7 +865,7 @@ func getjobApplicationAPICall(){
         }
     
     
-    //MARK: -  UIpickerView delegate & DataSource  methods
+//MARK: -  UIpickerView delegate & DataSource  methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -861,17 +918,31 @@ func getjobApplicationAPICall(){
         textField.inputAccessoryView = toolBar
         
     }
-    //MARK:-  done Clicked
+//MARK:-  done Clicked
     
     func done() {
         
         
-        if(activeTextField.tag == 7){
-            
-            selectedDate = selectedData
+     
+         if(activeTextField.tag == 20) {
+          
+           
+             selectedYears = selectedData
+          
             
         }
-
+        else  {
+        
+            if(activeTextField.tag == 30) {
+                
+                
+                selectedMonths = selectedData
+                
+                
+            }
+            
+        
+        }
         
         self.selectedData.removeAll()
         activeTextField.resignFirstResponder()
