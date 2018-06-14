@@ -168,7 +168,23 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        self.navigationController?.popViewController(animated: true)
+        if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+            if let viewController = navController.viewControllers[navController.viewControllers.count - 2] as? LoginViewController{
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                for moveToVC in viewControllers {
+                    if moveToVC is HomeViewController {
+                           Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                    }
+                }
+              
+            }else{
+                let poppedVC = navigationController?.popViewController(animated: true)
+                print(poppedVC as Any)
+            }
+        }
+        
+       
         
            print("Back Button Clicked......")
         

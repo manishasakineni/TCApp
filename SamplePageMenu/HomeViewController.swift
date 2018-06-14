@@ -185,12 +185,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     
         
-        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-        
-        self.loginVC.showNav = true
-        self.loginVC.navigationString = "navigationString"
+       
+  
         
 
         
@@ -952,7 +948,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }else{
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
-   
+                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                
+                self.loginVC.showNav = true
+                self.loginVC.navigationString = "homeString"
                     
             self.navigationController?.pushViewController(self.loginVC, animated: true)
             
