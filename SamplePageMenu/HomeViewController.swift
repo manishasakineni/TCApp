@@ -181,25 +181,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         pageController.tintColor = Utilities.appColor
         pageController.numberOfPages = 0
         
+       // self.navigationItem.rightBarButtonItem?.badgeValue = "5";
         
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 21))
-//        label.center = CGPoint(x: 293, y: 78)
-//        label.textAlignment = .center
-//        label.text = "0"
-//        label.textColor = UIColor.white
-//        label.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
-//        self.view.addSubview(label)
-//        label.font=UIFont.systemFont(ofSize: 15)
-//        
-//        label.layer.borderWidth = 0
-//        label.layer.masksToBounds = false
-//        label.layer.cornerRadius = label.frame.height/2
-//        label.clipsToBounds = true
+    
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        
+        self.loginVC.showNav = true
+        self.loginVC.navigationString = "navigationString"
         
 
-        
-   //    self.navigationItem.rightBarButtonItem?.accessibilityLabel =
-        
         
     }
     
@@ -532,6 +525,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         if(userId != 0){
             getUserCartCount(userId)
+        }else{
+            self.navigationItem.rightBarButtonItem?.badgeValue = ""
         }
         
     }
@@ -555,8 +550,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 let listArr = respVO.listResult!
                 
                  self.count = listArr.count
-                  ("\(self.count)")
-               
+                  
+                self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
                 
             }
             
@@ -930,6 +925,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
     }
+    
     func  categorieThreeClicked(_ sendre:UIButton) {
         
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
@@ -945,40 +941,29 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBAction func notificationBtnAction(_ sender: Any) {
         
         
+        if(self.count > 0) {
+            
+            
+            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+            
+            
+            self.navigationController?.pushViewController(jobIDViewController, animated: true)
+            
+        }else{
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+   
+                    
+            self.navigationController?.pushViewController(self.loginVC, animated: true)
+            
+                })
+        }
         
-        
-        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
-        
-        
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-        
+       
         
     }
     
     
-//    func  notificatioClick(_ sendre:UIButton) {
-//        
-//        if !(self.userId != nil) {
-//            
-//    
-//            
-//        }
-//            
-//        else {
-//            
-//            
-//            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
-//                
-//                self.navigationController?.pushViewController(self.loginVC, animated: true)
-//                
-//            })
-//            
-//        }
-//        
-//        
-//    }
-//
-//    
     
 }
 

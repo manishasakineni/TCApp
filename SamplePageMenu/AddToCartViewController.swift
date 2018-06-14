@@ -14,7 +14,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
      var itemID:Int = 0
      var quantity = ""
-    
+    var AddToCart = LoginViewController()
+
     
      var userId :  Int = 0
     
@@ -27,6 +28,15 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.AddToCart = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        self.AddToCart.showNav = true
+        self.AddToCart.navigationString = "AddToCart"
+        
+        
         
         let nibName1  = UINib(nibName: "AddToCareTableViewCell" , bundle: nil)
         addToCartTableView.register(nibName1, forCellReuseIdentifier: "AddToCareTableViewCell")

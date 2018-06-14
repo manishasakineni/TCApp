@@ -14,6 +14,8 @@
 
 #import "MBProgressHUD.h"
 
+#import "UIBarButtonItem+Badge.h"
+
 //#import "FSCalendar.h"
 
 

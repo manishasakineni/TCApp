@@ -347,7 +347,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     kUserDefaults.synchronize()
                                 
                                 
-    if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString" {
+    if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString"
+        {
                                 
 
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers
@@ -364,8 +365,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         _ = self.navigationController?.popToViewController(moveToVC, animated: true)
                                     }
                                     
+                                    else if moveToVC is AddToCartViewController {
+                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                    }
+
+                                    
                                 }
         
+    }
+    
+    
+    else if self.navigationString == "homeString"{
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
     }
         
         else {

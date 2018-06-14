@@ -240,6 +240,7 @@
 		AF1B89C420C685CD0016D395 /* CountryInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C320C685CD0016D395 /* CountryInfoResultVO.swift */; };
 		AF1B89C720C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C620C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift */; };
 		AF1B89C920C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1B89C820C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift */; };
+		AF202EC020D25F2B00CA505D /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AF202EBF20D25F2B00CA505D /* UIBarButtonItem+Badge.m */; };
 		AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2396F020A561DE00B0320D /* ForgotPswdVO.swift */; };
 		AF2EB51F206DF9B4009B3B75 /* BibleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */; };
 		AF2EB524206DFAA7009B3B75 /* BibleDetailsInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */; };
@@ -641,6 +642,8 @@
 		AF1B89C320C685CD0016D395 /* CountryInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryInfoResultVO.swift; sourceTree = "<group>"; };
 		AF1B89C620C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedeliveryAddressInfoVO.swift; sourceTree = "<group>"; };
 		AF1B89C820C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedeliveryAddressInfoResultVO.swift; sourceTree = "<group>"; };
+		AF202EBE20D25F2B00CA505D /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		AF202EBF20D25F2B00CA505D /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		AF2396F020A561DE00B0320D /* ForgotPswdVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPswdVO.swift; sourceTree = "<group>"; };
 		AF2EB51E206DF9B4009B3B75 /* BibleDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsViewController.swift; sourceTree = "<group>"; };
 		AF2EB523206DFAA7009B3B75 /* BibleDetailsInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleDetailsInfoVO.swift; sourceTree = "<group>"; };
@@ -1261,6 +1264,8 @@
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
 				CB0256AF202430150017E240 /* HomeViewController */,
 				AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */,
+				AF202EBE20D25F2B00CA505D /* UIBarButtonItem+Badge.h */,
+				AF202EBF20D25F2B00CA505D /* UIBarButtonItem+Badge.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -2645,6 +2650,7 @@
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
 				AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */,
+				AF202EC020D25F2B00CA505D /* UIBarButtonItem+Badge.m in Sources */,
 				AF91F13020AB05820050A938 /* JobApplyVO.swift in Sources */,
 				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
