@@ -69,7 +69,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
      var monthArray : Array = ["0 Month","1 Month","2 Month","3 Month","4 Month","5 Month","6 Month","7 Month","8 Month","9 Month","10 Month","11 Month","12 Month"]
     
-    // GetAllJobDetailsListResultVO
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -493,21 +492,24 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let signUPCell1 = jobApplyTableView.dequeueReusableCell(withIdentifier: "jobApplymonthTableViewCell", for: indexPath) as! jobApplymonthTableViewCell
             
-             signUPCell1.monthTF.text = yearofexperience
+            signUPCell1.monthTF.delegate = self
+            signUPCell1.yearTF.delegate = self
             
-            signUPCell1.yearTF.text = yearofexperience
+            signUPCell1.yearTF.tag = 20
+            signUPCell1.monthTF.tag = 30
             
-              signUPCell1.monthTF.delegate = self
             
-              signUPCell1.yearTF.delegate = self
+//             signUPCell1.monthTF.text = yearofexperience
+//            
+//            signUPCell1.yearTF.text = yearofexperience
+//            
+            
             
             signUPCell1.monthTF.text = selectedMonths
             signUPCell1.yearTF.text = selectedYears
             
             
-           signUPCell1.yearTF.tag = 20
-            signUPCell1.monthTF.tag = 30
-            
+          
             
             
         return signUPCell1
@@ -520,20 +522,23 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
             signUPCell.jobApplyTF.delegate = self
-            signUPCell.jobApplyTF.tag = indexPath.row
+          //  signUPCell.jobApplyTF.tag = indexPath.row
             
             
             
                  if indexPath.row == 0{
             
-            
+             signUPCell.jobApplyTF.tag = 8
+                    
     signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
     signUPCell.jobApplyTF.text = currentorganization
                     
-                  signUPCell.jobApplyTF.maxLengthTextField = 30
+        signUPCell.jobApplyTF.maxLengthTextField = 30
             
         }
        else if indexPath.row == 1{
+                    
+          signUPCell.jobApplyTF.tag = 9
             
             signUPCell.jobApplyTF.placeholder = "Current Salary".localize()
             
@@ -543,6 +548,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     }
                     
     else if indexPath.row == 2{
+                    
+         signUPCell.jobApplyTF.tag = 10
                             
         signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
         signUPCell.jobApplyTF.text = expectedsalary
@@ -637,7 +644,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let emailStr:NSString = email as NSString
         let mobileNumberStr:NSString =  mobileNumber  as NSString
         let qualificationStr:NSString = qualification   as NSString
-        let yearofexperienceStr:NSString =  yearofexperience  as NSString
+        let yearofexperienceStr:NSString =  selectedYears + "" + selectedMonths as NSString
         let currentorganizationStr:NSString =  currentorganization  as NSString
         let currentsalaryStr:NSString = currentsalary   as NSString
         let expectedsalaryStr:NSString =  expectedsalary  as NSString
@@ -805,7 +812,7 @@ func getjobApplicationAPICall(){
         "email": email,
         "qualification": qualification,
         "applyingFor": "Accountant",
-        "yearsofExp": yearofexperience,
+        "yearsofExp": selectedYears + "" + selectedMonths,
         "fileName": "",
         "fileLocation": "",
         "fileExtention": ".pdf",
@@ -821,7 +828,7 @@ func getjobApplicationAPICall(){
                         ] as [String : Any]
     
             let dictHeaders = ["":"","":""] as NSDictionary
-    
+    print(paramsDict)
     
             serviceController.postRequest(strURL: JOBAPPLYAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
     

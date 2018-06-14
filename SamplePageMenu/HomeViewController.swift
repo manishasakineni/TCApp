@@ -32,6 +32,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var notificationbarBtn: UIBarButtonItem!
+    
+    
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
    
 //MARK: -  variable declaration
@@ -54,9 +57,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var y = 1
     
+    var loginVC = LoginViewController()
 
+    var userId :  Int = 0
+
+    
     var timer: Timer?
     
+    var count = 0
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -173,6 +181,26 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         pageController.tintColor = Utilities.appColor
         pageController.numberOfPages = 0
         
+        
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 21))
+//        label.center = CGPoint(x: 293, y: 78)
+//        label.textAlignment = .center
+//        label.text = "0"
+//        label.textColor = UIColor.white
+//        label.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
+//        self.view.addSubview(label)
+//        label.font=UIFont.systemFont(ofSize: 15)
+//        
+//        label.layer.borderWidth = 0
+//        label.layer.masksToBounds = false
+//        label.layer.cornerRadius = label.frame.height/2
+//        label.clipsToBounds = true
+        
+
+        
+   //    self.navigationItem.rightBarButtonItem?.accessibilityLabel =
+        
+        
     }
     
 //MARK: -   View WillAppear
@@ -180,6 +208,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
         
         self.navigationController?.isNavigationBarHidden = false
 
@@ -488,7 +523,49 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
         
+        var userId = 0
         
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
+        if(userId != 0){
+            getUserCartCount(userId)
+        }
+        
+    }
+    
+    func getUserCartCount( _ id : Int){
+        
+        
+        let strUrl = GETCARTINFOAPI  + "\(id)"
+        
+        serviceController.getRequest(strURL: strUrl, success: { (result) in
+            
+            
+            let respVO:GetCartInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.listResult!
+                
+                 self.count = listArr.count
+                  ("\(self.count)")
+               
+                
+            }
+            
+            
+            
+            
+        }) { (failureMessage) in
+            
+        }
         
     }
     
@@ -865,6 +942,43 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     
+    @IBAction func notificationBtnAction(_ sender: Any) {
+        
+        
+        
+        
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+        
+        
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+        
+        
+    }
+    
+    
+//    func  notificatioClick(_ sendre:UIButton) {
+//        
+//        if !(self.userId != nil) {
+//            
+//    
+//            
+//        }
+//            
+//        else {
+//            
+//            
+//            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+//                
+//                self.navigationController?.pushViewController(self.loginVC, animated: true)
+//                
+//            })
+//            
+//        }
+//        
+//        
+//    }
+//
+//    
     
 }
 
@@ -1112,6 +1226,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    
 }
 
 

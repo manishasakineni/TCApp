@@ -629,10 +629,10 @@
                         <barButtonItem key="leftBarButtonItem" image="sidemenu" id="J6Y-nU-rbZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="ke9-c3-luq">
-                            <color key="tintColor" red="0.40784313725490196" green="0.68235294117647061" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="3 dots" id="ke9-c3-luq">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="settingClicked:" destination="fRD-jQ-dvn" id="1Qf-pJ-4DE"/>
+                                <action selector="notificationBtnAction:" destination="fRD-jQ-dvn" id="j8W-iT-ET5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -641,8 +641,8 @@
                         <outlet property="bannerScrollView" destination="bEU-kk-JD2" id="QDM-Ym-1sk"/>
                         <outlet property="categorieTableView" destination="FUz-Dw-C1v" id="lkE-zU-Xgn"/>
                         <outlet property="menuBarButton" destination="J6Y-nU-rbZ" id="VhD-4y-1eg"/>
+                        <outlet property="notificationbarBtn" destination="ke9-c3-luq" id="HCp-zj-eV8"/>
                         <outlet property="pageController" destination="PeA-cs-2Gd" id="Ike-bs-Wce"/>
-                        <outlet property="settingsBarButton" destination="ke9-c3-luq" id="fCX-SU-yVX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0x-jn-P8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2768,6 +2768,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="3 dots" width="25" height="25"/>
         <image name="Church-logo" width="240" height="233"/>
         <image name="calvary_cross" width="400" height="400"/>
         <image name="icons8-arrows_long_left" width="25" height="25"/>

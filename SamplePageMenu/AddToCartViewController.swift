@@ -249,6 +249,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                 for eachArray in listArr{
                     
                     self.filtered.append(eachArray)
+                    print(self.filtered.count)
                 }
                 
                 self.addToCartTableView.reloadData()
