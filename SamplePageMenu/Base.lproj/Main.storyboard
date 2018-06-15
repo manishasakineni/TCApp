@@ -2289,9 +2289,9 @@
                                 <rect key="frame" x="0.0" y="606" width="375" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q69-Cx-B1u">
-                                        <rect key="frame" x="91" y="-2" width="192" height="30"/>
+                                        <rect key="frame" x="52" y="-2" width="270" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="B10-Sd-jaa"/>
+                                            <constraint firstAttribute="height" constant="25" id="B10-Sd-jaa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <state key="normal" title="Upload Resume">
@@ -2302,7 +2302,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-O3-rO9">
-                                        <rect key="frame" x="91" y="26" width="192" height="30"/>
+                                        <rect key="frame" x="91" y="30" width="192" height="30"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="192" id="pCj-hu-tjz"/>
@@ -2320,10 +2320,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="q69-Cx-B1u" firstAttribute="top" secondItem="NK8-4v-LXl" secondAttribute="top" constant="-2" id="B5f-ca-Rg4"/>
-                                    <constraint firstItem="dTg-O3-rO9" firstAttribute="top" secondItem="q69-Cx-B1u" secondAttribute="bottom" constant="-2" id="CUr-OJ-w0p"/>
-                                    <constraint firstItem="q69-Cx-B1u" firstAttribute="leading" secondItem="NK8-4v-LXl" secondAttribute="leading" constant="91" id="GkN-uH-QJa"/>
-                                    <constraint firstAttribute="bottom" secondItem="dTg-O3-rO9" secondAttribute="bottom" constant="5" id="MMb-Jv-ATx"/>
-                                    <constraint firstAttribute="trailing" secondItem="q69-Cx-B1u" secondAttribute="trailing" constant="92" id="Mp8-2l-bc7"/>
+                                    <constraint firstItem="dTg-O3-rO9" firstAttribute="top" secondItem="q69-Cx-B1u" secondAttribute="bottom" constant="7" id="CUr-OJ-w0p"/>
+                                    <constraint firstItem="q69-Cx-B1u" firstAttribute="leading" secondItem="NK8-4v-LXl" secondAttribute="leading" constant="52" id="GkN-uH-QJa"/>
+                                    <constraint firstAttribute="bottom" secondItem="dTg-O3-rO9" secondAttribute="bottom" constant="1" id="MMb-Jv-ATx"/>
+                                    <constraint firstAttribute="trailing" secondItem="q69-Cx-B1u" secondAttribute="trailing" constant="53" id="Mp8-2l-bc7"/>
                                     <constraint firstAttribute="height" constant="61" id="STO-78-Orj"/>
                                     <constraint firstItem="dTg-O3-rO9" firstAttribute="centerX" secondItem="q69-Cx-B1u" secondAttribute="centerX" id="vuY-Nt-UL6"/>
                                 </constraints>
@@ -2343,6 +2343,7 @@
                     <connections>
                         <outlet property="applyBtnOutLet" destination="dTg-O3-rO9" id="Xhy-Gl-Ehp"/>
                         <outlet property="jobApplyTableView" destination="xsS-zq-S37" id="I6e-xd-6wI"/>
+                        <outlet property="uploadresumeOutLet" destination="q69-Cx-B1u" id="1wO-Ig-kNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrl-Cs-ka7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2759,12 +2760,31 @@
                     <view key="view" contentMode="scaleToFill" id="0Lx-5u-i5d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-sR-1gi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="02l-R5-PY0" id="XdT-YX-p4R"/>
+                                    <outlet property="delegate" destination="02l-R5-PY0" id="H7l-q7-gwL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BaZ-sR-1gi" firstAttribute="top" secondItem="0Lx-5u-i5d" secondAttribute="top" id="4Yf-oZ-7kD"/>
+                            <constraint firstAttribute="trailing" secondItem="BaZ-sR-1gi" secondAttribute="trailing" id="PHs-X5-rWi"/>
+                            <constraint firstItem="BaZ-sR-1gi" firstAttribute="leading" secondItem="0Lx-5u-i5d" secondAttribute="leading" id="QRE-R9-Xm8"/>
+                            <constraint firstItem="AnH-xe-qhv" firstAttribute="top" secondItem="BaZ-sR-1gi" secondAttribute="bottom" id="cNb-at-w3p"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="notificationsTableView" destination="BaZ-sR-1gi" id="ISI-Vb-qmI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFG-0S-nd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16092" y="1151"/>
+            <point key="canvasLocation" x="16092" y="1150.9745127436283"/>
         </scene>
     </scenes>
     <resources>

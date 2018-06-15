@@ -17,6 +17,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var applyBtnOutLet: UIButton!
 
     
+    @IBOutlet weak var uploadresumeOutLet: UIButton!
     
     
      var activeTextField = UITextField()
@@ -84,7 +85,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let jobApplymonthTableViewCell  = UINib(nibName: "jobApplymonthTableViewCell" , bundle: nil)
         jobApplyTableView.register(jobApplymonthTableViewCell, forCellReuseIdentifier: "jobApplymonthTableViewCell")
         
-
+        uploadresumeOutLet.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        uploadresumeOutLet.layer.borderWidth = 1
+        uploadresumeOutLet.layer.masksToBounds = false
+        uploadresumeOutLet.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+       uploadresumeOutLet.layer.cornerRadius = 6.0
+        
+        uploadresumeOutLet.clipsToBounds = true
 
         
         // Do any additional setup after loading the view.

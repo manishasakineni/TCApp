@@ -9,6 +9,12 @@
 import UIKit
 
 class notificationsTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var nameLbl: UILabel!
+    
+    @IBOutlet weak var descriptionLbl: UILabel!
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -74,6 +74,13 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
+  
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "".localize(), backTitle: "", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
+    }
     
     
     

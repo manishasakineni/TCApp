@@ -87,12 +87,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sny-mv-Q36">
-                        <rect key="frame" x="277" y="8" width="35" height="19"/>
+                        <rect key="frame" x="268" y="8" width="44" height="29"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="19" id="eRB-9e-o6m"/>
-                            <constraint firstAttribute="width" constant="35" id="xkc-Lq-9xE"/>
+                            <constraint firstAttribute="height" constant="29" id="eRB-9e-o6m"/>
+                            <constraint firstAttribute="width" constant="44" id="xkc-Lq-9xE"/>
                         </constraints>
-                        <state key="normal" image="edit"/>
+                        <state key="normal" image="EditImg"/>
                     </button>
                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVd-YI-fX2">
                         <rect key="frame" x="268" y="56" width="44" height="45"/>
@@ -133,13 +133,14 @@
                 <outlet property="fullNameLbl" destination="wax-vr-5qn" id="7pw-xv-zph"/>
                 <outlet property="mobileNoLbl" destination="Zqe-pi-Ffu" id="wIY-yZ-oMF"/>
                 <outlet property="pincodeLbl" destination="vLc-Ky-hQ5" id="KDa-fE-MfT"/>
+                <outlet property="rediationBtn" destination="t7l-Kj-7Os" id="gd6-Sx-kii"/>
                 <outlet property="statecountryLbl" destination="qJ1-H5-May" id="Tu2-2A-VSJ"/>
             </connections>
             <point key="canvasLocation" x="25" y="83.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="edit" width="30" height="30"/>
+        <image name="EditImg" width="225" height="225"/>
         <image name="icons8-Unchecked Circle-50" width="50" height="50"/>
         <image name="payment_del_icon" width="13" height="15"/>
     </resources>

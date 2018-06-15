@@ -40,7 +40,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          self.getjobdetailsAPICall(string: searchBar.text!)
+         // self.getjobdetailsAPICall(string: searchBar.text!)
         
         getAllJobDetailsTableView.dataSource = self
         getAllJobDetailsTableView.delegate = self
@@ -415,9 +415,10 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
                     
             
             else {
-                
+                    if(self.PageIndex == 1){
                 self.norecordsFoundLbl.isHidden = false
                 self.getAllJobDetailsTableView.isHidden = true
+                    }
             }
                 
             }

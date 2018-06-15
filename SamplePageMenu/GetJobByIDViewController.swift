@@ -19,7 +19,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var jobTitle:String = ""
     var vacencies : String = ""
      var Qualification:String = ""
-    var jobId : Int = 0
+   
     
     var jobdescription:String = ""
     var contactperson : String = ""
@@ -34,8 +34,14 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var selectNameType : Array = Array<String>()
     
      let utillites =  Utilities()
+     var jobId : Int = 0
     
     
+    var churchId : Int = 0
+    var authorId : Int = 0
+    var eventId : Int = 0
+    var postId : Int = 0
+
     
     
     override func viewDidLoad() {
@@ -260,8 +266,11 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     self.salary = "\(String(describing: obj.salary!))"
                 self.lastdatetoapply = (obj.lastDateToApply)!
+                    
                 //    self.adminname = (obj.adminName)!
-                    self.churchname = (obj.churchName)!
+                //    self.churchname = (obj.churchName)!
+                    
+                    
                 }
                 
         

@@ -24,6 +24,9 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var editBtn: UIButton!
 
     @IBOutlet weak var deleteBtn: UIButton!
+    
+    @IBOutlet weak var rediationBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

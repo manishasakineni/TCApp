@@ -8,15 +8,38 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet weak var notificationsTableView: UITableView!
+    
+    var allitemsArray:[NotificationResultVO] = Array<NotificationResultVO>()
+    
+    var filtered:[NotificationResultVO] = []
 
+     var userId :  Int = 0
+    
     var showNav = false
     var appVersion          : String = ""
 
-    
+    var IDs : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nibName1  = UINib(nibName: "notificationsTableViewCell" , bundle: nil)
+        notificationsTableView.register(nibName1, forCellReuseIdentifier: "notificationsTableViewCell")
+        
+        notificationsTableView.dataSource = self
+        notificationsTableView.delegate = self
+
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
+
+        notificationAPICall()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -36,6 +59,95 @@ class NotificationsViewController: UIViewController {
         
            }
 
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if filtered.count > 0 {
+            
+            return filtered.count
+            
+        }
+        
+        return allitemsArray.count
+
+        
+       
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationsTableViewCell", for: indexPath) as! notificationsTableViewCell
+        
+        
+        let listStr:NotificationResultVO = filtered[indexPath.row]
+        
+    
+        
+        cell.nameLbl.text = "\(listStr.name!)"
+        cell.descriptionLbl.text = "\(listStr.desc!)"
+        
+        
+        
+        return cell
+        
+        
+        
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if filtered.count > 0 {
+            
+            let listStr:NotificationResultVO = filtered[indexPath.row]
+            
+ 
+        
+        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
+        
+                   
+            
+    jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
+            
+    
+    jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
+            
+            jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
+            
+            jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
+            jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
+            
+            
+
+            
+        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+  
+        }
+    }
+    
+  
+    
+    
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -86,6 +198,64 @@ class NotificationsViewController: UIViewController {
         print("Home Button Clicked......")
         
     }
+    
+ 
+    
+    
+    func notificationAPICall(){
+        
+        let paramsDict = [ 	"sortDirection": "desc",
+                           	"sortbyColumnName": "UpdatedDate",
+                           	"userId": userId,
+                           	
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: NOTIFICATIONSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:NotificationInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.listResult!
+                
+                
+             
+                
+                for eachArray in listArr{
+                    self.filtered.append(eachArray)
+                }
+                
+                self.notificationsTableView.reloadData()
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+    
+    
+    
+    
+
     
 
 

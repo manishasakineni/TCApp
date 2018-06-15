@@ -18,7 +18,7 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 
 // constants
 //var BASEURL:String = "http://calibrage.co.in/"
-var BASEURL:String = "http://192.168.1.174/TeluguChurchesTestAPI/"
+var BASEURL:String = "http://192.168.1.135/TeluguChurchesTestAPI/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -137,6 +137,9 @@ let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDelivery
 
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")
 
+
+
+let NOTIFICATIONSAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
 
 //not done
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
