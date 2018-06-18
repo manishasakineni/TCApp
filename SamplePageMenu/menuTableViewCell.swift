@@ -20,6 +20,9 @@ class menuTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cameraOutLet: UIButton!
     
+    @IBOutlet weak var editBtnOutLet: UIButton!
+    
+    
  //MARK: - Color
     
     override func awakeFromNib() {

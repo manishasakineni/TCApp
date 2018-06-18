@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var showNav = false
     let isActive : Bool = true
+    var btneditClick = false
     
     let dateFormatter = DateFormatter()
     
@@ -169,6 +170,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         editProfileTableView.dataSource = self
         editProfileTableView.delegate = self
         activeTextField.delegate = self
+        
+       
         
         getProfileInfoAPIService()
         
@@ -344,7 +347,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile".localize(), backTitle: " Edit Profile".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+
         
+      //  cameraOutLet.te
         
         
     }
@@ -563,6 +568,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if section == 1 {
             
+        
             return 7
         }
         else {
@@ -599,9 +605,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         profileCell.selectionStyle = .none
             
+            if(btneditClick == true){
+                profileCell.cameraOutLet.isUserInteractionEnabled = true
+            }else{
+                profileCell.cameraOutLet.isUserInteractionEnabled = false
+            }
+            
+            
         if indexPath.row == 0{
                 
-    profileCell.cameraOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
+    profileCell.cameraOutLet.addTarget(self, action: #selector(self.cameraBtnClicked), for: .touchDown)
                 
                 
     profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
@@ -611,8 +624,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     profileCell.progileImageView.clipsToBounds = true
                 
     profileCell.progileImageView.image = profileimage
-                
             
+    profileCell.editBtnOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
+            
+            
+            
+            
+       
     }
             
     return profileCell
@@ -625,6 +643,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.editProfileTF.delegate = self
             
     signUPCell.editProfileTF.tag = indexPath.row
+            
+            if(btneditClick == true){
+                signUPCell.editProfileTF.isUserInteractionEnabled = true
+            }else{
+                signUPCell.editProfileTF.isUserInteractionEnabled = false
+            }
         
             
     if indexPath.row == 0{
@@ -640,8 +664,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
     signUPCell.editProfileTF.placeholder = "First Name".localize()
     signUPCell.editProfileTF.text = self.firstName
-                
-                
+        
     }
                 
     else if indexPath.row == 2{
@@ -649,13 +672,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
     signUPCell.editProfileTF.placeholder = "Middle Name".localize()
     signUPCell.editProfileTF.text = self.middleName
-                
+      
+        
+        
         }
         
     else if indexPath.row == 3{
         
     signUPCell.editProfileTF.placeholder = "Last Name".localize()
     signUPCell.editProfileTF.text = self.lastName
+        
         
     }
         
@@ -666,19 +692,23 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.editProfileTF.textColor = UIColor.lightGray
     signUPCell.editProfileTF.text = self.mobileNumber
         
+        
+        
     }
                 
     else if indexPath.row == 5{
                 
     signUPCell.editProfileTF.placeholder = "E-mail".localize()
     signUPCell.editProfileTF.text = self.email
-                
+        
+        
     }
                 
     else if indexPath.row == 6{
                 
     signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
     signUPCell.editProfileTF.text = selectedDate
+        
         
             }
             
@@ -694,7 +724,26 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.selectionStyle = .none
     signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
     signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+            
+            if(btneditClick == true){
                 
+        signUPCell.maleUnCheckBtn.isUserInteractionEnabled = false
+        signUPCell.femaleUnCheck.isUserInteractionEnabled = false
+        signUPCell.maleBtn.isUserInteractionEnabled = true
+        signUPCell.femaleBtn.isUserInteractionEnabled = true
+                
+    }else{
+                
+        signUPCell.femaleUnCheck.isUserInteractionEnabled = true
+        signUPCell.maleUnCheckBtn.isUserInteractionEnabled = true
+        signUPCell.femaleBtn.isUserInteractionEnabled = false
+        signUPCell.maleBtn.isUserInteractionEnabled = false
+                
+            }
+            
+            
+    
+            
     if genderTypeID == 2 {
                     
     signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
@@ -728,7 +777,7 @@ else {
     
    //MARK: -  edit Btn Clicked
     
-    func editBtnClicked(_ sender: UIButton?)  {
+    func cameraBtnClicked(_ sender: UIButton?)  {
         
         print("I Clicked a button")
         
@@ -756,6 +805,19 @@ else {
         
         
     }
+    
+    func editBtnClicked(_ sender: UIButton?){
+        
+        btneditClick = true
+        editProfileTableView.reloadData()
+
+//
+    
+   
+        
+    }
+    
+    
     
     //MARK: - image Picker Controller
     

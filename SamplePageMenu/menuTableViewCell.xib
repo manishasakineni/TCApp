@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -65,15 +65,25 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="ChangePhoto"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHl-eK-Kly">
+                                <rect key="frame" x="282" y="98" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="UtX-ri-5Ym"/>
+                                    <constraint firstAttribute="height" constant="30" id="rbx-YQ-MgT"/>
+                                </constraints>
+                                <state key="normal" image="EditImg"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="xyV-5j-sL8" secondAttribute="bottom" constant="-2" id="0qJ-Uz-BX6"/>
+                            <constraint firstAttribute="bottom" secondItem="vHl-eK-Kly" secondAttribute="bottom" constant="1.5" id="QxP-Tf-7Lf"/>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="R0v-P1-0tE"/>
                             <constraint firstItem="xyV-5j-sL8" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="TY7-0T-Qn2"/>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="8Ry-ll-UYZ" secondAttribute="bottom" constant="1" id="YiO-py-TCI"/>
                             <constraint firstAttribute="bottom" secondItem="Q8f-hX-ixQ" secondAttribute="bottom" constant="0.5" id="aoM-ZC-nwy"/>
                             <constraint firstItem="zLH-r3-Cvq" firstAttribute="centerX" secondItem="uND-WF-umg" secondAttribute="centerX" id="j5R-SG-ojR"/>
+                            <constraint firstAttribute="trailing" secondItem="vHl-eK-Kly" secondAttribute="trailing" constant="8" id="lgk-cp-0jj"/>
                             <constraint firstItem="xyV-5j-sL8" firstAttribute="top" secondItem="zLH-r3-Cvq" secondAttribute="bottom" constant="5" id="lxZ-7f-i7A"/>
                             <constraint firstItem="zLH-r3-Cvq" firstAttribute="centerY" secondItem="uND-WF-umg" secondAttribute="centerY" id="mNF-Eg-LfX"/>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="top" secondItem="zLH-r3-Cvq" secondAttribute="bottom" constant="5" id="shs-bi-mkD"/>
@@ -92,6 +102,7 @@
             <connections>
                 <outlet property="backGroundView" destination="uND-WF-umg" id="d2F-7a-vM7"/>
                 <outlet property="cameraOutLet" destination="xyV-5j-sL8" id="lij-jS-UXh"/>
+                <outlet property="editBtnOutLet" destination="vHl-eK-Kly" id="sQD-6l-S1T"/>
                 <outlet property="menuTableViewLabel" destination="8Ry-ll-UYZ" id="u6F-PT-iA6"/>
                 <outlet property="progileImageView" destination="zLH-r3-Cvq" id="ngM-l3-LIk"/>
             </connections>
@@ -99,6 +110,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="EditImg" width="225" height="225"/>
         <image name="jobs" width="225" height="225"/>
     </resources>
 </document>

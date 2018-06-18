@@ -36,6 +36,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeText" value="Year"/>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slImage (2)" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-o9-hRH">
                         <rect key="frame" x="102" y="27" width="25" height="25"/>
@@ -48,6 +51,9 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeText" value="Month"/>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slImage (2)" translatesAutoresizingMaskIntoConstraints="NO" id="9Za-PJ-lM8">
                         <rect key="frame" x="264" y="27" width="25" height="25"/>

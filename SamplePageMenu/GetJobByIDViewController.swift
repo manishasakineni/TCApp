@@ -169,7 +169,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                 
                 signUPCell.jobIDDetailsLabel.text = jobdescription
                 
-                signUPCell.jobIDNameLabel.text = "Job Description"
+                signUPCell.jobIDNameLabel.text = "Job Description".localize()
                 
             }
             else if indexPath.row == 4{
@@ -268,7 +268,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                 self.lastdatetoapply = (obj.lastDateToApply)!
                     
                 //    self.adminname = (obj.adminName)!
-                //    self.churchname = (obj.churchName)!
+              //      self.churchname = (obj.churchName)!
                     
                     
                 }

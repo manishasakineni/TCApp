@@ -55,7 +55,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewWillAppear(animated)
         
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Notifications", backTitle: "Categories".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Notifications".localize(), backTitle: "Categories".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
            }
 

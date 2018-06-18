@@ -186,7 +186,14 @@
     "Admin Name" : "అడ్మిన్ పేరు",
     "Full Name" : "పూర్తి పేరు",
     "Flat,House No,Building,Company,Apartment" : "ఫ్లాట్, హౌస్ నం, బిల్డింగ్, కంపెనీ, అపార్ట్మెంట్",
-    "Area,Colony,Street,Sector,Village" : "ప్రాంతం, కాలనీ, వీధి, సెక్టార్, విలేజ్"
+    "Area,Colony,Street,Sector,Village" : "ప్రాంతం, కాలనీ, వీధి, సెక్టార్, విలేజ్",
+    
+    "Notifications" : "ప్రకటనలు",
+    "Year" : "ఇయర్",
+    "Month" : "నెల",
+    "ChurchEventDetails" : "చర్చి ఈవెంట్ వివరాలు",
+    "Comments" : "వ్యాఖ్యలు",
+    "Please provide Quantity" : "దయచేసి క్వాలిటీని అందజేయండి"
 
 
     

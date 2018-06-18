@@ -185,7 +185,14 @@
     "Admin Name" : "Admin Name",
     "Full Name" : "Full Name",
     "Flat,House No,Building,Company,Apartment" : "Flat,House No,Building,Company,Apartment",
-    "Area,Colony,Street,Sector,Village" : "Area,Colony,Street,Sector,Village"
+    "Area,Colony,Street,Sector,Village" : "Area,Colony,Street,Sector,Village",
+    
+     "Notifications" : "Notifications",
+     "Year" : "Year",
+    "Month" : "Month",
+    "ChurchEventDetails" : "ChurchEventDetails",
+    "Comments" : "Comments"
+    "Please provide Quantity" : "Please provide Quantity"
 
 
     

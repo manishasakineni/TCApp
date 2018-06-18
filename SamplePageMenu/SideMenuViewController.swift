@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var userID = String()
     
-    let imageView = ["signup","change_pass_menu","category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","shopping (2)","careers (1)","shopping (2)","logOut"]
+    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_793900_cc","noun_638526_cc"]
     
 
   //MARK: -   View DidLoad
@@ -45,7 +45,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Online Shoping".localize(),"Careers".localize(),"Notifications".localize(),"LogOut".localize()]
+        self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
 
         borderColor()
         
@@ -76,7 +76,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Online Shoping".localize(),"Careers".localize(),"Notifications".localize(),"LogOut".localize()]
+        self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
 
     }
     
@@ -128,7 +128,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if  (self.userID.isEmpty) {
         
-            if indexPath.row == 0 || indexPath.row == 1 {
+            if indexPath.row == 9 || indexPath.row == 10 {
                 
                 
             
@@ -151,7 +151,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
        
         if (self.userID.isEmpty) {
             
-            if indexPath.row == 0 || indexPath.row == 1 {
+            if indexPath.row == 9 || indexPath.row == 10 {
                 
                 
                 
@@ -179,7 +179,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if (self.userID.isEmpty) {
             
-            if indexPath.row == 0 || indexPath.row == 1 {
+            if indexPath.row == 9 || indexPath.row == 10 {
                 
               cell1.isHidden = true
              
@@ -207,15 +207,13 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
           
         }else{
+            
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
             
             cell1.menuNameLabel.text! = menuArray[indexPath.row]
         }
         
-    
-        
-        
-        
+
         return cell1
         
     }
@@ -495,7 +493,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     Localize.update(language: language)
     self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
-    self.menuArray = ["EditProfile".localize(),"ChangePassword".localize()," All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Online Shoping".localize(),"Careers".localize(),"Notifications".localize(),"LogOut".localize()]
+    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
         
                 self.menuTableView.reloadData()
         })

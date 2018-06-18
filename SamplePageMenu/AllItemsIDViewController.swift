@@ -311,6 +311,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func addToCartAction(_ sender: Any) {
         
+        
+        
+        
         allitemsIDTableView.endEditing(true)
         
         if(quantity != "" && quantity != "0"){

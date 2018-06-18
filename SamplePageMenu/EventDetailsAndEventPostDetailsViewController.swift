@@ -80,7 +80,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
         
         EventDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventDetailsViewController") as? EventDetailsViewController
-        EventDetailsVC?.title = "ChurchEventDetails"
+        EventDetailsVC?.title = "ChurchEventDetails".localize()
         EventDetailsVC?.delegate  = self
         EventDetailsVC?.eventID = eventID
         EventDetailsVC?.eventChurchName = eventChurchName
@@ -91,7 +91,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
         
         PostEventDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostEventDetailsViewController") as? PostEventDetailsViewController
-        PostEventDetailsVC?.title = "Post"
+        PostEventDetailsVC?.title = "Posts".localize()
         PostEventDetailsVC?.delegate  = self
         PostEventDetailsVC?.eventID = eventID
         PostEventDetailsVC?.catgoryImg = eventImageArrayString
