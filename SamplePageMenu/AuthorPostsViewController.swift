@@ -189,7 +189,11 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         for listResult in respVO.listResult!{
         
-         
+            
+//            self.noRecordsFoundLbl.isHidden = true
+//            self.infoChurchTableView.isHidden = false
+//
+            
             if listResult.mediaType == "Audio"{
             
             self.audioResults.append(listResult)

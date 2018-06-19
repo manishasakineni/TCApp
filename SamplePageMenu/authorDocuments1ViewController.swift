@@ -13,6 +13,10 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
 
     @IBOutlet weak var authordocumentTableView: UITableView!
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
+    
+    
+    
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
     
      var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
@@ -34,6 +38,8 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         let nibName1  = UINib(nibName: "AuthorDocumentTableViewCell" , bundle: nil)
         authordocumentTableView.register(nibName1, forCellReuseIdentifier: "AuthorDocumentTableViewCell")
         
+          self.norecordsfoundLbl.isHidden = false
+        
         // Do any additional setup after loading the view.
     }
     
@@ -51,7 +57,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         return documentResults.count
-        
+       //7702402240
         
     }
     

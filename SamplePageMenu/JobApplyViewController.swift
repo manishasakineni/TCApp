@@ -804,6 +804,15 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         
     }
     
+    
+    @IBAction func uploadresumeAction(_ sender: Any) {
+        
+        
+    }
+    
+    
+    
+    
 func getjobApplicationAPICall(){
     
     let paramsDict = [

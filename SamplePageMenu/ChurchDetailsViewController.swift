@@ -683,7 +683,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         else {
         
-        appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+   //     appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
             
         }
     
@@ -724,7 +724,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let indexPath = IndexPath(item: sender.tag, section: 0)
         self.churchDetailsTableView.reloadRows(at: [indexPath], with: .none)
                     
-        self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+   //     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                     
                 }
                     

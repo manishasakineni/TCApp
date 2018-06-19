@@ -107,8 +107,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         cell.fullNameLbl.text = listStr.fullName
         
-        cell.addresslineLbl.text = listStr.addressLine1! + listStr.addressLine2!
-        cell.statecountryLbl.text = listStr.countryName! + listStr.stateName!
+        cell.addresslineLbl.text = listStr.addressLine1! + ", " + listStr.addressLine2!
+        cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
         
         cell.pincodeLbl.text = "\(listStr.pinCode!)"
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
@@ -264,55 +264,68 @@ func  editaddressClicked( sender:UIGestureRecognizer){
     
 func deleteaddressAPICall(_ sender : UIButton){
         
-        if(filtered.count > sender.tag){
-            
-        let deleteAddressInfo  = filtered[sender.tag]
-            
-            
-        let paramsDict = [
-                            "id": deleteAddressInfo.id!,
-                            "userId": userId,
-                                 
-            ] as [String : Any]
+  
+    
+    
+    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete", clickAction: {
         
-        let dictHeaders = ["":"","":""] as NSDictionary
+        self.deleteAddressForIndex(sender.tag)
         
         
-        serviceController.postRequest(strURL: DELETEADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
-            print(result)
-            
-            let respVO:DeleteAddressInfoVO = Mapper().map(JSONObject: result)!
-            
-            let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
-            
-            
-            if isSuccess == true {
-                
-                let listArr = respVO.endUserMessage!
-                
-               self.addressAPICall()
-                
-                self.addressTableview.reloadData()
-                
-            }
-                
-            else {
-                
-                
-                
-            }
-            
-        }) { (failureMessage) in
-            
-            
-            print(failureMessage)
-            
-        }
+        
+        
+    })
+
     }
     
-
+    func deleteAddressForIndex( _ selectedIndex : Int){
+        if(filtered.count > selectedIndex){
+            
+            let deleteAddressInfo  = filtered[selectedIndex]
+            
+            
+            let paramsDict = [
+                "id": deleteAddressInfo.id!,
+                "userId": userId,
+                
+                ] as [String : Any]
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            
+            serviceController.postRequest(strURL: DELETEADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+                print(result)
+                
+                let respVO:DeleteAddressInfoVO = Mapper().map(JSONObject: result)!
+                
+                let isSuccess = respVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                
+                if isSuccess == true {
+                    
+                    let listArr = respVO.endUserMessage!
+                    
+                    self.addressAPICall()
+                    
+                    self.addressTableview.reloadData()
+                    
+                }
+                    
+                else {
+                    
+                    
+                    
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+        }
     }
     
 

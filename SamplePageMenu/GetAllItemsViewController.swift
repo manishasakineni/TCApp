@@ -60,7 +60,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Search by Church Name".localize()
+        searchBar.placeholder = "Search".localize()
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self

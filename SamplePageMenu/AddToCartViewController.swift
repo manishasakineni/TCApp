@@ -68,7 +68,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shoping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shopping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -306,40 +306,56 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
 func deleteAPIService(_ sender : UIButton){
     
 
+   
+    
      let deleteAddressInfo  = filtered[sender.tag]
     
    
     
      let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
     
-       serviceController.getRequest(strURL: strUrl, success: { (result) in
+    
         
-        let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
+    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart", clickAction: {
+        
+        
+        
+        
+        serviceController.getRequest(strURL: strUrl, success: { (result) in
             
-      let isSuccess = respVO.isSuccess
+            let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
             
-        if isSuccess == true {
-                
-      self.filtered.remove(at: sender.tag)
+            let isSuccess = respVO.isSuccess
             
-            self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
-            
-     
-                
+            if isSuccess == true {
+        self.filtered.remove(at: sender.tag)
+        
+        self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+        
+        
+        
             }
-            
-        }) { (failureMessage) in
-            
-        }
         
-    }
+
+            })
+        
+        { (failureMessage) in
+                
+        }
+
+    
+        })
+    
+    
+    
+    
     
  
     
 }
  
 
-
+}
     
 
 

@@ -54,7 +54,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         searchBar.delegate = self
         
-        searchBar.placeholder = "Search by Church Name".localize()
+        searchBar.placeholder = "Search".localize()
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -357,7 +357,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         let paramsDict = [ "userId": 0,
                            "pageIndex": PageIndex,
-                           "pageSize": 200,
+                           "pageSize": 10,
                            "sortbyColumnName": "LastdateToApply",
                            "sortDirection": "desc",
                            "searchName": string

@@ -113,6 +113,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
  
     override func viewWillDisappear(_ animated: Bool) {
         
+        
+        
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
 
@@ -381,9 +383,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
     }
         
+    else if self.navigationString == "HomeString"{
+        let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        self.appDelegate.window?.rootViewController = homeNav
+        
+    }
+   
+        
+        
+        
+        
+        
         else {
                                     
-    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+  //  self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
     self.appDelegate.window?.rootViewController = rootController
                                

@@ -629,7 +629,7 @@
                         <barButtonItem key="leftBarButtonItem" image="sidemenu" id="J6Y-nU-rbZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="3 dots" id="ke9-c3-luq">
+                        <barButtonItem key="rightBarButtonItem" image="noun_1168162_cc" id="ke9-c3-luq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="notificationBtnAction:" destination="fRD-jQ-dvn" id="j8W-iT-ET5"/>
@@ -1690,7 +1690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="88M-l2-NBf">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="639"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1698,6 +1698,13 @@
                                     <outlet property="delegate" destination="vyr-DK-hRU" id="gU6-Uv-1j6"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO Records " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-5a-2lO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2300,6 +2307,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Upload Resume"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="uploadresumeAction:" destination="zbf-vU-65t" eventType="touchUpInside" id="ISY-4H-jrc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-O3-rO9">
                                         <rect key="frame" x="91" y="30" width="192" height="30"/>
@@ -2445,7 +2455,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t49-hi-3YG">
-                                        <rect key="frame" x="120.5" y="1" width="54.5" height="21"/>
+                                        <rect key="frame" x="96.5" y="1" width="54.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="54.5" id="90M-Nr-3mp"/>
                                             <constraint firstAttribute="height" constant="21" id="Pda-aU-3Ep"/>
@@ -2458,7 +2468,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-mR-45d">
-                                        <rect key="frame" x="188" y="-3.5" width="103" height="30"/>
+                                        <rect key="frame" x="164" y="-3.5" width="103" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3mA-3B-goM"/>
                                             <constraint firstAttribute="width" constant="103" id="Ter-aL-DyJ"/>
@@ -2487,7 +2497,7 @@
                             <constraint firstAttribute="trailing" secondItem="Rx9-Tw-ya3" secondAttribute="trailing" id="Ydx-b0-7EA"/>
                             <constraint firstItem="t49-hi-3YG" firstAttribute="top" secondItem="Rx9-Tw-ya3" secondAttribute="bottom" constant="9" id="YyB-Hi-HHc"/>
                             <constraint firstItem="Sqk-te-xk3" firstAttribute="top" secondItem="AfF-tv-Ofr" secondAttribute="bottom" id="gIm-Dd-e9P"/>
-                            <constraint firstItem="t49-hi-3YG" firstAttribute="centerX" secondItem="Rx9-Tw-ya3" secondAttribute="centerX" constant="-39.75" id="pfU-4g-jQn"/>
+                            <constraint firstItem="t49-hi-3YG" firstAttribute="centerX" secondItem="Rx9-Tw-ya3" secondAttribute="centerX" constant="-63.75" id="pfU-4g-jQn"/>
                             <constraint firstItem="AfF-tv-Ofr" firstAttribute="leading" secondItem="Fcf-rh-f3c" secondAttribute="leading" id="wZ6-vv-KAj"/>
                             <constraint firstItem="Rx9-Tw-ya3" firstAttribute="top" secondItem="Fcf-rh-f3c" secondAttribute="top" id="ye3-0d-t5r"/>
                         </constraints>
@@ -2788,13 +2798,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3 dots" width="25" height="25"/>
         <image name="Church-logo" width="240" height="233"/>
         <image name="calvary_cross" width="400" height="400"/>
         <image name="icons8-arrows_long_left" width="25" height="25"/>
         <image name="icons8-visible" width="25" height="25"/>
         <image name="musimage" width="1200" height="1200"/>
         <image name="nextImage" width="1024" height="1024"/>
+        <image name="noun_1168162_cc" width="30" height="30"/>
         <image name="playImage" width="626" height="626"/>
         <image name="preveee" width="626" height="626"/>
         <image name="sidemenu" width="25" height="25"/>

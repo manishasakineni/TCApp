@@ -144,14 +144,14 @@
     "Holy Bible - Telugu" : "హోలీ బైబిల్ - తెలుగు",
     
     "Search by category Name" : "శోధన",
-    "Search by Church Name" : "శోధన",
+    "Search" : "శోధన",
     "Search by Event Name" : "శోధన",
     "Search by Author Name" : "శోధన",
     "No Records Found" : "ఎటువంటి పత్రాలు లభించలేదు",
     "  All Events in Month" : "  నెల అన్ని ఈవెంట్స్",
     
     "Careers" : "కెరీర్లు",
-    "Online Shoping" : "ఆన్లైన్ షాపింగ్",
+    "Online Shopping" : "ఆన్లైన్ షాపింగ్",
     "Job Details" : "ఉద్యోగ వివరాలు",
     "Apply" : "వర్తించు",
     "Address" : "చిరునామా",
@@ -162,7 +162,7 @@
    
     "Quantity:" : "మొత్తము",
     
-    "ADD TO CART" : "CART ను జోడించు",
+    "ADD TO CART" : "కార్ట్కు జోడించు",
     
     "Author    :" : "రచయిత    ",
     "Price      :" : "ధర      ",
@@ -173,7 +173,7 @@
     "Job Title" : "ఉద్యోగ శీర్షిక",
     "Last Date To Apply" : "చివరి తేదీ వర్తించు",
     "Qualification" : "అర్హతలు",
-    "Vacencies" : "ఖాళీలు",
+    "Vacancies" : "ఖాళీలు",
     
     "Contact Person" : "వ్యక్తి సంప్రదించండి",
     "Job Description" : "ఉద్యోగ వివరణ",
@@ -193,7 +193,9 @@
     "Month" : "నెల",
     "ChurchEventDetails" : "చర్చి ఈవెంట్ వివరాలు",
     "Comments" : "వ్యాఖ్యలు",
-    "Please provide Quantity" : "దయచేసి క్వాలిటీని అందజేయండి"
+    "Please provide Quantity" : "దయచేసి క్వాలిటీని అందజేయండి",
+    
+    "Profile" : "ప్రొఫైల్"
 
 
     

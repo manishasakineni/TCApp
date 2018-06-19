@@ -11,6 +11,10 @@ import UIKit
 class authorVedioViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var authorVedioTableView: UITableView!
+    
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
+    
+    
 
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
     
@@ -30,6 +34,8 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let nibName1  = UINib(nibName: "AuthorVedioTableViewCell" , bundle: nil)
         authorVedioTableView.register(nibName1, forCellReuseIdentifier: "AuthorVedioTableViewCell")
+        
+         self.norecordsfoundLbl.isHidden = true
         
         // Do any additional setup after loading the view.
     }

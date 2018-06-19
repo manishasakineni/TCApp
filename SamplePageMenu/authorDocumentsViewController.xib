@@ -8,10 +8,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="authorDocumentsViewController" customModule="Telugu_Churches" customModuleProvider="target">
             <connections>
                 <outlet property="authordocumentTableView" destination="ffi-Gb-95Y" id="M7f-4h-Sa4"/>
+                <outlet property="norecordsfoundLbl" destination="P4N-Lp-eXp" id="6Pi-ig-pIE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,13 +30,29 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Records Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4N-Lp-eXp">
+                    <rect key="frame" x="0.0" y="315.5" width="375" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="hu4-97-Bkh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="No Records Found"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ffi-Gb-95Y" secondAttribute="trailing" id="7ap-ju-z6b"/>
+                <constraint firstItem="P4N-Lp-eXp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ifs-su-d14"/>
+                <constraint firstItem="P4N-Lp-eXp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UWb-Kq-VRy"/>
+                <constraint firstItem="P4N-Lp-eXp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="V4u-1c-1K3"/>
                 <constraint firstAttribute="bottom" secondItem="ffi-Gb-95Y" secondAttribute="bottom" id="YVk-aL-wVw"/>
                 <constraint firstItem="ffi-Gb-95Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="frr-Dh-qtk"/>
                 <constraint firstItem="ffi-Gb-95Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sFY-dc-ZWx"/>
+                <constraint firstAttribute="trailing" secondItem="P4N-Lp-eXp" secondAttribute="trailing" id="uI4-HI-yhh"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>

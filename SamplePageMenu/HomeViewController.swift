@@ -157,7 +157,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
             print(loginSucess)
-            self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
+      //      self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
             
             print("defaults savedString: \(loginSucess)")
             

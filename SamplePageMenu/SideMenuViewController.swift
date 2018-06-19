@@ -27,7 +27,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var userID = String()
     
-    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_793900_cc","noun_638526_cc"]
+      var loginVC = LoginViewController()
+    
+    var count = 0
+    
+    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_638526_cc","noun_793900_cc"]
     
 
   //MARK: -   View DidLoad
@@ -45,7 +49,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
 
         borderColor()
         
@@ -76,7 +80,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
 
     }
     
@@ -128,7 +132,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if  (self.userID.isEmpty) {
         
-            if indexPath.row == 9 || indexPath.row == 10 {
+            if indexPath.row == 9 || indexPath.row == 11 {
                 
                 
             
@@ -151,7 +155,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
        
         if (self.userID.isEmpty) {
             
-            if indexPath.row == 9 || indexPath.row == 10 {
+            if indexPath.row == 9 || indexPath.row == 11 {
                 
                 
                 
@@ -177,22 +181,43 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         cell1.selectionStyle = .none
         
+        cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
+        
+        cell1.menuNameLabel.text! = menuArray[indexPath.row]
+        
         if (self.userID.isEmpty) {
             
-            if indexPath.row == 9 || indexPath.row == 10 {
+            
+            if indexPath.row == 9 || indexPath.row == 11 {
                 
               cell1.isHidden = true
+                
              
             }
+            
+            if  cell1.menuNameLabel.text! == "LogOut".localize(){
+                if indexPath.row == 10 {
+                    
+                     cell1.menuNameLabel.text! = "Login".localize()
+                    cell1.menuNameImg.image = UIImage(named: String("LogOutlightGray"))
+                    
+                     // cell1.menuNameImg.backgroundColor = UIColor.lightGray
+                }
+           
+            }
+            
         
         }
         
         else{
         
             cell1.isHidden = false
+           
+
+            
         }
         
-        if(indexPath.row == menuArray.count - 1){
+        if(indexPath.row == menuArray.count){
             
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
             
@@ -208,9 +233,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
           
         }else{
             
-            cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
             
-            cell1.menuNameLabel.text! = menuArray[indexPath.row]
+            
         }
         
 
@@ -227,7 +251,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
 
-        if cell.menuNameLabel.text == "EditProfile".localize()
+        if cell.menuNameLabel.text == "Profile".localize()
         {
             if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
 
@@ -244,7 +268,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }else{
                  utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     
-                    UserDefaults.standard.set("1", forKey: "1")
+                    UserDefaults.standard.set("1", forKey: "0")
                     UserDefaults.standard.synchronize()
                     let defaults = UserDefaults.standard
                     defaults.set("false", forKey: KFirstTimeLogin)
@@ -303,7 +327,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
     utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     
-    UserDefaults.standard.set("1", forKey: "1")
+    UserDefaults.standard.set("1", forKey: "0")
     UserDefaults.standard.synchronize()
     let defaults = UserDefaults.standard
     defaults.set("false", forKey: KFirstTimeLogin)
@@ -359,6 +383,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
+            
         else  if cell.menuNameLabel.text == "Authors".localize() {
             
             
@@ -408,17 +433,69 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else  if cell.menuNameLabel.text == "Careers".localize() {
             
             
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
             
-            desController.showNav = true
+            var userId = 0
             
-            let newController = UINavigationController.init(rootViewController:desController)
-            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            if UserDefaults.standard.value(forKey: kIdKey) != nil {
+                
+                userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+                
+            }
+         
+            
+            
+            
+            if(userId != 0) {
+                
+                
+                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
+                
+                desController.showNav = true
+                
+                let newController = UINavigationController.init(rootViewController:desController)
+                revealviewcontroller.pushFrontViewController(newController, animated: true)
+                
+            }else{
+                
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                    
+                    self.loginVC.navigationString = "HomeString"
+                    
+                    self.loginVC.showNav = true
+                    
+                    let newController = UINavigationController.init(rootViewController:self.loginVC)
+                    revealviewcontroller.pushFrontViewController(newController, animated: true)
+                    
+                    
+                })
+            }
+            
+          
+            
+            
+            
+            
             
         }
             
-        else  if cell.menuNameLabel.text == "Online Shoping".localize() {
+        else  if cell.menuNameLabel.text == "Online Shopping".localize() {
+         
+            var userId = 0
+            
+            if UserDefaults.standard.value(forKey: kIdKey) != nil {
+                
+                userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+                
+            }
+            
+            
+            
+            
+            if(userId != 0) {
+      
             
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -430,9 +507,47 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             revealviewcontroller.pushFrontViewController(newController, animated: true)
             
         }
+            else{
+                
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                    
+                    self.loginVC.navigationString = "HomeString"
+                    
+                    self.loginVC.showNav = true
+                    
+                    let newController = UINavigationController.init(rootViewController:self.loginVC)
+                    revealviewcontroller.pushFrontViewController(newController, animated: true)
+                    
+
+                    
+                    
+                })
+            }
+            
+        }
+       
+            
+            
         else  if cell.menuNameLabel.text == "Notifications".localize() {
             
+          
             
+            var userId = 0
+            
+            if UserDefaults.standard.value(forKey: kIdKey) != nil {
+                
+                userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+                
+            }
+            
+            
+            
+            
+            if(userId != 0) {
+                
+
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
             
@@ -443,8 +558,28 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
+        else{
             
-            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                
+                
+                self.loginVC.navigationString = "HomeString"
+                
+                self.loginVC.showNav = true
+                
+                let newController = UINavigationController.init(rootViewController:self.loginVC)
+                revealviewcontroller.pushFrontViewController(newController, animated: true)
+                
+                
+            })
+        }
+        
+    }
+        
+        
+        
     else  if cell.menuNameLabel.text == "LogOut".localize() {
             
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -493,7 +628,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     Localize.update(language: language)
     self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
                 
-    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shoping".localize(),"EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"ChangePassword".localize(),"LogOut".localize()]
         
                 self.menuTableView.reloadData()
         })

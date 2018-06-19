@@ -156,7 +156,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             else if indexPath.row == 1{
                 
                 signUPCell.jobIDDetailsLabel.text = vacencies
-                signUPCell.jobIDNameLabel.text = "Vacencies".localize()
+                signUPCell.jobIDNameLabel.text = "Vacancies".localize()
                 
             }
             else if indexPath.row == 2{

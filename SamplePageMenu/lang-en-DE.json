@@ -142,14 +142,14 @@
     "Holy Bible - Telugu" : "Holy Bible - Telugu",
     
     "Search by category Name" : "Search",
-    "Search by Church Name" : "Search",
+    "Search" : "Search",
     "Search by Event Name" : "Search",
     "Search by Author Name" : "Search",
     "No Records Found" : "No Records Found",
     "  All Events in Month" : "  All Events in Month",
     
     "Careers" : "Careers",
-    "Online Shoping" : "Online Shopping",
+    "Online Shopping" : "Online Shopping",
     "Job Details" : "Job Details",
     "Apply" : "Apply",
     "Address" : "Address",
@@ -172,7 +172,7 @@
     "Job Title" : "Job Title",
     "Last Date To Apply" : "Last Date To Apply",
     "Qualification" : "Qualification",
-    "Vacencies" : "Vacencies",
+    "Vacancies" : "Vacancies",
     
     "Contact Person" : "Contact Person",
     "Job Description" : "Job Description",
@@ -192,7 +192,9 @@
     "Month" : "Month",
     "ChurchEventDetails" : "ChurchEventDetails",
     "Comments" : "Comments",
-    "Please provide Quantity" : "Please provide Quantity"
+    "Please provide Quantity" : "Please provide Quantity",
+    
+     "Profile" : "Profile"
     
     
     

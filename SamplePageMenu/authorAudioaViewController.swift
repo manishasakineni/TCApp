@@ -12,6 +12,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
 
     @IBOutlet weak var authorAudioTableView: UITableView!
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
     
     var imageView  = ["bible1","bible1","bible1"]
     
@@ -31,7 +32,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         let nibName1  = UINib(nibName: "AuthorAudiioTableViewCell" , bundle: nil)
         authorAudioTableView.register(nibName1, forCellReuseIdentifier: "AuthorAudiioTableViewCell")
 
-        
+         self.norecordsfoundLbl.isHidden = true
         
         // Do any additional setup after loading the view.
     }

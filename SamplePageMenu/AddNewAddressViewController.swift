@@ -496,6 +496,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                 country = selectedData
             
         }
+        
+         self.selectedData.removeAll()
         activeTextField.resignFirstResponder()
         addNewAddressTableView.endEditing(true)
     addNewAddressTableView.reloadData()

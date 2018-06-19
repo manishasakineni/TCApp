@@ -578,7 +578,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
             
             if self.isSubscribed == 0{
                 
-                infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
+                infoHeaderCell.subscribeBtn.setTitle("Subscribe".localize(),for: .normal)
             }
                 
             else{

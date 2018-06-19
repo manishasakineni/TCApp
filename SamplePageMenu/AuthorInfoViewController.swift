@@ -466,7 +466,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             if self.isSubscribed == 0{
                 
-                infoHeaderCell.subscribeBtn.setTitle("Subscribe",for: .normal)
+                infoHeaderCell.subscribeBtn.setTitle("Subscribe".localize(),for: .normal)
             }
                 
             else{
