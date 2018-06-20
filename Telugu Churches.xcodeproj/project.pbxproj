@@ -213,6 +213,8 @@
 		AF108A5420D396830098B70F /* notificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF108A5220D396820098B70F /* notificationsTableViewCell.xib */; };
 		AF108A5720D39A9B0098B70F /* NotificationInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF108A5620D39A9B0098B70F /* NotificationInfoVO.swift */; };
 		AF108A5920D39AC70098B70F /* NotificationResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF108A5820D39AC70098B70F /* NotificationResultVO.swift */; };
+		AF11B01F20D93EFE005E7D8F /* DocsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11B01D20D93EFE005E7D8F /* DocsCollectionViewCell.swift */; };
+		AF11B02020D93EFE005E7D8F /* DocsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF11B01E20D93EFE005E7D8F /* DocsCollectionViewCell.xib */; };
 		AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */; };
 		AF141D6220A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */; };
 		AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */; };
@@ -619,6 +621,8 @@
 		AF108A5220D396820098B70F /* notificationsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notificationsTableViewCell.xib; sourceTree = "<group>"; };
 		AF108A5620D39A9B0098B70F /* NotificationInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationInfoVO.swift; sourceTree = "<group>"; };
 		AF108A5820D39AC70098B70F /* NotificationResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationResultVO.swift; sourceTree = "<group>"; };
+		AF11B01D20D93EFE005E7D8F /* DocsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF11B01E20D93EFE005E7D8F /* DocsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocsCollectionViewCell.xib; sourceTree = "<group>"; };
 		AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDVO.swift; sourceTree = "<group>"; };
 		AF141D6120A6A9B900AE9FB8 /* GetJobByIDListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDListResultVO.swift; sourceTree = "<group>"; };
 		AF141D6320A6A9C900AE9FB8 /* AddUpdateJobVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUpdateJobVO.swift; sourceTree = "<group>"; };
@@ -1698,6 +1702,8 @@
 				AF91F13520AB0C320050A938 /* JobApplyTableViewCell.xib */,
 				AF0A392320D0F2D200265B7A /* jobApplymonthTableViewCell.swift */,
 				AF0A392420D0F2D200265B7A /* jobApplymonthTableViewCell.xib */,
+				AF11B01D20D93EFE005E7D8F /* DocsCollectionViewCell.swift */,
+				AF11B01E20D93EFE005E7D8F /* DocsCollectionViewCell.xib */,
 			);
 			name = GetAllJobDetailsViewController;
 			sourceTree = "<group>";
@@ -2368,6 +2374,7 @@
 				AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
 				AF91F12C20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib in Resources */,
+				AF11B02020D93EFE005E7D8F /* DocsCollectionViewCell.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
@@ -2633,6 +2640,7 @@
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
+				AF11B01F20D93EFE005E7D8F /* DocsCollectionViewCell.swift in Sources */,
 				AF0BC18F20C5685B00753E3C /* AddressInfoVO.swift in Sources */,
 				AF141D6820A6A9DA00AE9FB8 /* GetAllJobDetailsVO.swift in Sources */,
 				AF0B5DF720A315F90039C7A4 /* authorVedioViewController.swift in Sources */,

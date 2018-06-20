@@ -8,16 +8,74 @@
 
 import UIKit
 
-class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource  {
+
+func getDocumentsURL() -> URL {
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    return documentsURL
+}
+
+func fileInDocumentsDirectory(_ filename: String) -> String {
     
+    let fileURL = getDocumentsURL().appendingPathComponent(filename)
+    return fileURL.path
+    
+}
+
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
+
+
+
+class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIDocumentPickerDelegate,UICollectionViewDelegate,UICollectionViewDataSource  {
+    
+  @IBOutlet weak var saveBtn: UIButton!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
+    @IBOutlet weak var docsCollectionView: UICollectionView!
     
     @IBOutlet weak var jobApplyTableView: UITableView!
     
+    @IBOutlet weak var uploadViewheight: NSLayoutConstraint!
     
     @IBOutlet weak var applyBtnOutLet: UIButton!
 
     
     @IBOutlet weak var uploadresumeOutLet: UIButton!
+    
+    
+    @IBOutlet weak var uploadView: UIView!
+    
+    @IBOutlet weak var uploadBtnOutLet: UIButton!
+    
+    
+    @IBOutlet weak var uploadLblOutLet: UILabel!
+    
+     var selectedImagesArray: Array<UIImage> = []
+    var filename : String = ""
+    
+    var docsUrlArray:Array<String> = []
+    
+    var docUrl : URL = NSURL() as URL
+
+    var image  = UIImage()
+    var newImage = UIImage()
+    
+    var myImagePicker = UIImagePickerController()
+    
+     var fileextension : Bool = false
+    
+    var documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes:  ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: UIDocumentPickerMode.open)
+    
+    let pickerView = UIPickerView()
+    
+    private var imagePicked = 0
+    
     
     
      var activeTextField = UITextField()
@@ -66,9 +124,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var months = ""
     
     
-    var yearsArray : Array = ["0 Year","1 Year","2 Year","3 Year","4 Year","5 Year","6 Year","7 Year","8 Year","9 Year","10 Year","11 Year","12 Year","13 Year","14 Year","15 Year","16 Year","17 Year","18 Year","19 Year","20 Year","21 Year","22 Year","23 Year","24 Year","25 Year","26 Year","27 Year","28 Year","29 Year","30 Year","31 Year","32 Year","33 Year","34 Year","35 Year","36 Year","37 Year","38 Year","39 Year","40 Year","41 Year","42 Year","43 Year","44 Year","45 Year","46 Year","47 Year","48 Year","49 Year","50 Year"]
+    var yearsArray : Array = ["0 Year","1 Year","2 Years","3 Years","4 Years","5 Years","6 Years","7 Years","8 Years","9 Years","10 Years","11 Years","12 Years","13 Years","14 Years","15 Years","16 Years","17 Years","18 Years","19 Years","20 Years","21 Years","22 Years","23 Years","24 Years","25 Years","26 Years","27 Years","28 Years","29 Years","30 Years","31 Years","32 Years","33 Years","34 Years","35 Years","36 Years","37 Years","38 Years","39 Years","40 Years","41 Years","42 Years","43 Years","44 Years","45 Years","46 Years","47 Years","48 Years","49 Years","50 Years"]
 
-     var monthArray : Array = ["0 Month","1 Month","2 Month","3 Month","4 Month","5 Month","6 Month","7 Month","8 Month","9 Month","10 Month","11 Month","12 Month"]
+     var monthArray : Array = ["0 Month","1 Month","2 Months","3 Months","4 Months","5 Months","6 Months","7 Months","8 Months","9 Months","10 Months","11 Months","12 Months"]
     
     
     override func viewDidLoad() {
@@ -92,7 +150,10 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
        uploadresumeOutLet.layer.cornerRadius = 6.0
         
         uploadresumeOutLet.clipsToBounds = true
-
+        
+     uploadViewheight.constant = 0
+        uploadBtnOutLet.isHidden = true
+        imageView.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -107,6 +168,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
         
+//        uploadViewheight.constant = 70
+//        uploadBtnOutLet.isHidden = false
+
         
         
     }
@@ -379,7 +443,65 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return docsUrlArray.count
+        
+    }
     
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DocsCollectionViewCell", for:
+            indexPath) as! DocsCollectionViewCell
+        
+        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx") {
+            
+            cell.docsImage.contentMode = .scaleAspectFit
+            cell.docsImage.image = #imageLiteral(resourceName: "docImg")
+            
+            
+            
+        }
+       
+        
+        cell.closeBtn?.layer.setValue(indexPath.row, forKey: "index")
+        cell.closeBtn.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
+        
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+
+        
+        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx"){
+            
+            print("Pdfs and docs")
+            
+            
+            let embededUrlImage =  docUrl
+            
+            print(embededUrlImage)
+            
+            
+                       let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
+            
+            
+            
+            
+            self.navigationController?.pushViewController(docViewController, animated: true)
+            
+           
+                       
+        }
+
+        
+        
+    }
+   
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -506,12 +628,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             signUPCell1.monthTF.tag = 30
             
             
-//             signUPCell1.monthTF.text = yearofexperience
-//            
-//            signUPCell1.yearTF.text = yearofexperience
-//            
-            
-            
+      
             signUPCell1.monthTF.text = selectedMonths
             signUPCell1.yearTF.text = selectedYears
             
@@ -529,7 +646,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
             signUPCell.jobApplyTF.delegate = self
-          //  signUPCell.jobApplyTF.tag = indexPath.row
             
             
             
@@ -805,12 +921,111 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     }
     
     
-    @IBAction func uploadresumeAction(_ sender: Any) {
+    @IBAction func uploadBtnAction(_ sender: Any) {
         
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove", clickAction: {
+            
+  
+        
+        
+       self.uploadViewheight.constant = 0
+       self.uploadView.isHidden = true
+        self.uploadBtnOutLet.isHidden = true
+        self.imageView.isHidden = true
+            
+     
+        })
         
     }
     
     
+    
+    
+    @IBAction func uploadresumeAction(_ sender: Any) {
+        
+        fileextension = false
+        
+        
+        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
+        
+
+        
+        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
+            -> Void in
+            
+            
+            
+            self.documentPicker.delegate = self
+            
+            self.present(self.documentPicker, animated: true, completion: {
+                
+                print("documentPicker presented")
+            })
+            
+            
+        })
+        
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        
+  
+        menu.addAction(document)
+        menu.addAction(cancel)
+        
+        
+        
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+            
+            
+            present(menu, animated: true, completion: nil)
+        }
+            
+        else{
+            
+            let popup = UIPopoverController.init(contentViewController: menu)
+            
+            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            
+        }
+        
+    
+    
+    
+    }
+    
+    func closeBtnClicked(sender:UIButton){
+        
+        let i : Int = (sender.layer.value(forKey: "index")) as! Int
+        
+        
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Areyousurewanttodeletethisimage?") {
+            
+            self.selectedImagesArray.remove(at: i)
+            
+            if self.selectedImagesArray.count > 0{
+                
+                
+            }
+            else {
+                
+                
+            }
+            
+            self.jobApplyTableView.reloadData()
+            
+            
+            
+        }
+        
+    }
+  
+    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+
     
     
 func getjobApplicationAPICall(){
@@ -831,7 +1046,7 @@ func getjobApplicationAPICall(){
         "yearsofExp": selectedYears + "" + selectedMonths,
         "fileName": "",
         "fileLocation": "",
-        "fileExtention": ".pdf",
+        "fileExtention": filename,
         "currentOrganization": currentorganization,
         "currentSalary": currentsalary,
         "expectedSalary": expectedsalary,
@@ -985,9 +1200,262 @@ func getjobApplicationAPICall(){
         
     }
     
+    //MARK: - documentPicker Delegate methods
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        
+        self.docUrl = url as URL
+        
+  //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
+        
+        
+   //     self.imageView.image = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))
+        
+         imageView.isHidden = false
+        
+        print("The Url is : \(docUrl)")
+        
+        self.filename = docUrl.pathExtension
+        
+        
+        
+        let data = try! Data(contentsOf: self.docUrl)
+        
+        print("The data is : \(data)")
+        
+        let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        
+        self.docsUrlArray.append(base64String)
+        
+        
+        uploadViewheight.constant = 50
+        uploadBtnOutLet.isHidden = false
+        
+        
+        print("The Url is : \(filename)")
+        
+      // file:///private/var/mobile/Library/Mobile%20Documents/com~apple~Numbers/Documents/API%20Doubts%20_09-10-17.numbers
+        
+        
+        let fileManager = FileManager.default
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+        print(documentsUrl)
+        
+        do
+        {
+            
+        
+        }
+        catch{
+            print("Error: \(error)")
+        }
+        let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last
+        let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+        
+        
+        if let iCloudDocumentsURL = iCloudDocumentsURL {
+            var error:NSError?
+            var isDir:ObjCBool = false
+            if (FileManager.default.fileExists(atPath: iCloudDocumentsURL.path, isDirectory: &isDir)) {
+                
+                
+                do {
+                    
+                    try FileManager.default.removeItem(at: iCloudDocumentsURL)
+                    
+                }
+                catch {
+                    
+                    
+                }
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    //MARK: - resize Image
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+
+    
+    
+    @available(iOS 8.0, *)
+    
+    public func documentMenu(_ documentMenu:     UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+        
+        documentPicker.delegate = self as UIDocumentPickerDelegate
+        present(documentPicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    @available(iOS 8.0, *)
+    
+    public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        
+        self.documentPicker = UIDocumentPickerViewController(documentTypes:  ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: UIDocumentPickerMode.open)
+
+        dismiss(animated: true, completion: {
+            print("we cancelled")
+            
+            
+        })
+        
+        
+        
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        if self.presentedViewController == nil {
+
+        
+        } else {
+
+        }
+        super.dismiss(animated: flag, completion: completion)
+    }
+    
+    
+    @IBAction func saveBtnAction(_ sender: UIButton) {
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        
+        
+        let size = CGSize(width: 400, height: 400)
+        newImage = resizeImage(image: image,targetSize : size)
+        
+        
+        
+        selectedImagesArray.append(newImage)
+        
+        jobApplyTableView.reloadData()
+        
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getArrayOfBytesFromImage(imageData:NSData) -> NSMutableArray
+    {
+        
+        let count = imageData.length / MemoryLayout<UInt8>.size
+        
+        var bytes = [UInt8](repeating: 0, count: count)
+        
+        imageData.getBytes(&bytes, length:count * MemoryLayout<UInt8>.size)
+        
+        let byteArray:NSMutableArray = NSMutableArray()
+        
+        
+        for i in (0..<bytes.count){
+            
+            byteArray.add(NSNumber(value: bytes[i]))
+        }
+        
+        
+        
+        return byteArray
+        
+        
+    }
+    
     
     
     
     
 
 }
+
+
+
+
+struct ImageHeaderData{
+    
+    static var PNG: [UInt8] = [0x89]
+    static var JPEG: [UInt8] = [0xFF]
+    static var GIF: [UInt8] = [0x47]
+    static var TIFF_01: [UInt8] = [0x49]
+    static var TIFF_02: [UInt8] = [0x4D]
+}
+
+enum ImageFormat{
+    case Unknown, PNG, JPEG, GIF, TIFF
+}
+extension Data {
+    
+    var format: String {
+        let array = [UInt8](self)
+        let ext: String
+        switch (array[0]) {
+        case 0xFF:
+            ext = "jpg"
+        case 0x89:
+            ext = "png"
+        case 0x47:
+            ext = "gif"
+        case 0x49, 0x4D :
+            ext = "tiff"
+        default:
+            ext = "unknown"
+        }
+        return ext
+    }
+}
+extension JobApplyViewController: UIDocumentInteractionControllerDelegate {
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
+}
+
+extension NSData{
+    var imageFormat: ImageFormat{
+        var buffer = [UInt8](repeating: 0, count: 1)
+        self.getBytes(&buffer, range: NSRange(location: 0,length: 1))
+        if buffer == ImageHeaderData.PNG
+        {
+            return .PNG
+        } else if buffer == ImageHeaderData.JPEG
+        {
+            return .JPEG
+        } else if buffer == ImageHeaderData.GIF
+        {
+            return .GIF
+        } else if buffer == ImageHeaderData.TIFF_01 || buffer == ImageHeaderData.TIFF_02{
+            return .TIFF
+        } else{
+            return .Unknown
+        }
+    }
+}
+

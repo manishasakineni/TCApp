@@ -40,7 +40,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         // self.getjobdetailsAPICall(string: searchBar.text!)
+          self.getjobdetailsAPICall(string: searchBar.text!)
         
         getAllJobDetailsTableView.dataSource = self
         getAllJobDetailsTableView.delegate = self
@@ -66,8 +66,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         let nibName1  = UINib(nibName: "GetAllJobDetailsTableViewCell" , bundle: nil)
         getAllJobDetailsTableView.register(nibName1, forCellReuseIdentifier: "GetAllJobDetailsTableViewCell")
-    //   getjobdetailsAPICall()
-        
         
         self.navigationController?.isNavigationBarHidden = false
         
@@ -100,7 +98,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         self.jobDetailsArray.removeAll()
         
-        self.getjobdetailsAPICall(string: searchBar.text!)
  
         
     }
@@ -248,7 +245,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         
-        if indexPath.row == (jobDetailsArray.count) - 1 {
+        if indexPath.row == (filtered.count) - 1 {
             
             if(self.totalPages! > PageIndex){
                 
@@ -357,7 +354,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         let paramsDict = [ "userId": 0,
                            "pageIndex": PageIndex,
-                           "pageSize": 10,
+                           "pageSize": 100,
                            "sortbyColumnName": "LastdateToApply",
                            "sortDirection": "desc",
                            "searchName": string

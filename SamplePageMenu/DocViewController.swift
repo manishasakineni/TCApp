@@ -14,6 +14,8 @@ class DocViewController: UIViewController,UIWebViewDelegate {
     
     var titleStr:String = ""
     
+    var docUrl : URL = NSURL() as URL
+    
     @IBOutlet weak var docWebView: UIWebView!
     
     @IBOutlet weak var noRecorsLabel: UILabel!

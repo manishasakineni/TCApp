@@ -269,7 +269,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         
-        if indexPath.row == (allitemsArray.count) - 1 {
+        if indexPath.row == (filtered.count) - 1 {
             
             if(self.totalPages! > PageIndex){
                 
@@ -448,7 +448,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         let paramsDict = [ 	"userId": "",
                            	"pageIndex": PageIndex,
-                           	"pageSize": 10,
+                           	"pageSize": 100,
                            	"sortbyColumnName": "UpdatedDate",
                            	"sortDirection": "desc",
                            	"searchName": string
