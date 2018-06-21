@@ -22,43 +22,43 @@ class GlobalSupportingClass {
     // MARK: - Error Messages
     
     class func blankjobtitleErrorMessage() -> String {
-        return "Please provide jobtitle".localize()
+        return "Please Enter jobtitle".localize()
     }
     
     
     class func blankqualificationErrorMessage() -> String {
-        return "Please provide Qualification".localize()
+        return "Please Enter Qualification".localize()
     }
     
     class func blankyearofexperienceErrorMessage() -> String {
-        return "Please provide Years Of Experience".localize()
+        return "Please Enter Years Of Experience".localize()
     }
     class func blankcurrentorganizationErrorMessage() -> String {
-        return "Please provide Current Organization".localize()
+        return "Please Enter Current Organization".localize()
     }
     class func blankcurrentsalaryErrorMessage() -> String {
-        return "Please provide Current Salary".localize()
+        return "Please Enter Current Salary".localize()
     }
     class func blankexpectedsalaryErrorMessage() -> String {
-        return "Please provide Expected Salary".localize()
+        return "Please Enter Expected Salary".localize()
     }
     
     class func blankFullNameErrorMessage() -> String {
-        return "Please provide Full Name".localize()
+        return "Please Enter Full Name".localize()
     }
     class func blankFlatnoErrorMessage() -> String {
-        return "Please provide Flat No".localize()
+        return "Please Enter Flat No".localize()
     }
     
     class func blankAreaErrorMessage() -> String {
-        return "Please provide Area".localize()
+        return "Please Enter Area".localize()
     }
  
     class func blankPinCodeErrorMessage() -> String {
-        return "Please provide PinCode".localize()
+        return "Please Enter PinCode".localize()
     }
     class func blankLandmarkErrorMessage() -> String {
-        return "Please provide Landmark".localize()
+        return "Please Enter Landmark".localize()
     }
     class func blankStateErrorMessage() -> String {
         return "Please Select State".localize()
@@ -71,30 +71,30 @@ class GlobalSupportingClass {
     
     
     class func blankFirstNameErrorMessage() -> String {
-        return "Please provide First Name".localize()
+        return "Please Enter First Name".localize()
     }
     class func AlphaBetsOnlyErrorMessage() -> String {
         return "Only AlphaBets Allowed".localize()
     }
     class func blankMiddleNameErrorMessage() -> String {
-        return "Please provide MiddleName".localize()
+        return "Please Enter MiddleName".localize()
     }
     
     class func blankLastNameErrorMessage() -> String {
-        return "Please provide Lastname".localize()
+        return "Please Enter Lastname".localize()
     }
     class func blankUserNameErrorMessage() -> String {
         return "Please Enter UserName".localize()
     }
     class func blankEmailIDErrorMessage() -> String {
-        return "Please provide e-mail".localize()
+        return "Please Enter e-mail".localize()
     }
     class func blankMobileNumberErrorMessage() -> String {
-        return "Please provide Mobile Number".localize()
+        return "Please Enter Mobile Number".localize()
     }
     
     class func miniCharMobileNumberErrorMessage() -> String {
-        return "Please provide Mobile Number".localize()
+        return "Please Enter Mobile Number".localize()
     }
     class func invalidMobileNumberErrorMessage() -> String {
         return "invalid Mobile Number".localize()
@@ -103,20 +103,20 @@ class GlobalSupportingClass {
         return "Email Should Minimum 5-Character".localize()
     }
     class func invalidEmaildIDFormatErrorMessage() -> String {
-        return "Please provide valid e-maild Format".localize()
+        return "Please Enter valid e-mail id Format".localize()
     }
     class func blankDOBErrorMessage() -> String {
-        return "Please provide DOB".localize()
+        return "Please Enter DOB".localize()
     }
     class func blankgenderErrorMessage() -> String {
-        return "Please provide Gender".localize()
+        return "Please Enter Gender".localize()
     }
 
     class func blankPassWordErrorMessage() -> String {
-        return "Please provide Password".localize()
+        return "Please Enter Password".localize()
     }
     class func blankConfirmPasswordErrorMessage() -> String {
-        return "Please provide Confirm Password".localize()
+        return "Please Enter Confirm Password".localize()
         
     }
     
@@ -129,14 +129,14 @@ class GlobalSupportingClass {
     
     
     class func blankPasswordErrorMessage() -> String {
-        return "Please Provide New Password".localize()
+        return "Please Enter New Password".localize()
     }
     class func blankPswdErrorMessage() -> String {
         return "Please Enter Password".localize()
     }
     
     class func blankResetPasswordErrorMessage() -> String {
-        return "Please Provide Reset-Password".localize()
+        return "Please Enter Reset-Password".localize()
     }
     //    class func blankConfirmPassWordErrorMessage() -> String {
     //        return "Please ConfirmPassWord Password"
@@ -148,14 +148,14 @@ class GlobalSupportingClass {
     
     
     class func blankMobilenumberErrorMessage() -> String {
-        return "Please Provide Your Mobile Number".localize()
+        return "Please Enter Your Mobile Number".localize()
     }
     class func invalidMobilenumberErrorMessage() -> String {
-        return "Please Provide 10-Digits MobileNumber".localize()
+        return "Please Enter 10-Digits MobileNumber".localize()
     }
     
     class func invalidPassWordErrorMessage() -> String {
-        return "Please Provide Minimum 8 Characters Password".localize()
+        return "Please Enter Minimum 8 Characters Password".localize()
     }
     //    class func invalidPhoneNumberErrorMessage() -> String {
     //        return "app.Pleaseprovide10digitsmobilenumber".localize()
@@ -181,7 +181,7 @@ class GlobalSupportingClass {
     }
     
     class func blankNilOldPasswordErrorMessage() -> String {
-        return "Please Provied Old Password".localize()
+        return "Please Enter Old Password".localize()
     }
     
     class func IncooectOldPasswordErrorMessage() -> String {

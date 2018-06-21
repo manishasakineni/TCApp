@@ -63,7 +63,7 @@ class AudioViewController: UIViewController {
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
 
-        Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
 
     }
 //MARK: -  view Will Appear

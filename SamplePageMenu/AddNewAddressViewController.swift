@@ -101,7 +101,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -172,7 +172,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         else if activeTextField.tag == 6{
             
-            //for states
+            //for country
             
             self.pickerUp(textField)
             pickerData = countryDetails
@@ -480,7 +480,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             for eachDetail in stateInfoDetails{
                 if(selectedData == eachDetail.name!){
-                    let stateID = eachDetail.id!
+                     stateID = eachDetail.id!
                 }
             }
             
@@ -490,7 +490,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         else if(activeTextField.tag == 6){
             for eachDetail in countryInfoDetails{
                 if(selectedData == eachDetail.name!){
-                    let countryID = eachDetail.id!
+                     countryID = eachDetail.id!
                 }
             }
                 country = selectedData
@@ -697,8 +697,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
                 
                 
-     //   self.navigationController?.pushViewController(jobIDViewController, animated: true)
-       self.navigationController?.popViewController(animated: true)          
+       self.navigationController?.popViewController(animated: true)
 
                 
                 for eachArray in listArr{

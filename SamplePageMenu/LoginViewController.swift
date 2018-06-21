@@ -106,7 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBar.isHidden = false
         
-           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: "a", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     }
     
     //MARK: -  View Will Disappear

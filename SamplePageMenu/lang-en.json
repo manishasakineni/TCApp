@@ -32,30 +32,30 @@
     "Ok" : "Ok",
     "Success" :"Success",
     "Retry" : "Retry",
-    "Please provide First Name" : "Please Enter First Name",
+    "Please Enter First Name" : "Please Enter First Name",
     "Only AlphaBets Allowed" : "Only AlphaBets Allowed",
-    "Please provide MiddleName" :"Please Enter Middle Name",
-    "Please provide Lastname" :"Please Enter Last Name",
-    "Please provide UserName" : "Please Enter User Name",
-    "Please provide e-mail" :"Please Enter E-mail",
-    "Please provide Mobile Number" : "Please Enter Mobile Number",
+    "Please Enter MiddleName" :"Please Enter Middle Name",
+    "Please Enter Lastname" :"Please Enter Last Name",
+    "Please Enter UserName" : "Please Enter User Name",
+    "Please Enter e-mail" :"Please Enter E-mail",
+    "Please Enter Mobile Number" : "Please Enter Mobile Number",
     "invalid Mobile Number" : "Invalid Mobile Number",
     "Email Should Minimum 5-Character" : "Email Should Minimum 5-Character",
-    "Please provide valid e-maild Format" : "Please Enter Valid E-mail Id Format",
-    "Please provide Password" : "Please Enter Password",
-    "Please provide Confirm Password" : "Please Enter Confirm Password",
+    "Please Enter valid e-mail id Format" : "Please Enter Valid E-mail Id Format",
+    "Please Enter Password" : "Please Enter Password",
+    "Please Enter Confirm Password" : "Please Enter Confirm Password",
     "Incorrect Confirm Password" : "Incorrect Confirm Password",
     "Password Missmatch" : "Password Missmatch",
-    "Please Provide New Password" : "Please Enter New Password",
-    "Please Provide Reset-Password" : "Please Enter Reset-Password",
+    "Please Enter New Password" : "Please Enter New Password",
+    "Please Enter Reset-Password" : "Please Enter Reset-Password",
     "password must have at least one uppercase letter" : "password Must have At Least One Uppercase Letter",
-    "Please Provide Your Mobile Number" : "Please Enter Your Mobile Number",
-    "Please Provide 10-Digits MobileNumber" : "Please Enter 10-Digits MobileNumber",
-    "Please Provide Minimum 8 Characters Password" : "Please Enter Minimum 8 Characters Password",
+    "Please Enter Your Mobile Number" : "Please Enter Your Mobile Number",
+    "Please Enter 10-Digits MobileNumber" : "Please Enter 10-Digits MobileNumber",
+    "Please Enter Minimum 8 Characters Password" : "Please Enter Minimum 8 Characters Password",
     "Password must have at least one number" : "Password Must Have At Least One Number",
     "Password must have at least one special Character" : "Password Must Have At Least One Special Character",
     "Provied Old Password" : "Please Enter Old Password",
-    "Please Provied Old Password" : "Please Enter Old Password",
+    "Please Enter Old Password" : "Please Enter Old Password",
     "Please Login" : "Please Login",
     "Cancel" : "Cancel",
     "Personal Detail's" : "Personal Details",
@@ -130,8 +130,8 @@
     "From :" : "From :",
     "To :" : "To :",
     "Event From" : "Event From",
-    "Please provide DOB" : "Please provide Date Of Birth",
-    "Please provide Gender" : "Please provide Gender",
+    "Please Enter DOB" : "Please Enter Date Of Birth",
+    "Please Enter Gender" : "Please Enter Gender",
     "Holy Bible" : "Holy Bible",
     "Bible Chapters" : "Bible Chapters",
     "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters" : "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters",
@@ -191,12 +191,41 @@
      "Year" : "Year",
     "Month" : "Month",
     "ChurchEventDetails" : "ChurchEventDetails",
-    "Comments" : "Comments"
-    "Please provide Quantity" : "Please provide Quantity",
+    "Comments" : "Comments",
+    "Please Enter Quantity" : "Please Enter Quantity",
     
      "Profile" : "Profile",
     
-    "Save" : "Save"
+    "Save" : "Save",
+    
+    "Please Enter Full Name" : "Please Enter Full Name",
+    "Please Enter Flat No" : "Please Enter Flat No",
+    "Please Enter Area" : "Please Enter Area",
+    "Please Enter PinCode" : "Please Enter PinCode",
+    "Please Enter Landmark" : "Please Enter Landmark",
+    "Please Select State" : "Please Select State",
+    
+    "Please Select Country" : "Please Select Country",
+    
+    "Are You Sure Want To Delete" : "Are You Sure Want To Delete",
+    
+    "Are You Sure Want To Remove Item From Your Cart" : "Are You Sure Want To Remove Item From Your Cart",
+    
+    "Are You Sure Want To Remove" : "Are You Sure Want To Remove",
+    
+    "Please Enter jobtitle" : "Please Enter jobtitle",
+    "Please Enter Qualification" : "Please Enter Qualification",
+    
+    "Please Enter Years Of Experience" : "Please Enter Years Of Experience",
+    
+    "Please Enter Current Organization" : "Please Enter Current Organization",
+    "Please Enter Current Salary" : "Please Enter Current Salary",
+    
+    "Please Enter Expected Salary" : "Please Enter Expected Salary",
+    
+    
+
+
 
 
     

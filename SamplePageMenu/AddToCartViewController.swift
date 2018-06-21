@@ -68,7 +68,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shopping".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shopping".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -77,7 +77,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
   
     override func viewWillDisappear(_ animated: Bool) {
         
-        Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "home icon", cntr:self, titleView: nil, withText: "".localize(), backTitle: "", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "".localize(), backTitle: "", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
     }
@@ -180,7 +180,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers
                 for moveToVC in viewControllers {
                     if moveToVC is HomeViewController {
-                           Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+                           Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
                         _ = self.navigationController?.popToViewController(moveToVC, animated: true)
                     }
                 }
@@ -316,7 +316,7 @@ func deleteAPIService(_ sender : UIButton){
     
     
         
-    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart", clickAction: {
+    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
         
         
         

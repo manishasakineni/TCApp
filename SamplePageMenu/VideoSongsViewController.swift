@@ -158,7 +158,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         
     super.viewWillAppear(animated)
         
-    Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+    Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
 
     }
     //MARK:- view Will Disappear
@@ -168,7 +168,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
     super.viewWillDisappear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         }
     
     override func didReceiveMemoryWarning() {

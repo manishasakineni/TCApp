@@ -346,7 +346,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile".localize(), backTitle: " Edit Profile".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile".localize(), backTitle: " Edit Profile".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
 
         
       //  cameraOutLet.te

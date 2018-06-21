@@ -32,31 +32,31 @@
     "Ok" : "అలాగే",
     "Success" :"విజయం",
     "Retry" : "మళ్ళీ ప్రయత్నించు",
-    "Please provide First Name" : "దయచేసి మొదటి పేరు అందించండి",
+    "Please Enter First Name" : "దయచేసి మొదటి పేరు అందించండి",
     
     "Only AlphaBets Allowed" : "అక్షరాలకు మాత్రమే అనుమతి ఉంది",
-    "Please provide MiddleName" :"దయచేసి మధ్య పేరుని అందించండి",
-    "Please provide Lastname" :"దయచేసి చివరి పేరును అందించండి",
-    "Please provide UserName" : "దయచేసి వినియోగదారు పేరుని అందించండి",
-    "Please provide e-mail" :"దయచేసి ఇ-మెయిల్ను అందించండి",
-    "Please provide Mobile Number" : "దయచేసి మొబైల్ నంబర్ను అందించండి",
+    "Please Enter MiddleName" :"దయచేసి మధ్య పేరుని అందించండి",
+    "Please Enter Lastname" :"దయచేసి చివరి పేరును అందించండి",
+    "Please Enter UserName" : "దయచేసి వినియోగదారు పేరుని అందించండి",
+    "Please Enter e-mail" :"దయచేసి ఇ-మెయిల్ను అందించండి",
+    "Please Enter Mobile Number" : "దయచేసి మొబైల్ నంబర్ను అందించండి",
     "invalid Mobile Number" : "చెల్లని మొబైల్ నంబర్",
     "Email Should Minimum 5-Character" : "ఇమెయిల్ కనీసం 5-అక్షరాలతో ఉండాలి",
-    "Please provide valid e-maild Format" : "దయచేసి చెల్లుబాటు అయ్యే ఇ-మెయిల్ ఐడి ఫార్మాట్ను అందించండి",
-    "Please provide Password" : "దయచేసి పాస్వర్డ్ను అందించండి",
-    "Please provide Confirm Password" : "దయచేసి పాస్వర్డ్ని నిర్ధారించండి",
+    "Please Enter valid e-mail id Format" : "దయచేసి చెల్లుబాటు అయ్యే ఇ-మెయిల్ ఐడి ఫార్మాట్ను అందించండి",
+    "Please Enter Password" : "దయచేసి పాస్వర్డ్ను అందించండి",
+    "Please Enter Confirm Password" : "దయచేసి పాస్వర్డ్ని నిర్ధారించండి",
     "Incorrect Confirm Password" : "సరికాని పాస్వర్డ్ని నిర్ధారించండి",
     "Password Missmatch" : "పాస్వర్డ్ మిస్ మేచ్",
-    "Please Provide New Password" : "దయచేసి క్రొత్త పాస్వర్డ్ను అందించండి",
-    "Please Provide Reset-Password" : "దయచేసి రీసెట్-పాస్వర్డ్ను అందించండి",
+    "Please Enter New Password" : "దయచేసి క్రొత్త పాస్వర్డ్ను అందించండి",
+    "Please Enter Reset-Password" : "దయచేసి రీసెట్-పాస్వర్డ్ను అందించండి",
     "password must have at least one uppercase letter" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక పెద్ద అక్షరం కలిగి ఉండాలి",
-    "Please Provide Your Mobile Number" : "దయచేసి మీ మొబైల్ నంబర్ను అందించండి",
-    "Please Provide 10-Digits MobileNumber" : "దయచేసి 10-అంకెల మొబైల్ నంబర్ను అందించండి",
-    "Please Provide Minimum 8 Characters Password" : "కనీస 8 అక్షరాల పాస్వర్డ్ను అందించండి",
+    "Please Enter Your Mobile Number" : "దయచేసి మీ మొబైల్ నంబర్ను అందించండి",
+    "Please Enter 10-Digits MobileNumber" : "దయచేసి 10-అంకెల మొబైల్ నంబర్ను అందించండి",
+    "Please Enter Minimum 8 Characters Password" : "కనీస 8 అక్షరాల పాస్వర్డ్ను అందించండి",
     "Password must have at least one number" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక సంఖ్యను కలిగి ఉండాలి",
     "Password must have at least one special Character" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక ప్రత్యేక అక్షరాన్ని కలిగి ఉండాలి",
     "Provied Old Password" : "ఓల్డ్ పాస్వర్డ్ను అందించండి",
-    "Please Provied Old Password" : "దయచేసి పాత పాస్వర్డ్ను అందించండి",
+    "Please Enter Old Password" : "దయచేసి పాత పాస్వర్డ్ను అందించండి",
     "Please Login" : "దయచేసి లాగిన్ చేయండి",
     "Cancel" : "రద్దు",
     "Personal Detail's" : "వ్యక్తిగత వివరాలు",
@@ -132,8 +132,8 @@
     "From :" : "నుండి :",
     "To :" : "కు :",
     "Event From" : "ఈవెంట్ నుండి",
-    "Please provide DOB" : "దయచేసి పుట్టిన తేదీని అందించండి",
-    "Please provide Gender" : "దయచేసి లింగం ఇవ్వండి",
+    "Please Enter DOB" : "దయచేసి పుట్టిన తేదీని అందించండి",
+    "Please Enter Gender" : "దయచేసి లింగం ఇవ్వండి",
     "Holy Bible" : "పవిత్ర బైబిల్",
     "Bible Chapters" : "బైబిలు అధ్యాయాలు",
     "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters" :
@@ -193,10 +193,38 @@
     "Month" : "నెల",
     "ChurchEventDetails" : "చర్చి ఈవెంట్ వివరాలు",
     "Comments" : "వ్యాఖ్యలు",
-    "Please provide Quantity" : "దయచేసి క్వాలిటీని అందజేయండి",
+    "Please Enter Quantity" : "దయచేసి క్వాలిటీని అందజేయండి",
     
     "Profile" : "ప్రొఫైల్",
-      "Save" : "సేవ్"
+      "Save" : "సేవ్",
+    
+    "Please Enter Full Name" : "దయచేసి పూర్తి పేరుని నమోదు చేయండి",
+    "Please Enter Flat No" : "ఫ్లాట్ నం ఇవ్వండి",
+    "Please Enter Area" : "దయచేసి ప్రదేశం నమోదు చేయండి",
+    "Please Enter PinCode" : "దయచేసి పిన్కోడ్ను నమోదు చేయండి",
+    "Please Enter Landmark" : "దయచేసి మైలురాయిని నమోదు చేయండి",
+    "Please Select State" : "దయచేసి రాష్ట్రం ఎంచుకోండి",
+    
+    "Please Select Country" : "దయచేసి దేశం ఎంచుకోండి",
+    
+    "Are You Sure Want To Delete" : "మీరు ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?",
+    "Are You Sure Want To Remove Item From Your Cart" : "మీరు మీ కార్ట్ నుండి అంశాన్ని తీసివేయాలనుకుంటున్నారా?",
+    
+    "Are You Sure Want To Remove" : "మీరు ఖచ్చితంగా తీసివేయాలనుకుంటున్నారా?",
+    
+    "Please Enter jobtitle" : "దయచేసి ఉద్యోగ శీర్షికను నమోదు చేయండి",
+    "Please Enter Qualification" : "అర్హత ఇవ్వండి",
+    
+    "Please Enter Years Of Experience" : "అనుభవాలను ఎంటర్ చెయ్యండి",
+    
+    "Please Enter Current Organization" : "దయచేసి ప్రస్తుత సంస్థను నమోదు చేయండి",
+    "Please Enter Current Salary" : "దయచేసి ప్రస్తుత జీతం ఎంటర్ చేయండి",
+    "Please Enter Expected Salary" : "దయచేసి ఊహించిన జీతం ఎంటర్ చేయండి",
+    
+    
+    
+
+
 
 
     

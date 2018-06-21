@@ -22,3 +22,11 @@ class DocsCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+
+
+
+
+
+
+

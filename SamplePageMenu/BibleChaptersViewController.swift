@@ -67,7 +67,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
             super.viewWillAppear(animated)
     
     
-           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr)", backTitle: "\(backTitleStr)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr)", backTitle: "\(backTitleStr)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
     
         }
         

@@ -166,10 +166,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-//        uploadViewheight.constant = 70
-//        uploadBtnOutLet.isHidden = false
 
         
         
@@ -923,7 +921,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     
     @IBAction func uploadBtnAction(_ sender: Any) {
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove", clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
             
   
         
@@ -1046,7 +1044,7 @@ func getjobApplicationAPICall(){
         "yearsofExp": selectedYears + "" + selectedMonths,
         "fileName": "",
         "fileLocation": "",
-        "fileExtention": filename,
+        "fileExtention": ".pdf",
         "currentOrganization": currentorganization,
         "currentSalary": currentsalary,
         "expectedSalary": expectedsalary,
@@ -1208,8 +1206,6 @@ func getjobApplicationAPICall(){
         
   //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
         
-        
-   //     self.imageView.image = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))
         
          imageView.isHidden = false
         

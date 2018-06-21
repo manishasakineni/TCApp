@@ -77,7 +77,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
             super.viewWillAppear(animated)
     
     
-           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
     
         }
     

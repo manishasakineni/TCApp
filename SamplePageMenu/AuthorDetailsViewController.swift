@@ -56,7 +56,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         super.viewWillAppear(animated)
 
-   Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+   Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
     

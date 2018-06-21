@@ -59,7 +59,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewWillAppear(animated)
         addressAPICall()
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
         
@@ -109,6 +109,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         cell.addresslineLbl.text = listStr.addressLine1! + ", " + listStr.addressLine2!
         cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
+     
+        
         
         cell.pincodeLbl.text = "\(listStr.pinCode!)"
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
@@ -267,7 +269,7 @@ func deleteaddressAPICall(_ sender : UIButton){
   
     
     
-    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete", clickAction: {
+    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
         
         self.deleteAddressForIndex(sender.tag)
         

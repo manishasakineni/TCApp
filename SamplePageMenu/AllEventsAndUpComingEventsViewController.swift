@@ -47,7 +47,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
         super.viewWillAppear(true)
         
-        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
     }

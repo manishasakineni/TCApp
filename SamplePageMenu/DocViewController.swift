@@ -27,7 +27,7 @@ class DocViewController: UIViewController,UIWebViewDelegate {
         
         
         
-         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(titleStr)", backTitle: "  \(titleStr)".localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(titleStr)", backTitle: "  \(titleStr)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         let docUrl = NSURL(string: urlStr)
         

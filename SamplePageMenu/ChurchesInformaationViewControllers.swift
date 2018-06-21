@@ -46,7 +46,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
        
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
 
     }
 

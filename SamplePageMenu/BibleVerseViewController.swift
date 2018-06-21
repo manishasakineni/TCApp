@@ -65,7 +65,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         //   super.viewWillAppear(animated)
         
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) \(chapterCount + 1)", backTitle: "mbhjbhb", rightImage: "home icon", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr) \(chapterCount + 1)", backTitle: "mbhjbhb", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
     }
 
