@@ -255,30 +255,47 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         {
             if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
 
+    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            
+    let desController = mainstoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as!ProfileViewController
+            
+            
+    let newController = UINavigationController.init(rootViewController:desController)
+            
+    revealviewcontroller.pushFrontViewController(newController, animated: true)
+                
+                
+//    editProfileTableView.isHidden = true
+//                
+//    appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+//    
+//            
+                
+            
+            }else{
+                
+        utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
+                    
+            UserDefaults.standard.set("1", forKey: "0")
+            
+            UserDefaults.standard.synchronize()
+            
+            let defaults = UserDefaults.standard
+            
+            defaults.set("false", forKey: KFirstTimeLogin)
+            
+            UserDefaults.standard.synchronize()
+                    
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
             
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as!ProfileViewController
-            
+            desController.showNav = true
             
             let newController = UINavigationController.init(rootViewController:desController)
             
             revealviewcontroller.pushFrontViewController(newController, animated: true)
-            
-            }else{
-                 utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
-                    
-                    UserDefaults.standard.set("1", forKey: "0")
-                    UserDefaults.standard.synchronize()
-                    let defaults = UserDefaults.standard
-                    defaults.set("false", forKey: KFirstTimeLogin)
-                    UserDefaults.standard.synchronize()
-                    
-                    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-                    desController.showNav = true
-                    let newController = UINavigationController.init(rootViewController:desController)
-                    revealviewcontroller.pushFrontViewController(newController, animated: true)
 
                  })
 

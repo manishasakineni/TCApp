@@ -197,15 +197,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         activeLabel.numberOfLines = 0
         
-//        if kUserDefaults.value(forKey: "usersCommentsArray") != nil{
-//            
-//            self.usersCommentsArray = kUserDefaults.value(forKey: "usersCommentsArray") as! Array<Any>
-//
-//        }
-// 
-//        
-//        
-//        kUserDefaults.synchronize()
+
         
         
         self.player.delegate = self
@@ -222,19 +214,6 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             "modestbranding" : 0
         ]
         
-        //  self.loadingImg.image = UIImage(named: "Video")
-        
-        //        self.player.load(withVideoId: self.videosIDArray[0])
-        //
-        //        self.player.load(withPlayerParams: ["showinfo" : 3])
-        
-        
-        //  self.player.load(withVideoId: self.embedLinksAry[0],playerVars: playerVars)
-        
-        
-        // self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
-        
-        //  self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
         
         
         if let catID = UserDefaults.standard.value(forKey: "categoryId")  as? Int {
@@ -248,10 +227,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             self.videoId = vID
         }
         
-//        if let videoEmbededID = UserDefaults.standard.value(forKey: "videoEmbededIDStr") as? String  {
-//            
-//            self.videoEmbededIDStr = videoEmbededID
-//        }
+
         
         kUserDefaults.synchronize()
         
@@ -463,6 +439,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         repliesTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
        // let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        
         repliesTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
     }
     

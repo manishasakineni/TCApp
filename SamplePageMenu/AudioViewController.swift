@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class AudioViewController: UIViewController {
+class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate {
 
     @IBOutlet weak var seekLoadingLabel: UILabel!
     
@@ -36,6 +36,10 @@ class AudioViewController: UIViewController {
     
     @IBOutlet weak var backGroundView: UIView!
     
+    
+    @IBOutlet weak var audioTableview: UITableView!
+    
+    
 //MARK: -  variable declaration
     
     var appVersion          : String = ""
@@ -50,6 +54,37 @@ class AudioViewController: UIViewController {
     var index: Int = Int()
     var avPlayer: AVPlayer!
     var isPaused: Bool!
+   
+    
+    
+    
+    
+    var thumbnailImageURL = String()
+    
+    var userID = Int()
+    
+    
+    var isLike = 0
+    var isDisLike = 0
+    var likeClick = false
+    var disLikeClick = false
+    var likesCount = 0
+    var disLikesCount = 0
+    var ID = 0
+    var sendCommentClick = false
+    var usersCommentsArray = Array<Any>()
+    
+    var parentCommentId = 0
+    var replyParentCommentId = 0
+    
+    var commentString : String = "Add a public comment..."
+    
+     var loginVC = LoginViewController()
+    
+    
+     var eventID = Int()
+    
+     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
     
     
   //MARK: -  view Did Load
@@ -64,6 +99,40 @@ class AudioViewController: UIViewController {
         backGroundView.layer.shadowRadius = 2.0
 
         Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
+        }
+        
+
+        
+        
+        let nibName  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
+        audioTableview.register(nibName, forCellReuseIdentifier: "youtubeCLDSSCell")
+        
+        let nibName1  = UINib(nibName: "CommentsCell" , bundle: nil)
+        audioTableview.register(nibName1, forCellReuseIdentifier: "CommentsCell")
+        
+        let nibName2  = UINib(nibName: "SubscribCell" , bundle: nil)
+        audioTableview.register(nibName2, forCellReuseIdentifier: "SubscribCell")
+        
+        let nibName3  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        audioTableview.register(nibName3, forCellReuseIdentifier: "UsersCommentsTableViewCell")
+        
+
+        
+        
+        audioTableview.dataSource = self
+        audioTableview.delegate = self
+        
+        self.navigationController?.isNavigationBarHidden = true
+     
+        
+        
+        
+        
 
     }
 //MARK: -  view Will Appear
@@ -75,6 +144,13 @@ class AudioViewController: UIViewController {
         self.playList.add(audioIDArr)
         self.play(url: URL(string:(playList[self.index] as! String))!)
         self.setupTimer()
+        
+        
+        Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+   
+        
+        
+        
     }
     
     func play(url:URL) {
@@ -305,6 +381,622 @@ class AudioViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK:- Collectionview  DataSource & Delegate Methods
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        
+        
+        return 4
+        
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        if section == 0 {
+
+        return 1
+        }
+        
+        if section == 1 {
+            
+            return 1
+        }
+        
+        if section == 2 {
+            
+            return 1
+        }
+
+        
+        
+       return 1
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return  UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+            
+            
+            return 200.0
+        }
+        else {
+            
+            return 100.0
+            
+            
+        }
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+         if indexPath.section == 0 {
+            
+            
+            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
+        
+      //      if eventsDetailsArray.count > 0 {
+                
+//        let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
+//                
+//
+//            
+//            cell.videoTitleName.text = eventList.churchName
+                
+            
+            cell.likeCountLbl.text = String(likesCount)
+            
+            cell.disLikeCountLbl.text = String(disLikesCount)
+            
+            cell.likeButton.addTarget(self, action: #selector(likeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+            cell.unlikeButton.addTarget(self, action: #selector(unlikeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+            cell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            
+            if self.isLike == 0 {
+                
+                cell.likeButton.tintColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
+                
+            }
+            else {
+                
+                cell.likeButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            }
+            
+            if self.isDisLike == 0{
+                
+                cell.unlikeButton.tintColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
+                
+            }
+            else {
+                
+                cell.unlikeButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            }
+            
+            return cell
+     
+            
+            
+    //        }
+            
+            
+            
+       
+            
+            
+        }
+        
+        if indexPath.section == 1 {
+            
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "SubscribCell", for: indexPath) as! SubscribCell
+            
+            
+            
+            return cell2
+            
+            
+        }
+
+        
+        if indexPath.section == 2 {
+            
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+            
+            cell1.commentTexView.text = self.commentString
+            cell1.commentCountLab.text = String(usersCommentsArray.count)
+            cell1.commentTexView.delegate = self
+            
+            cell1.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
+            
+            if sendCommentClick == false{
+                
+                cell1.sendBtn.isHidden = true
+                
+            }
+                
+            else{
+                
+                cell1.sendBtn.isHidden = false
+                
+                
+            }
+        
+            
+            return cell1
+            
+            
+        }
+        
+        
+        if indexPath.section == 3 {
+            
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+            
+            
+            
+            return cell3
+            
+            
+        }
+
+        
+        
+        
+        
+        return UITableViewCell()
+    }
+  
+    
+    
+    func  likeButtonClicked(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            if likeClick == false {
+                
+                likeClick = true
+                disLikeClick = false
+                
+                
+            }
+                
+            else{
+                
+                likeClick = false
+                disLikeClick = false
+                
+                
+            }
+            
+            eventLikesDislikesCountAPiCall()
+            
+            
+            
+        }
+            
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+                
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+                
+                self.navigationController?.pushViewController(loginVC!, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    func  unlikeButtonClicked(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            if disLikeClick == false {
+                
+                disLikeClick = true
+                likeClick = false
+                
+            }
+                
+            else{
+                disLikeClick = false
+                likeClick = false
+                
+                
+            }
+            
+            print("UnLike Clicked.............")
+            
+            eventLikesDislikesCountAPiCall()
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+    }
+    
+    func  shareButtonClick(_ sendre:UIButton) {
+        
+        if !(self.userID == 0) {
+            
+            let someText:String = "Hello want to share text also"
+            let objectsToShare:URL = URL(string: "http://www.google.com")!
+            let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
+            let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            
+            activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            print("Share Clicked.............")
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+                
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+            })
+            
+        }
+    }
+    
+    
+    func commentSendBtnClicked(){
+        
+        self.sendCommentClick = false
+        
+        self.audioTableview.endEditing(true)
+        
+        print(self.commentString)
+        
+        
+        
+        
+        if !(self.userID == 0) {
+            
+            
+            self.parentCommentId = 0
+            
+            commentSendBtnAPIService(textComment: self.commentString)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    func commentSendBtnAPIService(textComment : String){
+        
+        
+        let  EVENTCOMMENTSAPISTR = EVENTCOMMENTAPI
+        
+        let params = ["id": 0,
+                      "eventId": eventID,
+                      "description": textComment,
+                      "parentCommentId": self.parentCommentId,
+                      "userId": self.ID
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            print("\(result)")
+            
+            let respVO:AddUpdateEventCommentsInfoVO = Mapper().map(JSONObject: result)!
+            print("responseString = \(respVO)")
+            
+            
+            let statusCode = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: statusCode))")
+            
+            if statusCode == true
+            {
+                
+                
+                let successMsg = respVO.endUserMessage
+                
+                self.usersCommentsArray.insert(self.commentString, at: 0)
+                self.commentString = "Add a public comment..."
+                self.audioTableview.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+                
+                
+                
+                
+                
+            }
+                
+            else {
+                
+                let failMsg = respVO.endUserMessage
+                
+                
+                return
+                
+                
+                
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+    
+    func eventLikesDislikesCountAPiCall(){
+        
+        
+        let  EVENTSLIKEDISLIKEAPISTR = EVENTSLIKEDISLIKEAPI
+        
+        let params = [ "eventId": eventID,
+                       "userId": self.ID,
+                       "like": likeClick,
+                       "disLike": disLikeClick   ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: EVENTSLIKEDISLIKEAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            
+            let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = responseVO.isSuccess
+            
+            if isSuccess == true {
+                
+                self.likesCount = (responseVO.result?.likeCount)!
+                self.disLikesCount = (responseVO.result?.dislikeCount)!
+                
+                self.isLike = (responseVO.result?.likeResult?[0].like)!
+                self.isDisLike = (responseVO.result?.likeResult?[0].disLike)!
+                
+                let indexPath = IndexPath(item: 1, section: 0)
+                self.audioTableview.reloadRows(at: [indexPath], with: .automatic)
+                
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+   
+    
+    //MARK: -  UITexview Delegate methods
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        
+        
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        
+        
+        if textView.text == "Add a public comment..." {
+            
+            textView.text = ""
+            
+        }
+        
+        self.sendCommentClick = false
+        textView.textColor = UIColor.black
+        
+        
+    }
+    
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        textView.resignFirstResponder()
+        
+        self.commentString = textView.text
+        
+        if textView.text == "" {
+            
+            textView.text = "Add a public comment..."
+            textView.textColor = UIColor.lightGray
+            
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let indexPath : IndexPath = IndexPath(row: 0, section: 2)
+        
+        if let commentsCell = self.audioTableview.cellForRow(at: indexPath) as? CommentsCell {
+            
+            let newString = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+            
+            print(commentsCell.commentTexView.text.characters.count)
+            
+            self.commentString = commentsCell.commentTexView.text
+            
+            if (newString.characters.count) > 0  {
+                
+                
+                
+                print(self.commentString)
+                
+                commentsCell.sendBtn.isHidden = false
+                
+            }
+                
+            else{
+                
+                commentsCell.sendBtn.isHidden = true
+                
+            }
+        }
+        
+        
+        return true
+        
+    }
+ 
+    
+    //MARK: -    Get Event Details By Id API Call
+    
+    func getEventDetailsByIdApiCall(){
+        
+        let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID) + "/" + String(self.userID)
+        
+        serviceController.getRequest(strURL: getEventDetailsByIdApi, success: { (result) in
+            
+            if result.count > 0{
+                
+                print(result)
+                
+                let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
+                
+                let isSuccess = responseVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                if isSuccess == true{
+                    
+                    let listResult = responseVO.result?.eventDetails
+                    
+                    let commentDetailsVO = responseVO.result?.commentDetails
+                    
+                    if (listResult?.count)! > 0 {
+                        
+                        self.audioTableview.isHidden = false
+                        
+                        self.eventsDetailsArray = listResult!
+                        
+                        
+                        
+                        for commentDetails in commentDetailsVO! {
+                            
+                        self.usersCommentsArray.append(commentDetails.comment)
+                            
+                        }
+                        
+                        
+                        self.likesCount = self.eventsDetailsArray[0].likeCount!
+                        self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
+                        
+                        self.isLike = self.eventsDetailsArray[0].isLike!
+                        self.isDisLike = self.eventsDetailsArray[0].isDisLike!
+                        
+                        print(self.eventsDetailsArray)
+                        
+                        if self.isLike == 0{
+                            
+                            self.likeClick = false
+                            
+                        }
+                            
+                        else {
+                            
+                            self.likeClick = true
+                            
+                        }
+                        
+                        if self.isDisLike == 0{
+                            
+                            self.disLikeClick = false
+                            
+                        }
+                            
+                        else {
+                            
+                            self.disLikeClick = true
+                            
+                        }
+                        
+                        self.audioTableview.reloadData()
+                    }
+                    else {
+                        
+                        
+                        self.audioTableview.isHidden = true
+                    }
+                    
+                }
+                else{
+                    
+                    
+                    self.audioTableview.isHidden = true
+                    
+                }
+                
+                
+            }
+                
+            else{
+                
+                
+                print(" No result Found ")
+                
+            }
+            
+            
+        }) { (failureMessege) in
+            
+            print(failureMessege)
+            
+        }
+        
+        
+    }
+    
+
+
+    
+    
+    
     
 
 }

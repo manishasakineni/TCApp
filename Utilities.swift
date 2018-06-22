@@ -1475,6 +1475,27 @@ class Utilities: NSObject {
         vc.present(alrtControl, animated: true, completion: nil)
         
     }
+  
+    
+    func uploadButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
+        
+        let capsMsg  =  messege.capitalizingFirstLetter()
+        let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok".localize(), style: .default) { _ in
+            clickAction()
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel".localize(), style: .default) { _ in
+            
+        }
+        alrtControl.addAction(cancelButton)
+        alrtControl.addAction(okButton)
+        vc.present(alrtControl, animated: true, completion: nil)
+        
+    }
+ 
+    
     
     
     

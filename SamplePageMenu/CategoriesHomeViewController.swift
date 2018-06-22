@@ -505,7 +505,7 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
             
     else {
             
-     //   appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
         }
         
     }

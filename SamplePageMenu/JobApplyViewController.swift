@@ -151,7 +151,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         uploadresumeOutLet.clipsToBounds = true
         
-     uploadViewheight.constant = 0
+        uploadViewheight.constant = 0
         uploadBtnOutLet.isHidden = true
         imageView.isHidden = true
         
@@ -168,7 +168,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-
+       
         
         
     }
@@ -921,7 +921,8 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     
     @IBAction func uploadBtnAction(_ sender: Any) {
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+        
+        Utilities.sharedInstance.uploadButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
             
   
         
@@ -933,6 +934,8 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
             
      
         })
+        
+        
         
     }
     
@@ -1080,8 +1083,6 @@ func getjobApplicationAPICall(){
                     })
                     
                     
-                   
-    
         self.jobApplyTableView.reloadData()
     
                 }
@@ -1214,7 +1215,6 @@ func getjobApplicationAPICall(){
         self.filename = docUrl.pathExtension
         
         
-        
         let data = try! Data(contentsOf: self.docUrl)
         
         print("The data is : \(data)")
@@ -1225,7 +1225,9 @@ func getjobApplicationAPICall(){
         
         
         uploadViewheight.constant = 50
+        uploadView.isHidden = false
         uploadBtnOutLet.isHidden = false
+        imageView.isHidden = false
         
         
         print("The Url is : \(filename)")
@@ -1243,8 +1245,10 @@ func getjobApplicationAPICall(){
         
         }
         catch{
+            
             print("Error: \(error)")
         }
+        
         let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last
         let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
         

@@ -91,6 +91,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+//        editProfileTableView.isHidden = true
+//    
+//    appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        
         
         let myURLString = "https://drive.google.com/open?id=1KXYJ4Q4EgWM17GAp1jQjIJZmvNmBWIzz"
         
@@ -189,7 +194,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     DispatchQueue.main.async(){
                         
-                        
+        self.editProfileTableView.isHidden = false
+    
         print("result:\(result)")
                         
         let respVO:GetProfileResultInfoVO = Mapper().map(JSONObject: result)!
@@ -310,8 +316,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
   }
  else {
-            
-    return
+                self.editProfileTableView.isHidden = true
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
     }
         
     }
@@ -491,36 +498,43 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if activeTextField.tag == 0{
             
+       //     firstName = textField.text!
+            
+        }
+
+        
+     else    if activeTextField.tag == 1{
+            
             firstName = textField.text!
             
         }
             
-        else if activeTextField.tag == 1 {
+        else if activeTextField.tag == 2 {
             
             middleName = textField.text!
             
         }
             
-        else if activeTextField.tag == 2{
+        else if activeTextField.tag == 3{
             
             lastName = textField.text!
             
         }
-        else if activeTextField.tag == 3{
+        else if activeTextField.tag == 4{
             
             mobileNumber = textField.text!
             
             
         }
             
-        else if activeTextField.tag == 4{
+        else if activeTextField.tag == 5{
             
             
             email = textField.text!
             
             
         }
-        else if activeTextField.tag == 5{
+        else if activeTextField.tag == 6{
             
             DOB = textField.text!
             
@@ -665,6 +679,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.editProfileTF.placeholder = "First Name".localize()
     signUPCell.editProfileTF.text = self.firstName
         
+         signUPCell.editProfileTF.tag = 1
+        
     }
                 
     else if indexPath.row == 2{
@@ -673,7 +689,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.editProfileTF.placeholder = "Middle Name".localize()
     signUPCell.editProfileTF.text = self.middleName
       
-        
+        signUPCell.editProfileTF.tag = 2
         
         }
         
@@ -681,7 +697,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     signUPCell.editProfileTF.placeholder = "Last Name".localize()
     signUPCell.editProfileTF.text = self.lastName
-        
+      signUPCell.editProfileTF.tag = 3
         
     }
         
@@ -701,6 +717,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     signUPCell.editProfileTF.placeholder = "E-mail".localize()
     signUPCell.editProfileTF.text = self.email
         
+         signUPCell.editProfileTF.tag = 5
+        
         
     }
                 
@@ -708,6 +726,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
     signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
     signUPCell.editProfileTF.text = selectedDate
+         signUPCell.editProfileTF.tag = 6
         
         
             }
@@ -807,9 +826,14 @@ else {
     }
     
     func editBtnClicked(_ sender: UIButton?){
-        
+        if(btneditClick == false){
         btneditClick = true
         editProfileTableView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
+                
+                self.focusItemNumberTextField()
+            })
+        }
 
 //
     
@@ -817,6 +841,16 @@ else {
         
     }
     
+    
+    private func focusItemNumberTextField() {
+        
+        let indexPath = IndexPath.init(row: 1, section: 1)
+        
+        if let profileCell = editProfileTableView.cellForRow(at: indexPath) as? EditProfileTableViewCell {
+            
+            profileCell.editProfileTF.becomeFirstResponder()
+        }
+    }
     
     
     //MARK: - image Picker Controller

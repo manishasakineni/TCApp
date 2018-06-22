@@ -683,7 +683,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         else {
         
-   //     appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+        appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
             
         }
     
