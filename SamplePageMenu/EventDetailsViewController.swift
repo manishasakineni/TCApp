@@ -1431,7 +1431,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+            let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
+            
+            let audioID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
             
             print(postImgUrl)
             
@@ -1450,6 +1453,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 audioViewController.audioIDArr = newString!
                 audioViewController.audioIDNameArr = title!
+                audioViewController.audioID = audioID!
+                audioViewController.categoryID = categoryId!
+                
                 self.navigationController?.pushViewController(audioViewController, animated: true)
                 
                 

@@ -763,6 +763,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                     
                     videosVC.imgData = dataImg!
                     
+                    
+                    
                     videosVC.videoImgStr = "image"
                     
                     kUserDefaults.set(categoryId!, forKey: "categoryId")
@@ -833,7 +835,9 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
 
+            let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
+            let audioID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
             print(postImgUrl)
             
             let audioUrlImage =  postImgUrl
@@ -851,6 +855,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                     
                     audioViewController.audioIDArr = newString!
                    audioViewController.audioIDNameArr = title!
+                audioViewController.audioID = audioID!
+                audioViewController.categoryID = categoryId!
                     self.navigationController?.pushViewController(audioViewController, animated: true)
                     
                 

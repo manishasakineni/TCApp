@@ -922,7 +922,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     @IBAction func uploadBtnAction(_ sender: Any) {
         
         
-        Utilities.sharedInstance.uploadButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
             
   
         

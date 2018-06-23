@@ -1304,6 +1304,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				AF30B29D20DD24A800E93B26 /* ExampleCells */,
 				359CC92F206287140061450A /* BibleBooksCells */,
 				CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */,
 				CB03596D205FBBD4008FD878 /* AdminMonthEventListCell */,
@@ -1322,24 +1323,6 @@
 				CB0256B42024428B0017E240 /* SettingTableViewCell */,
 				9AF5649A202096DC00AEA0EF /* ChangePasswordCell */,
 				3DDD89122018662100918711 /* SignUpCells */,
-				9A5D261C1FFF89EA00316988 /* TransactionCell.swift */,
-				9A5D261D1FFF89EA00316988 /* TransactionCell.xib */,
-				9A5D26201FFF89F200316988 /* TermsAndConditionCell.swift */,
-				9A5D26211FFF89F200316988 /* TermsAndConditionCell.xib */,
-				9A5D26241FFF8A2000316988 /* AddMoneyToWalletCell.swift */,
-				9A5D26251FFF8A2000316988 /* AddMoneyToWalletCell.xib */,
-				9A5D26281FFF8A2F00316988 /* PriceSortCell.swift */,
-				9A5D26291FFF8A2F00316988 /* PriceSortCell.xib */,
-				9A5D262C1FFF8A3700316988 /* AddMoneyCell.swift */,
-				9A5D262D1FFF8A3700316988 /* AddMoneyCell.xib */,
-				9A5D26301FFF8A3F00316988 /* SendMoneyToWalletCell.swift */,
-				9A5D26311FFF8A3F00316988 /* SendMoneyToWalletCell.xib */,
-				9A5D26381FFF8A5100316988 /* PageControllCell.swift */,
-				9A5D26391FFF8A5100316988 /* PageControllCell.xib */,
-				9A5D26341FFF8A4900316988 /* YoutubePlayerCell.swift */,
-				9A5D26351FFF8A4900316988 /* YoutubePlayerCell.xib */,
-				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
-				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
 				AF10601B204EAA8100711938 /* GenderTableViewCell.swift */,
 				AF10601C204EAA8100711938 /* GenderTableViewCell.xib */,
 			);
@@ -1684,6 +1667,31 @@
 				AF2EB52D206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift */,
 			);
 			name = BibleBookVO;
+			sourceTree = "<group>";
+		};
+		AF30B29D20DD24A800E93B26 /* ExampleCells */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D261C1FFF89EA00316988 /* TransactionCell.swift */,
+				9A5D261D1FFF89EA00316988 /* TransactionCell.xib */,
+				9A5D26201FFF89F200316988 /* TermsAndConditionCell.swift */,
+				9A5D26211FFF89F200316988 /* TermsAndConditionCell.xib */,
+				9A5D26241FFF8A2000316988 /* AddMoneyToWalletCell.swift */,
+				9A5D26251FFF8A2000316988 /* AddMoneyToWalletCell.xib */,
+				9A5D26281FFF8A2F00316988 /* PriceSortCell.swift */,
+				9A5D26291FFF8A2F00316988 /* PriceSortCell.xib */,
+				9A5D262C1FFF8A3700316988 /* AddMoneyCell.swift */,
+				9A5D262D1FFF8A3700316988 /* AddMoneyCell.xib */,
+				9A5D26301FFF8A3F00316988 /* SendMoneyToWalletCell.swift */,
+				9A5D26311FFF8A3F00316988 /* SendMoneyToWalletCell.xib */,
+				9A5D26381FFF8A5100316988 /* PageControllCell.swift */,
+				9A5D26391FFF8A5100316988 /* PageControllCell.xib */,
+				9A5D26341FFF8A4900316988 /* YoutubePlayerCell.swift */,
+				9A5D26351FFF8A4900316988 /* YoutubePlayerCell.xib */,
+				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
+				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
+			);
+			name = ExampleCells;
 			sourceTree = "<group>";
 		};
 		AF39FD0D20A9A77600712EF7 /* GetAllJobDetailsViewController */ = {
