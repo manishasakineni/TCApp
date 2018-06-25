@@ -11,7 +11,7 @@ import Foundation
 class AddUpdateEventCommentsInfoVO: Mappable {
     
     var listResult : Any?
-    var result : [AddUpdateEventCommentsResultVO]?
+    var result : AddUpdateEventCommentsResultVO?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -23,7 +23,7 @@ class AddUpdateEventCommentsInfoVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : Any?, result : [AddUpdateEventCommentsResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : Any?, result : AddUpdateEventCommentsResultVO?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
          self.listResult = listResult
         self.result = result

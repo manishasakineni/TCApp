@@ -12,18 +12,18 @@ class AddUpdateEventCommentsResultVO: Mappable {
     
     var id : Int?
     var eventId : Int?
-    var description : String?
+    var Description : String?
     var parentCommentId : Int?
     var userId : Int?
     
     //MARK:-  initialization of VideosVO
     
     
-    init(id : Int?, eventId : Int?, description : String?, parentCommentId : Int?, userId : Int?) {
+    init(id : Int?, eventId : Int?, Description : String?, parentCommentId : Int?, userId : Int?) {
         
         self.id = id
         self.eventId = eventId
-        self.description = description
+        self.Description = Description
         self.parentCommentId = parentCommentId
         self.userId = userId
         
@@ -38,7 +38,7 @@ class AddUpdateEventCommentsResultVO: Mappable {
         
         id <- map["id"]
         eventId <- map["eventId"]
-        description <- map["description"]
+        Description <- map["description"]
         parentCommentId <- map["parentCommentId"]
         userId <- map["userId"]
     }
