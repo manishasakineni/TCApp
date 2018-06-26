@@ -38,7 +38,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         let nibName1  = UINib(nibName: "AuthorDocumentTableViewCell" , bundle: nil)
         authordocumentTableView.register(nibName1, forCellReuseIdentifier: "AuthorDocumentTableViewCell")
         
-          self.norecordsfoundLbl.isHidden = false
+          self.norecordsfoundLbl.isHidden = true
         
         // Do any additional setup after loading the view.
     }

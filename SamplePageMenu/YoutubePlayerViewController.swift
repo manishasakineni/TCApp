@@ -46,11 +46,18 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     @IBOutlet weak var commentSendBtn: UIButton!
     
+    
+    var audioIDArr = ""
+    var audioIDNameArr = ""
+    var NameArr = ""
+
+    
     var appVersion          : String = ""
     
     var videoImgStr:String = ""
     var imgData = Data()
     
+    var imageData = ""
     var showNav = false
     var videoNameStr = ""
     var categoryName = ""

@@ -18,6 +18,15 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     
      var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
     
+     var imageIDArray : Array<String> = Array()
+    
+     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
+    
+    var imageView = UIImageView()
+  var videoEmbededIDStr = String()
+    
+     var thumbnailImageURL = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +106,48 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         return cell
         
         
+        
+    }
+ 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let imageTag = self.imageResults[indexPath.row]
+        
+        
+        let postImgUrl = imageTag.postImage
+        let title = imageTag.title
+        let categoryId = imageTag.categoryId
+        
+        
+        let userID = imageTag.id
+        
+        if let embededUrlImage =  postImgUrl {
+            
+            let thumbnillImage : String = embededUrlImage
+            
+            
+            self.imageIDArray = thumbnillImage.components(separatedBy: "embed/")
+            
+            
+                    DispatchQueue.main.async()
+                        {
+                            
+            let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+                            
+                videosVC.videoNameStr = title!
+                  
+           //    videosVC.imgData = postImgUrl!
+                            
+                            kUserDefaults.set(categoryId, forKey: "categoryId")
+                            kUserDefaults.set(userID, forKey: "userID")
+                            kUserDefaults.synchronize()
+                            self.navigationController?.pushViewController(videosVC, animated: true)
+                    }
+                    
+    
+        }
         
     }
     

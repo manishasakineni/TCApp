@@ -20,7 +20,7 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 //var BASEURL:String = "http://calibrage.co.in/"
 
 
-var BASEURL:String = "http://192.168.1.135/TeluguChurchesTestAPI/"
+var BASEURL:String = "http://192.168.1.168/TeluguChurchesTestAPI/"
 
 
 
@@ -104,6 +104,10 @@ let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
 let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
 
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
+
+let POSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId")
+
+
 
 
 let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")

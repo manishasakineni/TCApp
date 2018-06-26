@@ -29,7 +29,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
     
     var authorID : Int = 0
-    
+    var churchID : Int = 0
     var eventID = Int()
     
     var loginVC = LoginViewController()
@@ -41,7 +41,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var catgoryID:Int = 0
     var churchName1 : String = ""
     var navigationStr = String()
-    
+    var isFromChruch = false
     
     var pageMenu : CAPSPageMenu?
     
@@ -65,8 +65,12 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         super.viewDidLoad()
         
 
-        
-        authorAPIService()
+        if(isFromChruch == false){
+            authorAPIService()
+        }else{
+             churchAPIService()
+        }
+       
         
         //    createPageMenu()
         
@@ -239,6 +243,94 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
     }
     }
+   
+    func churchAPIService(){
+        
+        
+        let params = ["pageIndex": PageIndex,
+                      "pageSize": 100,
+                      "sortbyColumnName": "UpdatedDate",
+                      "sortDirection": "desc",
+                      "churchId": churchID,
+                      "mediaTypeId": ""
+            
+            
+            
+            
+            
+            
+            ] as [String : Any]
+        
+        print("dic params \(params)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: POSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            
+            print("\(result)")
+            
+            let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
+            
+            print("responseString = \(respVO)")
+            
+            let isSuccess = respVO.isSuccess
+            
+            if isSuccess == true{
+                
+                for listResult in respVO.listResult!{
+                    
+                    
+                    
+                    if listResult.mediaType == "Audio"{
+                        
+                        self.audioResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "Image"{
+                        
+                        self.imageResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "Video"{
+                        
+                        self.videoResults.append(listResult)
+                        
+                    }
+                    
+                    if listResult.mediaType == "Document"{
+                        
+                        self.documentResults.append(listResult)
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                self.createPageMenu()
+                
+                let statusCode = respVO.isSuccess
+                
+                print("StatusCode:\(String(describing: statusCode))")
+                
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+    }
+   
+    
+    
     
     
     

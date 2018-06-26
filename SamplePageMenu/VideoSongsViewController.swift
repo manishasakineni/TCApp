@@ -768,16 +768,10 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                     videosVC.videoImgStr = "image"
                     
                     kUserDefaults.set(categoryId!, forKey: "categoryId")
-//                    kUserDefaults.set(videoID!, forKey: "videoID")
-//                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
                     kUserDefaults.synchronize()
                     
                     self.navigationController?.pushViewController(videosVC, animated: true)
                     
-//                    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-//                    imageView.addGestureRecognizer(tap)
-//                    
-//                    self.view.addSubview(imageView)
                 }
                 else {
                     

@@ -457,7 +457,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
             authorDetailsViewController.churchName1 = listStr.churchName!
         }
-            
+            authorDetailsViewController.isFromChruch = false
     authorDetailsViewController.isSubscribed = isSubscribed
             
     self.navigationController?.pushViewController(authorDetailsViewController, animated: true)

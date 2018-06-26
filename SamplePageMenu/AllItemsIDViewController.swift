@@ -36,6 +36,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         allitemsIDTableView.dataSource = self
         quantityTF.delegate = self
         quantityTF.keyboardType = .numberPad
+        quantityTF.maxLengthTextField = 3
+        
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
@@ -366,7 +368,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }else{
             
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please provide Quantity".localize(), clickAction: {
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Quantity".localize(), clickAction: {
                 
                 
             })

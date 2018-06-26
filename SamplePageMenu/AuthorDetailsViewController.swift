@@ -28,7 +28,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var catgoryName:String = ""
     
     var churchName = ""
-
+   var isFromChruch = false
     var authorID : Int = 0
     var churchName1 : String = ""
     var appVersion  : String = ""
@@ -81,7 +81,8 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
         authorPostsVC?.title = "Posts".localize()
-        //authorPostsVC?.authorID = authorID
+        authorPostsVC?.authorID = authorID
+        authorPostsVC?.isFromChruch = isFromChruch
         //authorPostsVC?.delegate  = self
         
         controllersArray.append(authorInfoVC!)

@@ -34,7 +34,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     var churchID:Int = 0
     
     var nameStr          : String = ""
-
+   var isFromChruch = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +86,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
         authorPostsVC?.title = "Posts".localize()
+        authorPostsVC?.isFromChruch = isFromChruch
+        authorPostsVC?.churchID = churchID
+        
+        
 
         
          controllersArray.append(allOffersVC!)
@@ -186,7 +190,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
     }
 
-    
+   // churchID
     
     
     
