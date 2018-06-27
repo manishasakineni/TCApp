@@ -1690,10 +1690,10 @@
             </objects>
             <point key="canvasLocation" x="8546" y="-454"/>
         </scene>
-        <!--Author Post View Controller-->
+        <!--Author Posts View Controller-->
         <scene sceneID="PP6-cs-OSh">
             <objects>
-                <viewController storyboardIdentifier="authorPostViewController" id="vyr-DK-hRU" customClass="authorPostViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorPostsViewController" id="vyr-DK-hRU" customClass="AuthorPostsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="19n-Ic-0Ao"/>
                         <viewControllerLayoutGuide type="bottom" id="rzx-j5-g2r"/>
@@ -1702,27 +1702,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="88M-l2-NBf">
-                                <rect key="frame" x="0.0" y="53" width="375" height="639"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="88M-l2-NBf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vyr-DK-hRU" id="7kl-ja-abJ"/>
                                     <outlet property="delegate" destination="vyr-DK-hRU" id="gU6-Uv-1j6"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO Records " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-5a-2lO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO Records " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-5a-2lO">
+                                <rect key="frame" x="0.0" y="318" width="375" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="e4e-85-gIg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZUU-5a-2lO" firstAttribute="centerY" secondItem="umO-oW-uni" secondAttribute="centerY" id="7XJ-hs-QPQ"/>
+                            <constraint firstItem="88M-l2-NBf" firstAttribute="top" secondItem="umO-oW-uni" secondAttribute="top" id="Ifi-fW-Tcy"/>
+                            <constraint firstItem="ZUU-5a-2lO" firstAttribute="centerX" secondItem="umO-oW-uni" secondAttribute="centerX" id="Ixf-JL-eGf"/>
+                            <constraint firstAttribute="trailing" secondItem="88M-l2-NBf" secondAttribute="trailing" id="Jci-ka-Gv9"/>
+                            <constraint firstItem="88M-l2-NBf" firstAttribute="leading" secondItem="umO-oW-uni" secondAttribute="leading" id="bwh-AS-ROy"/>
+                            <constraint firstItem="rzx-j5-g2r" firstAttribute="top" secondItem="88M-l2-NBf" secondAttribute="bottom" id="crw-NK-hif"/>
+                            <constraint firstAttribute="trailing" secondItem="ZUU-5a-2lO" secondAttribute="trailing" id="edb-Da-cPe"/>
+                            <constraint firstItem="ZUU-5a-2lO" firstAttribute="leading" secondItem="umO-oW-uni" secondAttribute="leading" id="oRJ-5M-pIQ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="authorpostTableView" destination="88M-l2-NBf" id="okF-Sp-o4D"/>
+                        <outlet property="norecordsfoundLbl" destination="ZUU-5a-2lO" id="xhy-rN-ezD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miq-Zv-OPh" userLabel="First Responder" sceneMemberID="firstResponder"/>

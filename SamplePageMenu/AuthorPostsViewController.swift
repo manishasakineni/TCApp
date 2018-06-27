@@ -17,6 +17,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     
     @IBOutlet weak var authorpostTableView: UITableView!
     
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
     
      var mediaTypeID : Int = 0
     var PageIndex = 1
@@ -63,6 +64,9 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+       self.norecordsfoundLbl.isHidden = true
         
 
         if(isFromChruch == false){
@@ -194,9 +198,9 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         for listResult in respVO.listResult!{
         
             
-//            self.noRecordsFoundLbl.isHidden = true
-//            self.infoChurchTableView.isHidden = false
-//
+            self.norecordsfoundLbl.isHidden = true
+            self.authorpostTableView.isHidden = false
+
             
             if listResult.mediaType == "Audio"{
             
@@ -233,6 +237,9 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         let statusCode = respVO.isSuccess
         
         print("StatusCode:\(String(describing: statusCode))")
+            
+            self.norecordsfoundLbl.isHidden = false
+            self.authorpostTableView.isHidden = true
         
         }
         

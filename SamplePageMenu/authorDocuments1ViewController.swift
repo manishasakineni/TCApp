@@ -57,7 +57,6 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         return documentResults.count
-       //7702402240
         
     }
     
@@ -83,26 +82,16 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         
-        
+        if(documentResults.count > indexPath.row){
         let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
         
-        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
-        let url = URL(string:newString!)
-        
-        let dataImg = try? Data(contentsOf: url!)
-        
-        if dataImg != nil {
-            
-            cell.documentImage.image = UIImage(data: dataImg!)
-            
-        }
-            
-        else {
-            
             cell.documentImage.image = #imageLiteral(resourceName: "docImg")
+            
+            
+
         }
-        
+            
+       
 
 
         
@@ -117,20 +106,20 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     
        
         
-          let imageTag = self.documentResults[indexPath.row]
-        
-        let imgUrl = imageTag.postImage
-        
-        let embededUrlImage =  imgUrl
-        let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
-        
-        if newString != nil {
+            let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+      
+                let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
-            savePDFWithUrl(newString!)
-            
-            
-        }
+        let docViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
+                
+                
+        docViewController.urlStr = newString!
+                
+        docViewController.titleStr = title!
+                
+                
+        self.navigationController?.pushViewController(docViewController, animated: true)
+        
         
         
     }

@@ -40,7 +40,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          self.getjobdetailsAPICall(string: searchBar.text!)
+        
         
         getAllJobDetailsTableView.dataSource = self
         getAllJobDetailsTableView.delegate = self
@@ -63,9 +63,12 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         navigationItem.titleView = searchBar
   
-        
+          self.getjobdetailsAPICall(string: searchBar.text!)
         let nibName1  = UINib(nibName: "GetAllJobDetailsTableViewCell" , bundle: nil)
         getAllJobDetailsTableView.register(nibName1, forCellReuseIdentifier: "GetAllJobDetailsTableViewCell")
+        
+        
+          self.getjobdetailsAPICall(string: searchBar.text!)
         
         self.navigationController?.isNavigationBarHidden = false
         
@@ -338,12 +341,18 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         
     let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
+      
         if(filtered.count > indexPath.row){
+            
              jobIDViewController.jobId = filtered[indexPath.row].id!
+            
+            
+            
+            self.navigationController?.pushViewController(jobIDViewController, animated: true)
+            
+
         }
      
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-        
     }
 
     
@@ -354,7 +363,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         let paramsDict = [ "userId": 0,
                            "pageIndex": PageIndex,
-                           "pageSize": 100,
+                           "pageSize": 10,
                            "sortbyColumnName": "LastdateToApply",
                            "sortDirection": "desc",
                            "searchName": string

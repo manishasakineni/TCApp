@@ -460,8 +460,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
          
             
-            
-            
             if(userId != 0) {
                 
                 

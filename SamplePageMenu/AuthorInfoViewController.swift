@@ -40,7 +40,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
 
         self.norecordsfoundLbl.isHidden = false
 
-        
+        if UserDefaults.standard.value(forKey: kIdKey) != nil {
+            
+            self.userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
+            
+        }
 
         
         print(isSubscribed)
@@ -556,12 +560,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
 
         
         
-        if kId != 0 {
+        if self.userId != 0 {
             
             
             
             let paramsDict = [ "isSubscribed": isSubscribed,
-                               "userId": kId,
+                               "userId": self.userId,
                                "churchId": "null",
                                "authorId": authorID
                 ] as [String : Any]

@@ -63,7 +63,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var categoryName = ""
     var categoryId = Int()
     var ID = Int()
-
+    var isFromImageView = false
+var imageUrl = ""
     var commentString : String = "Add a public comment..."
 
     var isLike = 0
@@ -268,8 +269,28 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 
             }
             else {
+                if(isFromImageView == true){
+                    if(imageUrl != ""){
+                    let newString = imageUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                    
+                    let url = URL(string:newString)
+                    
+                    let dataImg = try? Data(contentsOf: url!)
+                    
+                    if dataImg != nil {
+                        
+                        categoryImgView.image = UIImage(data: dataImg!)
+                         categoryImgView.contentMode = .scaleToFill
+                        
+                    }
+                    }else{
+                          categoryImgView.image = #imageLiteral(resourceName: "j4")
+                    }
+                }else{
+                        categoryImgView.image = #imageLiteral(resourceName: "j4")
+                }
                 
-                categoryImgView.image = #imageLiteral(resourceName: "j4")
+            
                 
             }
         }

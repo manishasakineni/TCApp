@@ -138,7 +138,8 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
                             
                 videosVC.videoNameStr = title!
                   
-           //    videosVC.imgData = postImgUrl!
+               videosVC.imageUrl = postImgUrl!
+                            videosVC.isFromImageView = true
                             
                             kUserDefaults.set(categoryId, forKey: "categoryId")
                             kUserDefaults.set(userID, forKey: "userID")
