@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,11 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nco-zl-R9F">
@@ -54,9 +59,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlX-Oa-AQj">
-                                <rect key="frame" x="143" y="107" width="10" height="0.0"/>
+                                <rect key="frame" x="8" y="107" width="306" height="2"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="b8U-aj-KBZ"/>
+                                    <constraint firstAttribute="height" constant="2" id="S1b-sI-9cv"/>
+                                    <constraint firstAttribute="width" constant="306" id="b8U-aj-KBZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -183,11 +189,12 @@
                             <constraint firstItem="zDk-b5-FqO" firstAttribute="leading" secondItem="Pb5-1F-QJL" secondAttribute="trailing" constant="15" id="Osg-68-xbK"/>
                             <constraint firstItem="x7W-77-W7a" firstAttribute="centerY" secondItem="1Rq-Pg-iYJ" secondAttribute="centerY" id="Oxt-kF-kOj"/>
                             <constraint firstItem="RFk-oX-lDh" firstAttribute="leading" secondItem="zSA-mJ-jhw" secondAttribute="leading" id="QTb-to-0jL"/>
-                            <constraint firstItem="UlX-Oa-AQj" firstAttribute="leading" secondItem="nco-zl-R9F" secondAttribute="leading" constant="143" id="QhM-W4-cnb"/>
+                            <constraint firstItem="UlX-Oa-AQj" firstAttribute="leading" secondItem="nco-zl-R9F" secondAttribute="leading" constant="8" id="QhM-W4-cnb"/>
                             <constraint firstItem="Gic-0p-tP9" firstAttribute="top" secondItem="zDk-b5-FqO" secondAttribute="bottom" constant="9" id="Qky-Z9-nci"/>
                             <constraint firstItem="zDk-b5-FqO" firstAttribute="top" secondItem="nco-zl-R9F" secondAttribute="top" constant="10" id="ScD-PR-fcA"/>
                             <constraint firstItem="x7W-77-W7a" firstAttribute="centerX" secondItem="exU-iU-UHX" secondAttribute="centerX" id="Vyd-U7-LaM"/>
                             <constraint firstItem="exU-iU-UHX" firstAttribute="centerX" secondItem="Pb5-1F-QJL" secondAttribute="centerX" id="WtU-BC-TPL"/>
+                            <constraint firstAttribute="bottom" secondItem="UlX-Oa-AQj" secondAttribute="bottom" constant="6" id="aci-hc-GDU"/>
                             <constraint firstItem="lLh-bB-mTr" firstAttribute="centerY" secondItem="dVb-SV-q46" secondAttribute="centerY" id="cd2-gf-MAK"/>
                             <constraint firstItem="RFk-oX-lDh" firstAttribute="top" secondItem="zSA-mJ-jhw" secondAttribute="bottom" constant="10" id="ex8-aO-a6F"/>
                             <constraint firstItem="UlX-Oa-AQj" firstAttribute="top" secondItem="dVb-SV-q46" secondAttribute="bottom" constant="7" id="fm0-eg-tqB"/>

@@ -13,6 +13,9 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     @IBOutlet weak var postEventTableView: UITableView!
     @IBOutlet weak var HeadImageTitle: UIImageView!
+    
+    @IBOutlet weak var norecordsfoundLbl: UILabel!
+    
     var delegate: eventDetailsSubtitleOfIndexDelegate?
     
     //MARK: -  variable declaration
@@ -62,6 +65,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         postEventTableView.delegate = self
         postEventTableView.dataSource = self
         
+          self.norecordsfoundLbl.isHidden = true
         
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
         postEventTableView.register(nibName, forCellReuseIdentifier: "homeCategoriesCell")
@@ -117,6 +121,10 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                     print(result)
                     
                     if result.count > 0 {
+                       
+                        self.norecordsfoundLbl.isHidden = true
+                        
+                        self.postEventTableView.isHidden = false
                         
                         
                         let respVO:GetCategoriesResultVo = Mapper().map(JSONObject: result)!
@@ -211,18 +219,26 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                                 self.isResponseFromServer = true
                                 self.postEventTableView.reloadData()
                             }
-                        }
+                            else {
+                                
+                                //  self.norecordsFoundLbl.isHidden = false
+                                
+                                self.postEventTableView.isHidden = true
+                            }
                             
+                        }
                         else{
                             
+                            self.norecordsfoundLbl.isHidden = false
+                            
+                            self.postEventTableView.isHidden = true
                             
                         }
-                        
                         
                     }
                     
             }
-            
+                    
         }) { (failureMessage) in
             
             

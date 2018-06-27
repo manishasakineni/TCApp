@@ -102,14 +102,23 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
+        let categoryId = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.categoryId
+
+        
+        let audioID = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.id
         
         if newString != nil {
             
+         
             
             let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
             
             audioViewController.audioIDArr = newString!
             audioViewController.audioIDNameArr = title!
+            
+            audioViewController.audioID = audioID!
+            audioViewController.categoryID = categoryId!
+
             
             self.navigationController?.pushViewController(audioViewController, animated: true)
             
