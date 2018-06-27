@@ -31,8 +31,13 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         let nibName1  = UINib(nibName: "AuthorAudiioTableViewCell" , bundle: nil)
         authorAudioTableView.register(nibName1, forCellReuseIdentifier: "AuthorAudiioTableViewCell")
-
-         self.norecordsfoundLbl.isHidden = true
+        
+        if(audioResults.count > 0){
+            self.norecordsfoundLbl.isHidden = true
+        }else{
+              self.norecordsfoundLbl.isHidden = false
+        }
+       
         
         // Do any additional setup after loading the view.
     }

@@ -35,7 +35,11 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         let nibName1  = UINib(nibName: "AuthorVedioTableViewCell" , bundle: nil)
         authorVedioTableView.register(nibName1, forCellReuseIdentifier: "AuthorVedioTableViewCell")
         
-         self.norecordsfoundLbl.isHidden = true
+        if(videoResults.count > 0){
+            self.norecordsfoundLbl.isHidden = true
+        }else{
+            self.norecordsfoundLbl.isHidden = false
+        }
         
         // Do any additional setup after loading the view.
     }

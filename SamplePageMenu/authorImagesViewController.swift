@@ -14,7 +14,6 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
-//    var imageView  = ["bible1","bible1","bible1"]
     
      var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
     
@@ -36,7 +35,11 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         let nibName1  = UINib(nibName: "AuthorImageTableViewCell" , bundle: nil)
         authorImagesTableView.register(nibName1, forCellReuseIdentifier: "AuthorImageTableViewCell")
        
-         self.norecordsfoundLbl.isHidden = true
+        if(imageResults.count > 0){
+            self.norecordsfoundLbl.isHidden = true
+        }else{
+            self.norecordsfoundLbl.isHidden = false
+        }
         
         // Do any additional setup after loading the view.
     }

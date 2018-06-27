@@ -18,24 +18,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gl-KJ-Pl8">
-                    <rect key="frame" x="0.0" y="312" width="375" height="43"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="43" id="D6I-kz-jYU"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="1Gl-KJ-Pl8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Kp-Gk-ds2"/>
-                <constraint firstItem="1Gl-KJ-Pl8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="O0W-g4-XfG"/>
-                <constraint firstAttribute="trailing" secondItem="1Gl-KJ-Pl8" secondAttribute="trailing" id="WyC-Sk-qwj"/>
-                <constraint firstItem="1Gl-KJ-Pl8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tyY-la-zlR"/>
-            </constraints>
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>

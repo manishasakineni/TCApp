@@ -66,13 +66,21 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         super.viewDidLoad()
         
         
-       self.norecordsfoundLbl.isHidden = true
+      
         
 
         if(isFromChruch == false){
+            
+            
             authorAPIService()
+            
+            
+           
+            
         }else{
+            
              churchAPIService()
+            
         }
        
         
@@ -91,7 +99,6 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
         audioEventDetailsVC?.title = "Audio".localize()
         audioEventDetailsVC?.audioResults = self.audioResults
-        
         
 
         
@@ -197,11 +204,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
         for listResult in respVO.listResult!{
         
-            
-            self.norecordsfoundLbl.isHidden = true
-            self.authorpostTableView.isHidden = false
-
-            
+        
             if listResult.mediaType == "Audio"{
             
             self.audioResults.append(listResult)
@@ -227,19 +230,13 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
             }
             
             
-            
-            
-          
-            
         }
            self.createPageMenu()
           
         let statusCode = respVO.isSuccess
         
         print("StatusCode:\(String(describing: statusCode))")
-            
-            self.norecordsfoundLbl.isHidden = false
-            self.authorpostTableView.isHidden = true
+     
         
         }
         
@@ -260,10 +257,6 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                       "sortDirection": "desc",
                       "churchId": churchID,
                       "mediaTypeId": ""
-            
-            
-            
-            
             
             
             ] as [String : Any]
@@ -313,13 +306,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                         self.documentResults.append(listResult)
                         
                     }
-                    
-                    
-                    
-                    
-                    
-                    
-                }
+                  }
                 self.createPageMenu()
                 
                 let statusCode = respVO.isSuccess
