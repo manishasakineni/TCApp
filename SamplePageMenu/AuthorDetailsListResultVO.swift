@@ -165,7 +165,7 @@ class AuthorDetailsListResultVO: Mappable {
         authorEmail <- map["authorEmail"]
         dob <- map["dob"]
         genderTypeId <- map["genderTypeId"]
-        gender <- map["genderTypeId"]
+        gender <- map["gender"]
         countryId <- map["countryId"]
         countryName <- map["countryName"]
         churchId <- map["churchId"]
@@ -178,7 +178,7 @@ class AuthorDetailsListResultVO: Mappable {
         villageName <- map["villageName"]
         pinCode <- map["pinCode"]
         churchImage <- map["churchImage"]
-        userImage <- map["churchImage"]
+        userImage <- map["userImage"]
         userName <- map["userName"]
 
         

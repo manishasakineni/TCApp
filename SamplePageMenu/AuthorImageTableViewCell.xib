@@ -22,27 +22,40 @@
                         <rect key="frame" x="8" y="3" width="304" height="141"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-SZ-idc">
-                                <rect key="frame" x="0.0" y="0.0" width="304" height="141"/>
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="106"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-ky-NBL">
+                                <rect key="frame" x="0.0" y="114" width="304" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="b5F-ee-Gzf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TQv-SZ-idc" firstAttribute="top" secondItem="oXI-Vj-gQJ" secondAttribute="top" id="OuW-0d-XPh"/>
-                            <constraint firstAttribute="trailing" secondItem="TQv-SZ-idc" secondAttribute="trailing" id="dP7-4f-Oyi"/>
-                            <constraint firstAttribute="bottom" secondItem="TQv-SZ-idc" secondAttribute="bottom" id="wGw-fH-3Ad"/>
-                            <constraint firstItem="TQv-SZ-idc" firstAttribute="leading" secondItem="oXI-Vj-gQJ" secondAttribute="leading" id="zk3-fk-zBo"/>
+                            <constraint firstItem="wn0-ky-NBL" firstAttribute="leading" secondItem="oXI-Vj-gQJ" secondAttribute="leading" id="6Jl-fZ-u0i"/>
+                            <constraint firstItem="TQv-SZ-idc" firstAttribute="leading" secondItem="oXI-Vj-gQJ" secondAttribute="leading" id="94L-8W-l4e"/>
+                            <constraint firstItem="TQv-SZ-idc" firstAttribute="top" secondItem="oXI-Vj-gQJ" secondAttribute="top" id="JOh-nc-qEL"/>
+                            <constraint firstAttribute="trailing" secondItem="wn0-ky-NBL" secondAttribute="trailing" id="fpH-4b-tDi"/>
+                            <constraint firstItem="wn0-ky-NBL" firstAttribute="top" secondItem="TQv-SZ-idc" secondAttribute="bottom" constant="8" id="le4-kJ-wlX"/>
+                            <constraint firstAttribute="trailing" secondItem="TQv-SZ-idc" secondAttribute="trailing" id="pk7-lf-V9Y"/>
+                            <constraint firstAttribute="bottom" secondItem="wn0-ky-NBL" secondAttribute="bottom" constant="6" id="sUb-pp-4z1"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="0so-ws-RXY"/>
-                    <constraint firstAttribute="bottom" secondItem="oXI-Vj-gQJ" secondAttribute="bottom" constant="1.5" id="NCf-wN-24n"/>
-                    <constraint firstAttribute="trailing" secondItem="oXI-Vj-gQJ" secondAttribute="trailing" constant="8" id="byx-uA-uej"/>
-                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lbr-A3-MaA"/>
+                    <constraint firstAttribute="trailing" secondItem="oXI-Vj-gQJ" secondAttribute="trailing" constant="8" id="NLA-rw-grZ"/>
+                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gP0-tt-ZHm"/>
+                    <constraint firstAttribute="bottom" secondItem="oXI-Vj-gQJ" secondAttribute="bottom" constant="1.5" id="ptQ-Td-nuT"/>
+                    <constraint firstItem="oXI-Vj-gQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="qwV-WG-fBc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorImageView" destination="TQv-SZ-idc" id="nA5-UF-t12"/>
+                <outlet property="imageLbl" destination="wn0-ky-NBL" id="C2x-GB-Wwh"/>
             </connections>
             <point key="canvasLocation" x="26" y="103"/>
         </tableViewCell>

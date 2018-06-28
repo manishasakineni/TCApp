@@ -12,6 +12,10 @@ class AuthorImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorImageView: UIImageView!
     
+    
+    @IBOutlet weak var imageLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -83,6 +83,9 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         
         let postImgUrl = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
         
+        
+        let title = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
+
          let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
            let url = URL(string:newString!)
@@ -102,7 +105,7 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
 
         
         
-        
+          cell.imageLbl.text = title
         
         
         

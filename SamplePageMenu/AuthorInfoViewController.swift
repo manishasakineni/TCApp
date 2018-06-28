@@ -250,17 +250,20 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 
                 
-               var  churchImageLogoString = authorDetails.churchImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
+               var  churchImageLogoString = authorDetails.userImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
                 
                  churchImageLogoString = churchImageLogoString.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
          
                 if(authorDetailsArray.count >= indexPath.section){
                     
-                    cell.churchNameLabel.text = authorDetails.churchName
+                    cell.churchNameLabel.text = authorDetails.authorName
                     
                     if let url = URL(string:churchImageLogoString) {
                         
+                        
                             cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                        
+                        
                       }
                     else {
                         
@@ -326,7 +329,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                
                     
                     
-                }else if indexPath.row == 4 {
+                }
+                
+                else if indexPath.row == 4 {
                     
                     cell2.infoLabel.text = "Gender".localize()
                     
@@ -538,17 +543,17 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             }
             if(dateString3 != "" || dateString != "."){
                 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .medium
-                dateFormatter.dateFormat = "HH:mm:ss"
-                let dateFromString = dateFormatter.date(from: dateString3)
-                dateFormatter.dateFormat = "hh:mm aa"
-                let newDateString = dateFormatter.string(from: dateFromString!)
-                newDateStr1 = newDateString
-                print(newDateStr1)
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateStyle = .medium
+//                dateFormatter.dateFormat = "HH:mm:ss"
+//                let dateFromString = dateFormatter.date(from: dateString3)
+//                dateFormatter.dateFormat = "hh:mm aa"
+//                let newDateString = dateFormatter.string(from: dateFromString!)
+//                newDateStr1 = newDateString
+//                print(newDateStr1)
             }
         }
-        return newDateStr + "," + newDateStr1
+        return newDateStr + " " + newDateStr1
     }
     
     

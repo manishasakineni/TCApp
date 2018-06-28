@@ -87,16 +87,19 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         
         if(documentResults.count > indexPath.row){
+            
         let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+            
+        let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         
             cell.documentImage.image = #imageLiteral(resourceName: "docImg")
             
+            cell.documentlbl.text = title
             
 
         }
             
        
-
 
         
         return cell

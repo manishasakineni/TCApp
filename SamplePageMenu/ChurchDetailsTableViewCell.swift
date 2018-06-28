@@ -24,6 +24,14 @@ class ChurchDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var SubscribeBtn: UIButton!
     
+    @IBOutlet weak var stateLbl: UILabel!
+    
+    
+    @IBOutlet weak var districtLbl: UILabel!
+    
+    
+    @IBOutlet weak var mandalLbl: UILabel!
+    
      //MARK: - Color
     
     override func awakeFromNib() {

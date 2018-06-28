@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,7 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -20,14 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="144.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-Qp-ne2">
                         <rect key="frame" x="3" y="3" width="314" height="138.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="churchFather2" translatesAutoresizingMaskIntoConstraints="NO" id="gBB-Rp-WDe">
-                                <rect key="frame" x="3" y="4" width="70" height="70"/>
+                                <rect key="frame" x="3" y="26" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="2fI-9l-ees"/>
                                     <constraint firstAttribute="height" constant="70" id="nEI-0w-p5C"/>
@@ -178,7 +179,7 @@
                             <constraint firstItem="gBB-Rp-WDe" firstAttribute="leading" secondItem="gfm-Qp-ne2" secondAttribute="leading" constant="3" id="C3h-HF-1WX"/>
                             <constraint firstAttribute="trailing" secondItem="91u-c1-P9m" secondAttribute="trailing" constant="49" id="C6t-9A-xL4"/>
                             <constraint firstItem="Zem-Wb-dHf" firstAttribute="top" secondItem="Xgh-9g-fNP" secondAttribute="bottom" constant="13.5" id="Hm6-WH-1IQ"/>
-                            <constraint firstItem="gBB-Rp-WDe" firstAttribute="top" secondItem="gfm-Qp-ne2" secondAttribute="top" constant="4" id="KYa-2e-cCA"/>
+                            <constraint firstItem="gBB-Rp-WDe" firstAttribute="top" secondItem="gfm-Qp-ne2" secondAttribute="top" constant="26" id="KYa-2e-cCA"/>
                             <constraint firstItem="Zem-Wb-dHf" firstAttribute="centerX" secondItem="Xgh-9g-fNP" secondAttribute="centerX" constant="0.5" id="KhD-8U-ayD"/>
                             <constraint firstItem="Eqi-Sg-EY0" firstAttribute="leading" secondItem="YQQ-x0-vDo" secondAttribute="trailing" constant="10" id="Ntt-kO-OJK"/>
                             <constraint firstItem="LIu-A1-D7r" firstAttribute="top" secondItem="gfm-Qp-ne2" secondAttribute="top" constant="4" id="YES-7J-s6n"/>

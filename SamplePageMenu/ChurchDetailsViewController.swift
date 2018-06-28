@@ -131,7 +131,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewWillAppear(true)
 
         
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         searchBar.text = ""
         
@@ -287,7 +287,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                         
                         self.churchNamesArray.append(eachArray)
                         
-                        
+                        print("eachArray.churchImage",eachArray.churchImage)
                     }
 
             
@@ -557,6 +557,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
         if(searchActive){
+                
+        if filtered.count > 0 {
             
             let listStr:ChurchDetailsListResultVO = filtered[indexPath.row]
             
@@ -564,14 +566,21 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             cell.phNoLabel.text = listStr.contactNumber
             
-            cell.addressLabel.text = listStr.address1
+            cell.addressLabel.text = listStr.email
             
+             cell.stateLbl.text = listStr.stateName
+            
+             cell.mandalLbl.text = listStr.mandalName
+            
+             cell.districtLbl.text = listStr.districtName
+            
+            cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
             
             let imgUrl = listStr.churchImage
             
             let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
-            print("filteredUrlString:\(newString)")
+        //    print("filteredUrlString:\(newString)")
             
             if newString != nil {
                 
@@ -594,11 +603,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 cell.churchImage.image = #imageLiteral(resourceName: "j4")
             }
             
-//            cell.SubscribeBtn.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
-//            
-//            
-//            cell.SubscribeBtn.tag = indexPath.row
-            
+
+            }
         }
         
         else {
@@ -613,7 +619,15 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         cell.phNoLabel.text     = listStr.contactNumber
         
 
-        cell.addressLabel.text  = listStr.address1
+                cell.addressLabel.text = listStr.email
+                
+                cell.stateLbl.text = listStr.stateName
+                
+                cell.mandalLbl.text = listStr.mandalName
+                
+                cell.districtLbl.text = listStr.districtName
+                
+         cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
         
         
         let imgUrl = listStr.churchImage
@@ -634,7 +648,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 if dataImg != nil {
                     
                     cell.churchImage.image = UIImage(data: dataImg!)
-            }
+                }else{
+                     cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                }
             
            
             }

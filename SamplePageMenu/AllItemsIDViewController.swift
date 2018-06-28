@@ -36,7 +36,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         allitemsIDTableView.dataSource = self
         quantityTF.delegate = self
         quantityTF.keyboardType = .numberPad
-        quantityTF.maxLengthTextField = 3
+    //    quantityTF.maxLengthTextField = 3
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             

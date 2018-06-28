@@ -1329,9 +1329,15 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 self.likesCount = (responseVO.result?.likeCount)!
                 self.disLikesCount = (responseVO.result?.dislikeCount)!
+               
+                
+                if (self.isLike > 0){
                 
                 self.isLike = (responseVO.result?.likeResult?[0].like)!
                 self.isDisLike = (responseVO.result?.likeResult?[0].disLike)!
+                
+                }
+              
                 
                 let indexPath = IndexPath(row: 0, section: 0)
                 self.audioTableview.reloadRows(at: [indexPath], with: .automatic)

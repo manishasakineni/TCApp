@@ -47,6 +47,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var phoneNoString = ""
     var regNoString = ""
     var emailString = ""
+    var emailStr = ""
     var nameString = ""
     var timeString = ""
     var descriptionString = ""
@@ -184,7 +185,10 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     self.churchNamesString = (respVO.listResult?[0].name == nil ? "" : respVO.listResult?[0].name)!
     self.phoneNoString = (respVO.listResult?[0].userContactNumbar == nil ? "" : respVO.listResult?[0].userContactNumbar)!
     self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
-    self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
+    self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].userEmail)!
+     self.emailStr = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
+        
+        
     self.nameString = (respVO.listResult?[0].pasterUser == nil ? "" : respVO.listResult?[0].pasterUser)!
     self.descriptionString = (respVO.listResult?[0].description == nil ? "" : respVO.listResult?[0].description)!
     self.churchImageLogoString = (respVO.listResult?[0].churchImage == nil ? "" : respVO.listResult?[0].churchImage!.replacingOccurrences(of: "\\", with: "//"))!
@@ -213,7 +217,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
     self.genderString = (respVO.listResult?[0].gender == nil ? "" : (respVO.listResult?[0].gender)!)
                                 
-    self.authorNameString = (respVO.listResult?[0].userName == nil ? "" : (respVO.listResult?[0].userName)!)
+    self.authorNameString = (respVO.listResult?[0].userName == nil ? "" : (respVO.listResult?[0].pasterUser)!)
                                 
     self.dobString = (respVO.listResult?[0].dob == nil ? "" : (respVO.listResult?[0].dob)!)
                                 
@@ -434,14 +438,14 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
     cell3.infoLabel.text = "Address".localize()
                 
-    cell3.addressLabel.text = address1String
+    cell3.addressLabel.text = address1String + "," + address2String
                 
     } else if indexPath.row == 1 {
                 
     cell3.infoLabel.text = "Email".localize()
                 
                 
-    cell3.addressLabel.text =  emailString
+    cell3.addressLabel.text =  emailStr
                 
                 
     } else if indexPath.row == 2 {
@@ -531,11 +535,17 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }else if indexPath.row == 3 {
                 
         cell2.infoLabel.text = "Date Of Birth".localize()
+        
+    
                 
         let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)
                 
         cell2.addressLabel.text = startAndEndDate1
-                
+        
+       
+    
+        
+        
 
         }else if indexPath.row == 4 {
                 
@@ -783,17 +793,17 @@ else {
                 newDateStr = newDateString
                 print(newDateStr)
             }
-            if(dateString3 != "" || dateString != "."){
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .medium
-                dateFormatter.dateFormat = "HH:mm:ss"
-                let dateFromString = dateFormatter.date(from: dateString3)
-                dateFormatter.dateFormat = "hh:mm aa"
-                let newDateString = dateFormatter.string(from: dateFromString!)
-                newDateStr1 = newDateString
-                print(newDateStr1)
-            }
+//            if(dateString3 != "" || dateString != "."){
+//                
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateStyle = .medium
+//                dateFormatter.dateFormat = "HH:mm:ss"
+//                let dateFromString = dateFormatter.date(from: dateString3)
+//                dateFormatter.dateFormat = "hh:mm aa"
+//                let newDateString = dateFormatter.string(from: dateFromString!)
+//                newDateStr1 = newDateString
+//                print(newDateStr1)
+//            }
         }
         return newDateStr + "" + newDateStr1
     }

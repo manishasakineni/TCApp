@@ -318,7 +318,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
     }
         
-    let imgUrl = listStr.churchImage
+    let imgUrl = listStr.userImage
         
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
@@ -404,7 +404,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
             
             
-    let imgUrl = listStr.churchImage
+    let imgUrl = listStr.userImage
             
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             

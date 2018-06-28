@@ -481,6 +481,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             for eachDetail in stateInfoDetails{
                 if(selectedData == eachDetail.name!){
                      stateID = eachDetail.id!
+                    
                 }
             }
             
@@ -491,6 +492,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             for eachDetail in countryInfoDetails{
                 if(selectedData == eachDetail.name!){
                      countryID = eachDetail.id!
+                    
                 }
             }
                 country = selectedData

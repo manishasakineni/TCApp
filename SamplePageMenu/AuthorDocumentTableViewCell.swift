@@ -14,6 +14,7 @@ class AuthorDocumentTableViewCell: UITableViewCell {
     @IBOutlet weak var documentImage: UIImageView!
     
     
+    @IBOutlet weak var documentlbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

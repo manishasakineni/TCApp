@@ -63,7 +63,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         navigationItem.titleView = searchBar
   
-          self.getjobdetailsAPICall(string: searchBar.text!)
+          //self.getjobdetailsAPICall(string: searchBar.text!)
         let nibName1  = UINib(nibName: "GetAllJobDetailsTableViewCell" , bundle: nil)
         getAllJobDetailsTableView.register(nibName1, forCellReuseIdentifier: "GetAllJobDetailsTableViewCell")
         
@@ -99,7 +99,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         PageIndex = 1
         totalPages = 0
         
-        self.jobDetailsArray.removeAll()
+        //self.jobDetailsArray.removeAll()
         
  
         
@@ -248,7 +248,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         
-        if indexPath.row == (filtered.count) - 1 {
+        if indexPath.row == (jobDetailsArray.count) - 1 {
             
             if(self.totalPages! > PageIndex){
                 
@@ -295,6 +295,9 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }else{
             cell.lastdateToApplyLabel.text  = ""
         }
+                
+                
+                
             }
         
         
@@ -422,8 +425,10 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
             
             else {
                     if(self.PageIndex == 1){
+                        
                 self.norecordsFoundLbl.isHidden = false
                 self.getAllJobDetailsTableView.isHidden = true
+                        
                     }
             }
                 

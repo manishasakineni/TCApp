@@ -23,7 +23,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var todayDate = NSDate()
     
-    
+      var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
@@ -48,6 +48,16 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     var eventDateArray = Array<String>()
     
     var eventsCountsArray = Array<Int>()
+    
+    
+    
+  
+    var eventTitleArray = Array<String>()
+    var eventStartDateArray = Array<String>()
+    var eventEndDateArray = Array<String>()
+
+    
+    
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
@@ -90,6 +100,31 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         let authorEventsCalenderTableViewCell  = UINib(nibName: "AuthorEventsCalenderTableViewCell" , bundle: nil)
         authorEventsTableView.register(authorEventsCalenderTableViewCell, forCellReuseIdentifier: "AuthorEventsCalenderTableViewCell")
         
+        
+        
+        authorEventsTableView.register(UINib.init(nibName: "AllEventHeaderCell", bundle: nil),
+                                forCellReuseIdentifier: "AllEventHeaderCell")
+
+        
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: calendar.currentPage)
+        
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: calendar.currentPage)
+        
+        
+        
+   //     self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
+        
+        calendarColor()
+
+        
         authorEventsTableView.delegate = self
         authorEventsTableView.dataSource = self
         
@@ -129,6 +164,22 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
      color()
         
     }
+    
+    
+    func calendarColor(){
+        
+        
+        calendar.scope = .month
+        calendar.appearance.weekdayTextColor = UIColor.red
+        calendar.appearance.headerTitleColor = UIColor.red
+        calendar.appearance.selectionColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+        calendar.appearance.todayColor = UIColor.orange
+        calendar.appearance.todaySelectionColor = UIColor.black
+        
+        calendar.allowsMultipleSelection = true
+        
+    }
+    
     
 //MARK: -   Border Colors
  
@@ -384,6 +435,15 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let allEventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "AllEventHeaderCell") as! AllEventHeaderCell
+        
+        
+        
+        return allEventHeaderCell
+        
+    }
 
     
 
@@ -437,6 +497,143 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
        return UITableViewCell()
     
             }
+    
+    
+    
+    
+    
+    //MARK: -   Event calendar
+    
+    
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        self.view.layoutIfNeeded()
+    }
+    
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("did select date \(self.dateFormatter2.string(from: date))")
+        let selectedDateString = self.dateFormatter2.string(from: date)
+        
+        if(eventDateArray.contains(selectedDateString)){
+            
+            if(appDelegate.checkInternetConnectivity()){
+                
+                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(authorID)"
+                
+                print(strUrl)
+                serviceController.getRequest(strURL:strUrl, success:{(result) in
+                    DispatchQueue.main.async()
+                        {
+                            
+                            print("result:\(result)")
+                            
+                            
+                            let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
+                            
+                            let isSuccess = respVO.isSuccess
+                            print("StatusCode:\(String(describing: isSuccess))")
+                            
+                            self.eventTitleArray.removeAll()
+                            self.eventStartDateArray.removeAll()
+                            self.eventEndDateArray.removeAll()
+                            
+                            if isSuccess == true {
+                                
+                                let successMsg = respVO.endUserMessage
+                                
+                                
+                                for eventsTitleList in respVO.listResult!{
+                                    
+                                    let eventTitle = eventsTitleList.eventTitle
+                                    self.eventTitleArray.append(eventTitle!)
+                                    
+                                    let eventStartDate = eventsTitleList.startDate
+                                    self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventStartDate!))
+                                    
+                                    let eventEndDate = eventsTitleList.endDate
+                                    self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventEndDate!))
+                                    
+                                    
+                                    print( self.eventEndDateArray)
+                                    
+                                }
+                                
+                                print(self.eventTitleArray)
+                                print(self.eventStartDateArray)
+                                print( self.eventEndDateArray)
+                                
+                                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+                                
+                                var params : Dictionary = Dictionary<String,Any>()
+                                params.updateValue(self.eventTitleArray, forKey: selectedDateString)
+                                params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
+                                params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
+                                
+                                print(params)
+                                
+                                reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
+                                reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
+                                reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
+                                
+                                reOrderPopOverVC.eventsDateString = selectedDateString
+                                self.addChildViewController(reOrderPopOverVC)
+                                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                                self.view.addSubview(reOrderPopOverVC.view)
+                                reOrderPopOverVC.didMove(toParentViewController: self)
+                                
+                                self.calendar.reloadData()
+                                
+                            }
+                            
+                    }
+                }, failure:  {(error) in
+                    
+                    print(error)
+                    
+                    if(error == "unAuthorized"){
+                        
+                    }
+                    
+                })
+                
+            }
+            else {
+                
+                return
+            }
+            
+            print(numberEvent)
+            
+        }
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
+        print("did deselect date \(self.dateFormatter2.string(from: date))")
+        self.configureVisibleCells()
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        if self.gregorian.isDateInToday(date) {
+            return [UIColor.orange]
+        }
+        return [appearance.eventDefaultColor]
+    }
+    
+
+    
+    private func configureVisibleCells() {
+        
+        calendar.visibleCells().forEach { (cell) in
+            let date = calendar.date(for: cell)
+            let position = calendar.monthPosition(for: cell)
+            
+        }
+    }
+    
+    
+    
+    
     
 //MARK: -   Event Date Without Time
 

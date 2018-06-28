@@ -46,12 +46,13 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
        
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-
-    }
+           }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        
+    
     }
     
    //MARK: -  view Will Appear
@@ -59,6 +60,9 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
 
         
         

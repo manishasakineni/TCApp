@@ -10,48 +10,9 @@ import Foundation
 class GetChurchByIDResultVo: Mappable {
     
     
-//    
-//    address1 = "sample string 20";
-//    address2 = "<null>";
-//    churchImage = "<null>";
-//    closingTime = "21.3";
-//    contactNumber = 9578945215;
-//    countryId = 1;
-//    countryName = India;
-//    createdByUser = "Anushka Shetty";
-//    createdByUserId = 219;
-//    createdDate = "2018-02-21T14:27:06.82";
-//    description = "sample string 24";
-//    districtId = 1;
-//    districtName = Guntur;
-//    email = "dsahdbj@cmn.com";
-//    fileExtention = "<null>";
-//    fileLocation = "<null>";
-//    fileName = "<null>";
-//    id = 37;
-//    isActive = 1;
-//    landMark = "sample string 22";
-//    mandalId = 1;
-//    mandalName = Cherukupalli;
-//    mission = "sample string 25";
-//    name = SimpleChurch;
-//    openingTime = "9.15";
-//    pasterUser = "Deepl Padukoneas";
-//    registrationNumber = Reg101;
-//    stateId = 1;
-//    stateName = "Andhra Pradesh";
-//    updatedByUser = "Anushka Shetty";
-//    updatedByUserId = 219;
-//    updatedDate = "2018-02-21T14:27:06.82";
-//    userImage = "<null>";
-//    villageId = 2;
-//    villageName = Cherukupalli;
-//    vision = "sample string 26";
-//    websiteAddress = "sample string 29";
-//    userContactNumbar = 567686897868;
 
-//}
 
+    
 
 
 
@@ -106,13 +67,17 @@ class GetChurchByIDResultVo: Mappable {
     var pinCode : Int?
     var isSubscribed : Int?
     
+    var userEmail : String?
+    var genderTypeId : Int?
+    var userDescription : String?
+
     
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?, isSubscribed : Int?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?, isSubscribed : Int?,userEmail : String?,genderTypeId : Int?, userDescription : String?)
         
         
     {
@@ -165,6 +130,11 @@ class GetChurchByIDResultVo: Mappable {
         self.pinCode = pinCode
         self.isSubscribed = isSubscribed
         
+        self.userEmail = userEmail
+        self.genderTypeId = genderTypeId
+        self.userDescription = userDescription
+        
+
         
     }
     
@@ -220,6 +190,12 @@ class GetChurchByIDResultVo: Mappable {
         
         pinCode <- map["pinCode"]
         isSubscribed  <- map["isSubscribed"]
+        
+        
+        userEmail <- map["userEmail"]
+        genderTypeId <- map["genderTypeId"]
+        userDescription <- map["userDescription"]
+
     }
     
     
