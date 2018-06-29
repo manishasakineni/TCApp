@@ -94,6 +94,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var currentorganization   : String = ""
     var currentsalary         :String = ""
     var expectedsalary        :String = ""
+    var uploadresume        :String = ""
     
     var isActive:Bool = true
     var createdByUserId:Int = 1
@@ -766,9 +767,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let mobileNumberStr:NSString =  mobileNumber  as NSString
         let qualificationStr:NSString = qualification   as NSString
         let yearofexperienceStr:NSString =  selectedYears + "" + selectedMonths as NSString
-        let currentorganizationStr:NSString =  currentorganization  as NSString
-        let currentsalaryStr:NSString = currentsalary   as NSString
-        let expectedsalaryStr:NSString =  expectedsalary  as NSString
+        
+ //        let uploadresumeStr:NSString = uploadresume   as NSString
+        
+        
+//        let currentorganizationStr:NSString =  currentorganization  as NSString
+//        let currentsalaryStr:NSString = currentsalary   as NSString
+//        let expectedsalaryStr:NSString =  expectedsalary  as NSString
         
         
         if (jobtitleStr.length <= 2){
@@ -785,7 +790,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else if (lastnameStr.length <= 2){
+        else if (lastnameStr.length <= 0){
             
             
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
@@ -834,29 +839,38 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankyearofexperienceErrorMessage() as String as String as NSString?
             
         }
-
-        else if (currentorganizationStr.length <= 0){
-            
-            
-            errorMessage=GlobalSupportingClass.blankcurrentorganizationErrorMessage() as String as String as NSString?
-            
-        }
-            
-        else if (currentsalaryStr.length <= 2){
-            
-            
-            errorMessage=GlobalSupportingClass.blankcurrentsalaryErrorMessage() as String as String as NSString?
-            
-        }
-
-        else if (expectedsalaryStr.length <= 2){
-            
-            
-            errorMessage=GlobalSupportingClass.blankexpectedsalaryErrorMessage() as String as String as NSString?
-            
-        }
         
-        
+//        
+//        else if (uploadresumeStr.length <= 0){
+//            
+//            
+//        errorMessage=GlobalSupportingClass.blankresumeErrorMessage() as String as String as NSString?
+//            
+//        }
+//        
+//
+//        else if (currentorganizationStr.length <= 0){
+//            
+//            
+//            errorMessage=GlobalSupportingClass.blankcurrentorganizationErrorMessage() as String as String as NSString?
+//            
+//        }
+//            
+//        else if (currentsalaryStr.length <= 2){
+//            
+//            
+//            errorMessage=GlobalSupportingClass.blankcurrentsalaryErrorMessage() as String as String as NSString?
+//            
+//        }
+//
+//        else if (expectedsalaryStr.length <= 2){
+//            
+//            
+//            errorMessage=GlobalSupportingClass.blankexpectedsalaryErrorMessage() as String as String as NSString?
+//            
+//        }
+//        
+//        
         
         
         if let errorMsg = errorMessage{

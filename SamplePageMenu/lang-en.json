@@ -106,7 +106,7 @@
     "Start Date" : "Start Date",
     "Event Title" : "Event Title",
     "ALL EVENTS" : "ALL EVENTS",
-    "Event Name:" : "Event Date",
+    "Event Name:" : "Event Name",
     "  Events" : "  Events",
     "contact Number:" : "contact Number:",
     "StartDate EndDate:" : "StartDate EndDate",
@@ -227,10 +227,10 @@
     "Cart" : "Cart",
 
 
-
+   "Event Date:" : "Event Date",
     
 
-
+ "Event Details" : "Event Details",
     
 
     

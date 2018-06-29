@@ -106,7 +106,8 @@
     "Start Date" : "Start Date",
     "Event Title" : "Event Title:",
     "ALL EVENTS" : "ALL EVENTS",
-    "Event Name:" : "Event Date",
+    "Event Name:" : "Event Name",
+     "Event Date:" : "Event Date",
     "  Events" : "  Events",
     "contact Number:" : "contact Number:",
     "StartDate EndDate:" : "StartDate EndDate",
@@ -223,6 +224,10 @@
     "Please Enter Expected Salary" : "Please Enter Expected Salary",
     
     "Cart" : "Cart",
+    
+    
+    
+    "Event Details" : "Event Details",
     
     
     

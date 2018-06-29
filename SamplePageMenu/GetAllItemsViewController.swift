@@ -382,6 +382,9 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
            jobIDViewController.itemID = listStr.id!
             
+        jobIDViewController.churchName1 = listStr.name!
+
+            
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
       
       

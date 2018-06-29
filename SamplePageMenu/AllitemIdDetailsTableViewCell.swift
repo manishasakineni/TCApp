@@ -19,6 +19,11 @@ class AllitemIdDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var isactiveLabel: UILabel!
     
     
+    @IBOutlet weak var itemName: UILabel!
+    
+    @IBOutlet weak var sellerInfoLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

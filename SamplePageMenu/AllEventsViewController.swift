@@ -34,6 +34,8 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     
      var delegate: eventinfoSubtitleOfIndexDelegate?
     
+     var null = NSNull()
+    
     var listResultArray = Array<Any>()
 
     var previousMonthString = "0"
@@ -118,23 +120,23 @@ override func viewWillAppear(_ animated: Bool) {
         PageIndex = 1
         totalPages = 0
         
-         self.churchIdMonthYearArray.removeAll()
+     //    self.churchIdMonthYearArray.removeAll()
         
-        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
-        
+   //     GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+    
     }
     
 //MARK: -   view Will Disappear
     
-override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-        searchController.searchBar.resignFirstResponder()
-        
-        self.searchController.isActive = false
-        
-        
-    }
+//override func viewWillDisappear(_ animated: Bool) {
+//        
+//        super.viewWillDisappear(animated)
+//        searchController.searchBar.resignFirstResponder()
+//        
+//      //  self.searchController.isActive = false
+//      //   self.churchIdMonthYearArray.removeAll()
+//        
+//    }
     
     
 //MARK: UISearchbar delegate
@@ -159,10 +161,7 @@ func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     
     
     
-//    if searchBar.text == ""  {
-//    
-//    searchBar.resignFirstResponder()
-//    }
+
     
 
     }
@@ -228,7 +227,8 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
     
         let dictParams = [
-            "churchId": churchID,
+            
+            "churchId": null,
             "month": month,
             "year": year,
             "pageIndex": PageIndex,
@@ -236,6 +236,9 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             "sortbyColumnName": "UpdatedDate",
             "sortDirection": "desc",
             "searchName": str
+            
+            
+            
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -536,7 +539,7 @@ else {
     }
 func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-    if indexPath.row == filteredTableData.count - 1 {
+    if indexPath.row == churchIdMonthYearArray.count - 1 {
             
     if(self.totalPages! > PageIndex){
                 

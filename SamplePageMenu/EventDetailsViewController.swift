@@ -163,15 +163,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-        
-        
-        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-    }
-    
-
+//    override func viewWillDisappear(_ animated: Bool) {
+//        
+//        super.viewWillDisappear(animated)
+//        
+//        
+//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+//    }
+//    
+//
 //MARK: -    Get Event Details By Id API Call
  
     func getEventDetailsByIdApiCall(){
@@ -659,6 +659,25 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         let informationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
             if indexPath.row == 2 {
+                
+        informationTableViewCell.infoLabel.text = "Event Details".localize()
+                
+        informationTableViewCell.addressLabel.text =  ""
+                
+        informationTableViewCell.addressLabel.textColor = UIColor.white
+                
+   //     informationTableViewCell.addressLabel.font = 15
+                
+        informationTableViewCell.symbolLbl.textColor =  UIColor.white
+
+                
+
+            }
+
+            
+            
+            
+            if indexPath.row == 3 {
             
                 informationTableViewCell.infoLabel.text = "Church Name".localize()
                 
@@ -666,13 +685,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             }
             
-            if indexPath.row == 3 {
-                
-                informationTableViewCell.infoLabel.text = "Registration Number".localize()
-                
-                informationTableViewCell.addressLabel.text =  eventList.registrationNumber
-                
-            }
+//            if indexPath.row == 3 {
+//                
+//                informationTableViewCell.infoLabel.text = "Registration Number".localize()
+//                
+//                informationTableViewCell.addressLabel.text =  eventList.registrationNumber
+//                
+//            }
             
             if indexPath.row == 4 {
                 

@@ -99,12 +99,18 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         
         if let chuechName =  listStr.churchName {
+            
             cell.chuechName.text =  chuechName
+            
         }else{
+           
+             cell.chuechName.text =  ""
         }
         
         if let eventTitle =  listStr.title {
+            
             cell.eventTitle.text =  eventTitle
+            
         }else{
         }
         

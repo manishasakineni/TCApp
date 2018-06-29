@@ -72,7 +72,7 @@
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
-    "Event Name:" : "ఈవెంట్ తేదీ",
+    "Event Name:" : "ఈవెంట్ పేరు",
     "Date" : "తేదీ",
     "ChangePhoto" : "ఫోటో మార్చు",
     "save" : "సేవ్",
@@ -225,10 +225,10 @@
       "Cart" : "కార్ట్",
 
 
-
+    "Event Date:" : "ఈవెంట్ తేదీ",
 
     
-
+    "Event Details" : "ఈవెంట్ వివరాలు",
 
     
 

@@ -17,6 +17,7 @@ class InformationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var infoLabel: UILabel!
     
+    @IBOutlet weak var symbolLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

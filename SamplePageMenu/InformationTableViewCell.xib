@@ -72,6 +72,7 @@
                 <outlet property="addressLabel" destination="b7O-Zw-VLF" id="WLU-bP-OnG"/>
                 <outlet property="backGroundView" destination="aUh-N5-2cd" id="8uu-IJ-yG4"/>
                 <outlet property="infoLabel" destination="Eox-8u-hi9" id="vh5-CN-h0L"/>
+                <outlet property="symbolLbl" destination="hYW-ti-LaH" id="U61-vU-uQj"/>
             </connections>
             <point key="canvasLocation" x="33" y="67.5"/>
         </tableViewCell>

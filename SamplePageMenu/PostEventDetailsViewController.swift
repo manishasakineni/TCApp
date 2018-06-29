@@ -28,7 +28,9 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     var isDownloadingOnProgress : Bool          = false
     var navigationStr = String()
     
+      var eventName = ""
     
+     var catgoryID:Int = 0
     
     var catgoryImg:String = ""
 
@@ -44,7 +46,8 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     var isResponseFromServer = false
 
     var imageView = UIImageView()
-
+    
+     var authorName : String = ""
     
     var videoIDArray : Array<String> = Array()
     
@@ -101,7 +104,26 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: self.eventName, backTitle: "  \(authorName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
+              
+    }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        
+//        super.viewWillDisappear(animated)
+//        
+//        
+//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+//    }
+//    
+//    
+    
     
 //MARK: -    Get Videos API Call
     

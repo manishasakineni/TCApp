@@ -95,8 +95,15 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         PostEventDetailsVC?.delegate  = self
         PostEventDetailsVC?.eventID = eventID
         PostEventDetailsVC?.catgoryImg = eventImageArrayString
+        PostEventDetailsVC?.eventName = eventName
+        PostEventDetailsVC?.catgoryID = catgoryID
+        PostEventDetailsVC?.navigationStr = navigationStr
+        
+        
         controllersArray.append(EventDetailsVC!)
         controllersArray.append(PostEventDetailsVC!)
+        
+        
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),

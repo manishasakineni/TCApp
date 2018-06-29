@@ -17,6 +17,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     var appVersion          : String = ""
 
     var itemID:Int = 0
+    
+     var churchName1 : String = ""
+    
       let utillites =  Utilities()
     var activeTextField = UITextField()
      var alertTag = Int()
@@ -36,7 +39,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         allitemsIDTableView.dataSource = self
         quantityTF.delegate = self
         quantityTF.keyboardType = .numberPad
-    //    quantityTF.maxLengthTextField = 3
+      quantityTF.maxLengthTextField = 3
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -65,7 +68,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         super.viewWillAppear(animated)
         
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Online Shopping".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: churchName1, backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
 
@@ -206,9 +209,19 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
         
-         cell.nameLabel.text = listStr.name
+        
+        
+      //   cell.nameLabel.text = listStr.name
+        
+        cell.itemName.text = listStr.name
+        
          cell.priceLabel.text = "\(listStr.price!)"
-         cell.authorLabel.text = listStr.author
+         cell.sellerInfoLbl.text = listStr.author
+        
+         cell.authorLabel.text = listStr.desc
+        
+        
+        
         cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
         
         return cell
