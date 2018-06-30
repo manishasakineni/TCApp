@@ -764,6 +764,8 @@ func readDataSource(){
             pincode = "\(model.pinCode!)"
             landmark = model.landmark!
             state = model.stateName!
+            stateID = model.stateId!
+            countryID = model.countryId!
             country = model.countryName!
             mobileNumber = model.mobileNumber!
             addressID = model.id!

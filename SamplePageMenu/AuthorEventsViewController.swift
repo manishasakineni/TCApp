@@ -94,8 +94,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         month = String(calendars.component(.month, from: todayDate as Date))
         
         
-        let listOfMonthEventCell = UINib(nibName: "AdminMonthEventListCell" , bundle: nil)
-        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "AdminMonthEventListCell")
+        let listOfMonthEventCell = UINib(nibName: "AuthorleventTableViewCell" , bundle: nil)
+        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "AuthorleventTableViewCell")
         
         let authorEventsCalenderTableViewCell  = UINib(nibName: "AuthorEventsCalenderTableViewCell" , bundle: nil)
         authorEventsTableView.register(authorEventsCalenderTableViewCell, forCellReuseIdentifier: "AuthorEventsCalenderTableViewCell")
@@ -400,7 +400,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
 
-    return 148
+    return 100
        
 
         
@@ -455,32 +455,23 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
        let authorDetails = authorDetailsArray[indexPath.row]
             
             
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AdminMonthEventListCell", for: indexPath) as! AdminMonthEventListCell
-            
-            if authorDetails.churchName != nil {
-                
-                 cell.churchName.text = authorDetails.churchName!
-            }
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorleventTableViewCell", for: indexPath) as! AuthorleventTableViewCell
             
             if authorDetails.authorName != nil {
-               
-                 cell.eventName.text = authorDetails.authorName
+                
+                 cell.authornameLbl.text = authorDetails.authorName!
             }
             
             if authorDetails.mobileNumber != nil {
-                
-                cell.eventAddress.text = authorDetails.mobileNumber
+               
+                 cell.phnoLbl.text = authorDetails.mobileNumber
             }
             
             if authorDetails.eventDate != nil {
                 
-                cell.fromDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.eventDate!))
+                
+                 cell.timeLbl.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.eventDate!))
             }
-//
-//            if authorDetails.endDate != nil {
-//                
-//                cell.toDate.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.endDate!))
-//            }
            
             return cell
             }
@@ -519,7 +510,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if(appDelegate.checkInternetConnectivity()){
                 
-                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(authorID)"
+                let strUrl = GETEVENTSBYMONTHYEAR + "" + "\(selectedDateString)" + "/" + "\(authorID)"
                 
                 print(strUrl)
                 serviceController.getRequest(strURL:strUrl, success:{(result) in

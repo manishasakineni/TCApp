@@ -243,7 +243,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                             }
                             else {
                                 
-                                //  self.norecordsFoundLbl.isHidden = false
+                                self.norecordsfoundLbl.isHidden = false
                                 
                                 self.postEventTableView.isHidden = true
                             }

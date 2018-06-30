@@ -64,6 +64,9 @@ let GETPOSTBYCATEGORYIDOFVIDEOSONGS : String = BASEURL.appending("api/Post/GetPo
 
 let GETAUTHOREVENTSBYMONTHYEAR : String = BASEURL.appending("api/Events/GetEventInfoByUserIdMonthYear/")
 
+let GETEVENTSBYMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByDateAndUserId/")
+
+
 let GETAUTHOREVENTSCOUNTBYMONTH : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
 
 let GETEVENTDETAILSBYID : String = BASEURL.appending("api/Events/GetEventById/")

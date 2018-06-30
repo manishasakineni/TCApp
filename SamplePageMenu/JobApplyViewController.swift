@@ -768,7 +768,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let qualificationStr:NSString = qualification   as NSString
         let yearofexperienceStr:NSString =  selectedYears + "" + selectedMonths as NSString
         
- //        let uploadresumeStr:NSString = uploadresume   as NSString
+         let uploadresumeStr:NSString = uploadresume   as NSString
         
         
 //        let currentorganizationStr:NSString =  currentorganization  as NSString
@@ -840,14 +840,14 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-//        
-//        else if (uploadresumeStr.length <= 0){
-//            
-//            
-//        errorMessage=GlobalSupportingClass.blankresumeErrorMessage() as String as String as NSString?
-//            
-//        }
-//        
+        
+        else if (self.docsUrlArray.count == 0){
+            
+            
+        errorMessage=GlobalSupportingClass.blankresumeErrorMessage() as String as String as NSString?
+            
+        }
+//
 //
 //        else if (currentorganizationStr.length <= 0){
 //            

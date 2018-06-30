@@ -84,6 +84,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .numberPad
+            textField.maxLengthTextField = 3
         }
     
     }

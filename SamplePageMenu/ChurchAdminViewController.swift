@@ -453,9 +453,9 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             authorDetailsViewController.authorID = listStr.Id!
         }
         
-        if listStr.churchName != nil {
+        if listStr.churchAdmin != nil {
             
-            authorDetailsViewController.churchName1 = listStr.churchName!
+            authorDetailsViewController.churchName1 = listStr.churchAdmin!
         }
             authorDetailsViewController.isFromChruch = false
     authorDetailsViewController.isSubscribed = isSubscribed

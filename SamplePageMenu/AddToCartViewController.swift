@@ -149,7 +149,13 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
 
         
         cell.addToCartNameLbl.text = listStr.itemName
-        cell.addToCartQuantityLbl.text = "\(listStr.quantity!)"
+        
+        if listStr.quantity != nil {
+            
+            cell.addToCartQuantityLbl.text = "\(listStr.quantity!)"
+        }
+        
+     //   cell.addToCartQuantityLbl.text = "\(listStr.quantity!)"
        
         cell.addToCartPriceLbl.text = "\(listStr.price!)"
         cell.addToCartAuthorLbl.text = listStr.author

@@ -81,7 +81,7 @@ class AuthorEventDateCountInfoVO: Mappable {
       
         authorId <- map["authorId"]
         authorName <- map["authorName"]
-        mobileNumber <- map["authorName"]
+        mobileNumber <- map["mobileNumber"]
         
         fileLocation <- map["fileLocation"]
         fileName <- map["fileName"]

@@ -199,6 +199,8 @@
 		AF0F0D2020AD531100AE9BD9 /* AddToCartListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D1F20AD531100AE9BD9 /* AddToCartListResultVO.swift */; };
 		AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D2220AD7A1A00AE9BD9 /* GetCartInfoVO.swift */; };
 		AF0F0D2520AD7A3600AE9BD9 /* GetCartListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0F0D2420AD7A3600AE9BD9 /* GetCartListResultVO.swift */; };
+		AF10038120E66547009ECE42 /* AuthorleventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10037F20E66547009ECE42 /* AuthorleventTableViewCell.swift */; };
+		AF10038220E66547009ECE42 /* AuthorleventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10038020E66547009ECE42 /* AuthorleventTableViewCell.xib */; };
 		AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102851203C25B10012411A /* InfoChurchViewControllers.swift */; };
 		AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */; };
 		AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102854203C25C10012411A /* InfoChurchViewControllers.xib */; };
@@ -607,6 +609,8 @@
 		AF0F0D1F20AD531100AE9BD9 /* AddToCartListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartListResultVO.swift; sourceTree = "<group>"; };
 		AF0F0D2220AD7A1A00AE9BD9 /* GetCartInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCartInfoVO.swift; sourceTree = "<group>"; };
 		AF0F0D2420AD7A3600AE9BD9 /* GetCartListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCartListResultVO.swift; sourceTree = "<group>"; };
+		AF10037F20E66547009ECE42 /* AuthorleventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorleventTableViewCell.swift; sourceTree = "<group>"; };
+		AF10038020E66547009ECE42 /* AuthorleventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorleventTableViewCell.xib; sourceTree = "<group>"; };
 		AF102851203C25B10012411A /* InfoChurchViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChurchViewControllers.swift; sourceTree = "<group>"; };
 		AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchesInformaationViewControllers.swift; sourceTree = "<group>"; };
 		AF102854203C25C10012411A /* InfoChurchViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoChurchViewControllers.xib; sourceTree = "<group>"; };
@@ -1049,6 +1053,8 @@
 				3D355D25205BC73900FE67D8 /* AuthorEventsCalenderTableViewCell.xib */,
 				3D355D20205BB62000FE67D8 /* AuthorListCountTableViewCell.swift */,
 				3D355D21205BB62000FE67D8 /* AuthorListCountTableViewCell.xib */,
+				AF10037F20E66547009ECE42 /* AuthorleventTableViewCell.swift */,
+				AF10038020E66547009ECE42 /* AuthorleventTableViewCell.xib */,
 			);
 			name = AuthorDetailsViewController;
 			sourceTree = "<group>";
@@ -2334,6 +2340,7 @@
 				9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */,
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
 				AF141D7D20A6D34200AE9FB8 /* AuthorAudiioTableViewCell.xib in Resources */,
+				AF10038220E66547009ECE42 /* AuthorleventTableViewCell.xib in Resources */,
 				CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */,
 				3D41C7F42063771C0086BEE7 /* UsersCommentsTableViewCell.xib in Resources */,
 				AF10617120AA9C5F00ECEBF3 /* GetJobByIDTableViewCell.xib in Resources */,
@@ -2553,6 +2560,7 @@
 				3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */,
 				AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
+				AF10038120E66547009ECE42 /* AuthorleventTableViewCell.swift in Sources */,
 				AF0F0D1C20AD4B0700AE9BD9 /* AddToCartViewController.swift in Sources */,
 				359CC92A206276C40061450A /* BibleBooksViewController.swift in Sources */,
 				3D5404EB20580318008257A6 /* AuthorDetailsVO.swift in Sources */,
