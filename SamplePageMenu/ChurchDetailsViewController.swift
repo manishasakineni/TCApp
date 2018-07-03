@@ -755,7 +755,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         holyBibleViewController.pasterUserId = listStr.pasterUserId!
         
         holyBibleViewController.churchID = listStr.Id!
-            holyBibleViewController.isFromChruch = true
+        holyBibleViewController.isFromChruch = true
         holyBibleViewController.nameStr = listStr.name!
 
         

@@ -146,7 +146,7 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
             let categoryId = imageTag.categoryId
             
         
-            let userID = imageTag.id
+            let videoID = imageTag.id
             
             if let embededUrlImage =  postImgUrl {
                 
@@ -177,7 +177,7 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
                                 
                                 
                                 kUserDefaults.set(categoryId, forKey: "categoryId")
-                                kUserDefaults.set(userID, forKey: "userID")
+                                kUserDefaults.set(videoID, forKey: "videoID")
                                 kUserDefaults.synchronize()
                                 self.navigationController?.pushViewController(videosVC, animated: true)
                         }

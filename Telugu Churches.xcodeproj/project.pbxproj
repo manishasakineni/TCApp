@@ -173,6 +173,9 @@
 		AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */; };
 		AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */; };
 		AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */; };
+		AF09007720EA598100BACB25 /* LikeInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09007620EA598100BACB25 /* LikeInfoVo.swift */; };
+		AF09007920EA59DD00BACB25 /* LikeResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09007820EA59DD00BACB25 /* LikeResultVO.swift */; };
+		AF09007B20EA5A1D00BACB25 /* LikeandDislikeVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF09007A20EA5A1D00BACB25 /* LikeandDislikeVo.swift */; };
 		AF0A392220D0E89F00265B7A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */; };
 		AF0A392520D0F2D200265B7A /* jobApplymonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A392320D0F2D200265B7A /* jobApplymonthTableViewCell.swift */; };
 		AF0A392620D0F2D200265B7A /* jobApplymonthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0A392420D0F2D200265B7A /* jobApplymonthTableViewCell.xib */; };
@@ -583,6 +586,9 @@
 		AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoMapTableViewCell.xib; sourceTree = "<group>"; };
 		AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInfoTableViewCell.swift; sourceTree = "<group>"; };
 		AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutInfoTableViewCell.xib; sourceTree = "<group>"; };
+		AF09007620EA598100BACB25 /* LikeInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeInfoVo.swift; sourceTree = "<group>"; };
+		AF09007820EA59DD00BACB25 /* LikeResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeResultVO.swift; sourceTree = "<group>"; };
+		AF09007A20EA5A1D00BACB25 /* LikeandDislikeVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeandDislikeVo.swift; sourceTree = "<group>"; };
 		AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		AF0A392320D0F2D200265B7A /* jobApplymonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jobApplymonthTableViewCell.swift; sourceTree = "<group>"; };
 		AF0A392420D0F2D200265B7A /* jobApplymonthTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobApplymonthTableViewCell.xib; sourceTree = "<group>"; };
@@ -910,6 +916,9 @@
 				3D5357DB207253F300B8AB94 /* LikeDislikeVO.swift */,
 				3D5852D520725D1500994FC2 /* LikeDislikeCountVO.swift */,
 				3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */,
+				AF09007620EA598100BACB25 /* LikeInfoVo.swift */,
+				AF09007820EA59DD00BACB25 /* LikeResultVO.swift */,
+				AF09007A20EA5A1D00BACB25 /* LikeandDislikeVo.swift */,
 			);
 			name = LikeDislikeVO;
 			sourceTree = "<group>";
@@ -1277,6 +1286,7 @@
 				9AF564972020941200AEA0EF /* ChangePassWordViewController */,
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
+				AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */,
 				CBF2406120904B4C00BF4E94 /* LoginViewController */,
 				CBF2406220904B6600BF4E94 /* SignUpViewController */,
 				3DD30F63205FF0190076B0DB /* EventDetailsViewController */,
@@ -2221,7 +2231,6 @@
 			isa = PBXGroup;
 			children = (
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
-				AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */,
 			);
 			name = SignUpViewController;
 			sourceTree = "<group>";
@@ -2628,6 +2637,7 @@
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */,
+				AF09007920EA59DD00BACB25 /* LikeResultVO.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */,
@@ -2653,6 +2663,7 @@
 				AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */,
 				AF0F0D2520AD7A3600AE9BD9 /* GetCartListResultVO.swift in Sources */,
 				AF7C2E4120A0823A003D623F /* PostByAutorIdResultInfoVO.swift in Sources */,
+				AF09007B20EA5A1D00BACB25 /* LikeandDislikeVo.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
@@ -2775,6 +2786,7 @@
 				AF108A5920D39AC70098B70F /* NotificationResultVO.swift in Sources */,
 				AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */,
 				AF7C2E3D20A07CB9003D623F /* PostByChurchIDResultInfoVO.swift in Sources */,
+				AF09007720EA598100BACB25 /* LikeInfoVo.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,
 				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,

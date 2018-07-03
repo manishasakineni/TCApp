@@ -90,6 +90,8 @@ let GETPOSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/
 
 let EVENTSLIKEDISLIKEAPI : String = BASEURL.appending("api/Events/EventLikeOrDisLike")
 
+//http://192.168.1.168/TeluguChurchesTestAPI/api/Post/LikeOrDislikePost
+
 let EVENTCOMMENTAPI : String = BASEURL.appending("api/Events/AddUpdateEventComments")
 
 let EVENTPOSTCOMMENTAPI : String = BASEURL.appending("api/Post/AddUpdateComments")

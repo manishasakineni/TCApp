@@ -64,7 +64,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var categoryId = Int()
     var ID = Int()
     var isFromImageView = false
-var imageUrl = ""
+    var imageUrl = ""
     var commentString : String = "Add a public comment..."
 
     var isLike = 0
@@ -323,18 +323,14 @@ var imageUrl = ""
         
         Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-        if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
-            
-            self.userID = (kUserDefaults.value(forKey: kuserIdKey) as? String)!
-            
-        }
-        
+      
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
             
             self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
             
         }
        
+        
         self.getVideoDetailsApiService()
 
     }
@@ -381,9 +377,9 @@ var imageUrl = ""
     
     func getVideosAPICall(){
         
-        let videoSongsID : Int = 8
+       // let videoSongsID : Int = 8
         
-        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(videoSongsID)"
+        let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(self.ID)"
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
         
@@ -1157,7 +1153,7 @@ var imageUrl = ""
     
 func  likeButtonClick(_ sendre:UIButton) {
         
-    if !(self.userID.isEmpty) {
+    if !(self.ID == 0) {
             
         if likeClick == false {
         
@@ -1197,7 +1193,7 @@ func  likeButtonClick(_ sendre:UIButton) {
     
 func  unLikeButtonClick(_ sendre:UIButton) {
         
-    if !(self.userID.isEmpty) {
+    if !(self.ID == 0) {
         
         if disLikeClick == false {
             
@@ -1605,7 +1601,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         let params = [ "postId": self.postID,
                        "userId": self.ID,
                        "like1": likeClick,
-                       "disLike": disLikeClick   ] as [String : Any]
+                       "disLike": disLikeClick ] as [String : Any]
         
         print("dic params \(params)")
         
@@ -1618,7 +1614,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             print(result)
             
             
-            let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
+            let responseVO:LikeandDislikeVo = Mapper().map(JSONObject: result)!
 
             let isSuccess = responseVO.isSuccess
             
@@ -1626,7 +1622,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 
                 self.likesCount = (responseVO.result?.likeCount)!
                 self.disLikesCount = (responseVO.result?.dislikeCount)!
-                
+               
+                if ((responseVO.result?.likeResult?.count)! > 0){
+                    
+                self.isLike = (responseVO.result?.likeResult?[0].like1)!
+                self.isLike = (responseVO.result?.likeResult?[0].disLike)!
+                }
                 let indexPath = IndexPath(item: 0, section: 0)
                 self.allOffersTableView.reloadRows(at: [indexPath], with: .automatic)
                 
@@ -1733,7 +1734,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.allOffersTableView.isScrollEnabled = true
         self.repliesTableView.isScrollEnabled = true
         
-        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
+        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.ID)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         

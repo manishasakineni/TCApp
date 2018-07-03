@@ -123,15 +123,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
         Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
-            
-            self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
-            
-        }
-        
-
-        
-        
         let nibName  = UINib(nibName: "youtubeCLDSSCell" , bundle: nil)
         audioTableview.register(nibName, forCellReuseIdentifier: "youtubeCLDSSCell")
         
@@ -153,8 +144,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         self.navigationController?.isNavigationBarHidden = true
      
         
-        getEventDetailsByIdApiCall()
-        
+       
+        if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
+            
+            self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
+            
+        }
         
 
     }
@@ -171,12 +166,13 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         Utilities.audioEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: self.audioIDNameArr, backTitle: "   C", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
    
-        
+        getEventDetailsByIdApiCall() 
         
         
     }
     
     func play(url:URL) {
+        
         self.avPlayer = AVPlayer(playerItem: AVPlayerItem(url: url))
         if #available(iOS 10.0, *) {
             self.avPlayer.automaticallyWaitsToMinimizeStalling = false
@@ -810,7 +806,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
             }
             
-            eventLikesDislikesCountAPiCall()
+            audioLikesDislikesCountAPiCall()
             
             
             
@@ -852,7 +848,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             print("UnLike Clicked.............")
             
-            eventLikesDislikesCountAPiCall()
+            audioLikesDislikesCountAPiCall()
             
         }
             
@@ -1173,7 +1169,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
                     self.isLike = (respVO.result?.postDetails![0].isLike)!
                     self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
-                                        if self.isLike == 0{
+                    
+                    if self.isLike == 0{
                         self.likeClick = false
                         
                     }
@@ -1298,30 +1295,30 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
     }
     
-    func eventLikesDislikesCountAPiCall(){
+    func audioLikesDislikesCountAPiCall(){
         
         
-        let  EVENTSLIKEDISLIKEAPISTR = EVENTSLIKEDISLIKEAPI
+        let  AUDIOLIKEDISLIKEAPISTR = LIKEANDDISLIKECOUNTAPI
         
-        let params = [ "eventId": postID,
+        let params = [ "postId": postID,
                        "userId": self.userID ,
-                       "like": likeClick,
+                       "like1": likeClick,
                        "disLike": disLikeClick
             
             
             ] as [String : Any]
-        
+
         print("dic params \(params)")
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
         
-        serviceController.postRequest(strURL: EVENTSLIKEDISLIKEAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: AUDIOLIKEDISLIKEAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
             
-            let responseVO:LikeDislikeVO = Mapper().map(JSONObject: result)!
+            let responseVO:LikeandDislikeVo = Mapper().map(JSONObject: result)!
             
             let isSuccess = responseVO.isSuccess
             
@@ -1331,12 +1328,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 self.disLikesCount = (responseVO.result?.dislikeCount)!
                
                 
-                if (self.isLike > 0){
+                if ((responseVO.result?.likeResult?.count)! > 0){
                 
-                self.isLike = (responseVO.result?.likeResult?[0].like)!
+                self.isLike = (responseVO.result?.likeResult?[0].like1)!
                 self.isDisLike = (responseVO.result?.likeResult?[0].disLike)!
                 
-                }
+              }
               
                 
                 let indexPath = IndexPath(row: 0, section: 0)
@@ -1441,7 +1438,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
 
         
-        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(audioID) + "/" + String(categoryID)
+        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(audioID) + "/" + String(self.userID)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
         
@@ -1509,7 +1506,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
                     self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                     
-                    self.postID  = (respVO.result?.postDetails![0].eventId)! as! Int
+                    self.postID  = (respVO.result?.postDetails![0].id)!
                     self.isLike = (respVO.result?.postDetails![0].isLike)!
                     self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
 

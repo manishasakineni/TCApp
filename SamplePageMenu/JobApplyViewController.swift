@@ -945,7 +945,8 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
        self.uploadView.isHidden = true
         self.uploadBtnOutLet.isHidden = true
         self.imageView.isHidden = true
-            
+         
+        self.docsUrlArray.removeAll()
      
         })
         
@@ -1243,6 +1244,7 @@ func getjobApplicationAPICall(){
         uploadBtnOutLet.isHidden = false
         imageView.isHidden = false
         
+       
         
         print("The Url is : \(filename)")
         
