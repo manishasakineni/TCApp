@@ -631,7 +631,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
-        else if(!confirmPassWord.isEqual(to: confirmPassWord as String)){
+        else if(!confirmPassWord.isEqual(to: passWord as String)){
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
             

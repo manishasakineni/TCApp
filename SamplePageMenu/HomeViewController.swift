@@ -89,6 +89,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var loginStatusString    =   String()
     
+    var timerForCollectionView: Timer!
+    
     var bibleNav = false
     
     var sectionTittles = ["Church","Latest Posts","Categories".localize(),"Event Posts"]
@@ -116,7 +118,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var bannerImageScrollArray:[BannerImageScrollResultVo] = Array<BannerImageScrollResultVo>()
     
-    var bannerImageArr = Array<UIImage>()
+    var bannerImageArr = Array<URL>()
     
     var upComingEventsArray:[UpcomingEventsResultVO] = Array<UpcomingEventsResultVO>()
     var vedioEventsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
@@ -129,7 +131,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.bannerImageScrollAPICall()
+        
         
         
         let categorieHomeCell  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
@@ -226,7 +228,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 //MARK: -   View WillDisappear
 
     override func viewWillDisappear(_ animated: Bool) {
-        
+        timerForCollectionView.invalidate()
         super.viewWillDisappear(animated)
         
     }
@@ -271,11 +273,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             let url = URL(string:newString)
                             
                             
-                            let dataImg = try? Data(contentsOf: url!)
+                          
                             
-                            if dataImg != nil {
+                            if url != nil {
                                 
-                                self.bannerImageArr.append(UIImage(data: dataImg!)!)
+                                self.bannerImageArr.append(url!)
                             }
                             
                 
@@ -293,14 +295,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             self.bannerScrollView.delegate = self
 
                             for (index, image) in self.bannerImageArr.enumerated() {
-                                let image = image
-                                let imageView = UIImageView(image: image)
+                                let imageView = UIImageView()
                                 imageView.contentMode = .scaleToFill
                                 imageView.backgroundColor = UIColor.blue
                                 
                                 imageView.frame = self.bannerScrollView.frame
                                 imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
                                 print(UIScreen.main.bounds.size.width)
+                                imageView.sd_setImage(with:self.bannerImageArr[index] , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                                 self.bannerScrollView.addSubview(imageView)
                                 
                                 }
@@ -309,13 +311,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                         else {
                         
                          self.arrImages += [UIImage(named:"j1")!,UIImage(named: "j2")!, UIImage(named: "jesues")!, UIImage(named: "skyJSU")!, UIImage(named: "j3")!, UIImage(named: "j4")!, UIImage(named: "j6")!, UIImage(named: "jesues")!]
-                             self.bannerImageArr = self.arrImages
+                             //self.bannerImageArr = self.arrImages
                              self.categorieTableView.reloadData()
-                                    }
+                        }
                         
                         print(self.bannerImageArr)
                         
-                        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
+                        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
 
                     }
         
@@ -407,6 +409,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             print(failureMessage)
             
         }
+        self.bannerImageArr.removeAll()
+        self.bannerImageScrollAPICall()
+        self.categorieTableView.reloadData()
     }
 
     
@@ -491,9 +496,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 if self.eventImageArray.count > 0{
                 
-                
-                let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
-                RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+    
+                    
+               self.timerForCollectionView = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+                RunLoop.current.add(self.timerForCollectionView, forMode: RunLoopMode.defaultRunLoopMode)
 
                 }
 
@@ -800,8 +806,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
             if self.y < self.eventImageArray.count {
                 
-                let indexPath = IndexPath(item: y, section: 0)
-                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+                let newIndexPath = IndexPath(item: y, section: 0)
+                print("Test")
+                print(y)
+                print(self.eventImageArray.count)
+                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
                 
                 y = (eventImageArray.count - 1 > y) ? (y + 1) : 0
             }
@@ -809,7 +818,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             else {
                 
                 self.y = 0
-                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+                autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
             }
             
             
@@ -828,7 +837,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
                         PageIndex = PageIndex + 1
         
-                        getAllCategoriesAPICall()
+                       // getAllCategoriesAPICall()
         
         
         
@@ -1051,16 +1060,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                     
                     if url != nil {
                         
-                        let dataImg = try? Data(contentsOf: url!)
+                   
+                    cell.collectionImgView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                            //cell.collectionImgView.image = UIImage(data: dataImg!)
                         
-                        if dataImg != nil {
-                            
-                            cell.collectionImgView.image = UIImage(data: dataImg!)
-                        }
-                        else {
-                            
-                            cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
-                        }
+                        
+                    }else{
+                        cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
                     }
                     
                 }
@@ -1097,10 +1103,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
                 
                 eventDetailsViewController.eventID = eventList.id!
-    //            eventDetailsViewController.eventChurchName = eventList.churchName!
+                eventDetailsViewController.eventChurchName = eventList.churchName ?? "0"
                 eventDetailsViewController.eventName = eventList.title!
                 
-      //          eventDetailsViewController.catgoryID = eventList.churchId!
+                eventDetailsViewController.catgoryID = eventList.churchId ?? 0
                 
                 
                 self.navigationController?.pushViewController(eventDetailsViewController, animated: true)

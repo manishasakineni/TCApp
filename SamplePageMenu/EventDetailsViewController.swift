@@ -163,15 +163,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        
-//        super.viewWillDisappear(animated)
-//        
-//        
-//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-//    }
-//    
-//
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+    }
+    
+
 //MARK: -    Get Event Details By Id API Call
  
     func getEventDetailsByIdApiCall(){
@@ -1473,7 +1473,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 audioViewController.audioIDArr = newString!
                 audioViewController.audioIDNameArr = title!
                 audioViewController.audioID = audioID!
-                audioViewController.categoryID = categoryId!
+                audioViewController.categoryID = categoryId ?? 0
                 
                 self.navigationController?.pushViewController(audioViewController, animated: true)
                 

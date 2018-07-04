@@ -81,7 +81,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         }
         
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
+   //     self.getAllChurchSearchAPIService(string: searchBar.text!)
         
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
@@ -752,7 +752,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
         
-        holyBibleViewController.pasterUserId = listStr.pasterUserId!
+        holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
         
         holyBibleViewController.churchID = listStr.Id!
         holyBibleViewController.isFromChruch = true
