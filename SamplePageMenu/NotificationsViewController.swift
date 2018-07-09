@@ -117,32 +117,127 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if filtered.count > 0 {
+        if filtered.count > indexPath.row {
             
             let listStr:NotificationResultVO = filtered[indexPath.row]
             
- 
+            if(listStr.authorId != nil){
         
+                
+                
+                if(listStr.eventId != nil){
+         
+            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                    jobIDViewController.isFromNotification = true
+                    jobIDViewController.pageName = "Posts"
+                    jobIDViewController.pageName = "Events"
+
+                    
+                    
+            self.navigationController?.pushViewController(jobIDViewController, animated: true)
+        
+                    
+                    
+        }else if (listStr.postId != nil){
+                    
+        let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                    
+            holyBibleViewController.isFromNotification = true
+            holyBibleViewController.pageName = "Posts"
+            holyBibleViewController.pageName = "Events"
+                    
+                    
+                    
+        self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                    
+                    
+             
+             
+                  
+                    
+        }else  if (listStr.jobId != nil) {
+                    
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
-        
-                   
-            
-    jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
-            
-    
-    jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
-            
+                    
+                    
+            jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
+                    
             jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
-            
+                    
             jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
             jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
-            
-            
-
-            
+            jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
+                      
+                                
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                
+                }
+                
+            }
+            
+            
+            
+            else{
+                
+            if(listStr.eventId != nil){
+                
+                let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                jobIDViewController.isFromNotification = true
+                jobIDViewController.pageName = "Posts"
+                jobIDViewController.pageName = "Events"
+                
+                
+                
+                self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                
+    
+                    
+           
+            }else if (listStr.postId != nil){
+                    
+                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                
+                holyBibleViewController.isFromNotification = true
+                holyBibleViewController.pageName = "Posts"
+                holyBibleViewController.pageName = "Events"
+                
+                
+                
+                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                
+
+                    
+                    
+                    
+                    
+            } else  if(listStr.jobId != nil){
+                
+                let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
+                
+                
+                jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
+                
+                jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
+                
+                jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
+                jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
+                jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
+                
+                
+                self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                
+                
+                }
+            }
+
   
         }
+        
+        
+        
+        
+        
+        
     }
     
   

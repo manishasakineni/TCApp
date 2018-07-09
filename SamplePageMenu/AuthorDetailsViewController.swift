@@ -33,6 +33,8 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var churchName1 : String = ""
     var appVersion  : String = ""
     var isSubscribed = Int()
+    var isFromNotification = false
+    var pageName = ""
     
 //MARK: -   View DidLoad
     
@@ -116,6 +118,14 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         self.addChildViewController(pageMenu!)
         
         view.addSubview((pageMenu?.view)!)
+        if(isFromNotification == true){
+            if(pageName == "Posts"){
+                pageMenu?.moveToPage(2)
+            }else if(pageName == "Events"){
+                pageMenu?.moveToPage(1)
+            }
+  
+        }
         pageMenu?.didMove(toParentViewController: self)
         
         

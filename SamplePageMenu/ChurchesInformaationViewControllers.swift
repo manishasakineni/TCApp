@@ -35,6 +35,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     
     var nameStr          : String = ""
    var isFromChruch = false
+    
+    
+    var isFromNotification = false
+    var pageName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,6 +133,15 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         self.addChildViewController(pageMenu!)
         
         view.addSubview((pageMenu?.view)!)
+
+        if(isFromNotification == true){
+            if(pageName == "Posts"){
+                pageMenu?.moveToPage(2)
+            }else if(pageName == "Events"){
+                pageMenu?.moveToPage(1)
+            }
+            
+        }
         pageMenu?.didMove(toParentViewController: self)
         
      }

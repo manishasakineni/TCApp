@@ -599,7 +599,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 
                 let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
                     
-               usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+               usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
                usersCommentsTableViewCell.replyCommentBtn.isHidden = false
                     
                usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
@@ -646,7 +646,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
            
                 usersCommentsTableViewCell.usersCommentLbl.text = self.repliesCommentsArray[indexPath.row] as? String
                 usersCommentsTableViewCell.usersNameLbl.text = self.repliesCommentsUsernamesArray[indexPath.row] as? String
-                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
                 usersCommentsTableViewCell.replyCommentBtn.isHidden = true
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -842,7 +842,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 
             else{
             
-            usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
             usersCommentsTableViewCell.replayCountLbl.text = ""
             }
             
@@ -850,7 +850,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
         usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-        usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
+        usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
         usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
         usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
@@ -1272,7 +1272,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
    // self.usersCommentsArray.append(self.commentString)
         
-    if !(self.userID.isEmpty) {
+    if !(self.ID == 0) {
         
         
        self.parentCommentId = 0
@@ -1487,7 +1487,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func replyCommentBtnClick(sender : UIButton){
     
-        if !(self.userID.isEmpty) {
+        if !(self.ID == 0) {
 
            self.getViewAllCommentsAPICall(tag: sender.tag)
             
@@ -1527,7 +1527,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func viewAllCommentBtnClick(sender : UIButton){
         
-        if !(self.userID.isEmpty) {
+        if !(self.ID == 0) {
             
             
 //            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
@@ -1551,7 +1551,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
-                self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+            self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
                 
                 
                 

@@ -17,7 +17,7 @@ let reachability = Reachability()!
 
 var appDelegate = AppDelegate()
 
-let content_type = "application/json; charset=utf-8"
+let content_type = "application/json"
 
 class ServiceController: NSObject {
     
@@ -212,7 +212,7 @@ class ServiceController: NSObject {
         
         let fileUrl = NSURL(string: strURL)
         
-        let request = NSMutableURLRequest(url: fileUrl! as URL)
+        var request = URLRequest(url: fileUrl! as URL)
         request.addValue(content_type, forHTTPHeaderField: "Content-Type")
         request.addValue(content_type, forHTTPHeaderField: "Accept")
         //// request.setValue(api_key, forHTTPHeaderField: "api_key")
@@ -228,14 +228,14 @@ class ServiceController: NSObject {
 //            
 //        }
         
-        
+        NSLog("Request started")
         let task = URLSession.shared.dataTask(with:request as URLRequest){(data,response,error) in
             DispatchQueue.main.async(){
                 
              //   MBProgressHUD.hide(for:appDelegate.window,animated:true)
                self.hideLoadingHUD(for_view: appDelegate.window!) 
                 print(response)
-                
+                  NSLog("Request end")
                 if response != nil {
                     
                     let statusCode = (response as! HTTPURLResponse).statusCode
@@ -339,7 +339,129 @@ class ServiceController: NSObject {
         task.resume()
 }
 
-
+    func getAudioRequest( viewController: UIViewController, url : String, successBlock: @escaping ( _ json : NSDictionary) -> Void, failureBlock: @escaping (_ fail: Bool) -> Void) {
+        
+       
+            
+            //viewController.showHud(kLoading)
+            
+            
+            do {
+                
+                // create post request
+                let endpoint: String = BASEURL + url
+                
+                let session = URLSession.shared
+                
+                let fileUrl = NSURL(string: endpoint)
+                
+                var request = URLRequest(url: fileUrl! as URL)
+                request.addValue(content_type, forHTTPHeaderField: "Content-Type")
+                request.addValue(content_type, forHTTPHeaderField: "Accept")
+                
+                request.httpMethod = "GET"
+                
+                
+                let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+                    
+                    failureBlock(true)
+                    //viewController.hideHUD()
+                    
+                    guard error == nil else {
+                        
+                        
+                        if let errorDescription = error?.localizedDescription {
+                            
+                            DispatchQueue.main.async {
+                                failureBlock(true)
+                                //self.ShowError(viewController, message: errorDescription)
+                            }
+                        }
+                        return
+                    }
+                    
+                    
+                    guard let data = data else {
+                        return
+                    }
+                    
+                    // Checking here Response
+                    if response != nil {
+                        
+                      //  viewController.hideHUD()
+                        
+                        let statusCode = (response as! HTTPURLResponse).statusCode
+                        
+                        
+                        do {
+                            //create json object from data
+                            
+                            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
+                                
+                                
+                                
+                                
+                                if 200...299 ~= statusCode {
+                                    
+                                    DispatchQueue.main.async {
+                                        
+                                        successBlock(json)
+                                    }
+                                    
+                                }else if 401 == statusCode {
+                                    DispatchQueue.main.async {
+                                        //self.moveToHomeScreen(kUnauthorizedError)
+                                    }
+                                } else {
+                                    
+                                    
+                                    if Utilities.sharedInstance.isObjectNull(json as AnyObject?) {
+                                        
+                                        if let statusMessage = json["message"] as? String{
+                                            
+                                            DispatchQueue.main.async {
+                                                failureBlock(true)
+                                               // self.ShowError(viewController, message: statusMessage)
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                            
+                        } catch let catchError as NSError {
+                            
+                            DispatchQueue.main.async {
+                                failureBlock(true)
+                                //self.ShowError(viewController, message: catchError.localizedDescription)
+                            }
+                        }
+                        
+                        
+                    }else{
+                        
+                        
+                        
+                        if let errorDescription = error?.localizedDescription {
+                            
+                            DispatchQueue.main.async {
+                                failureBlock(true)
+                               // self.ShowError(viewController, message: errorDescription)
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                })
+                task.resume()
+            }
+        
+    }
     
     
     func showLoadingHUD(to_view: UIView) {

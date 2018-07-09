@@ -1143,6 +1143,11 @@
                                     <outlet property="delegate" destination="MFD-oM-AZt" id="KXA-KW-WBC"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XNH-CP-baM">
+                                <rect key="frame" x="0.0" y="656" width="375" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1173,6 +1178,7 @@
                         <outlet property="playButton" destination="1zR-Lo-F5R" id="hOw-Ou-cWf"/>
                         <outlet property="playerSlider" destination="Bkj-5w-8K5" id="2kh-PZ-y2u"/>
                         <outlet property="prevButton" destination="hQC-GY-C2y" id="JTG-yU-HJb"/>
+                        <outlet property="repliesTableView" destination="XNH-CP-baM" id="Dnm-VI-5nk"/>
                         <outlet property="seekLoadingLabel" destination="bQt-YZ-Qvq" id="QXD-8g-BlF"/>
                         <outlet property="timeLabel" destination="t0W-YR-otB" id="TOq-zt-Uwj"/>
                     </connections>
@@ -1634,6 +1640,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oFO-uA-fyz">
+                                <rect key="frame" x="0.0" y="655" width="375" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uVr-mm-aCW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1666,11 +1677,12 @@
                     <connections>
                         <outlet property="eventDetailsTableView" destination="uVr-mm-aCW" id="3vQ-Xp-wrU"/>
                         <outlet property="norecordsFoundLbl" destination="f9c-j9-2Le" id="Uyt-7k-jZo"/>
+                        <outlet property="repliesTableView" destination="oFO-uA-fyz" id="iyd-b4-m1s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sne-3x-qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9924" y="296"/>
+            <point key="canvasLocation" x="9924" y="295.50224887556226"/>
         </scene>
         <!--AuthorpostCA Pagemenu View Controller-->
         <scene sceneID="21s-Ff-6B3">

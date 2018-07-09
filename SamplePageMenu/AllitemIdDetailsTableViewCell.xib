@@ -24,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrw-Gc-8t2">
-                        <rect key="frame" x="8" y="8" width="117" height="21"/>
+                        <rect key="frame" x="8" y="8" width="243" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="ch2-dm-KDk"/>
-                            <constraint firstAttribute="width" constant="117" id="sJV-mq-uRv"/>
+                            <constraint firstAttribute="width" constant="243" id="sJV-mq-uRv"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

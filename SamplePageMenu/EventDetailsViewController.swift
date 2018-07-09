@@ -17,7 +17,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var delegate: eventDetailsSubtitleOfIndexDelegate?
 
-    
+     @IBOutlet weak var repliesTableView: UITableView!
     
     //MARK: -  variable declaration
     
@@ -41,6 +41,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var catgoryID:Int = 0
     var churchName1 : String = ""
 
+     let buttonnn = UIButton()
     
     var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
     
@@ -67,7 +68,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var authorName : String = ""
     var appVersion  : String = ""
     
-     var imageView = UIImageView()
+    var imageView = UIImageView()
 
     
     var thumbnailImageURL = String()
@@ -83,12 +84,40 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var disLikesCount = 0
     var ID = 0
     var sendCommentClick = false
+    
+    var readmoreCommentClick = false
+    
     var usersCommentsArray = Array<Any>()
+    var commentedByUserArray = Array<Any>()
     
     var parentCommentId = 0
     var replyParentCommentId = 0
     
     var commentString : String = "Add a public comment..."
+    
+    var commentedbyusername : String = "Add a public comment..."
+    
+    var username = String()
+
+    
+    
+    var usersLikeClick = false
+    var UsersDisLikeClick = false
+    var commentId = 0
+    var repliesCommentsArray = Array<Any>()
+    var repliesCommentsUsernamesArray = Array<Any>()
+    
+    var parentCommentIdArray = Array<Int>()
+    var commentingIdArray = Array<Int>()
+    var postID : Int = 0
+     var activeTextView = UITextView()
+    var activeLabel = UILabel()
+    var activeLblNumberofLines : Int = 3
+     var readMoreBtnIsHidden = true
+    var replyMainComment = ""
+    var replyMainCommentUser = ""
+
+      var editUserID = 0
     
       //MARK: -   View DidLoad
     
@@ -131,11 +160,28 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         eventDetailsTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
 
+        let nib = UINib(nibName: "AllRepliesHeaderTVCell", bundle: nil)
+        repliesTableView.register(nib, forCellReuseIdentifier: "AllRepliesHeaderTVCell")
+        
+
+        
         let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
         eventDetailsTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
         
+        
+        
+        
+        repliesTableView.delegate = self
+        repliesTableView.dataSource = self
+
+        
         getEventDetailsByIdApiCall()
         getVideosAPICall()
+        
+        if let loginUserName = kUserDefaults.value(forKey: kUserName) {
+            
+            self.username = loginUserName as! String
+        }
         
         
     }
@@ -207,7 +253,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         for commentDetails in commentDetailsVO! {
                         
-                        self.usersCommentsArray.append(commentDetails.comment)
+                        self.usersCommentsArray.append(commentDetails.comment!)
+                        self.commentedByUserArray.append(commentDetails.commentByUser!)
                         
                         }
                         
@@ -466,11 +513,41 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        
+        if tableView == repliesTableView {
+            
+            return 2
+            
+        }
+            
+        else {
+            
+            return 4
+            
+        }
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        
+        
+        if tableView == repliesTableView{
+            
+            if section == 0 {
+                
+                return 2
+            }
+                
+            else {
+                
+                return self.repliesCommentsArray.count
+            }
+            
+        }
+        
+
         
         if section == 0 {
 
@@ -506,6 +583,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        
+//        
+//        if tableView == repliesTableView {
+//            
+//            return UITableViewAutomaticDimension
+//        }
+//            
+//        else{
+//            
         
         if indexPath.section == 0 {
         
@@ -553,6 +640,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         
+        
+        
         return UITableViewAutomaticDimension
         
 }
@@ -561,6 +650,44 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         return UITableViewAutomaticDimension
 
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if tableView == repliesTableView {
+            
+            if section == 0 {
+                return 40
+                
+            }
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if tableView == repliesTableView {
+            
+            if section == 0 {
+                
+                let allRepliesHeaderTVCell = self.repliesTableView.dequeueReusableCell(withIdentifier: "AllRepliesHeaderTVCell") as! AllRepliesHeaderTVCell
+                
+                allRepliesHeaderTVCell.repliesCloseBtn.addTarget(self, action: #selector(repliesCloseBtnClicked), for: .touchUpInside)
+                allRepliesHeaderTVCell.backgroundColor = #colorLiteral(red: 0.9999127984, green: 1, blue: 0.9998814464, alpha: 1)
+                allRepliesHeaderTVCell.repliesCloseBtn = buttonnn
+                
+                return allRepliesHeaderTVCell
+                
+            }
+            
+        }
+        
+        return nil
+    }
+    
+    
+    
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -774,6 +901,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
             
             commentsCell.commentTexView.text = self.commentString
+            commentsCell.commentTexView.text = self.commentedbyusername
             commentsCell.commentCountLab.text = String(usersCommentsArray.count)
             commentsCell.commentTexView.delegate = self
             
@@ -799,20 +927,493 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         if indexPath.section == 3 {
-            
+        
+      
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
-          //  let userComments =
             
-            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
+           usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
+   
+            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+            usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+            
+            usersCommentsTableViewCell.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String
+            
+            
+            let commentString = usersCommentsArray[indexPath.row] as? String
+            let commentedbyusername = commentedByUserArray[indexPath.row] as? String
+            
+            usersCommentsTableViewCell.editCommentBn.tag = indexPath.row
+            
+            let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
+            
+      
+            let commentnameLblHeight = Int((commentedbyusername?.height(withConstrainedWidth: usersCommentsTableViewCell.usersNameLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
+            
+
+           
+            
+            if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
+                
+                
+                usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
+                usersCommentsTableViewCell.readMoreBtn.isHidden = false
+                usersCommentsTableViewCell.readMoreBtnHeight.constant = 15
+                readMoreBtnIsHidden = false
+            }
+                
+            else {
+                
+                usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
+                usersCommentsTableViewCell.readMoreBtn.isHidden = true
+                usersCommentsTableViewCell.readMoreBtnHeight.constant = 0
+                readMoreBtnIsHidden = true
+            }
+            
+            print(activeLabel.numberOfLines)
+            
+            usersCommentsTableViewCell.usersCommentLbl.text = commentString
+            
+            usersCommentsTableViewCell.usersNameLbl.text = commentedbyusername
+            //commentedbyusername
+            
+            print(usersCommentsTableViewCell.usersCommentLbl.numberOfLines)
+    
+     
+            
+            usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
+            
+            usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
+            
+            usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
+            usersCommentsTableViewCell.viewCommentsBtn.tag = indexPath.row
+            usersCommentsTableViewCell.replyCommentBtn.tag = indexPath.row
+            
+            
+            if usersLikeClick == true{
+                
+                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
+            
+            
+            if UsersDisLikeClick == true {
+                
+                usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+                
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            }
+            
+            usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
+            usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
+            usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
+            
+            usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
+            
+            usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
+            usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
+            
+            
+            usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+            
+
+            
+            
             
             return usersCommentsTableViewCell
+            
+            }
+        
+        
+        return UITableViewCell()
+    }
+    
+    func usersLikeBtnClick(sender : UIButton){
+        
+        if !(self.userID == 0) {
+            
+            if usersLikeClick == false {
+                
+                usersLikeClick = true
+                UsersDisLikeClick = false
+                
+                
+            }
+                
+            else{
+                
+                usersLikeClick = false
+                UsersDisLikeClick = false
+                
+                
+            }
+            
+            
+            
+            let indexPath = IndexPath(item: sender.tag, section: 3)
+            self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
+            
+        }
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+        
+        
+    }
+    
+    func usersDislikeBtnClick(sender : UIButton){
+        
+        if !(self.userID == 0) {
+            
+            if UsersDisLikeClick == false {
+                
+                UsersDisLikeClick = true
+                usersLikeClick = false
+                
+            }
+                
+            else{
+                UsersDisLikeClick = false
+                usersLikeClick = false
+                
+                
+            }
+            
+            print("UnLike Clicked.............")
+            
+            let indexPath = IndexPath(item: sender.tag, section: 3)
+            self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+    }
+    
+    func readmoreClicked(sender : UIButton){
+        
+        
+        readMoreBtnIsHidden = false
+        activeLblNumberofLines = 0
+        
+        let indexPath = IndexPath(item: sender.tag, section: 3)
+        self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        
+    }
+    
+    
+    func replyCommentBtnClick(sender : UIButton){
+        
+        if !(self.userID == 0) {
+            
+            self.getViewAllCommentsAPICall(tag: sender.tag)
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
+                
+                self.activeTextView.becomeFirstResponder()
+                
+            })
+            
+            self.eventDetailsTableView.endEditing(true)
+            
+            
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+                
+      //          self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+                
+                
+                
+            }, completion: {(_ finished: Bool) -> Void in
+                
+            })
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+    }
+    
+    func viewAllCommentBtnClick(sender : UIButton){
+        
+        if !(self.userID == 0) {
+            
+            
+           
+            let indexPath = IndexPath(item: sender.tag, section: 3)
+            
+            if let usersCommentsTableViewCell = eventDetailsTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
+                
+                self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
+                self.replyMainCommentUser = self.commentedByUserArray[sender.tag] as! String
+                
+            }
+            
+            
+            self.eventDetailsTableView.endEditing(true)
+            
+            self.getViewAllCommentsAPICall(tag: sender.tag)
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+                
+ //   self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+                
+       
+        
+                
+            }, completion: {(_ finished: Bool) -> Void in
+                
+            })
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+    }
+    
+    
+    func repliesCloseBtnClicked(){
+        
+    //    self.repliesTableView.endEditing(true)
+        self.eventDetailsTableView.endEditing(true)
+        
+        self.eventDetailsTableView.isScrollEnabled = true
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+            
+            
+            
+        }, completion: {(_ finished: Bool) -> Void in
+
+        })
+        
+        
+        
+    }
+   
+    
+    func editCommentBnClicked(sender : UIButton){
+        
+        
+        self.editUserID = self.commentingIdArray[sender.tag]
+        
+        
+        
+        if self.ID == self.editUserID {
+            
+            let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+                
+                
+                let indexPath3 = IndexPath(item: 0, section: 2)
+                
+                
+                self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
+                
+                if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                    
+                    commentsCell.commentTexView.text = self.usersCommentsArray[sender.tag] as! String
+                    commentsCell.commentTexView.becomeFirstResponder()
+                }
+                
+                
+            })
+            
+            let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+                
+                
+                self.deleteCommentAPICall(tag: sender.tag)
+                
+                
+            })
+            
+            
+            actionSheet.addAction(edit)
+            
+            actionSheet.addAction(delete)
+            
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+                (alert: UIAlertAction) -> Void in
+            })
+            actionSheet.addAction(cancelAction)
+            
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+                
+                self.present(actionSheet, animated: true, completion: nil)
+            }
+                
+            else{
+                
+                let popup = UIPopoverController.init(contentViewController: actionSheet)
+                
+                popup.present(from: CGRect(x:self.view.frame.width/2, y:self.view.frame.maxY, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.down, animated: true)
+                
+                
+            }
+            
+            
+        }
+            
+        else {
             
             
         }
         
-        return UITableViewCell()
     }
+    
+    func getViewAllCommentsAPICall(tag : Int){
+        
+        self.commentId = self.parentCommentId
+        
+        let getViewAllCommentsAPI = VIDEOVIEWALLCOMMENTSAPI + String(self.commentId)
+        
+        
+        print(getViewAllCommentsAPI)
+        
+        serviceController.getRequest(strURL: getViewAllCommentsAPI, success: { (result) in
+            
+            print(result)
+            
+            let responseVO : ReplayCommentVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = responseVO.isSuccess
+            
+            if isSuccess == true {
+                
+                        
+                self.repliesCommentsArray.removeAll()
+                self.repliesCommentsUsernamesArray.removeAll()
+                
+                for listResults in responseVO.listResult! {
+                    
+                    
+                    
+                    if listResults.comment == nil {
+                        
+                        self.repliesCommentsArray.append(" ")
+                        
+                    }
+                    else {
+                        
+                        self.repliesCommentsArray.append(listResults.comment!)
+                    }
+                    
+                    if listResults.commentByUser == nil {
+                        
+                        self.repliesCommentsUsernamesArray.append(" ")
+                        
+                    }
+                    else {
+                        
+                        self.repliesCommentsUsernamesArray.append(listResults.commentByUser!)
+                    }
+                    
+        
+                    
+                    
+                    
+                }
+                
+                self.repliesCommentsArray.remove(at: 0)
+                self.repliesCommentsUsernamesArray.remove(at: 0)
+                
+            //    self.repliesTableView.reloadData()
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+        
+    }
+    
+    func deleteCommentAPICall(tag : Int){
+        
+        let deletePostID : Int  = self.parentCommentIdArray[tag]
+        //  let deleteCommentID  : Int  = self.commentingIdArray[tag]
+        
+        
+        let postParams = [
+            "id": deletePostID,
+            "postId": self.postID,
+            "userId": self.ID,
+            "churchId": ""
+            ] as [String : Any]
+        
+        print("dic params \(postParams)")
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        serviceController.postRequest(strURL: DELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let responseVO : DeletePostCommentVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = responseVO.isSuccess
+            
+            if isSuccess == true {
+                
+                
+          //      self.getVideoDetailsApiService()
+                
+                
+                
+                
+            }
+            
+            
+            
+            self.eventDetailsTableView.reloadData()
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            
+        }
+        
+    }
+    
+   
+    
+    
     
  
 //MARK: -  UITexview Delegate methods
@@ -835,8 +1436,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         self.sendCommentClick = false
+         self.readmoreCommentClick = false
         textView.textColor = UIColor.black
-        //        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...2), with: UITableViewRowAnimation.none)
         
         
     }
@@ -848,6 +1449,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         textView.resignFirstResponder()
         
         self.commentString = textView.text
+        self.commentedbyusername = textView.text
         
         if textView.text == "" {
             
@@ -868,6 +1470,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             print(commentsCell.commentTexView.text.characters.count)
             
             self.commentString = commentsCell.commentTexView.text
+            self.commentedbyusername = commentsCell.commentTexView.text
             
             if (newString.characters.count) > 0  {
                 
@@ -1096,6 +1699,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func commentSendBtnClicked(){
         
        self.sendCommentClick = false
+         self.readmoreCommentClick = false
         
         self.eventDetailsTableView.endEditing(true)
         
@@ -1148,7 +1752,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-            print(result)
+         //   print(result)
             
             print("\(result)")
             
@@ -1167,6 +1771,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 let successMsg = respVO.endUserMessage
                 
                 self.usersCommentsArray.insert(self.commentString, at: 0)
+                self.commentedByUserArray.insert(self.username, at: 0)
                 self.commentString = "Add a public comment..."
                 self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
                 

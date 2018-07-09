@@ -39,6 +39,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var audioTableview: UITableView!
     
+   @IBOutlet weak var repliesTableView: UITableView! 
     
 //MARK: -  variable declaration
     
@@ -104,11 +105,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
      var commentsCount = 0
     var readMoreBtnIsHidden = true
 
-    
+     var commentedByUserArray = Array<Any>()
       var CommentsByUserArray = Array<Any>()
     
      var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
     
+    let buttonnn = UIButton()
     
   //MARK: -  view Did Load
     
@@ -135,8 +137,16 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let nibName3  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
         audioTableview.register(nibName3, forCellReuseIdentifier: "UsersCommentsTableViewCell")
         
+        let nib = UINib(nibName: "AllRepliesHeaderTVCell", bundle: nil)
+        repliesTableView.register(nib, forCellReuseIdentifier: "AllRepliesHeaderTVCell")
 
         
+        let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        repliesTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
+        
+        repliesTableView.delegate = self
+        repliesTableView.dataSource = self
+ 
         
         audioTableview.dataSource = self
         audioTableview.delegate = self
@@ -406,12 +416,38 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     public func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 4
+        if tableView == repliesTableView {
+            
+            return 2
+            
+        }
+            
+        else {
+            
+            return 4
+            
+        }
+
         
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
+        if tableView == repliesTableView{
+            
+            if section == 0 {
+                
+                return 2
+            }
+                
+            else {
+                
+                return self.repliesCommentsArray.count
+            }
+            
+        }
+        
+        else{
         if section == 0 {
 
         return 1
@@ -437,7 +473,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
        return 1
     }
-    
+    }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return  UITableViewAutomaticDimension
@@ -445,6 +481,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        if tableView == repliesTableView {
+            
+            return UITableViewAutomaticDimension
+        }
+        
+        else{
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
             
@@ -459,12 +501,100 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if tableView == repliesTableView {
+            
+            if section == 0 {
+                return 40
+                
+            }
+        }
+        return 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if tableView == repliesTableView {
+            
+            if section == 0 {
+                
+                let allRepliesHeaderTVCell = self.repliesTableView.dequeueReusableCell(withIdentifier: "AllRepliesHeaderTVCell") as! AllRepliesHeaderTVCell
+                
+                allRepliesHeaderTVCell.repliesCloseBtn.addTarget(self, action: #selector(repliesCloseBtnClicked), for: .touchUpInside)
+                allRepliesHeaderTVCell.backgroundColor = #colorLiteral(red: 0.9999127984, green: 1, blue: 0.9998814464, alpha: 1)
+                allRepliesHeaderTVCell.repliesCloseBtn = buttonnn
+                
+                return allRepliesHeaderTVCell
+                
+            }
+            
+        }
+        
+        return nil
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+      
+        if tableView == repliesTableView {
         
+            
+                
+                if indexPath.row == 0{
+                    
+                    let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+                    
+                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+                    
+                    usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+                    usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                    if replyCountArray.count > 0{
+                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+                    }
+                    usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
+                    //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    return usersCommentsTableViewCell
+                }
+                    
+//                else {
+//                    
+//                    let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+//                    
+//                    commentsCell.commentTexView.delegate = self
+//                    commentsCell.commentTexView.text = self.commentString
+//                    commentsCell.commentTexView.tag = 2000
+//                  //  activeTextView = commentsCell.commentTexView
+//                    if sendCommentClick == false{
+//                        
+//                        commentsCell.sendBtn.isHidden = true
+//                        
+//                    }
+//                        
+//                    else{
+//                        
+//                        commentsCell.sendBtn.isHidden = false
+//                        
+//                        
+//                    }
+//                    
+//                    
+//                    return commentsCell
+//                    
+//                }
+            
+            }
+    
+        
+        
+        else{
          if indexPath.section == 0 {
-            
-            
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
         
@@ -553,18 +683,27 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
+            cell3.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
             
+            cell3.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String
             
-    //    cell3.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
+            cell3.viewCommentsBtn.isHidden = false
+            cell3.replyCommentBtn.isHidden = false
+          
+            cell3.editCommentBn.tag = indexPath.row
+        
             
             let commentString = usersCommentsArray[indexPath.row] as? String
+            let commentedbyusername = commentedByUserArray[indexPath.row] as? String
             
             cell3.usersLikeCoubtLbl.text = String(commentingIdArray[indexPath.row])
             cell3.editCommentBn.tag = indexPath.row
             
             let commentLblHeight = Int((commentString?.height(withConstrainedWidth: cell3.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
             
-           
+            let commentnameLblHeight = Int((commentedbyusername?.height(withConstrainedWidth: cell3.usersNameLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
+            
+
             
             
             if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
@@ -615,7 +754,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
             else{
                 
-                cell3.viewCommentsBtn.isHidden = true
+                cell3.viewCommentsBtn.isHidden = false
                 cell3.replayCountLbl.text = ""
             }
             
@@ -623,7 +762,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             cell3.usersDislikeBtn.addTarget(self, action: #selector(unlikeButtonClicked), for: UIControlEvents.touchUpInside)
             cell3.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-            cell3.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
+            cell3.replyCommentBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             cell3.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
             cell3.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
@@ -642,10 +781,10 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
         
-        
+        }
         return UITableViewCell()
+    
     }
-  
     func readmoreClicked(sender : UIButton){
         
         
@@ -945,7 +1084,10 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
+           
+                self.repliesTableView.frame = CGRect(x: 0, y: self.backGroundView.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.backGroundView.frame.size.height - 50)
                 
+
                 
             }, completion: {(_ finished: Bool) -> Void in
                 
@@ -975,7 +1117,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             if let usersCommentsTableViewCell = audioTableview.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
                 
                 self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
-                self.replyMainCommentUser = self.CommentsByUserArray[sender.tag] as! String
+                self.replyMainCommentUser = self.commentedByUserArray[sender.tag] as! String
+                
                 
             }
             
@@ -1230,7 +1373,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let  EVENTCOMMENTSAPISTR = EVENTPOSTCOMMENTAPI
         
         let params = ["id": 0,
-                      "postId": eventID,
+                      "postId": postID,
                       "description": textComment,
                       "parentCommentId": self.parentCommentId,
                       "userId": self.userID
@@ -1266,13 +1409,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 let createdComment = respVO.result
                 
                self.getEventDetailsByIdApiCall()
+          //      self.commentedByUserArray.insert("ravali", at: 0)
                 
                 self.commentString = "Add a public comment..."
 //                self.audioTableview.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
                 
-                
-                
-                
+              
                 
             }
                 
@@ -1441,11 +1583,19 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(audioID) + "/" + String(self.userID)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
+        NSLog("Started")
+        
+        serviceController.getAudioRequest(viewController: self, url: urlStr, successBlock: { [weak self] (response) in
+            
+        }) { (fail) in
+            
+            
+        }
         
         serviceController.getRequest(strURL: urlStr, success: { (result) in
             
             DispatchQueue.main.async(){
-                
+                 NSLog("end")
                 print(result)
                 
                 let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
@@ -1481,17 +1631,23 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                         if list.comment == nil {
                             
                             self.usersCommentsArray.append(" ")
+                          //  self.commentedByUserArray.append(" ")
                             
                         }
                         else {
                             
                             self.usersCommentsArray.append(list.comment!)
+                            
+                            self.commentedByUserArray.append(list.commentByUser ?? "")
+                            
                         }
                         
                         
                         if let comment = list.commentByUser{
                             self.CommentsByUserArray.append(comment)
+                            
                         }else{
+                            
                             self.CommentsByUserArray.append("")
                         }
                         
