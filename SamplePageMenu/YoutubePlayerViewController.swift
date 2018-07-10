@@ -79,7 +79,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var UsersDisLikeClick = false
     var commentsCount = 0
     var replyCountArray = Array<Any>()
-    var readMoreBtnIsHidden = true
+   // var readMoreBtnIsHidden = true
     
 
    var replyMainComment = ""
@@ -614,32 +614,32 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 
                 else {
                 
-                  let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-                    
-                    commentsCell.commentTexView.delegate = self
-                    commentsCell.commentTexView.text = self.commentString
-                    commentsCell.commentTexView.tag = 2000
-                    activeTextView = commentsCell.commentTexView
-                    if sendCommentClick == false{
-                        
-                        commentsCell.sendBtn.isHidden = true
-                        
-                    }
-                        
-                    else{
-                        
-                        commentsCell.sendBtn.isHidden = false
-                        
-                        
-                    }
-                 
-                    
-                    return commentsCell
+//                  let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+//                    
+//                    commentsCell.commentTexView.delegate = self
+//                    commentsCell.commentTexView.text = self.commentString
+//                    commentsCell.commentTexView.tag = 2000
+//                    activeTextView = commentsCell.commentTexView
+//                    if sendCommentClick == false{
+//                        
+//                        commentsCell.sendBtn.isHidden = true
+//                        
+//                    }
+//                        
+//                    else{
+//                        
+//                        commentsCell.sendBtn.isHidden = false
+//                        
+//                        
+//                    }
+//                 
+//                    
+//                    return commentsCell
                 
                 }
             
             }
-            
+        
             else {
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
@@ -761,17 +761,6 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
             
-//            if repliesCommentsArray.count > 0{
-//            
-//           // usersCommentsTableViewCell.viewCommentsBtnHeight.constant = 0
-//            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-//                
-//            }
-//            else {
-//            
-//                usersCommentsTableViewCell.viewCommentsBtnHeight.constant = 0
-//                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
-//            }
             
             print(commentLblHeight)
             
@@ -779,17 +768,17 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             
                  usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
-                 usersCommentsTableViewCell.readMoreBtn.isHidden = false
-                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 15
-                 readMoreBtnIsHidden = false
+                 usersCommentsTableViewCell.readMoreBtn.isHidden = true
+//                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 15
+//                 readMoreBtnIsHidden = false
             }
             
             else {
                 
                  usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
-                 usersCommentsTableViewCell.readMoreBtn.isHidden = true
-                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 0
-                 readMoreBtnIsHidden = true
+//                 usersCommentsTableViewCell.readMoreBtn.isHidden = true
+//                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 0
+//                 readMoreBtnIsHidden = true
             }
             
             print(activeLabel.numberOfLines)
@@ -808,7 +797,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
             
-            usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
+        //    usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
             usersCommentsTableViewCell.viewCommentsBtn.tag = indexPath.row
             usersCommentsTableViewCell.replyCommentBtn.tag = indexPath.row
             
@@ -848,11 +837,11 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
         usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
-        usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
+    //    usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-        usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
+        usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-        usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
+    //    usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
         usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
             
         
@@ -872,7 +861,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
     }
     
-     //   return UITableViewCell()
+        return UITableViewCell()
         
     }
     
@@ -1008,58 +997,6 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         }
             
-//        if textView.tag == 2001 {
-//            
-////            let indexPath : IndexPath = IndexPath(row: 1, section: 0)
-////            
-////            if let commentsCell = self.repliesTableView.cellForRow(at: indexPath) as? CommentsCell {
-////                
-////                let newString = (textView.text! as NSString).replacingCharacters(in: range, with: text)
-////                
-////                print(commentsCell.commentTexView.text.characters.count)
-////                
-////                self.commentString = commentsCell.commentTexView.text
-////                
-////                if (newString.characters.count) > 0  {
-////                    
-////                    
-////                    
-////                    print(self.commentString)
-////                    
-////                    commentsCell.sendBtn.isHidden = false
-////                    
-////                }
-////                    
-////                else{
-////                    
-////                    commentsCell.sendBtn.isHidden = true
-////                    
-////                }
-////            }
-//            
-//            let newString = (textView.text! as NSString).replacingCharacters(in: range, with: text)
-//            
-//            self.commentString = self.commentTW.text
-//            
-//            if (newString.characters.count) > 0  {
-//                
-//                
-//                
-//                                    print(self.commentString)
-//                
-//                                    self.commentSendBtn.isHidden = false
-//                
-//                                }
-//                
-//                                else{
-//                                    
-//                                    self.commentSendBtn.isHidden = true
-//                                    
-//                                }
-//        
-//            return true
-//            
-//        }
         
         else {
             
@@ -1274,7 +1211,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     if !(self.ID == 0) {
         
+      //  self.focusItemNumberTextField()
         
+    
        self.parentCommentId = 0
         
     commentSendBtnAPIService(textComment: self.commentString)
@@ -1303,12 +1242,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     }
     
     
-//    @IBAction func commentSendBtnAction(_ sender: Any) {
-//        
-//  
-//        
-//        
-//    }
+
     
     // MARK :- CommentAPIService
     
@@ -1475,7 +1409,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     func readmoreClicked(sender : UIButton){
         
        
-            readMoreBtnIsHidden = false
+         //   readMoreBtnIsHidden = false
             activeLblNumberofLines = 0
         
             let indexPath = IndexPath(item: sender.tag, section: 3)
@@ -1647,13 +1581,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func editCommentBnClicked(sender : UIButton){
         
-//        let indexPath = IndexPath(item: sender.tag, section: 3)
-//        
-//        if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
-// 
-//            self.editUserID = Int(usersCommentsTableViewCell.usersLikeCoubtLbl.text!)!
-//   
-//        }
+
         
         self.editUserID = self.commentingIdArray[sender.tag]
         
@@ -1722,6 +1650,19 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }
   
     }
+    
+    
+    private func focusItemNumberTextField() {
+        
+        let indexPath = IndexPath.init(row: 0, section: 2)
+        
+        if let itemNumberCell = allOffersTableView.cellForRow(at: indexPath) as? CommentsCell {
+            
+            itemNumberCell.commentTexView.text = ""
+        }
+    }
+    
+    
     
     func getVideoDetailsApiService(){
 
@@ -1923,7 +1864,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
        
         self.parentCommentId = self.replyParentCommentId
-   //     commentSendBtnAPIService(textComment: self.replyCommentTW.text)
         
         
     }

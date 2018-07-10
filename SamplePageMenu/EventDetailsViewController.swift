@@ -159,20 +159,27 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         let nibName3  = UINib(nibName: "CommentsCell" , bundle: nil)
         eventDetailsTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
+        
+        let CommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
+        eventDetailsTableView.register(CommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
 
         let nib = UINib(nibName: "AllRepliesHeaderTVCell", bundle: nil)
         repliesTableView.register(nib, forCellReuseIdentifier: "AllRepliesHeaderTVCell")
         
-
+        
+        let nibName4  = UINib(nibName: "CommentsCell" , bundle: nil)
+        repliesTableView.register(nibName4, forCellReuseIdentifier: "CommentsCell")
+        
+//  repliesTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
         let usersCommentsTableViewCell  = UINib(nibName: "UsersCommentsTableViewCell" , bundle: nil)
-        eventDetailsTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
+        repliesTableView.register(usersCommentsTableViewCell, forCellReuseIdentifier: "UsersCommentsTableViewCell")
         
-        
-        
+             
         
         repliesTableView.delegate = self
         repliesTableView.dataSource = self
+        repliesTableView.tableFooterView = UIView(frame: .zero)
 
         
         getEventDetailsByIdApiCall()
@@ -186,6 +193,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
 
+    
+    override func viewDidLayoutSubviews() {
+        repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -585,14 +597,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-//        
-//        if tableView == repliesTableView {
-//            
-//            return UITableViewAutomaticDimension
-//        }
-//            
-//        else{
-//            
+        
+        if tableView == repliesTableView {
+            
+            return UITableViewAutomaticDimension
+        }
+            
+        else  {
+            
         
         if indexPath.section == 0 {
         
@@ -617,7 +629,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 return 90
                 
             }
-
+        }
         else {
         
             return UITableViewAutomaticDimension
@@ -645,6 +657,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         return UITableViewAutomaticDimension
         
 }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return UITableViewAutomaticDimension
@@ -690,6 +706,82 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        
+        if tableView == repliesTableView   {
+            
+            if indexPath.section == 0 {
+                
+                if indexPath.row == 0{
+                    
+                    let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+                    
+                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+                    
+                    usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+                    usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                    if repliesCommentsArray.count > 0{
+                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+                    }
+                    usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
+                    //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    return usersCommentsTableViewCell
+                }
+                    
+                else {
+                    
+                
+                    
+                    let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+                    
+                    commentsCell.commentTexView.delegate = self
+                    commentsCell.commentTexView.text = self.commentString
+                    commentsCell.commentTexView.tag = 2000
+                    //    activeTextView = commentsCell.commentTexView
+                    if sendCommentClick == false{
+                        
+                        commentsCell.sendBtn.isHidden = true
+                        
+                    }
+                        
+                    else{
+                        
+                        commentsCell.sendBtn.isHidden = false
+                        
+                        
+                    }
+                    
+                    
+                    return commentsCell
+                    
+
+                }
+                
+            }
+                
+            else {
+                
+                let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+                
+                usersCommentsTableViewCell.usersCommentLbl.text = self.repliesCommentsArray[indexPath.row] as? String
+                usersCommentsTableViewCell.usersNameLbl.text = self.repliesCommentsUsernamesArray[indexPath.row] as? String
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                usersCommentsTableViewCell.replyCommentBtn.isHidden = true
+                usersCommentsTableViewCell.editCommentBn.isHidden = true
+                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                return usersCommentsTableViewCell
+            }
+            
+        }
+        
+        
+        
+        else {
+
         
         if indexPath.section == 0 {
          
@@ -742,6 +834,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         return headImgTableViewCell
         
         }
+            
+            
+            
+            
+            
+            
+            
             
         if indexPath.row == 1{
                 
@@ -812,13 +911,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             }
             
-//            if indexPath.row == 3 {
-//                
-//                informationTableViewCell.infoLabel.text = "Registration Number".localize()
-//                
-//                informationTableViewCell.addressLabel.text =  eventList.registrationNumber
-//                
-//            }
             
             if indexPath.row == 4 {
                 
@@ -897,17 +989,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
        
         if indexPath.section == 2 {
-            
             let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
             
+            
             commentsCell.commentTexView.text = self.commentString
-            commentsCell.commentTexView.text = self.commentedbyusername
             commentsCell.commentCountLab.text = String(usersCommentsArray.count)
             commentsCell.commentTexView.delegate = self
-            
+            commentsCell.commentTexView.tag = 2001
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
+            commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
             
-            if sendCommentClick == false{
+            if sendCommentClick == false {
                 
                 commentsCell.sendBtn.isHidden = true
                 
@@ -920,9 +1012,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-            
             return commentsCell
-            
             
         }
         
@@ -1012,9 +1102,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
             usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
-            usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
+        //    usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-            usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
+            usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
             usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
@@ -1029,9 +1119,32 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             return usersCommentsTableViewCell
             
             }
-        
+        }
         
         return UITableViewCell()
+    }
+    
+    
+    func commentTWBtnClicked(){
+        
+        
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        if tableView == repliesTableView {
+            
+            
+        }
+            
+        else {
+            activeLblNumberofLines = 3
+        }
+        
     }
     
     func usersLikeBtnClick(sender : UIButton){
@@ -1128,7 +1241,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
                 
-                self.activeTextView.becomeFirstResponder()
+         //       self.activeTextView.becomeFirstResponder()
                 
             })
             
@@ -1138,7 +1251,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
-      //          self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+    //    self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
                 
                 
                 
@@ -1180,13 +1293,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
- //   self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+   // self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
                 
        
         
                 
             }, completion: {(_ finished: Bool) -> Void in
-                
+             
+                 self.repliesTableView.isScrollEnabled = true
             })
             
         }
@@ -1204,12 +1318,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func repliesCloseBtnClicked(){
         
-    //    self.repliesTableView.endEditing(true)
-        self.eventDetailsTableView.endEditing(true)
-        
-        self.eventDetailsTableView.isScrollEnabled = true
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+           
+      
+            self.repliesTableView.endEditing(true)
+            self.eventDetailsTableView.endEditing(true)
             
+            self.eventDetailsTableView.isScrollEnabled = true
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+                
+                self.repliesTableView.frame = CGRect(x: 0, y: self.eventDetailsTableView.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
+                
+         
             
             
         }, completion: {(_ finished: Bool) -> Void in
@@ -1224,7 +1343,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func editCommentBnClicked(sender : UIButton){
         
         
-        self.editUserID = self.commentingIdArray[sender.tag]
+     //   self.editUserID = self.commentingIdArray[sender.tag]
         
         
         
@@ -1348,7 +1467,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 self.repliesCommentsArray.remove(at: 0)
                 self.repliesCommentsUsernamesArray.remove(at: 0)
                 
-            //    self.repliesTableView.reloadData()
+                self.repliesTableView.reloadData()
                 
             }
             
@@ -1390,7 +1509,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             if isSuccess == true {
                 
                 
-          //      self.getVideoDetailsApiService()
                 
                 
                 
@@ -1428,6 +1546,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         
+        self.eventDetailsTableView.isScrollEnabled = false
+        self.repliesTableView.isScrollEnabled = false
+ 
         
         if textView.text == "Add a public comment..." {
             
@@ -2301,7 +2422,26 @@ func openSelectedDocumentFromURL(documentURLString: String) {
     }
     
     
+extension EventDetailsViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(AudioViewController.dismissKeyboard))
+        
+        self.view.addGestureRecognizer(tap)
+    }
     
+    @objc func dismissKeyboard()
+    {
+        
+        self.eventDetailsTableView.isScrollEnabled = true
+        self.repliesTableView.isScrollEnabled = true
+        view.endEditing(true)
+        
+        
+    }
+}
+
     
     
     
