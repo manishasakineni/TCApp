@@ -70,7 +70,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var imageView = UIImageView()
 
-    
+     var comentId = 0
     var thumbnailImageURL = String()
     
     var userID = Int()
@@ -109,6 +109,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var parentCommentIdArray = Array<Int>()
     var commentingIdArray = Array<Int>()
+    
+    var CommentIdArray = Array<Int>()
     var postID : Int = 0
      var activeTextView = UITextView()
     var activeLabel = UILabel()
@@ -233,6 +235,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //MARK: -    Get Event Details By Id API Call
  
     func getEventDetailsByIdApiCall(){
+        
+        self.parentCommentIdArray.removeAll()
+        self.commentingIdArray.removeAll()
+        self.commentingIdArray.removeAll()
+        self.CommentIdArray.removeAll()
+        self.repliesCommentsArray.removeAll()
+        self.usersCommentsArray.removeAll()
     
      let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID) + "/" + String(self.userID)
         
@@ -267,6 +276,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         self.usersCommentsArray.append(commentDetails.comment!)
                         self.commentedByUserArray.append(commentDetails.commentByUser!)
+                            self.commentingIdArray.append(commentDetails.id!)
+                            self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                            
+                            self.CommentIdArray.append(commentDetails.eventId!)
                         
                         }
                         
@@ -1033,6 +1046,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             let commentString = usersCommentsArray[indexPath.row] as? String
             let commentedbyusername = commentedByUserArray[indexPath.row] as? String
             
+    //         usersCommentsTableViewCell.usersLikeCoubtLbl.text = String(commentingIdArray[indexPath.row])
+            
             usersCommentsTableViewCell.editCommentBn.tag = indexPath.row
             
             let commentLblHeight = Int((commentString?.height(withConstrainedWidth: usersCommentsTableViewCell.usersCommentLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
@@ -1343,11 +1358,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func editCommentBnClicked(sender : UIButton){
         
         
-     //   self.editUserID = self.commentingIdArray[sender.tag]
+        self.editUserID = self.commentingIdArray[sender.tag]
         
         
         
-        if self.ID == self.editUserID {
+        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+        self.comentId = self.commentingIdArray[sender.tag]
+        let userCommentString = self.usersCommentsArray[sender.tag] as! String
+   
             
             let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
             
@@ -1357,13 +1375,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 let indexPath3 = IndexPath(item: 0, section: 2)
                 
                 
+                self.commentString = ""
                 self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
-                
-                if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                        
+                        commentsCell.commentTexView.text = userCommentString
+                        commentsCell.commentTexView.becomeFirstResponder()
+                    }
                     
-                    commentsCell.commentTexView.text = self.usersCommentsArray[sender.tag] as! String
-                    commentsCell.commentTexView.becomeFirstResponder()
-                }
+                })
+                
+
                 
                 
             })
@@ -1402,12 +1425,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             }
             
             
-        }
+     //   }
             
-        else {
-            
-            
-        }
+       
         
     }
     
@@ -1479,17 +1499,19 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         
+        
+        
     }
     
     func deleteCommentAPICall(tag : Int){
         
-        let deletePostID : Int  = self.parentCommentIdArray[tag]
-        //  let deleteCommentID  : Int  = self.commentingIdArray[tag]
+        let deletePostID : Int  = self.CommentIdArray[tag]
+          let deleteCommentID  : Int  = self.commentingIdArray[tag]
         
         
         let postParams = [
-            "id": deletePostID,
-            "postId": self.postID,
+            "id": deleteCommentID,
+            "eventId": deletePostID,
             "userId": self.ID,
             "churchId": ""
             ] as [String : Any]
@@ -1498,7 +1520,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
-        serviceController.postRequest(strURL: DELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: EVENTDELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
@@ -1510,7 +1532,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
                 
-                
+              self.getEventDetailsByIdApiCall()  
                 
                 
             }
@@ -1568,6 +1590,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func textViewDidEndEditing(_ textView: UITextView) {
         
         textView.resignFirstResponder()
+        
+        
+        self.eventDetailsTableView.isScrollEnabled = true
+        self.repliesTableView.isScrollEnabled = true
+
         
         self.commentString = textView.text
         self.commentedbyusername = textView.text
@@ -1833,6 +1860,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if !(self.userID == 0) {
             
             
+            self.comentId = self.comentId != 0 ? self.comentId : 0
+            self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
+            
+  
             self.parentCommentId = 0
             
            commentSendBtnAPIService(textComment: self.commentString)
@@ -1857,7 +1888,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let  EVENTCOMMENTSAPISTR = EVENTCOMMENTAPI
         
-        let params = ["id": 0,
+        let params = ["id": comentId,
                       "eventId": eventID,
                       "description": textComment,
                       "parentCommentId": self.parentCommentId,
@@ -1891,11 +1922,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 let successMsg = respVO.endUserMessage
                 
+                  let createdComment = respVO.result
+                
+                  self.commentString = ""
+                
+                self.getEventDetailsByIdApiCall()
+                
                 self.usersCommentsArray.insert(self.commentString, at: 0)
                 self.commentedByUserArray.insert(self.username, at: 0)
-                self.commentString = "Add a public comment..."
+              //  self.commentString = "Add a public comment..."
                 self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
-                
+               
                 
                 
                 

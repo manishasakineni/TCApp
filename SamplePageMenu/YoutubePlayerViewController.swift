@@ -81,7 +81,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var replyCountArray = Array<Any>()
    // var readMoreBtnIsHidden = true
     
-
+   var comentId = 0
+    
    var replyMainComment = ""
    var replyMainCommentUser = ""
     
@@ -89,7 +90,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var CommentsByUserArray = Array<Any>()
     var postIDArray = Array<Any>()
    
-    
+    var deleteId : Int = 0
 
     var embedLinksAry : [VideoSongsResultVo] = Array<VideoSongsResultVo>()
     var churchNameAry : Array<String> = Array()
@@ -1211,7 +1212,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     if !(self.ID == 0) {
         
-      //  self.focusItemNumberTextField()
+        self.comentId = self.comentId != 0 ? self.comentId : 0
+        self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
+        
         
     
        self.parentCommentId = 0
@@ -1254,7 +1257,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
         let dictParams = [
-            "id": 0,
+            "id": self.comentId,
             "postId": self.postID,
             "description": textComment,
             "parentCommentId": self.parentCommentId,
@@ -1291,22 +1294,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         print(respVO.result)
                         
-//                        self.usersCommentsArray.insert(self.commentString, at: 0)
-//                        self.commentString = "Add a public comment..."
-//                        
-//                        self.allOffersTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+                        self.commentString = ""
+                        
                         
                         self.getVideoDetailsApiService()
                         
                         
-                        //                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
-                        //
-                        //
-                        //                            self.removeAnimate()
-                        //
-                        //
-                        //
-                        //                        })
                         
                         
                     }
@@ -1315,13 +1308,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         let failMsg = respVO.endUserMessage
                         
-                        //   self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+                       
                         
                         return
                         
                     }
                     
-                   // self.allOffersTableView.reloadData()
 
                     
             }
@@ -1586,8 +1578,16 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.editUserID = self.commentingIdArray[sender.tag]
         
         
+        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+        self.comentId = self.commentingIdArray[sender.tag]
         
-        if self.ID == self.editUserID {
+
+        
+        let userCommentString = self.usersCommentsArray[sender.tag] as! String
+
+        
+        
+    //    if self.ID == self.editUserID {
         
         let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
             
@@ -1596,15 +1596,17 @@ func  unLikeButtonClick(_ sendre:UIButton) {
    
                 let indexPath3 = IndexPath(item: 0, section: 2)
                 
-                
+                  self.commentString = ""
                 self.allOffersTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
-                
-                if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
- 
-                    commentsCell.commentTexView.text = self.usersCommentsArray[sender.tag] as! String
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                        
+                    
+                    commentsCell.commentTexView.text = userCommentString
                     commentsCell.commentTexView.becomeFirstResponder()
                 }
    
+                })
                 
             })
             
@@ -1642,13 +1644,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         }
 
         
-        }
-        
-        else {
-         
-        
-        }
-  
+    //    }
+       
     }
     
     
@@ -1697,10 +1694,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         for id in (respVO.result?.commentDetails)! {
                             
-                            self.parentCommentIdArray.append(id.id!)
-                            self.commentingIdArray.append(id.userId!)
+                            self.parentCommentIdArray.append(id.parentCommentId!)
+                            self.commentingIdArray.append(id.id!)
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
+                            
+                            
                         }
                         
                        
@@ -1731,6 +1730,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
                         self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                         self.postID  = (respVO.result?.postDetails![0].id)!
+                        
+                        
+                        
                         self.isLike = (respVO.result?.postDetails![0].isLike)!
                         self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
                        // self.commentsCount = (respVO.result?.postDetails![0].commentCount)!
@@ -1871,7 +1873,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func deleteCommentAPICall(tag : Int){
         
-        let deletePostID : Int  = self.parentCommentIdArray[tag]
+        let deletePostID : Int  = self.commentingIdArray[tag]
       //  let deleteCommentID  : Int  = self.commentingIdArray[tag]
 
         

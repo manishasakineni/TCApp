@@ -58,7 +58,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
    
     
     
-    
+    var  deleteID : Int = 0
     
     var thumbnailImageURL = String()
     
@@ -859,11 +859,13 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func editCommentBnClicked(sender : UIButton){
         
-      
+       
         
         self.editUserID = self.commentingIdArray[sender.tag]
         
-        
+        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+        self.comentId = self.commentingIdArray[sender.tag]
+        let userCommentString = self.usersCommentsArray[sender.tag] as! String
         
         //if self.userID  == self.editUserID {
             
@@ -874,13 +876,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 let indexPath3 = IndexPath(row: 0, section: 2)
                 
-                
+                self.commentString = ""
                 self.audioTableview.scrollToRow(at: indexPath3, at: .top, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                     if let commentsCell = self.audioTableview.cellForRow(at: indexPath3) as? CommentsCell {
-                        self.parentCommentId = self.parentCommentIdArray[sender.tag]
-                        self.comentId = self.commentingIdArray[sender.tag] 
-                        commentsCell.commentTexView.text = self.usersCommentsArray[sender.tag] as! String
+                      
+                        commentsCell.commentTexView.text = userCommentString
                         commentsCell.commentTexView.becomeFirstResponder()
                     }
                     
@@ -936,7 +937,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
         let postParams = [
-            "id": deletePostID,
+            "id": self.deleteID,
             "postId": self.postID,
             "userId": self.userID,
             "churchId": ""
@@ -1477,12 +1478,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                  self.commentString = ""
                 
                self.getEventDetailsByIdApiCall()
-          //      self.commentedByUserArray.insert("ravali", at: 0)
-                
-      //          self.commentString = "Add a public comment..."
-//                self.audioTableview.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
-                
-              
+                       
                 
             }
                 
@@ -1729,7 +1725,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                        
                         self.replyCountArray.append(id.replyCount!)
                         self.eventID = (id.postId!)
-                        
+                         self.deleteID = (id.id!)
                         
                     }
                     

@@ -106,6 +106,10 @@ let FORGOTPASSWORDAPI : String = BASEURL.appending("api/UserInfo/ForgotPassword"
 
 let DELETECOMMETAPI : String    = BASEURL.appending("api/Post/DeleteComments")
 
+
+let EVENTDELETECOMMETAPI : String    = BASEURL.appending("api/Events/DeleteEventComment")
+
+
 let GETPOSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId/")
 
 let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorId/")
