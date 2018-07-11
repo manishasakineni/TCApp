@@ -747,9 +747,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 
                 cell3.usersCommentLbl.numberOfLines = activeLblNumberofLines
-//                cell3.readMoreBtn.isHidden = false
-//                cell3.readMoreBtnHeight.constant = 15
-//                readMoreBtnIsHidden = false
+         
+            
             }
                 
             else {
@@ -867,8 +866,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         self.comentId = self.commentingIdArray[sender.tag]
         let userCommentString = self.usersCommentsArray[sender.tag] as! String
         
-        //if self.userID  == self.editUserID {
-            
+        
             let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
@@ -923,15 +921,18 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
             }
             
-            
-       // }
-            
       
         
     }
 
     
     func deleteCommentAPICall(tag : Int){
+        
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
+            
+            
+
+        
         
         let deletePostID : Int  = self.parentCommentIdArray[tag]
         
@@ -974,6 +975,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             
         }
+            
+    
+    })
         
     }
     

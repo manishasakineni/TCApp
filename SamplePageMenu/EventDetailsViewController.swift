@@ -1266,7 +1266,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
-    //    self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+    self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
                 
                 
                 
@@ -1308,7 +1308,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
-   // self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
+    self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
                 
        
         
@@ -1505,6 +1505,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func deleteCommentAPICall(tag : Int){
         
+       
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
+            
+            
+ 
         let deletePostID : Int  = self.CommentIdArray[tag]
           let deleteCommentID  : Int  = self.commentingIdArray[tag]
         
@@ -1545,14 +1550,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }) { (failureMessage) in
             
+           }
             
-            
-        }
         
-    }
+        })
     
-   
     
+}
+
     
     
  

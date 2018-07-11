@@ -250,7 +250,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AddNewAddressViewController.swift"
-                  timestampString = "553003931.5898449"
+                  timestampString = "553007107.880053"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "684"
@@ -265,7 +265,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AddNewAddressViewController.swift"
-                  timestampString = "553003931.592088"
+                  timestampString = "553007107.882816"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "686"
@@ -489,134 +489,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552977651.2287019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "getVideosAPICall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552977651.2287019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "934"
-            endingLineNumber = "934"
-            landmarkName = "deleteCommentAPICall(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1438"
-            endingLineNumber = "1438"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1454"
-            endingLineNumber = "1454"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552977651.2287019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1252"
-            endingLineNumber = "1252"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1473"
-            endingLineNumber = "1473"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1459"
-            endingLineNumber = "1459"
-            landmarkName = "commentSendBtnAPIService(textComment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/authorVedioViewController.swift"
             timestampString = "551784727.771022"
             startingColumnNumber = "9223372036854775807"
@@ -714,7 +586,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
-                  timestampString = "553003931.712698"
+                  timestampString = "553007107.974739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "670"
@@ -729,7 +601,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/InfoChurchViewControllers.swift"
-                  timestampString = "553003931.7155271"
+                  timestampString = "553007107.977157"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "672"
@@ -768,22 +640,6 @@
             startingLineNumber = "131"
             endingLineNumber = "131"
             landmarkName = "getVideosAPICall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1028"
-            endingLineNumber = "1028"
-            landmarkName = "unlikeButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -970,7 +826,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AllItemsIDViewController.swift"
-                  timestampString = "553003931.777663"
+                  timestampString = "553007108.040076"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "349"
@@ -985,7 +841,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AllItemsIDViewController.swift"
-                  timestampString = "553003931.780547"
+                  timestampString = "553007108.042392"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "351"
@@ -1152,54 +1008,6 @@
             startingLineNumber = "1225"
             endingLineNumber = "1225"
             landmarkName = "documentPicker(_:didPickDocumentAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552981493.6026061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "986"
-            endingLineNumber = "986"
-            landmarkName = "likeButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1504"
-            endingLineNumber = "1504"
-            landmarkName = "audioLikesDislikesCountAPiCall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1402,7 +1210,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/SignUpViewController.swift"
-                  timestampString = "553003953.853592"
+                  timestampString = "553007108.1484669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -1417,7 +1225,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/SignUpViewController.swift"
-                  timestampString = "553003953.855953"
+                  timestampString = "553007108.151202"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "735"
@@ -1491,70 +1299,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1094"
-            endingLineNumber = "1094"
-            landmarkName = "commentSendBtnClicked()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1684"
-            endingLineNumber = "1684"
-            landmarkName = "getEventDetailsByIdApiCall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1705"
-            endingLineNumber = "1705"
-            landmarkName = "getEventDetailsByIdApiCall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552981493.6026061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "backLeftButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/ServiceController.swift"
             timestampString = "552489553.412529"
             startingColumnNumber = "9223372036854775807"
@@ -1578,38 +1322,6 @@
             startingLineNumber = "404"
             endingLineNumber = "404"
             landmarkName = "getAudioRequest(viewController:url:successBlock:failureBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552981493.6026061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "backLeftButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552981493.6026061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "homeButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1658,22 +1370,6 @@
             startingLineNumber = "266"
             endingLineNumber = "266"
             landmarkName = "churchAPIService()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1189"
-            endingLineNumber = "1189"
-            landmarkName = "viewAllCommentBtnClick(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1748,7 +1444,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/NotificationsViewController.swift"
-                  timestampString = "553003953.955501"
+                  timestampString = "553007108.22414"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
@@ -1763,7 +1459,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/NotificationsViewController.swift"
-                  timestampString = "553003953.9579411"
+                  timestampString = "553007108.22646"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
@@ -1786,22 +1482,6 @@
             startingLineNumber = "182"
             endingLineNumber = "182"
             landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1294"
-            endingLineNumber = "1294"
-            landmarkName = "repliesCloseBtnClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1859,38 +1539,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1130"
-            endingLineNumber = "1130"
-            landmarkName = "replyCommentBtnClick(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1170"
-            endingLineNumber = "1170"
-            landmarkName = "viewAllCommentBtnClick(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/EventDetailsViewController.swift"
             timestampString = "553002547.207558"
             startingColumnNumber = "9223372036854775807"
@@ -1939,350 +1587,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552998803.1228091"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1613"
-            endingLineNumber = "1613"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.035126"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1613"
-                  endingLineNumber = "1613"
-                  offsetFromSymbolStart = "1397">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #2)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.0374399"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1616"
-                  endingLineNumber = "1616"
-                  offsetFromSymbolStart = "27">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552998803.1228091"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1627"
-            endingLineNumber = "1627"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.043483"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1627"
-                  endingLineNumber = "1627"
-                  offsetFromSymbolStart = "1703">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #3)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.0458601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1629"
-                  endingLineNumber = "1629"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552998803.1228091"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1874"
-            endingLineNumber = "1874"
-            landmarkName = "deleteCommentAPICall(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552981493.6026061"
+            timestampString = "553006520.825633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "860"
-            endingLineNumber = "860"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1824"
-            endingLineNumber = "1824"
+            startingLineNumber = "1828"
+            endingLineNumber = "1828"
             landmarkName = "focusItemNumberTextField()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1109"
-            endingLineNumber = "1109"
-            landmarkName = "commentSendBtnClicked()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "879"
-            endingLineNumber = "879"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "885"
-            endingLineNumber = "885"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "881"
-            endingLineNumber = "881"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AudioViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AudioViewController.swift"
-                  timestampString = "553003954.081724"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "881"
-                  endingLineNumber = "881"
-                  offsetFromSymbolStart = "435">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AudioViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AudioViewController.swift"
-                  timestampString = "553003954.0842381"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "882"
-                  endingLineNumber = "882"
-                  offsetFromSymbolStart = "38">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "882"
-            endingLineNumber = "882"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AudioViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AudioViewController.swift"
-                  timestampString = "553003954.0900019"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "882"
-                  endingLineNumber = "882"
-                  offsetFromSymbolStart = "38">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AudioViewController.(editCommentBnClicked (sender : __ObjC.UIButton) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/AudioViewController.swift"
-                  timestampString = "553003954.092281"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "882"
-                  endingLineNumber = "882"
-                  offsetFromSymbolStart = "513">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1324"
-            endingLineNumber = "1324"
-            landmarkName = "getVideoDetailsApiService()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/YoutubePlayerViewController.swift"
-            timestampString = "552998803.1228091"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1891"
-            endingLineNumber = "1891"
-            landmarkName = "deleteCommentAPICall(tag:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.deleteCommentAPICall (tag : Swift.Int) -&gt; ()"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.102846"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1891"
-                  endingLineNumber = "1891"
-                  offsetFromSymbolStart = "1183">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.YoutubePlayerViewController.(deleteCommentAPICall (tag : Swift.Int) -&gt; ()).(closure #1)"
-                  moduleName = "Telugu Churches"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/YoutubePlayerViewController.swift"
-                  timestampString = "553003954.105338"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1893"
-                  endingLineNumber = "1893"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2308,157 +1620,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/EventDetailsViewController.swift"
-            timestampString = "553002547.207558"
+            timestampString = "553007230.484134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1358"
-            endingLineNumber = "1358"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552996762.024475"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "862"
-            endingLineNumber = "862"
-            landmarkName = "editCommentBnClicked(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1593"
-            endingLineNumber = "1593"
-            landmarkName = "textViewDidEndEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1615"
-            endingLineNumber = "1615"
-            landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997811.7338099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1651"
-            endingLineNumber = "1651"
-            landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AudioViewController.swift"
-            timestampString = "552997115.770324"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "694"
-            endingLineNumber = "694"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventDetailsViewController.swift"
-            timestampString = "553002833.984396"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1506"
-            endingLineNumber = "1506"
-            landmarkName = "deleteCommentAPICall(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/EventDetailsViewController.swift"
-            timestampString = "553003787.183754"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1523"
-            endingLineNumber = "1523"
-            landmarkName = "deleteCommentAPICall(tag:)"
+            startingLineNumber = "1309"
+            endingLineNumber = "1309"
+            landmarkName = "viewAllCommentBtnClick(sender:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.EventDetailsViewController.deleteCommentAPICall (tag : Swift.Int) -&gt; ()"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.viewAllCommentBtnClick (sender : __ObjC.UIButton) -&gt; ()"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "553003954.209029"
+                  timestampString = "553007230.492764"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1523"
-                  endingLineNumber = "1523"
-                  offsetFromSymbolStart = "1255">
+                  startingLineNumber = "1309"
+                  endingLineNumber = "1309"
+                  offsetFromSymbolStart = "1626">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.EventDetailsViewController.(deleteCommentAPICall (tag : Swift.Int) -&gt; ()).(closure #1)"
+                  symbolName = "Telugu_Churches.EventDetailsViewController.(viewAllCommentBtnClick (sender : __ObjC.UIButton) -&gt; ()).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/manoj/Documents/TuluguChurchApp/SamplePageMenu/EventDetailsViewController.swift"
-                  timestampString = "553003954.211323"
+                  timestampString = "553007230.496008"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1525"
-                  endingLineNumber = "1525"
-                  offsetFromSymbolStart = "26">
+                  startingLineNumber = "1311"
+                  endingLineNumber = "1311"
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/EventDetailsViewController.swift"
+            timestampString = "553007232.131633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1311"
+            endingLineNumber = "1311"
+            landmarkName = "viewAllCommentBtnClick(sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

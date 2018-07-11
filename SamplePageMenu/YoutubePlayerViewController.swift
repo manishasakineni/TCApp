@@ -770,16 +770,13 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
                  usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
                  usersCommentsTableViewCell.readMoreBtn.isHidden = true
-//                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 15
-//                 readMoreBtnIsHidden = false
             }
             
             else {
                 
                  usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
-//                 usersCommentsTableViewCell.readMoreBtn.isHidden = true
-//                 usersCommentsTableViewCell.readMoreBtnHeight.constant = 0
-//                 readMoreBtnIsHidden = true
+             
+                
             }
             
             print(activeLabel.numberOfLines)
@@ -792,13 +789,11 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             let replyCount : Int = replyCountArray[indexPath.row] as! Int
             
-          //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
             usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
             
             usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
             
-        //    usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
             usersCommentsTableViewCell.viewCommentsBtn.tag = indexPath.row
             usersCommentsTableViewCell.replyCommentBtn.tag = indexPath.row
             
@@ -873,15 +868,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-//        if readMoreBtnIsHidden == true {
-//        
-//            activeLblNumberofLines = 0
-//        }
-//        
-//        else {
-//        
-//        activeLblNumberofLines = 3
-//        }
+
         if tableView == repliesTableView {
             
             
@@ -1401,7 +1388,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     func readmoreClicked(sender : UIButton){
         
        
-         //   readMoreBtnIsHidden = false
             activeLblNumberofLines = 0
         
             let indexPath = IndexPath(item: sender.tag, section: 3)
@@ -1434,8 +1420,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
             
             }, completion: {(_ finished: Bool) -> Void in
-                //position screen left after animation
-               // self.repliesTableView.isScrollEnabled = false
+                
                 
             })
             
@@ -1456,11 +1441,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         if !(self.ID == 0) {
             
             
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-//                
-//                self.activeTextView.becomeFirstResponder()
-//                
-//            })
+
             let indexPath = IndexPath(item: sender.tag, section: 3)
             
             if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
@@ -1717,7 +1698,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             }
                            
 
-                           // self.CommentsByUserArray.append(list.commentByUser!)
                             
                         }
               
@@ -1731,12 +1711,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
                         self.postID  = (respVO.result?.postDetails![0].id)!
                         
-                        
-                        
                         self.isLike = (respVO.result?.postDetails![0].isLike)!
                         self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
-                       // self.commentsCount = (respVO.result?.postDetails![0].commentCount)!
-                       // self.videoId = (respVO.result?.postDetails![0].id)!
+                       
          
                         if self.isLike == 0{
                         self.likeClick = false
@@ -1873,8 +1850,10 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func deleteCommentAPICall(tag : Int){
         
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
+            
+
         let deletePostID : Int  = self.commentingIdArray[tag]
-      //  let deleteCommentID  : Int  = self.commentingIdArray[tag]
 
         
         let postParams = [
@@ -1888,7 +1867,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
-    serviceController.postRequest(strURL: DELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+    self.serviceController.postRequest(strURL: DELETECOMMETAPI as NSString, postParams: postParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
         
         print(result)
         
@@ -1917,7 +1896,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
         }
-    
+    })
     }
     
 }
