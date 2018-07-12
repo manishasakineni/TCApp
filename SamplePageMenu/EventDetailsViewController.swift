@@ -277,7 +277,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.usersCommentsArray.append(commentDetails.comment!)
                         self.commentedByUserArray.append(commentDetails.commentByUser!)
                             self.commentingIdArray.append(commentDetails.id!)
-                            self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                          //  self.parentCommentIdArray.append(commentDetails.parentCommentId!)
                             
                             self.CommentIdArray.append(commentDetails.eventId!)
                         
@@ -748,28 +748,28 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                 
                     
-                    let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-                    
-                    commentsCell.commentTexView.delegate = self
-                    commentsCell.commentTexView.text = self.commentString
-                    commentsCell.commentTexView.tag = 2000
-                    //    activeTextView = commentsCell.commentTexView
-                    if sendCommentClick == false{
-                        
-                        commentsCell.sendBtn.isHidden = true
-                        
-                    }
-                        
-                    else{
-                        
-                        commentsCell.sendBtn.isHidden = false
-                        
-                        
-                    }
-                    
-                    
-                    return commentsCell
-                    
+//                    let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+//                    
+//                    commentsCell.commentTexView.delegate = self
+//                    commentsCell.commentTexView.text = self.commentString
+//                    commentsCell.commentTexView.tag = 2000
+//                    //    activeTextView = commentsCell.commentTexView
+//                    if sendCommentClick == false{
+//                        
+//                        commentsCell.sendBtn.isHidden = true
+//                        
+//                    }
+//                        
+//                    else{
+//                        
+//                        commentsCell.sendBtn.isHidden = false
+//                        
+//                        
+//                    }
+//                    
+//                    
+//                    return commentsCell
+//                    
 
                 }
                 
@@ -1266,7 +1266,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
-    self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
+  //  self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
                 
                 
                 
@@ -1306,7 +1306,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             self.getViewAllCommentsAPICall(tag: sender.tag)
             
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
     self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
                 
@@ -1364,6 +1364,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         self.parentCommentId = self.parentCommentIdArray[sender.tag]
         self.comentId = self.commentingIdArray[sender.tag]
+        
         let userCommentString = self.usersCommentsArray[sender.tag] as! String
    
             
@@ -1423,10 +1424,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
             }
-            
-            
-     //   }
-            
+    
        
         
     }
@@ -1487,7 +1485,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 self.repliesCommentsArray.remove(at: 0)
                 self.repliesCommentsUsernamesArray.remove(at: 0)
                 
-                self.repliesTableView.reloadData()
                 
             }
             
@@ -1852,13 +1849,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func commentSendBtnClicked(){
         
        self.sendCommentClick = false
-         self.readmoreCommentClick = false
+    
         
         self.eventDetailsTableView.endEditing(true)
         
-        print(self.commentString)
+      //  print(self.commentString)
         
-        
+         //    self.readmoreCommentClick = false
         
         // self.usersCommentsArray.append(self.commentString)
         
@@ -1869,7 +1866,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
   
-            self.parentCommentId = 0
+         //   self.parentCommentId = 0
             
            commentSendBtnAPIService(textComment: self.commentString)
             
@@ -1933,11 +1930,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 self.getEventDetailsByIdApiCall()
                 
-                self.usersCommentsArray.insert(self.commentString, at: 0)
-                self.commentedByUserArray.insert(self.username, at: 0)
-              //  self.commentString = "Add a public comment..."
-                self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
-               
+//                self.usersCommentsArray.insert(self.commentString, at: 0)
+//                self.commentedByUserArray.insert(self.username, at: 0)
+//              //  self.commentString = "Add a public comment..."
+//                self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
+//               
                 
                 
                 

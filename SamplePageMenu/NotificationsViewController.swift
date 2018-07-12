@@ -129,9 +129,9 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
          
             let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                     jobIDViewController.isFromNotification = true
-                    jobIDViewController.pageName = "Posts"
+                   
                     jobIDViewController.pageName = "Events"
-
+          jobIDViewController.authorID = (listStr.authorId == nil) ? 0 : listStr.authorId!
                     
                     
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
@@ -140,11 +140,11 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                     
         }else if (listStr.postId != nil){
                     
-        let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+        let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                     
             holyBibleViewController.isFromNotification = true
             holyBibleViewController.pageName = "Posts"
-            holyBibleViewController.pageName = "Events"
+            holyBibleViewController.authorID = (listStr.authorId == nil) ? 0 : listStr.authorId!
                     
                     
                     
@@ -181,11 +181,11 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 
             if(listStr.eventId != nil){
                 
-                let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
                 jobIDViewController.isFromNotification = true
-                jobIDViewController.pageName = "Posts"
+                jobIDViewController.isFromChruch = true
                 jobIDViewController.pageName = "Events"
-                
+                jobIDViewController.churchID = (listStr.churchId == nil) ? 0 : listStr.churchId!
                 
                 
                 self.navigationController?.pushViewController(jobIDViewController, animated: true)
@@ -196,10 +196,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             }else if (listStr.postId != nil){
                     
                 let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
-                
+                holyBibleViewController.isFromChruch = true
                 holyBibleViewController.isFromNotification = true
                 holyBibleViewController.pageName = "Posts"
-                holyBibleViewController.pageName = "Events"
+               holyBibleViewController.churchID = (listStr.churchId == nil) ? 0 : listStr.churchId!
                 
                 
                 

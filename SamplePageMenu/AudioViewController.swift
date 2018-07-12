@@ -1277,7 +1277,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 self.repliesCommentsArray.remove(at: 0)
                 self.repliesCommentsUsernamesArray.remove(at: 0)
                 
-                self.repliesTableView.reloadData()
+             //   self.repliesTableView.reloadData()
                 
             }
             

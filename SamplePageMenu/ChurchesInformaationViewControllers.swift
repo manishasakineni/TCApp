@@ -135,9 +135,13 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         view.addSubview((pageMenu?.view)!)
 
         if(isFromNotification == true){
+            
             if(pageName == "Posts"){
+                
                 pageMenu?.moveToPage(2)
+                
             }else if(pageName == "Events"){
+                
                 pageMenu?.moveToPage(1)
             }
             

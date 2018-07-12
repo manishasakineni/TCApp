@@ -1824,7 +1824,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 self.repliesCommentsArray.remove(at: 0)
                 self.repliesCommentsUsernamesArray.remove(at: 0)
                 
-                self.repliesTableView.reloadData()
+             //   self.repliesTableView.reloadData()
                 
             }
             
