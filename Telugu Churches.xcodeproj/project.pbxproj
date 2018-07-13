@@ -218,6 +218,10 @@
 		AF108A5420D396830098B70F /* notificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF108A5220D396820098B70F /* notificationsTableViewCell.xib */; };
 		AF108A5720D39A9B0098B70F /* NotificationInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF108A5620D39A9B0098B70F /* NotificationInfoVO.swift */; };
 		AF108A5920D39AC70098B70F /* NotificationResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF108A5820D39AC70098B70F /* NotificationResultVO.swift */; };
+		AF10F94120F8712B006EA5D0 /* EventcommentrepliesVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10F94020F8712B006EA5D0 /* EventcommentrepliesVo.swift */; };
+		AF10F94320F87146006EA5D0 /* EventcommentrepliesListResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10F94220F87146006EA5D0 /* EventcommentrepliesListResultVo.swift */; };
+		AF10F94620F88862006EA5D0 /* EventcommentRepliesListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10F94520F88862006EA5D0 /* EventcommentRepliesListVO.swift */; };
+		AF10F94820F88965006EA5D0 /* EventCommRepliesVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10F94720F88965006EA5D0 /* EventCommRepliesVO.swift */; };
 		AF11B01F20D93EFE005E7D8F /* DocsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11B01D20D93EFE005E7D8F /* DocsCollectionViewCell.swift */; };
 		AF11B02020D93EFE005E7D8F /* DocsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF11B01E20D93EFE005E7D8F /* DocsCollectionViewCell.xib */; };
 		AF141D6020A6A9B100AE9FB8 /* GetJobByIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */; };
@@ -631,6 +635,10 @@
 		AF108A5220D396820098B70F /* notificationsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notificationsTableViewCell.xib; sourceTree = "<group>"; };
 		AF108A5620D39A9B0098B70F /* NotificationInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationInfoVO.swift; sourceTree = "<group>"; };
 		AF108A5820D39AC70098B70F /* NotificationResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationResultVO.swift; sourceTree = "<group>"; };
+		AF10F94020F8712B006EA5D0 /* EventcommentrepliesVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventcommentrepliesVo.swift; sourceTree = "<group>"; };
+		AF10F94220F87146006EA5D0 /* EventcommentrepliesListResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventcommentrepliesListResultVo.swift; sourceTree = "<group>"; };
+		AF10F94520F88862006EA5D0 /* EventcommentRepliesListVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventcommentRepliesListVO.swift; sourceTree = "<group>"; };
+		AF10F94720F88965006EA5D0 /* EventCommRepliesVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommRepliesVO.swift; sourceTree = "<group>"; };
 		AF11B01D20D93EFE005E7D8F /* DocsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF11B01E20D93EFE005E7D8F /* DocsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocsCollectionViewCell.xib; sourceTree = "<group>"; };
 		AF141D5F20A6A9B100AE9FB8 /* GetJobByIDVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJobByIDVO.swift; sourceTree = "<group>"; };
@@ -1224,6 +1232,7 @@
 				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
 				AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */,
 				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
+				AF10F94420F8714F006EA5D0 /* Eventcommentreplies */,
 				AF108A5A20D39AD00098B70F /* NotificationInfo */,
 				AF0E1E1920C80C360064EA0B /* deleteCartInfoVO */,
 				AF0E1E1420C80BCE0064EA0B /* EditAddressInfoVO */,
@@ -1565,6 +1574,17 @@
 				AF108A5820D39AC70098B70F /* NotificationResultVO.swift */,
 			);
 			name = NotificationInfo;
+			sourceTree = "<group>";
+		};
+		AF10F94420F8714F006EA5D0 /* Eventcommentreplies */ = {
+			isa = PBXGroup;
+			children = (
+				AF10F94020F8712B006EA5D0 /* EventcommentrepliesVo.swift */,
+				AF10F94520F88862006EA5D0 /* EventcommentRepliesListVO.swift */,
+				AF10F94220F87146006EA5D0 /* EventcommentrepliesListResultVo.swift */,
+				AF10F94720F88965006EA5D0 /* EventCommRepliesVO.swift */,
+			);
+			name = Eventcommentreplies;
 			sourceTree = "<group>";
 		};
 		AF141D6B20A6ABDA00AE9FB8 /* GetJobByIDVO */ = {
@@ -2567,6 +2587,7 @@
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
 				3D5404F92058045A008257A6 /* AuthorPostsViewController.swift in Sources */,
 				3D5404F72058045A008257A6 /* AuthorEventsViewController.swift in Sources */,
+				AF10F94320F87146006EA5D0 /* EventcommentrepliesListResultVo.swift in Sources */,
 				AF141D6420A6A9C900AE9FB8 /* AddUpdateJobVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				AF10038120E66547009ECE42 /* AuthorleventTableViewCell.swift in Sources */,
@@ -2640,6 +2661,7 @@
 				AF09007920EA59DD00BACB25 /* LikeResultVO.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
+				AF10F94820F88965006EA5D0 /* EventCommRepliesVO.swift in Sources */,
 				3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */,
 				CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */,
 				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
@@ -2702,6 +2724,7 @@
 				3D5357DC207253F300B8AB94 /* LikeDislikeVO.swift in Sources */,
 				AF7C2E3F20A08222003D623F /* PostByAutorIdVO.swift in Sources */,
 				CB2879A3205A4165005F3168 /* CategoriesListResultVo.swift in Sources */,
+				AF10F94620F88862006EA5D0 /* EventcommentRepliesListVO.swift in Sources */,
 				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				AF0BC18920C5589400753E3C /* AddressViewController.swift in Sources */,
@@ -2789,6 +2812,7 @@
 				AF09007720EA598100BACB25 /* LikeInfoVo.swift in Sources */,
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,
+				AF10F94120F8712B006EA5D0 /* EventcommentrepliesVo.swift in Sources */,
 				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,
 				CB03C8DC203ED22B000B96A4 /* GetAllChurchAdminsResultVo.swift in Sources */,
 				AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */,

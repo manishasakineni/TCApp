@@ -106,10 +106,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var commentId = 0
     var repliesCommentsArray = Array<Any>()
     var repliesCommentsUsernamesArray = Array<Any>()
-    
+    var replyDetails = [EventcommentrepliesListResultVo]()
     var parentCommentIdArray = Array<Int>()
     var commentingIdArray = Array<Int>()
-    
+    var repliesCountArray = Array<Int>()
     var CommentIdArray = Array<Int>()
     var postID : Int = 0
      var activeTextView = UITextView()
@@ -197,7 +197,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     override func viewDidLayoutSubviews() {
-        repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -236,12 +236,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
  
     func getEventDetailsByIdApiCall(){
         
-        self.parentCommentIdArray.removeAll()
-        self.commentingIdArray.removeAll()
-        self.commentingIdArray.removeAll()
-        self.CommentIdArray.removeAll()
-        self.repliesCommentsArray.removeAll()
-        self.usersCommentsArray.removeAll()
+
     
      let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID) + "/" + String(self.userID)
         
@@ -250,6 +245,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             if result.count > 0{
                 
          print(result)
+                self.getViewAllCommentsAPICall(tag: 0)
             
                 let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
@@ -272,16 +268,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                        
                        
                         
-                        for commentDetails in commentDetailsVO! {
-                        
-                        self.usersCommentsArray.append(commentDetails.comment!)
-                        self.commentedByUserArray.append(commentDetails.commentByUser!)
-                            self.commentingIdArray.append(commentDetails.id!)
-                          //  self.parentCommentIdArray.append(commentDetails.parentCommentId!)
-                            
-                            self.CommentIdArray.append(commentDetails.eventId!)
-                        
-                        }
+//                        for commentDetails in commentDetailsVO! {
+//                        
+//                        self.usersCommentsArray.append(commentDetails.comment!)
+//                        self.commentedByUserArray.append(commentDetails.commentByUser!)
+//                        self.commentingIdArray.append(commentDetails.id!)
+//                        self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+//                            
+//                            self.CommentIdArray.append(commentDetails.eventId!)
+//                        
+//                        }
                         
                         
                         self.likesCount = self.eventsDetailsArray[0].likeCount!
@@ -736,40 +732,25 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
                     usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                    
                     if repliesCommentsArray.count > 0{
+                        
                         usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+                   
+                    }else{
+                        
+                          usersCommentsTableViewCell.editCommentBn.isHidden = true
+                        usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                         usersCommentsTableViewCell.replayCountLbl.text = ""
                     }
                     usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
-                    //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    
                     return usersCommentsTableViewCell
                 }
                     
                 else {
                     
-                
                     
-//                    let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-//                    
-//                    commentsCell.commentTexView.delegate = self
-//                    commentsCell.commentTexView.text = self.commentString
-//                    commentsCell.commentTexView.tag = 2000
-//                    //    activeTextView = commentsCell.commentTexView
-//                    if sendCommentClick == false{
-//                        
-//                        commentsCell.sendBtn.isHidden = true
-//                        
-//                    }
-//                        
-//                    else{
-//                        
-//                        commentsCell.sendBtn.isHidden = false
-//                        
-//                        
-//                    }
-//                    
-//                    
-//                    return commentsCell
-//                    
 
                 }
                 
@@ -786,6 +767,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                
+                usersCommentsTableViewCell.editCommentBn.isHidden = true
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.replayCountLbl.text = ""
                 return usersCommentsTableViewCell
             }
             
@@ -1042,6 +1027,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             usersCommentsTableViewCell.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String
             
+            usersCommentsTableViewCell.replayCountLbl.text = (self.repliesCountArray[indexPath.row] as? Int)! > 0 ? "\((self.repliesCountArray[indexPath.row]))" : ""
+            
             
             let commentString = usersCommentsArray[indexPath.row] as? String
             let commentedbyusername = commentedByUserArray[indexPath.row] as? String
@@ -1093,6 +1080,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
             usersCommentsTableViewCell.viewCommentsBtn.tag = indexPath.row
             usersCommentsTableViewCell.replyCommentBtn.tag = indexPath.row
+            
             
             
             if usersLikeClick == true{
@@ -1293,18 +1281,33 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
            
             let indexPath = IndexPath(item: sender.tag, section: 3)
-            
+            var commentIdNum = 0
             if let usersCommentsTableViewCell = eventDetailsTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
                 
                 self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
                 self.replyMainCommentUser = self.commentedByUserArray[sender.tag] as! String
+                commentIdNum = self.commentingIdArray[sender.tag] 
                 
             }
             
-            
+            self.repliesCommentsUsernamesArray.removeAll()
+            self.repliesCommentsArray.removeAll()
+            if((replyDetails.count) > 0){
+            for eachComment in replyDetails{
+                if(commentIdNum == (eachComment.parentCommentId!)){
+                    if let comment = eachComment.comment{
+                        self.repliesCommentsArray.append(comment)
+                    }
+                    if let commentByUser = eachComment.commentByUser{
+                        self.repliesCommentsUsernamesArray.append(commentByUser)
+                    }
+                }
+                
+                
+            }
+            }
             self.eventDetailsTableView.endEditing(true)
-            
-            self.getViewAllCommentsAPICall(tag: sender.tag)
+            self.repliesTableView.reloadData()
             
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
@@ -1431,9 +1434,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func getViewAllCommentsAPICall(tag : Int){
         
+        self.parentCommentIdArray.removeAll()
+        self.commentingIdArray.removeAll()
+        self.CommentIdArray.removeAll()
+       self.repliesCountArray.removeAll()
+        self.usersCommentsArray.removeAll()
+        
         self.commentId = self.parentCommentId
         
-        let getViewAllCommentsAPI = VIDEOVIEWALLCOMMENTSAPI + String(self.commentId)
+        let getViewAllCommentsAPI = GETEVENTBYIDAPI  + String(eventID) + "/" + String(self.userID)
         
         
         print(getViewAllCommentsAPI)
@@ -1442,49 +1451,48 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             print(result)
             
-            let responseVO : ReplayCommentVO = Mapper().map(JSONObject: result)!
+            let responseVO : EventcommentrepliesVo = Mapper().map(JSONObject: result)!
             
             let isSuccess = responseVO.isSuccess
             
             if isSuccess == true {
                 
                         
-                self.repliesCommentsArray.removeAll()
-                self.repliesCommentsUsernamesArray.removeAll()
+         
+                if responseVO.result != nil {
+                    
+                    
+                    
+          
+                    
+                     if (responseVO.result?.commentDetails?.count)! > 0{
+                        
+                        for commentDetails in (responseVO.result?.commentDetails!)!{
+                                                    self.usersCommentsArray.append(commentDetails.comment!)
+                                                    self.commentedByUserArray.append(commentDetails.commentByUser!)
+                                                    self.commentingIdArray.append(commentDetails.id!)
+                                                    self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                            self.repliesCountArray.append(commentDetails.replyCount!)
+                            
+                                                        self.CommentIdArray.append(commentDetails.eventId!)
+                        }
                 
-                for listResults in responseVO.listResult! {
-                    
-                    
-                    
-                    if listResults.comment == nil {
-                        
-                        self.repliesCommentsArray.append(" ")
-                        
-                    }
-                    else {
-                        
-                        self.repliesCommentsArray.append(listResults.comment!)
                     }
                     
-                    if listResults.commentByUser == nil {
+                    if (responseVO.result?.replyDetails?.count)! > 0{
+                        self.replyDetails = (responseVO.result?.replyDetails!)!
+                  
                         
-                        self.repliesCommentsUsernamesArray.append(" ")
                         
                     }
-                    else {
-                        
-                        self.repliesCommentsUsernamesArray.append(listResults.commentByUser!)
-                    }
-                    
+            
         
-                    
+                    self.eventDetailsTableView.reloadData()
+                    self.repliesTableView.reloadData()
                     
                     
                 }
-                
-                self.repliesCommentsArray.remove(at: 0)
-                self.repliesCommentsUsernamesArray.remove(at: 0)
-                
+           
                 
             }
             
@@ -1555,7 +1563,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
 }
 
+ 
     
+    func getrepliesforCommentsAPICall(tag : Int){
+        
+        
+        
+        
+    }
+
     
  
 //MARK: -  UITexview Delegate methods
@@ -1853,11 +1869,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         self.eventDetailsTableView.endEditing(true)
         
-      //  print(self.commentString)
-        
-         //    self.readmoreCommentClick = false
-        
-        // self.usersCommentsArray.append(self.commentString)
+    
         
         if !(self.userID == 0) {
             
@@ -1866,7 +1878,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
   
-         //   self.parentCommentId = 0
+     
             
            commentSendBtnAPIService(textComment: self.commentString)
             
@@ -1929,15 +1941,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                   self.commentString = ""
                 
                 self.getEventDetailsByIdApiCall()
-                
-//                self.usersCommentsArray.insert(self.commentString, at: 0)
-//                self.commentedByUserArray.insert(self.username, at: 0)
-//              //  self.commentString = "Add a public comment..."
-//                self.eventDetailsTableView.reloadSections(IndexSet(integersIn: 2...3), with: UITableViewRowAnimation.top)
-//               
-                
-                
-                
+         
                 
             }
                 

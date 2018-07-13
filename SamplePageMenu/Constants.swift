@@ -98,6 +98,8 @@ let EVENTPOSTCOMMENTAPI : String = BASEURL.appending("api/Post/AddUpdateComments
 
 let VIDEOVIEWALLCOMMENTSAPI : String = BASEURL.appending("api/Post/GetPostCommentReplies/")
 
+let EVENTCOMMENTREPLIESSAPI : String = BASEURL.appending("api/Events/GetEventCommentReplies/")
+
 //  mmmmmmmm
 
 let POSTBYEVENTIDAPI : String = BASEURL.appending("api/Post/GetPostbyEventId/")
@@ -165,7 +167,7 @@ let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/
 let NOTIFICATIONSAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
 
 //not done
-let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventById/")
+let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventByEventId/")
 
 
 // mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO
