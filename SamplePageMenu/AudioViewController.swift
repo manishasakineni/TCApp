@@ -57,7 +57,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var isPaused: Bool!
    
     
-    
+     var activeTextView = UITextView()
     var  deleteID : Int = 0
     
     var thumbnailImageURL = String()
@@ -575,13 +575,14 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     }
                     
                     else{
+                        usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                         
                         usersCommentsTableViewCell.editCommentBn.isHidden = true
                         usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                         usersCommentsTableViewCell.replayCountLbl.text = ""
                     }
 
-                    usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
+                  //  usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
                     //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
                     return usersCommentsTableViewCell
                 }
@@ -632,7 +633,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 
-                
+                usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replayCountLbl.text = ""
@@ -808,7 +809,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             cell3.usersLikeBtn.addTarget(self, action: #selector(likeButtonClicked), for: UIControlEvents.touchUpInside)
             cell3.usersDislikeBtn.addTarget(self, action: #selector(unlikeButtonClicked), for: UIControlEvents.touchUpInside)
-       //     cell3.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
+            cell3.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             
             cell3.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
@@ -1154,7 +1155,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
                 
-            //    self.activeTextView.becomeFirstResponder()
+                self.activeTextView.becomeFirstResponder()
                 
             })
             

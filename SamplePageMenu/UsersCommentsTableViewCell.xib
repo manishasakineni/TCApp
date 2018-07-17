@@ -198,6 +198,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="buttonImgOutLet" destination="Edj-DU-Nyw" id="Lrv-n8-cUN"/>
                 <outlet property="editCommentBn" destination="VPz-Hk-Hk3" id="mtF-R1-nqc"/>
                 <outlet property="readMoreBtn" destination="AG7-2e-tfm" id="vXK-aH-qoj"/>
                 <outlet property="readMoreBtnHeight" destination="CXb-pN-1BQ" id="2E3-V8-vdA"/>

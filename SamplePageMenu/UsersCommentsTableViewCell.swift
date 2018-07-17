@@ -20,6 +20,7 @@ class UsersCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var replayCountLbl: UILabel!
     @IBOutlet weak var readMoreBtn: UIButton!
     
+    @IBOutlet weak var buttonImgOutLet: UIButton!
     
     @IBOutlet weak var readMoreBtnHeight: NSLayoutConstraint!
     

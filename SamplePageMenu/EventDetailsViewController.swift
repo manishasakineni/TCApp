@@ -738,12 +738,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
                    
                     }else{
-                        
+                         usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                           usersCommentsTableViewCell.editCommentBn.isHidden = true
                         usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                          usersCommentsTableViewCell.replayCountLbl.text = ""
                     }
-                    usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
+                  //  usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
                     
                     return usersCommentsTableViewCell
                 }
@@ -768,9 +768,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 
+                  usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replayCountLbl.text = ""
+            
                 return usersCommentsTableViewCell
             }
             
@@ -1105,7 +1107,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
             usersCommentsTableViewCell.usersDislikeBtn.addTarget(self, action: #selector(usersDislikeBtnClick), for: UIControlEvents.touchUpInside)
-        //    usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
+            usersCommentsTableViewCell.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
@@ -1235,16 +1237,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-//    
-//    func replyCommentBtnClick(sender : UIButton){
-//        
-//        if !(self.userID == 0) {
-//            
+    
+    func replyCommentBtnClick(sender : UIButton){
+        
+        if !(self.userID == 0) {
+            
+          
+            
 //            self.getViewAllCommentsAPICall(tag: sender.tag)
 //            
 //            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
 //                
-//         //       self.activeTextView.becomeFirstResponder()
+//                self.activeTextView.becomeFirstResponder()
 //                
 //            })
 //            
@@ -1254,26 +1258,26 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //            
 //            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
 //                
-//  //  self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
+//    self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
 //                
 //                
 //                
 //            }, completion: {(_ finished: Bool) -> Void in
 //                
 //            })
-//            
-//        }
-//            
-//        else {
-//            
-//            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
-//                
-//                self.navigationController?.pushViewController(self.loginVC, animated: true)
-//                
-//            })
-//        }
-//    }
-//    
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+    }
+    
     func viewAllCommentBtnClick(sender : UIButton){
         
         if !(self.userID == 0) {
