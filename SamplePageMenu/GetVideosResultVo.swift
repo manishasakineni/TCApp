@@ -12,11 +12,13 @@ class GetVideosResultVo: Mappable {
     
     var postDetails:[PostDetailsVO]?
     var commentDetails:[CommentDetailsVo]?
+    var replyDetails:[CommentDetailsVo]?
     
-    init(postDetails:[PostDetailsVO]?, commentDetails:[CommentDetailsVo]?) {
+    init(postDetails:[PostDetailsVO]?, commentDetails:[CommentDetailsVo]?,replyDetails:[CommentDetailsVo]?) {
         
         self.postDetails = postDetails
         self.commentDetails = commentDetails
+        self.replyDetails = replyDetails
     }
     
     required init?(map: Map) {
@@ -28,5 +30,6 @@ class GetVideosResultVo: Mappable {
     
         postDetails <- map["postDetails"]
         commentDetails <- map["commentDetails"]
+        replyDetails <- map["replyDetails"]
     }
 }

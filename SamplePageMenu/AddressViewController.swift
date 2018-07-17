@@ -112,7 +112,18 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
      
         
         
-        cell.pincodeLbl.text = "\(listStr.pinCode!)"
+      //  cell.pincodeLbl.text = "\(listStr.pinCode!)"
+        
+        if listStr.pinCode != nil {
+            
+            cell.pincodeLbl.text = "\(listStr.pinCode!)"
+        }
+        
+        else {
+            
+            cell.pincodeLbl.text = ""
+        }
+        
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
         
        ///////  delete  ///////

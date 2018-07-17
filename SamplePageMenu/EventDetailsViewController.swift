@@ -1235,45 +1235,45 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    
-    func replyCommentBtnClick(sender : UIButton){
-        
-        if !(self.userID == 0) {
-            
-            self.getViewAllCommentsAPICall(tag: sender.tag)
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-                
-         //       self.activeTextView.becomeFirstResponder()
-                
-            })
-            
-            self.eventDetailsTableView.endEditing(true)
-            
-            
-            
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
-                
-  //  self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
-                
-                
-                
-            }, completion: {(_ finished: Bool) -> Void in
-                
-            })
-            
-        }
-            
-        else {
-            
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
-                
-                self.navigationController?.pushViewController(self.loginVC, animated: true)
-                
-            })
-        }
-    }
-    
+//    
+//    func replyCommentBtnClick(sender : UIButton){
+//        
+//        if !(self.userID == 0) {
+//            
+//            self.getViewAllCommentsAPICall(tag: sender.tag)
+//            
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
+//                
+//         //       self.activeTextView.becomeFirstResponder()
+//                
+//            })
+//            
+//            self.eventDetailsTableView.endEditing(true)
+//            
+//            
+//            
+//            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
+//                
+//  //  self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
+//                
+//                
+//                
+//            }, completion: {(_ finished: Bool) -> Void in
+//                
+//            })
+//            
+//        }
+//            
+//        else {
+//            
+//            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+//                
+//                self.navigationController?.pushViewController(self.loginVC, animated: true)
+//                
+//            })
+//        }
+//    }
+//    
     func viewAllCommentBtnClick(sender : UIButton){
         
         if !(self.userID == 0) {
@@ -1282,6 +1282,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
            
             let indexPath = IndexPath(item: sender.tag, section: 3)
             var commentIdNum = 0
+            
             if let usersCommentsTableViewCell = eventDetailsTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
                 
                 self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
@@ -1292,12 +1293,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             self.repliesCommentsUsernamesArray.removeAll()
             self.repliesCommentsArray.removeAll()
+            
             if((replyDetails.count) > 0){
+                
             for eachComment in replyDetails{
+                
                 if(commentIdNum == (eachComment.parentCommentId!)){
+                    
                     if let comment = eachComment.comment{
+                        
                         self.repliesCommentsArray.append(comment)
                     }
+                    
                     if let commentByUser = eachComment.commentByUser{
                         self.repliesCommentsUsernamesArray.append(commentByUser)
                     }
@@ -1462,19 +1469,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 if responseVO.result != nil {
                     
                     
-                    
-          
-                    
+                            
                      if (responseVO.result?.commentDetails?.count)! > 0{
                         
                         for commentDetails in (responseVO.result?.commentDetails!)!{
-                                                    self.usersCommentsArray.append(commentDetails.comment!)
-                                                    self.commentedByUserArray.append(commentDetails.commentByUser!)
-                                                    self.commentingIdArray.append(commentDetails.id!)
-                                                    self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                        self.usersCommentsArray.append(commentDetails.comment!)
+                        self.commentedByUserArray.append(commentDetails.commentByUser!)
+                    self.commentingIdArray.append(commentDetails.id!)
+                        self.parentCommentIdArray.append(commentDetails.parentCommentId!)
                             self.repliesCountArray.append(commentDetails.replyCount!)
                             
-                                                        self.CommentIdArray.append(commentDetails.eventId!)
+                    self.CommentIdArray.append(commentDetails.eventId!)
                         }
                 
                     }

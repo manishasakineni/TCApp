@@ -946,7 +946,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBAction func notificationBtnAction(_ sender: Any) {
         
         
-        if(self.count >= 0) {
+        if(self.count > 0) {
             
             
             let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController

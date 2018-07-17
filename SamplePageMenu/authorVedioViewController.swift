@@ -175,7 +175,7 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
                                 videosVC.videoEmbededIDStr = self.audioIDArray[1]
                                 videosVC.videoNameStr = title!
                                 
-                                
+                                videosVC.videoId = videoID!
                                 kUserDefaults.set(categoryId, forKey: "categoryId")
                                 kUserDefaults.set(videoID, forKey: "videoID")
                                 kUserDefaults.synchronize()

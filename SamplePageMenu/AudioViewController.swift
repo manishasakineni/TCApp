@@ -64,6 +64,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     var userID = 0
     
+     var replyDetails = [CommentDetailsVo]()
     
     var isLike = 0
     var isDisLike = 0
@@ -416,7 +417,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     override func viewDidLayoutSubviews() {
-        repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
     }
  
 
@@ -572,6 +573,14 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     if replyCountArray.count > 0{
                         usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
                     }
+                    
+                    else{
+                        
+                        usersCommentsTableViewCell.editCommentBn.isHidden = true
+                        usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                        usersCommentsTableViewCell.replayCountLbl.text = ""
+                    }
+
                     usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
                     //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
                     return usersCommentsTableViewCell
@@ -622,6 +631,12 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                
+                
+                usersCommentsTableViewCell.editCommentBn.isHidden = true
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.replayCountLbl.text = ""
+
                 return usersCommentsTableViewCell
             }
             
@@ -960,7 +975,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 self.getEventDetailsByIdApiCall()
 
                 
-               // self.getVideoDetailsApiService()
+            
                 
                     }
             
@@ -1175,8 +1190,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         if !(self.userID == 0) {
             
-            
-            
+    
+            var commentIdNum = 0
+        
             let indexPath = IndexPath(item: sender.tag, section: 3)
             
             if let usersCommentsTableViewCell = audioTableview.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
@@ -1185,12 +1201,44 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 self.replyMainCommentUser = self.commentedByUserArray[sender.tag] as! String
                 
                 
+                  commentIdNum = self.commentingIdArray[sender.tag]
+                
             }
             
             
+            
+            self.repliesCommentsUsernamesArray.removeAll()
+            self.repliesCommentsArray.removeAll()
+            
+            
+            
+            if((replyDetails.count) > 0){
+                
+                for eachComment in replyDetails{
+                    
+                    if(commentIdNum == (eachComment.parentCommentId!)){
+                        
+                        if let comment = eachComment.comment{
+                            
+                            self.repliesCommentsArray.append(comment)
+                        }
+                        
+                        if let commentByUser = eachComment.commentByUser{
+                            self.repliesCommentsUsernamesArray.append(commentByUser)
+                        }
+                    }
+                    
+                    
+                }
+            }
+            self.audioTableview.endEditing(true)
+            self.repliesTableView.reloadData()
+            
+
+            
             self.audioTableview.endEditing(true)
             
-            self.getViewAllCommentsAPICall(tag: sender.tag)
+           // self.getViewAllCommentsAPICall(tag: sender.tag)
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
@@ -1314,129 +1362,129 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
-    func getVideoDetailsApiService(){
-        
-        self.parentCommentIdArray.removeAll()
-        self.commentingIdArray.removeAll()
-        self.CommentsByUserArray.removeAll()
-        self.replyCountArray.removeAll()
-        self.usersCommentsArray.removeAll()
-        
-        self.audioTableview.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
-        
-        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
-        
-        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
-        
-        serviceController.getRequest(strURL: urlStr, success: { (result) in
-            
-            DispatchQueue.main.async(){
-                
-                print(result)
-                
-                let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
-                
-                let isSuccess = respVO.isSuccess
-                
-                
-                if isSuccess == true {
-                    
-                    
-                    let resultArr = respVO.result?.commentDetails
-                    
-                    for id in (respVO.result?.commentDetails)! {
-                        
-                        self.parentCommentIdArray.append(id.id!)
-                        self.commentingIdArray.append(id.userId!)
-                        self.CommentsByUserArray.append(id.commentByUser!)
-                        self.replyCountArray.append(id.replyCount!)
-                       
-                    }
-                    
-                    
-                    
-                    for list in resultArr! {
-                        
-                        if list.comment == nil {
-                            
-                            self.usersCommentsArray.append(" ")
-                            
-                        }
-                        else {
-                            
-                            self.usersCommentsArray.append(list.comment!)
-                        }
-                        
-                        
-                        
-                    }
-                    
-                    for vv in self.usersCommentsArray {
-                        
-                        
-                    }
-                    
-                    self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
-                    self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
-                    self.postID  = (respVO.result?.postDetails![0].id)!
-                   
-
-                    self.isLike = (respVO.result?.postDetails![0].isLike)!
-                    self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
-                    
-                    if self.isLike == 0{
-                        self.likeClick = false
-                        
-                    }
-                        
-                    else {
-                        
-                        self.likeClick = true
-                        
-                    }
-                    
-                    if self.isDisLike == 0{
-                        
-                        self.disLikeClick = false
-                        
-                    }
-                        
-                    else {
-                        
-                        self.disLikeClick = true
-                        
-                    }
-                    
-                    self.audioTableview.reloadData()
-                    
-                    
-                    
-                    
-                }
-                    
-                else{
-                    
-                    
-                }
-                
-                
-                
-            }
-            
-            
-            
-        }) { (failureMessage) in
-            
-            
-        }
-        
-        
-    }
-    
-   
-    
-    
+//    func getVideoDetailsApiService(){
+//        
+//        self.parentCommentIdArray.removeAll()
+//        self.commentingIdArray.removeAll()
+//        self.CommentsByUserArray.removeAll()
+//        self.replyCountArray.removeAll()
+//        self.usersCommentsArray.removeAll()
+//        
+//        self.audioTableview.isScrollEnabled = true
+//        self.repliesTableView.isScrollEnabled = true
+//        
+//        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
+//        
+//        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
+//        
+//        serviceController.getRequest(strURL: urlStr, success: { (result) in
+//            
+//            DispatchQueue.main.async(){
+//                
+//                print(result)
+//                
+//                let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
+//                
+//                let isSuccess = respVO.isSuccess
+//                
+//                
+//                if isSuccess == true {
+//                    
+//                    
+//                    let resultArr = respVO.result?.commentDetails
+//                    
+//                    for id in (respVO.result?.commentDetails)! {
+//                        
+//                        self.parentCommentIdArray.append(id.id!)
+//                        self.commentingIdArray.append(id.userId!)
+//                        self.CommentsByUserArray.append(id.commentByUser!)
+//                        self.replyCountArray.append(id.replyCount!)
+//                       
+//                    }
+//                    
+//                    
+//                    
+//                    for list in resultArr! {
+//                        
+//                        if list.comment == nil {
+//                            
+//                            self.usersCommentsArray.append(" ")
+//                            
+//                        }
+//                        else {
+//                            
+//                            self.usersCommentsArray.append(list.comment!)
+//                        }
+//                        
+//                        
+//                        
+//                    }
+//                    
+//                    for vv in self.usersCommentsArray {
+//                        
+//                        
+//                    }
+//                    
+//                    self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
+//                    self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
+//                    self.postID  = (respVO.result?.postDetails![0].id)!
+//                   
+//
+//                    self.isLike = (respVO.result?.postDetails![0].isLike)!
+//                    self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
+//                    
+//                    if self.isLike == 0{
+//                        self.likeClick = false
+//                        
+//                    }
+//                        
+//                    else {
+//                        
+//                        self.likeClick = true
+//                        
+//                    }
+//                    
+//                    if self.isDisLike == 0{
+//                        
+//                        self.disLikeClick = false
+//                        
+//                    }
+//                        
+//                    else {
+//                        
+//                        self.disLikeClick = true
+//                        
+//                    }
+//                    
+//                    self.audioTableview.reloadData()
+//                    
+//                    
+//                    
+//                    
+//                }
+//                    
+//                else{
+//                    
+//                    
+//                }
+//                
+//                
+//                
+//            }
+//            
+//            
+//            
+//        }) { (failureMessage) in
+//            
+//            
+//        }
+//        
+//        
+//    }
+//    
+//   
+//    
+//    
     
     
     func commentSendBtnAPIService(textComment : String){
@@ -1740,7 +1788,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                         if list.comment == nil {
                             
                             self.usersCommentsArray.append(" ")
-                          //  self.commentedByUserArray.append(" ")
                             
                         }
                         else {
@@ -1753,6 +1800,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                         
                         
                         if let comment = list.commentByUser{
+                            
                             self.CommentsByUserArray.append(comment)
                             
                         }else{
@@ -1764,9 +1812,19 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     
                     for vv in self.usersCommentsArray {
                         
-                       // self.activeLabel.text = vv as? String
                         
                     }
+                    
+                    
+                    if (respVO.result?.commentDetails?.count)! > 0{
+                        
+                        self.replyDetails = (respVO.result?.replyDetails!)!
+                        
+                        
+                        
+                    }
+                    
+
                     
                     self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
                     self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
@@ -1800,7 +1858,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     
                     self.audioTableview.reloadData()
                     self.audioTableview.isScrollEnabled = true
-                    //self.repliesTableView.isScrollEnabled = true
                     
                     
                     

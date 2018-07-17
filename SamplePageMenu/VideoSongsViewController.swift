@@ -738,7 +738,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-        
+        let userID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG") || (fileExtension == ".PNG") || (fileExtension == ".JPEG"){
             
@@ -759,6 +759,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                     
                     let videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                     
+                    videosVC.videoId = userID!
                     videosVC.videoNameStr = title!
                     
                     videosVC.imgData = dataImg!
@@ -876,6 +877,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
 
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             
+            
                         if let embededUrlImage =  imgUrl {
             
                             let thumbnillImage : String = embededUrlImage
@@ -906,6 +908,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             
                                 let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                    
+                                    videosVC.videoId = videoID!
                                     videosVC.videoNameStr = title!
                                     
                                     videosVC.videoEmbededIDStr = self.idStr
