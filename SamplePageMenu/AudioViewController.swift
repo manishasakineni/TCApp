@@ -973,6 +973,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             let isSuccess = responseVO.isSuccess
             
             if isSuccess == true {
+                self.comentId = 0
+                self.parentCommentId = 0
+                
                 self.getEventDetailsByIdApiCall()
 
                 
@@ -1119,7 +1122,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         print(self.commentString)
         
-        
+        // self.usersCommentsArray.append(self.commentString) 
         
     //    commentsCell.commentTexView.text = ""
         
@@ -1149,31 +1152,26 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func replyCommentBtnClick(sender : UIButton){
         
+        self.parentCommentId = self.commentingIdArray[sender.tag]
+        
+        self.comentId = 0
+
+        
         if !(self.userID == 0) {
             
-            self.getViewAllCommentsAPICall(tag: sender.tag)
+            let indexPath3 = IndexPath(item: 0, section: 2)
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-                
-                self.activeTextView.becomeFirstResponder()
+            
+            self.audioTableview.scrollToRow(at: indexPath3, at: .top, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                if let commentsCell = self.audioTableview.cellForRow(at: indexPath3) as? CommentsCell {
+                    
+                    commentsCell.commentTexView.becomeFirstResponder()
+                    
+                }
                 
             })
             
-            self.audioTableview.endEditing(true)
-            
-            
-            
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
-                
-           
-                self.repliesTableView.frame = CGRect(x: 0, y: self.backGroundView.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.backGroundView.frame.size.height - 50)
-                
-
-                
-            }, completion: {(_ finished: Bool) -> Void in
-                
-            
-            })
             
         }
             
@@ -1250,7 +1248,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
             }, completion: {(_ finished: Bool) -> Void in
 
-                self.repliesTableView.isScrollEnabled = true
+           //     self.repliesTableView.isScrollEnabled = true
                 
                 
             })
@@ -1349,7 +1347,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         self.repliesTableView.endEditing(true)
         self.audioTableview.endEditing(true)
         
-        self.audioTableview.isScrollEnabled = true
+       // self.audioTableview.isScrollEnabled = true
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
             
     self.repliesTableView.frame = CGRect(x: 0, y: self.audioTableview.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
@@ -1530,6 +1528,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 let createdComment = respVO.result
                  self.commentString = ""
                 
+                self.comentId = 0
+                self.parentCommentId = 0
+                
                self.getEventDetailsByIdApiCall()
                        
                 
@@ -1620,8 +1621,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        self.audioTableview.isScrollEnabled = false
-        self.repliesTableView.isScrollEnabled = false
+     //   self.audioTableview.isScrollEnabled = false
+     //   self.repliesTableView.isScrollEnabled = false
 
         
         if textView.text == "Add a public comment..." {
@@ -1641,8 +1642,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     func textViewDidEndEditing(_ textView: UITextView) {
         
         textView.resignFirstResponder()
-        self.audioTableview.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+      //  self.audioTableview.isScrollEnabled = true
+      //  self.repliesTableView.isScrollEnabled = true
         self.commentString = textView.text
         
         if textView.text == "" {
@@ -1858,7 +1859,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     }
                     
                     self.audioTableview.reloadData()
-                    self.audioTableview.isScrollEnabled = true
+                 //   self.audioTableview.isScrollEnabled = true
                     
                     
                     
@@ -1916,8 +1917,8 @@ extension AudioViewController
     @objc func dismissKeyboard()
     {
         
-        self.audioTableview.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+    //    self.audioTableview.isScrollEnabled = true
+     //   self.repliesTableView.isScrollEnabled = true
         view.endEditing(true)
         
         

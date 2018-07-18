@@ -931,8 +931,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        self.allOffersTableView.isScrollEnabled = false
-        self.repliesTableView.isScrollEnabled = false
+      //  self.allOffersTableView.isScrollEnabled = false
+     //   self.repliesTableView.isScrollEnabled = false
         
         if textView.text == "Add a public comment..." {
             
@@ -1218,7 +1218,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
     
-       self.parentCommentId = 0
+    //   self.parentCommentId = 0
         
     commentSendBtnAPIService(textComment: self.commentString)
     
@@ -1297,6 +1297,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         self.commentString = ""
                         
+                        self.comentId = 0
+                        self.parentCommentId = 0
                         
                         self.getVideoDetailsApiService()
                         
@@ -1412,29 +1414,24 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     
     func replyCommentBtnClick(sender : UIButton){
+        
+        self.parentCommentId = self.commentingIdArray[sender.tag]
+        self.comentId = 0
+        
+
     
         if !(self.ID == 0) {
 
-           self.getViewAllCommentsAPICall(tag: sender.tag)
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-                
-               self.activeTextView.becomeFirstResponder()
-                
-            })
-            
-        self.allOffersTableView.endEditing(true)
-            
-        
-            
-         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
-            
-            self.repliesTableView.frame = CGRect(x: 0, y: self.player.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.player.frame.size.height - 50)
-              
+            let indexPath3 = IndexPath(item: 0, section: 2)
             
             
-            }, completion: {(_ finished: Bool) -> Void in
-                
+            self.allOffersTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                    
+                    commentsCell.commentTexView.becomeFirstResponder()
+                    
+                }
                 
             })
             
@@ -1511,7 +1508,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 
             }, completion: {(_ finished: Bool) -> Void in
                 //position screen left after animation
-                self.repliesTableView.isScrollEnabled = true
+              //  self.repliesTableView.isScrollEnabled = true
                 
             })
             
@@ -1533,7 +1530,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
        self.repliesTableView.endEditing(true)
        self.allOffersTableView.endEditing(true)
      
-        self.allOffersTableView.isScrollEnabled = true
+     //   self.allOffersTableView.isScrollEnabled = true
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
             
             self.repliesTableView.frame = CGRect(x: 0, y: self.allOffersTableView.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
@@ -1696,8 +1693,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.replyCountArray.removeAll()
         self.usersCommentsArray.removeAll()
         
-        self.allOffersTableView.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+    //    self.allOffersTableView.isScrollEnabled = true
+     //   self.repliesTableView.isScrollEnabled = true
         
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.ID)
         
@@ -1932,6 +1929,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         if isSuccess == true {
             
+            self.comentId = 0
+            self.parentCommentId = 0
+            
            
             self.getVideoDetailsApiService()
                 
@@ -1999,8 +1999,8 @@ extension YoutubePlayerViewController
     @objc func dismissKeyboard()
     {
         
-        self.allOffersTableView.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+     //   self.allOffersTableView.isScrollEnabled = true
+     //   self.repliesTableView.isScrollEnabled = true
         view.endEditing(true)
         
         

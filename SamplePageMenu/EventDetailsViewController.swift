@@ -1240,31 +1240,26 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func replyCommentBtnClick(sender : UIButton){
         
+        self.parentCommentId = self.commentingIdArray[sender.tag]
+                 
+        self.comentId = 0
+        
         if !(self.userID == 0) {
-            
           
             
-//            self.getViewAllCommentsAPICall(tag: sender.tag)
-//            
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.10, execute: {
-//                
-//                self.activeTextView.becomeFirstResponder()
-//                
-//            })
-//            
-//            self.eventDetailsTableView.endEditing(true)
-//            
-//            
-//            
-//            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
-//                
-//    self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
-//                
-//                
-//                
-//            }, completion: {(_ finished: Bool) -> Void in
-//                
-//            })
+            let indexPath3 = IndexPath(item: 0, section: 2)
+            
+            
+            self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                    
+                    commentsCell.commentTexView.becomeFirstResponder()
+                    
+                }
+
+            })
+            
             
         }
             
@@ -1329,7 +1324,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }, completion: {(_ finished: Bool) -> Void in
              
-                 self.repliesTableView.isScrollEnabled = true
+               //  self.repliesTableView.isScrollEnabled = true
             })
             
         }
@@ -1352,7 +1347,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             self.repliesTableView.endEditing(true)
             self.eventDetailsTableView.endEditing(true)
             
-            self.eventDetailsTableView.isScrollEnabled = true
+         //   self.eventDetailsTableView.isScrollEnabled = true
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
                 self.repliesTableView.frame = CGRect(x: 0, y: self.eventDetailsTableView.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
@@ -1377,6 +1372,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         self.parentCommentId = self.parentCommentIdArray[sender.tag]
+        
         self.comentId = self.commentingIdArray[sender.tag]
         
         let userCommentString = self.usersCommentsArray[sender.tag] as! String
@@ -1391,12 +1387,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
                 self.commentString = ""
-                self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
-                    if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
+                
+        self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
+                
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            
+        if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
                         
-                        commentsCell.commentTexView.text = userCommentString
-                        commentsCell.commentTexView.becomeFirstResponder()
+            commentsCell.commentTexView.text = userCommentString
+            commentsCell.commentTexView.becomeFirstResponder()
+                        
                     }
                     
                 })
@@ -1550,8 +1550,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             if isSuccess == true {
                 
                 
-                
-              self.getEventDetailsByIdApiCall()  
+             self.comentId = 0
+                self.parentCommentId = 0
+              self.getViewAllCommentsAPICall(tag: 0)
                 
                 
             }
@@ -1574,14 +1575,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
  
     
-    func getrepliesforCommentsAPICall(tag : Int){
-        
-        
-        
-        
-    }
-
-    
+//    func getrepliesforCommentsAPICall(tag : Int){
+//        
+//        
+//        
+//        
+//    }
+//
+//    
  
 //MARK: -  UITexview Delegate methods
     
@@ -1595,8 +1596,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         
-        self.eventDetailsTableView.isScrollEnabled = false
-        self.repliesTableView.isScrollEnabled = false
+       // self.eventDetailsTableView.isScrollEnabled = false
+       // self.repliesTableView.isScrollEnabled = false
  
         
         if textView.text == "Add a public comment..." {
@@ -1619,8 +1620,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         textView.resignFirstResponder()
         
         
-        self.eventDetailsTableView.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+    //    self.eventDetailsTableView.isScrollEnabled = true
+    //    self.repliesTableView.isScrollEnabled = true
 
         
         self.commentString = textView.text
@@ -1884,12 +1885,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             self.comentId = self.comentId != 0 ? self.comentId : 0
+            
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
   
-     
+            
             
            commentSendBtnAPIService(textComment: self.commentString)
+            
             
         }
             
@@ -1927,7 +1930,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-         //   print(result)
+     
             
             print("\(result)")
             
@@ -1943,20 +1946,22 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             {
                 
                 
-                let successMsg = respVO.endUserMessage
+                let  successMsg = respVO.endUserMessage
                 
-                  let createdComment = respVO.result
+                  let  createdComment = respVO.result
                 
                   self.commentString = ""
+                self.comentId = 0
+                self.parentCommentId = 0
                 
-                self.getEventDetailsByIdApiCall()
+                self.getViewAllCommentsAPICall(tag: 0)
          
                 
             }
                 
             else {
                 
-                let failMsg = respVO.endUserMessage
+                let  failMsg = respVO.endUserMessage
                 
                 
                 return
@@ -2486,8 +2491,8 @@ extension EventDetailsViewController
     @objc func dismissKeyboard()
     {
         
-        self.eventDetailsTableView.isScrollEnabled = true
-        self.repliesTableView.isScrollEnabled = true
+      //  self.eventDetailsTableView.isScrollEnabled = true
+     //   self.repliesTableView.isScrollEnabled = true
         view.endEditing(true)
         
         
