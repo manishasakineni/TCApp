@@ -1371,7 +1371,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         
-        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+    //    self.parentCommentId = self.parentCommentIdArray[sender.tag]
         
         self.comentId = self.commentingIdArray[sender.tag]
         
@@ -1480,7 +1480,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         self.usersCommentsArray.append(commentDetails.comment!)
                         self.commentedByUserArray.append(commentDetails.commentByUser!)
                     self.commentingIdArray.append(commentDetails.id!)
-                        self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                            
+                 //       self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+                            
                             self.repliesCountArray.append(commentDetails.replyCount!)
                             
                     self.CommentIdArray.append(commentDetails.eventId!)

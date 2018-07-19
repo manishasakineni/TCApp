@@ -865,6 +865,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             let currentPage:CGFloat = slideToX / pageWidth
             
            pageController.currentPage = Int(currentPage)
+        
         bannerScrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:bannerScrollView.frame.height), animated: true)
         
     }

@@ -501,21 +501,28 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             return UITableViewAutomaticDimension
         }
         
-        else{
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            return 200.0
-        }
         else {
             
-            return 100.0
+            if indexPath.section == 0  {
+                
+                return 90
+                
+            }
             
+            if indexPath.section == 1  {
+                
+                return 60
+                
+            }
+                
+            else {
+                
+                
+                return UITableViewAutomaticDimension
+                
+            }
             
-        }
-        
-    }
-    
+        }    
     }
     
     
@@ -878,7 +885,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         self.editUserID = self.commentingIdArray[sender.tag]
         
-        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+   //     self.parentCommentId = self.parentCommentIdArray[sender.tag]
         self.comentId = self.commentingIdArray[sender.tag]
         let userCommentString = self.usersCommentsArray[sender.tag] as! String
         
@@ -950,11 +957,11 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
         
         
-        let deletePostID : Int  = self.parentCommentIdArray[tag]
+        let deletePostID : Int  = self.commentingIdArray[tag]
         
         
         let postParams = [
-            "id": self.deleteID,
+            "id": deletePostID,
             "postId": self.postID,
             "userId": self.userID,
             "churchId": ""
@@ -973,6 +980,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             let isSuccess = responseVO.isSuccess
             
             if isSuccess == true {
+                
                 self.comentId = 0
                 self.parentCommentId = 0
                 
@@ -1769,7 +1777,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     
                     for id in (respVO.result?.commentDetails)! {
                         
-                        self.parentCommentIdArray.append(id.parentCommentId!)
+                    //    self.parentCommentIdArray.append(id.parentCommentId!)
                         self.commentingIdArray.append(id.id!)
                         if let comment = id.commentByUser{
                             self.CommentsByUserArray.append(comment)

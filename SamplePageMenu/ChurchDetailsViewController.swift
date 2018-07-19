@@ -587,11 +587,17 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 let url = URL(string:newString!)
                 
                 
-                let dataImg = try? Data(contentsOf: url!)
+//                let dataImg = try? Data(contentsOf: url!)
+//                
+//                if dataImg != nil {
+//                    
+//                    cell.churchImage.image = UIImage(data: dataImg!)
                 
-                if dataImg != nil {
+                if url != nil {
                     
-                    cell.churchImage.image = UIImage(data: dataImg!)
+                    
+                    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                    
                 }
                 else {
                     

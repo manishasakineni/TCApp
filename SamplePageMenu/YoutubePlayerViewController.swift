@@ -1603,7 +1603,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.editUserID = self.commentingIdArray[sender.tag]
         
         
-        self.parentCommentId = self.parentCommentIdArray[sender.tag]
+     //   self.parentCommentId = self.parentCommentIdArray[sender.tag]
         self.comentId = self.commentingIdArray[sender.tag]
         
 
@@ -1718,7 +1718,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         for id in (respVO.result?.commentDetails)! {
                             
-                            self.parentCommentIdArray.append(id.parentCommentId!)
+                        //    self.parentCommentIdArray.append(id.parentCommentId!)
                             self.commentingIdArray.append(id.id!)
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)

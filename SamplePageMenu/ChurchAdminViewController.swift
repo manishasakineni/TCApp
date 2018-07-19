@@ -327,21 +327,34 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
     let url = URL(string:newString!)
             
-    let dataImg = try? Data(contentsOf: url!)
+//    let dataImg = try? Data(contentsOf: url!)
+//            
+//    if dataImg != nil {
+//                
+//        cell.adminImageView.image = UIImage(data: dataImg!)
+//    
+//        }
+//     //
+        
+ //       if newString != nil {
             
-    if dataImg != nil {
+ //           let url = URL(string:newString!)
+            
+            if url != nil {
                 
-        cell.adminImageView.image = UIImage(data: dataImg!)
-    
-        }
+                
+        cell.adminImageView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                
+ 
+            }
     else {
-                
+        
     cell.adminImageView.image = #imageLiteral(resourceName: "j4")
-                
+        
     }
 }
     else {
-            
+        
     cell.adminImageView.image = #imageLiteral(resourceName: "j4")
     }
         
@@ -497,6 +510,7 @@ func getAdminDetailsAPICall(string:String?){
                 
                 
     let listArr = respVO.listResult
+        
                 
     if (listArr?.count)! > 0 {
                     
@@ -529,10 +543,17 @@ func getAdminDetailsAPICall(string:String?){
                     
         }
         else {
+        if(self.PageIndex == 0){
+            self.searchLabel.isHidden = false
+            
+            self.churchAdminTableView.isHidden = true
+        }else{
+            self.searchLabel.isHidden = true
+            
+            self.churchAdminTableView.isHidden = false
+        }
                     
-        self.searchLabel.isHidden = false
-                    
-        self.churchAdminTableView.isHidden = true
+       
         }
             
         }
