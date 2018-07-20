@@ -77,7 +77,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return formatter
     }()
     
-//MARK: -   View DidLoad
+//MARK: -   View Did Load
 
 
     override func viewDidLoad() {
@@ -139,7 +139,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: -   View WillAppear
+    //MARK: -   View Will Appear
  
     override func viewWillAppear(_ animated: Bool) {
         

@@ -42,6 +42,8 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
     var nameStr          : String = ""
 
 
+    //MARK: -   View Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -147,7 +149,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
     }
     
     
-    
+  //MARK: -   back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -167,7 +169,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
     }
     
-    //MARK: -    Home Left Button Tapped
+    //MARK: -    Home  Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         

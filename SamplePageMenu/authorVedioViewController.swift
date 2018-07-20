@@ -25,6 +25,8 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
      var thumbnailImageURL = String()
     
      var imagesArrayTag : Dictionary<String,Any> = Dictionary()
+ 
+    //MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,8 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: -   UItable view delegate and datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         

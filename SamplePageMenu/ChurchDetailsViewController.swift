@@ -70,7 +70,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     var subscribe : Bool = true
     
-  //MARK: -   View DidLoad
+  //MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -841,7 +841,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
-    
+  //MARK: -  subscribe Btn Clicked
     
     func subscribeBtnClicked(sender : UIButton){
         

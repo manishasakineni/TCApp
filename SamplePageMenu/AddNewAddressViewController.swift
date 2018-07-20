@@ -63,6 +63,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
  var activeTextField = UITextField()
     
     
+    //MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         // Dispose of any resources that can be recreated.
     }
     
+     //MARK: -  view Will Appear
+    
 
     override func viewWillAppear(_ animated: Bool) {
         
@@ -110,8 +113,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     //MARK:- textField Should End Editing
-    
-    
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -265,7 +266,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
   
     
-    
+ //MARK: -  Table view delegate and data source methods
     
     
     
@@ -427,6 +428,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
     }
     
+     //MARK: -  back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         UserDefaults.standard.removeObject(forKey: "1")
@@ -473,6 +476,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
     }
     
+    //MARK:- done Clicked
     
     func done() {
         
@@ -547,6 +551,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         textField.inputAccessoryView = toolBar
         
     }
+    
+      //MARK:- picker view delegate and data source methods
  
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -566,6 +572,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         selectedData = pickerData[row]
     }
+    
+      //MARK:- get All state API Call
 
     func getallstateAPICall() {
         
@@ -611,6 +619,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             
     }
+    
+     //MARK:- get All country API Call
 
     func getallCountryAPICall() {
         
@@ -657,6 +667,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
         }
     }
+    
+     //MARK:- save address API Call
     
     func saveaddressAPICall(){
        
@@ -726,9 +738,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     
-    
- 
-    
+   //MARK:- save Button Action
 
     
     @IBAction func saveAction(_ sender: Any) {
@@ -753,6 +763,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
     }
     
+    //MARK:- read Data Source
+    
 func readDataSource(){
         
         if(addressInfo.count > 0){
@@ -776,7 +788,7 @@ func readDataSource(){
     }
     
 
-    //MARK:- validateAllFields
+    //MARK:- validate All Fields
     
     func validateAllFields() -> Bool
     {

@@ -72,7 +72,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     
-  //MARK: -  view Will Appear home icon
+  //MARK: -  view Will Appear 
     
     override func viewWillAppear(_ animated: Bool) {
         

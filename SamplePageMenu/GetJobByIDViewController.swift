@@ -43,6 +43,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var postId : Int = 0
 
     
+ //MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         // Dispose of any resources that can be recreated.
     }
   
+   //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -82,6 +84,8 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
     }
+    
+    //MARK: -  UITable view delegate and datasource methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -237,7 +241,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
-    
+ //MARK: -  get Job ID API Service
     
     func getJobIDAPIService(){
 
@@ -297,7 +301,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             
         }
  
-    
+    //MARK: - back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         

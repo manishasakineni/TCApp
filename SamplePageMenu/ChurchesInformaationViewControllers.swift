@@ -39,6 +39,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     
     var isFromNotification = false
     var pageName = ""
+    
+     //MARK: -  view Did Load
 
     override func viewDidLoad() {
         super.viewDidLoad()

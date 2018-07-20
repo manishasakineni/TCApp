@@ -56,7 +56,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var sectionsTitle : [String] = [" "]
      var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
     
-//MARK: -   View DidLoad
+//MARK: -   View Did Load
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-//MARK: -   View WillAppear
+//MARK: -   View Will Appear
    
     override func viewWillAppear(_ animated: Bool) {
         

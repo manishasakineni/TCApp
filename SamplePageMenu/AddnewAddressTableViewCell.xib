@@ -18,14 +18,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-F3-TcU">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-F3-TcU">
                         <rect key="frame" x="8" y="6" width="304" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="vBn-F3-TcU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="1zA-sd-8Mr"/>
+                    <constraint firstItem="vBn-F3-TcU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="q5t-qr-JsW"/>
+                    <constraint firstAttribute="trailing" secondItem="vBn-F3-TcU" secondAttribute="trailing" constant="8" id="rd0-F3-L1u"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addNewAddressTF" destination="vBn-F3-TcU" id="J5g-TH-5Aa"/>

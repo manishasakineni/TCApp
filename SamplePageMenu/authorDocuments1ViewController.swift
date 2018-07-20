@@ -27,7 +27,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     var pdfTitle                : String        = ""
     var isDownloadingOnProgress : Bool          = false
    
-    
+   //MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,8 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: -   UITable view delegate and datasource methods 
     
     func numberOfSections(in tableView: UITableView) -> Int {
         

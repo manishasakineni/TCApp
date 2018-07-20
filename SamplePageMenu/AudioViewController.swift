@@ -877,7 +877,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     
-    
+ //MARK: -    edit Comment Btn Clicked
     
     func editCommentBnClicked(sender : UIButton){
         
@@ -948,6 +948,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
 
+     //MARK: -    delete Comment API Call
     
     func deleteCommentAPICall(tag : Int){
         
@@ -1010,7 +1011,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
 
     
-    
+  //MARK: -    like Button Clicked
     
     
     
@@ -1056,6 +1057,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
+    //MARK: -    unlike Button Clicked
+    
     func  unlikeButtonClicked(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
@@ -1092,6 +1095,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
+       //MARK: -    share Button Clicked
+    
     func  shareButtonClick(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
@@ -1121,6 +1126,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
     }
     
+     //MARK: -    comment Send Btn Clicked
     
     func commentSendBtnClicked(){
         
@@ -1158,6 +1164,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
+    //MARK: -    reply Comment Btn Click
+    
     func replyCommentBtnClick(sender : UIButton){
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
@@ -1192,6 +1200,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             })
         }
     }
+    
+    //MARK: -    view All Comment Btn Click
     
     func viewAllCommentBtnClick(sender : UIButton){
         
@@ -1273,6 +1283,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
     }
   
+ //MARK: -  get  view All Comment API Call
     
     func getViewAllCommentsAPICall(tag : Int){
         
@@ -1347,7 +1358,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     
-    
+ //MARK: -    replies Close Btn Clicked
     
     
     func repliesCloseBtnClicked(){
@@ -1492,7 +1503,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 //   
 //    
 //    
-    
+ 
+    //MARK: -    comment Send Btn API Service
     
     func commentSendBtnAPIService(textComment : String){
         
@@ -1562,6 +1574,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         }
     }
+    
+     //MARK: -   audio Likes Dislikes Count APi Call
     
     func audioLikesDislikesCountAPiCall(){
         

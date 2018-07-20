@@ -185,16 +185,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
        // self.navigationItem.rightBarButtonItem?.badgeValue = "5";
         
-    
-        
-       
-  
-        
-
         
     }
     
-//MARK: -   View WillAppear
+//MARK: -   View Will Appear
 
     
      override func viewWillAppear(_ animated: Bool) {
@@ -225,7 +219,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-//MARK: -   View WillDisappear
+//MARK: -   View Will Disappear
 
     override func viewWillDisappear(_ animated: Bool) {
         timerForCollectionView.invalidate()
@@ -943,6 +937,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+  //MARK: -   notification Btn Action
     
     @IBAction func notificationBtnAction(_ sender: Any) {
         

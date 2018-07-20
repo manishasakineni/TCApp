@@ -37,6 +37,8 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
 
      var filtered:[GetAllJobDetailsListResultVO] = []
 
+     //MARK: -  view Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +88,8 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+     //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -193,7 +197,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
  
     
     
-    //MARK: -  churchDetails TableView delegate & DataSource  methods
+    //MARK: -   TableView delegate & DataSource  methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -360,7 +364,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
 
     
     
-    
+ //MARK: -  get job details API Call
     
     func getjobdetailsAPICall(string:String){
         
@@ -449,7 +453,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }
     }
 
-   
+  //MARK: -  back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         

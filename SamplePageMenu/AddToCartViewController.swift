@@ -25,6 +25,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
      var deletelist:[deleteCartInfoResultVO] = []
     
+    //MARK:-  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+     //MARK:-  view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -74,7 +77,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-  
+ //MARK:-  view Dis Will Appear 
+    
     override func viewWillDisappear(_ animated: Bool) {
         
         Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "".localize(), backTitle: "", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
@@ -84,7 +88,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
     
-    //MARK: -  churchDetails TableView delegate & DataSource  methods
+    //MARK: -   TableView delegate & DataSource  methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -172,7 +176,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-
+ //MARK:-  back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -233,6 +237,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
+ //MARK:-  continue Shoping Action
     
     @IBAction func continueShopingAction(_ sender: Any) {
         
@@ -249,6 +254,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
 
     }
     
+  //MARK:-  check out Action
     
     @IBAction func checkoutAction(_ sender: Any) {
         
@@ -264,7 +270,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-    
+ //MARK:-  get Cart Info API Service
     
     func getCartInfoAPIService(){
         
@@ -306,7 +312,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
  
     
-    
+//MARK:-  delete API Service
     
     
 func deleteAPIService(_ sender : UIButton){

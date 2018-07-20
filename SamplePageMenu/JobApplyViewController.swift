@@ -129,6 +129,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
      var monthArray : Array = ["0 Month","1 Month","2 Months","3 Months","4 Months","5 Months","6 Months","7 Months","8 Months","9 Months","10 Months","11 Months","12 Months"]
     
+  //MARK: - view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +164,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: - view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -441,6 +445,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
     }
+    
+    //MARK: - collection view delegate and datasource methods
   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -501,7 +507,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
    
-    
+//MARK: - Table view delegate and datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -690,6 +696,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
             return UITableViewCell()
         }
+    
+    //MARK: - back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -904,7 +912,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         ViewController.present(alert, animated: true, completion:nil)
     }
     
-    
+   //MARK: - apply Btn Action
 
     @IBAction func applyBtnAction(_ sender: Any) {
         
@@ -932,6 +940,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         
     }
     
+   //MARK: - upload Btn Action
     
     @IBAction func uploadBtnAction(_ sender: Any) {
         
@@ -955,7 +964,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     }
     
     
-    
+  //MARK: - upload resume Action
     
     @IBAction func uploadresumeAction(_ sender: Any) {
         
@@ -1011,6 +1020,8 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     
     }
     
+    //MARK: - close Btn Clicked
+    
     func closeBtnClicked(sender:UIButton){
         
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
@@ -1042,7 +1053,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         sender.view?.removeFromSuperview()
     }
 
-    
+  //MARK: - get job Application API Call
     
 func getjobApplicationAPICall(){
     

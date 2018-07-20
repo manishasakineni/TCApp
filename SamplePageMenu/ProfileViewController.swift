@@ -182,6 +182,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    //MARK: -  get Profile Info API Service
     
     func getProfileInfoAPIService(){
         
@@ -340,7 +341,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return nil
     }
 
-    
+ //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -361,6 +362,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    //MARK: -  view Did Disappear
+    
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
@@ -368,7 +371,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    
+   //MARK: -  Text field delegate methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -794,7 +797,7 @@ else {
         
     }
     
-   //MARK: -  edit Btn Clicked
+   //MARK: -  Camera Btn Clicked
     
     func cameraBtnClicked(_ sender: UIButton?)  {
         
@@ -824,6 +827,8 @@ else {
         
         
     }
+    
+      //MARK: -  edit Btn Clicked
     
     func editBtnClicked(_ sender: UIButton?){
         if(btneditClick == false){

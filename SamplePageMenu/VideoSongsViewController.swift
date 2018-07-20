@@ -474,7 +474,7 @@ func documentInteractionControllerViewControllerForPreview(_ controller: UIDocum
         return self
     }
     
-//MARK:- Collectionview  DataSource & Delegate Methods
+//MARK:- Table View  DataSource & Delegate Methods
    
 public func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -551,7 +551,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         return cell
     }
-    
+  
+    //MARK:- Collection View  DataSource & Delegate Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

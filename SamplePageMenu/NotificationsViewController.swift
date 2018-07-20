@@ -23,6 +23,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
 
     var IDs : String = ""
     
+    //MARK: -   view Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +51,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         // Dispose of any resources that can be recreated.
     }
   
+  //MARK: -   view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -59,7 +62,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
            }
 
-    
+    //MARK: -  UITable view delegate & data source methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -133,6 +136,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                     jobIDViewController.pageName = "Events"
           jobIDViewController.authorID = (listStr.authorId == nil) ? 0 : listStr.authorId!
                     
+               // let audioID = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.id
+                //  jobIDViewController.audioID = audioID!
                     
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
         
@@ -242,6 +247,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     
   
     
+//MARK: -  back Left Button Tapped
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -294,7 +300,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
- 
+ //MARK: - notification API Call
     
     
     func notificationAPICall(){

@@ -71,6 +71,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     
+     //MARK: -  view Did  Appear
+    
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)

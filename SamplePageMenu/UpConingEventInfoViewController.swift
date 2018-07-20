@@ -319,6 +319,7 @@ else {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     //MARK: -   Event Date Without Time
     
 func returnEventDateWithoutTime(selectedDateString : String) -> String{

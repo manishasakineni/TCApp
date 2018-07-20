@@ -56,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var deviceId = ""
     
-  //MARK: -   View DidLoad
+  //MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()

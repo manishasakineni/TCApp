@@ -32,6 +32,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     var quantity = ""
      var email : String? = ""
     
+    //MARK:-  view Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +66,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
+      //MARK:-  view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -74,6 +78,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
 
         
     }
+    //MARK:-  UItext field methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -233,7 +238,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     }
 
     
-  
+//MARK:-  back Left Button Tapped
     
 
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -283,10 +288,10 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
+    //MARK:-  all items ID API Service
+    
     func allitemsIDAPIService(){
         
-        
-
         
         let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/0"
         
@@ -299,11 +304,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             print("StatusCode:\(String(describing: isSuccess))")
             
  
-          
-   
-                
-               
-                
+            
                 if isSuccess == true {
                     
                     let listArr = respVO.listResult!
@@ -324,6 +325,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
+  
+    //MARK:-  add To Cart Action
     
     @IBAction func addToCartAction(_ sender: Any) {
         

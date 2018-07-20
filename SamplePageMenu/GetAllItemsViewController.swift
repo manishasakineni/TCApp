@@ -37,6 +37,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
      var allitemsArray:[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
     
      var filtered:[GetAllitemsListResultVO] = []
+
+    //MARK: -  View Did load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +89,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: -  View will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -394,6 +398,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     }
         
     }
+    
+    //MARK: -  back Left Button Tapped
   
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -445,7 +451,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
-
+ //MARK: -  get All items API Call
     
     func getallitemsAPICall(string:String){
         
@@ -500,16 +506,24 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                     }
                     
                 self.getAllitemsTableView.reloadData()
-                
-            }
-                    
+                }
                 else {
+                    if(self.PageIndex == 0){
+                        self.norecordsFoundLbl.isHidden = false
+                        
+                        self.getAllitemsTableView.isHidden = true
+                    }else{
+                        self.norecordsFoundLbl.isHidden = true
+                        
+                        self.getAllitemsTableView.isHidden = false
+                    }
                     
-                    self.norecordsFoundLbl.isHidden = false
-                    self.getAllitemsTableView.isHidden = true
+                    
                 }
                 
             }
+                
+       
                 
             else {
                 

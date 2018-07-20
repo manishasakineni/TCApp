@@ -223,6 +223,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+ //MARK: -   View viewWillDisappear
+    
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
@@ -350,6 +352,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     }
     
+   //MARK: -   View event Likes Dislikes CountAPiCall
     
     func eventLikesDislikesCountAPiCall(){
     
@@ -395,6 +398,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
     }
+    
 //MARK: -    Get Videos API Call
     
     
@@ -1152,6 +1156,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+     //MARK: -   users Like Btn Click
+    
     func usersLikeBtnClick(sender : UIButton){
         
         if !(self.userID == 0) {
@@ -1189,6 +1195,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
     }
+    
+    //MARK: -   users Dislike Btn Click
     
     func usersDislikeBtnClick(sender : UIButton){
         
@@ -1237,6 +1245,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+  //MARK: -   reply Comment Btn Click
     
     func replyCommentBtnClick(sender : UIButton){
         
@@ -1272,6 +1281,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             })
         }
     }
+    
+  //MARK: -   view All Comment Btn Click
     
     func viewAllCommentBtnClick(sender : UIButton){
         
@@ -1339,6 +1350,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
+  //MARK: -   replies Close Btn Clicked
     
     func repliesCloseBtnClicked(){
         
@@ -1363,12 +1375,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
    
+ //MARK: -   edit Comment Btn Clicked
     
     func editCommentBnClicked(sender : UIButton){
         
         
         self.editUserID = self.commentingIdArray[sender.tag]
-        
         
         
     //    self.parentCommentId = self.parentCommentIdArray[sender.tag]
@@ -1442,6 +1454,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
        
         
     }
+    
+    
+    
+     //MARK: -   get View All Comments APICall
     
     func getViewAllCommentsAPICall(tag : Int){
         
@@ -1518,6 +1534,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
     }
+    
+     //MARK: -   delete Comments APICall
     
     func deleteCommentAPICall(tag : Int){
         
@@ -1764,6 +1782,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+   //MARK: -   like Button Clicked
     
     func  likeButtonClicked(_ sendre:UIButton) {
         
@@ -1807,6 +1826,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+    //MARK: -  unlike Button Clicked
+    
     func  unlikeButtonClicked(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
@@ -1843,6 +1864,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
+    
+    //MARK: -   share Button Clicked
+    
     func  shareButtonClick(_ sendre:UIButton) {
         
         if !(self.userID == 0) {
@@ -1872,7 +1896,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
     }
-    
+   
+    //MARK: -   comment send Button Clicked
 
     func commentSendBtnClicked(){
         
@@ -1910,6 +1935,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
     }
+    
+    //MARK: -   comment Send Btn API Service
     
     func commentSendBtnAPIService(textComment : String){
         

@@ -60,7 +60,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     var thumbnailImageURL = String()
 
-
+//MARK: -   view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +104,9 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         // Do any additional setup after loading the view.
     }
+    
+    //MARK: -   view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -270,6 +273,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         self.postEventTableView.reloadData()
     }
+    
     //MARK: -   TableView Delegate & DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {

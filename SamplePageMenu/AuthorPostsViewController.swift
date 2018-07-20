@@ -62,11 +62,10 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     
     var audioArray = Array<Any>()
     
+     //MARK: -   view Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-      
         
 
         if(isFromChruch == false){
@@ -168,7 +167,7 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     }
     
     
-
+//MARK: -   author API Service
 
     
    func authorAPIService(){
@@ -247,6 +246,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
         
     }
     }
+    
+    //MARK: -   church API Service
    
     func churchAPIService(){
         

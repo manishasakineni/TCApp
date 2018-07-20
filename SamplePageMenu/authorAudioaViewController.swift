@@ -23,6 +23,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
      var PageIndex = 1
     
+    //MARK: -   View Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +52,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: -   UITable view delegate and datasource methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
         

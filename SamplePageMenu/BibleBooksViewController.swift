@@ -51,6 +51,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     
     //    var bibleCArr:[BibleChapterVo] = Array<BibleChapterVo>()
     
+    //MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         // Do any additional setup after loading the view.
     }
     
+   //MARK: -  view Will Appear
     
         override func viewWillAppear(_ animated: Bool) {
     
@@ -88,6 +90,9 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+     //MARK: - Table view delegate & data source Methods
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -218,13 +223,12 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
+     //MARK: - bible Book API Call
+    
     
     func bibleBookAPICall(){
         
-        
-       
-        
-        if LangText == "English" {
+           if LangText == "English" {
             
             self.strUrl = BIBLEAPIENGLISHURL
         }
@@ -346,6 +350,8 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
+    //MARK: - bible Book Verse API Call
+    
     func bibleBookVerseAPICall(){
     
     self.strUrl = BIBLEAPIENGLISHURL
@@ -390,6 +396,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
+  //MARK: - back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -412,6 +419,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
+   //MARK: - home Left Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         

@@ -36,7 +36,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     private var activityViewController : UIActivityViewController!
     private var isPopoverPresented  : Bool = false
 
-
+ //MARK: -  view Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +61,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         // Do any additional setup after loading the view.
     }
     
+     //MARK: -  view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
         
         //   super.viewWillAppear(animated)
@@ -73,7 +76,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+ 
+     //MARK: -  Table view delegate & data source methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -171,6 +175,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
     }
+    
+    //MARK: -  bible Book API Call
 
     func bibleBookAPICall(){
         
@@ -257,6 +263,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
+     //MARK: -  back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         
@@ -275,6 +283,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         print("Back Button Clicked......")
         
     }
+    
+    //MARK: -  home Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         

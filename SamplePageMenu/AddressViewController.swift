@@ -22,6 +22,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
      var userId :  Int = 0
      var Id :  Int = 0
     
+   //MARK:- view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
        // addressAPICall()
         
-        
-        
-
-        
-        
-        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -53,6 +49,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK:- view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -65,6 +63,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
 
+    //MARK:-  Table view data source and delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -149,7 +148,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
     }
-    
+  
+    //MARK:- add New Address Action
 
     @IBAction func addNewAddressAction(_ sender: Any) {
         
@@ -163,6 +163,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+   //MARK:- edit Address clicked
     
 func  editaddressClicked( sender:UIGestureRecognizer){
         
@@ -171,7 +172,7 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         
     }
 
-    
+    //MARK:- back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -211,7 +212,7 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         
     }
     
-
+//MARK:- address API Call
     
     func addressAPICall(){
         
@@ -273,7 +274,7 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         }
     }
     
-   
+ //MARK:-  delete address API Call
     
 func deleteaddressAPICall(_ sender : UIButton){
         
@@ -342,7 +343,7 @@ func deleteaddressAPICall(_ sender : UIButton){
     }
     
 
-//EditaddressAPICall
+//MARK:-  edit address API Call
     
     
 func editaddressAPICall( _ id : Int){
