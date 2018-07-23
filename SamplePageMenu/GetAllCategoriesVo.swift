@@ -11,12 +11,7 @@ import Foundation
 
 class GetAllCategoriesVo: Mappable {
     
-//    "isSuccess": true,
-//    "affectedRecords": 0,
-//    "totalRecords": 15,
-//    "endUserMessage": "Get All Categories Successful",
-//    "validationErrors": [],
-//    "exception": null
+    //MARK:-  Declaration of GetAllCategoriesVo
     
     var listResult : [CategoriesResultVo]?
     var isSuccess    : Bool?
@@ -27,7 +22,7 @@ class GetAllCategoriesVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetAllCategoriesVo
     
     
     init(listResult : [CategoriesResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

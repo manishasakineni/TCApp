@@ -13,6 +13,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var allitemsIDTableView: UITableView!
     
     @IBOutlet weak var quantityTF: UITextField!
+   
+     //MARK:- variable declaration
     
     var appVersion          : String = ""
 

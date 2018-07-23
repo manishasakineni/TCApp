@@ -10,7 +10,7 @@ import Foundation
 
 class EventCommentVOO: Mappable {
     
-
+//MARK:-  Declaration of EventCommentVOO
     
     
     var listResult : [EventCommentListResultVOO]?
@@ -22,6 +22,7 @@ class EventCommentVOO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of EventCommentVOO
     
     init(listResult: [EventCommentListResultVOO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

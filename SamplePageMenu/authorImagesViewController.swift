@@ -14,6 +14,7 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
+    //MARK: -  variable declaration
     
      var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
     

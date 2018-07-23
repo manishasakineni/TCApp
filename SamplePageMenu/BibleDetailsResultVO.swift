@@ -11,13 +11,13 @@ import Foundation
 class BibleDetailsResultVO: Mappable {
     
     
-    
+   //MARK:-  Declaration of BibleDetailsResultVO
     
     var id : Int?
     var name : String?
     var url : String?
     
-    
+     //MARK:-  initialization of BibleDetailsResultVO
     
     init(id : Int?,name : String?,url : String?)
         

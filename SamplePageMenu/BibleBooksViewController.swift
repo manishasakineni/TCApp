@@ -12,6 +12,8 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     
     
     @IBOutlet weak var booksTableView: UITableView!
+  
+     //MARK:- variable declaration
     
     var catgoryName:String = ""
     

@@ -9,7 +9,7 @@
 import Foundation
 class ChurchDetailsJsonVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of ChurchDetailsJsonVO
     
     
     var listResult : [ChurchDetailsListResultVO]?
@@ -21,7 +21,7 @@ class ChurchDetailsJsonVO: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of ChurchDetailsJsonVO
     
     
     init(listResult : [ChurchDetailsListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

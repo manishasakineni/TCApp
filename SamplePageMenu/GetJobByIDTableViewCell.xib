@@ -56,8 +56,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="HLg-hT-7E0" firstAttribute="leading" secondItem="dE3-ba-HQI" secondAttribute="trailing" constant="2" id="2xD-nN-T2e"/>
+                    <constraint firstItem="dE3-ba-HQI" firstAttribute="leading" secondItem="chs-Np-Eab" secondAttribute="trailing" constant="-3" id="61J-Yv-8ks"/>
                     <constraint firstAttribute="trailing" secondItem="HLg-hT-7E0" secondAttribute="trailing" constant="3" id="7d7-0D-2ib"/>
                     <constraint firstItem="chs-Np-Eab" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="B1v-DX-ibF"/>
+                    <constraint firstItem="HLg-hT-7E0" firstAttribute="centerY" secondItem="dE3-ba-HQI" secondAttribute="centerY" id="Cfy-CZ-ua2"/>
                     <constraint firstItem="HLg-hT-7E0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="UaJ-Nc-lv8"/>
                     <constraint firstItem="dE3-ba-HQI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="e7g-Ch-X8w"/>
                     <constraint firstItem="chs-Np-Eab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="hGc-q2-uMS"/>

@@ -142,7 +142,6 @@
     "Holy Bible Books" : "హోలీ బైబిల్ బుక్స్",
     "Holy Bible - English" : "హోలీ బైబిల్ - ఇంగ్లీష్",
     "Holy Bible - Telugu" : "హోలీ బైబిల్ - తెలుగు",
-    
     "Search by category Name" : "శోధన",
     "Search" : "శోధన",
     "Search by Event Name" : "శోధన",
@@ -155,15 +154,11 @@
     "Job Details" : "ఉద్యోగ వివరాలు",
     "Apply" : "వర్తించు",
     "Address" : "చిరునామా",
-    
     "Item details" : "అంశం వివరాలు",
     "Item Availability" : "అంశం లభ్యత",
     "Please Enter Quantity" : "దయచేసి పరిమాణాన్ని నమోదు చేయండి",
-   
     "Quantity:" : "మొత్తము",
-    
     "ADD TO CART" : "కార్ట్కు జోడించు",
-    
     "Author    :" : "రచయిత    ",
     "Price      :" : "ధర      ",
     "Continue Shopping " : "షాపింగ్ కొనసాగించడానికి ",
@@ -174,7 +169,6 @@
     "Last Date To Apply" : "చివరి తేదీ వర్తించు",
     "Qualification" : "అర్హతలు",
     "Vacancies" : "ఖాళీలు",
-    
     "Contact Person" : "వ్యక్తి సంప్రదించండి",
     "Job Description" : "ఉద్యోగ వివరణ",
     "Salary" : "జీతం",
@@ -194,40 +188,29 @@
     "Church Event Details" : "చర్చి ఈవెంట్ వివరాలు",
     "Comments" : "వ్యాఖ్యలు",
     "Please Enter Quantity" : "దయచేసి క్వాలిటీని అందజేయండి",
-    
     "Profile" : "ప్రొఫైల్",
       "Save" : "సేవ్",
-    
     "Please Enter Full Name" : "దయచేసి పూర్తి పేరుని నమోదు చేయండి",
     "Please Enter Flat No" : "ఫ్లాట్ నం ఇవ్వండి",
     "Please Enter Area" : "దయచేసి ప్రదేశం నమోదు చేయండి",
     "Please Enter PinCode" : "దయచేసి పిన్కోడ్ను నమోదు చేయండి",
     "Please Enter Landmark" : "దయచేసి మైలురాయిని నమోదు చేయండి",
     "Please Select State" : "దయచేసి రాష్ట్రం ఎంచుకోండి",
-    
     "Please Select Country" : "దయచేసి దేశం ఎంచుకోండి",
-    
     "Are You Sure Want To Delete" : "మీరు ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?",
     "Are You Sure Want To Remove Item From Your Cart" : "మీరు మీ కార్ట్ నుండి అంశాన్ని తీసివేయాలనుకుంటున్నారా?",
-    
     "Are You Sure Want To Remove" : "మీరు ఖచ్చితంగా తీసివేయాలనుకుంటున్నారా?",
-    
     "Please Enter jobtitle" : "దయచేసి ఉద్యోగ శీర్షికను నమోదు చేయండి",
     "Please Enter Qualification" : "అర్హత ఇవ్వండి",
-    
     "Please Enter Years Of Experience" : "అనుభవాలను ఎంటర్ చెయ్యండి",
-    
     "Please Enter Current Organization" : "దయచేసి ప్రస్తుత సంస్థను నమోదు చేయండి",
     "Please Enter Current Salary" : "దయచేసి ప్రస్తుత జీతం ఎంటర్ చేయండి",
     "Please Enter Expected Salary" : "దయచేసి ఊహించిన జీతం ఎంటర్ చేయండి",
-
       "Cart" : "కార్ట్",
     "Event Date:" : "ఈవెంట్ తేదీ",
     "Event Details" : "ఈవెంట్ వివరాలు",
-
-    
     "Seller Information" : "విక్రేత సమాచారం",
-     "Price" : "ధర"
+    "Price" : "ధర"
 
 
 

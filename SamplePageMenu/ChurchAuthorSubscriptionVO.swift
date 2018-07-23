@@ -12,17 +12,7 @@ import Foundation
 
 class ChurchAuthorSubscriptionVO: Mappable {
     
-    //
-    //    {
-    //    "listResult": [
-    //    "isSuccess": true,
-    //    "affectedRecords": 0,
-    //    "totalRecords": 16,
-    //    "endUserMessage": "Get All Successful",
-    //    "validationErrors": [],
-    //    "exception": null
-    //    }
-    
+  //MARK:-  Declaration of ChurchAuthorSubscriptionVO
     
     var listResult   : String?
     var result       : ChurchAuthorSubscriptionResultVO?
@@ -34,7 +24,7 @@ class ChurchAuthorSubscriptionVO: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of ChurchAuthorSubscriptionVO
     
     
     init(listResult : String?,  result    : ChurchAuthorSubscriptionResultVO?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

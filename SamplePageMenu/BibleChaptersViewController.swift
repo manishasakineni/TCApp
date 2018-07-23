@@ -12,9 +12,9 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
     
     @IBOutlet weak var chaptersTableView: UITableView!
     
-    var chapterCountStr:Int = 0
+     //MARK:- variable declaration
     
-//    var verseCountStr:Int = 0
+    var chapterCountStr:Int = 0
     
     var indexCount:Int = 0
     

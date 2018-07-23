@@ -9,7 +9,7 @@
 import Foundation
 class BibleDetailsInfoVO: Mappable {
     
-    
+     //MARK:-  Declaration of BibleDetailsInfoVO
     
     var listResult : [BibleDetailsResultVO]?
     var isSuccess    : Bool?

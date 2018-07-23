@@ -9,14 +9,13 @@
 import Foundation
 
 class BibleDetailsCellIResultVo: Mappable {
-    
-    
-    
+
+     //MARK:-  Declaration of BibleDetailsCellIResultVo
     
     var Verseid : String?
     var Verse : String?
     
-    
+    //MARK:-  initialization of BibleDetailsCellIResultVo
     
     init(Verseid : String?,Verse : String?)
         

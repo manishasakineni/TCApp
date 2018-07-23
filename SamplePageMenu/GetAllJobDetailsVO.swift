@@ -10,7 +10,7 @@ import Foundation
 
 class GetAllJobDetailsVO: Mappable {
     
-    
+    //MARK:-  Declaration of GetAllJobDetailsVO
        
     var listResult : [GetAllJobDetailsListResultVO]?
     
@@ -21,6 +21,8 @@ class GetAllJobDetailsVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+   
+     //MARK:-  initialization of GetAllJobDetailsVO
     
     init(listResult: [GetAllJobDetailsListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

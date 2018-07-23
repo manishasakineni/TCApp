@@ -10,8 +10,12 @@ import Foundation
 
 class ChurchAuthorSubscriptionResultVO: Mappable {
 
+   //MARK:-  Declaration of ChurchAuthorSubscriptionResultVO
     
     var isSubscribed : Int?
+ 
+    
+    //MARK:-  initialization of ChurchAuthorSubscriptionResultVO
     
     init(isSubscribed : Int?) {
         

@@ -11,10 +11,12 @@ import Foundation
 class BibleChapterVo: Mappable {
     
     
-    //MARK:-  Declaration of BibleBookVo
+    //MARK:-  Declaration of BibleChapterVo
     
     
     var Chapter: [BibleVerseVo]?
+   
+     //MARK:-  initialization of BibleChapterVo
     
     init(Chapter: [BibleVerseVo]?) {
         

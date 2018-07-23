@@ -10,7 +10,7 @@ import Foundation
 
 class RegisterVo: Mappable {
 
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of RegisterVo
     
     
     var Id : Int?
@@ -31,7 +31,7 @@ class RegisterVo: Mappable {
     var UpdatedDate : String?
 
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of RegisterVo
     
     
     init(Id:Int?, UserId : String?,FirstName : String?, Lastname : String?,MiddleName : String?,ContactNumber : String?,MobileNumber : String?,UserName : String?,Password : String?,RoleId : Int?,Email : String?,IsActive : Bool?,CreatedByUserId : Int?,UpdatedByUserId : Int?,UpdatedDate : String?) {

@@ -9,9 +9,8 @@
 import Foundation
 
 class AuthorDetailsVO: Mappable {
-    
-
-    
+   
+    //MARK:-  Declaration of AuthorDetailsVO
     
     var listResult : [AuthorDetailsListResultVO]?
     var result : String?
@@ -23,7 +22,7 @@ class AuthorDetailsVO: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of AuthorDetailsVO
     
     
     init(listResult : [AuthorDetailsListResultVO]?, result : String, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

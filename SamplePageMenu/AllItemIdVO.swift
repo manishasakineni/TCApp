@@ -10,7 +10,7 @@ import Foundation
 
 class AllItemIdVO: Mappable {
     
-
+//MARK:-  Declaration of AllItemIdVO
     
     var listResult : [AllItemIdListResultVO]?
     var result    : Any?
@@ -21,6 +21,7 @@ class AllItemIdVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of AllItemIdVO
     
     init(listResult: [AllItemIdListResultVO]?,result: Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

@@ -11,19 +11,8 @@ import Foundation
 
 class GetEventByUserIdMonthYearResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of GetEventByUserIdMonthYearResultVo
     
-    //    "id": 3,
-    //    "churchAdmin": "Aishwarya Sateesh S",
-    //    "mobileNumber": "7032157345",
-    //    "email": "Aish@calibrage.in",
-    //    "churchImage": null,
-    //    "userImage": null,
-    //    "churchId": 1056,
-    //    "churchName": "tetreterte",
-    //    "updatedDate": "2018-02-22T14:41:01.497"
-    //},
-    //
     var eventDate : String?
     var eventsCount : Int?
     var churchId : Int?
@@ -37,7 +26,7 @@ class GetEventByUserIdMonthYearResultVo: Mappable {
     var eventImage : String?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventByUserIdMonthYearResultVo
     
     
     init(eventDate : String?,eventsCount : Int?,churchId : Int?, authorId : Int?, churchName : String?, eventName: String?, contactNumber : String?,  fileLocation : String?, fileName : String?, fileExtention : String?, eventImage : String?)

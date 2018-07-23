@@ -9,6 +9,8 @@
 import Foundation
 
 class BannerImageScrollVo: Mappable {
+   
+      //MARK:-  Declaration of BannerImageScrollVo
     
     var listResult : [BannerImageScrollResultVo]?
     var isSuccess    : Bool?
@@ -19,7 +21,7 @@ class BannerImageScrollVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of BannerImageScrollVo
     
     
     init(listResult : [BannerImageScrollResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

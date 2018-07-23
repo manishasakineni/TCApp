@@ -11,6 +11,7 @@ import Foundation
 
 class GetJobByIDVO: Mappable {
     
+     //MARK:-  Declaration of GetJobByIDVO
     
     var listResult : Any?
     
@@ -22,7 +23,8 @@ class GetJobByIDVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+   
+    //MARK:-  initialization of GetJobByIDVO
     
     init(listResult:Any?, result: GetJobByIDListResultVO?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

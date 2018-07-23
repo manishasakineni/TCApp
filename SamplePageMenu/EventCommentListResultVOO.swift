@@ -10,7 +10,7 @@ import Foundation
 
 class EventCommentListResultVOO: Mappable {
     
-   
+   //MARK:-  Declaration of EventCommentListResultVOO
     
     var id : Int?
     var eventId : Int?
@@ -20,6 +20,8 @@ class EventCommentListResultVOO: Mappable {
     var userId : Int?
     var commentByUser : String?
     var userImage : Any?
+    
+     //MARK:-  initialization of EventCommentListResultVOO
     
     init(id: Int?,eventId: Int?,comment: String?, parentCommentId: Int?, userId: Int?, commentByUser: String?, userImage: Any?)
         

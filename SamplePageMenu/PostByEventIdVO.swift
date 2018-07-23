@@ -10,11 +10,10 @@ import Foundation
 
 class PostByEventIdVO: Mappable {
     
+  //MARK:-  Declaration of PostByEventIdVO
     
     var listResult    : Any?
-    
     var result : [PostByEventImageVO]?
-    
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -22,6 +21,7 @@ class PostByEventIdVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of PostByEventIdVO
     
     init( listResult : Any?,result: [PostByEventImageVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

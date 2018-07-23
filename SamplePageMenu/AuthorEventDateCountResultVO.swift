@@ -11,7 +11,7 @@ import Foundation
 class AuthorEventDateCountResultVO: Mappable {
     
     
-    
+//MARK:-  Declaration of AuthorEventDateCountResultVO
     
     var listResult : [AuthorEventDateCountInfoVO]?
     var isSuccess    : Bool?
@@ -20,6 +20,8 @@ class AuthorEventDateCountResultVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
+  
+    //MARK:-  initialization of AuthorEventDateCountResultVO
     
     init(listResult : [AuthorEventDateCountInfoVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         

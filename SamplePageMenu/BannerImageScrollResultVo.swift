@@ -11,7 +11,7 @@ import Foundation
 
 class BannerImageScrollResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of BannerImageScrollResultVo
     
     var id : Int?
     var bannerImage : String?
@@ -22,7 +22,7 @@ class BannerImageScrollResultVo: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of BannerImageScrollResultVo
     
     
     init(id : Int?,bannerImage : String?,bannerName : String?,isActive : Bool?,lastUpdatedByUserId : Int?,lastUpdatedDate : String?)

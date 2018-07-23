@@ -10,7 +10,7 @@ import Foundation
 
 class GetAllJobDetailsListResultVO: Mappable {
     
-    
+   //MARK:-  Declaration of GetAllJobDetailsListResultVO
     
     var id : Int?
     var jobTitle : String?
@@ -24,7 +24,7 @@ class GetAllJobDetailsListResultVO: Mappable {
     var contactNumber : String?
     var updatedDate : String?
     
-    
+     //MARK:-  initialization of GetAllJobDetailsListResultVO
     
     init(id: Int?,jobTitle: String?,jobDesc: String?, qualification: String?, lastDateToApply: String?, churchName: String?, adminName: String?, contactPerson : String?, contactNumber : String?, updatedDate : String?)
         

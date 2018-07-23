@@ -11,7 +11,7 @@ import Foundation
 
 class NotificationInfoVO: Mappable {
     
-    
+   //MARK:-  Declaration of NotificationInfoVO
     
     var listResult : [NotificationResultVO]?
     var result : Any?
@@ -22,6 +22,7 @@ class NotificationInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of NotificationInfoVO
     
     init(listResult:[NotificationResultVO]?,result : Any?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

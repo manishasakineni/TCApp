@@ -10,7 +10,7 @@ import Foundation
 
 class DeleteAddressInfoVO: Mappable {
     
-    
+  //MARK:-  Declaration of DeleteAddressInfoVO
     
     var listResult : Any?
     var result : Any?
@@ -20,7 +20,8 @@ class DeleteAddressInfoVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+ 
+    //MARK:-  initialization of DeleteAddressInfoVO
     
     init(listResult:Any?, result:Any?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

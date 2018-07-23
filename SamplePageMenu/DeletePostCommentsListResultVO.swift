@@ -12,7 +12,7 @@ class DeletePostCommentsListResultVO: Mappable {
     
     
   
-
+  //MARK:-  Declaration of DeletePostCommentsListResultVO
     
     var id : Int?
     var postId : Int?
@@ -21,6 +21,7 @@ class DeletePostCommentsListResultVO: Mappable {
     var parentCommentId : Int?
     var userId : Int?
     
+//MARK:-  initialization of DeletePostCommentsListResultVO
     
     init(id: Int?,postId: Int?,description: String?, parentCommentId: Int?, userId: Int?)
         

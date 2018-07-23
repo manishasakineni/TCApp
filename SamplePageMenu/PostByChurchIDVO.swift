@@ -10,7 +10,7 @@ import Foundation
 
 class PostByChurchIDVO: Mappable {
     
-
+//MARK:-  Declaration of PostByChurchIDVO
     
     var listResult : [PostByChurchIDResultInfoVO]?
     
@@ -21,6 +21,7 @@ class PostByChurchIDVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of PostByChurchIDVO
     
     init(listResult: [PostByChurchIDResultInfoVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

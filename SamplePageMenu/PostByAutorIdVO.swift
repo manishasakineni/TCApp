@@ -10,7 +10,7 @@ import Foundation
 
 class PostByAutorIdVO: Mappable {
     
-    
+   //MARK:-  Declaration of PostByAutorIdVO
     
     var listResult : [PostByAutorIdResultInfoVO]?
     
@@ -21,6 +21,7 @@ class PostByAutorIdVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+   //MARK:-  initialization of PostByAutorIdVO
     
     init(listResult: [PostByAutorIdResultInfoVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

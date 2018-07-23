@@ -11,29 +11,7 @@ import Foundation
 
 class UpcomingEventsResultVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
-    
-//    
-//    
-//    {
-//    "id": 56,
-//    "title": "God Always With You",
-//    "startDate": "2018-03-09T12:56:33.61",
-//    "endDate": "2018-03-10T18:56:33.61",
-//    "churchId": 3,
-//    "churchName": "Peace Church",
-//    "registrationNumber": "Reg002",
-//    "contactNumber": "9875642315",
-//    "fileLocation": "2018\\03\\09\\Event",
-//    "fileName": "20180309015733949",
-//    "fileExtention": ".jpg",
-//    "eventImage": "http://192.168.1.101/TeluguChurchesRepository/FileRepository/2018\\03\\09\\Event\\20180309015733949.jpg",
-//    "isActive": true,
-//    "createdByUserId": 8,
-//    "createdDate": "2018-03-09T12:56:33.61",
-//    "updatedByUserId": 8,
-//    "updatedDate": "2018-03-09T12:56:33.61"
-//    },
+    //MARK:-  Declaration of UpcomingEventsResultVO
     
     
     var id : Int?
@@ -58,7 +36,7 @@ class UpcomingEventsResultVO: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of UpcomingEventsResultVO
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)

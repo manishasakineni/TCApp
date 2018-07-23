@@ -9,10 +9,10 @@
 import Foundation
 
 
-
-
-
 class LoginVo: Mappable {
+  
+    
+      //MARK:-  Declaration of LoginVo
     
     var contactNumber : Int?
     var email : String?
@@ -28,7 +28,7 @@ class LoginVo: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of LoginVo
     
     
     init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?,gender : String?,dob : String?

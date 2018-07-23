@@ -11,7 +11,7 @@ import Foundation
 
 class PostDetailsVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of PostDetailsVO
     
     var id : Int?
     var title : String?
@@ -47,7 +47,9 @@ class PostDetailsVO: Mappable {
     var parentCommentId : Int?
     var createdByUser : String?
     var updatedByUser : String?
-    //MARK:-  initialization of VideosVO
+    
+    
+    //MARK:-  initialization of PostDetailsVO
     
     
     init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Any?,fileName : Any?,fileLocation : Any?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,htmlDesc : Any?,eventId : Any?,viewCount : Int?,postImage : Any?,mediaType : String?,postType : String?,categoryName : String?,isLike : Int?,isDisLike : Int?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,parentCommentId : Int?,createdByUser : String?,updatedByUser : String?)

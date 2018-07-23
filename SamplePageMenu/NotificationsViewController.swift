@@ -11,6 +11,8 @@ import UIKit
 class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var notificationsTableView: UITableView!
+   
+    //MARK: -  variable declaration
     
     var allitemsArray:[NotificationResultVO] = Array<NotificationResultVO>()
     

@@ -11,7 +11,7 @@ import Foundation
 class EventcommentrepliesListResultVo: Mappable {
     
     
-    
+   //MARK:-  Declaration of EventcommentrepliesListResultVo
     
     var id : Int?
     var eventId : Int?
@@ -22,6 +22,7 @@ class EventcommentrepliesListResultVo: Mappable {
     var commentByUser : String?
     var userImage : String?
     
+    //MARK:-  initialization of EventcommentrepliesListResultVo
     
     init(id: Int?,eventId : Int?,comment : String?,replyCount : Int?, parentCommentId : Int?, userId : Int?, commentByUser : String?, userImage : String?)
         

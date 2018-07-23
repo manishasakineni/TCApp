@@ -8,15 +8,9 @@
 
 import Foundation
 
-
-
-
-
-
-
 class ChangePasswordVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of ChangePasswordVo
     
     
     var UserId : String?
@@ -24,7 +18,7 @@ class ChangePasswordVo: Mappable {
     var NewPassword : String?
     var ConfirmPassword : String?
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of ChangePasswordVo
     
     
     init(UserId : String?,OldPassword : String?, NewPassword : String?,ConfirmPassword : String?) {

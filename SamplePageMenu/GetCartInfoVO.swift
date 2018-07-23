@@ -10,7 +10,7 @@ import Foundation
 
 class GetCartInfoVO: Mappable {
     
-    
+   //MARK:-  Declaration of GetCartInfoVO
     
     var listResult : [GetCartListResultVO]?
     var isSuccess    : Bool?
@@ -20,6 +20,7 @@ class GetCartInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of GetCartInfoVO
     
     init(listResult: [GetCartListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

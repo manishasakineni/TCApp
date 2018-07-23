@@ -10,20 +10,9 @@ import Foundation
 
 class AuthorEventDateCountInfoVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of AuthorEventDateCountInfoVO
     
     
- /*   "eventDate": "2018-03-09T00:00:00",
-    "eventsCount": 3,
-    "churchId": 3,
-    "churchName": "Peace Church",
-    "fileLocation": "2018\\03\\01\\Church",
-    "fileName": "20180301034327001",
-    "fileExtention": ".jpg",
-    "eventImage": "http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018\\03\\01\\Church\\20180301034327001.jpg"
-    
- 
- */
     
     var eventDate : String?
     var eventsCount : Int?
@@ -40,7 +29,7 @@ class AuthorEventDateCountInfoVO: Mappable {
  
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of AuthorEventDateCountInfoVO
     
     
     init(eventsCount : Int?,churchName : String?,eventDate : String?,churchId : Int?, authorId : Int?, authorName : String?, mobileNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,authorImage : String?)

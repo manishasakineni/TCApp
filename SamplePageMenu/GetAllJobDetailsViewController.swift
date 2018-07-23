@@ -15,6 +15,9 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     @IBOutlet weak var norecordsFoundLbl: UILabel!
     
+    
+    //MARK: -  variable declaration
+    
       var showNav = false
       var totalPages : Int? = 0
     

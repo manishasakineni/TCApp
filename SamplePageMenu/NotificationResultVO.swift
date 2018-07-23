@@ -11,7 +11,7 @@ import Foundation
 class NotificationResultVO: Mappable {
     
   
-    
+   //MARK:-  Declaration of NotificationResultVO
     
     var id : Int?
     var name : String?
@@ -30,6 +30,7 @@ class NotificationResultVO: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
    
+     //MARK:-  initialization of NotificationResultVO
     
     init(id: Int?,name : String?,desc : String?, htmlDesc : String?, isRead : Bool?, churchId : Int?, authorId : Int?, eventId : Int?, postId : Int?, jobId : Int?,notificationTypeId : Int?, createdByUserId : Int?, createdDate : String?, updatedByUserId : Int?,updatedDate : String?)
         

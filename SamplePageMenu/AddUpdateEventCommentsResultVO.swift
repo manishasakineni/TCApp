@@ -9,6 +9,9 @@
 import Foundation
 
 class AddUpdateEventCommentsResultVO: Mappable {
+   
+    
+      //MARK:-  Declaration of AddUpdateEventCommentsResultVO
     
     var id : Int?
     var eventId : Int?

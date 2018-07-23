@@ -11,7 +11,8 @@ import Foundation
 
 class EditAddressInfoResultVO: Mappable {
     
-
+ //MARK:-  Declaration of EditAddressInfoResultVO
+    
     var id : Int?
     var fullName : String?
     var mobileNumber : String?
@@ -34,6 +35,7 @@ class EditAddressInfoResultVO: Mappable {
     var updatedByUser : String?
     var updatedDate : String?
     
+      //MARK:-  initialization of EditAddressInfoResultVO
     
     init(id: Int?,fullName : String?,mobileNumber : String?, addressLine1 : String?, addressLine2 : String?, pinCode : Int?, userId : Int?, landmark : String?, stateId : Int?, stateName : String?,countryId : Int?,countryName : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
         

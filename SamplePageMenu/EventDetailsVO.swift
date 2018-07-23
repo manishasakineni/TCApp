@@ -12,6 +12,7 @@ class EventDetailsVO: Mappable {
     
 
     
+   //MARK:-  Declaration of EventDetailsVO
     
     var listResult : Any?
     var result : EventDetailsResultVo?
@@ -23,7 +24,7 @@ class EventDetailsVO: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of EventDetailsVO
     
     
     init(listResult : Any?, result : EventDetailsResultVo?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

@@ -12,7 +12,7 @@ class EventCommRepliesVO: Mappable {
     
  
 
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of EventCommRepliesVO
 
     var id : Int?
     var title : String?
@@ -43,7 +43,7 @@ class EventCommRepliesVO: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of EventCommRepliesVO
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,authorId : Any?,author_Name : Any?,mobileNumber : Any?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,description : String?,isLike : Int?,isDisLike : Int?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)

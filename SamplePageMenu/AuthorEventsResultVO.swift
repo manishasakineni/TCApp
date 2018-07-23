@@ -10,6 +10,7 @@ import Foundation
 
 class AuthorEventsResultVO: Mappable {
     
+ //MARK:-  Declaration of AuthorEventsResultVO
     
     var listResult : [AuthorEventsListResultInfoVO]?
     var isSuccess    : Bool?
@@ -18,6 +19,8 @@ class AuthorEventsResultVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
+    
+     //MARK:-  initialization of AuthorEventsResultVO
     
     init(listResult : [AuthorEventsListResultInfoVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         

@@ -10,12 +10,13 @@ import Foundation
 
 class EventDetailsResultVo: Mappable {
     
+   //MARK:-  Declaration of EventDetailsResultVo
     
     var eventDetails : [EventDetailsListResultVO]?
     var commentDetails : [EventCommentsVO]?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of EventDetailsResultVo
     
     
     init(eventDetails : [EventDetailsListResultVO]?, commentDetails : [EventCommentsVO]?) {

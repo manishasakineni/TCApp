@@ -9,23 +9,15 @@
 import Foundation
 
 
-
-
-
 class PSWMessageTypeResult: Mappable {
     
     
-    //MARK:-  Declaration of SignupVo
+    //MARK:-  Declaration of PSWMessageTypeResult
     
-    //  var result: RegisterVo?
-    //  var isSuccess: Bool?
     
      var modelState: ChangePassWordResult?
-
-    //  var endUserMessage: String?
-    //  var exception : Any?
     
-    //MARK:-  initialization of SignupVo
+    //MARK:-  initialization of PSWMessageTypeResult
     
     init(modelState: ChangePassWordResult?) {
         self.modelState = modelState

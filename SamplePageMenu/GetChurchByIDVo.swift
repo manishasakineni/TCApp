@@ -8,17 +8,9 @@
 
 import Foundation
 
-
-//affectedRecords = 1;
-//endUserMessage = "Get All Successful";
-//exception = "<null>";
-//isSuccess = 1;
-//listResult =     (
-
-
 class GetChurchByIDVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of GetChurchByIDVo
     
     
     var listResult : [GetChurchByIDResultVo]?
@@ -30,7 +22,7 @@ class GetChurchByIDVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetChurchByIDVo
     
     
     init(listResult : [GetChurchByIDResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

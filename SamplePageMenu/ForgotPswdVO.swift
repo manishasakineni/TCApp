@@ -10,16 +10,8 @@ import Foundation
 
 class ForgotPswdVO: Mappable {
     
+     //MARK:-  Declaration of ForgotPswdVO
     
-//    "listResult": null,
-//    "result": null,
-//    "isSuccess": true,
-//    "affectedRecords": 0,
-//    "totalRecords": 0,
-//    "endUserMessage": "Your Password has been sent to Your Registered Email Address",
-//    "validationErrors": [],
-//    "exception": null
-//    
     var listResult : Any?
     var result : Any?
     var isSuccess    : Bool?

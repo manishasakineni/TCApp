@@ -11,6 +11,7 @@ import Foundation
 class ReplayCommentListResultVO: Mappable {
     
    
+   //MARK:-  Declaration of ReplayCommentListResultVO
     
     var id : Int?
     var postId : Int?
@@ -21,6 +22,8 @@ class ReplayCommentListResultVO: Mappable {
     var commentByUser : String?
     var userImage : String?
     var replyCount : Int?
+   
+    //MARK:-  initialization of ReplayCommentListResultVO
     
     init(id: Int?,postId: Int?,comment: String?, parentCommentId: Int?, userId: Int?, commentByUser: String?, userImage: String?, replyCount : Int?)
         

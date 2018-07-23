@@ -10,6 +10,8 @@ import Foundation
 
 class EventLikeorDislikeLikeResultVO: Mappable {
 
+     //MARK:-  Declaration of EventLikeorDislikeLikeResultVO
+    
    var likeResult : [EventLikeorDislikeResultVO]?
    var likeCount : Int?
    var dislikeCount : Int?

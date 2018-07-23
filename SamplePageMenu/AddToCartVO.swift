@@ -10,7 +10,7 @@ import Foundation
 
 class AddToCartVO: Mappable {
     
-    
+   //MARK:-  Declaration of AddToCartVO
     
     var listResult : [AddToCartListResultVO]?
     var result    : Any?
@@ -20,7 +20,8 @@ class AddToCartVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+   
+    //MARK:-  initialization of AddToCartVO
     
     init(listResult: [AddToCartListResultVO]?,result: Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

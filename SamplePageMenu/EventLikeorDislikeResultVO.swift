@@ -9,6 +9,7 @@
 import Foundation
 class EventLikeorDislikeResultVO: Mappable {
     
+    //MARK:-  Declaration of EventLikeorDislikeResultVO
     
     var eventId : Int?
     var userId : Int?

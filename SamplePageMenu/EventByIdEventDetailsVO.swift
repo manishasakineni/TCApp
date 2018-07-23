@@ -14,7 +14,7 @@ class EventByIdEventDetailsVO: Mappable {
     
     
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of EventByIdEventDetailsVO
     
     var id : Int?
     var title : String?
@@ -45,7 +45,7 @@ class EventByIdEventDetailsVO: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
    
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of EventByIdEventDetailsVO
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,authorId : Any?,author_Name : Any?,mobileNumber : Any?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,description : String?,isLike : Int?,isDisLike : Int?,likeCount : Int?,disLikeCount : Int?,commentCount : Int?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)

@@ -10,14 +10,11 @@ import Foundation
 
 class BibleDetailsCellInfoVo: Mappable {
     
-    
-    
-    
-    
-    
+     //MARK:-  Declaration of BibleDetailsCellInfoVo
+ 
     var Chapter : [BibleDetailsCellVO]?
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of BibleDetailsCellInfoVo
     
     
     init(Chapter : [BibleDetailsCellVO]?) {

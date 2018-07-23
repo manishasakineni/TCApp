@@ -10,6 +10,8 @@ import Foundation
 
 class GetUpComingEventInfo: Mappable {
     
+      //MARK:-  Declaration of GetUpComingEventInfo
+    
     var listResult : [GetUpComingEventInfoResultVo]?
     var isSuccess    : Bool?
     var totalRecords : Int?
@@ -19,7 +21,7 @@ class GetUpComingEventInfo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetUpComingEventInfo
     
     
     init(listResult : [GetUpComingEventInfoResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

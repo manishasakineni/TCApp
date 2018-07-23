@@ -10,26 +10,18 @@ import Foundation
 class LoginJsonVO: Mappable {
     
     
-    //MARK:-  Declaration of SignupVo
+    //MARK:-  Declaration of LoginJsonVO
     
-    //  var result: RegisterVo?
-    //  var isSuccess: Bool?
-    
-    
-    
-    //MARK:-  Declaration of SignupVo
+  
  
     var userDetails: UserDetailsVO?
-   // var userActivityRights: [UserActivityRightsVO]?
-
-    //  var endUserMessage: String?
-    //  var exception : Any?
     
-    //MARK:-  initialization of SignupVo
+    //MARK:-  initialization of LoginJsonVO
     
     init(userDetails: UserDetailsVO?) {
+        
         self.userDetails = userDetails
-      //  self.userActivityRights = userActivityRights
+   
       
         
     }
@@ -39,8 +31,9 @@ class LoginJsonVO: Mappable {
     }
     
     func mapping(map: Map) {
+        
         userDetails <- map["userDetails"]
-     //   userActivityRights <- map["userActivityRights"]
+
        
 
     }

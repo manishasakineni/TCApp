@@ -9,6 +9,8 @@
 import Foundation
 
 class CategoriesListResultVo: Mappable {
+   
+      //MARK:-  Declaration of CategoriesListResultVo
     
     
     var images : [ImagesResultVo]?
@@ -18,7 +20,7 @@ class CategoriesListResultVo: Mappable {
    
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of CategoriesListResultVo
     
     
     init(images : [ImagesResultVo]?,videos : [ImagesResultVo]?, audios : [ImagesResultVo]?, documents : [ImagesResultVo]?) {

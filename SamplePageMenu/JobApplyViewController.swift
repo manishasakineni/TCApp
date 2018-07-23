@@ -56,6 +56,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var uploadLblOutLet: UILabel!
     
+    //MARK: -  variable declaration
+    
      var selectedImagesArray: Array<UIImage> = []
     var filename : String = ""
     

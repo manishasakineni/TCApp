@@ -10,7 +10,7 @@ import Foundation
 
 class PostByChurchIDResultInfoVO: Mappable {
   
-
+//MARK:-  Declaration of PostByChurchIDResultInfoVO
 
     var id : Int?
     var title : String?
@@ -36,7 +36,7 @@ class PostByChurchIDResultInfoVO: Mappable {
     var updatedByUser : String?
     var postUpdatedDate : String?
    
-    
+    //MARK:-  initialization of PostByChurchIDResultInfoVO
     
     init(id: Int?,title: String?,desc: String?, categoryId:Int?, embededUrl: String?, mediaTypeId: Int?, postTypeId: Int?,churchId: Int?,churchName: String?,postImage: Any?, embedId:String?, mediaType: String?, postType: String?, categoryName: String?,likeCount: Int?,disLikeCount: Int?,commentCount: Int?, viewCount:Any?, createdByUser: String?, updatedByUser: String?, postUpdatedDate: String?)
         

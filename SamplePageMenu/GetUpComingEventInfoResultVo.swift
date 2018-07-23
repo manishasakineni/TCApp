@@ -11,7 +11,7 @@ import Foundation
 
 class GetUpComingEventInfoResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of GetUpComingEventInfoResultVo
     
     var id : Int?
     var title : String?
@@ -29,7 +29,7 @@ class GetUpComingEventInfoResultVo: Mappable {
     var eventImage : String?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetUpComingEventInfoResultVo
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,eventImage : String?)

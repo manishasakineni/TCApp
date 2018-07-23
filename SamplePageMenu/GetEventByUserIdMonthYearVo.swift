@@ -10,7 +10,7 @@ import Foundation
 
 class GetEventByUserIdMonthYearVo: Mappable {
     
-  
+  //MARK:-  Declaration of GetEventByUserIdMonthYearVo
     
     
     var listResult : [GetEventByUserIdMonthYearResultVo]?
@@ -22,7 +22,7 @@ class GetEventByUserIdMonthYearVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventByUserIdMonthYearVo
     
     
     init(listResult : [GetEventByUserIdMonthYearResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

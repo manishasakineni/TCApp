@@ -14,7 +14,7 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
-    
+    //MARK: -  variable declaration
 
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
     

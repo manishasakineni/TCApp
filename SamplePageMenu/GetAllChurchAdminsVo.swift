@@ -10,18 +10,7 @@ import Foundation
 
 class GetAllChurchAdminsVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
-//    
-//    "isSuccess": true,
-//    "affectedRecords": 10,
-//    "totalRecords": 10,
-//    "endUserMessage": "Get All Successful",
-//    "validationErrors": [],
-//    "exception": null
-//    
-    
-    
-    
+    //MARK:-  Declaration of GetAllChurchAdminsVo
     
     var listResult : [GetAllChurchAdminsResultVo]?
     var isSuccess    : Bool?
@@ -32,7 +21,7 @@ class GetAllChurchAdminsVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetAllChurchAdminsVo
     
     
     init(listResult : [GetAllChurchAdminsResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

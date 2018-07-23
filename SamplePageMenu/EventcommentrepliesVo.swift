@@ -12,7 +12,7 @@ import Foundation
 class EventcommentrepliesVo: Mappable {
     
     
-    
+   //MARK:-  Declaration of EventcommentrepliesVo
     
     
     var listResult : Any?
@@ -24,6 +24,7 @@ class EventcommentrepliesVo: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of EventcommentrepliesVo
     
     init(listResult: Any?,result : EventcommentRepliesListVO?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

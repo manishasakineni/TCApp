@@ -10,7 +10,7 @@ import Foundation
 
 class deleteCartInfoVO: Mappable {
     
-    
+    //MARK:-  Declaration of deleteCartInfoVO
     
     var listResult : [deleteCartInfoResultVO]?
      var result : Any?
@@ -21,6 +21,7 @@ class deleteCartInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of deleteCartInfoVO
     
     init(listResult:[deleteCartInfoResultVO]?,result : Any?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

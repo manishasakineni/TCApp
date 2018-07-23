@@ -8,7 +8,8 @@
 
 import Foundation
 class GetEventByDateAndUserIdVo: Mappable {
-    
+   
+    //MARK:-  Declaration of GetEventByDateAndUserIdVo
     
     var listResult : [GetEventByDateAndUserIdResultVo]?
     var isSuccess    : Bool?
@@ -19,7 +20,7 @@ class GetEventByDateAndUserIdVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventByDateAndUserIdVo
     
     
     init(listResult : [GetEventByDateAndUserIdResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

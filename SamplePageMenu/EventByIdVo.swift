@@ -12,6 +12,7 @@ import Foundation
 class EventByIdVo: Mappable {
     
     
+     //MARK:-  Declaration of EventByIdVo
     
      var listResult    : Any?
     
@@ -23,7 +24,8 @@ class EventByIdVo: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+ 
+    //MARK:-  initialization of EventByIdVo
     
     init( listResult : Any?,result: [EventByIdInfoVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

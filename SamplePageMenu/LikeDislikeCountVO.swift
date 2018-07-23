@@ -9,14 +9,14 @@
 import Foundation
 class LikeDislikeCountVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of LikeDislikeCountVO
     
     
     var likeCount    : Int?
     var dislikeCount : Int?
     var likeResult   : [IsLikeIsDislikeVO]?
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of LikeDislikeCountVO
     
     
     init(likeCount : Int?, dislikeCount : Int?, likeResult : [IsLikeIsDislikeVO]?) {

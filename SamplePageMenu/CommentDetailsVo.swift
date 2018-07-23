@@ -10,6 +10,9 @@ import Foundation
 
 
 class CommentDetailsVo: Mappable {
+ 
+    
+      //MARK:-  Declaration of CommentDetailsVo
     
     var id : Int?
     var postId : Int?
@@ -20,6 +23,8 @@ class CommentDetailsVo: Mappable {
     var commentByUser : String?
     var userImage : String?
     var replyCount : Int?
+   
+     //MARK:-  initialization of CommentDetailsVo
     
     init(id: Int?,postId: Int?,comment: String?, parentCommentId: Int?, userId: Int?, commentByUser: String?, userImage: String?, replyCount : Int?)
         

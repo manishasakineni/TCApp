@@ -11,6 +11,7 @@ import Foundation
 class splashmessageInfoVO: Mappable {
     
     
+    //MARK:-  Declaration of splashmessageInfoVO
     
     var listResult : Any?
     var result : Any?
@@ -21,6 +22,7 @@ class splashmessageInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of splashmessageInfoVO
     
     init(listResult:Any?, result:Any?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

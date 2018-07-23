@@ -10,6 +10,7 @@ import Foundation
 
 class EventByIdCommentDetailsVO: Mappable {
     
+    //MARK:-  Declaration of EventByIdCommentDetailsVO
     
     var id : Int?
     var eventId : Int?
@@ -19,6 +20,8 @@ class EventByIdCommentDetailsVO: Mappable {
     var userId : Int?
     var commentByUser : String?
     var userImage : String?
+  
+    //MARK:-  initialization of EventByIdCommentDetailsVO
     
     init(id: Int?,eventId: Int?,comment: String?, parentCommentId:Any?, userId: Int?, commentByUser: String?, userImage: String?)
         

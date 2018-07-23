@@ -11,6 +11,7 @@ import Foundation
 class deleteCartInfoResultVO: Mappable {
    
     
+   //MARK:-  Declaration of deleteCartInfoResultVO
     
     var id : Int?
     var itemId : Int?
@@ -25,7 +26,7 @@ class deleteCartInfoResultVO: Mappable {
     var itemType : String?
     
     
-   
+      //MARK:-  initialization of deleteCartInfoResultVO
     
     
     init(id: Int?,itemId : Int?,quantity : Int?, itemName : String?, price : Int?, author : String?, fileName : String?, fileLocation : String?, fileExtention : String?, itemImage : String?,itemType : String?)

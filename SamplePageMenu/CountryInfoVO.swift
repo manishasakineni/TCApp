@@ -10,7 +10,7 @@ import Foundation
 
 class CountryInfoVO: Mappable {
     
-    
+   //MARK:-  Declaration of CountryInfoVO
     
     var listResult : [CountryInfoResultVO]?
     var isSuccess    : Bool?
@@ -20,6 +20,7 @@ class CountryInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of CountryInfoVO
     
     init(listResult: [CountryInfoResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

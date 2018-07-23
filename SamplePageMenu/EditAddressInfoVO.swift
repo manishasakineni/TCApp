@@ -11,7 +11,7 @@ import Foundation
 
 class EditAddressInfoVO: Mappable {
     
-    
+   //MARK:-  Declaration of EditAddressInfoVO
     
     var listResult : [EditAddressInfoResultVO]?
     
@@ -21,7 +21,9 @@ class EditAddressInfoVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
+   
     
+     //MARK:-  initialization of EditAddressInfoVO
     
     init(listResult:[EditAddressInfoResultVO]?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

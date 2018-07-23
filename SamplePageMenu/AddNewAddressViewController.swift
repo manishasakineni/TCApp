@@ -11,6 +11,9 @@ import UIKit
 class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
 
     @IBOutlet weak var addNewAddressTableView: UITableView!
+   
+    
+     //MARK:- variable declaration
     
     var showNav = false
     var isFromEdit = false

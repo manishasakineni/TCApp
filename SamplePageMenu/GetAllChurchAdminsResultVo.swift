@@ -10,19 +10,8 @@ import Foundation
 
 class GetAllChurchAdminsResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of GetAllChurchAdminsResultVo
     
-//    "id": 3,
-//    "churchAdmin": "Aishwarya Sateesh S",
-//    "mobileNumber": "7032157345",
-//    "email": "Aish@calibrage.in",
-//    "churchImage": null,
-//    "userImage": null,
-//    "churchId": 1056,
-//    "churchName": "tetreterte",
-//    "updatedDate": "2018-02-22T14:41:01.497"
-//},
-//
 
     var Id : Int?
     var churchAdmin : String?
@@ -36,7 +25,7 @@ class GetAllChurchAdminsResultVo: Mappable {
     var isSubscribed : Int?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetAllChurchAdminsResultVo
     
     
     init(Id : Int?,churchAdmin : String?,mobileNumber : String?,email : String?,churchImage : String?,userImage : String?,churchId : Int?,churchName : String?,updatedDate : String?,isSubscribed : Int?)

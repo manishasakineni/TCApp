@@ -10,7 +10,7 @@ import Foundation
 
 class JobApplyVO: Mappable {
     
-  
+  //MARK:-  Declaration of JobApplyVO
     
     var listResult : [GetAllJobDetailsListResultVO]?
     var result : Any?
@@ -20,7 +20,8 @@ class JobApplyVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+   
+     //MARK:-  initialization of JobApplyVO
     
     init(listResult: [GetAllJobDetailsListResultVO]?, result :Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

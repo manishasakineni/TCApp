@@ -12,7 +12,7 @@ import Foundation
 class EventDetailsListResultVO: Mappable {
     
    
-    
+   //MARK:-  Declaration of EventDetailsListResultVO
     
     var id : Int?
     var title : String?
@@ -38,7 +38,7 @@ class EventDetailsListResultVO: Mappable {
     var updatedDate : String?
     
 
-    
+   //MARK:-  initialization of EventDetailsListResultVO
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?, registrationNumber : String?, contactNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?, isLike : Int?, isDisLike : Int?, likeCount : Int?, disLikeCount : Int?, commentCount : Int?, isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         

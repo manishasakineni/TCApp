@@ -18,6 +18,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     @IBOutlet weak var authorpostTableView: UITableView!
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
+   
+    //MARK: -  variable declaration
     
      var mediaTypeID : Int = 0
     var PageIndex = 1

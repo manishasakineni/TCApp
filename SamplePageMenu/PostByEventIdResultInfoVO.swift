@@ -10,6 +10,7 @@ import Foundation
 
 class PostByEventIdResultInfoVO: Mappable {
 
+      //MARK:-  Declaration of PostByEventIdResultInfoVO
 
     var id : Int?
     var title : String?
@@ -45,7 +46,7 @@ class PostByEventIdResultInfoVO: Mappable {
     var createdByUser : String?
     var updatedByUser : String?
 
-
+ //MARK:-  initialization of PostByEventIdResultInfoVO
     
     init(id: Int?,title: String?,desc: String?, categoryId:Any?, embededUrl: Any?, mediaTypeId: Int?, postTypeId: Int?,userId: Any?,churchId: Any?,fileName: String?, fileLocation:String?, fileExtention: String?, isActive: Bool?, createdByUserId: Int?,createdDate: String?,updatedByUserId: Int?,updatedDate: String?, htmlDesc:String?, eventId: Int?, viewCount: Bool?, postImage: String?,mediaType: String?,postType: String?,categoryName: Bool?, eventTitle:String?, startDate: String?, likeCount: Int?, disLikeCount: Int?, commentCount: Int?, createdByUser: String?, updatedByUser: String?)
         

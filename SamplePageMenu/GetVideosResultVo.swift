@@ -10,9 +10,13 @@ import Foundation
 
 class GetVideosResultVo: Mappable {
     
+      //MARK:-  Declaration of GetVideosResultVo
+    
     var postDetails:[PostDetailsVO]?
     var commentDetails:[CommentDetailsVo]?
     var replyDetails:[CommentDetailsVo]?
+ 
+      //MARK:-  initialization of GetVideosResultVo
     
     init(postDetails:[PostDetailsVO]?, commentDetails:[CommentDetailsVo]?,replyDetails:[CommentDetailsVo]?) {
         

@@ -14,7 +14,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     @IBOutlet weak var getAllitemsTableView: UITableView!
     
     @IBOutlet weak var norecordsFoundLbl: UILabel!
-    
+ 
+     //MARK:- variable declaration
     
     var showNav = false
      var appVersion          : String = ""

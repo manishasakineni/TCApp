@@ -10,7 +10,7 @@ import Foundation
 
 class AddressInfoResultVO: Mappable {
     
-    
+     //MARK:-  Declaration of AddressInfoResultVO
     
     var id : Int?
     var fullName : String?
@@ -34,6 +34,7 @@ class AddressInfoResultVO: Mappable {
     var updatedByUser : String?
     var updatedDate : String?
    
+     //MARK:-  initialization of AddressInfoResultVO
     
     init(id: Int?,fullName : String?,mobileNumber : String?, addressLine1 : String?, addressLine2 : String?, pinCode : Int?, userId : Int?, landmark : String?, stateId : Int?, stateName : String?,countryId : Int?,countryName : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
         

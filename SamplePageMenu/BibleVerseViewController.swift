@@ -13,6 +13,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBOutlet weak var verseTableView: UITableView!
     
+     //MARK:- variable declaration
+    
     var bibleCArr = Array<Int>()
     
     var bibleChaptersArr:[BibleChapterVo] = Array<BibleChapterVo>()

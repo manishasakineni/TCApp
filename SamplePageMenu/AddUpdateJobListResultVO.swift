@@ -10,6 +10,7 @@ import Foundation
 
 class AddUpdateJobListResultVO: Mappable {
 
+     //MARK:-  Declaration of AddUpdateJobListResultVO
     
     var id : Int?
     var jobTitle : String?
@@ -35,7 +36,7 @@ class AddUpdateJobListResultVO: Mappable {
     var updatedByUser : String?
     
     
-    
+      //MARK:-  initialization of AddUpdateJobListResultVO
     
     init(id: Int?,jobTitle: String?,vacencies: Int?, qualification: String?, jobDesc: String?, churchId: Int?, adminId: Int?, contactPerson : String?, contactNumber : String?, salary : Int?,lastDateToApply: Int?,isActive: Bool?,createdByUserId: Int?, createdDate: String?, updatedByUserId: Int?, updatedDate: String?, adminName: String?, churchName : String?, createdByUser : String?, updatedByUser : String?)
         

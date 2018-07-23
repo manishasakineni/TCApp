@@ -12,6 +12,7 @@ import Foundation
 class PostByAutorIdResultInfoVO: Mappable {
     
     
+   //MARK:-  Declaration of PostByAutorIdResultInfoVO
     
     var id : Int?
     var title : String?
@@ -34,7 +35,7 @@ class PostByAutorIdResultInfoVO: Mappable {
     var updatedByUser : String?
     var postUpdatedDate : String?
     
-    
+     //MARK:-  initialization of PostByAutorIdResultInfoVO
     
     init(id: Int?,title: String?,desc: String?, categoryId:Int?, embededUrl: String?, mediaTypeId: Int?, postTypeId: Int?,userId: Int?,postImage: String?, embedId:Any?, mediaType: String?, postType: String?, categoryName: String?,likeCount: Int?,disLikeCount: Int?,commentCount: Int?, viewCount:Any?, createdByUser: String?, updatedByUser: String?, postUpdatedDate: String?)
         

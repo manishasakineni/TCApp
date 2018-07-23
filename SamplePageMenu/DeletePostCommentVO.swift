@@ -11,6 +11,8 @@ import Foundation
 
 class DeletePostCommentVO: Mappable {
     
+     //MARK:-  Declaration of DeletePostCommentVO
+    
     var listResult : [DeletePostCommentsListResultVO]?
     
     var result: Any?
@@ -22,6 +24,8 @@ class DeletePostCommentVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    
+     //MARK:-  initialization of DeletePostCommentVO
     
     init(listResult: [DeletePostCommentsListResultVO]?, result : Any?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

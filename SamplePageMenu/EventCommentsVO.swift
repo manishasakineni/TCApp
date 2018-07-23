@@ -9,7 +9,7 @@
 import Foundation
 class EventCommentsVO: Mappable {
     
- 
+ //MARK:-  Declaration of EventCommentsVO
     
     var id : Int?
     var eventId : Int?
@@ -20,7 +20,7 @@ class EventCommentsVO: Mappable {
     var userImage : String?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of EventCommentsVO
     
     
     init(id : Int?, eventId : Int?, comment : String?, parentCommentId : Int?, userId : Int?, commentByUser : String?, userImage : String?) {

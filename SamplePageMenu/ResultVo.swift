@@ -9,7 +9,7 @@
 import Foundation
 class ResultVo: Mappable {
     
-    
+    //MARK:-  Declaration of ResultVo
     
     var id : Int?
     var postId : Int?

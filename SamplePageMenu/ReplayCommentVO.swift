@@ -9,6 +9,9 @@
 import Foundation
 
 class ReplayCommentVO: Mappable {
+   
+    
+    //MARK:-  Declaration of ReplayCommentVO
     
     var listResult : [ReplayCommentListResultVO]?
     
@@ -19,6 +22,7 @@ class ReplayCommentVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+     //MARK:-  initialization of ReplayCommentVO
     
     init(listResult: [ReplayCommentListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

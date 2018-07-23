@@ -11,22 +11,17 @@ class UserDetailsVO: Mappable {
     
     
         
-        //MARK:-  Declaration of SignupVo
+//MARK:-  Declaration of UserDetailsVO
         
-        //  var result: RegisterVo?
-        //  var isSuccess: Bool?
-        
-        var listResult: [LoginVo]?
-    
+   
+    var listResult: [LoginVo]?
     var affectedRecords: Int?
     var isSuccess: Bool?
     var endUserMessage: String?
     var validationErrors : NSArray?
+
         
-        //  var endUserMessage: String?
-        //  var exception : Any?
-        
-        //MARK:-  initialization of SignupVo
+        //MARK:-  initialization of UserDetailsVO
         
         init(listResult: [LoginVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
             self.listResult = listResult

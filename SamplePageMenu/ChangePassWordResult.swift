@@ -9,28 +9,16 @@
 import Foundation
 
 
-/*result:{
- message = "The request is invalid.";
- modelState =     {
- errorMessage =         (
- "Incorrect password."
- );
- };
- } */
-
-
 class ChangePassWordResult: Mappable {
     
+   
+    //MARK:-  Declaration of ChangePassWordResult
     
-    //MARK:-  Declaration of SignupVo
     
-  //  var isSuccess: Bool?
     var errorMessage: [String]?
     var statusCode : Int?
-  //  var endUserMessage: String?
-  //  var exception : Any?
-    
-    //MARK:-  initialization of SignupVo
+
+  //MARK:-  initialization of ChangePassWordResult
     
     init(errorMessage: [String]?,statusCode : Int?) {
         self.errorMessage = errorMessage

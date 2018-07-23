@@ -11,6 +11,7 @@ import Foundation
 class GetAllitemsVO: Mappable {
     
     
+     //MARK:-  Declaration of GetAllitemsVO
     
     var listResult : [GetAllitemsListResultVO]?
    
@@ -21,6 +22,7 @@ class GetAllitemsVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+      //MARK:-  initialization of GetAllitemsVO
     
     init(listResult: [GetAllitemsListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

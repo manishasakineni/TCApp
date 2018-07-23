@@ -17,6 +17,8 @@ class BibleBookVo: Mappable {
     
     var Book: [BibleChapterVo]?
     
+    //MARK:-  initialization of BibleBookVo
+    
     init(Book: [BibleChapterVo]) {
         
         self.Book = Book

@@ -8,7 +8,7 @@
 
 class GetEventInfoByChurchIdMonthYearResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of GetEventInfoByChurchIdMonthYearResultVo
     
     var id : Int?
     var title : String?
@@ -30,7 +30,7 @@ class GetEventInfoByChurchIdMonthYearResultVo: Mappable {
     
   
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventInfoByChurchIdMonthYearResultVo
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)

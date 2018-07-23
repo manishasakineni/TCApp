@@ -9,7 +9,9 @@
 import Foundation
 
 class StateInfoResultVO: Mappable {
-        
+  
+    //MARK:-  Declaration of StateInfoResultVO
+    
     var id : Int?
     var code : String?
     var name : String?
@@ -20,6 +22,7 @@ class StateInfoResultVO: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
     
+       //MARK:-  initialization of StateInfoResultVO
     
     init(id: Int?,code : String?,name : String?, countryId : Int?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         

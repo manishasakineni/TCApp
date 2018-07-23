@@ -10,6 +10,8 @@ import Foundation
 
 
 class GetAllVideosVo: Mappable {
+ 
+    //MARK:-  Declaration of GetAllVideosVo
     
     var listResult : Any?
     var result : GetVideosResultVo?
@@ -21,7 +23,7 @@ class GetAllVideosVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetAllVideosVo
     
     
     init(listResult : Any?, result: GetVideosResultVo?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

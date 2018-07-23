@@ -10,6 +10,8 @@ import Foundation
 
 class GetEventInfoByChurchIdMonthYearVo: Mappable {
     
+       //MARK:-  Declaration of GetEventInfoByChurchIdMonthYearVo
+    
     var listResult : [GetEventInfoByChurchIdMonthYearResultVo]?
     var isSuccess    : Bool?
     var totalRecords : Int?
@@ -19,7 +21,7 @@ class GetEventInfoByChurchIdMonthYearVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventInfoByChurchIdMonthYearVo
     
     
     init(listResult : [GetEventInfoByChurchIdMonthYearResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

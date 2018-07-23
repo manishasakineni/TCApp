@@ -10,10 +10,15 @@ import Foundation
 
 
 class EventcommentRepliesListVO: Mappable {
+   
+    //MARK:-  Declaration of EventcommentRepliesListVO
     
     var eventDetails:[EventCommRepliesVO]?
     var commentDetails:[EventcommentrepliesListResultVo]?
     var replyDetails:[EventcommentrepliesListResultVo]?
+    
+    //MARK:-  initialization of EventcommentRepliesListVO
+    
     init(eventDetails:[EventCommRepliesVO]?, commentDetails:[EventcommentrepliesListResultVo]?, replyDetails:[EventcommentrepliesListResultVo]?) {
         
         self.eventDetails = eventDetails

@@ -13,6 +13,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBOutlet weak var getJobByIDTableView: UITableView!
     
+    
+    //MARK: -  variable declaration
+    
      var userDetails : GetJobByIDListResultVO?
     var appVersion          : String = ""
    

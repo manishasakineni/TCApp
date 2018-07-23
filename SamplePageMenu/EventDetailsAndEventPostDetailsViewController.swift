@@ -15,7 +15,8 @@ protocol eventDetailsSubtitleOfIndexDelegate {
 
 
 class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMenuDelegate,eventDetailsSubtitleOfIndexDelegate {
-
+    
+//MARK: -  variable declaration
     
     var eventID = Int()
     

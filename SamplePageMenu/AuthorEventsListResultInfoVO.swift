@@ -11,25 +11,9 @@ import Foundation
 
 class AuthorEventsListResultInfoVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of AuthorEventsListResultInfoVO
     
-/* "id": 20,
- "title": "Sunday School",
- "startDate": "2018-03-13T07:08:58",
- "endDate": "2018-03-14T07:09:02",
- "churchId": 23,
- "churchName": "church ritulas saion",
- "fileLocation": null,
- "fileName": null,
- "fileExtention": null,
- "eventImage": null,
- "isActive": true,
- "createdByUserId": 30,
- "createdDate": "2018-03-05T07:08:48.977",
- "updatedByUserId": 30,
- "updatedDate": "2018-03-05T07:08:48.977"
- 
- */
+
     
     
     var id : Int?
@@ -52,7 +36,7 @@ class AuthorEventsListResultInfoVO: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of AuthorEventsListResultInfoVO
     
     
     init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)

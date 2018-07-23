@@ -11,7 +11,7 @@ import Foundation
 class RegisterResultVo: Mappable {
     
         
-        //MARK:-  Declaration of SignupVo
+        //MARK:-  Declaration of RegisterResultVo
         
         var result: RegisterVo?
         var isSuccess: Bool?
@@ -19,7 +19,7 @@ class RegisterResultVo: Mappable {
         var endUserMessage: String?
         var exception : Any?
     
-        //MARK:-  initialization of SignupVo
+        //MARK:-  initialization of RegisterResultVo
         
         init(result: RegisterVo?,isSuccess: Bool?,affectedRecords: Int?,endUserMessage: String?,exception : Any?) {
             self.result = result

@@ -11,10 +11,12 @@ import Foundation
 class BibleResultVo: Mappable {
     
     
-    //MARK:-  Declaration of BibleBookVo
+    //MARK:-  Declaration of BibleResultVo
     
     var Verseid: String?
     var Verse: String?
+    
+      //MARK:-  initialization of BibleResultVo
     
     init(Verse: String?, Verseid: String?) {
         

@@ -121,7 +121,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
       var editUserID = 0
     
-      //MARK: -   View DidLoad
+//MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()

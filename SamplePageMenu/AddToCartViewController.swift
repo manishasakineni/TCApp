@@ -12,6 +12,9 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
 
     @IBOutlet weak var addToCartTableView: UITableView!
     
+    
+     //MARK:- variable declaration
+    
      var itemID:Int = 0
      var quantity = ""
     var AddToCart = LoginViewController()

@@ -11,15 +11,7 @@ import Foundation
 class CountryInfoResultVO: Mappable {
     
    
-    
-//    "id": 1,
-//    "code": "IN",
-//    "name": "India",
-//    "isActive": true,
-//    "createdByUserId": 2,
-//    "createdDate": "2018-01-30T19:37:22.663",
-//    "updatedByUserId": 2,
-//    "updatedDate": "2018-01-30T19:37:22.663"
+ //MARK:-  Declaration of CountryInfoResultVO
 
     var id : Int?
    
@@ -30,7 +22,8 @@ class CountryInfoResultVO: Mappable {
     var createdDate : String?
     var updatedByUserId : Int?
     var updatedDate : String?
-    
+ 
+     //MARK:-  initialization of CountryInfoResultVO
     
     init(id: Int?,code : String?,name : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         

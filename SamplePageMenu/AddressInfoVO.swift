@@ -10,7 +10,7 @@ import Foundation
 
 class AddressInfoVO: Mappable {
     
-    
+   //MARK:-  Declaration of AddressInfoVO
     
     var listResult : [AddressInfoResultVO]?
     var isSuccess    : Bool?
@@ -20,6 +20,7 @@ class AddressInfoVO: Mappable {
     var validationErrors : String?
     var exception : Any?
     
+    //MARK:-  initialization of AddressInfoVO
     
     init(listResult: [AddressInfoResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

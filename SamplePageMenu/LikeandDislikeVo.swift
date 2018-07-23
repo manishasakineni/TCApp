@@ -11,7 +11,7 @@ import Foundation
 
 class LikeandDislikeVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of LikeandDislikeVo
     
     
     var listResult : Any?
@@ -24,7 +24,7 @@ class LikeandDislikeVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of LikeandDislikeVo
     
     
     init(listResult : Any?, result: LikeResultVO?,isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

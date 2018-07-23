@@ -10,6 +10,9 @@ import Foundation
 
 class AddUpdateEventCommentsInfoVO: Mappable {
     
+    
+    //MARK:-  Declaration of AddUpdateEventCommentsInfoVO
+    
     var listResult : Any?
     var result : AddUpdateEventCommentsResultVO?
     var isSuccess    : Bool?

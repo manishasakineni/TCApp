@@ -107,7 +107,7 @@
     "Event Title" : "Event Title:",
     "ALL EVENTS" : "ALL EVENTS",
     "Event Name:" : "Event Name",
-     "Event Date:" : "Event Date",
+    "Event Date:" : "Event Date",
     "  Events" : "  Events",
     "contact Number:" : "contact Number:",
     "StartDate EndDate:" : "StartDate EndDate",
@@ -141,7 +141,6 @@
     "Holy Bible Books" : "Holy Bible Books",
     "Holy Bible - English" : "Holy Bible - English",
     "Holy Bible - Telugu" : "Holy Bible - Telugu",
-    
     "Search by category Name" : "Search",
     "Search" : "Search",
     "Search by Event Name" : "Search",
@@ -161,7 +160,6 @@
     "InStock" : "InStock",
     "Out Of Stock" : "Out Of Stock",
     "Quantity:" : "Quantity",
-    
     "ADD TO CART" : "ADD TO CART",
     
     "Author    :" : "Author    ",
@@ -194,8 +192,7 @@
     "Church Event Details" : "Church Event Details",
     "Comments" : "Comments",
     "Please Enter Quantity" : "Please Enter Quantity",
-    
-     "Profile" : "Profile",
+    "Profile" : "Profile",
     "Save" : "Save",
     
     "Please Enter Full Name" : "Please Enter Full Name",
@@ -204,34 +201,19 @@
     "Please Enter PinCode" : "Please Enter PinCode",
     "Please Enter Landmark" : "Please Enter Landmark",
     "Please Select State" : "Please Select State",
-    
     "Please Select Country" : "Please Select Country",
-    
     "Are You Sure Want To Delete" : "Are You Sure Want To Delete",
-    
     "Are You Sure Want To Remove Item From Your Cart" : "Are You Sure Want To Remove Item From Your Cart",
-    
     "Are You Sure Want To Remove" : "Are You Sure Want To Remove",
-    
     "Please Enter jobtitle" : "Please Enter jobtitle",
     "Please Enter Qualification" : "Please Enter Qualification",
-    
     "Please Enter Years Of Experience" : "Please Enter Years Of Experience",
-    
     "Please Enter Current Organization" : "Please Enter Current Organization",
     "Please Enter Current Salary" : "Please Enter Current Salary",
-    
     "Please Enter Expected Salary" : "Please Enter Expected Salary",
-    
     "Cart" : "Cart",
-    
-    
-    
     "Event Details" : "Event Details",
-    
-    
     "Seller Information" : "Seller Information",
-    
     "Price" : "Price"
     
     

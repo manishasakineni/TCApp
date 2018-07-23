@@ -9,18 +9,23 @@
 import UIKit
 
 class DocViewController: UIViewController,UIWebViewDelegate {
+  
+    
+    @IBOutlet weak var docWebView: UIWebView!
+    
+    @IBOutlet weak var noRecorsLabel: UILabel!
+  
+    //MARK: -  variable declaration
     
     var urlStr :String = ""
     
     var titleStr:String = ""
     
     var docUrl : URL = NSURL() as URL
+   
     
-    @IBOutlet weak var docWebView: UIWebView!
+    //MARK:- view Did Load
     
-    @IBOutlet weak var noRecorsLabel: UILabel!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

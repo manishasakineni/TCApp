@@ -10,7 +10,7 @@ import Foundation
 
 class AllItemIdListResultVO: Mappable {
     
-    
+   //MARK:-  Declaration of AllItemIdListResultVO
     
     var id : Int?
     var name : String?
@@ -33,7 +33,7 @@ class AllItemIdListResultVO: Mappable {
     var createdByUser : String?
     var updatedByUser : String?
     
-    
+     //MARK:-  initialization of AllItemIdListResultVO
     
     init(id: Int?,name: String?,desc: String?, itemTypeId: Int?, price: Int?, author: String?, fileName: String?, fileLocation : String?, fileExtention : String?, isActive : Bool?,createdByUserId: Int?,createdDate: String?,updatedByUserId: Int?, updatedDate: String?, itemImage: String?, itemType: String?, createdByUser: String?, updatedByUser : String?)
         

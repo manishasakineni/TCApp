@@ -10,7 +10,7 @@ import Foundation
 class GetProfileResultInfoVO: Mappable {
     
     
-    //MARK:-  Declaration of SignupVo
+    //MARK:-  Declaration of GetProfileResultInfoVO
     
     var listResult: [GetProfileInfoVO]?
     var isSuccess: Bool?
@@ -18,7 +18,7 @@ class GetProfileResultInfoVO: Mappable {
     var endUserMessage: String?
     var exception : Any?
     
-    //MARK:-  initialization of SignupVo
+    //MARK:-  initialization of GetProfileResultInfoVO
     
     init(listResult: [GetProfileInfoVO]?,isSuccess: Bool?,affectedRecords: Int?,endUserMessage: String?,exception : Any?) {
         self.listResult = listResult

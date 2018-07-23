@@ -10,6 +10,8 @@ import Foundation
 
 class GetCartListResultVO: Mappable {
    
+    //MARK:-  Declaration of GetCartListResultVO
+    
     var id : Int?
     var itemId : Int?
     var quantity : Int?
@@ -22,7 +24,7 @@ class GetCartListResultVO: Mappable {
     var itemImage : String?
     var itemType : String?
     
-    
+   //MARK:-  initialization of GetCartListResultVO
     
     init(id: Int?,itemId: Int?,quantity: Int?, itemName: String?, price: Int?, author: String?, fileName: String?, fileLocation : String?, fileExtention : String?, itemImage : String?,itemType: String?)
         

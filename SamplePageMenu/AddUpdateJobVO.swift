@@ -9,7 +9,8 @@
 import Foundation
 
 class AddUpdateJobVO: Mappable {
-    
+   
+     //MARK:-  Declaration of AddUpdateJobVO
     
     var listResult : Any?
     
@@ -21,7 +22,8 @@ class AddUpdateJobVO: Mappable {
     var endUserMessage : String?
     var validationErrors : String?
     var exception : Any?
-    
+   
+     //MARK:-  initialization of AddUpdateJobVO
     
     init(listResult:Any?, result: [AddUpdateJobListResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?)
         

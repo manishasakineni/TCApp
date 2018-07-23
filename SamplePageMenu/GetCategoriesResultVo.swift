@@ -9,10 +9,11 @@
 import Foundation
 
 class GetCategoriesResultVo: Mappable {
+   
+    //MARK:-  Declaration of GetCategoriesResultVo
     
     var listResult : Any?
     var result : CategoriesListResultVo?
-    
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -21,7 +22,7 @@ class GetCategoriesResultVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetCategoriesResultVo
     
     
     init(listResult : Any?,result : CategoriesListResultVo?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

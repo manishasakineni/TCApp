@@ -10,21 +10,7 @@ import Foundation
 
 class CategoriesResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
-    
-//    "id": 12,
-//    "categoryName": "Documentaries",
-//    "fileLocation": "2018\\03\\13\\Category",
-//    "fileName": "Documentaries",
-//    "fileExtention": ".jpg",
-//    "categoryImage": "http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018\\03\\13\\Category\\Documentaries.jpg",
-//    "isActive": true,
-//    "createdByUserId": 11,
-//    "createdDate": "2018-03-09T11:00:04.707",
-//    "updatedByUserId": 11,
-//    "createdByUser": "priyanka  fdf Arikapudi",
-//    "updatedByUser": "priyanka  fdf Arikapudi",
-//    "updatedDate": "2018-03-09T11:00:04.707"
+    //MARK:-  Declaration of CategoriesResultVo
     
     var id : Int?
     var categoryName : String?
@@ -42,7 +28,7 @@ class CategoriesResultVo: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of CategoriesResultVo
     
     
     init(id : Int?,categoryName : String?,fileLocation : String?,categoryImage : String?,fileName : String?,fileExtention : String?,createdByUser : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, updatedByUser:String?)

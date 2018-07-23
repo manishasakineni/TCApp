@@ -11,11 +11,15 @@ import Foundation
 
 class PostByEventImageVO: Mappable {
     
+    //MARK:-  Declaration of PostByEventImageVO
+    
     var images:[PostByEventIdResultInfoVO]?
     
      var videos:[Array<Any>]?
      var audios:[Array<Any>]?
      var documents:[Array<Any>]?
+    
+     //MARK:-  initialization of PostByEventImageVO
     
     init(images:[PostByEventIdResultInfoVO]?, videos:[Array<Any>]?, audios:[Array<Any>]?, documents:[Array<Any>]?) {
         

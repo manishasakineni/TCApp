@@ -10,6 +10,8 @@ import Foundation
 
 class AddToCartListResultVO: Mappable {
     
+     //MARK:-  Declaration of AddToCartListResultVO
+    
     var id : Int?
     var itemId : Int?
     var quantity : Int?
@@ -22,7 +24,7 @@ class AddToCartListResultVO: Mappable {
     var itemImage : String?
     var itemType : String?
     
-    
+     //MARK:-  initialization of AddToCartListResultVO
     
     init(id: Int?,itemId: Int?,quantity: Int?, itemName: String?, price: Int?, author: String?, fileName: String?, fileLocation : String?, fileExtention : String?, itemImage : String?,itemType: String?)
         

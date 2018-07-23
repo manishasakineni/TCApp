@@ -12,6 +12,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBOutlet weak var addressTableview: UITableView!
     
+     //MARK:- variable declaration
+    
     var allitemsArray:[AddressInfoResultVO] = Array<AddressInfoResultVO>()
     
     var filtered:[AddressInfoResultVO] = []

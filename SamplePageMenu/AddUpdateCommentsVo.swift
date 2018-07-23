@@ -9,11 +9,10 @@
 import Foundation
 class AddUpdateCommentsVo: Mappable {
     
-    
+     //MARK:-  Declaration of AddUpdateCommentsVo
     
     var listResult : String?
     var result : ResultVo?
-
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?

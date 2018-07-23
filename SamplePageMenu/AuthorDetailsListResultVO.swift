@@ -7,44 +7,16 @@
 //
 
 import Foundation
-//
-//  UpcomingEventsResultVO.swift
-//  Telugu Churches
-//
-//  Created by Manoj on 09/03/18.
-//  Copyright © 2018 Mac OS. All rights reserved.
-//
+
 
 import Foundation
 
 
 class AuthorDetailsListResultVO: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of AuthorDetailsListResultVO
     
- /*   "dob": null,
-    "genderTypeId": null,
-    "gender": null,
-    "countryId": 1,
-    "countryName": "India",
-    "stateId": 2,
-    "stateName": "Telangana",
-    "districtId": 3,
-    "districtName": "Warangal",
-    "mandalId": 5,
-    "mandalName": "Venkatapur",
-    "villageName": "Palampeta",
-    "pinCode": 506165,
-    "churchImage": "http://192.168.1.121/TeluguChurchesRepository/FileRepository/2018\\03\\08\\Church\\20180308120730334.jpg",
-    "userImage": null,
-    "userName": "ganeshan",
-    "churchId": 26,
-    "churchName": "luthran",
-    "registrationNumber": "res655",
-    "churchAddress": "hyderabad ",
-    "createdByUser": "priyanka  fdf Arikapudi",
-    "updatedByUser": "priyanka  fdf Arikapudi"    */
-    
+     
     var id : Int?
     var userId : String?
     var firstName : String?
@@ -89,7 +61,7 @@ class AuthorDetailsListResultVO: Mappable {
     var isSubscribed : Int?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of AuthorDetailsListResultVO
     
     
     init(id : Int?,userId : String?,firstName : String?,middleName : String?,lastName : String?,authorName : String?,authorContactNumbar : String?,authorEmail : String?,dob : String?,genderTypeId : Int?,gender : String?,countryId : Int?,churchId : Int?,churchName : String?,

@@ -11,8 +11,8 @@ import Foundation
 
 class LoginResultVo: Mappable {
     
-  //  var listResult: [LoginResultVo]?
-
+//MARK:-  Declaration of LoginResultVo
+    
     var contactNumber : Int?
     var email : String?
     var id : Int?
@@ -27,7 +27,7 @@ class LoginResultVo: Mappable {
     
 
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of LoginResultVo
     
     
     init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?,gender : String?,dob : String?

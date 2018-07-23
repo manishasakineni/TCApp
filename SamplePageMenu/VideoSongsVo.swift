@@ -10,6 +10,9 @@ import Foundation
 
 class VideoSongsVo: Mappable {
     
+    
+     //MARK:-  Declaration of VideoSongsVo
+    
     var listResult : [VideoSongsResultVo]?
     var isSuccess    : Bool?
     var totalRecords : Int?
@@ -19,7 +22,7 @@ class VideoSongsVo: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of VideoSongsVo
     
     
     init(listResult : [VideoSongsResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

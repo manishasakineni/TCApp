@@ -11,6 +11,9 @@ import Foundation
 
 class GetEventByDateAndUserIdResultVo: Mappable {
     
+    
+     //MARK:-  Declaration of GetEventByDateAndUserIdResultVo
+    
     var eventId : Int?
     var eventTitle : String?
     var startDate : String?
@@ -18,7 +21,7 @@ class GetEventByDateAndUserIdResultVo: Mappable {
     
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of GetEventByDateAndUserIdResultVo
     
     
     init(eventId : Int?,eventTitle : String?,startDate : String?,endDate : String?)

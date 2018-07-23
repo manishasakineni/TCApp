@@ -10,16 +10,7 @@ import Foundation
 
 class UpcomingEventsInfoVO: Mappable {
     
-//    
-//    {
-//    "listResult": [
-//    "isSuccess": true,
-//    "affectedRecords": 0,
-//    "totalRecords": 16,
-//    "endUserMessage": "Get All Successful",
-//    "validationErrors": [],
-//    "exception": null
-//    }
+      //MARK:-  Declaration of UpcomingEventsInfoVO
     
     
     var listResult : [UpcomingEventsResultVO]?
@@ -31,7 +22,7 @@ class UpcomingEventsInfoVO: Mappable {
     var exception : Any?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of UpcomingEventsInfoVO
     
     
     init(listResult : [UpcomingEventsResultVO]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {

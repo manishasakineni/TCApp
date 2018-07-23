@@ -11,7 +11,7 @@ import Foundation
 
 class VideoSongsResultVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of VideoSongsResultVo
     
     var id : Int?
     var title : String?
@@ -38,7 +38,7 @@ class VideoSongsResultVo: Mappable {
     var updatedByUser : String?
     
     
-    //MARK:-  initialization of VideosVO
+    //MARK:-  initialization of VideoSongsResultVo
     
     
     init(id : Int?,title : String?,desc : String?,categoryId : Int?,embededUrl : String?,mediaTypeId : Int?,postTypeId : Int?,userId : Int?,churchId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,postImage : String?,mediaType : String?,postType : String?,categoryName : String?,createdByUser : String?,updatedByUser : String?)

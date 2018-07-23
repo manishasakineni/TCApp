@@ -9,9 +9,13 @@
 import Foundation
 
 class EventByIdInfoVo: Mappable {
+  
+     //MARK:-  Declaration of EventByIdInfoVo
     
     var eventDetails:[EventByIdEventDetailsVO]?
     var commentDetails:[EventByIdCommentDetailsVO]?
+   
+    //MARK:-  initialization of EventByIdInfoVo
     
     init(eventDetails:[EventByIdEventDetailsVO]?, commentDetails:[EventByIdCommentDetailsVO]?) {
         
