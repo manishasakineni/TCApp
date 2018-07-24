@@ -18,8 +18,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
    //MARK: -  variable declaration 
     
     var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
-    
-     var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
+    var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
     
     var saveLocationString      : String        = ""
@@ -69,8 +68,6 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-        
-        
         return 150
     }
     
@@ -85,51 +82,34 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDocumentTableViewCell", for: indexPath) as! AuthorDocumentTableViewCell
         
-        
-        
-        
         if(documentResults.count > indexPath.row){
             
         let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
-            
         let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         
             cell.documentImage.image = #imageLiteral(resourceName: "docImg")
-            
             cell.documentlbl.text = title
             
 
         }
-            
-       
-
-        
+    
         return cell
-        
-        
         
     }
     
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-       
         
-            let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+        let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
       
-                let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
         let docViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
                 
                 
         docViewController.urlStr = newString!
-                
         docViewController.titleStr = title!
-                
-                
         self.navigationController?.pushViewController(docViewController, animated: true)
-        
-        
         
     }
    
@@ -140,107 +120,107 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
             
-            if let url = URL.init(string: urlString) {
+        if let url = URL.init(string: urlString) {
                 
-                let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
                 
-                if let documentDirUrl = URL.init(string: documentDirUrlString) {
+        if let documentDirUrl = URL.init(string: documentDirUrlString) {
                     
-                    let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+            let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
                     
-                    if let pdfName = pdfNameArray.last {
+            if let pdfName = pdfNameArray.last {
                         
-                        let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
-                        self.saveLocationString = saveLocation.absoluteString
-                        filePath = URL.init(fileURLWithPath: saveLocation.path)
-                        print( self.saveLocationString)
+                let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+                self.saveLocationString = saveLocation.absoluteString
+                filePath = URL.init(fileURLWithPath: saveLocation.path)
+                print( self.saveLocationString)
                         
-                        let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+                let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
                         
-                        if fileExists {
+                if fileExists {
                             
-                            if !self.isSavingPDF {
+                if !self.isSavingPDF {
                                 
-                                DispatchQueue.main.async {
+                DispatchQueue.main.async {
                                     
-                                    
-                                    self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
-                                    print( self.saveLocationString)
-                                    print(  self.openSelectedDocumentFromURL)
-                                    
-                                    
-                                    self.openPDFinPDFReader()
-                                }
+                self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+                print( self.saveLocationString)
+                print(  self.openSelectedDocumentFromURL)
+                    
+                self.openPDFinPDFReader()
+                    
+                    }
                                 
-                            } else {
+                } else {
                                 
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                                     
-                                })
-                            }
+                })
+            }
                             
-                        } else {
+        } else {
                             
-                            do {
+    do {
                                 
-                                self.isDownloadingOnProgress = true
+        self.isDownloadingOnProgress = true
                                 
-                                let imageData : Data? = try Data.init(contentsOf: url)
+        let imageData : Data? = try Data.init(contentsOf: url)
                                 
-                                if imageData == nil {
+        if imageData == nil {
                                     
-                                    self.isDownloadingOnProgress = false
+        self.isDownloadingOnProgress = false
                                     
-                                    DispatchQueue.main.async {
+            DispatchQueue.main.async {
                                         
-                                    }
+        }
                                     
-                                } else {
+    } else {
                                     
-                                    do {
+    do {
                                         
-                                        try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
+    try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
                                         
-                                        if !self.isSavingPDF {
+        if !self.isSavingPDF {
                                             
-                                            self.isDownloadingOnProgress = false
+    self.isDownloadingOnProgress = false
                                             
-                                            DispatchQueue.main.async {
+    DispatchQueue.main.async {
                                                 
-                                                self.openPDFinPDFReader()
-                                            }
+    self.openPDFinPDFReader()
+        
+            }
                                             
                                             
-                                        } else {
+   } else {
                                             
-                                            self.isDownloadingOnProgress = false
+        self.isDownloadingOnProgress = false
                                             
-                                            DispatchQueue.main.async {
+            DispatchQueue.main.async {
                                                 
                                                 
-                                            }
-                                        }
+            }
+    }
                                         
-                                    } catch let error {
+    } catch let error {
                                         
-                                        self.isDownloadingOnProgress = false
+    self.isDownloadingOnProgress = false
                                         
-                                        DispatchQueue.main.async {
+    DispatchQueue.main.async {
                                             
                                             
-                                        }
-                                    }
-                                }
+            }
+        }
+    }
                                 
-                            } catch let error {
+} catch let error {
                                 
-                                print(error.localizedDescription)
+    print(error.localizedDescription)
                                 
-                                self.isDownloadingOnProgress = false
+    self.isDownloadingOnProgress = false
                                 
-                                DispatchQueue.main.async {
+    DispatchQueue.main.async {
                                     
-                                }
+    }
                             }
                         }
                     }

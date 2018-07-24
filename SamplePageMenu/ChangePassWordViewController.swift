@@ -19,19 +19,14 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
      //MARK: -  variable declaration
     
     var sectionsTitle : [String] = [" "]
-
     var activeTextField = UITextField()
-    
     var userId:String = ""
     var oldPassWordString : String = ""
     var newPassWordString : String = ""
     var confirmPassWordString : String = ""
-    
     var PwButton = UIButton(type: .custom)
-
     var appDelegate = AppDelegate()
     let sharedController = ServiceController()
-    
     let utillites =  Utilities()
     
  //MARK: -   View DidLoad
@@ -59,7 +54,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         forgotPasswordTableView.delegate = self
         forgotPasswordTableView.dataSource = self
         activeTextField.delegate = self
-        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
         
@@ -145,7 +139,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         
         activeTextField = textField
-        
         
         if activeTextField.tag == 0{
             
@@ -248,14 +241,15 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             forgotPasswordCell.eyeButtonOutlet.tag = indexPath.row
             if indexPath.row == 0 {
                
-                forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
-                forgotPasswordCell.resetPasswordTF.text = oldPassWordString
-                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+            forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
+            forgotPasswordCell.resetPasswordTF.text = oldPassWordString
+            forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 
-                forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+            forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
                 
-                return forgotPasswordCell
+            return forgotPasswordCell
+                
             }
             else if indexPath.row == 1 {
                 
@@ -284,7 +278,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let conformButtonPassWordCell = tableView.dequeueReusableCell(withIdentifier: "ConformButtonPassWordCell", for: indexPath) as! ConformButtonPassWordCell
         
-        
 
            conformButtonPassWordCell.confirmBtn.addTarget(self, action: #selector(confirmButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
@@ -300,8 +293,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
 //MARK: -   Confirm Button Clicked
     
    func  confirmButtonClicked(_ sendre:UIButton) {
-
-    
     
     if(appDelegate.checkInternetConnectivity()){
         
@@ -344,9 +335,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
 
         
         print("Eye Button Clicked......")
-
-
-        
         
     }
     
@@ -359,11 +347,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         let oldePassWordStr:NSString = oldPassWordString as NSString
         let newPassWordStr:NSString = newPassWordString as NSString
         let confirmPassWordStr : NSString = confirmPassWordString as NSString
-        
-        
-        
-        
-        
+    
         if (oldePassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankOldPasswordErrorMessage() as String as String as NSString?
         }
@@ -492,8 +476,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
      
       
         removeAnimate()
-
-
         
     }
     

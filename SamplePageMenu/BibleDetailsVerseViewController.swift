@@ -13,35 +13,6 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
-//MARK: -  variable declaration
-    
-    var catgoryName:String = ""
-    
-    var appVersion:String = ""
-    
-    var nameStr:String = ""
-    
-    var indexCount:Int = 0
-    
-    var index:Int = 0
-    
-    var eventNum:Int = 0
-    
-    var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
-    
-    
-    var verseStringDict : Dictionary = Dictionary<String,Any>()
-    
-    var verseStringCount = Array<BibleDetailsCellIResultVo>()
-    
-    var chapterCount:Int = 0
-    
-    var backTitleStr:String = ""
-    var versDetailArray = Array<String>()
-    var verseCountStr:Int = 0
-    
-    var bibleChaptersArr:String = ""
-    
     @IBOutlet weak var chapterStr: UILabel!
     
     
@@ -55,20 +26,36 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     @IBOutlet weak var homeIconOutLet: UIButton!
     
+    //MARK: -  variable declaration
+    
+    var catgoryName:String = ""
+    var appVersion:String = ""
+    var nameStr:String = ""
+    var indexCount:Int = 0
+    var index:Int = 0
+    var eventNum:Int = 0
+    var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
+    var verseStringDict : Dictionary = Dictionary<String,Any>()
+    var verseStringCount = Array<BibleDetailsCellIResultVo>()
+    var chapterCount:Int = 0
+    
+    var backTitleStr:String = ""
+    var versDetailArray = Array<String>()
+    var verseCountStr:Int = 0
+    var bibleChaptersArr:String = ""
+
+    
    //MARK:- view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.norecordsfoundLbl.isHidden = true
-
         
         let nibName  = UINib(nibName: "BibleVerseTableViewCell" , bundle: nil)
-        
         self.BibleVerseTableView.register(nibName, forCellReuseIdentifier: "BibleVerseTableViewCell")
         
         eventNum = indexCount
-        
         self.chapterStr.text = "\(nameStr) \(eventNum + 1)"
         
         BibleVerseTableView.delegate = self
@@ -133,26 +120,22 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         if self.verseStringCount.count > 0 {
             
             self.norecordsfoundLbl.isHidden = true
-
             self.BibleVerseTableView.isHidden = false
             
             let booksList = self.verseStringCount[indexPath.row]
-            
             
             cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
             
             
             let colorView = UIView()
             colorView.backgroundColor = Utilities.appColor
-            
             cell.selectedBackgroundView = colorView
-            
             cell.textLabel?.highlightedTextColor = UIColor.white
+            
             }
         else {
             
             self.norecordsfoundLbl.isHidden = false
-            
             self.BibleVerseTableView.isHidden = true
         }
         
@@ -167,12 +150,10 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.synchronize()
-        
         UserDefaults.standard.set("1", forKey: "1")
         
         
         self.navigationController?.popViewController(animated: true)
-        
         navigationItem.leftBarButtonItems = []
         
         print("Back Button Clicked......")
@@ -184,9 +165,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -195,7 +174,6 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
         print("Home Button Clicked......")
         
     }
@@ -209,17 +187,13 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
             eventNum = eventNum - 1
             
             let versesDict = verseStringDict["\(index)"] as? Dictionary<String,Any>
-            
             let capter = versesDict?["\(eventNum)"] as? [BibleDetailsCellIResultVo]
-            
             self.chapterStr.text = "\(nameStr) \(eventNum + 1)"
             
             if capter != nil {
                 
                 self.verseStringCount = capter!
             }
-            
-           
             
         }
         else {
@@ -236,7 +210,6 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         self.BibleVerseTableView.reloadData()
         
         let indexPath : IndexPath = IndexPath(row: 0, section: 0)
-        
         self.BibleVerseTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
         
     }
@@ -286,7 +259,6 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     self.BibleVerseTableView.reloadData()
         
         let indexPath : IndexPath = IndexPath(row: 0, section: 0)
-        
         self.BibleVerseTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
         
     }
@@ -298,14 +270,11 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.synchronize()
-        
         UserDefaults.standard.set("1", forKey: "1")
         
         
         self.navigationController?.popViewController(animated: true)
-        
         navigationItem.leftBarButtonItems = []
-        
         print("Back Button Clicked......")
 
         
@@ -321,9 +290,7 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         UserDefaults.standard.synchronize()
         
         self.navigationController?.isNavigationBarHidden = true
-        
         var viewControllers = navigationController?.viewControllers
-        
         viewControllers?.removeLast(2) // views to pop
         
         navigationController?.setViewControllers(viewControllers!, animated: true)

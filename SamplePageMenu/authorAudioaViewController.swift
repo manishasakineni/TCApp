@@ -17,12 +17,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     //MARK: -  variable declaration
     
     var imageView  = ["bible1","bible1","bible1"]
-    
-      var audioArray = Array<Any>()
-    
+    var audioArray = Array<Any>()
     var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
-
-    
      var PageIndex = 1
     
     //MARK: -   View Did Load
@@ -45,9 +41,6 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         // Do any additional setup after loading the view.
     }
-    
-
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -73,8 +66,6 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-        
-        
         return 150
     }
     
@@ -98,9 +89,6 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         return cell
         
-
-        
-        
         
     }
     
@@ -118,17 +106,13 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
         if newString != nil {
             
-         
             
             let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
             
             audioViewController.audioIDArr = newString!
             audioViewController.audioIDNameArr = title!
-            
             audioViewController.audioID = audioID!
             audioViewController.categoryID = categoryId!
-
-            
             self.navigationController?.pushViewController(audioViewController, animated: true)
             
             
@@ -139,9 +123,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
             
         }
         
-        
-        
-        
+            
         print("audio")
         
         }

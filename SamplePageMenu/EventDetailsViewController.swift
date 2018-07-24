@@ -22,60 +22,38 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     //MARK: -  variable declaration
     
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
-    
     var saveLocationString      : String        = ""
     var isSavingPDF             : Bool          = false
     var pdfTitle                : String        = ""
     var isDownloadingOnProgress : Bool          = false
     var navigationStr = String()
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
-    
     var eventID = Int()
-    
     var loginVC = LoginViewController()
-
     var eventChurchName = ""
-    
     var eventName = ""
-
     var catgoryID:Int = 0
     var churchName1 : String = ""
 
-     let buttonnn = UIButton()
-    
+    let buttonnn = UIButton()
     var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
-    
     var allCagegoryListArray : CategoriesListResultVo?
-
-    
     var noOfRows : Array<Dictionary<String,Any>> = Array()
     var numberOfRows : Dictionary<String,Any> = Dictionary()
-    
     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
     var isResponseFromServer = false
-
     var videoIDArray : Array<String> = Array()
-    
     var docsIDArray : Array<String> = Array()
-    
     var audioIDArray : Array<String> = Array()
-    
     var gggg = String()
-    
     var categoryStr : Array<String> = Array()
-    
-    
     var authorName : String = ""
     var appVersion  : String = ""
     
     var imageView = UIImageView()
-
-     var comentId = 0
+    var comentId = 0
     var thumbnailImageURL = String()
-    
     var userID = Int()
-   
-  
     var isLike = 0
     var isDisLike = 0
     var likeClick = false
@@ -84,23 +62,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var disLikesCount = 0
     var ID = 0
     var sendCommentClick = false
-    
     var readmoreCommentClick = false
-    
     var usersCommentsArray = Array<Any>()
     var commentedByUserArray = Array<Any>()
     
     var parentCommentId = 0
     var replyParentCommentId = 0
-    
     var commentString : String = "Add a public comment..."
-    
     var commentedbyusername : String = "Add a public comment..."
-    
     var username = String()
-
-    
-    
     var usersLikeClick = false
     var UsersDisLikeClick = false
     var commentId = 0
@@ -112,14 +82,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var repliesCountArray = Array<Int>()
     var CommentIdArray = Array<Int>()
     var postID : Int = 0
-     var activeTextView = UITextView()
+    var activeTextView = UITextView()
     var activeLabel = UILabel()
     var activeLblNumberofLines : Int = 3
-     var readMoreBtnIsHidden = true
+    var readMoreBtnIsHidden = true
     var replyMainComment = ""
     var replyMainCommentUser = ""
-
-      var editUserID = 0
+    var editUserID = 0
     
 //MARK: -   View Did Load
     
@@ -127,7 +96,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewDidLoad()
         
         self.norecordsFoundLbl.isHidden = true
-        
         
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
             
@@ -238,8 +206,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
  
     func getEventDetailsByIdApiCall(){
         
-
-    
      let getEventDetailsByIdApi = GETEVENTDETAILSBYID + String(eventID) + "/" + String(self.userID)
         
         serviceController.getRequest(strURL: getEventDetailsByIdApi, success: { (result) in
@@ -247,26 +213,23 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             if result.count > 0{
                 
          print(result)
-                self.getViewAllCommentsAPICall(tag: 0)
-            
-                let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
+        self.getViewAllCommentsAPICall(tag: 0)
+        let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
-                let isSuccess = responseVO.isSuccess
-                print("StatusCode:\(String(describing: isSuccess))")
+        let isSuccess = responseVO.isSuccess
+        print("StatusCode:\(String(describing: isSuccess))")
                 
-                if isSuccess == true{
+        if isSuccess == true{
                     
-                    let listResult = responseVO.result?.eventDetails
+        let listResult = responseVO.result?.eventDetails
                     
-                    let commentDetailsVO = responseVO.result?.commentDetails
+        let commentDetailsVO = responseVO.result?.commentDetails
                     
-                    if (listResult?.count)! > 0 {
+        if (listResult?.count)! > 0 {
                         
-                        self.norecordsFoundLbl.isHidden = true
-                        
-                        self.eventDetailsTableView.isHidden = false
-                        
-                        self.eventsDetailsArray = listResult!
+        self.norecordsFoundLbl.isHidden = true
+        self.eventDetailsTableView.isHidden = false
+        self.eventsDetailsArray = listResult!
                        
                        
                         
@@ -282,63 +245,64 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //                        }
                         
                         
-                        self.likesCount = self.eventsDetailsArray[0].likeCount!
-                        self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
+        self.likesCount = self.eventsDetailsArray[0].likeCount!
+        self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
                         
-                        self.isLike = self.eventsDetailsArray[0].isLike!
-                        self.isDisLike = self.eventsDetailsArray[0].isDisLike!
+        self.isLike = self.eventsDetailsArray[0].isLike!
+        self.isDisLike = self.eventsDetailsArray[0].isDisLike!
                         
-                        print(self.eventsDetailsArray)
+        print(self.eventsDetailsArray)
                         
-                        if self.isLike == 0{
+        if self.isLike == 0{
                             
-                            self.likeClick = false
+        self.likeClick = false
                             
-                        }
+        }
                             
-                        else {
+        else {
                             
-                            self.likeClick = true
+        self.likeClick = true
                             
-                        }
+    }
                         
-                        if self.isDisLike == 0{
+        if self.isDisLike == 0{
                             
-                            self.disLikeClick = false
+    self.disLikeClick = false
                             
-                        }
+        }
                             
-                        else {
+    else {
                             
-                            self.disLikeClick = true
+        self.disLikeClick = true
                             
-                        }
+        }
                         
-                         self.eventDetailsTableView.reloadData()
-                    }
-                    else {
+    self.eventDetailsTableView.reloadData()
+            
+        }
+    else {
                         
-                      //  self.norecordsFoundLbl.isHidden = false
+        //  self.norecordsFoundLbl.isHidden = false
                         
-                        self.eventDetailsTableView.isHidden = true
-                    }
-                   
-                }
-                else{
-                
-                    self.norecordsFoundLbl.isHidden = false
-                    
-                    self.eventDetailsTableView.isHidden = true
-                
-                }
-                
+        self.eventDetailsTableView.isHidden = true
             
             }
+                   
+        }
+    else{
+                
+    self.norecordsFoundLbl.isHidden = false
+                    
+    self.eventDetailsTableView.isHidden = true
+                
+    }
+                
             
-            else{
+    }
             
-            
-                print(" No result Found ")
+    else{
+        
+        print(" No result Found ")
             
             }
            
@@ -404,8 +368,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func getVideosAPICall(){
         
-      
-        
         let urlStr = GETPOSTBYEVENTIDAPI + String(eventID)
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS",urlStr)
@@ -418,7 +380,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     if result.count > 0 {
                         
-                    
                     let respVO:GetCategoriesResultVo = Mapper().map(JSONObject: result)!
                     
                     let isSuccess = respVO.isSuccess
@@ -434,7 +395,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                             
                         
                         let videoList = self.allCagegoryListArray?.videos
-                        
                         
                         var i = 0
                         
@@ -518,14 +478,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                     }
                     
-                    
             }
             
         }
         
         }) { (failureMessage) in
-            
-            
             
             
         }
@@ -555,9 +512,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        
-        
         if tableView == repliesTableView{
             
             if section == 0 {
@@ -571,8 +525,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             }
             
         }
-        
-
         
         if section == 0 {
 
@@ -609,8 +561,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
-        
         if tableView == repliesTableView {
             
             return UITableViewAutomaticDimension
@@ -631,9 +581,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 return 140
             }
-            
-            
-            
         
         }
             
@@ -663,16 +610,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             return UITableViewAutomaticDimension
             
         }
-        
-        
-        
-        
+    
         return UITableViewAutomaticDimension
         
 }
-    
-    
-    
+
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -712,15 +654,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         return nil
     }
-    
-    
-    
-    
-    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         
         
         if tableView == repliesTableView   {
@@ -781,9 +717,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             }
             
         }
-        
-        
-        
+            
         else {
 
         
@@ -791,10 +725,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
          
         if eventsDetailsArray.count > 0 {
             
-            let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
+        let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
             
-            
-        
         if indexPath.row == 0 {
         
         let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
@@ -840,15 +772,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
             
             
-            
-            
-            
-            
-            
-            
         if indexPath.row == 1{
                 
-               let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
+        let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
             youtubeCLDSSCell.videoTitleName.text = eventList.churchName
             
@@ -900,58 +826,49 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
         informationTableViewCell.symbolLbl.textColor =  UIColor.white
 
-                
 
-            }
+        }
 
+        if indexPath.row == 3 {
             
-            
-            
-            if indexPath.row == 3 {
-            
-                informationTableViewCell.infoLabel.text = "Church Name".localize()
+        informationTableViewCell.infoLabel.text = "Church Name".localize()
                 
-                informationTableViewCell.addressLabel.text =  eventList.churchName
+        informationTableViewCell.addressLabel.text =  eventList.churchName
             
             }
             
-            
-            if indexPath.row == 4 {
+        if indexPath.row == 4 {
                 
-                informationTableViewCell.infoLabel.text = "Event Name:".localize()
+        informationTableViewCell.infoLabel.text = "Event Name:".localize()
                 
-                informationTableViewCell.addressLabel.text =  eventList.title
+        informationTableViewCell.addressLabel.text =  eventList.title
                 
             }
             
             if indexPath.row == 5 {
                 
-                informationTableViewCell.infoLabel.text = "Contact Number".localize()
+        informationTableViewCell.infoLabel.text = "Contact Number".localize()
                 
-                informationTableViewCell.addressLabel.text =  eventList.contactNumber
+        informationTableViewCell.addressLabel.text =  eventList.contactNumber
                 
             }
-
             
-            if indexPath.row == 6 {
+        if indexPath.row == 6 {
                 
-                informationTableViewCell.infoLabel.text = "Start Date".localize()
+        informationTableViewCell.infoLabel.text = "Start Date".localize()
                 
-                let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
+        let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
                 
-                
-
-                
-                informationTableViewCell.addressLabel.text =  startAndEndDate1
+        informationTableViewCell.addressLabel.text =  startAndEndDate1
             }
             
-            if indexPath.row == 7 {
+        if indexPath.row == 7 {
                 
-                informationTableViewCell.infoLabel.text = "End Date".localize()
+        informationTableViewCell.infoLabel.text = "End Date".localize()
                 
-                let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+        let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
                 
-                informationTableViewCell.addressLabel.text =  startAndEndDate1
+        informationTableViewCell.addressLabel.text =  startAndEndDate1
                 
             }
             
@@ -960,8 +877,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
         }
-            
-        
             
         if indexPath.section == 1 {
             
@@ -1049,9 +964,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             let commentnameLblHeight = Int((commentedbyusername?.height(withConstrainedWidth: usersCommentsTableViewCell.usersNameLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
             
 
-           
-            
-            if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
+        if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
                 
                 
                 usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
@@ -1077,12 +990,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             print(usersCommentsTableViewCell.usersCommentLbl.numberOfLines)
     
-     
-            
             usersCommentsTableViewCell.usersLikeBtn.tag = indexPath.row
-            
             usersCommentsTableViewCell.usersDislikeBtn.tag = indexPath.row
-            
             usersCommentsTableViewCell.readMoreBtn.tag = indexPath.row
             usersCommentsTableViewCell.viewCommentsBtn.tag = indexPath.row
             usersCommentsTableViewCell.replyCommentBtn.tag = indexPath.row
@@ -1121,10 +1030,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             usersCommentsTableViewCell.replyCommentBtn.isHidden = false
             
-
-            
-            
-            
             return usersCommentsTableViewCell
             
             }
@@ -1135,8 +1040,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     func commentTWBtnClicked(){
-        
-        
         
         
     }
@@ -1167,7 +1070,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 usersLikeClick = true
                 UsersDisLikeClick = false
                 
-                
             }
                 
             else{
@@ -1177,8 +1079,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
             }
-            
-            
             
             let indexPath = IndexPath(item: sender.tag, section: 3)
             self.eventDetailsTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -1288,8 +1188,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if !(self.userID == 0) {
             
-            
-           
             let indexPath = IndexPath(item: sender.tag, section: 3)
             var commentIdNum = 0
             
@@ -1329,9 +1227,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {() -> Void in
                 
     self.repliesTableView.frame = CGRect(x: 0, y: 300, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 300)
-                
-       
-        
+            
                 
             }, completion: {(_ finished: Bool) -> Void in
              
@@ -1354,8 +1250,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func repliesCloseBtnClicked(){
         
-           
-      
             self.repliesTableView.endEditing(true)
             self.eventDetailsTableView.endEditing(true)
             
@@ -1364,9 +1258,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 self.repliesTableView.frame = CGRect(x: 0, y: self.eventDetailsTableView.frame.maxY, width: UIScreen.main.bounds.width, height: 0)
                 
-         
-            
-            
+                
         }, completion: {(_ finished: Bool) -> Void in
 
         })
@@ -1394,14 +1286,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
+            let indexPath3 = IndexPath(item: 0, section: 2)
                 
-                let indexPath3 = IndexPath(item: 0, section: 2)
-                
-                
-                self.commentString = ""
-                
+        self.commentString = ""
         self.eventDetailsTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
-                
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
             
         if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
@@ -1413,13 +1301,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                 })
                 
-
-                
-                
             })
             
             let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
-                
                 
                 self.deleteCommentAPICall(tag: sender.tag)
                 
@@ -1428,10 +1312,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             actionSheet.addAction(edit)
-            
             actionSheet.addAction(delete)
-            
-            
+        
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
                 (alert: UIAlertAction) -> Void in
             })
@@ -1450,8 +1332,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
             }
-    
-       
         
     }
     
@@ -1471,7 +1351,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let getViewAllCommentsAPI = GETEVENTBYIDAPI  + String(eventID) + "/" + String(self.userID)
         
-        
         print(getViewAllCommentsAPI)
         
         serviceController.getRequest(strURL: getViewAllCommentsAPI, success: { (result) in
@@ -1484,43 +1363,35 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if isSuccess == true {
                 
+            if responseVO.result != nil {
+                
+        if (responseVO.result?.commentDetails?.count)! > 0{
                         
-         
-                if responseVO.result != nil {
-                    
-                    
+            for commentDetails in (responseVO.result?.commentDetails!)!{
+            self.usersCommentsArray.append(commentDetails.comment!)
+            self.commentedByUserArray.append(commentDetails.commentByUser!)
+            self.commentingIdArray.append(commentDetails.id!)
                             
-                     if (responseVO.result?.commentDetails?.count)! > 0{
-                        
-                        for commentDetails in (responseVO.result?.commentDetails!)!{
-                        self.usersCommentsArray.append(commentDetails.comment!)
-                        self.commentedByUserArray.append(commentDetails.commentByUser!)
-                    self.commentingIdArray.append(commentDetails.id!)
+        //       self.parentCommentIdArray.append(commentDetails.parentCommentId!)
                             
-                 //       self.parentCommentIdArray.append(commentDetails.parentCommentId!)
+        self.repliesCountArray.append(commentDetails.replyCount!)
                             
-                            self.repliesCountArray.append(commentDetails.replyCount!)
-                            
-                    self.CommentIdArray.append(commentDetails.eventId!)
-                        }
+        self.CommentIdArray.append(commentDetails.eventId!)
+                }
                 
                     }
                     
-                    if (responseVO.result?.replyDetails?.count)! > 0{
-                        self.replyDetails = (responseVO.result?.replyDetails!)!
+        if (responseVO.result?.replyDetails?.count)! > 0{
+        self.replyDetails = (responseVO.result?.replyDetails!)!
                   
-                        
-                        
-                    }
             
+                    }
         
-                    self.eventDetailsTableView.reloadData()
-                    self.repliesTableView.reloadData()
-                    
+        self.eventDetailsTableView.reloadData()
+        self.repliesTableView.reloadData()
                     
                 }
            
-                
             }
             
         }) { (failureMessage) in
@@ -1529,8 +1400,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             print(failureMessage)
             
         }
-        
-        
         
         
     }
@@ -1542,8 +1411,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
        
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
             
-            
- 
         let deletePostID : Int  = self.CommentIdArray[tag]
           let deleteCommentID  : Int  = self.commentingIdArray[tag]
         
@@ -1569,7 +1436,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if isSuccess == true {
                 
-                
              self.comentId = 0
                 self.parentCommentId = 0
               self.getViewAllCommentsAPICall(tag: 0)
@@ -1577,10 +1443,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-            
-            
             self.eventDetailsTableView.reloadData()
-            
             
             
         }) { (failureMessage) in
@@ -1589,7 +1452,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         
         })
-    
     
 }
 
@@ -1607,7 +1469,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //MARK: -  UITexview Delegate methods
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        
         
         
         return true
@@ -1639,7 +1500,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         textView.resignFirstResponder()
         
-        
     //    self.eventDetailsTableView.isScrollEnabled = true
     //    self.repliesTableView.isScrollEnabled = true
 
@@ -1670,11 +1530,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if (newString.characters.count) > 0  {
                 
+            print(self.commentString)
                 
-                
-                print(self.commentString)
-                
-                commentsCell.sendBtn.isHidden = false
+            commentsCell.sendBtn.isHidden = false
                 
             }
                 
@@ -1738,16 +1596,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
-        
-        
         
         print("Back Button Clicked......")
         
@@ -1760,24 +1612,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        
+    
         print("Home Button Clicked......")
         
     }
@@ -1806,8 +1650,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             eventLikesDislikesCountAPiCall()
             
-            
-            
         }
             
         else {
@@ -1822,7 +1664,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             })
             
         }
-        
         
     }
     
@@ -1906,20 +1747,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         self.eventDetailsTableView.endEditing(true)
         
-    
-        
         if !(self.userID == 0) {
             
             
             self.comentId = self.comentId != 0 ? self.comentId : 0
-            
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
-            
-  
-            
-            
+    
            commentSendBtnAPIService(textComment: self.commentString)
-            
             
         }
             
@@ -1959,9 +1793,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         serviceController.postRequest(strURL: EVENTCOMMENTSAPISTR as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-     
-            
-            print("\(result)")
+                 print("\(result)")
             
             let respVO:AddUpdateEventCommentsInfoVO = Mapper().map(JSONObject: result)!
             print("responseString = \(respVO)")
@@ -1984,7 +1816,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 self.parentCommentId = 0
                 
                 self.getViewAllCommentsAPICall(tag: 0)
-         
                 
             }
                 
@@ -1995,19 +1826,14 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 return
                 
-                
-                
             }
             
             
         }) { (failureMessage) in
             
             
-            
         }
     }
-    
-    
     
     
 }
@@ -2050,17 +1876,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         
-        
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-        
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
-        
-        
-        
         cell.nameLabel.text = title
     
-        
-        
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){

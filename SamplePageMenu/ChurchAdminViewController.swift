@@ -18,46 +18,29 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 //MARK: -  variable declaration
     
     var churchAdminArray:[GetAllChurchAdminsResultVo] = Array<GetAllChurchAdminsResultVo>()
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-    
     var appVersion          : String = ""
-    
     var showNav = false
-
-    
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
     var churchAdminNameArray = Array<String>()
     var mobileNumberArray = Array<String>()
     var emailArray = Array<String>()
-
     var churchAdmin = Array<String>()
-    
-    
-    
-    
+
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     var churchName1 : String = ""
-
     var isSubscribed = Int()
     var subscribeClick = 0
     var subscribe : Bool = true
-
     var churchId = 0
     var authorId = 0
-    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
-    
     var searchController: UISearchController!
-    
     var searchActive : Bool = false
-    
     var filteredData: [String]!
-    
     var filtered:[GetAllChurchAdminsResultVo] = []
     
   //MARK: -  view Did Load
@@ -69,7 +52,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         totalPages = 0
         searchBar.showsCancelButton = false
         churchAdminArray.removeAll()
-        
         self.getAdminDetailsAPICall(string: searchBar.text!)
 
         churchAdminTableView.rowHeight = UITableViewAutomaticDimension
@@ -78,27 +60,18 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
-        
-     
         self.searchLabel.isHidden = true
-        
         searchBar = UISearchBar()
         searchBar.sizeToFit()
-        
         searchBar.tintColor = UIColor.black
-        
         searchBar.delegate = self
-        
         searchBar.placeholder = " "
         searchBar.placeholder = "Search by Author Name".localize()
-        
         searchBar.showsCancelButton = false
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        
         searchController.dimsBackgroundDuringPresentation = false
-        
         navigationItem.titleView = searchBar
         self.searchController.searchBar.delegate = self
         
@@ -135,7 +108,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         self.searchBar.showsCancelButton = true
         
         searchActive = false
-        
         PageIndex = 1
         totalPages = 0
         self.churchAdminArray.removeAll()
@@ -270,7 +242,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         cell.layer.cornerRadius = 5
         
         let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
-
         
         isSubscribed = listStr.isSubscribed!
         
@@ -319,7 +290,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     }
         
     let imgUrl = listStr.userImage
-        
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
         

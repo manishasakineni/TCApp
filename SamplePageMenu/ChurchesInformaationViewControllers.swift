@@ -18,25 +18,16 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 //MARK: -  variable declaration
     
     var churchImageArrayString = ""
-
     var appVersion          : String = ""
-
     var pageMenu : CAPSPageMenu?
-
     var allOffersVC : InfoChurchViewControllers?
     var eventInfoVC : EventViewController?
     var authorPostsVC  : AuthorPostsViewController?
-    
     private var controllersArray: [UIViewController] = []
-    
     var pasterUserId          : Int = 0
-
     var churchID:Int = 0
-    
     var nameStr          : String = ""
-   var isFromChruch = false
-    
-    
+    var isFromChruch = false
     var isFromNotification = false
     var pageName = ""
     
@@ -49,14 +40,11 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
        createPageMenu()
         
-        
-        
        
            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
         
     
     }
@@ -69,21 +57,17 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-
-        
-        
     }
+    
    //MARK: - create Page Menu
     
     private func createPageMenu() {
-        
         
         allOffersVC = InfoChurchViewControllers(nibName: "InfoChurchViewControllers", bundle: nil)
         allOffersVC?.title = "Information".localize()
         allOffersVC?.delegate  = self
         allOffersVC?.churchID = churchID
         allOffersVC?.churchName = nameStr
-
     
         eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as? EventViewController
         eventInfoVC?.title = "Events".localize()
@@ -91,16 +75,12 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         eventInfoVC?.pasterUserId = pasterUserId
         eventInfoVC?.churchID = churchID
         eventInfoVC?.churcgname = nameStr
-
-
         
         authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
         authorPostsVC?.title = "Posts".localize()
         authorPostsVC?.isFromChruch = isFromChruch
         authorPostsVC?.churchID = churchID
         
-        
-
         
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
@@ -133,7 +113,6 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         pageMenu?.delegate = self
         self.addChildViewController(pageMenu!)
-        
         view.addSubview((pageMenu?.view)!)
 
         if(isFromNotification == true){
@@ -169,15 +148,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
-                
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        
-
         
     let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         
@@ -192,11 +166,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -205,16 +175,13 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
+            
         
         print("Home Button Clicked......")
         
     }
 
-   // churchID
-    
+   
     
     
 }

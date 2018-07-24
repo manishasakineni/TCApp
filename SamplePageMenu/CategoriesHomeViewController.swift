@@ -18,16 +18,13 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
    //MARK: -  variable declaration
     
     var churchAdminArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var categorieImageArray = Array<UIImage>()
     var categorieNamesArray = Array<String>()
     var pageMenu : CAPSPageMenu?
     var bibleString = Bool()
     var bibleInt = Int()
     var appVersion          : String = ""
-    
     var loginStatusString    =   String()
     var showNav = false
     var filteredData: [String]!
@@ -58,16 +55,11 @@ override func viewDidLoad() {
             
     searchBar = UISearchBar()
     searchBar.sizeToFit()
-            
     searchBar.delegate = self
-            
     self.recordsLabel.isHidden = true
-
     searchController = UISearchController(searchResultsController: nil)
     searchController.searchResultsUpdater = self
-            
     searchController.dimsBackgroundDuringPresentation = false
-            
     searchBar.placeholder = "Search by category Name".localize()
             
     self.searchController.searchBar.delegate = self
@@ -123,16 +115,13 @@ func getAllCategoriesAPICall(){
     print(result)
             
     let respVO:GetAllCategoriesVo = Mapper().map(JSONObject: result)!
-            
     let isSuccess = respVO.isSuccess
     print("StatusCode:\(String(describing: isSuccess))")
-            
             
     if isSuccess == true {
                 
                 
     let listArr = respVO.listResult!
-                
                 
     for eachArray in listArr{
                     

@@ -19,15 +19,12 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
    var monthString = ""
    var yearString = ""
-    var authorID : Int = 0
-    
-    var todayDate = NSDate()
-    
-      var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
+   var authorID : Int = 0
+   var todayDate = NSDate()
+   var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
-    
     var month = String()
     var year = String()
     
@@ -35,29 +32,14 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     var isDateExists = false
     var currentMonthDataArray = Array<String>()
     var currentMonth = 0
-
-    
-    
     var authorDetailsArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
-    
-    
-   // var authorDetailsCountArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
-
     var delegate: authorChangeSubtitleOfIndexDelegate?
-    
     var eventDateArray = Array<String>()
-    
     var eventsCountsArray = Array<Int>()
-    
-    
-    
-  
     var eventTitleArray = Array<String>()
     var eventStartDateArray = Array<String>()
     var eventEndDateArray = Array<String>()
 
-    
-    
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
@@ -123,11 +105,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
    //     self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
         
         calendarColor()
-
         
         authorEventsTableView.delegate = self
         authorEventsTableView.dataSource = self
-        
         
         calendar.delegate = self
         calendar.dataSource = self
@@ -216,31 +196,25 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if result.count > 0 {
                 
-                let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
+        let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
                 
+        let isSuccess = responseVO.isSuccess
                 
-                let isSuccess = responseVO.isSuccess
-                
-                
-                if isSuccess == true{
+        if isSuccess == true{
                     
-                    self.eventDateArray.removeAll()
-                    self.eventsCountsArray.removeAll()
+        self.eventDateArray.removeAll()
+       self.eventsCountsArray.removeAll()
+        self.authorDetailsArray = responseVO.listResult!
                     
-                    self.authorDetailsArray = responseVO.listResult!
-                    
-                    
-                    for authorDetailsCount in responseVO.listResult! {
+        for authorDetailsCount in responseVO.listResult! {
                         
-                        let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
+            let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
                         
-                        self.eventDateArray.append(dateString)
-                        self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
-                        
-                        
+            self.eventDateArray.append(dateString)
+            self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
+            
                     }
-                    
-                    
+            
                     self.calendar.reloadData()
                     self.authorEventsTableView.reloadData()
                 }
@@ -271,7 +245,6 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         let dateString = self.dateFormatter2.string(from: date)
         
-        
         if self.eventDateArray.contains(dateString) {
             
             var event = ""
@@ -287,12 +260,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return nil
     }
     
-    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
-        
         print("gdfgdfgdfgdfg",calendar.currentPage)
-        
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
@@ -328,8 +298,6 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //   print(monthString,yearString)
         
-        
-        
         if(appDelegate.checkInternetConnectivity()){
             
             let athorEventsAPIString = GETAUTHOREVENTSBYMONTHYEAR  + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
@@ -340,16 +308,12 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 print(result)
                 
-                if result.count > 0 {
+            if result.count > 0 {
                     
-                    let responseVO : AuthorEventsResultVO = Mapper().map(JSONObject: result)!
+            let responseVO : AuthorEventsResultVO = Mapper().map(JSONObject: result)!
+            let isSuccess = responseVO.isSuccess
                     
-                    
-                    let isSuccess = responseVO.isSuccess
-                    
-                    
-                    
-                    if isSuccess == true{
+        if isSuccess == true{
                         
                         
                      //   self.authorDetailsArray = responseVO.listResult!
@@ -517,67 +481,67 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
                     DispatchQueue.main.async()
                         {
                             
-                            print("result:\(result)")
+        print("result:\(result)")
                             
                             
-                            let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
+        let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
                             
-                            let isSuccess = respVO.isSuccess
-                            print("StatusCode:\(String(describing: isSuccess))")
+        let isSuccess = respVO.isSuccess
+        print("StatusCode:\(String(describing: isSuccess))")
                             
-                            self.eventTitleArray.removeAll()
-                            self.eventStartDateArray.removeAll()
-                            self.eventEndDateArray.removeAll()
+        self.eventTitleArray.removeAll()
+        self.eventStartDateArray.removeAll()
+        self.eventEndDateArray.removeAll()
                             
-                            if isSuccess == true {
+        if isSuccess == true {
                                 
-                                let successMsg = respVO.endUserMessage
+        let successMsg = respVO.endUserMessage
                                 
                                 
-                                for eventsTitleList in respVO.listResult!{
+      for eventsTitleList in respVO.listResult!{
                                     
-                                    let eventTitle = eventsTitleList.eventTitle
-                                    self.eventTitleArray.append(eventTitle!)
+            let eventTitle = eventsTitleList.eventTitle
+            self.eventTitleArray.append(eventTitle!)
                                     
-                                    let eventStartDate = eventsTitleList.startDate
-                                    self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventStartDate!))
+            let eventStartDate = eventsTitleList.startDate
+            self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventStartDate!))
+        
+            let eventEndDate = eventsTitleList.endDate
+            self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventEndDate!))
                                     
-                                    let eventEndDate = eventsTitleList.endDate
-                                    self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString:eventEndDate!))
                                     
+            print( self.eventEndDateArray)
                                     
-                                    print( self.eventEndDateArray)
-                                    
-                                }
+        }
                                 
-                                print(self.eventTitleArray)
-                                print(self.eventStartDateArray)
-                                print( self.eventEndDateArray)
+            print(self.eventTitleArray)
+            print(self.eventStartDateArray)
+            print( self.eventEndDateArray)
                                 
-                                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
                                 
-                                var params : Dictionary = Dictionary<String,Any>()
-                                params.updateValue(self.eventTitleArray, forKey: selectedDateString)
-                                params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
-                                params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
+            var params : Dictionary = Dictionary<String,Any>()
+            params.updateValue(self.eventTitleArray, forKey: selectedDateString)
+            params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
+            params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
                                 
-                                print(params)
+            print(params)
                                 
-                                reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
-                                reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
-                                reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
+        reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
+        reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
+        reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
                                 
-                                reOrderPopOverVC.eventsDateString = selectedDateString
-                                self.addChildViewController(reOrderPopOverVC)
-                                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-                                self.view.addSubview(reOrderPopOverVC.view)
-                                reOrderPopOverVC.didMove(toParentViewController: self)
+        reOrderPopOverVC.eventsDateString = selectedDateString
+        self.addChildViewController(reOrderPopOverVC)
+        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(reOrderPopOverVC.view)
+        reOrderPopOverVC.didMove(toParentViewController: self)
                                 
-                                self.calendar.reloadData()
+        self.calendar.reloadData()
                                 
-                            }
+    }
                             
-                    }
+}
                 }, failure:  {(error) in
                     
                     print(error)

@@ -16,25 +16,15 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
      //MARK:- variable declaration
     
     var bibleCArr = Array<Int>()
-    
     var bibleChaptersArr:[BibleChapterVo] = Array<BibleChapterVo>()
-    
     var bibleVerseArr:[BibleVerseVo] = Array<BibleVerseVo>()
-    
     var bibleVerseCArr = Array<String>()
-    
     var versDetailArray = Array<String>()
-    
     var verseCountStr:Int = 0
-    
     var chapterCount:Int = 0
-    
     var verseStringCount = Array<BibleResultVo>()
-    
     var backTitleStr:String = ""
-    
     var appVersion:String = ""
-    
     private var activityViewController : UIActivityViewController!
     private var isPopoverPresented  : Bool = false
 
@@ -112,15 +102,15 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleVerseTableViewCell", for: indexPath) as! BibleVerseTableViewCell
         
-        
-        //        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        
-                let booksList = self.verseStringCount[indexPath.row]
-        
-//        cell.verseLabel.text?.height(withConstrainedWidth: 100, font: .font)
+        let booksList = self.verseStringCount[indexPath.row]
         
         cell.verseLabel.text = "\(indexPath.row + 1)" + "." + booksList.Verse!
         
+          cell.selectionStyle = .none
+ 
+        
+//        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+//        cell.verseLabel.text?.height(withConstrainedWidth: 100, font: .font)
 //        cell.shareBrn.tag = indexPath.row
 //        
 //        cell.shareBrn.addTarget(self, action: #selector(self.shareBtnClicked), for: .touchUpInside)
@@ -128,10 +118,6 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
 //        cell.bibleBookLabel.text = self.versDetailArray[indexPath.row]
 //        
 //        cell.chapterCountLabel.text = "\(bibleCArr[indexPath.row])"
-        
-        
-        cell.selectionStyle = .none
-        
         
         
         
@@ -148,10 +134,11 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         if let newCell : BibleVerseTableViewCell = verseTableView.cellForRow(at: indexPath) as? BibleVerseTableViewCell {
             
             
-//            let normalString = newCell.verseLabel
+
             
            activityViewController =  UIActivityViewController(activityItems: [MyStringItemSource()], applicationActivities: nil)
-            
+ 
+//            let normalString = newCell.verseLabel
 //            activityViewController = UIActivityViewController.init(activityItems: [normalString!], applicationActivities: nil)
             
             let subject = "Telugu Churches"
@@ -182,8 +169,6 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
 
     func bibleBookAPICall(){
         
-        
-        
         let strUrl = BIBLEAPITELUGUURL
         
         print(strUrl)
@@ -194,7 +179,6 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
                     print(result)
                     
                     let respVO:BibleBookVo = Mapper().map(JSONObject: result)!
-                    
                     let bookResp = respVO.Book
                     
                     print("bookResp:\(String(describing: bookResp?.count))")
@@ -235,23 +219,11 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
                                 self.bibleVerseCArr.append(objjj!)
                             }
                             
-                            
                         }
-                        
-                        
                         
                     }
                     
                     self.verseTableView.reloadData()
-                    
-                    //                            for (index, image) in self.bannerImageArr.enumerated() {
-                    
-                    //
-                    //
-                    //                            }
-                    //
-                    
-                    
                     
             }
             
@@ -272,15 +244,11 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         UserDefaults.standard.set("1", forKey: "1")
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
         
-        
         self.navigationController?.popViewController(animated: true)
-        
         
         print("Back Button Clicked......")
         
@@ -292,18 +260,12 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
         var viewControllers = navigationController?.viewControllers
-        
-        viewControllers?.removeLast(1) // views to pop
-        
+        viewControllers?.removeLast(1)
         navigationController?.setViewControllers(viewControllers!, animated: true)
         
 //        self.navigationController?.popViewController(animated: true)
@@ -312,9 +274,7 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
 //        
 //        appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
+                
         print("Home Button Clicked......")
         
     }

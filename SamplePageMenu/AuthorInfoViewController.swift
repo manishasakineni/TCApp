@@ -19,18 +19,14 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
 
     
     var delegate: authorChangeSubtitleOfIndexDelegate?
-    
     var authorDetailsArray  : [AuthorDetailsListResultVO] = Array<AuthorDetailsListResultVO>()
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var userId :  Int = 0
     var uid : Int = 0
     var authorID : Int = 0
     var isSubscribed = 0
     var subscribeClick = 0
     var subscribe : Bool = true
-    
     var loginVC = LoginViewController()
     
     //MARK: -   View DidLoad
@@ -96,70 +92,52 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
         let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(kId)
         
-        
         serviceController.getRequest(strURL: authorDetailsAPI, success: { (result) in
             
-            
             if result.count > 0 {
-                
                 
                 print(result)
                 
                 let respVO:AuthorDetailsVO = Mapper().map(JSONObject: result)!
                 
-                
                 let isSuccess = respVO.isSuccess
-                
                 
                 if isSuccess == true {
                     
-                    let  listResult = respVO.listResult!
+            let  listResult = respVO.listResult!
                     
-                    if listResult.count > 0 {
+            if listResult.count > 0 {
                         
-                        self.norecordsfoundLbl.isHidden = true
+                self.norecordsfoundLbl.isHidden = true
+                self.authorInfoTableView.isHidden = false
+                self.authorDetailsArray = respVO.listResult!
                         
-                         self.authorInfoTableView.isHidden = false
-                        
-                        self.authorDetailsArray = respVO.listResult!
-                        
-                         self.isSubscribed = self.authorDetailsArray[0].isSubscribed!
-                        
-                        self.authorInfoTableView.reloadData()
+                self.isSubscribed = self.authorDetailsArray[0].isSubscribed!
+                self.authorInfoTableView.reloadData()
                     }
-                    else {
+            else {
                         
-                        self.norecordsfoundLbl.isHidden = false
-                        
-                        self.authorInfoTableView.isHidden = true
+            self.norecordsfoundLbl.isHidden = false
+            self.authorInfoTableView.isHidden = true
                     }
                     
-                  
-                
                 }
                 else {
                     
-                    self.norecordsfoundLbl.isHidden = false
-                    
-                    self.authorInfoTableView.isHidden = true
+            self.norecordsfoundLbl.isHidden = false
+            self.authorInfoTableView.isHidden = true
                 }
                 
-               
-                
-               
             }
             
             else{
-            
             
             }
             
             
      }) { (failureMassege) in
             
-            
-            
-            
+        
         }
         
         
@@ -200,7 +178,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-        
         if indexPath.section == 0 {
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
@@ -222,9 +199,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             return UITableViewAutomaticDimension
             
         }
-            
-       
-        
         
         return UITableViewAutomaticDimension
     }
@@ -241,13 +215,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         if(authorDetailsArray.count > 0){
             let authorDetails:AuthorDetailsListResultVO = authorDetailsArray[0]
             
-            
-            
             if (indexPath.section == 0) {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
-                
-                
                 
                 
                var  churchImageLogoString = authorDetails.userImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
@@ -261,13 +231,13 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     if let url = URL(string:churchImageLogoString) {
                         
                         
-                            cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                         
                         
                       }
                     else {
                         
-                            cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+                    cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
                         }
                                     
                     
@@ -283,18 +253,13 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
             else if (indexPath.section == 1){
                 
-                
-                
                 let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
                 
                 if indexPath.row == 0 {
                     
-                    
-                    
                     cell2.infoLabel.text = "Author Name".localize()
                     
                     cell2.addressLabel.text = authorDetails.authorName
-                    
                     
                     
                 } else if indexPath.row == 1 {
@@ -326,8 +291,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                      cell2.addressLabel.text = ""
                     }
-               
-                    
                     
                 }
                 
@@ -338,8 +301,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell2.addressLabel.text = authorDetails.gender
                     
                 }
-                
-                
                 return cell2
                 
             }
@@ -348,8 +309,6 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             else if (indexPath.section == 2){
                 
                 let cell3 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
-                
-                
                 
                 if indexPath.row == 0 {
                     
@@ -361,9 +320,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell3.infoLabel.text = "Church Registration Number".localize()
                     
-                    
                     cell3.addressLabel.text =  authorDetails.registrationNumber
-                    
                     
                     
                 } else if indexPath.row == 2 {
@@ -373,16 +330,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell3.addressLabel.text =  authorDetails.stateName
                     
                     
-                    
-                    
                 }else if indexPath.row == 3 {
                     
                     cell3.infoLabel.text = "District".localize()
                     
                     
                     cell3.addressLabel.text = authorDetails.districtName
-                    
-                    
                     
                 }else if indexPath.row == 4 {
                     
@@ -391,17 +344,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell3.addressLabel.text = authorDetails.mandalName
                     
-                    
-                    
                 }
                 else if indexPath.row == 5 {
                     
                     cell3.infoLabel.text = "Village".localize()
                     
-                    
                     cell3.addressLabel.text = authorDetails.villageName
-                    
-                    
                     
                 }
                 else if indexPath.row == 6 {
@@ -427,26 +375,16 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell3.addressLabel.text = authorDetails.countryName
                     
-                    
-                    
-                }
-                
-                
+                    }
                 
                 return cell3
                 
                 
             }
             
-            
-            
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
             
             //    cell3.aboutLabel.text = descriptionString
-            
-            
-            
-            
             
             return cell3
             
@@ -455,14 +393,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         return UITableViewCell()
         
         
-        
     }
-
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-       
         
         
         let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
@@ -557,17 +490,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-
-    
     //MARK: -   SubScribe Button Clicked
 
     func subscribeBtnClicked(sender: UIButton){
-
-        
         
         if self.userId != 0 {
-            
-            
             
             let paramsDict = [ "isSubscribed": isSubscribed,
                                "userId": self.userId,
@@ -592,11 +519,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 if isSuccess == true {
                     
                     let successMsg = respVO.endUserMessage
-                    
-                    
                     self.isSubscribed = (respVO.result?.isSubscribed!)!
-                    
-                    
                     
                     self.authorInfoTableView.reloadData()
                     

@@ -21,62 +21,43 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
    
     //MARK: -  variable declaration
     
-     var mediaTypeID : Int = 0
+    var mediaTypeID : Int = 0
     var PageIndex = 1
     var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
-    
     var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
-    
     var videoResults : Array<PostByAutorIdResultInfoVO> = Array()
-    
     var documentResults : Array<PostByAutorIdResultInfoVO> = Array()
-    
     var authorID : Int = 0
     var churchID : Int = 0
     var eventID = Int()
-    
     var loginVC = LoginViewController()
-    
     var eventChurchName = ""
-    
     var eventName = ""
-    
     var catgoryID:Int = 0
     var churchName1 : String = ""
     var navigationStr = String()
     var isFromChruch = false
     
     var pageMenu : CAPSPageMenu?
-    
-    
     var eventImageArrayString = ""
-    
     var audioEventDetailsVC : authorAudioaViewController?
     var vedioDetailsVC : authorVedioViewController?
     var imagesEventDetailsVC : authorImagesViewController?
     var documentEventDetailsVC : authorDocumentsViewController?
-
-    
-    
     private var controllersArray: [UIViewController] = []
     var authorName : String = ""
     var nameStr          : String = ""
-    
     var audioArray = Array<Any>()
     
      //MARK: -   view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         if(isFromChruch == false){
             
-            
             authorAPIService()
             
-            
-           
             
         }else{
             

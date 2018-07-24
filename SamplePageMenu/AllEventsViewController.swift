@@ -13,7 +13,6 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
 
     @IBOutlet weak var allEventTableView: UITableView!
     
-    
     @IBOutlet weak var noRecordsLbl: UILabel!
     
     @IBOutlet weak var searchBarText: UISearchBar!
@@ -23,21 +22,13 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
 
     let searchController = UISearchController(searchResultsController: nil)
-    
     var searchActive : Bool = false
-    
     var isSearch: Bool = false
-    
     var filteredData: [String]!
-    
     var filtered:[GetEventInfoByChurchIdMonthYearResultVo] = []
-    
-     var delegate: eventinfoSubtitleOfIndexDelegate?
-    
-     var null = NSNull()
-    
+    var delegate: eventinfoSubtitleOfIndexDelegate?
+    var null = NSNull()
     var listResultArray = Array<Any>()
-
     var previousMonthString = "0"
     var isDateExists = false
     var currentMonthDataArray = Array<String>()
@@ -76,6 +67,7 @@ override func viewDidLoad() {
     GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
     
 self.resultSearchController = ({
+    
     let controller = UISearchController(searchResultsController: nil)
     controller.searchResultsUpdater = self
     controller.dimsBackgroundDuringPresentation = false
@@ -158,11 +150,7 @@ func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
     self.churchIdMonthYearArray.removeAll()
     self.GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
-    
-    
-    
 
-    
 
     }
     
@@ -202,8 +190,6 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-     
-     
         
         // The user clicked the [X] button or otherwise cleared the text.
         
@@ -215,9 +201,6 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
     }
     
-    
-  
-   
     
   //MARK: - Get Event Info By Church Id Month Year API Service
     
@@ -253,9 +236,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             
     let respVO:GetEventInfoByChurchIdMonthYearVo = Mapper().map(JSONObject: result)!
             
-            
     let isSuccess = respVO.isSuccess
-            
     let listArr = respVO.listResult
         
     if isSuccess == true {
@@ -264,12 +245,9 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     if (listArr?.count)! > 0 {
                     
         self.allEventTableView.isHidden = false
-                    
         self.noRecordsLbl.isHidden = true
-                    
         self.listResultArray = respVO.listResult!
-                    
-                    
+        
         for church in respVO.listResult!{
                         
         self.churchIdMonthYearArray.append(church)
@@ -278,7 +256,6 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
                     
                     
     let pageCout  = (respVO.totalRecords)! / 10
-                    
     let remander = (respVO.totalRecords)! % 10
                     
     self.totalPages = pageCout
@@ -428,15 +405,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
         
     let imgUrl = churchIdMonthYearList.eventImage
-                
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-                
     print("filteredUrlString:\(newString)")
                 
     if newString != nil {
-                    
     let url = URL(string:newString!)
-                    
     let dataImg = try? Data(contentsOf: url!)
                     
     if dataImg != nil {
@@ -504,7 +477,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
         
     let imgUrl = churchIdMonthYearList.eventImage
-                    
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
                     
     print("filteredUrlString:\(newString)")
@@ -512,8 +484,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     if newString != nil {
                         
     let url = URL(string:newString!)
-                        
-                        
     let dataImg = try? Data(contentsOf: url!)
                         
     if dataImg != nil {
@@ -564,26 +534,6 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
         }
         
     }
-    
-    
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
-//        
-//        
-//        let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
-//        
-//        eventDetailsViewController.eventID = churchIdMonthYearList.id!
-//        eventDetailsViewController.eventChurchName = churchIdMonthYearList.churchName!
-//        eventDetailsViewController.eventName = churchIdMonthYearList.title!
-//        
-//        eventDetailsViewController.catgoryID = churchIdMonthYearList.churchId!
-//       // eventDetailsViewController.navigationStr = "navigationStr"
-//        
-//        self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
-//        
-//    }
     
     
     

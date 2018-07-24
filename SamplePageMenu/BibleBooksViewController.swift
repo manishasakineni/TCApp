@@ -16,31 +16,20 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
      //MARK:- variable declaration
     
     var catgoryName:String = ""
-    
     var appVersion:String = ""
-    
     var showNav = false
-    
     var LangText:String = ""
-    
     var strUrl:String = ""
-    
     let cellReuseIdentifier = "cell"
-    
     var bibleCArr = Array<Int>()
-    
     var verseCArr = Array<Int>()
-    
     var verseDetailArray = Array<String>()
     
     //    var verArray = Array<String>()
     
     var verArray:[BibleResultVo] = Array<BibleResultVo>()
-    
     var verseArrCount = Array<Int>()
-    
     var bibleVerseCArr = Array<String>()
-    
     var bibleChaptersArr:[BibleChapterVo] = Array<BibleChapterVo>()
     
     var bookList = ["Genesis", "Exodus", "Leviticus", "Numbers","Deuteronomy","Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",  "Ecclesiastes","Song of Songs", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai",  "Zechariah",  "Malachi",  "Matthew", "Mark", "Luke",  "John",  "Acts","Romans",  "1 Corinthians","2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John",  "2 John","3 John", "Jude", "Revelation"]
@@ -60,9 +49,9 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         self.bibleBookAPICall()
         
-//        self.bibleBookVerseAPICall()
+        //    self.bibleBookVerseAPICall()
         
-        //        self.booksTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        //   self.booksTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
         self.booksTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
@@ -196,13 +185,9 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         let chapterViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleChaptersViewController") as! BibleChaptersViewController
         
         chapterViewController.chapterCountStr = self.bibleCArr[indexPath.row]
-        
         chapterViewController.indexCount = indexPath.row
-        
         chapterViewController.verseCountStr = self.verseCArr
-        
         chapterViewController.vDetailArray = self.verseDetailArray
-        
         chapterViewController.verseStringCount = self.verseStringCount
         
         chapterViewController.LangText = self.LangText
@@ -217,8 +202,6 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
             
             chapterViewController.backTitleStr = self.booksArray[indexPath.row]
         }
-        
-        
         
         self.navigationController?.pushViewController(chapterViewController, animated: true)
         
@@ -284,60 +267,16 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
                         }
                         
                         
-                        
-                        
-                        
-                        
-                        
                         self.bibleCArr.append(countt!)
-                        
-                        //print("Count:\(countt)")
                         
                         self.bibleChaptersArr.append(eachArray)
                         i = i + 1
-                        
-                        //print(self.bibleChaptersArr.count)
+      
                         
                     }
                     
-//                    print(self.chaptersCount)
-//                    print(self.versesCount)
-//                    
-//                    print(self.verseStringCount)
-                    //                    for eacObj in self.bibleChaptersArr {
-                    //
-                    //                        let chapterObj = eacObj.Chapter
-                    //
-                    //                        for verseObj in chapterObj! {
-                    //
-                    //                            let countt = verseObj.Verse?.count
-                    //
-                    //                            self.verseArrCount.append(countt!)
-                    //
-                    //                            print("Count:\(countt)")
-                    //
-                    //                            let oj = verseObj.Verse
-                    //
-                    //                            for verseList in oj! {
-                    //
-                    //                                let objjj = verseList.Verse
-                    //
-                    //                                self.bibleVerseCArr.append(objjj!)
-                    //                            }
-                    //
-                    //
-                    //                        }
-                    //                    }
                     
                     self.booksTableView.reloadData()
-                    
-                    //                            for (index, image) in self.bannerImageArr.enumerated() {
-                    
-                    //
-                    //
-                    //                            }
-                    //
-                    
                     
                     
             }
@@ -364,7 +303,6 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         serviceController.getRequest(strURL:self.strUrl, success:{(result) in
             DispatchQueue.main.async()
                 {
-                    //                    print(result)
                     
                     MBProgressHUD.hide(for:appDelegate.window,animated:true)
                     
@@ -404,9 +342,6 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kuserIdKey)
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         
@@ -426,10 +361,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
-        UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
+        UserDefaults.standard.removeObject(forKey: "1")        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         UserDefaults.standard.set("1", forKey: "1")

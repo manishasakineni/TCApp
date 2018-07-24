@@ -15,9 +15,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
      //MARK:- variable declaration
     
     var allitemsArray:[AddressInfoResultVO] = Array<AddressInfoResultVO>()
-    
     var filtered:[AddressInfoResultVO] = []
-
     var editaddress:[EditAddressInfoResultVO] = []
     
      var showNav = false
@@ -42,9 +40,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         
        // addressAPICall()
+      // Do any additional setup after loading the view.
         
-    
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +57,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         addressAPICall()
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-        
-        
         
     }
 
@@ -111,8 +106,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.addresslineLbl.text = listStr.addressLine1! + ", " + listStr.addressLine2!
         cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
      
-        
-        
       //  cell.pincodeLbl.text = "\(listStr.pinCode!)"
         
         if listStr.pinCode != nil {
@@ -128,8 +121,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
         
        ///////  delete  ///////
-        
-
         
         cell.deleteBtn.addTarget(self, action: #selector(self.deleteaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
         cell.deleteBtn.tag = indexPath.row
@@ -147,15 +138,11 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         return cell
         
-        
-        
     }
   
     //MARK:- add New Address Action
 
     @IBAction func addNewAddressAction(_ sender: Any) {
-        
-
         
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
         
@@ -184,8 +171,6 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         UserDefaults.standard.synchronize()
         
         self.navigationController?.popViewController(animated: true)
-        
-        
         
         print("Back Button Clicked......")
         
@@ -280,14 +265,10 @@ func  editaddressClicked( sender:UIGestureRecognizer){
     
 func deleteaddressAPICall(_ sender : UIButton){
         
-  
-    
     
     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
         
         self.deleteAddressForIndex(sender.tag)
-        
-        
         
         
     })
@@ -298,7 +279,6 @@ func deleteaddressAPICall(_ sender : UIButton){
         if(filtered.count > selectedIndex){
             
             let deleteAddressInfo  = filtered[selectedIndex]
-            
             
             let paramsDict = [
                 "id": deleteAddressInfo.id!,
@@ -350,23 +330,17 @@ func deleteaddressAPICall(_ sender : UIButton){
     
 func editaddressAPICall( _ id : Int){
     
-
-    
     serviceController.getRequest(strURL: EDITADDRESSAPI + "\(id)" , success: { (result) in
 
-        
     let respVO:EditAddressInfoVO = Mapper().map(JSONObject: result)!
                 
     let isSuccess = respVO.isSuccess
         
         print("StatusCode:\(String(describing: isSuccess))")
                 
-                
         if isSuccess == true {
                     
             let listArr = respVO.listResult!
-                    
-      
             
             let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
             
@@ -376,7 +350,6 @@ func editaddressAPICall( _ id : Int){
                     
                 }
                     
-                
                 
             }) { (failureMessage) in
                 

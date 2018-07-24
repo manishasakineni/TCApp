@@ -18,31 +18,22 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     //MARK: -  variable declaration
  
-   
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
-    
     var searchController: UISearchController!
-    
     var searchActive : Bool = false
-    
     var filteredData: [String]!
     var bibleInt = Int()
-
     var filtered:[ChurchDetailsListResultVO] = []
-     var churchID            : Int = 0
+    var churchID            : Int = 0
     var appVersion          : String = ""
-    
     var sortbyColumnName : String = ""
     var loginVC = LoginViewController()
-
     var data = Array<String>()
     var showNav = false
 
     var searchTextStr:String = ""
-    
     var listResultArray = Array<Any>()
     var churchNamesArray:[ChurchDetailsListResultVO] = Array<ChurchDetailsListResultVO>()
     var churchIDArray = Array<Int>()
@@ -53,6 +44,15 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var churchImageArray = Array<String>()
     var churchArray = Array<String>()
     
+    
+    var userId = Int()
+    var uid : Int = 0
+    var PageIndex = 1
+    var totalPages : Int? = 0
+    var totalRecords : Int? = 0
+    var isSubscribed = Int()
+    var subscribe : Bool = true
+    
     var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
     
     var AreanamesArray = ["Kukatpally","Uppal","Ameerpet","JNTU","MGPS","PUNG","KPHP","MYP"]
@@ -60,15 +60,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
    
     var TimingsArray = ["OPEN5AM Close5PM ","OPEN6AM Close5PM","OPEN7AM Close8PM","OPEN8AM Close5PM","OPEN9AM Close4PM","OPEN5AM Close5PM","OPEN7AM Close5PM","OPEN6AM Close5PM"]
     
-    var userId = Int()
-    var uid : Int = 0
-    var PageIndex = 1
-    var totalPages : Int? = 0
-    var totalRecords : Int? = 0
-    
-    var isSubscribed = Int()
-    
-    var subscribe : Bool = true
+  
     
   //MARK: -   View Did Load
     
@@ -87,21 +79,14 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.churchDetailsTableView.dataSource = self
         
         self.noRecordLabel.isHidden = true
-        
         searchBar = UISearchBar()
         searchBar.sizeToFit()
-        
         searchBar.tintColor = UIColor.black
-        
         searchBar.delegate = self
-        
         searchBar.placeholder = "Search by Church Name".localize()
-        
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        
         searchController.dimsBackgroundDuringPresentation = false
-        
         navigationItem.titleView = searchBar
         
 
@@ -109,10 +94,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
         self.navigationController?.isNavigationBarHidden = false
-
-        
-       self.searchController.searchBar.delegate = self
-        
+        self.searchController.searchBar.delegate = self
         definesPresentationContext = true
 
         
@@ -134,12 +116,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         searchBar.text = ""
-        
         PageIndex = 1
         totalPages = 0
-        
         self.churchNamesArray.removeAll()
-        
         self.getAllChurchSearchAPIService(string: searchBar.text!)
         
     }
@@ -166,7 +145,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.searchBar.showsCancelButton = true
         
         searchActive = false
-        
         PageIndex = 1
         totalPages = 0
         
@@ -188,7 +166,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
         PageIndex = 1
         totalPages = 0
-        
         self.churchNamesArray.removeAll()
         
         self.getAllChurchSearchAPIService(string: searchBar.text!)
@@ -308,7 +285,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                   
                   
                     print(self.churchNamesArray.count)
-                    
                     
                     self.churchDetailsTableView.reloadData()
                     
@@ -541,8 +517,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             if(self.totalPages! > PageIndex){
                 
                 PageIndex = PageIndex + 1
-
-
                 
                 self.getAllChurchSearchAPIService(string: searchBar.text!)
                 
@@ -563,17 +537,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             let listStr:ChurchDetailsListResultVO = filtered[indexPath.row]
             
             cell.churchNameLbl.text = listStr.name
-            
             cell.phNoLabel.text = listStr.contactNumber
-            
             cell.addressLabel.text = listStr.email
-            
              cell.stateLbl.text = listStr.stateName
-            
              cell.mandalLbl.text = listStr.mandalName
-            
              cell.districtLbl.text = listStr.districtName
-            
             cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
             
             let imgUrl = listStr.churchImage
@@ -626,13 +594,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
 
                 cell.addressLabel.text = listStr.email
-                
                 cell.stateLbl.text = listStr.stateName
-                
                 cell.mandalLbl.text = listStr.mandalName
-                
                 cell.districtLbl.text = listStr.districtName
-                
          cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
         
         
@@ -712,22 +676,16 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         }
         if section == 1 {
             
-            
-            
             infoHeaderCell.headerLabel.text = "Church Details".localize()
             
             
         }else if section == 2 {
-            
-            
             
             infoHeaderCell.headerLabel.text = "Address".localize()
             
             
         }
         else if section == 3 {
-            
-            
             
             infoHeaderCell.headerLabel.text = "Church Author".localize()
             
@@ -736,20 +694,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         else if section == 4 {
             
-            
-            
             infoHeaderCell.headerLabel.text = "Map".localize()
             
         }
         return infoHeaderCell
     }
     
-   
-    
-    
-    
-    
-    
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -759,7 +710,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
         
         holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
-        
         holyBibleViewController.churchID = listStr.Id!
         holyBibleViewController.isFromChruch = true
         holyBibleViewController.nameStr = listStr.name!
@@ -782,9 +732,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     func subscribeButttonClicked(sender: UIButton){
  
     if self.userId != 0{
-            
-            
-            
+        
     let paramsDict = [ "isSubscribed": isSubscribed,
                         "userId": self.userId,
                         "churchId": "null",
@@ -849,7 +797,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         if self.userId != 0 {
             
             
-            
             let paramsDict = [ "isSubscribed": isSubscribed,
                                "userId": self.userId,
                                "churchId": churchID,
@@ -911,7 +858,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         }
         
     }
-    
     
     
     

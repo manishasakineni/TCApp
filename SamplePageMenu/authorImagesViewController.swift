@@ -17,14 +17,10 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     //MARK: -  variable declaration
     
      var imageResults : Array<PostByAutorIdResultInfoVO> = Array()
-    
      var imageIDArray : Array<String> = Array()
-    
      var imagesArrayTag : Dictionary<String,Any> = Dictionary()
-    
-    var imageView = UIImageView()
-  var videoEmbededIDStr = String()
-    
+     var imageView = UIImageView()
+     var videoEmbededIDStr = String()
      var thumbnailImageURL = String()
     
     //MARK: -   View Did Load
@@ -64,12 +60,9 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         
         return imageResults.count
         
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
         
         
         return 200
@@ -91,10 +84,8 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         
         let title = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
 
-         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
-           let url = URL(string:newString!)
-        
+        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        let url = URL(string:newString!)
         let dataImg = try? Data(contentsOf: url!)
         
         if dataImg != nil {
@@ -107,16 +98,10 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
             
             cell.authorImageView.image = #imageLiteral(resourceName: "j4")
         }
-
-        
         
           cell.imageLbl.text = title
         
-        
-        
         return cell
-        
-        
         
     }
  
@@ -138,25 +123,23 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
             
             let thumbnillImage : String = embededUrlImage
             
-            
             self.imageIDArray = thumbnillImage.components(separatedBy: "embed/")
             
-            
-                    DispatchQueue.main.async()
+            DispatchQueue.main.async()
                         {
                             
             let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                             
-                videosVC.videoNameStr = title!
-                  
-               videosVC.imageUrl = postImgUrl!
-                    videosVC.isFromImageView = true
-                            videosVC.videoId = userID!
+            videosVC.videoNameStr = title!
+            videosVC.imageUrl = postImgUrl!
+            videosVC.isFromImageView = true
+            videosVC.videoId = userID!
                             
-                            kUserDefaults.set(categoryId, forKey: "categoryId")
-                            kUserDefaults.set(userID, forKey: "userID")
-                            kUserDefaults.synchronize()
-                            self.navigationController?.pushViewController(videosVC, animated: true)
+            kUserDefaults.set(categoryId, forKey: "categoryId")
+            kUserDefaults.set(userID, forKey: "userID")
+            kUserDefaults.synchronize()
+            self.navigationController?.pushViewController(videosVC, animated: true)
+                            
                     }
                     
     

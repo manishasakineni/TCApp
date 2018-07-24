@@ -19,32 +19,22 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
    //MARK: -  variable declaration
     
     var catgoryName:String = ""
-    
     var LangStr:String = ""
-    
     var appVersion:String = ""
     var listUrl :String = ""
-    
     var nameStr:String = ""
-    
     var bibleCArr = Array<Int>()
     
     var chapterCount:Int = 0
     var verseCountStr = Array<Int>()
     var versDetailArray = Array<String>()
     var vDetailArray = Array<String>()
-    
     var indexCount:Int = 0
-    
     var backTitleStr:String = ""
-    
     var chaptersCount : Dictionary = Dictionary<String,Any>()
     var versesCount : Dictionary = Dictionary<String,Any>()
     var verseStringCount : Dictionary = Dictionary<String,Any>()
-    
-    
     var bibleChaptersArr:[BibleDetailsCellVO] = Array<BibleDetailsCellVO>()
-    
     var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
     
     //MARK: -  view Did Load
@@ -58,7 +48,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         getBibleDetailsCellAPICall()
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
-        
         self.bibleDetailsCellTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
         
         
@@ -113,8 +102,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         return 40.0
         
         
-        
-        
     }
     
     
@@ -123,10 +110,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleBooksTableViewCell", for: indexPath) as! BibleBooksTableViewCell
         
-        
-        
         cell.accessoryType = .disclosureIndicator
-        
         cell.chapterCountLabel.text = ""
         
         if LangStr == "11" {
@@ -137,9 +121,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
             
             cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row + 1)"
         }
-        
-        
-        
         
         return cell
     }
@@ -152,24 +133,15 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         
         let verseCount = booksList.Verse?.count
-        
-        
         let verseViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleDetailsVerseViewController") as! BibleDetailsVerseViewController
         
         
         let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
-        
         let capter = versesDict?["\(indexPath.row)"] as? [BibleDetailsCellIResultVo]
-        
         verseViewController.verseStringCount = capter!
-        
         verseViewController.verseStringDict = verseStringCount
-        
         verseViewController.nameStr = nameStr
-        
         verseViewController.indexCount = indexPath.row
-        
-        
         verseViewController.bibleVerseArr = self.bibleVerseArr
         
         
@@ -185,9 +157,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         
         let newString = listUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
         let newStr = newString.replacingOccurrences(of: " ", with: "", options: .backwards, range: nil)
-        
         let bibleDetailsCellAPI = newStr
         
         
@@ -198,26 +168,18 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                 
                 print(result)
                 
-
-                
                 let respVO:BibleDetailsCellInfoVo = Mapper().map(JSONObject: result)!
-                
-            
                 
                 self.bibleChaptersArr = respVO.Chapter!
                 
                 if self.bibleChaptersArr.count > 0 {
                     
                     self.noRecordsFoundLbl.isHidden = true
-                    
                     self.bibleDetailsCellTableView.isHidden = false
-                    
-                    
                     
                     var i = 0
                     
                     let countt = respVO.Chapter?.count
-                    
                     self.chaptersCount.updateValue(countt!, forKey: "\(i)")
                     
                     let chapterArray = respVO.Chapter
@@ -238,8 +200,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                         
                         j = j + 1
                     }
-                    
-                    
                     
                     self.bibleCArr.append(countt!)
                     
@@ -263,8 +223,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         }) { (failureMassege) in
             
             
-            
-            
         }
         
         
@@ -280,10 +238,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         UserDefaults.standard.synchronize()
         
         UserDefaults.standard.set("1", forKey: "1")
-        
-        
         self.navigationController?.popViewController(animated: true)
-        
         navigationItem.leftBarButtonItems = []
         
         print("Back Button Clicked......")

@@ -20,33 +20,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
 //MARK: -  variable declaration
     
     var linksA = [String]()
-    
     var streamLink : String!
-    
     var first : String!
-    
     var secend : String!
-    
     let utillites =  Utilities()
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var appVersion          : String = ""
-    
     var selectedDate : String = ""
-    
     var base64String : String = ""
-    
     var alertTag = Int()
-    
     var showNav = false
     let isActive : Bool = true
     var btneditClick = false
-    
     let dateFormatter = DateFormatter()
-    
-
-    
     
     var placeholdersAry  = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize(),"Dob".localize()]
     
@@ -57,28 +43,20 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var mobileNumber    : String = ""
     var email       : String = ""
     var DOB       : String = ""
-    
     var loginid      : Int = 0
     var password       : String = ""
-    
     var activeTextField = UITextField()
-    
     let picker = UIImagePickerController()
-    
     var isImageSave:Bool = false
     var sectionsTitle : [String] = [""]
-    
     var imgVW = UIImageView()
     
     var profileimage:UIImage = UIImage()
-    
     var imageString = String()
     var pickerData : Array<String> = Array()
-    
     var selectedtitleTypeStr  = ""
     var titletypeIdAry = Array<String>()
     var titleTypeID    : Int    = 0
-    
     let datepicker = UIDatePicker()
     var dateofBirth:String = ""
     var gender : String = ""
@@ -196,15 +174,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     DispatchQueue.main.async(){
                         
         self.editProfileTableView.isHidden = false
-    
         print("result:\(result)")
-                        
         let respVO:GetProfileResultInfoVO = Mapper().map(JSONObject: result)!
                         
         print("responseString = \(respVO)")
                         
        let listArr = respVO.listResult
-                        
         if (listArr?.count)! > 0 {
                             
         let statusCode = respVO.isSuccess
@@ -221,8 +196,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             
         var userImgURL : String = ""
         userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
-                            
-                            
+            
         let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
                             
         if newString != "" {
@@ -347,8 +321,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         super.viewWillAppear(animated)
         
-        
-        
         print(showNav)
         
         self.navigationController?.navigationBar.isHidden = false
@@ -377,7 +349,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         activeTextField = textField
-        
         activeTextField.autocorrectionType = .no
         
         if activeTextField.tag == 1 {
@@ -420,7 +391,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if activeTextField.tag == 6{
             
             textField.inputView = datepicker
-            
             textField.clearButtonMode = .never
             textField.inputView = datepicker
             
@@ -434,9 +404,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
             
             toolBar.setItems([doneButton], animated: true)
-            
             textField.inputAccessoryView = toolBar
-            
             activeTextField.text = selectedDate
             
         }
@@ -498,7 +466,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         activeTextField = textField
         
-        
         if activeTextField.tag == 0{
             
        //     firstName = textField.text!
@@ -559,9 +526,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: "donedatePicker")
         
         toolbar.setItems([doneButton], animated: false)
-        
         activeTextField.inputAccessoryView = toolbar
-        
         activeTextField.inputView = datepicker
         
         
@@ -639,15 +604,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
     profileCell.progileImageView.layer.borderWidth = 1
     profileCell.progileImageView.clipsToBounds = true
-                
     profileCell.progileImageView.image = profileimage
-            
     profileCell.editBtnOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
             
             
-            
-            
-       
     }
             
     return profileCell
@@ -763,9 +723,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             }
             
-            
-    
-            
     if genderTypeID == 2 {
                     
     signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
@@ -839,9 +796,6 @@ else {
                 self.focusItemNumberTextField()
             })
         }
-
-//
-    
    
         
     }
@@ -927,7 +881,6 @@ else {
         
         
          let imageData = UIImagePNGRepresentation(profileimage)
-        
          base64String = (imageData?.base64EncodedString())!
     
         
@@ -973,20 +926,17 @@ else {
         print("result:\(result)")
             
         let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
-                    
-                    
+            
         print("responseString = \(respVO)")
                     
                     
         let statusCode = respVO.isSuccess
-                     
         print("StatusCode:\(String(describing: statusCode))")
                     
         if statusCode == true
         {
                         
         let successMsg = respVO.endUserMessage
-                        
        self.editProfileTableView.reloadData()
                         
         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
@@ -1168,9 +1118,7 @@ func theLink() {
         
         selectedDate = dateFormatter.string(from: datepicker.date)
         print(selectedDate)
-        
         print(dateofBirth)
-        
         self.view.endEditing(true)
         
         editProfileTableView.reloadData()
@@ -1323,17 +1271,16 @@ func theLink() {
         
         let indexPath:IndexPath = IndexPath(row: 0, section: 2)
         
-        
         if let cell : GenderTableViewCell = self.editProfileTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
             
             if (male == true)
             {
                 
-                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+            cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
-                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+            cell.femaleUnCheck.image = UIImage(named:"checked_83366")
                 
-                male = false
+            male = false
                 
             }
             else
@@ -1348,10 +1295,7 @@ func theLink() {
         }
         
         genderTypeID = sender.tag
-        
         print(genderTypeID)
-        
-        
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
     }

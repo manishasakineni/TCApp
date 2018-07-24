@@ -13,9 +13,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var settingTableView: UITableView!
     
     var menuArray = ["About-US","Notifications","Help"]
-    
-    
-    
    var delegate : SttingPopOverHomeDelegate?
 
  //MARK: -   View DidLoad
@@ -47,7 +44,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
                                                                  for: indexPath) as! SettingTableViewCell
         
         popOverTableViewCell.menuTitle.text = menuArray[indexPath.row]
-        
         return popOverTableViewCell
     }
     

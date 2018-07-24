@@ -15,14 +15,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     //MARK: -  variable declaration
     
     var allitemsArray:[NotificationResultVO] = Array<NotificationResultVO>()
-    
     var filtered:[NotificationResultVO] = []
-
-     var userId :  Int = 0
-    
+    var userId :  Int = 0
     var showNav = false
     var appVersion          : String = ""
-
     var IDs : String = ""
     
     //MARK: -   view Did Load
@@ -104,15 +100,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationsTableViewCell", for: indexPath) as! notificationsTableViewCell
         
-        
         let listStr:NotificationResultVO = filtered[indexPath.row]
-        
-    
         
         cell.nameLbl.text = "\(listStr.name!)"
         cell.descriptionLbl.text = "\(listStr.desc!)"
-        
-        
         
         return cell
         
@@ -129,7 +120,6 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             if(listStr.authorId != nil){
         
                 
-                
                 if(listStr.eventId != nil){
          
             let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
@@ -142,7 +132,6 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 //  jobIDViewController.audioID = audioID!
                     
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
-        
                     
                     
         }else if (listStr.postId != nil){
@@ -153,14 +142,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             holyBibleViewController.pageName = "Posts"
             holyBibleViewController.authorID = (listStr.authorId == nil) ? 0 : listStr.authorId!
                     
-                    
-                    
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
                     
-                    
-             
-             
-                  
                     
         }else  if (listStr.jobId != nil) {
                     
@@ -168,9 +151,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                     
                     
             jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
-                    
             jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
-                    
             jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
             jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
             jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
@@ -197,8 +178,6 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 self.navigationController?.pushViewController(jobIDViewController, animated: true)
                 
-    
-                    
            
             }else if (listStr.postId != nil){
                     
@@ -208,24 +187,16 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 holyBibleViewController.pageName = "Posts"
                holyBibleViewController.churchID = (listStr.churchId == nil) ? 0 : listStr.churchId!
                 
-                
-                
                 self.navigationController?.pushViewController(holyBibleViewController, animated: true)
                 
-
-                    
-                    
-                    
-                    
+                
             } else  if(listStr.jobId != nil){
                 
                 let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "GetJobByIDViewController") as! GetJobByIDViewController
                 
                 
                 jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
-                
                 jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
-                
                 jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
                 jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
                 jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
@@ -236,13 +207,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 }
             }
-
   
         }
-        
-        
-        
-        
         
         
     }
@@ -261,12 +227,9 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
         self.navigationController?.popViewController(animated: true)
         
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
         
         print("Back Button Clicked......")
         
@@ -280,11 +243,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -294,8 +253,6 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
         
         
         print("Home Button Clicked......")
@@ -329,10 +286,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
-                
-                
-             
-                
+                            
                 for eachArray in listArr{
                     self.filtered.append(eachArray)
                 }

@@ -35,8 +35,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var imageView: UIImageView!
     
-    
-    
     @IBOutlet weak var docsCollectionView: UICollectionView!
     
     @IBOutlet weak var jobApplyTableView: UITableView!
@@ -59,32 +57,19 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     //MARK: -  variable declaration
     
      var selectedImagesArray: Array<UIImage> = []
-    var filename : String = ""
-    
-    var docsUrlArray:Array<String> = []
-    
-    var docUrl : URL = NSURL() as URL
-
-    var image  = UIImage()
-    var newImage = UIImage()
-    
-    var myImagePicker = UIImagePickerController()
-    
+     var filename : String = ""
+     var docsUrlArray:Array<String> = []
+     var docUrl : URL = NSURL() as URL
+     var image  = UIImage()
+     var newImage = UIImage()
+     var myImagePicker = UIImagePickerController()
      var fileextension : Bool = false
-    
-    var documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes:  ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: UIDocumentPickerMode.open)
-    
     let pickerView = UIPickerView()
-    
     private var imagePicked = 0
     
-    
-    
-     var activeTextField = UITextField()
-      var appVersion          : String = ""
-    
-     let utillites =  Utilities()
-    
+    var activeTextField = UITextField()
+    var appVersion          : String = ""
+    let utillites =  Utilities()
     var jobtitle    :String = ""
     var firstname     :String = ""
     var middlename   :String = ""
@@ -103,30 +88,25 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var createdDate : String = "2018-05-14T11:15:41.9952665+05:30"
     var updatedByUserId : Int = 1
     var updatedDate:String =  "2018-05-14T11:15:41.9952665+05:30"
-    
     let dateFormatter = DateFormatter()
-    
     let datepicker = UIDatePicker()
-    
     var selectedMonths : String = ""
-     var selectedYears : String = ""
+    var selectedYears : String = ""
     var pickerData = Array<String>()
     var myPickerView: UIPickerView!
-      var dateString :String = ""
-      var selectedData : String = ""
+    var dateString :String = ""
+    var selectedData : String = ""
     var financierType : Array = Array<String>()
-    
     var createddate : String = "2018-04-24T11:17:41.5268377+05:30"
     
-  var alertTag = Int()
-    
+    var alertTag = Int()
     var isjobtitle = false
-    
     var addressInfo:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
-    
     var months = ""
     
+    var documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes:  ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: UIDocumentPickerMode.open)
     
+
     var yearsArray : Array = ["0 Year","1 Year","2 Years","3 Years","4 Years","5 Years","6 Years","7 Years","8 Years","9 Years","10 Years","11 Years","12 Years","13 Years","14 Years","15 Years","16 Years","17 Years","18 Years","19 Years","20 Years","21 Years","22 Years","23 Years","24 Years","25 Years","26 Years","27 Years","28 Years","29 Years","30 Years","31 Years","32 Years","33 Years","34 Years","35 Years","36 Years","37 Years","38 Years","39 Years","40 Years","41 Years","42 Years","43 Years","44 Years","45 Years","46 Years","47 Years","48 Years","49 Years","50 Years"]
 
      var monthArray : Array = ["0 Month","1 Month","2 Months","3 Months","4 Months","5 Months","6 Months","7 Months","8 Months","9 Months","10 Months","11 Months","12 Months"]
@@ -151,10 +131,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         uploadresumeOutLet.layer.borderWidth = 1
         uploadresumeOutLet.layer.masksToBounds = false
         uploadresumeOutLet.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
-       uploadresumeOutLet.layer.cornerRadius = 6.0
-        
+        uploadresumeOutLet.layer.cornerRadius = 6.0
         uploadresumeOutLet.clipsToBounds = true
-        
         uploadViewheight.constant = 0
         uploadBtnOutLet.isHidden = true
         imageView.isHidden = true
@@ -175,22 +153,15 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Apply".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-       
-        
-        
     }
     
     
     //MARK:- textField Should End Editing
     
     
-    
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        
         activeTextField = textField
-        
         textField.autocorrectionType = .no
         
         
@@ -246,7 +217,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             textField.maxLengthTextField = 10
             textField.keyboardType = .default
             
-         
             
         }
         
@@ -295,11 +265,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             pickerData = monthArray
             myPickerView.reloadAllComponents()
             myPickerView.selectRow(0, inComponent: 0, animated: false)
-            
-            
-            
-            
-            
+        
         }
 
 
@@ -313,7 +279,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             return false
         }
         activeTextField = textField
-        
         return true
         
     }
@@ -321,12 +286,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
-        
-        
-        
-        if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
+             if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
             
-            
+        
             
         }
         return true
@@ -427,15 +389,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MMM dd, yyyy"
         dateString = dateFormatter.string(from: datepicker.date)
-        
-        
     
-        
         print(dateString)
-        
         self.view.endEditing(true)
-        
         jobApplyTableView.reloadData()
+        
     }
   
     //MARK:-  cancel Clicked
@@ -468,7 +426,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.docsImage.image = #imageLiteral(resourceName: "docImg")
             
             
-            
         }
        
         
@@ -482,28 +439,20 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-
-        
         if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx"){
             
             print("Pdfs and docs")
-            
             
             let embededUrlImage =  docUrl
             
             print(embededUrlImage)
             
             
-                       let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
-            
-            
-            
-            
+        let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
+        
             self.navigationController?.pushViewController(docViewController, animated: true)
             
-           
-                       
-        }
+            }
 
         
         
@@ -534,8 +483,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
-       
-        
         
         return UITableViewAutomaticDimension
     }
@@ -564,7 +511,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         if indexPath.section == 0 {
-  
         
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
@@ -580,7 +526,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 if(self.isjobtitle == true){
                     self.readDataSource()
                 }
-
                 
             }
             else if indexPath.row == 1{
@@ -595,7 +540,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
             }
             else if indexPath.row == 3{
-                
                 
             signUPCell.jobApplyTF.placeholder = "Last Name".localize()
              signUPCell.jobApplyTF.text = lastname
@@ -634,14 +578,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             signUPCell1.yearTF.tag = 20
             signUPCell1.monthTF.tag = 30
             
-            
-      
             signUPCell1.monthTF.text = selectedMonths
             signUPCell1.yearTF.text = selectedYears
-            
-            
-          
-            
             
         return signUPCell1
             
@@ -649,14 +587,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else{
         
-        
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
             signUPCell.jobApplyTF.delegate = self
             
-            
-            
-                 if indexPath.row == 0{
+            if indexPath.row == 0{
             
              signUPCell.jobApplyTF.tag = 8
                     
@@ -680,7 +615,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     else if indexPath.row == 2{
                     
          signUPCell.jobApplyTF.tag = 10
-                            
         signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
         signUPCell.jobApplyTF.text = expectedsalary
         signUPCell.jobApplyTF.isUserInteractionEnabled = true
@@ -692,10 +626,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return signUPCell
         
         }
-        
-        
-        
-        
+  
             return UITableViewCell()
         }
     
@@ -710,8 +641,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         self.navigationController?.popViewController(animated: true)
         
-        
-        
         print("Back Button Clicked......")
         
     }
@@ -725,24 +654,16 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        
+    
         print("Home Button Clicked......")
         
     }
@@ -758,9 +679,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         alertView.show()
     }
 
-  
-  
-    
     
     //MARK:- validateAllFields
     
@@ -933,12 +851,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
             return
             
         }
-
-        
-        
         print("Submit Button Clicked......")
-        
-
         
     }
     
@@ -949,9 +862,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
             
-  
-        
-        
+    
        self.uploadViewheight.constant = 0
        self.uploadView.isHidden = true
         self.uploadBtnOutLet.isHidden = true
@@ -971,40 +882,25 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     @IBAction func uploadresumeAction(_ sender: Any) {
         
         fileextension = false
-        
-        
         let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
-        
-
         
         let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
             -> Void in
             
-            
-            
             self.documentPicker.delegate = self
-            
             self.present(self.documentPicker, animated: true, completion: {
                 
                 print("documentPicker presented")
             })
             
-            
         })
         
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        
-  
         menu.addAction(document)
         menu.addAction(cancel)
-        
-        
-        
-        
+    
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
-            
             
             present(menu, animated: true, completion: nil)
         }
@@ -1017,8 +913,6 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
             
         }
         
-    
-    
     
     }
     
@@ -1043,8 +937,6 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
             }
             
             self.jobApplyTableView.reloadData()
-            
-            
             
         }
         
@@ -1187,11 +1079,8 @@ func getjobApplicationAPICall(){
     
     func done() {
         
-        
-     
-         if(activeTextField.tag == 20) {
+        if(activeTextField.tag == 20) {
           
-           
              selectedYears = selectedData
           
             
@@ -1199,7 +1088,6 @@ func getjobApplicationAPICall(){
         else  {
         
             if(activeTextField.tag == 30) {
-                
                 
                 selectedMonths = selectedData
                 
@@ -1241,14 +1129,9 @@ func getjobApplicationAPICall(){
         print("The Url is : \(docUrl)")
         
         self.filename = docUrl.pathExtension
-        
-        
         let data = try! Data(contentsOf: self.docUrl)
-        
         print("The data is : \(data)")
-        
         let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        
         self.docsUrlArray.append(base64String)
         
         
@@ -1256,8 +1139,6 @@ func getjobApplicationAPICall(){
         uploadView.isHidden = false
         uploadBtnOutLet.isHidden = false
         imageView.isHidden = false
-        
-       
         
         print("The Url is : \(filename)")
         
@@ -1332,7 +1213,6 @@ func getjobApplicationAPICall(){
     }
 
     
-    
     @available(iOS 8.0, *)
     
     public func documentMenu(_ documentMenu:     UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
@@ -1341,8 +1221,6 @@ func getjobApplicationAPICall(){
         present(documentPicker, animated: true, completion: nil)
         
     }
-    
-    
     
     @available(iOS 8.0, *)
     
@@ -1355,7 +1233,6 @@ func getjobApplicationAPICall(){
             
             
         })
-        
         
         
     }
@@ -1410,17 +1287,10 @@ func getjobApplicationAPICall(){
             byteArray.add(NSNumber(value: bytes[i]))
         }
         
-        
-        
         return byteArray
         
         
     }
-    
-    
-    
-    
-    
 
 }
 

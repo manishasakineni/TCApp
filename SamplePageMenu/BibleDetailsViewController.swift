@@ -15,28 +15,21 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     //MARK: -  variable declaration
     
     var showNav = false
-    
     var LangText:String = ""
-    
     var authorID : Int = 12
-    
     var bibleChaptersArr:[BibleDetailsResultVO] = Array<BibleDetailsResultVO>()
-    
     var catgoryName:String = ""
-    
     var appVersion:String = ""
-    
     var LangStr:String = ""
     
-    
+    var backTitleStr:String = ""
     var chapterCountStr:Int = 0
     var indexCount:Int = 0
-    
     var bibleCArr = Array<Int>()
     
     var BibleCountArr = ["50", "40", "27", "36", "34", "24", "21", "4", "31", "24", "22", "25", "29", "36", "10", "13", "10", "10", "150", "31", "12", "8", "66", "52", "5", "48", "12", "14", "3", "9", "1", "4", "7", "3", "3", "3", "2", "14", "4", "28", "16", "24", "21", "28", "16", "16", "13", "6", "6", "4", "4", "5", "3", "6", "4", "3", "1", "13", "5", "5", "3", "5", "1", "1", "1", "22"]
     
-    var backTitleStr:String = ""
+   
     
     
     
@@ -48,7 +41,6 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         super.viewDidLoad()
         
         self.norecordsFoundLbl.isHidden = true
-
         
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
         self.bibleDetailsTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
@@ -57,7 +49,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         bibleDetailsTableView.delegate = self
         bibleDetailsTableView.dataSource = self
         
-    getBibleDetailsAPICall()
+       getBibleDetailsAPICall()
+        
 }
     
  //MARK: -  view Will Appear
@@ -113,8 +106,6 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         return 40.0
         
         
-        
-        
     }
     
     
@@ -124,11 +115,9 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleBooksTableViewCell", for: indexPath) as! BibleBooksTableViewCell
         
         let booksList:BibleDetailsResultVO = bibleChaptersArr[indexPath.row]
-        
         cell.bibleBookLabel.text = booksList.name
         cell.accessoryType = .disclosureIndicator
         cell.chapterCountLabel.text = BibleCountArr[indexPath.row]
-
         
         return cell
     }
@@ -141,20 +130,12 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         
         let bibleDetailsAPI = GETBIBLEAPITELUGUURL + LangText
         
-        
         serviceController.getRequest(strURL: bibleDetailsAPI, success: { (result) in
             
-            
-           
-                
                 print(result)
                 
                 self.norecordsFoundLbl.isHidden = true
-
-                
                 let respVO:BibleDetailsInfoVO = Mapper().map(JSONObject: result)!
-                
-                
                 let isSuccess = respVO.isSuccess
                 
                 if isSuccess == true {
@@ -185,8 +166,6 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         }) { (failureMassege) in
             
             
-            
-            
         }
         
         
@@ -199,14 +178,10 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         let booksList:BibleDetailsResultVO = bibleChaptersArr[indexPath.row]
         
         
-        
-        
         let chapterViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleDetailsCellViewController") as! BibleDetailsCellViewController
         
         chapterViewController.listUrl = booksList.url!
-        
         chapterViewController.nameStr = booksList.name!
-        
         chapterViewController.LangStr = LangText
         
         
@@ -245,20 +220,14 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
         
         
         print("Home Button Clicked......")

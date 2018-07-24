@@ -20,25 +20,17 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
       var showNav = false
       var totalPages : Int? = 0
-    
-     var appVersion          : String = ""
-    
-    lazy var searchBar = UISearchBar(frame: CGRect.zero)
-    
-    
-    var searchController: UISearchController!
-    
-    var searchActive : Bool = false
-     var searchTextStr:String = ""
-    
-    var uid : Int = 0
-    var PageIndex = 1
-    var totalRecords : Int? = 0
-    var sortbyColumnName : String = ""
-    
-    var jobDetailsArray:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
-
-     var filtered:[GetAllJobDetailsListResultVO] = []
+      var appVersion          : String = ""
+      lazy var searchBar = UISearchBar(frame: CGRect.zero)
+      var searchController: UISearchController!
+      var searchActive : Bool = false
+      var searchTextStr:String = ""
+      var uid : Int = 0
+      var PageIndex = 1
+      var totalRecords : Int? = 0
+      var sortbyColumnName : String = ""
+      var jobDetailsArray:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
+      var filtered:[GetAllJobDetailsListResultVO] = []
 
      //MARK: -  view Did Load
     
@@ -54,18 +46,12 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
-        
         searchBar.tintColor = UIColor.black
-        
         searchBar.delegate = self
-        
         searchBar.placeholder = "Search".localize()
-        
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        
         searchController.dimsBackgroundDuringPresentation = false
-        
         navigationItem.titleView = searchBar
   
           //self.getjobdetailsAPICall(string: searchBar.text!)
@@ -73,13 +59,9 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         getAllJobDetailsTableView.register(nibName1, forCellReuseIdentifier: "GetAllJobDetailsTableViewCell")
         
         
-          self.getjobdetailsAPICall(string: searchBar.text!)
-        
+        self.getjobdetailsAPICall(string: searchBar.text!)
         self.navigationController?.isNavigationBarHidden = false
-        
-        
         self.searchController.searchBar.delegate = self
-        
         definesPresentationContext = true
 
         
@@ -102,7 +84,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
           Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         searchBar.text = ""
-        
         PageIndex = 1
         totalPages = 0
         
@@ -118,7 +99,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         self.searchBar.showsCancelButton = true
         
         searchActive = false
-        
         PageIndex = 1
         totalPages = 0
         
@@ -140,9 +120,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         PageIndex = 1
         totalPages = 0
-        
         self.jobDetailsArray.removeAll()
-        
         self.getjobdetailsAPICall(string: searchBar.text!)
         
         if(filtered.count == 0){
@@ -269,8 +247,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     }
 
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -284,17 +260,11 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         let listStr:GetAllJobDetailsListResultVO = filtered[indexPath.row]
         
         cell.jobtitleLabel.text = listStr.jobTitle
-        
         cell.qualificationLabel.text = listStr.qualification
-        
         cell.churchNameLabel.text = listStr.churchName
-        
         cell.cintactNumberLabel.text = listStr.contactNumber
-        
         cell.lastdateToApplyLabel.text = listStr.lastDateToApply
 
-        
-        
         if(listStr.lastDateToApply! != ""){
             let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
             let dateString = dobStringArray?[0]
@@ -302,7 +272,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }else{
             cell.lastdateToApplyLabel.text  = ""
         }
-                
                 
                 
             }
@@ -318,17 +287,11 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
             let listStr:GetAllJobDetailsListResultVO = jobDetailsArray[indexPath.row]
             
             cell.jobtitleLabel.text = listStr.jobTitle
-            
             cell.qualificationLabel.text = listStr.qualification
-            
             cell.churchNameLabel.text = listStr.churchName
-            
             cell.cintactNumberLabel.text = listStr.contactNumber
-            
             cell.lastdateToApplyLabel.text = listStr.lastDateToApply
-            
-            
-            
+                
             if(listStr.lastDateToApply! != ""){
                 let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
                 let dateString = dobStringArray?[0]
@@ -355,8 +318,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         if(filtered.count > indexPath.row){
             
              jobIDViewController.jobId = filtered[indexPath.row].id!
-            
-            
             
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
             
@@ -396,7 +357,6 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
-                
                 
                 if listArr.count > 0 {
                     
@@ -486,23 +446,15 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
         
         print("Home Button Clicked......")
         

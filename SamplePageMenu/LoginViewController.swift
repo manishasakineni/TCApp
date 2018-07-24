@@ -13,10 +13,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-      @IBOutlet weak var mobileEmailTF: AkiraTextField!
+    @IBOutlet weak var mobileEmailTF: AkiraTextField!
     
     @IBOutlet weak var forgotPWDView: UIView!
-    
     
     @IBOutlet weak var transparentView: UIView!
     
@@ -31,7 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginLabel: UILabel!
     
-    
     @IBOutlet weak var forgotBtn: UIButton!
     
     @IBOutlet weak var registerBtn: UIButton!
@@ -42,18 +40,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     var email : String? = ""
     var password : String? = ""
-    
     var appVersion          : String = ""
-    
     var navigationString : String = ""
-    
-
     var showNav = false
-
     let utillites =  Utilities()
-
     var placeHolderName = ["User Name","Password"]
-    
     var deviceId = ""
     
   //MARK: -   View Did Load
@@ -64,14 +55,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     //    self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
         
-        
         mobileEmailTF.placeholder = "User Name".localize()
         passwordTF.placeholder = "Password".localize()
         forgotBtn.setTitle("forgot Password".localize(), for: .normal)
         registerBtn.setTitle("Register".localize(), for: .normal)
         dontHaveAccountLbl.text = "Don't have an Account?".localize()
 
-    
         loginBtnOutLet.layer.borderWidth = 1.0
         loginBtnOutLet.layer.cornerRadius = 6.0
         loginBtnOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
@@ -85,7 +74,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.keyboardType = .emailAddress
 
         loginLabel.text = "Login".localize()
-        
         forgotPWDView.isHidden = true
         transparentView.isHidden = true
     }
@@ -112,8 +100,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: -  View Will Disappear
  
     override func viewWillDisappear(_ animated: Bool) {
-        
-        
         
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -194,8 +180,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
-
-        
         if(appDelegate.checkInternetConnectivity()){
 
             if email!.isEmpty{
@@ -216,9 +200,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else{
 
-            
-            
-              self.loginAPIService()
+        self.loginAPIService()
                 
             }
             
@@ -261,8 +243,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
 
-            
-
         else {
             
             print("Home Page Navigate")
@@ -283,10 +263,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func loginAPIService(){
         
         
-            let strUrl = LOGINURL
-        
-        
-
+        let strUrl = LOGINURL
+    
         let dictParams = [
             "userName": email!,
             "password": password!,
@@ -388,11 +366,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.appDelegate.window?.rootViewController = homeNav
         
     }
-   
-        
-        
-        
-        
         
         else {
                                     
@@ -510,8 +483,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
         print("Back Button Clicked......")
         
     }
@@ -531,8 +502,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         forgotPWDView.isHidden = true
         transparentView.isHidden = true
         
-        
-      
       self.view.endEditing(true)
         
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
@@ -546,7 +515,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.forgotPWDAPIService()
             
         }
-        
         
         
     }
@@ -569,9 +537,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let dictHeaders = ["":"","":""] as NSDictionary
         
         print("dictHeader:\(dictHeaders)")
-        
-        
-            
 
                 
     serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
@@ -579,11 +544,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async(){
                             
             
-                            
     let respVO:ForgotPswdVO = Mapper().map(JSONObject: result)!
-                            
-            
-                            
+                                                        
     let endUserMessage = respVO.endUserMessage
             
     print("StatusCode:\(String(describing: endUserMessage))")

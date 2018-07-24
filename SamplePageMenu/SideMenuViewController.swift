@@ -13,10 +13,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var menuTableView: UITableView!
     
-    
     @IBOutlet weak var chooseLanguageBtn: UIButton!
-
-   
     
     @IBOutlet weak var headerView: UIView!
     
@@ -24,11 +21,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var menuArray = [String]()
     let utillites =  Utilities()
-    
     var userID = String()
-    
-      var loginVC = LoginViewController()
-    
+    var loginVC = LoginViewController()
     var count = 0
     
     let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_638526_cc","noun_793900_cc"]
@@ -44,7 +38,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
         self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
 
-        
         menuTableView.delegate = self
         menuTableView.dataSource = self
         
@@ -54,9 +47,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         borderColor()
         
         self.headerView.backgroundColor = Utilities.appColor
-        
         chooseLanguageBtn.setTitleColor(Utilities.appColor, for: .normal)
-        
         chooseLanguageBtn.layer.borderColor = Utilities.bordrColor
         
         if kUserDefaults.value(forKey: kuserIdKey) as? String != nil {
@@ -69,7 +60,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         print(kUserId)
-        
         print(kId)
         
         
@@ -120,8 +110,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-       
-       
         
        return menuArray.count
         
@@ -134,8 +122,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
             if indexPath.row == 9 || indexPath.row == 11 {
                 
-                
-            
             return 0
             
             }
@@ -156,8 +142,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if (self.userID.isEmpty) {
             
             if indexPath.row == 9 || indexPath.row == 11 {
-                
-                
                 
                 return 0
                 
@@ -198,7 +182,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if  cell1.menuNameLabel.text! == "LogOut".localize(){
                 if indexPath.row == 10 {
                     
-                     cell1.menuNameLabel.text! = "Login".localize()
+                    cell1.menuNameLabel.text! = "Login".localize()
                     cell1.menuNameImg.image = UIImage(named: String("LogOutlightGray"))
                     
                      // cell1.menuNameImg.backgroundColor = UIColor.lightGray
@@ -212,7 +196,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else{
         
             cell1.isHidden = false
-           
 
             
         }
@@ -224,7 +207,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
               if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
                   cell1.menuNameLabel.text! = "LogOut".localize()
                 
-               
                 
               }else{
                   cell1.menuNameLabel.text! = "Login".localize()
@@ -232,7 +214,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
           
         }else{
-            
             
             
         }
@@ -243,11 +224,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-    
-        
         
         let revealviewcontroller:SWRevealViewController = self.revealViewController()
-        
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
 
@@ -262,39 +240,29 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
     let newController = UINavigationController.init(rootViewController:desController)
-            
     revealviewcontroller.pushFrontViewController(newController, animated: true)
                 
                 
 //    editProfileTableView.isHidden = true
 //                
 //    appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
-//    
-//            
-                
+//
             
             }else{
                 
         utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     
             UserDefaults.standard.set("1", forKey: "0")
-            
             UserDefaults.standard.synchronize()
-            
             let defaults = UserDefaults.standard
-            
             defaults.set("false", forKey: KFirstTimeLogin)
-            
             UserDefaults.standard.synchronize()
-                    
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+          let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
             
             desController.showNav = true
-            
             let newController = UINavigationController.init(rootViewController:desController)
-            
             revealviewcontroller.pushFrontViewController(newController, animated: true)
 
                  })
@@ -311,23 +279,18 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
                 
         revealviewcontroller.addChildViewController(reOrderPopOverVC)
-                
         reOrderPopOverVC.view.center = CGPoint(x:UIScreen.main.bounds.size.width/2,y:UIScreen.main.bounds.size.height/1.5)
                 
         revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
         reOrderPopOverVC.didMove(toParentViewController: self)
         self.revealViewController().revealToggle(animated: true)
             
-
-                
             }
         
         else {
                 
         let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
 
-                
-                
         revealviewcontroller.addChildViewController(reOrderPopOverVC)
                 
         reOrderPopOverVC.view.center = CGPoint(x:UIScreen.main.bounds.size.width/2,y:UIScreen.main.bounds.size.height/2)
@@ -384,8 +347,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     let newController = UINavigationController.init(rootViewController:desController)
     revealviewcontroller.pushFrontViewController(newController, animated: true)
             
-            
-           
         }
             
         else  if cell.menuNameLabel.text == "Events".localize() {
@@ -412,11 +373,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-            
-            
-            
-      
-
         else  if cell.menuNameLabel.text == "Holy Bible - Telugu".localize() {
             
             
@@ -424,7 +380,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleDetailsViewController") as! BibleDetailsViewController
             
     booksController.showNav = true
-            
     booksController.LangText = "12"
             
     let newController = UINavigationController.init(rootViewController:booksController)
@@ -438,7 +393,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleDetailsViewController") as! BibleDetailsViewController
             
     booksController.showNav = true
-            
     booksController.LangText = "11"
             
     let newController = UINavigationController.init(rootViewController:booksController)
@@ -448,8 +402,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
             
         else  if cell.menuNameLabel.text == "Careers".localize() {
-            
-            
             
             var userId = 0
             
@@ -488,11 +440,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 })
             }
             
-          
-            
-            
-            
-            
             
         }
             
@@ -505,14 +452,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
                 
             }
-            
-            
-            
-            
+  
             if(userId != 0) {
-      
-            
-            
+                
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "GetAllItemsViewController") as! GetAllItemsViewController
             
@@ -535,8 +477,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     let newController = UINavigationController.init(rootViewController:self.loginVC)
                     revealviewcontroller.pushFrontViewController(newController, animated: true)
                     
-
-                    
                     
                 })
             }
@@ -547,7 +487,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else  if cell.menuNameLabel.text == "Notifications".localize() {
             
-          
             
             var userId = 0
             
@@ -556,8 +495,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
                 
             }
-            
-            
             
             
             if(userId != 0) {
@@ -623,9 +560,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-        
-        
-       
     }
     
     //MARK: -   choose Language Clicked
@@ -662,9 +596,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         else{
             
-            let popup = UIPopoverController.init(contentViewController: actionSheet)
+        let popup = UIPopoverController.init(contentViewController: actionSheet)
             
-  popup.present(from: CGRect(x:self.chooseLanguageBtn.frame.midX - 50, y:self.chooseLanguageBtn.frame.maxY - self.chooseLanguageBtn.frame.height, width:0, height:0), in: self.chooseLanguageBtn, permittedArrowDirections: UIPopoverArrowDirection.down, animated: true)
+   popup.present(from: CGRect(x:self.chooseLanguageBtn.frame.midX - 50, y:self.chooseLanguageBtn.frame.maxY - self.chooseLanguageBtn.frame.height, width:0, height:0), in: self.chooseLanguageBtn, permittedArrowDirections: UIPopoverArrowDirection.down, animated: true)
                      
             
         }

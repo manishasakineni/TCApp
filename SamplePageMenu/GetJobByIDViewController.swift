@@ -16,30 +16,22 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     
     //MARK: -  variable declaration
     
-     var userDetails : GetJobByIDListResultVO?
+    var userDetails : GetJobByIDListResultVO?
     var appVersion          : String = ""
-   
     var jobTitle:String = ""
     var vacencies : String = ""
-     var Qualification:String = ""
-   
-    
+    var Qualification:String = ""
     var jobdescription:String = ""
     var contactperson : String = ""
     var contactnumber:String = ""
     
-
     var salary:String = ""
     var lastdatetoapply : String = ""
     var adminname:String = ""
     var churchname:String = ""
-    
     var selectNameType : Array = Array<String>()
-    
-     let utillites =  Utilities()
-     var jobId : Int = 0
-    
-    
+    let utillites =  Utilities()
+    var jobId : Int = 0
     var churchId : Int = 0
     var authorId : Int = 0
     var eventId : Int = 0
@@ -208,14 +200,15 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
 
                 
                 if(lastdatetoapply != ""){
+                    
                     let dobStringArray = lastdatetoapply.components(separatedBy: "T")
                     let dateString = dobStringArray[0]
                     signUPCell.jobIDDetailsLabel.text  = dateString
+                    
                 }else{
                     signUPCell.jobIDDetailsLabel.text  = ""
                 }
 
-                
                 
             }
             else if indexPath.row == 8{
@@ -253,10 +246,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             serviceController.getRequest(strURL: strUrl, success: { (result) in
                 
                 
-                 let respVO:GetJobByIDVO = Mapper().map(JSONObject: result)!
+            let respVO:GetJobByIDVO = Mapper().map(JSONObject: result)!
                 
-                
-                    self.userDetails = respVO.result
+            self.userDetails = respVO.result
                 
                 if respVO.result != nil {
                     
@@ -266,13 +258,12 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     self.jobTitle = (obj.jobTitle)!
                     self.vacencies = String(obj.vacencies!)
                     self.Qualification = (obj.qualification!)
-                    
                     self.jobdescription = (obj.jobDesc!)
                     self.contactperson = (obj.contactPerson)!
                     self.contactnumber = (obj.contactNumber)!
                     
                     self.salary = "\(String(describing: obj.salary!))"
-                self.lastdatetoapply = (obj.lastDateToApply)!
+                   self.lastdatetoapply = (obj.lastDateToApply)!
                 
                     if obj.adminName != nil {
                         
@@ -285,8 +276,6 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                         
                     }
   
-                    
-                    
                     
                 //    self.adminname = (obj.adminName)!
               //      self.churchname = (obj.churchName)!
@@ -315,8 +304,6 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         self.navigationController?.popViewController(animated: true)
         
-            
-        
         print("Back Button Clicked......")
         
     }
@@ -330,11 +317,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -344,8 +327,6 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
         
         
         print("Home Button Clicked......")

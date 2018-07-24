@@ -17,22 +17,16 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
      //MARK:- variable declaration
     
     var appVersion          : String = ""
-
     var itemID:Int = 0
-    
-     var churchName1 : String = ""
-    
-      let utillites =  Utilities()
+    var churchName1 : String = ""
+    let utillites =  Utilities()
     var activeTextField = UITextField()
-     var alertTag = Int()
+    var alertTag = Int()
     var userId :  Int = 0
-    
     var allitemsArray:[AllItemIdListResultVO] = Array<AllItemIdListResultVO>()
-    
     var filtered:[AllItemIdListResultVO] = []
-    
     var quantity = ""
-     var email : String? = ""
+    var email : String? = ""
     
     //MARK:-  view Did Load
     
@@ -43,7 +37,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         allitemsIDTableView.dataSource = self
         quantityTF.delegate = self
         quantityTF.keyboardType = .numberPad
-      quantityTF.maxLengthTextField = 3
+        quantityTF.maxLengthTextField = 3
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -75,16 +69,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewWillAppear(animated)
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: churchName1, backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-        
-        
-
+    
         
     }
     //MARK:-  UItext field methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        
         
         if activeTextField.tag == 0 {
             
@@ -112,27 +102,22 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
-        
-        
-        
         if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
             
             
-            
         }
+        
         return true
     }
     
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        
         activeTextField = textField
-        
         
         if activeTextField.tag == 0{
             
-             quantity = textField.text!
+            quantity = textField.text!
             
         }
     }
@@ -145,7 +130,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if filtered.count > 0 {
@@ -155,8 +139,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }
         
         return allitemsArray.count
-        
-        
         
         
     }
@@ -181,14 +163,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
-        
- 
         let postImgUrl = listStr.itemImage
-        
         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
         let url = URL(string:newString!)
-        
         let dataImg = try? Data(contentsOf: url!)
         
         if dataImg != nil {
@@ -202,10 +179,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             cell.allitemIdImage.image = #imageLiteral(resourceName: "j4")
         }
         
-        
-    
-        
-        
         return cell
         
         }
@@ -217,18 +190,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
         
-        
-        
       //   cell.nameLabel.text = listStr.name
         
-        cell.itemName.text = listStr.name
-        
+         cell.itemName.text = listStr.name
          cell.priceLabel.text = "\(listStr.price!)"
          cell.sellerInfoLbl.text = listStr.author
-        
          cell.authorLabel.text = listStr.desc
-        
-        
         
         cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
         
@@ -253,9 +220,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         self.navigationController?.popViewController(animated: true)
         
         
-       
-        
-        
         print("Back Button Clicked......")
         
     }
@@ -269,10 +233,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -282,10 +243,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        
+    
         print("Home Button Clicked......")
         
     }
@@ -298,14 +256,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/0"
         
         serviceController.getRequest(strURL: strUrl, success: { (result) in
-            
-            
             let respVO:AllItemIdVO = Mapper().map(JSONObject: result)!
-            
             let isSuccess = respVO.isSuccess
             print("StatusCode:\(String(describing: isSuccess))")
-            
- 
             
                 if isSuccess == true {
                     
@@ -331,9 +284,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     //MARK:-  add To Cart Action
     
     @IBAction func addToCartAction(_ sender: Any) {
-        
-        
-        
         
         allitemsIDTableView.endEditing(true)
         
@@ -367,7 +317,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                         
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
                         
-
                         
                     }
                 

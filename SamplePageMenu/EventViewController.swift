@@ -21,13 +21,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     var pasterUserId      : Int = 0
     var currentMonth = 0
-    
     var delegate: churchChangeSubtitleOfIndexDelegate?
-
     var appVersion          : String = ""
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-     var listResultArray = Array<Any>()
-    
+    var listResultArray = Array<Any>()
     var eventDateArray = Array<String>()
     var eventsCountsArray = Array<Int>()
     var eventTitleArray = Array<String>()
@@ -37,37 +34,23 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var previousMonthString = "0"
     var isDateExists = false
     var currentMonthDataArray = Array<String>()
-    
- //   var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
-    
     var churchIdMonthYearArray:[GetEventByUserIdMonthYearResultVo] = Array<GetEventByUserIdMonthYearResultVo>()
-
     var churchID:Int = 0
-
     var churcgname          : String = ""
-
-    
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
-
-    
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
 
     var feb = ""
-
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
- var selectedDateString = ""
-
+    var selectedDateString = ""
     var holidays:  [Date] = []
     let events:    [Date] = []
     let birthdays: [Date] = []
-
     var somedays : Array = [String]()
     var calendarEvents : [FSCalendar] = []
-
-
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1 = DateFormatter()
     
@@ -90,7 +73,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         calendar.dataSource = self
         calendar.delegate = self
         
-        
         eventTableView.dataSource = self
         eventTableView.delegate = self
         
@@ -106,14 +88,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
         let monthString = monthFormatter.string(from: calendar.currentPage)
-        
-        
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "YYYY"
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: calendar.currentPage)
-        
-        
         
         self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
 
@@ -152,7 +130,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
-        
         
         if self.eventDateArray.contains(dateString) {
             
@@ -230,15 +207,12 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                                 
         let successMsg = respVO.endUserMessage
                                 
-
         for eventsTitleList in respVO.listResult!{
                                     
         let eventTitle = eventsTitleList.eventTitle
         self.eventTitleArray.append(eventTitle!)
-                                    
         let eventStartDate = eventsTitleList.startDate
         self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
-
         let eventEndDate = eventsTitleList.endDate
         self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
 
@@ -249,7 +223,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                                 
         print(self.eventTitleArray)
         print(self.eventStartDateArray)
-    print( self.eventEndDateArray)
+       print( self.eventEndDateArray)
             
     let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
                                 
@@ -464,9 +438,7 @@ else {
         
         
     UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
     UserDefaults.standard.set("1", forKey: "1")
-
     UserDefaults.standard.removeObject(forKey: "1")
         
     UserDefaults.standard.synchronize()
@@ -559,7 +531,6 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }
                 
             else {
-                
                 
                 
             }

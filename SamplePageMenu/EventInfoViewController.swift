@@ -17,22 +17,16 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     //MARK: -  variable declaration
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
-
-
-    
     var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28","2018-02-07", "2018-02-08", "2018-02-14", "2018-02-01", "2018-02-12", "2018-02-25"]
     
     var event = ""
     var feb = ""
-    
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
-    
     var holidays:  [Date] = []
     let events:    [Date] = []
     let birthdays: [Date] = []
-    
     var somedays : Array = [String]()
     var calendarEvents : [FSCalendar] = []
 
@@ -57,7 +51,6 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
         super.viewDidLoad()
         
         event = "\(numberEvent.count)"
-        
        
         calendar.dataSource = self
         calendar.delegate = self

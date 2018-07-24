@@ -19,87 +19,65 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     
     
     @IBOutlet weak var infoImage: UIImageView!
+
+    @IBOutlet weak var hometableView: UITableView!
+   
     
-//MARK: -  variable declaration
+    
+    //MARK: -  variable declaration
     
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
-
     var saveLocationString : String             = ""
     var isSavingPDF     : Bool                  = false
     var pdfTitle        : String                = ""
     private var isDownloadingOnProgress : Bool  = false
     var showBack = true
-    
     var appVersion          : String = ""
-    
     var catgoryID:Int = 0
-    
     var catgoryImg:String = ""
-    
     var catgoryName:String = ""
-
     var viewTitle = ""
-    
     var null = NSNull()
+    var imageView = UIImageView()
     
-     var imageView = UIImageView()
-
+    
+    var allCagegoryArray : [ImagesResultVo] = Array<ImagesResultVo>()
+    var audioArray : [ImagesResultVo] = Array<ImagesResultVo>()
+    var documentArray : [ImagesResultVo] = Array<ImagesResultVo>()
+    var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
+    var allCagegoryListArray : CategoriesListResultVo?
+    var churchNameAry : Array<String> = Array()
+    var splitArray : Array<String> = Array()
+    var categoryStr : Array<String> = Array()
+    var videoIDArray : Array<String> = Array()
+    var docsIDArray : Array<String> = Array()
+    var audioIDArray : Array<String> = Array()
+    var gggg = String()
+    var thumbnailImageURL = String()
+    var isResponseFromServer = false
+    var noOfRows : Array<Dictionary<String,Any>> = Array()
+    var numberOfRows : Dictionary<String,Any> = Dictionary()
+    var imagesArrayTag : Dictionary<String,Any> = Dictionary()
+    var userID = String()
+    var idStr:String = ""
+    
+     let pdfThumbnillImage = [UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf")]
+    
     var imageArray3 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"books"),UIImage(named:"Churches")]
-
-   var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches")]
+    
+    var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches")]
     
     var imageArray2 = [UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
     
-var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+    var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
     
-    @IBOutlet weak var hometableView: UITableView!
     
     var sectionTitleArray = ["Images","Document","Audio","Video"]
-    
     var titleArr = ["3","4","5","6"]
     
     let pdfUrl = ["https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf","https://rgfigueroa.files.wordpress.com/2008/03/stevesbio.pdf","https://www.antennahouse.com/XSLsample/pdf/sample-link_1.pdf","https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf","https://rgfigueroa.files.wordpress.com/2008/03/stevesbio.pdf","https://www.antennahouse.com/XSLsample/pdf/sample-link_1.pdf"]
     
-    
-    let pdfThumbnillImage = [UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf"),UIImage(named:"pdf")]
-    
-    
-    var allCagegoryArray : [ImagesResultVo] = Array<ImagesResultVo>()
-    
-    var audioArray : [ImagesResultVo] = Array<ImagesResultVo>()
-    
-    var documentArray : [ImagesResultVo] = Array<ImagesResultVo>()
-    
-    var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
-    
-    var allCagegoryListArray : CategoriesListResultVo?
-    
-    var churchNameAry : Array<String> = Array()
-    var splitArray : Array<String> = Array()
-    
-    var categoryStr : Array<String> = Array()
-    
-    var videoIDArray : Array<String> = Array()
-    
-    var docsIDArray : Array<String> = Array()
-    
-    var audioIDArray : Array<String> = Array()
-    
-    var gggg = String()
-    
-    var thumbnailImageURL = String()
-    
-    var isResponseFromServer = false
-    
-   var noOfRows : Array<Dictionary<String,Any>> = Array()
-    
-    var numberOfRows : Dictionary<String,Any> = Dictionary()
-    
-    var imagesArrayTag : Dictionary<String,Any> = Dictionary()
-    
-    var userID = String()
-    
-    var idStr:String = ""
+ 
   
     //MARK:- view Did Load
     
@@ -108,7 +86,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         super.viewDidLoad()
         
         self.norecordsfoundLbl.isHidden = true
-
         
         if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
             
@@ -116,7 +93,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         }
         
         let newString = catgoryImg.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
         
             let url = URL(string:newString)
         
@@ -184,7 +160,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
         let urlStr = GETPOSTBYCATEGORYIDOFVIDEOSONGS + "" + "\(catgoryID)" + "/" + kUserId
         
         print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
-        
         serviceController.getRequest(strURL: urlStr, success: { (result) in
             
             DispatchQueue.main.async()
@@ -212,8 +187,6 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             
                             let videoList = self.allCagegoryListArray?.videos
                             
-                            
-                            
                             if !(videoList?.isEmpty)! {
                                 
                                 self.categoryStr.append("Videos")
@@ -226,9 +199,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             for authorDetails in videoList!{
                                 
                                 self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
-                                
                                 self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
-                                
                                 self.imagesArray.append(authorDetails)
                             }
                             
@@ -245,9 +216,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             for audioDetails in audioList!{
                                 
                                 self.numberOfRows.updateValue(audioList?.count, forKey: "\(i)")
-                                
                                 self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
-                                
                                 self.imagesArray.append(audioDetails)
                             }
                             
@@ -264,14 +233,11 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             for docsDetails in docsList!{
                                 
                                 self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
-                                
                                 self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
-                                
                                 self.imagesArray.append(docsDetails)
                             }
                             
                             i = (docsList?.count)! > 0 ? i + 1 : i
-                            
                             
                             let imageList = self.allCagegoryListArray?.images
                             
@@ -284,9 +250,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                             for imageDetails in imageList!{
                                 
                                 self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
-                                
                                 self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
-                                
                                 self.imagesArray.append(imageDetails)
                             }
                             
@@ -314,9 +278,7 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
                         
                     }
                     
-                    
             }
-            
             
             
         }) { (failureMessage) in
@@ -344,116 +306,119 @@ var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific P
             
             if let url = URL.init(string: urlString) {
                 
-                let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+            let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
                 
-                if let documentDirUrl = URL.init(string: documentDirUrlString) {
+            if let documentDirUrl = URL.init(string: documentDirUrlString) {
                     
-                    let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+            let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
                     
-                    if let pdfName = pdfNameArray.last {
+            if let pdfName = pdfNameArray.last {
                         
-                        let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
-                        self.saveLocationString = saveLocation.absoluteString
-                        filePath = URL.init(fileURLWithPath: saveLocation.path)
-                        print( self.saveLocationString)
+            let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+            self.saveLocationString = saveLocation.absoluteString
+            filePath = URL.init(fileURLWithPath: saveLocation.path)
+            print( self.saveLocationString)
                         
-                        let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+            let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
                         
-                        if fileExists {
+            if fileExists {
                             
-                            if !self.isSavingPDF {
+            if !self.isSavingPDF {
                                 
-                                DispatchQueue.main.async {
+            DispatchQueue.main.async {
                                     
-                                    //    self.hideHUD()
+                //    self.hideHUD()
                                     
-                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                     
-                                    self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
-                                    print( self.saveLocationString)
-                                    print(  self.openSelectedDocumentFromURL)
+                self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+                print( self.saveLocationString)
+                print(  self.openSelectedDocumentFromURL)
                                     
                                     
-                                    self.openPDFinPDFReader()
+                self.openPDFinPDFReader()
+                
                                 }
                                 
-                            } else {
+                } else {
                                 
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                                     
-                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                        })
-                            }
+            MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                                    
+        })
+    }
                             
-                        } else {
+        } else {
                             
-                            do {
+                do {
                                 
-                                self.isDownloadingOnProgress = true
+            self.isDownloadingOnProgress = true
                                 
-                                let imageData : Data? = try Data.init(contentsOf: url)
+        let imageData : Data? = try Data.init(contentsOf: url)
                                 
-                                if imageData == nil {
+        if imageData == nil {
                                     
-                                    self.isDownloadingOnProgress = false
+            self.isDownloadingOnProgress = false
                                     
-                                    DispatchQueue.main.async {
+        DispatchQueue.main.async {
                                         
-                                        MBProgressHUD.hide(for:appDelegate.window,animated:true)
+        MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                         
                                         
-                                    }
+        }
                                     
-                                } else {
+        } else {
                                     
-                                    do {
+                do {
+                        
+                try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
                                         
-                                        try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
-                                        
-                                        if !self.isSavingPDF {
+                if !self.isSavingPDF {
                                             
-                                            self.isDownloadingOnProgress = false
+                self.isDownloadingOnProgress = false
                                             
-                                            DispatchQueue.main.async {
+                DispatchQueue.main.async {
                                                 
-                                                MBProgressHUD.hide(for:appDelegate.window,animated:true)
-                                                self.openPDFinPDFReader()
-                                            }
+            MBProgressHUD.hide(for:appDelegate.window,animated:true)
+                    
+           self.openPDFinPDFReader()
+                   
+                    }
+                    
+            } else {
                                             
+        self.isDownloadingOnProgress = false
                                             
-                                        } else {
-                                            
-                                            self.isDownloadingOnProgress = false
-                                            
-                                            DispatchQueue.main.async {
+    DispatchQueue.main.async {
                                                 
-                                                MBProgressHUD.hide(for:appDelegate.window,animated:true)
+    MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                                 
                                               
-                                            }
-                                        }
+        }
+}
                                         
-                                    } catch let error {
+        } catch let error {
                                         
-                                        self.isDownloadingOnProgress = false
+    self.isDownloadingOnProgress = false
                                         
-                                        DispatchQueue.main.async {
+     DispatchQueue.main.async {
                                             
-                                            MBProgressHUD.hide(for:appDelegate.window,animated:true)
+    MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                            
-                                        }
-                                    }
-                                }
+}
+    }
+    }
                                 
-                            } catch let error {
+} catch let error {
                                 
-                                print(error.localizedDescription)
+    print(error.localizedDescription)
                                 
-                                self.isDownloadingOnProgress = false
+        self.isDownloadingOnProgress = false
                                 
-                                DispatchQueue.main.async {
+        DispatchQueue.main.async {
                                     
-                                    MBProgressHUD.hide(for:appDelegate.window,animated:true)
+    MBProgressHUD.hide(for:appDelegate.window,animated:true)
                                 }
                             }
                         }
@@ -526,16 +491,12 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         cell.homeCollectionView.register(UINib.init(nibName: "homeCategoriesCollectionCell", bundle: nil),
                                          forCellWithReuseIdentifier: "homeCategoriesCollectionCell")
+        
         cell.homeCollectionView.tag = indexPath.row
-        
         cell.selectionStyle = .none
-        
         cell.homeCollectionView.showsHorizontalScrollIndicator = false
-        
         cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        
         cell.homeCollectionView.reloadData()
-        
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
         
@@ -572,15 +533,9 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCategoriesCollectionCell", for: indexPath) as! homeCategoriesCollectionCell
         
         let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
-        
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-        
-        
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-        
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
-        
-
         
         cell.nameLabel.text = title
         
@@ -593,7 +548,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             if newString != nil {
                 
                 let url = URL(string:newString!)
-                
                 
                 let dataImg = try? Data(contentsOf: url!)
                 
@@ -618,7 +572,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "docImg")
 
-            
 
         }
         
@@ -653,9 +606,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 if videothumb != nil{
                     
                     let request = URLRequest(url: videothumb!)
-                    
                     let session = URLSession.shared
-                    
                     let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
                         
                         DispatchQueue.main.async()
@@ -692,7 +643,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         print("You selected cell #\(indexPath.item)!")
         
         let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
-        
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
@@ -731,11 +681,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         if self.imagesArrayTag.count > 0 {
         
         let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
-        
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
-        
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-            
         let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
@@ -752,27 +699,24 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 
                 let url = URL(string:newString!)
                 
-                
                 let dataImg = try? Data(contentsOf: url!)
                 
                 if dataImg != nil {
                     
                     
-                    let videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+            let videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                     
-                    videosVC.videoId = userID!
-                    videosVC.videoNameStr = title!
+            videosVC.videoId = userID!
+            videosVC.videoNameStr = title!
                     
-                    videosVC.imgData = dataImg!
+            videosVC.imgData = dataImg!
                     
+            videosVC.videoImgStr = "image"
                     
+            kUserDefaults.set(categoryId!, forKey: "categoryId")
+            kUserDefaults.synchronize()
                     
-                    videosVC.videoImgStr = "image"
-                    
-                    kUserDefaults.set(categoryId!, forKey: "categoryId")
-                    kUserDefaults.synchronize()
-                    
-                    self.navigationController?.pushViewController(videosVC, animated: true)
+            self.navigationController?.pushViewController(videosVC, animated: true)
                     
                 }
                 else {
@@ -786,7 +730,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 
             }
             
-           
             
         }
             
@@ -805,7 +748,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 
                 
                 docViewController.urlStr = newString!
-                
                 docViewController.titleStr = title!
                 
                 
@@ -830,15 +772,12 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-
             let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
-            
             let audioID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
             print(postImgUrl)
             
             let audioUrlImage =  postImgUrl
             print(audioUrlImage)
-            
             let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
             print(newString)
@@ -847,13 +786,13 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             if newString != nil {
                 
                 
-                    let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
+        let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
                     
-                    audioViewController.audioIDArr = newString!
-                   audioViewController.audioIDNameArr = title!
-                audioViewController.audioID = audioID!
-                audioViewController.categoryID = categoryId!
-                    self.navigationController?.pushViewController(audioViewController, animated: true)
+            audioViewController.audioIDArr = newString!
+            audioViewController.audioIDNameArr = title!
+            audioViewController.audioID = audioID!
+            audioViewController.categoryID = categoryId!
+            self.navigationController?.pushViewController(audioViewController, animated: true)
                     
                 
             }
@@ -862,8 +801,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             }
 
             
-            
-            
            print("audio")
             
         }
@@ -871,21 +808,18 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             
             
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
-            
             let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
-            
             let videoID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
-
             let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
             
             
-                        if let embededUrlImage =  imgUrl {
+            if let embededUrlImage =  imgUrl {
             
-                            let thumbnillImage : String = embededUrlImage
+                let thumbnillImage : String = embededUrlImage
                             
-                             self.idStr = String(thumbnillImage.characters.suffix(11))
+                    self.idStr = String(thumbnillImage.characters.suffix(11))
                             
-                            print(self.idStr)
+                    print(self.idStr)
                             
 //                            self.audioIDArray[1].append(idStr)
             
@@ -894,39 +828,40 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
 //            
 //                            self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
             
-                            let videothumb = URL(string: idStr)
+            let videothumb = URL(string: idStr)
             
-                            if videothumb != nil{
+            if videothumb != nil{
             
-                            let request = URLRequest(url: videothumb!)
+            let request = URLRequest(url: videothumb!)
             
-                            let session = URLSession.shared
+            let session = URLSession.shared
             
-                            let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+        let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
             
-                                DispatchQueue.main.async()
-                                {
+            DispatchQueue.main.async()
+                
+            {
             
-                                let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+        let  videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
                                    
-                                    videosVC.videoId = videoID!
-                                    videosVC.videoNameStr = title!
+            videosVC.videoId = videoID!
+            videosVC.videoNameStr = title!
+            videosVC.videoEmbededIDStr = self.idStr
                                     
-                                    videosVC.videoEmbededIDStr = self.idStr
+            videosVC.videoImgStr = "video"
                                     
-                                    videosVC.videoImgStr = "video"
-                                    
-                                    kUserDefaults.set(categoryId!, forKey: "categoryId")
-                                    kUserDefaults.set(videoID!, forKey: "videoID")
-//                                    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
-                                    kUserDefaults.synchronize()
+            kUserDefaults.set(categoryId!, forKey: "categoryId")
+            kUserDefaults.set(videoID!, forKey: "videoID")
+//    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
+        kUserDefaults.synchronize()
 
-                                   self.navigationController?.pushViewController(videosVC, animated: true)
-                                    }
+        self.navigationController?.pushViewController(videosVC, animated: true)
+                
+            }
                                     
-                                })
+            })
                                 
-                                dataTask.resume()
+            dataTask.resume()
                                 
                             }
                         }
@@ -958,9 +893,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         UserDefaults.standard.synchronize()
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-
-        
         self.navigationController?.popViewController(animated: true)
         
 
@@ -972,23 +904,16 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
+                
         print("Home Button Clicked......")
         
     }

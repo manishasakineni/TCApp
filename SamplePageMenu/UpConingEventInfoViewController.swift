@@ -21,7 +21,6 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
     var appVersion          : String = ""
     var upComingEventinfoArray:[GetUpComingEventInfoResultVo] = Array<GetUpComingEventInfoResultVo>()
-
     var eventDateArray = Array<String>()
     var eventTitleArray = Array<String>()
     var eventStartDateArray = Array<String>()
@@ -30,7 +29,6 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     var contactNumberArray = Array<String>()
     var registrationNumberArray = Array<String>()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var delegate: eventinfoSubtitleOfIndexDelegate?
     
  //MARK: -  view Did Load
@@ -40,7 +38,6 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         self.norecordsfoundLbl.isHidden = true
 
-        
         upComingTableView.rowHeight = UITableViewAutomaticDimension
         upComingTableView.estimatedRowHeight = 44
         upComingTableView.reloadData()
@@ -173,15 +170,15 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
-        eventDetailsViewController.eventID = listStr.id!
-  //      eventDetailsViewController.eventChurchName = listStr.churchName!
-        eventDetailsViewController.eventName = listStr.title!
-
+      
+    //    eventDetailsViewController.eventChurchName = listStr.churchName!
+    //   eventDetailsViewController.catgoryID = listStr.churchId!
         
-    //    eventDetailsViewController.catgoryID = listStr.churchId!
-        eventDetailsViewController.navigationStr = "navigationStr"
+        eventDetailsViewController.eventID = listStr.id!
+        eventDetailsViewController.eventName = listStr.title!
         eventDetailsViewController.eventImageArrayString = listStr.eventImage!
         
+         eventDetailsViewController.navigationStr = "navigationStr"
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
         
         
@@ -244,7 +241,6 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     let respVO:GetUpComingEventInfo = Mapper().map(JSONObject: result)!
                         
     let isSuccess = respVO.isSuccess
-                        
             
     print("StatusCode:\(String(describing: isSuccess))")
                         
@@ -255,7 +251,6 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     if (listResult?.count)! > 0 {
                                 
     self.norecordsfoundLbl.isHidden = true
-                                
     self.upComingTableView.isHidden = false
         
     for eventsList in respVO.listResult!{

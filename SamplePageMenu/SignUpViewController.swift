@@ -22,17 +22,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //MARK: -  variable declaration
     
     let utillites =  Utilities()
-
     var appVersion          : String = ""
-
     var toolBar = UIToolbar()
     var activeTextField = UITextField()
-    
     var alertTag = Int()
-    
     var showNav = false
-
-    
     var id:Int = 0
     var userId:String = ""
 
@@ -54,7 +48,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     var sectionsTitle : [String] = [" "]
-     var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
+    var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
     
 //MARK: -   View Did Load
 
@@ -67,14 +61,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signeUpOutLet.layer.borderWidth = 1.0
         signeUpOutLet.layer.cornerRadius = 6.0
         signeUpOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
-       
-        
         
         signUpTableView.delegate = self
         signUpTableView.dataSource = self
         activeTextField.delegate = self
         registerTableViewCells()
-        
         
         
     }
@@ -107,13 +98,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //MARK:- textField Should End Editing
     
     
-    
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         
         activeTextField = textField
-        
         textField.autocorrectionType = .no
         
      
@@ -197,14 +185,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                     return false
                 }
                 let newLength = currentCharacterCount + string.characters.count - range.length
-                
                 let allowedCharacters = CharacterSet.letters
                 let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
                 
                 let space = CharacterSet.init(charactersIn: " ")
-                
                 let spacestr = string.trimmingCharacters(in: space)
-                
                 return newLength <= 50 && unwantedStr.characters.count == 0 ||  spacestr.characters.count == 0
 
             }
@@ -236,8 +221,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 
                 let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
                 
-                
-                
                 return unwantedStr.characters.count == 0
             }
             
@@ -253,8 +236,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //MARK:- textField Should Should End Editing
   
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        
-        
         
         
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
@@ -408,8 +389,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.registrationTextfield.text = email
         signUPCell.registrationTextfield.placeholder = "E-mail".localize()
         signUPCell.eyeButtonOutlet.isHidden = true
-
-            
             
         }
         else if indexPath.row == 5{
@@ -418,9 +397,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.registrationTextfield.placeholder = "Mobile Number".localize()
         signUPCell.eyeButtonOutlet.isHidden = true
 
-            
-            
-            
+        
         }
         else if indexPath.row == 6{
             
@@ -428,7 +405,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.registrationTextfield.placeholder = "Password".localize()
         signUPCell.eyeButtonOutlet.isHidden = false
         signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
-
 
             
         }
@@ -440,8 +416,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.eyeButtonOutlet.isHidden = false
         signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
-            
-            
             
         }
 
@@ -459,10 +433,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             forgotPasswordCell.registrationTextfield.isSecureTextEntry = !forgotPasswordCell.registrationTextfield.isSecureTextEntry
             
-            
         }
 
-        
         
     }
 
@@ -479,7 +451,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         self.navigationController?.popViewController(animated: true)
         
-        
         print("Back Button Clicked......")
         
     }
@@ -494,7 +465,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         
@@ -502,16 +472,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         appDelegate.window?.rootViewController = rootController
         
-        
-
-        
         print("Home Button Clicked......")
         
     }
 
-    
-    
-    
     
     //MARK: -    submit Button Clicked
 
@@ -522,8 +486,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             if self.validateAllFields()
             {
                 
-                
-                       signeUpAPIService()
+            signeUpAPIService()
             }
         }
         else {
@@ -532,7 +495,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             return
             
         }
-        
         
         print("Submit Button Clicked......")
 
@@ -640,9 +602,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
-            
-            
-            
+        
         if let errorMsg = errorMessage{
             
             
@@ -704,52 +664,43 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         print("dictHeader:\(dictHeaders)")
 
         
-        
         serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
             DispatchQueue.main.async()
                 {
                     
-                    print("result:\(result)")
+            print("result:\(result)")
+            let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+            print("responseString = \(respVO)")
+            let statusCode = respVO.isSuccess
                     
-                    let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+            print("StatusCode:\(String(describing: statusCode))")
                     
-                    
-                    print("responseString = \(respVO)")
-                    
-                    
-                    let statusCode = respVO.isSuccess
-                    
-                    print("StatusCode:\(String(describing: statusCode))")
-                    
-                    
-                    
-                    if statusCode == true
-                    {
+            if statusCode == true
+                
+            {
                         
+        let successMsg = respVO.endUserMessage
                         
-                        let successMsg = respVO.endUserMessage
+        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
+            
+        let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                         
-                        
-                        
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
-                                let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                        
-                            signUpVc.showNav = true
+        signUpVc.showNav = true
 
-                            self.navigationController?.pushViewController(signUpVc, animated: true)
-                        })
+        self.navigationController?.pushViewController(signUpVc, animated: true)
+            
+        })
                         
+    }
+        else {
                         
-                    }
-                    else {
+    let failMsg = respVO.endUserMessage
                         
-                        let failMsg = respVO.endUserMessage
+    self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                         
-                        self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
+        return
                         
-                        return
-                        
-                    }
+    }
                     
                     
             }
@@ -767,8 +718,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
-
-
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         

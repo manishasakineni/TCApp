@@ -23,12 +23,10 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     var authorEventsVC : AuthorEventsViewController?
     var authorPostsVC  : AuthorPostsViewController?
     private var controllersArray: [UIViewController] = []
-    
     var viewTitle = ""
     var catgoryName:String = ""
-    
     var churchName = ""
-   var isFromChruch = false
+    var isFromChruch = false
     var authorID : Int = 0
     var churchName1 : String = ""
     var appVersion  : String = ""

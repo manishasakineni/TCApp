@@ -17,15 +17,10 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
      var itemID:Int = 0
      var quantity = ""
-    var AddToCart = LoginViewController()
-
-    
+     var AddToCart = LoginViewController()
      var userId :  Int = 0
-    
-    var allitemsArray:[GetCartListResultVO] = Array<GetCartListResultVO>()
-    
-    var filtered:[GetCartListResultVO] = []
-    
+     var allitemsArray:[GetCartListResultVO] = Array<GetCartListResultVO>()
+     var filtered:[GetCartListResultVO] = []
      var deletelist:[deleteCartInfoResultVO] = []
     
     //MARK:-  view Did Load
@@ -40,8 +35,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         self.AddToCart.showNav = true
         self.AddToCart.navigationString = "AddToCart"
         
-        
-        
         let nibName1  = UINib(nibName: "AddToCareTableViewCell" , bundle: nil)
         addToCartTableView.register(nibName1, forCellReuseIdentifier: "AddToCareTableViewCell")
         
@@ -55,9 +48,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         }
         
         getCartInfoAPIService()
-        
-
-        
         
         
         // Do any additional setup after loading the view.
@@ -131,15 +121,9 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         
         let listStr:GetCartListResultVO = filtered[indexPath.row]
-        
-        
-        
         let postImgUrl = listStr.itemImage
-        
         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        
         let url = URL(string:newString!)
-        
         let dataImg = try? Data(contentsOf: url!)
         
         if dataImg != nil {
@@ -204,8 +188,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
             }
         }
         
-       
-        
            print("Back Button Clicked......")
         
     }
@@ -219,10 +201,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
@@ -233,9 +212,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
+
         print("Home Button Clicked......")
         
     }
@@ -268,9 +245,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
         
-        
-
-        
     }
     
  //MARK:-  get Cart Info API Service
@@ -283,12 +257,9 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             
-            
             let respVO:GetCartInfoVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = respVO.isSuccess
-  
-            
         
             if isSuccess == true {
                 
@@ -320,33 +291,22 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
 func deleteAPIService(_ sender : UIButton){
     
-
-   
-    
      let deleteAddressInfo  = filtered[sender.tag]
-    
-   
     
      let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
     
-    
-        
     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
-        
-        
-        
-        
+    
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             
             let respVO:deleteCartInfoVO = Mapper().map(JSONObject: result)!
-            
             let isSuccess = respVO.isSuccess
             
             if isSuccess == true {
+                
         self.filtered.remove(at: sender.tag)
         
         self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
-        
         
         
             }
@@ -358,11 +318,7 @@ func deleteAPIService(_ sender : UIButton){
                 
         }
 
-    
         })
-    
-    
-    
     
     
  

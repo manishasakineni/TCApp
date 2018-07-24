@@ -19,23 +19,14 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
 //MARK: -  variable declaration
     
     var eventID = Int()
-    
     var loginVC = LoginViewController()
-    
     var eventChurchName = ""
-    
     var eventName = ""
-    
     var catgoryID:Int = 0
     var churchName1 : String = ""
     var navigationStr = String()
-
-    
     var pageMenu : CAPSPageMenu?
-
-    
     var eventImageArrayString = ""
-
     var EventDetailsVC : EventDetailsViewController?
     var PostEventDetailsVC : PostEventDetailsViewController?
     private var controllersArray: [UIViewController] = []
@@ -65,15 +56,10 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
     }
     
-    
-    
-    
     //MARK: - create Page Menu
     
     private func createPageMenu() {
         
-        
-      
 //        eventDetailsViewController.eventID = listStr.id!
 //        eventDetailsViewController.eventChurchName = listStr.churchName!
 //        eventDetailsViewController.eventName = listStr.title!
@@ -156,7 +142,6 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
@@ -179,15 +164,11 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
         
         print("Home Button Clicked......")
         

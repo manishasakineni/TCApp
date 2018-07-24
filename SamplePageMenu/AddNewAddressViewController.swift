@@ -13,7 +13,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var addNewAddressTableView: UITableView!
    
     
-     //MARK:- variable declaration
+//MARK:- variable declaration
     
     var showNav = false
     var isFromEdit = false
@@ -28,7 +28,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     var mobileNumber  : String = ""
     var state  : String = ""
     var country  : String = ""
-    
     var isActive:Bool = true
     var createdByUserId:Int = 1
     var createdDate : String = "2018-06-05"
@@ -37,28 +36,18 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     var stateID : Int = 1
     var countryID : Int = 1
-    
-     var alertTag = Int()
-    
+    var alertTag = Int()
     var selectedData : String = ""
-    
-      var selectNameType : Array = Array<String>()
-    
+    var selectNameType : Array = Array<String>()
     var pickerData = Array<String>()
-
     var myPickerView: UIPickerView!
     
     var stateDetails : [String] = Array<String>()
-    
     var countryDetails : [String] = Array<String>()
-    
     var stateInfoDetails : [StateInfoResultVO] = Array<StateInfoResultVO>()
-    
     var countryInfoDetails : [CountryInfoResultVO] = Array<CountryInfoResultVO>()
-    
-     var filtered:[UpdatedeliveryAddressInfoResultVO] = Array<UpdatedeliveryAddressInfoResultVO>()
-    
-     var addressInfo:[EditAddressInfoResultVO] = Array<EditAddressInfoResultVO>()
+    var filtered:[UpdatedeliveryAddressInfoResultVO] = Array<UpdatedeliveryAddressInfoResultVO>()
+    var addressInfo:[EditAddressInfoResultVO] = Array<EditAddressInfoResultVO>()
     
     var addressTFPlaceholdersArray = ["FullName".localize(),"Flat,House No,Building,Company,Apartment".localize(),"Area,Colony,Street,Sector,Village".localize(),"PinCode".localize(),"Landmark".localize()]
 
@@ -70,8 +59,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         let nibName1  = UINib(nibName: "AddnewAddressTableViewCell" , bundle: nil)
         addNewAddressTableView.register(nibName1, forCellReuseIdentifier: "AddnewAddressTableViewCell")
@@ -203,12 +190,9 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
             
             
-            
         }
         return true
     }
-    
-    
     
     
     //MARK:- textField Did End Editing
@@ -271,13 +255,10 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
  //MARK: -  Table view delegate and data source methods
     
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -312,10 +293,10 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             return UITableViewAutomaticDimension
         }
         
-
         
         return UITableViewAutomaticDimension
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
@@ -334,15 +315,11 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         cell.addNewAddressTF.tag = indexPath.row
         
-       
-        
-        
+            
         if indexPath.row == 0{
             
             cell.addNewAddressTF.placeholder = "Full Name".localize()
             cell.addNewAddressTF.text = fullName
-           
-            
             
         }
         else if indexPath.row == 1{
@@ -351,15 +328,11 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             cell.addNewAddressTF.text = flatNo
             
             
-            
-            
         }
         else if indexPath.row == 2{
             
             cell.addNewAddressTF.placeholder = "Area,Colony,Street,Sector,Village".localize()
             cell.addNewAddressTF.text = area
-            
-            
             
             
         }
@@ -370,8 +343,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             cell.addNewAddressTF.text = pincode
           
             
-            
-            
         }
             
         else if indexPath.row == 4{
@@ -379,8 +350,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             cell.addNewAddressTF.text = landmark
             cell.addNewAddressTF.placeholder = "Landmark".localize()
            
-            
-            
             
         }
             
@@ -390,34 +359,25 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
      else   if (indexPath.section == 1) {
             
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "statecountryTableViewCell", for: indexPath) as! statecountryTableViewCell
-            
-            
            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "statecountryTableViewCell", for: indexPath) as! statecountryTableViewCell
             
           
-                cell.stateTF.placeholder = "State".localize()
-                cell.stateTF.text = state
-                cell.stateTF.tag = 5
-                cell.stateTF.delegate = self
+        cell.stateTF.placeholder = "State".localize()
+        cell.stateTF.text = state
+        cell.stateTF.tag = 5
+        cell.stateTF.delegate = self
                 
-                cell.countryTF.placeholder = "Country".localize()
-                cell.countryTF.text = country
-                cell.countryTF.tag = 6
-                cell.countryTF.delegate = self
+        cell.countryTF.placeholder = "Country".localize()
+        cell.countryTF.text = country
+        cell.countryTF.tag = 6
+        cell.countryTF.delegate = self
 
+        cell.mobileNoTF.placeholder = "Mobile Number".localize()
+        cell.mobileNoTF.text = mobileNumber
+        cell.mobileNoTF.tag = 7
+        cell.mobileNoTF.delegate = self
                 
-        
-                
-                cell.mobileNoTF.placeholder = "Mobile Number".localize()
-                cell.mobileNoTF.text = mobileNumber
-                cell.mobileNoTF.tag = 7
-                cell.mobileNoTF.delegate = self
-                
-                
-                
-            
 
             return cell
             
@@ -426,7 +386,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         
         return UITableViewCell()
-        
         
         
     }
@@ -443,8 +402,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         self.navigationController?.popViewController(animated: true)
         
         
-        
-        
         print("Back Button Clicked......")
         
     }
@@ -458,8 +415,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         
         UserDefaults.standard.set("1", forKey: "1")
@@ -472,9 +427,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         
         appDelegate.window?.rootViewController = rootController
         
-        
-        
-        
+    
         print("Home Button Clicked......")
         
     }
@@ -599,7 +552,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                     
                     self.stateDetails.append(eachArray.name!)
                     
-                   
                     
                 }
                 
@@ -728,7 +680,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             else {
                 
                 
-                
             }
             
         }) { (failureMessage) in
@@ -751,7 +702,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             if self.validateAllFields()
             {
                 
-                
                 saveaddressAPICall()
                 
                 
@@ -761,9 +711,6 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         print("Submit Button Clicked......")
         
 
-        
-   
-        
     }
     
     //MARK:- read Data Source

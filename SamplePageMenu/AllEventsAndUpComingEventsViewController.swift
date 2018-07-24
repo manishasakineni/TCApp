@@ -20,12 +20,9 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
    //MARK: -  variable declaration
     
     var churchImageArrayString = ""
-    
     var appVersion          : String = ""
     var showNav = false
-
     var pageMenu : CAPSPageMenu?
-    
     var upConingEventInfoVC : UpConingEventInfoViewController?
     var allEventsVC : AllEventsViewController?
     private var controllersArray: [UIViewController] = []
@@ -60,8 +57,7 @@ private func createPageMenu() {
         upConingEventInfoVC?.title = "UpComing Events".localize()
         upConingEventInfoVC?.delegate  = self
     
-        
-        
+    
         allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as! AllEventsViewController
         
         allEventsVC?.title = "ALL EVENTS".localize()
@@ -121,7 +117,6 @@ private func createPageMenu() {
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
@@ -142,7 +137,6 @@ private func createPageMenu() {
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController

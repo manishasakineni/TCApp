@@ -15,21 +15,13 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
      //MARK:- variable declaration
     
     var chapterCountStr:Int = 0
-    
     var indexCount:Int = 0
-    
     var appVersion:String = ""
-    
     var backTitleStr:String = ""
-    
     var LangText:String = ""
-
     var verseCountStr = Array<Int>()
-    
     var bibleCArr = Array<Int>()
-    
     var vDetailArray = Array<String>()
-    
     var verseStringCount : Dictionary = Dictionary<String,Any>()
 
     override func viewDidLoad() {
@@ -70,11 +62,7 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
            Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(backTitleStr)", backTitle: "\(backTitleStr)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
     
         }
-        
     
-
-    
-
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
@@ -157,19 +145,13 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
             let verseViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleVerseViewController") as! BibleVerseViewController
             
             verseViewController.verseCountStr = self.verseCountStr[indexPath.row]
-            
             verseViewController.versDetailArray = self.vDetailArray
-            
             verseViewController.backTitleStr = backTitleStr
-            
             verseViewController.chapterCount = indexPath.row
             
             let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
-            
             let capter = versesDict?["\(indexPath.row)"] as? [BibleResultVo]
-            
             verseViewController.verseStringCount = capter!
-            
             print(capter)
             
             self.navigationController?.pushViewController(verseViewController, animated: true)
@@ -188,13 +170,9 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         
         
         UserDefaults.standard.set("1", forKey: "1")
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
-        
-        
         self.navigationController?.popViewController(animated: true)
         
     
@@ -207,13 +185,9 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
         
         UserDefaults.standard.removeObject(forKey: "1")
         
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController

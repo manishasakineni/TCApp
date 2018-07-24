@@ -20,22 +20,17 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var playButton: UIButton!
     
-    
     @IBOutlet weak var nextButton: UIButton!
-    
     
     @IBOutlet weak var currentTimeLabel: UILabel!
     
-    
     @IBOutlet weak var timeLabel: UILabel!
-    
     
     @IBOutlet weak var playerSlider: UISlider!
     
     @IBOutlet weak var loadingLabel: UILabel!
     
     @IBOutlet weak var backGroundView: UIView!
-    
     
     @IBOutlet weak var audioTableview: UITableView!
     
@@ -49,23 +44,17 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var audioIDArr = ""
     var audioIDNameArr = ""
     var NameArr = ""
-
     var playList: NSMutableArray = NSMutableArray()
     var timer: Timer?
     var index: Int = Int()
     var avPlayer: AVPlayer!
     var isPaused: Bool!
-   
-    
-     var activeTextView = UITextView()
+    var activeTextView = UITextView()
     var  deleteID : Int = 0
-    
     var thumbnailImageURL = String()
-    
     var userID = 0
     
-     var replyDetails = [CommentDetailsVo]()
-    
+    var replyDetails = [CommentDetailsVo]()
     var isLike = 0
     var isDisLike = 0
     var likeClick = false
@@ -80,39 +69,29 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     var parentCommentId = 0
     var replyParentCommentId = 0
-    
     var comentId = 0
-    
     var commentString : String = "Add a public comment..."
     var activeLabel = UILabel()
-     var loginVC = LoginViewController()
-    
+    var loginVC = LoginViewController()
     var parentCommentIdArray = Array<Int>()
     var commentingIdArray = Array<Int>()
-     var eventID = 0
-     var activeLblNumberofLines : Int = 3
-    
-     var replyCountArray = Array<Any>()
-    
-     var commentId = 0
-     var replyMainComment = ""
-     var replyMainCommentUser = ""
+    var eventID = 0
+    var activeLblNumberofLines : Int = 3
+    var replyCountArray = Array<Any>()
+    var commentId = 0
+    var replyMainComment = ""
+    var replyMainCommentUser = ""
     var repliesCommentsArray = Array<Any>()
     var repliesCommentsUsernamesArray = Array<Any>()
-    
     var videoId : Int = 0
-   var categoryId = Int()
-   
-     var postID : Int = 0
-     var editUserID = 0
-     var commentsCount = 0
+    var categoryId = Int()
+    var postID : Int = 0
+    var editUserID = 0
+    var commentsCount = 0
     var readMoreBtnIsHidden = true
-
-     var commentedByUserArray = Array<Any>()
-      var CommentsByUserArray = Array<Any>()
-    
-     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
-    
+    var commentedByUserArray = Array<Any>()
+    var CommentsByUserArray = Array<Any>()
+    var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
     let buttonnn = UIButton()
     
   //MARK: -  view Did Load
@@ -164,9 +143,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         audioTableview.delegate = self
         
         self.navigationController?.isNavigationBarHidden = true
-     
         
-       
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
             
             self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
@@ -376,9 +353,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
-
         UserDefaults.standard.synchronize()
         UserDefaults.standard.removeObject(forKey: "1")
     
@@ -395,22 +370,14 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
         UserDefaults.standard.removeObject(forKey: "1")
-        
-        
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
         
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
         
         print("Home Button Clicked......")
         
@@ -590,7 +557,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     }
 
                   //  usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
-                    //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                 //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
                     return usersCommentsTableViewCell
                 }
                     
@@ -659,12 +626,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
         
             
-            
-            
             cell.likeCountLbl.text = String(likesCount)
-            
             cell.disLikeCountLbl.text = String(disLikesCount)
-            
             cell.likeButton.addTarget(self, action: #selector(likeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
             cell.unlikeButton.addTarget(self, action: #selector(unlikeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
             cell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
@@ -690,9 +653,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             }
             
             return cell
-            
-            
-       
             
             
         }
@@ -744,12 +704,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
             cell3.usersCommentLbl.text = usersCommentsArray[indexPath.row] as! String
-            
             cell3.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String
-            
             cell3.viewCommentsBtn.isHidden = false
             cell3.replyCommentBtn.isHidden = false
-          
             cell3.editCommentBn.tag = indexPath.row
         
             
@@ -763,7 +720,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             let commentnameLblHeight = Int((commentedbyusername?.height(withConstrainedWidth: cell3.usersNameLbl.frame.size.width, font: UIFont(name: "HelveticaNeue", size: 14.0)!))!)
             
-
             
             
             if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
@@ -776,31 +732,22 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
             else {
                 
-                cell3.usersCommentLbl.numberOfLines = activeLblNumberofLines
+            cell3.usersCommentLbl.numberOfLines = activeLblNumberofLines
                            }
             
             print(activeLabel.numberOfLines)
-            
             cell3.usersCommentLbl.text = commentString
-            
             print(cell3.usersCommentLbl.numberOfLines)
-            
-            
             
             let replyCount : Int = replyCountArray[indexPath.row] as! Int
             
-            
             cell3.usersLikeBtn.tag = indexPath.row
-            
             cell3.usersDislikeBtn.tag = indexPath.row
-            
             cell3.readMoreBtn.tag = indexPath.row
             cell3.viewCommentsBtn.tag = indexPath.row
             cell3.replyCommentBtn.tag = indexPath.row
             
             cell3.replayCountLbl.text = String(replyCount)
-            
-      
             
             if replyCount > 0{
                 
@@ -818,7 +765,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             cell3.usersDislikeBtn.addTarget(self, action: #selector(unlikeButtonClicked), for: UIControlEvents.touchUpInside)
             cell3.replyCommentBtn.addTarget(self, action: #selector(replyCommentBtnClick), for: UIControlEvents.touchUpInside)
             
-            
             cell3.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             cell3.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
@@ -827,16 +773,10 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             cell3.replyCommentBtn.isHidden = false
             
-            
-           
-            
             return cell3
             
             
         }
-
-        
-        
         
         }
         return UITableViewCell()
@@ -844,8 +784,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func commentTWBtnClicked(){
-        
-        
         
         
     }
@@ -883,7 +821,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
        
         
-        self.editUserID = self.commentingIdArray[sender.tag]
+         self.editUserID = self.commentingIdArray[sender.tag]
         
    //     self.parentCommentId = self.parentCommentIdArray[sender.tag]
         self.comentId = self.commentingIdArray[sender.tag]
@@ -894,16 +832,17 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
-                
                 let indexPath3 = IndexPath(row: 0, section: 2)
                 
                 self.commentString = ""
                 self.audioTableview.scrollToRow(at: indexPath3, at: .top, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    
                     if let commentsCell = self.audioTableview.cellForRow(at: indexPath3) as? CommentsCell {
                       
                         commentsCell.commentTexView.text = userCommentString
                         commentsCell.commentTexView.becomeFirstResponder()
+                        
                     }
                     
                 })
@@ -954,9 +893,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
             
-            
-
-        
         
         let deletePostID : Int  = self.commentingIdArray[tag]
         
@@ -986,9 +922,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 self.parentCommentId = 0
                 
                 self.getEventDetailsByIdApiCall()
-
-                
-            
                 
                     }
             
@@ -1222,11 +1155,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
             }
             
-            
-            
             self.repliesCommentsUsernamesArray.removeAll()
             self.repliesCommentsArray.removeAll()
-            
             
             
             if((replyDetails.count) > 0){

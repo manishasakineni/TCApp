@@ -22,11 +22,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     //MARK: -  variable declaration
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     var appVersion          : String = ""
-    
     var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
     var churchCountryArray = Array<String>()
@@ -51,7 +48,6 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var nameString = ""
     var timeString = ""
     var descriptionString = ""
-    
     var MissionString = ""
     var VissionString = ""
     var stateString = ""
@@ -60,11 +56,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var districtString = ""
     var villageString = ""
     var pinCodeString = ""
-    
     var authorNameString = ""
     var dobString = ""
     var genderString = ""
-    
     var userId : Int = 0
     var uid : Int = 0
     var authorID : Int = 0
@@ -360,8 +354,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
     let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
             
     if indexPath.row == 0 {
-                
-                
+        
     cell.churchNameLabel.text = churchNamesString
                 
     if(churchImageLogoArray.count >= indexPath.section){
@@ -492,10 +485,9 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
     cell3.infoLabel.text = "Village".localize()
                 
     cell3.addressLabel.text = villageString
-                
-                
-                
+        
             }
+        
     else if indexPath.row == 8 {
             
     cell3.infoLabel.text = "Pin Code".localize()
@@ -605,14 +597,10 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }
         if section == 1 {
             
-            
-            
             infoHeaderCell.headerLabel.text = "Church Details".localize()
             
             
         }else if section == 2 {
-            
-            
             
             infoHeaderCell.headerLabel.text = "Address".localize()
           
@@ -620,17 +608,13 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }
         else if section == 3 {
             
-            
-            
-            infoHeaderCell.headerLabel.text = "Church Author".localize()
+        infoHeaderCell.headerLabel.text = "Church Author".localize()
             
             
         }
             
         else if section == 4 {
-            
-           
-            
+                        
             infoHeaderCell.headerLabel.text = "Map".localize()
             
         }
