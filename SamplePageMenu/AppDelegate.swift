@@ -25,14 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var customizedLaunchScreenView: UIView?
 
     var window: UIWindow?
-     
+    var messge : String = ""
 
+     var countryInfoDetails : [splashmsgResultVO] = Array<splashmsgResultVO>()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.sharedManager().enable = true
-     //   IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
+    
         FirebaseApp.configure()
-     
+  
+         //   IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
 //        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
 //        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
 //        application.registerForRemoteNotifications()
@@ -92,9 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = homeNav
         
         
-  
+        getsplashmsgAPICall()
         
-       lunchScreenView()
+    //   lunchScreenView()
+        
         
 
      //   }
@@ -223,8 +227,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return (isReachable && !needsConnection)
     }
     
+ 
+    func getsplashmsgAPICall() {
+        
+        serviceController.getRequest(strURL: GETSPLASHMSGAPI , success: { (result) in
+            
+            
+            let respVO:splashmsgInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.result!
+                let desc = listArr.desc!
+                self.lunchScreenView(desc)
+                
+       
+                
+            }
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
     
-    func lunchScreenView(){
+    
+
+    
+    
+    func lunchScreenView(_ text : String){
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
@@ -251,7 +293,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     codedLabel.textAlignment = .center
     var stringCount : Double = 0.0
                 
-    var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+    var str = text
     stringCount = Double(str.characters.count)
     print(str.characters.count)
     codedLabel.animate(newText:str, characterDelay: 0.05)
@@ -326,11 +368,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         }
 
-                
+     
+        
+        
+        
     codedLabel.textAlignment = .center
     var stringCount : Double = 0.0
                 
-    var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+    var str = text
     stringCount = Double(str.characters.count)
     print(str.characters.count)
     codedLabel.animate(newText:str, characterDelay: 0.05)

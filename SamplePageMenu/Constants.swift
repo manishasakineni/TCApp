@@ -166,7 +166,8 @@ let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/
 
 let NOTIFICATIONSAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
 
-//not done
+let GETSPLASHMSGAPI : String = BASEURL.appending("api/SplashMessage/GetSplashMessageByDate")
+
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventByEventId/")
 
 

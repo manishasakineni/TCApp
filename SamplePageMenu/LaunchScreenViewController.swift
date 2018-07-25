@@ -12,6 +12,7 @@ class LaunchScreenViewController: UIViewController {
 
     @IBOutlet weak var quotationLabel: UILabel!
    
+     var messge  : String = ""
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -53,6 +54,53 @@ class LaunchScreenViewController: UIViewController {
         
         
     }
+    
+    
+    
+    
+    func getsplashmsgAPICall() {
+        
+        serviceController.getRequest(strURL: GETSPLASHMSGAPI , success: { (result) in
+            
+            
+            let respVO:splashmsgInfoVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.result!
+               
+                
+//                for eachArray in listArr{
+//                    
+//                    
+//                    if(self.messge == eachArray.desc!){
+//                        let countryID = eachArray.Id!
+//                        
+//                    }
+//                    
+//                }
+                
+            }
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+    
+
+    
 
 }
 
