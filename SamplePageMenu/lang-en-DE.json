@@ -214,7 +214,13 @@
     "Cart" : "Cart",
     "Event Details" : "Event Details",
     "Seller Information" : "Seller Information",
-    "Price" : "Price"
+    "Price" : "Price",
+    "Please Login To Delete" : "Please Login To Delete",
+    "Please Login To Like" : "Please Login To Like",
+    "Please Login To Unlike" : "Please Login To Unlike",
+    "Please Login To Share" : "Please Login To Share",
+    "Please Login To Add Comment" : "Please Login To Add Comment",
+    "Please Login To Reply" : "Please Login To Reply"
     
     
     

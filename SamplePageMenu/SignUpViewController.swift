@@ -38,17 +38,29 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var userName     : String = ""
     var password       : String = ""
     var confirmpassword       : String = ""
-    var roleId   : Int = 1
+    var roleId   : Int = 3
     var email:String = ""
     var isActive:Bool = true
-    var createdByUserId:Int = 1
+    var createdByUserId:Int = 89
     var createdDate : String = "2018-01-31T10:43:28.8319786+05:30"
-    var updatedByUserId : Int = 1
+    var updatedByUserId : Int = 89
     var updatedDate:String =  "2018-01-31T10:43:28.8329795+05:30"
     
+    var gender : String = ""
+    var male = true
+    var female = false
+    var genderTypeID:Int = 0
+    let datepicker = UIDatePicker()
+    var dateofBirth:String = ""
+    let dateFormatter = DateFormatter()
+    var selectedDate : String = ""
+    var DOB       : String = ""
+     var btneditClick = false
+    
+   
     
     var sectionsTitle : [String] = [" "]
-    var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
+    var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize(),"Date Of Birth".localize()]
     
 //MARK: -   View Did Load
 
@@ -66,6 +78,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUpTableView.dataSource = self
         activeTextField.delegate = self
         registerTableViewCells()
+        
+        let nibName3  = UINib(nibName: "GenderTableViewCell" , bundle: nil)
+        signUpTableView.register(nibName3, forCellReuseIdentifier: "GenderTableViewCell")
+
         
         
     }
@@ -162,8 +178,69 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             
         }
+        
+        else if activeTextField.tag == 8{
+            
+            textField.inputView = datepicker
+            textField.clearButtonMode = .never
+            textField.inputView = datepicker
+            
+            let todayDate = NSDate()
+            self.datepicker.maximumDate = todayDate as Date
+            datepicker.datePickerMode = .date
+            let toolBar = UIToolbar()
+            toolBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            toolBar.sizeToFit()
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+            
+            toolBar.setItems([doneButton], animated: true)
+            textField.inputAccessoryView = toolBar
+            activeTextField.text = selectedDate
+            
+            
+        }
        
     }
+    
+    //MARK: - Create date Picker Controller
+    
+    func CreatedatePicker(){
+        
+        datepicker.datePickerMode = .date
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: "donedatePicker")
+        
+        toolbar.setItems([doneButton], animated: false)
+        activeTextField.inputAccessoryView = toolbar
+        activeTextField.inputView = datepicker
+        
+        
+        
+    }
+    
+    
+    //MARK: -  done Pressed
+    
+    func donePressed(){
+        
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateofBirth = dateFormatter.string(from: datepicker.date)
+        
+        selectedDate = dateFormatter.string(from: datepicker.date)
+        print(selectedDate)
+        print(dateofBirth)
+        self.view.endEditing(true)
+        
+        signUpTableView.reloadData()
+    }
+
     
 //MARK:- textField Should Change Characters In range
     
@@ -304,7 +381,14 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 
             
             }
-                
+        else if activeTextField.tag == 8{
+            
+            
+            DOB = textField.text!
+            
+            
+        }
+        
         
     }
   
@@ -314,13 +398,20 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         
  
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        
+        if section == 0{
+            
         return signUpTFPlaceholdersArray.count
+            
+        }else {
+            
+        return 1
+        }
+        
     }
     
     
@@ -336,7 +427,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+       
         
+        if indexPath.section == 0{
+            
         let signUPCell = tableView.dequeueReusableCell(withIdentifier: "SignUPTableViewCell", for: indexPath) as! SignUPTableViewCell
         
 
@@ -418,8 +512,63 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             
         }
+            
+        else if indexPath.row == 8{
+            
+            signUPCell.registrationTextfield.text = confirmpassword
+            signUPCell.registrationTextfield.placeholder = "Date Of Birth".localize()
+            signUPCell.eyeButtonOutlet.isHidden = true
+           
+            signUPCell.registrationTextfield.text = selectedDate
+            signUPCell.registrationTextfield.tag = 8
+            
+            
+            }
 
         return signUPCell
+        
+        
+        }
+        
+        else {
+            
+            
+            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
+            
+            
+            signUPCell.selectionStyle = .none
+            signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+            signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+            
+            
+            if genderTypeID == 30 {
+                
+                signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
+                
+                signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+            }
+            else {
+                
+                
+                signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+                
+                signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+            }
+            
+            signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
+            
+            signUPCell.maleBtn.tag = 27
+            
+            
+            signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
+            
+            signUPCell.femaleBtn.tag = 30
+            
+            return signUPCell
+            
+        }
     }
     
 //MARK: -   Eye Button Clicked
@@ -437,6 +586,85 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         
     }
+    
+    
+    //MARK:- Male Btn Clicked
+    
+    func maleBtnClicked(_ sender: UIButton) {
+        
+        
+        let indexPath:IndexPath = IndexPath(row: 0, section: 1)
+        
+        
+        if let cell : GenderTableViewCell = self.signUpTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
+            
+            if (male == true)
+            {
+                
+                cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+                
+                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+                male = false
+                
+            }
+            else
+            {
+                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+                
+                male = true
+            }
+            
+        }
+        
+        genderTypeID = sender.tag
+        
+        print(genderTypeID)
+        
+        signUpTableView.reloadRows(at: [indexPath], with: .fade)
+        
+        
+        
+    }
+    
+    //MARK:- Female Btn Clicked
+    
+    
+    func femaleBtnClicked(_ sender: UIButton){
+        
+        let indexPath:IndexPath = IndexPath(row: 0, section: 1)
+        
+        if let cell : GenderTableViewCell = self.signUpTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
+            
+            if (male == true)
+            {
+                
+                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+                
+                male = false
+                
+            }
+            else
+            {
+                cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+                
+                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
+                male = true
+            }
+            
+        }
+        
+        genderTypeID = sender.tag
+        print(genderTypeID)
+        signUpTableView.reloadRows(at: [indexPath], with: .fade)
+        
+    }
+
 
 //MARK: -    Back Left Button Tapped
 
@@ -516,6 +744,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let mobileNumberStr:NSString =  mobileNumber  as NSString
         let passWord:NSString = password   as NSString
         let confirmPassWord:NSString =  confirmpassword  as NSString
+        
+        let dataOfBirth : NSString = dateofBirth as NSString
+        
+    //    let gender : NSString = DOB as Int
         
         if (firstNameStr.length <= 2){
             
@@ -603,6 +835,25 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
         
+        
+        else if (dataOfBirth.length <= 0){
+            
+            alertTag = 8
+            
+            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
+            
+        }
+        
+        
+        
+//        else  if (gender.length <= 0){
+//            
+//            alertTag = 0
+//            
+//            errorMessage=GlobalSupportingClass.blankgenderErrorMessage() as String as String as NSString?
+//            
+//        }
+        
         if let errorMsg = errorMessage{
             
             
@@ -639,13 +890,17 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         let  strUrl = SIGNEUPURL
 
+         let null = NSNull()
+        
         let dictParams = [
+         
+            
             "Id": id,
             "UserId": userId,
             "FirstName": firstName,
             "MiddleName": middleName,
             "LastName": lastName,
-            "ContactNumber": contactNumber,
+           // "ContactNumber": contactNumber,
             "MobileNumber":mobileNumber,
             "UserName": userName,
             "Password": password,
@@ -655,7 +910,22 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             "CreatedByUserId": createdByUserId,
             "CreatedDate": createdDate,
             "UpdatedByUserId": updatedByUserId,
-            "UpdatedDate": updatedDate
+            "UpdatedDate": updatedDate,
+            
+            "GenderTypeId" : genderTypeID,
+            "DOB" : dateofBirth ,
+            "FileLocation" : null,
+            
+            "FileName" : null,
+           "FileExtention" : ".jpg",
+            "ImageString" : null,
+            
+            "Description" : null,
+            "DeviceId" : null
+            
+
+    
+            
         ] as [String : Any]
         
         print("dic params \(dictParams)")

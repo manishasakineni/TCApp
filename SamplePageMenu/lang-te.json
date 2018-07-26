@@ -210,7 +210,13 @@
     "Event Date:" : "ఈవెంట్ తేదీ",
     "Event Details" : "ఈవెంట్ వివరాలు",
     "Seller Information" : "విక్రేత సమాచారం",
-    "Price" : "ధర"
+    "Price" : "ధర",
+    "Please Login To Delete" : "దయచేసి తొలగించడానికి లాగిన్ చేయండి",
+    "Please Login To Like" : "దయచేసి లాగిన్ అవ్వండి",
+    "Please Login To Unlike" : "దయచేసి కాకుండా లాగా లాగిన్ చేయండి",
+    "Please Login To Share" : "దయచేసి భాగస్వామ్యం చేయండి",
+    "Please Login To Add Comment" : "దయచేసి వ్యాఖ్యను జోడించడానికి లాగిన్ చేయండి",
+    "Please Login To Reply" : "ప్రత్యుత్తరం ఇవ్వండి"
 
 
 

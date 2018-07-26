@@ -891,6 +891,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func deleteCommentAPICall(tag : Int){
         
+        
+        if !(self.userID == 0) {
+            
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
             
         
@@ -939,7 +942,22 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
     
     })
+    }
         
+        else {
+            
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Delete".localize(), clickAction: {
+                
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+                
+                self.navigationController?.pushViewController(loginVC!, animated: true)
+                
+            })
+            
+        }
+    
+    
     }
     
 
@@ -977,7 +995,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         else {
             
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like".localize(), clickAction: {
                 
                 let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
                 
@@ -1018,7 +1036,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1050,7 +1068,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share".localize(), clickAction: {
                 
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
@@ -1086,7 +1104,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1126,7 +1144,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1205,7 +1223,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 

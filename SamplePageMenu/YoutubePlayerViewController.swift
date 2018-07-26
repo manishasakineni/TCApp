@@ -1119,7 +1119,7 @@ func  likeButtonClick(_ sendre:UIButton) {
         else {
         
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like".localize(), clickAction: {
 
               self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1156,7 +1156,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     else {
     
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike".localize(), clickAction: {
             
             self.navigationController?.pushViewController(self.loginVC, animated: true)
             
@@ -1188,7 +1188,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         else {
         
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Share".localize(), clickAction: {
                 
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
@@ -1226,7 +1226,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
     else {
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment", clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment".localize(), clickAction: {
             
             self.navigationController?.pushViewController(self.loginVC, animated: true)
             
@@ -1356,7 +1356,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     }
         else {
         
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Like".localize(), clickAction: {
                 
                self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1393,7 +1393,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
        else {
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike", clickAction: {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Unlike".localize(), clickAction: {
             
             self.navigationController?.pushViewController(self.loginVC, animated: true)
             
@@ -1439,7 +1439,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         else {
         
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1516,7 +1516,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
         else {
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Reply".localize(), clickAction: {
                 
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
@@ -1902,6 +1902,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func deleteCommentAPICall(tag : Int){
         
+        if !(self.ID == 0) {
+        
         Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Delete".localize(), clickAction: {
             
 
@@ -1952,6 +1954,20 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         }
     })
+        
+    }
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Delete".localize(), clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+        }
+        
+        
+        
+        
     }
     
 }

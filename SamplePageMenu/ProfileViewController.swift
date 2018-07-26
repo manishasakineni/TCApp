@@ -723,7 +723,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             }
             
-    if genderTypeID == 2 {
+    if genderTypeID == 30 {
                     
     signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
                     
@@ -741,12 +741,12 @@ else {
                 
     signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
                 
-   signUPCell.maleBtn.tag = 1
+   signUPCell.maleBtn.tag = 27
                 
                 
     signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
                 
-    signUPCell.femaleBtn.tag = 2
+    signUPCell.femaleBtn.tag = 30
             
     return signUPCell
                 
@@ -899,17 +899,21 @@ else {
             "dob": self.dateofBirth,
             "userName": null,
             "password": null,
+            "description" : null,
             "roleId": 1,
             "email": self.email,
             "fileLocation": null,
             "fileName": null,
             "fileExtention": ".jpg",
             "isActive": true,
-            "createdByUserId": 1,
+            "createdByUserId": self.loginid,
             "createdDate": "2018-03-05",
-            "updatedByUserId": 1,
+            "updatedByUserId": self.loginid,
             "updatedDate": "2018-03-05"
             
+            
+            
+//            
             
             ] as [String : Any]
         
