@@ -1168,7 +1168,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func  shareButtonClick(_ sendre:UIButton) {
         
-        if !(self.userID.isEmpty) {
+        if !(self.ID == 0) {
             
         let someText:String = "Hello want to share text also"
         let objectsToShare:URL = URL(string: "http://www.google.com")!

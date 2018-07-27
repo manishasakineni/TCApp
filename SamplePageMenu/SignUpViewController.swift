@@ -49,12 +49,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var gender : String = ""
     var male = true
     var female = false
-    var genderTypeID:Int = 0
+    var genderTypeID:Int = 27
     let datepicker = UIDatePicker()
     var dateofBirth:String = ""
     let dateFormatter = DateFormatter()
     var selectedDate : String = ""
-    var DOB       : String = ""
+    var DOB       : Int = 27
      var btneditClick = false
     
    
@@ -381,13 +381,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 
             
             }
-        else if activeTextField.tag == 8{
-            
-            
-            DOB = textField.text!
-            
-            
-        }
+     
         
         
     }
@@ -536,10 +530,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
             
             
-            signUPCell.selectionStyle = .none
-            signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-            signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-            
+//            signUPCell.selectionStyle = .none
+//            signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+//            signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+//            
             
             if genderTypeID == 30 {
                 
@@ -619,7 +613,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-        genderTypeID = sender.tag
+        genderTypeID = 27
         
         print(genderTypeID)
         
@@ -659,7 +653,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-        genderTypeID = sender.tag
+        genderTypeID = 30
         print(genderTypeID)
         signUpTableView.reloadRows(at: [indexPath], with: .fade)
         
@@ -747,7 +741,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         let dataOfBirth : NSString = dateofBirth as NSString
         
-    //    let gender : NSString = DOB as Int
+   //     let gender : NSString = DOB as NSString
         
         if (firstNameStr.length <= 2){
             

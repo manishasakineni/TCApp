@@ -69,7 +69,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
          self.navigationController?.navigationBar.isHidden = false
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "sidemenu", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
     }
     
