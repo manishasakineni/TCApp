@@ -19,6 +19,20 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
      @IBOutlet weak var repliesTableView: UITableView!
     
+    
+    
+    @IBOutlet weak var secondview: UIView!
+    
+    
+    @IBOutlet weak var popupview: UIView!
+    
+    @IBOutlet weak var okBtnOutLet: UIButton!
+    
+    
+    @IBOutlet weak var canclebtnOutLet: UIButton!
+    
+    @IBOutlet weak var textviewOutLet: UITextView!
+    
     //MARK: -  variable declaration
     
     var documentController: UIDocumentInteractionController = UIDocumentInteractionController()
@@ -97,6 +111,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         self.norecordsFoundLbl.isHidden = true
         
+        secondview.isHidden = true
+        popupview.isHidden = true
+        
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
             
             self.userID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
@@ -110,6 +127,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         self.loginVC.showNav = true
         self.loginVC.navigationString = "eventNavigationString"
         
+         self.textviewOutLet.delegate = self
         
         eventDetailsTableView.delegate = self
         eventDetailsTableView.dataSource = self
@@ -1149,6 +1167,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func replyCommentBtnClick(sender : UIButton){
         
+        
+        popupview.isHidden = false
+        secondview.isHidden = false
+        textviewOutLet.text = ""
+        
         self.parentCommentId = self.commentingIdArray[sender.tag]
                  
         self.comentId = 0
@@ -1163,7 +1186,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                 if let commentsCell = self.eventDetailsTableView.cellForRow(at: indexPath3) as? CommentsCell {
                     
-                    commentsCell.commentTexView.becomeFirstResponder()
+                //    commentsCell.commentTexView.becomeFirstResponder()
                     
                 }
 
@@ -1849,6 +1872,61 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
     }
+    
+    
+    
+    @IBAction func cancleAction(_ sender: Any) {
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+        
+        
+    }
+    
+    
+    @IBAction func okAction(_ sender: Any) {
+        
+        self.eventDetailsTableView.endEditing(true)
+        
+        self.sendCommentClick = false
+        
+        self.textviewOutLet.text = self.commentString
+       
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+
+        
+        if !(self.userID == 0) {
+            
+            
+            self.comentId = self.comentId != 0 ? self.comentId : 0
+            self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
+            
+            commentSendBtnAPIService(textComment: self.commentString)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment".localize(), clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+
+    
+    
     
     
 }

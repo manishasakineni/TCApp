@@ -34,7 +34,22 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var audioTableview: UITableView!
     
-   @IBOutlet weak var repliesTableView: UITableView! 
+   @IBOutlet weak var repliesTableView: UITableView!
+    
+    
+    
+    
+    @IBOutlet weak var secondview: UIView!
+    
+    
+    @IBOutlet weak var popupview: UIView!
+    
+    @IBOutlet weak var okBtnOutLet: UIButton!
+    
+    
+    @IBOutlet weak var canclebtnOutLet: UIButton!
+    
+    @IBOutlet weak var textviewOutLet: UITextView!
     
 //MARK: -  variable declaration
     
@@ -98,6 +113,11 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        secondview.isHidden = true
+        popupview.isHidden = true
+
 
         backGroundView.layer.cornerRadius = 3.0
         backGroundView.layer.shadowColor = UIColor(red: 103.0/255.0, green:  171.0/255.0, blue:  208.0/255.0, alpha: 1.0).cgColor
@@ -132,7 +152,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
      //   repliesTableView.register(nibName3, forCellReuseIdentifier: "CommentsCell")
         
-      
+        self.textviewOutLet.delegate = self
         
         repliesTableView.delegate = self
         repliesTableView.dataSource = self
@@ -1119,6 +1139,11 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func replyCommentBtnClick(sender : UIButton){
         
+        
+        popupview.isHidden = false
+        secondview.isHidden = false
+        textviewOutLet.text = ""
+        
         self.parentCommentId = self.commentingIdArray[sender.tag]
         
         self.comentId = 0
@@ -1133,7 +1158,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                 if let commentsCell = self.audioTableview.cellForRow(at: indexPath3) as? CommentsCell {
                     
-                    commentsCell.commentTexView.becomeFirstResponder()
+                //    commentsCell.commentTexView.becomeFirstResponder()
                     
                 }
                 
@@ -1328,129 +1353,6 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
     }
     
-//    func getVideoDetailsApiService(){
-//        
-//        self.parentCommentIdArray.removeAll()
-//        self.commentingIdArray.removeAll()
-//        self.CommentsByUserArray.removeAll()
-//        self.replyCountArray.removeAll()
-//        self.usersCommentsArray.removeAll()
-//        
-//        self.audioTableview.isScrollEnabled = true
-//        self.repliesTableView.isScrollEnabled = true
-//        
-//        let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.categoryId)
-//        
-//        print("GETPOSTBYCATEGORYIDOFVIDEOSONGS -> ",urlStr)
-//        
-//        serviceController.getRequest(strURL: urlStr, success: { (result) in
-//            
-//            DispatchQueue.main.async(){
-//                
-//                print(result)
-//                
-//                let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
-//                
-//                let isSuccess = respVO.isSuccess
-//                
-//                
-//                if isSuccess == true {
-//                    
-//                    
-//                    let resultArr = respVO.result?.commentDetails
-//                    
-//                    for id in (respVO.result?.commentDetails)! {
-//                        
-//                        self.parentCommentIdArray.append(id.id!)
-//                        self.commentingIdArray.append(id.userId!)
-//                        self.CommentsByUserArray.append(id.commentByUser!)
-//                        self.replyCountArray.append(id.replyCount!)
-//                       
-//                    }
-//                    
-//                    
-//                    
-//                    for list in resultArr! {
-//                        
-//                        if list.comment == nil {
-//                            
-//                            self.usersCommentsArray.append(" ")
-//                            
-//                        }
-//                        else {
-//                            
-//                            self.usersCommentsArray.append(list.comment!)
-//                        }
-//                        
-//                        
-//                        
-//                    }
-//                    
-//                    for vv in self.usersCommentsArray {
-//                        
-//                        
-//                    }
-//                    
-//                    self.likesCount    = (respVO.result?.postDetails![0].likeCount)!
-//                    self.disLikesCount = (respVO.result?.postDetails![0].disLikeCount)!
-//                    self.postID  = (respVO.result?.postDetails![0].id)!
-//                   
-//
-//                    self.isLike = (respVO.result?.postDetails![0].isLike)!
-//                    self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
-//                    
-//                    if self.isLike == 0{
-//                        self.likeClick = false
-//                        
-//                    }
-//                        
-//                    else {
-//                        
-//                        self.likeClick = true
-//                        
-//                    }
-//                    
-//                    if self.isDisLike == 0{
-//                        
-//                        self.disLikeClick = false
-//                        
-//                    }
-//                        
-//                    else {
-//                        
-//                        self.disLikeClick = true
-//                        
-//                    }
-//                    
-//                    self.audioTableview.reloadData()
-//                    
-//                    
-//                    
-//                    
-//                }
-//                    
-//                else{
-//                    
-//                    
-//                }
-//                
-//                
-//                
-//            }
-//            
-//            
-//            
-//        }) { (failureMessage) in
-//            
-//            
-//        }
-//        
-//        
-//    }
-//    
-//   
-//    
-//    
  
     //MARK: -    comment Send Btn API Service
     
@@ -1853,6 +1755,62 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
     }
+    
+    
+    
+    
+    @IBAction func cancleAction(_ sender: Any) {
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+        
+        
+    }
+    
+    
+    @IBAction func okAction(_ sender: Any) {
+        
+        self.audioTableview.endEditing(true)
+        
+        self.sendCommentClick = false
+        
+        self.textviewOutLet.text = self.commentString
+        
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+        
+        
+        if !(self.userID == 0) {
+            
+            
+            self.comentId = self.comentId != 0 ? self.comentId : 0
+            self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
+            
+            commentSendBtnAPIService(textComment: self.commentString)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment".localize(), clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    
+    
+
     
     private func focusItemNumberTextField() {
         

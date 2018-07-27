@@ -47,6 +47,20 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     @IBOutlet weak var commentSendBtn: UIButton!
     
     
+    @IBOutlet weak var secondview: UIView!
+    
+    
+    @IBOutlet weak var popupview: UIView!
+    
+    @IBOutlet weak var okBtnOutLet: UIButton!
+    
+    
+    @IBOutlet weak var canclebtnOutLet: UIButton!
+    
+    @IBOutlet weak var textviewOutLet: UITextView!
+
+    
+    
     var audioIDArr = ""
     var audioIDNameArr = ""
     var NameArr = ""
@@ -141,7 +155,12 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        secondview.isHidden = true
+        popupview.isHidden = true
         
+
+        
+          self.textviewOutLet.delegate = self
         self.commentTW.delegate = self
         self.commentTW.text = self.commentString
         
@@ -1415,6 +1434,11 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     func replyCommentBtnClick(sender : UIButton){
         
+        popupview.isHidden = false
+        secondview.isHidden = false
+        textviewOutLet.text = ""
+
+        
         self.parentCommentId = self.commentingIdArray[sender.tag]
         self.comentId = 0
         
@@ -1429,7 +1453,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                 if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
                     
-                    commentsCell.commentTexView.becomeFirstResponder()
+               //     commentsCell.commentTexView.becomeFirstResponder()
                     
                 }
                 
@@ -1969,6 +1993,62 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         
     }
+    
+    
+    
+    
+    @IBAction func cancleAction(_ sender: Any) {
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+        
+        
+    }
+    
+    
+    @IBAction func okAction(_ sender: Any) {
+        
+        self.allOffersTableView.endEditing(true)
+        
+        self.sendCommentClick = false
+        
+        self.textviewOutLet.text = self.commentString
+        
+        
+        
+        
+        popupview.isHidden = true
+        secondview.isHidden = true
+        
+        
+          if !(self.ID == 0) {
+            
+            
+            self.comentId = self.comentId != 0 ? self.comentId : 0
+            self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
+            
+            commentSendBtnAPIService(textComment: self.commentString)
+            
+        }
+            
+        else {
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Add Comment".localize(), clickAction: {
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+            
+        }
+        
+        
+    }
+    
+    
+
+    
     
 }
 
