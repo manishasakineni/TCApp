@@ -2010,6 +2010,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     @IBAction func okAction(_ sender: Any) {
         
+        textviewOutLet.resignFirstResponder()
         self.allOffersTableView.endEditing(true)
         
         self.sendCommentClick = false
