@@ -593,7 +593,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
                 
-                return 300
+                return 250
             }
             else {
                 
@@ -1170,7 +1170,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         popupview.isHidden = false
         secondview.isHidden = false
-        textviewOutLet.text = ""
+      //  textviewOutLet.text = ""
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
                  

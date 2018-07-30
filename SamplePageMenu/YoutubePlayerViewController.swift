@@ -161,6 +161,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
         
           self.textviewOutLet.delegate = self
+        
         self.commentTW.delegate = self
         self.commentTW.text = self.commentString
         
@@ -221,7 +222,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         repliesTableView.dataSource = self
        // repliesTableView.tableFooterView = UIView()
        repliesTableView.tableFooterView = UIView(frame: .zero)
-       IQKeyboardManager.sharedManager().enableAutoToolbar = false
+    //   IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
         activeLabel.numberOfLines = 0
         
@@ -325,7 +326,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+       // IQKeyboardManager.sharedManager().enableAutoToolbar = false
         if(UIDevice.current.userInterfaceIdiom == .phone){
         
         self.ytPlayerViewHeight.constant = 200
@@ -357,7 +358,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     override func viewWillDisappear(_ animated: Bool) {
         
-       IQKeyboardManager.sharedManager().enableAutoToolbar = true
+    //   IQKeyboardManager.sharedManager().enableAutoToolbar = true
        self.player.stopVideo()
         
     }
@@ -1436,7 +1437,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         popupview.isHidden = false
         secondview.isHidden = false
-        textviewOutLet.text = ""
+     //   textviewOutLet.text = ""
 
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
@@ -2010,15 +2011,11 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
     @IBAction func okAction(_ sender: Any) {
         
-        textviewOutLet.resignFirstResponder()
+      //  textviewOutLet.resignFirstResponder()
+        
         self.allOffersTableView.endEditing(true)
-        
         self.sendCommentClick = false
-        
         self.textviewOutLet.text = self.commentString
-        
-        
-        
         
         popupview.isHidden = true
         secondview.isHidden = true

@@ -1155,32 +1155,36 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-SI-Jn4">
                                         <rect key="frame" x="10" y="51" width="355" height="119"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-eV-PKI">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a public comment..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-eV-PKI">
                                                 <rect key="frame" x="0.0" y="44" width="355" height="41"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="zik-S7-EuF"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyd-2C-qxb">
                                                 <rect key="frame" x="311" y="95" width="36" height="24"/>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="IQw-NT-7tZ"/>
                                                     <constraint firstAttribute="height" constant="24" id="kPa-2j-inX"/>
                                                 </constraints>
-                                                <state key="normal" title="ok">
+                                                <state key="normal" title="Ok">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Ok"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="okAction:" destination="MFD-oM-AZt" eventType="touchUpInside" id="WXA-Wy-O2S"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3L-Xm-K8k">
                                                 <rect key="frame" x="239" y="95" width="53" height="24"/>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="gb2-Ra-oti"/>
                                                     <constraint firstAttribute="height" constant="24" id="rVO-5S-CiF"/>
@@ -1188,6 +1192,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Cancel"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="cancleAction:" destination="MFD-oM-AZt" eventType="touchUpInside" id="yjz-w2-p4j"/>
                                                 </connections>
@@ -1214,9 +1221,12 @@
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Comments"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="Xcl-UK-3fD" firstAttribute="top" secondItem="Jn8-NI-jBn" secondAttribute="top" constant="7" id="OKM-hv-ymU"/>
                                                     <constraint firstAttribute="height" constant="35" id="Z5E-xN-h2l"/>
@@ -1780,18 +1790,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1M-ZR-sjP">
                                         <rect key="frame" x="10" y="235" width="355" height="132"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DtG-kr-2Qo">
-                                                <rect key="frame" x="0.0" y="40" width="355" height="49"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a public comment..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DtG-kr-2Qo">
+                                                <rect key="frame" x="0.0" y="51" width="355" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="49" id="mxB-qm-G9R"/>
+                                                    <constraint firstAttribute="height" constant="38" id="mxB-qm-G9R"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-tj-Tog">
                                                 <rect key="frame" x="244" y="99" width="65" height="25"/>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="AHi-uy-vFe"/>
                                                     <constraint firstAttribute="width" constant="65" id="mWK-ah-Y3v"/>
@@ -1799,20 +1810,26 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Cancel"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="cancleAction:" destination="O47-Jy-dv0" eventType="touchUpInside" id="hAH-Xp-1wr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sc3-rY-6qK">
                                                 <rect key="frame" x="316" y="100" width="31" height="23"/>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="YGD-uf-jl2"/>
                                                     <constraint firstAttribute="width" constant="31" id="kLv-fE-5Ih"/>
                                                 </constraints>
-                                                <state key="normal" title="ok">
+                                                <state key="normal" title="Ok">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Ok"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="okAction:" destination="O47-Jy-dv0" eventType="touchUpInside" id="bw6-ww-M8w"/>
                                                 </connections>
@@ -1829,9 +1846,12 @@
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Comments"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.24533420140000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="AAU-gA-X1u" firstAttribute="top" secondItem="iNr-Rj-95H" secondAttribute="top" constant="6" id="2Hb-hZ-DpW"/>
                                                     <constraint firstAttribute="height" constant="35" id="YIU-YS-Ago"/>
@@ -1862,7 +1882,7 @@
                                             <constraint firstAttribute="height" constant="132" id="ay0-sR-92v"/>
                                             <constraint firstItem="vfE-NV-8xD" firstAttribute="top" secondItem="DtG-kr-2Qo" secondAttribute="bottom" constant="1" id="cML-y0-S23"/>
                                             <constraint firstAttribute="trailing" secondItem="Sc3-rY-6qK" secondAttribute="trailing" constant="8" id="lIM-J2-bBk"/>
-                                            <constraint firstItem="DtG-kr-2Qo" firstAttribute="top" secondItem="iNr-Rj-95H" secondAttribute="bottom" constant="4" id="m2T-uv-lmD"/>
+                                            <constraint firstItem="DtG-kr-2Qo" firstAttribute="top" secondItem="iNr-Rj-95H" secondAttribute="bottom" constant="15" id="m2T-uv-lmD"/>
                                             <constraint firstAttribute="trailing" secondItem="vfE-NV-8xD" secondAttribute="trailing" id="xDv-oV-em3"/>
                                             <constraint firstItem="vfE-NV-8xD" firstAttribute="leading" secondItem="y1M-ZR-sjP" secondAttribute="leading" id="xK4-N5-UfN"/>
                                             <constraint firstItem="Sc3-rY-6qK" firstAttribute="leading" secondItem="ihZ-tj-Tog" secondAttribute="trailing" constant="7" id="yXi-D4-T8s"/>

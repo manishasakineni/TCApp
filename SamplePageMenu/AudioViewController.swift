@@ -1142,7 +1142,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         popupview.isHidden = false
         secondview.isHidden = false
-        textviewOutLet.text = ""
+     //   textviewOutLet.text = ""
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
         
