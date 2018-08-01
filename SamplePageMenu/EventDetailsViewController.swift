@@ -167,6 +167,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         repliesTableView.delegate = self
         repliesTableView.dataSource = self
+        
         repliesTableView.tableFooterView = UIView(frame: .zero)
 
         
@@ -936,6 +937,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
             commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
             
+            if(commentString == "Add a public comment..."){
+               commentsCell.commentTexView.textColor = UIColor.lightGray
+            }else{
+                commentsCell.commentTexView.textColor = UIColor.black
+            }
+            
             if sendCommentClick == false {
                 
                 commentsCell.sendBtn.isHidden = true
@@ -1170,7 +1177,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         popupview.isHidden = false
         secondview.isHidden = false
-      //  textviewOutLet.text = ""
+        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.textColor = UIColor.lightGray
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
                  
@@ -1846,10 +1854,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
                 let  successMsg = respVO.endUserMessage
+                let  createdComment = respVO.result
                 
-                  let  createdComment = respVO.result
-                
-                  self.commentString = ""
+                self.commentString = "Add a public comment..."
                 self.comentId = 0
                 self.parentCommentId = 0
                 
@@ -1877,8 +1884,6 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBAction func cancleAction(_ sender: Any) {
         
-        
-        
         popupview.isHidden = true
         secondview.isHidden = true
         
@@ -1888,19 +1893,26 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBAction func okAction(_ sender: Any) {
         
+       
         self.eventDetailsTableView.endEditing(true)
-        
         self.sendCommentClick = false
-        
         self.textviewOutLet.text = self.commentString
        
-        
-        
-        
         popupview.isHidden = true
         secondview.isHidden = true
-
         
+        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please  Add Reply".localize(), clickAction: {
+                
+                
+            })
+            
+            return
+ 
+            
+        }
+
         if !(self.userID == 0) {
             
             
@@ -1908,6 +1920,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
             commentSendBtnAPIService(textComment: self.commentString)
+            
+             self.textviewOutLet.text = ""
             
         }
             

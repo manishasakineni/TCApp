@@ -9,8 +9,6 @@
     "UpComing Events"  :   "రాబోయే ఈవెంట్స్",
     
     
-    
-    
     "User Name" : "వాడుకరి పేరు",
     "Password"  : "పాస్వర్డ్",
     "forgot Password" : "పాస్వర్డ్ మర్చిపోయారా?",
@@ -21,6 +19,7 @@
     "Middle Name" : "మధ్య పేరు(ఐచ్ఛికము)",
     "Mobile Number" : "మొబైల్ సంఖ్య",
     "E-mail" : "ఇ-మెయిల్",
+    
     "Confirm Password" : "పాస్వర్డ్ని నిర్ధారించండి",
     "Submit" : "సమర్పించండి",
     "Registration" : "నమోదు",
@@ -31,9 +30,9 @@
     "Alert" : "హెచ్చరిక",
     "Ok" : "అలాగే",
     "Success" :"విజయం",
+    
     "Retry" : "మళ్ళీ ప్రయత్నించు",
     "Please Enter First Name" : "దయచేసి మొదటి పేరు అందించండి",
-    
     "Only AlphaBets Allowed" : "అక్షరాలకు మాత్రమే అనుమతి ఉంది",
     "Please Enter MiddleName" :"దయచేసి మధ్య పేరుని అందించండి",
     "Please Enter Lastname" :"దయచేసి చివరి పేరును అందించండి",
@@ -42,6 +41,7 @@
     "Please Enter Mobile Number" : "దయచేసి మొబైల్ నంబర్ను అందించండి",
     "invalid Mobile Number" : "చెల్లని మొబైల్ నంబర్",
     "Email Should Minimum 5-Character" : "ఇమెయిల్ కనీసం 5-అక్షరాలతో ఉండాలి",
+    
     "Please Enter valid e-mail id Format" : "దయచేసి చెల్లుబాటు అయ్యే ఇ-మెయిల్ ఐడి ఫార్మాట్ను అందించండి",
     "Please Enter Password" : "దయచేసి పాస్వర్డ్ను అందించండి",
     "Please Enter Confirm Password" : "దయచేసి పాస్వర్డ్ని నిర్ధారించండి",
@@ -52,6 +52,8 @@
     "password must have at least one uppercase letter" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక పెద్ద అక్షరం కలిగి ఉండాలి",
     "Please Enter Your Mobile Number" : "దయచేసి మీ మొబైల్ నంబర్ను అందించండి",
     "Please Enter 10-Digits MobileNumber" : "దయచేసి 10-అంకెల మొబైల్ నంబర్ను అందించండి",
+    
+    
     "Please Enter Minimum 8 Characters Password" : "కనీస 8 అక్షరాల పాస్వర్డ్ను అందించండి",
     "Password must have at least one number" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక సంఖ్యను కలిగి ఉండాలి",
     "Password must have at least one special Character" : "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక ప్రత్యేక అక్షరాన్ని కలిగి ఉండాలి",
@@ -62,6 +64,7 @@
     "Personal Detail's" : "వ్యక్తిగత వివరాలు",
     "Edit Profile"  : "ప్రొఫైల్ను సవరించండి",
     "Confirm" : "నిర్ధారించండి",
+    
     "ChangePassword" : "పాస్వర్డ్ మార్చండి",
     "Old Password" : "పాత పాస్వర్డ్",
     "New Password" : "కొత్త పాస్వర్డ్",
@@ -72,6 +75,7 @@
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
+    
     "Event Name:" : "ఈవెంట్ పేరు",
     "Date" : "తేదీ",
     "ChangePhoto" : "ఫోటో మార్చు",
@@ -82,6 +86,7 @@
     "Map" : "చిహ్నం",
     "Date Of Birth" : "పుట్టిన తేది",
     "Registration Number" : "నమోదు సంఖ్య",
+    
     "Name" : "పేరు",
     "Description" : "వివరణ",
     "Vision" : "దృష్టి",
@@ -92,6 +97,7 @@
     "Landmark" : "మైలురాయి",
     "State" : "రాష్ట్రం",
     "District" : "జిల్లా",
+    
     "Mandal" : "మండల",
     "Village" : "గ్రామం",
     "Pin Code" : "పిన్ కోడ్",
@@ -102,6 +108,7 @@
     "Mobile Number:" : "మొబైల్ సంఖ్య:",
     "Email:" : "ఇమెయిల్:",
     "Name:" : "పేరు:",
+    
     "Church Name" : "చర్చి పేరు",
     "Information" : "సమాచారం",
     "End Date" : "ఆఖరి తేది",
@@ -112,6 +119,7 @@
     "contact Number:" : "సంఖ్య సంప్రదించండి:",
     "StartDate EndDate:" : "ప్రారంభ తేదీ ముగింపు తేదీ",
     "Latest Posts" : "తాజా పోస్ట్లు",
+    
     "Categories" : "వర్గం",
     " All Categories" : "వర్గాలు",
     "See All" : "అన్నింటిని చూడు",
@@ -122,6 +130,7 @@
     "Author Details" : "రచయిత వివరాలు",
     "Church Details" : "చర్చి వివరాలు",
     "Bible Posts" : " బైబిల్ పోస్ట్",
+    
     "More" : "మరింత",
     "Authors" : "రచయితలు",
     "All Churches" : "చర్చిలు",
@@ -132,27 +141,29 @@
     "From :" : "నుండి :",
     "To :" : "కు :",
     "Event From" : "ఈవెంట్ నుండి",
+    
     "Please Enter DOB" : "దయచేసి పుట్టిన తేదీని అందించండి",
     "Please Enter Gender" : "దయచేసి లింగం ఇవ్వండి",
     "Holy Bible" : "పవిత్ర బైబిల్",
     "Bible Chapters" : "బైబిలు అధ్యాయాలు",
     "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters" :
     "పాస్వర్డ్ ఒక పెద్ద, ఒక చిన్న, ఒక ప్రత్యేక అక్షరం, ఒక సంఖ్యా మరియు కనీసం 8 అక్షరాలను కలిగి ఉండాలి",
-    
+
     "Holy Bible Books" : "హోలీ బైబిల్ బుక్స్",
     "Holy Bible - English" : "హోలీ బైబిల్ - ఇంగ్లీష్",
     "Holy Bible - Telugu" : "హోలీ బైబిల్ - తెలుగు",
+    
     "Search by category Name" : "శోధన",
     "Search" : "శోధన",
     "Search by Event Name" : "శోధన",
     "Search by Author Name" : "శోధన",
     "No Records Found" : "ఎటువంటి పత్రాలు లభించలేదు",
     "  All Events in Month" : "  నెల అన్ని ఈవెంట్స్",
-    
     "Careers" : "కెరీర్లు",
     "Online Shopping" : "ఆన్లైన్ షాపింగ్",
     "Job Details" : "ఉద్యోగ వివరాలు",
     "Apply" : "వర్తించు",
+    
     "Address" : "చిరునామా",
     "Item details" : "అంశం వివరాలు",
     "Item Availability" : "అంశం లభ్యత",
@@ -163,6 +174,7 @@
     "Price      :" : "ధర      ",
     "Continue Shopping " : "షాపింగ్ కొనసాగించడానికి ",
     "CheckOut" : "తనిఖీ చేయండి",
+    
     "Add New Address" : "క్రొత్త చిరునామాను జోడించండి",
     "Continue" : "కొనసాగించు",
     "Job Title" : "ఉద్యోగ శీర్షిక",
@@ -173,6 +185,7 @@
     "Job Description" : "ఉద్యోగ వివరణ",
     "Salary" : "జీతం",
     "Upload Resume" : "అప్లోడ్ రెస్యూమ్",
+    
     "Year Of Experience" : "అనుభవ సంవత్సరం",
     "Current Organization" : "ప్రస్తుత సంస్థ",
     "Current Salary" : "ప్రస్తుత జీతం",
@@ -184,16 +197,18 @@
     
     "Notifications" : "ప్రకటనలు",
     "Year" : "ఇయర్",
+    
     "Month" : "నెల",
     "Church Event Details" : "చర్చి ఈవెంట్ వివరాలు",
     "Comments" : "వ్యాఖ్యలు",
     "Please Enter Quantity" : "దయచేసి క్వాలిటీని అందజేయండి",
     "Profile" : "ప్రొఫైల్",
-      "Save" : "సేవ్",
+    "Save" : "సేవ్",
     "Please Enter Full Name" : "దయచేసి పూర్తి పేరుని నమోదు చేయండి",
     "Please Enter Flat No" : "ఫ్లాట్ నం ఇవ్వండి",
     "Please Enter Area" : "దయచేసి ప్రదేశం నమోదు చేయండి",
     "Please Enter PinCode" : "దయచేసి పిన్కోడ్ను నమోదు చేయండి",
+    
     "Please Enter Landmark" : "దయచేసి మైలురాయిని నమోదు చేయండి",
     "Please Select State" : "దయచేసి రాష్ట్రం ఎంచుకోండి",
     "Please Select Country" : "దయచేసి దేశం ఎంచుకోండి",
@@ -203,6 +218,7 @@
     "Please Enter jobtitle" : "దయచేసి ఉద్యోగ శీర్షికను నమోదు చేయండి",
     "Please Enter Qualification" : "అర్హత ఇవ్వండి",
     "Please Enter Years Of Experience" : "అనుభవాలను ఎంటర్ చెయ్యండి",
+    
     "Please Enter Current Organization" : "దయచేసి ప్రస్తుత సంస్థను నమోదు చేయండి",
     "Please Enter Current Salary" : "దయచేసి ప్రస్తుత జీతం ఎంటర్ చేయండి",
     "Please Enter Expected Salary" : "దయచేసి ఊహించిన జీతం ఎంటర్ చేయండి",
@@ -213,10 +229,12 @@
     "Price" : "ధర",
     "Please Login To Delete" : "దయచేసి తొలగించడానికి లాగిన్ చేయండి",
     "Please Login To Like" : "దయచేసి లాగిన్ అవ్వండి",
+    
     "Please Login To Unlike" : "దయచేసి కాకుండా లాగా లాగిన్ చేయండి",
     "Please Login To Share" : "దయచేసి భాగస్వామ్యం చేయండి",
     "Please Login To Add Comment" : "దయచేసి వ్యాఖ్యను జోడించడానికి లాగిన్ చేయండి",
-    "Please Login To Reply" : "ప్రత్యుత్తరం ఇవ్వండి"
+    "Please Login To Reply" : "ప్రత్యుత్తరం ఇవ్వండి",
+    "Please Add Reply" : "ప్రత్యుత్తరం జోడించండి"
 
 
 

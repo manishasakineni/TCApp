@@ -701,6 +701,13 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
             commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
             
+            
+            if(commentString == "Add a public comment..."){
+                commentsCell.commentTexView.textColor = UIColor.lightGray
+            }else{
+                commentsCell.commentTexView.textColor = UIColor.black
+            }
+            
             if sendCommentClick == false {
                 
                 commentsCell.sendBtn.isHidden = true
@@ -1142,6 +1149,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         popupview.isHidden = false
         secondview.isHidden = false
+        
+        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.textColor = UIColor.lightGray
      //   textviewOutLet.text = ""
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
@@ -1396,7 +1406,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 let successMsg = respVO.endUserMessage
                 
                 let createdComment = respVO.result
-                 self.commentString = ""
+                
+                 self.commentString = "Add a public comment..."
                 
                 self.comentId = 0
                 self.parentCommentId = 0
@@ -1785,6 +1796,20 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         secondview.isHidden = true
         
         
+        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Add Reply".localize(), clickAction: {
+                
+                
+            })
+            
+            return
+            
+            
+        }
+
+        
+        
         if !(self.userID == 0) {
             
             
@@ -1792,6 +1817,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
             commentSendBtnAPIService(textComment: self.commentString)
+            
+            self.textviewOutLet.text = ""
             
         }
             

@@ -21,6 +21,7 @@
     "Middle Name" : "Middle Name(Optional)",
     "Mobile Number" : "Mobile Number",
     "E-mail" : "E-mail",
+    
     "Confirm Password" : "Confirm Password",
     "Submit" : "Submit",
     "Registration" : "Registration",
@@ -31,6 +32,7 @@
     "Alert" : "Alert",
     "Ok" : "Ok",
     "Success" :"Success",
+    
     "Retry" : "Retry",
     "Please Enter First Name" : "Please Enter First Name",
     "Only AlphaBets Allowed" : "Only AlphaBets Allowed",
@@ -41,6 +43,7 @@
     "Please Enter Mobile Number" : "Please Enter Mobile Number",
     "invalid Mobile Number" : "Invalid Mobile Number",
     "Email Should Minimum 5-Character" : "Email Should Minimum 5-Character",
+    
     "Please Enter valid e-mail id Format" : "Please Enter Valid E-mail Id Format",
     "Please Enter Password" : "Please Enter Password",
     "Please Enter Confirm Password" : "Please Enter Confirm Password",
@@ -51,6 +54,7 @@
     "password must have at least one uppercase letter" : "password Must have At Least One Uppercase Letter",
     "Please Enter Your Mobile Number" : "Please Enter Your Mobile Number",
     "Please Enter 10-Digits MobileNumber" : "Please Enter 10-Digits MobileNumber",
+    
     "Please Enter Minimum 8 Characters Password" : "Please Enter Minimum 8 Characters Password",
     "Password must have at least one number" : "Password Must Have At Least One Number",
     "Password must have at least one special Character" : "Password Must Have At Least One Special Character",
@@ -61,6 +65,7 @@
     "Personal Detail's" : "Personal Details",
     "Edit Profile"  : "Edit Profile",
     "Confirm" : "Confirm",
+    
     "ChangePassword" : "Change Password",
     "Old Password" : "Old Password",
     "New Password" : "New Password",
@@ -71,6 +76,7 @@
     "EventStartDate" : "Event Start Date",
     "EventEndDate" : "Event End Date",
     "EventName" : "Event",
+    
     "Date" : "Date",
     "ChangePhoto" : "Change Photo",
     "save" : "Save",
@@ -81,6 +87,7 @@
     "Date Of Birth" : "Date Of Birth",
     "Registration Number" : "Registration Number",
     "Name" : "Name",
+    
     "Description" : "Description",
     "Vision" : "Vision",
     "Mission" : "Mission",
@@ -91,6 +98,7 @@
     "State" : "State",
     "District" : "District",
     "Mandal" : "Mandal",
+    
     "Village" : "Village",
     "Pin Code" : "Pin Code",
     "Author Name" : "Author Name",
@@ -101,6 +109,7 @@
     "Posts" : "Posts",
     "Email:" : "Email:",
     "Name:" : "Name:",
+    
     "Information" : "Information",
     "End Date" : "End Date",
     "Start Date" : "Start Date",
@@ -111,6 +120,7 @@
     "  Events" : "  Events",
     "contact Number:" : "contact Number:",
     "StartDate EndDate:" : "StartDate EndDate",
+    
     "Country" : "Country",
     "Author Details" : "Author Details",
     "Church Details" : "Church Details",
@@ -121,6 +131,7 @@
     "See All" : "See All",
     "Subscribe" : "Subscribe",
     "Bible Posts" : "Bible Posts",
+    
     "More" : "More",
     "Authors" : "Authors",
     "All Churches" : "Churches",
@@ -131,10 +142,10 @@
     "From :" : "From :",
     "To :" : "To :",
     "Event From" : "Event From",
+    
     "Please Enter DOB" : "Please Enter Date Of Birth",
     "Please Enter Gender" : "Please Enter Gender",
     "Holy Bible" : "Holy Bible",
-    
     "Bible Chapters" : "Bible Chapters",
     "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters" : "Password Should Contain One Uppercase, One Lowercase, One Special Character, One Numeric And Minimum Of 8 Characters",
     
@@ -153,15 +164,14 @@
     "Job Details" : "Job Details",
     "Apply" : "Apply",
     "Address" : "Address",
-    
     "Item details" : "Item Details",
     "Item Availability" : "Item Availability",
     "Please Enter Quantity" : "Please Enter Quantity",
     "InStock" : "InStock",
     "Out Of Stock" : "Out Of Stock",
+    
     "Quantity:" : "Quantity",
     "ADD TO CART" : "ADD TO CART",
-    
     "Author    :" : "Author    ",
     "Price      :" : "Price      ",
     "Continue Shopping " : "Continue Shopping ",
@@ -170,9 +180,9 @@
     "Continue" : "Continue",
     "Job Title" : "Job Title",
     "Last Date To Apply" : "Last Date To Apply",
+    
     "Qualification" : "Qualification",
     "Vacancies" : "Vacancies",
-    
     "Contact Person" : "Contact Person",
     "Job Description" : "Job Description",
     "Salary" : "Salary",
@@ -181,20 +191,20 @@
     "Current Organization" : "Current Organization",
     "Current Salary" : "Current Salary",
     "Expected Salary" : "Expected Salary",
+    
     "Admin Name" : "Admin Name",
     "Full Name" : "Full Name",
     "Flat,House No,Building,Company,Apartment" : "Flat,House No,Building,Company,Apartment",
     "Area,Colony,Street,Sector,Village" : "Area,Colony,Street,Sector,Village",
-    
     "Notifications" : "Notifications",
     "Year" : "Year",
     "Month" : "Month",
     "Church Event Details" : "Church Event Details",
     "Comments" : "Comments",
     "Please Enter Quantity" : "Please Enter Quantity",
+    
     "Profile" : "Profile",
     "Save" : "Save",
-    
     "Please Enter Full Name" : "Please Enter Full Name",
     "Please Enter Flat No" : "Please Enter Flat No",
     "Please Enter Area" : "Please Enter Area",
@@ -203,6 +213,7 @@
     "Please Select State" : "Please Select State",
     "Please Select Country" : "Please Select Country",
     "Are You Sure Want To Delete" : "Are You Sure Want To Delete",
+    
     "Are You Sure Want To Remove Item From Your Cart" : "Are You Sure Want To Remove Item From Your Cart",
     "Are You Sure Want To Remove" : "Are You Sure Want To Remove",
     "Please Enter jobtitle" : "Please Enter jobtitle",
@@ -213,6 +224,7 @@
     "Please Enter Expected Salary" : "Please Enter Expected Salary",
     "Cart" : "Cart",
     "Event Details" : "Event Details",
+    
     "Seller Information" : "Seller Information",
     "Price" : "Price",
     "Please Login To Delete" : "Please Login To Delete",
@@ -220,7 +232,8 @@
     "Please Login To Unlike" : "Please Login To Unlike",
     "Please Login To Share" : "Please Login To Share",
     "Please Login To Add Comment" : "Please Login To Add Comment",
-    "Please Login To Reply" : "Please Login To Reply"
+    "Please Login To Reply" : "Please Login To Reply",
+    "Please Add Reply" : "Please Add Reply"
     
     
     

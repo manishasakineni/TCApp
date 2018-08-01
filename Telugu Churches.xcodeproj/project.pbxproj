@@ -1232,8 +1232,6 @@
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
-				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
-				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
 				AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */,
 				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
@@ -1388,6 +1386,7 @@
 				AF4EF45720AC406100F690F0 /* AllItemIdVO */,
 				AF7C2E4320A08665003D623F /* EventByIdVo */,
 				AF7C2E4220A08636003D623F /* EventCommentVOO */,
+				AF9404922110871A00175F12 /* ReplayCommentVO */,
 				AF7C2E4620A0873A003D623F /* PostByAutorIdVO */,
 				AF7C2E4420A08693003D623F /* PostByEventIdVO */,
 				AF0E1E1920C80C360064EA0B /* deleteCartInfoVO */,
@@ -1857,6 +1856,15 @@
 				AF91F13120AB05940050A938 /* JobApplyListResultVO.swift */,
 			);
 			name = JobApplyVO;
+			sourceTree = "<group>";
+		};
+		AF9404922110871A00175F12 /* ReplayCommentVO */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D5D63209B293700603068 /* ReplayCommentVO.swift */,
+				3D3D5D61209B1C4D00603068 /* ReplayCommentListResultVO.swift */,
+			);
+			name = ReplayCommentVO;
 			sourceTree = "<group>";
 		};
 		AFE9A05A207F3210001CEE7A /* EventLikeorDislike */ = {

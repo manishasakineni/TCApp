@@ -182,10 +182,10 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             if !imgData.isEmpty {
                 
                 categoryImgView.image = UIImage(data: imgData)
-                //            categoryImgView.frame = self.view.bounds
+                //   categoryImgView.frame = self.view.bounds
                 categoryImgView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 categoryImgView.contentMode = .scaleToFill
-//                            categoryImgView.isUserInteractionEnabled = true
+            //   categoryImgView.isUserInteractionEnabled = true
                 
             }
             else {
@@ -762,6 +762,15 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
         commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
           
+            
+            
+            if(commentString == "Add a public comment..."){
+                commentsCell.commentTexView.textColor = UIColor.lightGray
+            }else{
+                commentsCell.commentTexView.textColor = UIColor.black
+            }
+            
+            
             if sendCommentClick == false {
             
             commentsCell.sendBtn.isHidden = true
@@ -1315,7 +1324,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         print(respVO.result)
                         
-                        self.commentString = ""
+                        self.commentString = "Add a public comment..."
                         
                         self.comentId = 0
                         self.parentCommentId = 0
@@ -1437,6 +1446,10 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         popupview.isHidden = false
         secondview.isHidden = false
+        
+        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.textColor = UIColor.lightGray
+
      //   textviewOutLet.text = ""
 
         
@@ -1961,16 +1974,10 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
            
             self.getVideoDetailsApiService()
-                
-            
-            
-        
-        }
-        
+          }
         
         
         self.allOffersTableView.reloadData()
-        
         
         
     }) { (failureMessage) in
@@ -1990,18 +1997,11 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             })
         }
         
-        
-        
-        
     }
     
     
-    
-    
     @IBAction func cancleAction(_ sender: Any) {
-        
-        
-        
+                
         popupview.isHidden = true
         secondview.isHidden = true
         
@@ -2020,6 +2020,19 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         popupview.isHidden = true
         secondview.isHidden = true
         
+        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Add Reply".localize(), clickAction: {
+                
+                
+            })
+            
+            return
+            
+            
+        }
+
+        
         
           if !(self.ID == 0) {
             
@@ -2028,6 +2041,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             
             commentSendBtnAPIService(textComment: self.commentString)
+            
+            self.textviewOutLet.text = ""
             
         }
             

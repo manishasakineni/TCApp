@@ -34,9 +34,9 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWc-LF-Vtc">
-                        <rect key="frame" x="8" y="5" width="72" height="21"/>
+                        <rect key="frame" x="8" y="5" width="137" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="72" id="GxB-Vd-eQd"/>
+                            <constraint firstAttribute="width" constant="137" id="GxB-Vd-eQd"/>
                             <constraint firstAttribute="height" constant="21" id="zOd-uh-DRw"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -107,6 +107,7 @@
                     <constraint firstItem="msl-TK-WO5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DK5-VJ-58Q"/>
                     <constraint firstItem="RD1-V3-wSh" firstAttribute="centerY" secondItem="hqq-JW-rqL" secondAttribute="centerY" id="FUo-ME-8YJ"/>
                     <constraint firstItem="hqq-JW-rqL" firstAttribute="top" secondItem="ifc-b6-cvb" secondAttribute="bottom" constant="8" id="G3N-Ki-sua"/>
+                    <constraint firstItem="HHE-Hz-3mv" firstAttribute="trailing" secondItem="FWc-LF-Vtc" secondAttribute="trailing" id="GX9-7p-Eov"/>
                     <constraint firstItem="HHE-Hz-3mv" firstAttribute="top" secondItem="FWc-LF-Vtc" secondAttribute="bottom" constant="8" id="HWl-a8-qc6"/>
                     <constraint firstAttribute="trailing" secondItem="EaJ-gU-acy" secondAttribute="trailing" constant="10" id="Qks-Jw-Kml"/>
                     <constraint firstAttribute="bottom" secondItem="EaJ-gU-acy" secondAttribute="bottom" constant="8.5" id="TC3-wl-y6G"/>
@@ -118,6 +119,8 @@
                     <constraint firstItem="EaJ-gU-acy" firstAttribute="top" secondItem="HHE-Hz-3mv" secondAttribute="bottom" constant="17" id="dCq-H4-YVq"/>
                     <constraint firstItem="hqq-JW-rqL" firstAttribute="trailing" secondItem="ifc-b6-cvb" secondAttribute="trailing" constant="-8" id="ke8-fq-PT5"/>
                     <constraint firstItem="FWc-LF-Vtc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="pzf-vb-6ad"/>
+                    <constraint firstItem="ifc-b6-cvb" firstAttribute="leading" secondItem="FWc-LF-Vtc" secondAttribute="trailing" constant="25" id="rGu-H5-cVh"/>
+                    <constraint firstItem="hqq-JW-rqL" firstAttribute="leading" secondItem="ifc-b6-cvb" secondAttribute="leading" id="vrV-fi-cXJ"/>
                     <constraint firstItem="EaJ-gU-acy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="whW-Ve-um4"/>
                 </constraints>
             </tableViewCellContentView>
