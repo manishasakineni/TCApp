@@ -1903,7 +1903,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if (self.commentString == "" || self.commentString == "Add a public comment..."){
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please  Add Reply".localize(), clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Add Reply".localize(), clickAction: {
                 
                 
             })
