@@ -135,6 +135,8 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     super.viewWillAppear(animated)
         
     Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(RefreshTokenIn), name: Notification.Name("RefreshTokenIn"), object: nil)
 
     }
     //MARK:- view Will Disappear
@@ -150,6 +152,11 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func RefreshTokenIn(){
+        
+        print("refresh Token")
     }
     
     //MARK:- get Videos API Call

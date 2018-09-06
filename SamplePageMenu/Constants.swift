@@ -29,7 +29,9 @@ var BASEURL:String = "http://services.teluguchurches.church/"
 
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
-let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
+//let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
+
+let LOGINURL : String = BASEURL.appending("api/Account/Login/")
 
 
 let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
@@ -174,7 +176,7 @@ let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventByEventId/"
 // mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO
 let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
 
-
+var REFRESHTOKENAPI:String = BASEURL.appending("api/Account/RefreshToken")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
@@ -194,6 +196,10 @@ let kpassword:String  = "kpassword"
 let kemail:String  = "kemail"
 let kLoginSucessStatus:String = "kLoginSucessStatus"
 let kRegisterSucessStatus:String = "kRegisterSucessStatus"
+let kAccess_token:String = "kAccess_token"
+let kToken_type = "kToken_type"
+let kClient_id = "kClient_id"
+let kRefreshToken = "kRefreshToken"
 //let kchurchID:String = "kchurchID"
 
 

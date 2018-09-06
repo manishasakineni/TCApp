@@ -11,6 +11,9 @@
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		354B56C5208871D400C0B33A /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B56C4208871D400C0B33A /* DocViewController.swift */; };
 		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
+		3584456D21415060009D059F /* ActivityRightsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456C21415060009D059F /* ActivityRightsVo.swift */; };
+		3584456F21415ABA009D059F /* TokenVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456E21415ABA009D059F /* TokenVo.swift */; };
+		3584457121415B26009D059F /* TokenResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584457021415B26009D059F /* TokenResultVo.swift */; };
 		359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92020626C2D0061450A /* BibleBookVo.swift */; };
 		359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92220626CD20061450A /* BibleChapterVo.swift */; };
 		359CC92520626DE20061450A /* BibleVerseVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92420626DE20061450A /* BibleVerseVo.swift */; };
@@ -419,6 +422,9 @@
 		354B56C4208871D400C0B33A /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
 		3550F62F2058F9A000DD4D11 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
+		3584456C21415060009D059F /* ActivityRightsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRightsVo.swift; sourceTree = "<group>"; };
+		3584456E21415ABA009D059F /* TokenVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVo.swift; sourceTree = "<group>"; };
+		3584457021415B26009D059F /* TokenResultVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResultVo.swift; sourceTree = "<group>"; };
 		359CC92020626C2D0061450A /* BibleBookVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleBookVo.swift; sourceTree = "<group>"; };
 		359CC92220626CD20061450A /* BibleChapterVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleChapterVo.swift; sourceTree = "<group>"; };
 		359CC92420626DE20061450A /* BibleVerseVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleVerseVo.swift; sourceTree = "<group>"; };
@@ -851,6 +857,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3584456921414F9C009D059F /* RefreshTokenVo */ = {
+			isa = PBXGroup;
+			children = (
+				3584456E21415ABA009D059F /* TokenVo.swift */,
+				3584457021415B26009D059F /* TokenResultVo.swift */,
+			);
+			name = RefreshTokenVo;
+			sourceTree = "<group>";
+		};
 		359CC91F20626BDF0061450A /* BibleVo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,6 +1210,7 @@
 				CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */,
 				CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */,
 				9A058AFA2021F394005A611C /* LoginVo.swift */,
+				3584456C21415060009D059F /* ActivityRightsVo.swift */,
 				CB0256BD202463030017E240 /* LoginResultVo.swift */,
 			);
 			name = LoginVo;
@@ -1337,6 +1353,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				3584456921414F9C009D059F /* RefreshTokenVo */,
 				AF2396EF20A561B300B0320D /* ForgotPSWD */,
 				AFE9A061207F3801001CEE7A /* AddUpdateAndComments */,
 				AFE9A05A207F3210001CEE7A /* EventLikeorDislike */,
@@ -2666,6 +2683,7 @@
 				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				3DEF9133206CB15D0068BAC2 /* ChurchAuthorSubscriptionResultVO.swift in Sources */,
+				3584456F21415ABA009D059F /* TokenVo.swift in Sources */,
 				CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
@@ -2677,6 +2695,7 @@
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				AF10F94820F88965006EA5D0 /* EventCommRepliesVO.swift in Sources */,
+				3584456D21415060009D059F /* ActivityRightsVo.swift in Sources */,
 				3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */,
 				CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */,
 				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
@@ -2688,6 +2707,7 @@
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
+				3584457121415B26009D059F /* TokenResultVo.swift in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				AF108A5320D396820098B70F /* notificationsTableViewCell.swift in Sources */,
 				35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */,

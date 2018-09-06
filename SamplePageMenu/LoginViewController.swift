@@ -264,11 +264,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         let strUrl = LOGINURL
-    
+        
+        
+        
         let dictParams = [
             "userName": email!,
             "password": password!,
-            "deviceId": self.deviceId
+            "deviceId": self.deviceId,
+            "client_id": "ConsoleApp",
+            "client_secret": "abc@123"
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -279,133 +283,120 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if(appDelegate.checkInternetConnectivity()){
             
-        if !(email!.isEmpty && password!.isEmpty) {
-            
-    serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+            if !(email!.isEmpty && password!.isEmpty) {
+                
+                serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                     DispatchQueue.main.async()
-            {
+                        {
                             
-        print("\(result)")
+                            print("\(result)")
+                            
+                            let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
+                            
+                            print("responseString = \(respVO)")
                             
                             
-      let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
+                            let statusCode = respVO.isSuccess
+                            print("StatusCode:\(String(describing: statusCode))")
                             
-        print("responseString = \(respVO)")
-                            
-                        
-        let statusCode = respVO.userDetails?.isSuccess
-        print("StatusCode:\(String(describing: statusCode))")
-                            
-        if statusCode == true
-            
-            {
+                            if statusCode == true
+                                
+                            {
                                 
                                 
-    let successMsg = respVO.userDetails?.endUserMessage
-    print(successMsg!)
+                                let successMsg = respVO.endUserMessage
+                                print(successMsg!)
                                 
-    let loginStatus = successMsg
-    let userid = respVO.userDetails?.listResult?[0].userId
-    let loginid =  respVO.userDetails?.listResult?[0].id!
-    let userName = respVO.userDetails?.listResult?[0].name!
-                            
+                                let loginStatus = successMsg
+                                let userid = respVO.result?.userId
+                                let loginid =  respVO.result?.userDetails?.id
+                                let userName = respVO.result?.userName
+                                let accessToken = respVO.result?.access_token
+                                let tokenType = respVO.result?.token_type
+                                let clientId = respVO.result?.client_id
+                                let refreshToken = respVO.result?.refresh_token
                                 
-    kUserDefaults.set(userid, forKey: kuserIdKey)
-                               
-    kUserDefaults.set(loginid, forKey: kIdKey)
-                kUserDefaults.set(userName, forKey: kUserName)
-    kUserDefaults.synchronize()
-                    
-    kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)
-
-    kUserDefaults.set("true", forKey: KFirstTimeLogin)
+                                kUserDefaults.set(accessToken, forKey: kAccess_token)
+                                kUserDefaults.set(tokenType, forKey: kTokenType)
+                                kUserDefaults.set(clientId, forKey: kClient_id)
+                                kUserDefaults.set(refreshToken, forKey: kRefreshToken)
+                                kUserDefaults.set(userid, forKey: kuserIdKey)
                                 
-    kUserDefaults.synchronize()
-                              
-    kUserId = kUserDefaults.value(forKey: kuserIdKey) as! String
-    kId = kUserDefaults.value(forKey: kIdKey) as! Int
-    kUserDefaults.synchronize()
+                                kUserDefaults.set(loginid, forKey: kIdKey)
+                                kUserDefaults.set(userName, forKey: kUserName)
+                                kUserDefaults.synchronize()
+                                
+                                kUserDefaults.set(loginStatus, forKey: kLoginSucessStatus)
+                                
+                                kUserDefaults.set("true", forKey: KFirstTimeLogin)
+                                
+                                kUserDefaults.synchronize()
+                                
+                                kUserId = kUserDefaults.value(forKey: kuserIdKey) as! String
+                                kId = kUserDefaults.value(forKey: kIdKey) as! Int
+                                kUserDefaults.synchronize()
                                 
                                 
-    if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString"
-        {
-                                
-
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
-                                for moveToVC in viewControllers {
-                                    if moveToVC is YoutubePlayerViewController {
-                                    _ = self.navigationController?.popToViewController(moveToVC, animated: true)
-                                    }
+                                if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString" {
                                     
-                                    else if moveToVC is AuthorDetailsViewController {
-                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
-                                    }
                                     
-                                    else if moveToVC is ChurchesInformaationViewControllers {
-                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                    let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                                    for moveToVC in viewControllers {
+                                        if moveToVC is YoutubePlayerViewController {
+                                            _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                        }
+                                            
+                                        else if moveToVC is AuthorDetailsViewController {
+                                            _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                        }
+                                            
+                                        else if moveToVC is ChurchesInformaationViewControllers {
+                                            _ = self.navigationController?.popToViewController(moveToVC, animated: true)
+                                        }
+                                        
                                     }
-                                    
-                                    else if moveToVC is AddToCartViewController {
-                                        _ = self.navigationController?.popToViewController(moveToVC, animated: true)
-                                    }
-
                                     
                                 }
-        
-    }
-    
-    
-    else if self.navigationString == "homeString"{
-        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
-        
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-    }
-        
-    else if self.navigationString == "HomeString"{
-        let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        self.appDelegate.window?.rootViewController = homeNav
-        
-    }
-        
-        else {
                                     
-  //  self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-    self.appDelegate.window?.rootViewController = rootController
-                               
-        }
-            }
+                                else {
+                                    
+                                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                                    self.appDelegate.window?.rootViewController = rootController
+                                    
+                                }
+                            }
+                                
+                            else {
+                                
+                                if  let failMsg = respVO.endUserMessage {
+                                    print(failMsg)
+                                    
+                                    self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
+                                    
+                                    return
+                                }
+                            }
                             
-        else {
-                                
-        if  let failMsg = respVO.userDetails?.endUserMessage {
-                            print(failMsg)
-                                
-        self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
-                                
-                return
+                            print("success")
+                            
+                    }
+                    
+                }, failureHandler:  {(error) in
+                    
+                    print(error)
+                    
+                    if(error == "Enter Valid Credentials"){
+                        
+                        
+                        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+                        
+                        
+                    }
+                    
+                    
+                })
             }
-        }
-                
-    print("success")
-                
-        }
-                    
-    }, failureHandler:  {(error) in
-                    
-    print(error)
-                    
-        if(error == "Enter Valid Credentials"){
-                    
-                       
-        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
-
-                    
-        }
-                    
-                    
-    })
-}
         }
         else {
             

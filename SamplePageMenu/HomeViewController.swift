@@ -62,7 +62,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var userId :  Int = 0
     
     
-    var timer: Timer?
+//    var timer: Timer?
+    
+    var timer: Timer = Timer.init()
     
     var count = 0
     
@@ -125,13 +127,22 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var eventsImages = ""
     
+     var paramsDict: [String: Any] = [:]
     
     //MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let apppDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        if(apppDelegate.isFirstTime == true){
+            
+            apppDelegate.isFirstTime = false
+            timer.invalidate()
+            
+            timer = Timer.scheduledTimer(timeInterval: 60*2.0, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
+        }
         
         
         let categorieHomeCell  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
@@ -234,6 +245,110 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         super.viewWillDisappear(animated)
         
+    }
+    
+    @objc func BackgroundTimerCall()
+    {
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            
+            if(self.appDelegate.checkInternetConnectivity()){
+                
+                self.refreshTokenAPICall()
+                
+            }
+            else {
+                
+                print("no internet connection")
+            }
+            
+            DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+                
+                //                self.getPropertiesListAPI()
+                
+                // NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
+                
+            }
+        }
+    }
+    
+    //MARK: -  Refresh Token API Call
+    
+    func refreshTokenAPICall(){
+        
+        if let rToken = kUserDefaults.string(forKey: kRefreshToken) {
+            
+            //            refreshToken = rToken
+            
+            paramsDict = [
+                "client_id": "ConsoleApp",
+                "client_secret": "abc@123",
+                "refresh_token": rToken
+                
+                ] as [String : Any]
+            
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            
+            serviceController.refreshPostRequest(strURL: REFRESHTOKENAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+                
+                print(result)
+                
+              
+               let respVO:TokenVo = Mapper().map(JSONObject: result)!
+                
+                let isSuccess = respVO.isSuccess
+                print("StatusCode:\(String(describing: isSuccess))")
+                
+                let endUserMsg = respVO.endUserMessage
+                
+                if isSuccess == true {
+                    
+                    
+                    let acessToken = respVO.result?.access_token
+                    let refToken = respVO.result?.refresh_token
+                    let tokenType = respVO.result?.token_type
+                    
+                    kUserDefaults.set(acessToken, forKey: kAccess_token)
+                    kUserDefaults.set(tokenType, forKey: kTokenType)
+                    //                kUserDefaults.set(clientId, forKey: kClient_id)
+                    kUserDefaults.set(refToken, forKey: kRefreshToken)
+                    //                kUserDefaults.set(userid, forKey: kuserIdKey)
+                    kUserDefaults.synchronize()
+                    
+                    NotificationCenter.default.post(name: Notification.Name("RefreshTokenIn"), object: nil)
+                    
+                }
+                    
+                else {
+                    
+                    self.showAlertViewWithTitle("Alert".localize(), message: endUserMsg!, buttonTitle: "Ok".localize())
+                    
+                }
+                
+            }) { (failureMessage) in
+                
+                
+                print(failureMessage)
+                
+            }
+            
+        }
+        
+        
+        
+        
+    }
+    
+    func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    {
+        let alertView:UIAlertView = UIAlertView();
+        alertView.title=title
+        alertView.message=message
+        alertView.addButton(withTitle: buttonTitle)
+        alertView.show()
     }
     
     //MARK: -   Banner Image Scroll APICall

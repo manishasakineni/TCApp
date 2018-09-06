@@ -26,10 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var messge : String = ""
+    
+    var isFirstTime : Bool!
 
      var countryInfoDetails : [splashmsgResultVO] = Array<splashmsgResultVO>()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        isFirstTime = true
         
         IQKeyboardManager.sharedManager().enable = true
     
