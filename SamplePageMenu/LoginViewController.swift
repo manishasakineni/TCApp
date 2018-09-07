@@ -123,14 +123,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        
-        
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
-        
-        
-        
         
         return true
     }
@@ -177,8 +172,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginClicked(_ sender: Any) {
         
     
-        mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-        passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        email = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        password = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
         if(appDelegate.checkInternetConnectivity()){
 
@@ -211,8 +206,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-
-        
     }
     
 //MARK:- validateAllFields
@@ -262,10 +255,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func loginAPIService(){
         
-        
         let strUrl = LOGINURL
-        
-        
         
         let dictParams = [
             "userName": email!,
@@ -300,9 +290,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             print("StatusCode:\(String(describing: statusCode))")
                             
                             if statusCode == true
-                                
                             {
-                                
                                 
                                 let successMsg = respVO.endUserMessage
                                 print(successMsg!)
@@ -315,13 +303,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let tokenType = respVO.result?.token_type
                                 let clientId = respVO.result?.client_id
                                 let refreshToken = respVO.result?.refresh_token
+                                let expiresIn = respVO.result?.expires_in
                                 
                                 kUserDefaults.set(accessToken, forKey: kAccess_token)
                                 kUserDefaults.set(tokenType, forKey: kTokenType)
                                 kUserDefaults.set(clientId, forKey: kClient_id)
                                 kUserDefaults.set(refreshToken, forKey: kRefreshToken)
                                 kUserDefaults.set(userid, forKey: kuserIdKey)
-                                
+                                kUserDefaults.set(expiresIn, forKey: kExpires_in)
                                 kUserDefaults.set(loginid, forKey: kIdKey)
                                 kUserDefaults.set(userName, forKey: kUserName)
                                 kUserDefaults.synchronize()
@@ -425,11 +414,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //            self.view.layoutIfNeeded()
 //            
 //        })
-        
-        
-    
-        
-        
+      
     }
 
  //MARK:- Register Clicked
@@ -507,7 +492,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        
     }
     
     
@@ -544,17 +528,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: endUserMessage!, clickAction: {
     
     
-})
+             })
+        
+            
         }  }) { (failureMessage) in
-                        
-                        
-                        
-                    }
-                }
+            
+    }
+  }
                 
-        }
+}
     
-
-    
-
-

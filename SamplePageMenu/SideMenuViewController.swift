@@ -104,9 +104,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         return 1
     }
-    
-    
-   
 
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -118,7 +115,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        if  (self.userID.isEmpty) {
+        if (self.userID.isEmpty) {
         
             if indexPath.row == 9 || indexPath.row == 11 {
                 
@@ -179,7 +176,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
              
             }
             
-            if  cell1.menuNameLabel.text! == "LogOut".localize(){
+            if cell1.menuNameLabel.text! == "LogOut".localize(){
                 if indexPath.row == 10 {
                     
                     cell1.menuNameLabel.text! = "Login".localize()
@@ -190,13 +187,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
            
             }
             
-        
         }
         
         else{
         
             cell1.isHidden = false
-
             
         }
         
@@ -326,7 +321,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             
         }
-        else  if cell.menuNameLabel.text == " All Categories".localize() {
+        else if cell.menuNameLabel.text == " All Categories".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -338,7 +333,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
-        else  if cell.menuNameLabel.text == "All Churches".localize() {
+        else if cell.menuNameLabel.text == "All Churches".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -349,7 +344,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else  if cell.menuNameLabel.text == "Events".localize() {
+        else if cell.menuNameLabel.text == "Events".localize() {
 
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let desController = mainstoryboard.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
@@ -362,7 +357,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else  if cell.menuNameLabel.text == "Authors".localize() {
+        else if cell.menuNameLabel.text == "Authors".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -373,7 +368,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else  if cell.menuNameLabel.text == "Holy Bible - Telugu".localize() {
+        else if cell.menuNameLabel.text == "Holy Bible - Telugu".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -387,7 +382,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
-        else  if cell.menuNameLabel.text == "Holy Bible - English".localize() {
+        else if cell.menuNameLabel.text == "Holy Bible - English".localize() {
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let booksController = mainstoryboard.instantiateViewController(withIdentifier: "BibleDetailsViewController") as! BibleDetailsViewController
@@ -401,7 +396,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else  if cell.menuNameLabel.text == "Careers".localize() {
+        else if cell.menuNameLabel.text == "Careers".localize() {
             
             var userId = 0
             
@@ -443,7 +438,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else  if cell.menuNameLabel.text == "Online Shopping".localize() {
+        else if cell.menuNameLabel.text == "Online Shopping".localize() {
          
             var userId = 0
             
@@ -482,10 +477,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             
         }
-       
-            
-            
-        else  if cell.menuNameLabel.text == "Notifications".localize() {
+        else if cell.menuNameLabel.text == "Notifications".localize() {
             
             
             var userId = 0
@@ -529,10 +521,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         
     }
-        
-        
-        
-    else  if cell.menuNameLabel.text == "LogOut".localize() {
+            
+    else if cell.menuNameLabel.text == "LogOut".localize() {
             
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             
@@ -546,7 +536,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                 
         }
-        else  if cell.menuNameLabel.text == "Login".localize() {
+        else if cell.menuNameLabel.text == "Login".localize() {
             
     let defaults = UserDefaults.standard
     defaults.set("false", forKey: KFirstTimeLogin)
@@ -603,9 +593,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-        
     }
-    
-    
     
 }

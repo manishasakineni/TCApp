@@ -15,18 +15,12 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
-
 // constants
 //var BASEURL:String = "http://calibrage.co.in/"
 
-
 //var BASEURL:String = "http://192.168.1.168/TeluguChurchesTestAPI/"
 
-
-
-
 var BASEURL:String = "http://services.teluguchurches.church/"
-
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 //let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -47,7 +41,6 @@ let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventB
 let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndChurchId/")
 
 let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEventsInfo/")
-
 
 
 let BANNERIMAGESURL : String = BASEURL.appending("api/Banners/GetAllBannersById/")
@@ -121,8 +114,6 @@ let GETPOSTBYAUTHORIDAPI : String = BASEURL.appending("api/Post/GetPostByAuthorI
 let POSTBYCHURCHIDAPI : String = BASEURL.appending("api/Post/GetPostByChurchId")
 
 
-
-
 let GETALLJOBDETAILSAPI : String = BASEURL.appending("api/JobDetails/GetAllJobDetails")
 
 let GETJOBBYIDAPI : String = BASEURL.appending("api/JobDetails/GetJobById/")
@@ -137,8 +128,6 @@ let ALLITEMSIDAPI : String = BASEURL.appending("api/ItemDetails/GetItemById/")
 let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
 
 let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
-
-
 
 
 // :-   05/06/2018
@@ -160,10 +149,7 @@ let DELETEADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/DeleteDel
 let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDeliveryAddressById/")
 
 
-
-
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")
-
 
 
 let NOTIFICATIONSAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
@@ -200,6 +186,7 @@ let kAccess_token:String = "kAccess_token"
 let kToken_type = "kToken_type"
 let kClient_id = "kClient_id"
 let kRefreshToken = "kRefreshToken"
+let kExpires_in = "expires_in"
 //let kchurchID:String = "kchurchID"
 
 
@@ -226,11 +213,4 @@ struct ScreenSize {
     static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
     
 }
-
-
-
-
-
-
-
 

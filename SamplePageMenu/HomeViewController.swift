@@ -87,9 +87,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var pageMenu : CAPSPageMenu?
     
     
-    var appVersion          : String = ""
+    var appVersion: String = ""
     
-    var loginStatusString    =   String()
+    var loginStatusString = String()
     
     var timerForCollectionView: Timer!
     
@@ -135,13 +135,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         super.viewDidLoad()
         
         let apppDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        if(apppDelegate.isFirstTime == true){
+    
+        if let expireTime = kUserDefaults.string(forKey: kExpires_in) {
             
-            apppDelegate.isFirstTime = false
-            timer.invalidate()
-            
-            timer = Timer.scheduledTimer(timeInterval: 60*2.0, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
+            if(apppDelegate.isFirstTime == true){
+                
+                apppDelegate.isFirstTime = false
+                timer.invalidate()
+                
+                timer = Timer.scheduledTimer(timeInterval: Double(expireTime)!, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
+            }
         }
         
         
@@ -184,10 +187,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         sideMenu()
         
-        
         definesPresentationContext = true
-        
-        
         
         offSet = 0
         
@@ -196,13 +196,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         // self.navigationItem.rightBarButtonItem?.badgeValue = "5";
         
-        
-        
-        
-        
-        
-        
-        
+      
     }
     
     //MARK: -   View WillAppear
@@ -245,6 +239,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         super.viewWillDisappear(animated)
         
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     @objc func BackgroundTimerCall()
@@ -337,9 +335,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
         
-        
-        
-        
     }
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
@@ -372,7 +367,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     print("StatusCode:\(String(describing: isSuccess))")
                     
                     
-                    
                     if isSuccess == true {
                         
                         
@@ -389,8 +383,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             
                             
                             let url = URL(string:newString)
-                            
-                            
                             
                             
                             if url != nil {
@@ -496,9 +488,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 }
                 
                 
-                
-                
-                
                 let pageCout  = (respVO.totalRecords)! / 15
                 
                 let remander = (respVO.totalRecords)! % 15
@@ -516,8 +505,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             }
                 
             else {
-                
-                
                 
             }
             
@@ -563,8 +550,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         print("fromYearString And toYearString",fromYearString,toYearString)
         
         
-        
-        
         let parameters = [
             "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
             "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
@@ -590,11 +575,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             if statusCode == true
             {
                 
-                
                 self.eventImageArray.removeAll()
-                
-                
-                
                 
                 for churchDetails in respVO.listResult!{
                     
@@ -608,12 +589,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     self.upComingEventsArray.append(churchDetails)
                     
                     
-                    
                 }
                 
-                
                 if self.eventImageArray.count > 0{
-                    
                     
                     
                     self.timerForCollectionView = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
@@ -631,7 +609,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             
         }) { (failure) in
-            
             
             
         }
@@ -674,8 +651,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
                 
             }
-            
-            
             
             
         }) { (failureMessage) in
@@ -765,10 +740,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 revealViewController().rearViewRevealWidth = 330
                 
-                
-                
-                
-                
             }
         }else{
             
@@ -779,18 +750,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 menuBarButton.action = #selector(revealViewController().revealToggle(_:))
                 
                 revealViewController().rearViewRevealWidth = 270
-                
-                
-                
-                
-                
+               
             }
             
         }
         
     }
-    
-    
     
     
     
@@ -808,8 +773,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         self.present(popController, animated: true, completion: nil)
     }
-    
-    
     
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
@@ -987,10 +950,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-    
-    
-    
     //MARK: Page tap action
+    
     func pageChanged() {
         let indexPath = IndexPath.init(row: 1, section: 0)
         
@@ -1034,19 +995,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     func  categorieTwoClicked(_ sendre:UIButton) {
         
-        
-        
-        
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
         churchDetailsViewController.categorieImageArray = self.imageArray2 as! Array<UIImage>
         churchDetailsViewController.categorieNamesArray = self.imageNameArray2
         churchDetailsViewController.bibleInt = 11
         
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-        
-        
-        
-        
+       
     }
     
     func  categorieThreeClicked(_ sendre:UIButton) {
@@ -1086,11 +1041,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             })
         }
         
-        
-        
     }
-    
-    
     
 }
 
@@ -1098,7 +1049,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -1117,8 +1067,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cagegoriesArray.count
             
         }
-        
-        
         
     }
     
@@ -1142,8 +1090,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
             
             cell.eventDateLabel.text = startAndEndDate1
-            
-            
             
             
             print(eventImageArray.count)
@@ -1194,16 +1140,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
             }
             
-            
-            
-            
             return cell
-            
             
         }
     }
-    
-    
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -1266,11 +1206,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         
-        
     }
     
-    
-    
+
     func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         
     }
@@ -1330,14 +1268,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return newDateStr + "," + newDateStr1
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    
+   
 }
 
 
