@@ -15,8 +15,8 @@ class AddressInfoResultVO: Mappable {
     var id : Int?
     var fullName : String?
     var mobileNumber : String?
-    var addressLine1 : String?
-    var addressLine2 : String?
+    var address1 : String?
+    var address2 : String?
     var pinCode : Int?
     var userId : Int?
     var landmark : String?
@@ -36,7 +36,7 @@ class AddressInfoResultVO: Mappable {
    
      //MARK:-  initialization of AddressInfoResultVO
     
-    init(id: Int?,fullName : String?,mobileNumber : String?, addressLine1 : String?, addressLine2 : String?, pinCode : Int?, userId : Int?, landmark : String?, stateId : Int?, stateName : String?,countryId : Int?,countryName : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
+    init(id: Int?,fullName : String?,mobileNumber : String?, address1 : String?, address2 : String?, pinCode : Int?, userId : Int?, landmark : String?, stateId : Int?, stateName : String?,countryId : Int?,countryName : String?,isActive :Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
         
         
     {
@@ -45,8 +45,8 @@ class AddressInfoResultVO: Mappable {
         self.id = id
         self.fullName = fullName
         self.mobileNumber = mobileNumber
-        self.addressLine1 = addressLine1
-        self.addressLine2 = addressLine2
+        self.address1 = address1
+        self.address2 = address2
         self.pinCode = pinCode
         self.userId = userId
         self.landmark = landmark
@@ -75,8 +75,8 @@ class AddressInfoResultVO: Mappable {
         id <- map["id"]
         fullName <- map["fullName"]
         mobileNumber <- map["mobileNumber"]
-        addressLine1 <- map["addressLine1"]
-        addressLine2 <- map["addressLine2"]
+        address1 <- map["address1"]
+        address2 <- map["address2"]
         pinCode <- map["pinCode"]
         userId <- map["userId"]
         landmark <- map["landmark"]

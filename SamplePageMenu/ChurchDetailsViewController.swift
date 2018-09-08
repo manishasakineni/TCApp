@@ -93,6 +93,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
+        churchDetailsTableView.register(UINib.init(nibName: "InfoHeaderCell", bundle: nil),
+                                        forCellReuseIdentifier: "InfoHeaderCell")
+        
+        
         self.navigationController?.isNavigationBarHidden = false
         self.searchController.searchBar.delegate = self
         definesPresentationContext = true

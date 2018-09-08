@@ -630,8 +630,8 @@ func numberOfSections(in tableView: UITableView) -> Int {
         let paramsDict = [ 	"id": addressID,
                            	"fullName": fullName,
                            	"mobileNumber": mobileNumber,
-                           	"addressLine1": flatNo,
-                           	"addressLine2": area,
+                           	"address1": flatNo,
+                           	"address2": area,
                            	"pinCode": pincode,
                            	"userId": userId,
                            	"landmark": landmark,
@@ -720,17 +720,63 @@ func readDataSource(){
         if(addressInfo.count > 0){
             
             let model = addressInfo[0]
-            fullName = model.fullName!
-            flatNo = model.addressLine1!
-            area = model.addressLine2!
-            pincode = "\(model.pinCode!)"
-            landmark = model.landmark!
-            state = model.stateName!
-            stateID = model.stateId!
-            countryID = model.countryId!
-            country = model.countryName!
-            mobileNumber = model.mobileNumber!
-            addressID = model.id!
+            
+            if model.fullName != nil {
+                
+                fullName = model.fullName!
+            }
+            
+            if model.address1 != nil {
+                
+                flatNo = model.address1!
+            }
+            
+            if model.address2 != nil {
+                
+                area = model.address2!
+            }
+            
+            if model.pinCode != nil {
+                
+                pincode = "\(model.pinCode!)"
+            }
+            
+            if model.landmark != nil {
+                
+               landmark = model.landmark!
+            }
+            
+            if model.stateName != nil {
+                
+               state = model.stateName!
+            }
+            
+            if model.stateId != nil{
+                
+              stateID = model.stateId!
+            }
+            
+            if model.countryId != nil {
+                
+              countryID = model.countryId!
+            }
+            
+            if model.countryName != nil {
+                
+              country = model.countryName!
+            }
+            
+            if model.mobileNumber != nil {
+                
+                mobileNumber = model.mobileNumber!
+            }
+            
+            if model.id != nil{
+                
+                addressID = model.id!
+            }
+            
+            
            self.addNewAddressTableView.reloadData()
             
             

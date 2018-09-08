@@ -18,7 +18,7 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 // constants
 //var BASEURL:String = "http://calibrage.co.in/"
 
-//var BASEURL:String = "http://192.168.1.168/TeluguChurchesTestAPI/"
+//var BASEURL:String = "http://192.168.1.250/TeluguChurches/"
 
 var BASEURL:String = "http://services.teluguchurches.church/"
 
@@ -146,7 +146,10 @@ let DELETEADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/DeleteDel
 
 // :-   08/06/2018
 
-let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDeliveryAddressById/")
+//let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDeliveryAddressById/")
+
+let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetAddressById/")
+
 
 
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")

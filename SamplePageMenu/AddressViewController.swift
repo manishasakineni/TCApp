@@ -103,8 +103,17 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         cell.fullNameLbl.text = listStr.fullName
         
-        cell.addresslineLbl.text = listStr.addressLine1! + ", " + listStr.addressLine2!
-        cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
+        if listStr.address1 != nil && listStr.address2 != nil {
+            
+            cell.addresslineLbl.text = listStr.address1! + ", " + listStr.address2!
+            
+        }
+        
+         if listStr.stateName != nil && listStr.countryName != nil {
+            
+            cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
+        }
+       
      
       //  cell.pincodeLbl.text = "\(listStr.pinCode!)"
         

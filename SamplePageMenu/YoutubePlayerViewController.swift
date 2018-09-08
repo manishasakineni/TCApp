@@ -342,7 +342,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
      //   self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: videoNameStr, backTitle: videoNameStr, rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " \(videoNameStr)", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
       
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
