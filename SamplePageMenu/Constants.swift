@@ -32,6 +32,8 @@ let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
 let EDITPROFILEURL : String = BASEURL.appending("api/UserInfo/UpdateUserInfo")
 let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/")
 let GETALLCHURCHES : String = BASEURL.appending("api/Church/GetAllChurches")
+let GETALLACTIVECHURCHESAPI : String = BASEURL.appending("api/Church/GetAllActiveChurches")
+
 let GETCHURCHEBYID : String = BASEURL.appending("api/Church/GetChurchbyId/")
 let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdmins")
 //let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
@@ -190,6 +192,8 @@ let kToken_type = "kToken_type"
 let kClient_id = "kClient_id"
 let kRefreshToken = "kRefreshToken"
 let kExpires_in = "expires_in"
+var kLatitude = "kLatitude"
+var kLongitude = "kLongitude"
 //let kchurchID:String = "kchurchID"
 
 
@@ -198,6 +202,7 @@ let accessToken:String = "accessToken"
 
 var kUserId :  String =  "null"
 var kId =  Int ()
+
 
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"

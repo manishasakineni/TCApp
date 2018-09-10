@@ -123,7 +123,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         PageIndex = 1
         totalPages = 0
         self.churchNamesArray.removeAll()
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         
     }
     //MARK: -  View Did Appear
@@ -153,7 +153,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         totalPages = 0
         
         self.churchNamesArray.removeAll()
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         
     }
     
@@ -172,7 +172,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         totalPages = 0
         self.churchNamesArray.removeAll()
         
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         
         if(filtered.count == 0){
             searchActive = false
@@ -208,7 +208,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         totalPages = 0
         
         self.churchNamesArray.removeAll()
-        self.getAllChurchSearchAPIService(string: searchBar.text!)
+        self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         self.churchDetailsTableView.reloadData()
         
     }
@@ -227,7 +227,104 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         }
     
+    //    GETALLACTIVECHURCHESAPI
+    
+    //MARK: -  Get All Active Church Search API Service
+    
+    
+    func getAllActiveChurchSearchAPIService(string:String){
+        
+        let paramsDict = [
+            
+            "userId": 1,
+            "pageIndex": PageIndex,
+            "pageSize": 10,
+            "sortbyColumnName": "UpdatedDate",
+            "sortDirection": "desc",
+            "searchName": string
+            
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETALLACTIVECHURCHESAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            if isSuccess == true {
+                
+                
+                let listArr = respVO.listResult!
+                
+                if listArr.count > 0 {
+                    
+                    self.churchDetailsTableView.isHidden = false
+                    
+                    self.noRecordLabel.isHidden = true
+                    
+                    for eachArray in listArr{
+                        
+                        self.churchNamesArray.append(eachArray)
+                        
+                        print("eachArray.churchImage",eachArray.churchImage)
+                    }
+                    
+                    
+                    self.filtered = self.churchNamesArray
+                    
+                    let pageCout  = (respVO.totalRecords)! / 10
+                    
+                    let remander = (respVO.totalRecords)! % 10
+                    
+                    self.totalPages = pageCout
+                    
+                    if remander != 0 {
+                        
+                        self.totalPages = self.totalPages! + 1
+                        
+                    }
+                    
+                    
+                    
+                    print(self.churchNamesArray.count)
+                    
+                    self.churchDetailsTableView.reloadData()
+                    
+                }
+                else {
+                    
+                    self.noRecordLabel.isHidden = false
+                    self.churchDetailsTableView.isHidden = true
+                    
+                    
+                }
+            }
+                
+            else {
+                
+                self.noRecordLabel.isHidden = false
+                self.churchDetailsTableView.isHidden = true
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+    }
+    
    //MARK: -  Get All Church Search API Service
+
     
     func getAllChurchSearchAPIService(string:String){
         
@@ -522,7 +619,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 PageIndex = PageIndex + 1
                 
-                self.getAllChurchSearchAPIService(string: searchBar.text!)
+                self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
                 
             }
         }
@@ -602,6 +699,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 cell.mandalLbl.text = listStr.mandalName
                 cell.districtLbl.text = listStr.districtName
          cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
+                
+                
         
         
         let imgUrl = listStr.churchImage
@@ -710,8 +809,18 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         if self.churchNamesArray.count > 0 {
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
+            
+            let lat = listStr.latitude
+            let long = listStr.longitude
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+            
+            kUserDefaults.set(lat, forKey: kLatitude)
+            
+            kUserDefaults.set(long, forKey: kLongitude)
+            
+            kUserDefaults.synchronize()
+            
         
         holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
         holyBibleViewController.churchID = listStr.Id!

@@ -556,9 +556,15 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
             
         else if (indexPath.section == 4){
             
-    let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
+        if #available(iOS 11.0, *) {
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
-        return cell3
+            return cell3
+        } else {
+            // Fallback on earlier versions
+        }
+            
+        
             
         }
         

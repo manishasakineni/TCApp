@@ -241,7 +241,7 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             
@@ -417,7 +417,7 @@ class Utilities: NSObject {
         
         
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             
@@ -681,7 +681,7 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             
@@ -1188,7 +1188,7 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             
@@ -1319,7 +1319,7 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
        
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             
@@ -1392,7 +1392,7 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
         rightButton.frame = CGRect(x: 0, y: 0, width: rightButtonImage.size.width, height: rightButtonImage.size.height)
-        rightButton.setTitle(backTitle, for: .normal)
+        rightButton.setTitle("", for: .normal)
         
         if backTitle.characters.count > 0 {
             

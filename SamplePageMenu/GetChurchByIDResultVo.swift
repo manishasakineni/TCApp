@@ -6,6 +6,58 @@
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
+/*{
+    "countryId": 1,
+    "countryName": "India ",
+    "stateId": 3,
+    "stateName": "Telangana",
+    "districtId": 7,
+    "districtName": "Hyderabad",
+    "mandalId": 12,
+    "mandalName": "Tirumalagiri",
+    "villageName": "Ammuguda",
+    "pinCode": 500011,
+    "churchImage": "http://services.teluguchurches.church/FileRepository/2018\\07\\02\\Church\\20180702101225758.jpg",
+    "userImage": "http://services.teluguchurches.church/FileRepository/2018\\07\\02\\User\\20180702103709300.jpg",
+    "userName": "brothetAnilkumar",
+    "id": 3,
+    "name": "Anil World Evangelism (AWE Ministries)",
+    "registrationNumber": "Anil World Evangelism1",
+    "address1": "Plot no.3, Road no.12, Huda Heights",
+    "address2": "M.L.A Colony, Near Loctus Pond",
+    "landMark": "Banjara Hills",
+    "villageId": 5,
+    "description": "Anil World Evangelism is an interdenominational organisation that seeks to build, encourage and inspire people with good news of Lord Jesus Christ. Anil World Evangelism Shares Love and Compassion of Jesus Christ to the millions of broken hearted people around the world. These ministries are currently engaging more than 2 million in reached people around the world. We were completely capable of evangelising the lost and taking the gospel to the corners of the earth.",
+    "mission": null,
+    "vision": null,
+    "contactNumber": "04040477777",
+    "email": "contact@broanilkumar.com",
+    "websiteAddress": "http://www.broanilkumar.com",
+    "fileLocation": "2018\\07\\02\\Church",
+    "fileName": "20180702101225758",
+    "fileExtention": ".jpg",
+    "isActive": true,
+    "createdByUserId": 13,
+    "createdDate": "2018-06-08T12:47:25.683",
+    "updatedByUserId": 92,
+    "updatedDate": "2018-09-10T14:38:51.063",
+    "openingTime": "10:30:00",
+    "closingTime": "17:30:00",
+    "latitude": 17.4141075,
+    "longitude": 78.430059300000039,
+    "address": "Plot no.3, Road no.12, Huda Heights M.L.A Colony, Near Loctus Pond ",
+    "pasterUser": "Anil Kumar Bro",
+    "userContactNumbar": "04040477777",
+    "userEmail": "susmitha@calibrage.in",
+    "dob": "1972-02-12T07:30:00",
+    "genderTypeId": 27,
+    "gender": "Male",
+    "userDescription": "Anil World Evangelism is an interdenominational organisation that seeks to build, encourage and inspire people with good news of Lord Jesus Christ. Anil World Evangelism Shares Love and Compassion of Jesus Christ to the millions of broken hearted peo",
+    "createdByUser": "Susmitha Yeruva",
+    "updatedByUser": "ravali n",
+    "isSubscribed": 0
+}*/
+
 import Foundation
 class GetChurchByIDResultVo: Mappable {
     
