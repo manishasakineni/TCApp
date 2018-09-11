@@ -1080,7 +1080,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         if !(self.userID == 0) {
             
             let someText:String = "Hello want to share text also"
-            let objectsToShare:URL = URL(string: "http://www.google.com")!
+            let objectsToShare:URL = URL(string: "http://teluguchurches.church")!
             let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
             let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view

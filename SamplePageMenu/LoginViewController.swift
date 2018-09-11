@@ -278,7 +278,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                     DispatchQueue.main.async()
                         {
-                            
                             print("\(result)")
                             
                             let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!

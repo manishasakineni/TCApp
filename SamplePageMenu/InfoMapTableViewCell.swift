@@ -11,8 +11,8 @@ import MapKit
 import CoreLocation
 import Contacts
 
-@available(iOS 11.0, *)
-class InfoMapTableViewCell: UITableViewCell,CLLocationManagerDelegate {
+//@available(iOS 11.0, *)
+class InfoMapTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backGroundView: UIView!
     
@@ -27,11 +27,11 @@ class InfoMapTableViewCell: UITableViewCell,CLLocationManagerDelegate {
         super.awakeFromNib()
         // Initialization code
         
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.requestAlwaysAuthorization()
-        manager.startUpdatingLocation()
+//        manager.delegate = self
+//        manager.desiredAccuracy = kCLLocationAccuracyBest
+//        manager.requestWhenInUseAuthorization()
+//        manager.requestAlwaysAuthorization()
+//        manager.startUpdatingLocation()
         
         backGroundView.layer.cornerRadius = 3.0
         backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -71,42 +71,42 @@ class InfoMapTableViewCell: UITableViewCell,CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if let lat = kUserDefaults.string(forKey: kLatitude) {
-            
-            if let long = kUserDefaults.string(forKey: kLongitude) {
-                
-                let location = locations[0]
-                let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-                let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(Double(lat)!, Double(long)!)
-                annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(long)!)
-                mapViewOutLet.addAnnotation(annotation)
-                let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-                mapViewOutLet.setRegion(region, animated: true)
-                
-                print(myLocation.latitude)
-                print(myLocation.longitude)
-                self.mapViewOutLet.showsUserLocation = true
-                
-                CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
-                    
-                    if error != nil
-                    {
-                        print("There was as error")
-                    }
-                    else
-                    {
-                        if let place = placemark?[0]
-                        {
-                            self.annotation.subtitle = "\(String(describing: place.name!))"
-                            self.annotation.title = "\(String(describing: place.locality!)) "
-                            //self.label.text = "\(String(describing: place.locality!)) \n \(String(describing: place.country!)) \n \(String(describing: place.location!))"
-                        }
-                        
-                    }
-                }
-            }
-            
-        }
+//        if let lat = kUserDefaults.string(forKey: kLatitude) {
+//
+//            if let long = kUserDefaults.string(forKey: kLongitude) {
+//
+//                let location = locations[0]
+//                let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+//                let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(Double(lat)!, Double(long)!)
+//                annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(long)!)
+//                mapViewOutLet.addAnnotation(annotation)
+//                let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+//                mapViewOutLet.setRegion(region, animated: true)
+//
+//                print(myLocation.latitude)
+//                print(myLocation.longitude)
+//                self.mapViewOutLet.showsUserLocation = true
+//
+//                CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+//
+//                    if error != nil
+//                    {
+//                        print("There was as error")
+//                    }
+//                    else
+//                    {
+//                        if let place = placemark?[0]
+//                        {
+//                            self.annotation.subtitle = "\(String(describing: place.name!))"
+//                            self.annotation.title = "\(String(describing: place.locality!)) "
+//                            //self.label.text = "\(String(describing: place.locality!)) \n \(String(describing: place.country!)) \n \(String(describing: place.location!))"
+//                        }
+//
+//                    }
+//                }
+//            }
+//
+//        }
         
         
         
@@ -114,29 +114,29 @@ class InfoMapTableViewCell: UITableViewCell,CLLocationManagerDelegate {
    
 }
 
-@available(iOS 11.0, *)
-extension InfoMapTableViewCell: MKMapViewDelegate {
-    // 1
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // 2
-        guard let annotation = annotation as?  MKPointAnnotation else { return nil }
-        // 3
-        let identifier = "marker"
-        var view: MKMarkerAnnotationView
-        // 4
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        } else {
-            // 5
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        return view
-    }
+//@available(iOS 11.0, *)
+//extension InfoMapTableViewCell: MKMapViewDelegate {
+//    // 1
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        // 2
+//        guard let annotation = annotation as?  MKPointAnnotation else { return nil }
+//        // 3
+//        let identifier = "marker"
+//        var view: MKMarkerAnnotationView
+//        // 4
+//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//            as? MKMarkerAnnotationView {
+//            dequeuedView.annotation = annotation
+//            view = dequeuedView
+//        } else {
+//            // 5
+//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//            view.canShowCallout = true
+//            view.calloutOffset = CGPoint(x: -5, y: 5)
+//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//        }
+//        return view
+//    }
 //    func mapItem() -> MKMapItem {
 //        let addressDict = [CNPostalAddressStreetKey: subtitle!]
 //        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
@@ -152,4 +152,5 @@ extension InfoMapTableViewCell: MKMapViewDelegate {
 //        location.mapItem().openInMaps(launchOptions: launchOptions)
 //    }
     
-}
+//}
+

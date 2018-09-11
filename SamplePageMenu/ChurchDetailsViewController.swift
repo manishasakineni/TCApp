@@ -810,16 +810,16 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         if self.churchNamesArray.count > 0 {
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
             
-            let lat = listStr.latitude
-            let long = listStr.longitude
+//            let lat = listStr.latitude
+//            let long = listStr.longitude
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
             
-            kUserDefaults.set(lat, forKey: kLatitude)
-            
-            kUserDefaults.set(long, forKey: kLongitude)
-            
-            kUserDefaults.synchronize()
+//            kUserDefaults.set(lat, forKey: kLatitude)
+//
+//            kUserDefaults.set(long, forKey: kLongitude)
+//
+//            kUserDefaults.synchronize()
             
         
         holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0

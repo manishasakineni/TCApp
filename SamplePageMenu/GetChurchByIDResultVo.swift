@@ -115,14 +115,15 @@ class GetChurchByIDResultVo: Mappable {
     var userEmail : String?
     var genderTypeId : Int?
     var userDescription : String?
-
+    var latitude: Double?
+    var longitude: Double?
     
     
     
     //MARK:-  initialization of GetChurchByIDResultVo
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?, isSubscribed : Int?,userEmail : String?,genderTypeId : Int?, userDescription : String?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?, isSubscribed : Int?,userEmail : String?,genderTypeId : Int?, userDescription : String?,latitude:Double?, longitude: Double?)
         
         
     {
@@ -178,7 +179,8 @@ class GetChurchByIDResultVo: Mappable {
         self.userEmail = userEmail
         self.genderTypeId = genderTypeId
         self.userDescription = userDescription
-        
+        self.latitude = latitude
+        self.longitude = longitude
 
         
     }
@@ -240,6 +242,9 @@ class GetChurchByIDResultVo: Mappable {
         userEmail <- map["userEmail"]
         genderTypeId <- map["genderTypeId"]
         userDescription <- map["userDescription"]
+        
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
 
     }
     

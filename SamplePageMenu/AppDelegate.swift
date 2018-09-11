@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = homeNav
         
         
-    //    getsplashmsgAPICall()
+      getsplashmsgAPICall()
         
     //   lunchScreenView()
         

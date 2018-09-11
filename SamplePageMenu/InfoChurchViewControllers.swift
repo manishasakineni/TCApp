@@ -8,8 +8,11 @@
 
 import UIKit
 import Localize
+import MapKit
+import CoreLocation
+import Contacts
 
-class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate {
     
     
     @IBOutlet weak var infoChurchView: UIView!
@@ -20,6 +23,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var noRecordsFoundLbl: UILabel!
     
     //MARK: -  variable declaration
+    
+    let manager = CLLocationManager()
+    let annotation = MKPointAnnotation()
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -65,6 +71,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var isSubscribed = Int()
     var subscribeClick = 0
     
+    var lat: Double = 0.0
+    var long: Double = 0.0
+    
     let utillites =  Utilities()
     
     var ChurchDetailsAry  = ["REG001".localize(),"Aishwarya Satish".localize(),"Church@crist.com".localize(),"1234567898".localize(),"9AM-5Pm".localize()]
@@ -82,6 +91,12 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -175,7 +190,21 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                                 
     let successMsg = respVO.endUserMessage
     self.listResultArray = respVO.listResult!
-                                
+        
+        if (respVO.listResult?[0].latitude != nil)  {
+            
+             self.lat = (respVO.listResult?[0].latitude)!
+        }
+        if (respVO.listResult?[0].longitude != nil) {
+            
+            self.long = (respVO.listResult?[0].longitude)!
+        }
+       
+        
+//        kUserDefaults.set(lat, forKey: kLatitude)
+//        kUserDefaults.set(long, forKey: kLongitude)
+//        kUserDefaults.synchronize()
+        
     self.churchNamesString = (respVO.listResult?[0].name == nil ? "" : respVO.listResult?[0].name)!
     self.phoneNoString = (respVO.listResult?[0].userContactNumbar == nil ? "" : respVO.listResult?[0].userContactNumbar)!
     self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
@@ -559,6 +588,50 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         if #available(iOS 11.0, *) {
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
+//            if let lat = kUserDefaults.string(forKey: kLatitude) {
+//
+//                if let long = kUserDefaults.string(forKey: kLongitude) {
+            
+                   
+                    let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+            let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    cell3.mapViewOutLet.addAnnotation(annotation)
+                    let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+                    cell3.mapViewOutLet.setRegion(region, animated: true)
+                    
+                    print(myLocation.latitude)
+                    print(myLocation.longitude)
+                    cell3.mapViewOutLet.showsUserLocation = true
+                    
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: lat, longitude: long)) { (placemark, error) in
+                        
+                        if error != nil
+                        {
+                            print("There was as error")
+                        }
+                        else
+                        {
+                            if let place = placemark?[0]
+                            {
+                                self.annotation.subtitle = place.subLocality
+                                self.annotation.title = place.name
+                                //self.label.text = "\(String(describing: place.locality!)) \n \(String(describing: place.country!)) \n \(String(describing: place.location!))"
+                            }
+                            else {
+                                
+//                                let london = MKPointAnnotation()
+//                                london.title = "My Location"
+//                                london.coordinate = CLLocationCoordinate2D(latitude: london.coordinate.latitude, longitude: london.coordinate.longitude)
+//                                cell3.mapViewOutLet.addAnnotation(london)
+                            }
+                            
+                        }
+                    }
+//                }
+                
+//            }
+            
             return cell3
         } else {
             // Fallback on earlier versions
@@ -804,5 +877,30 @@ else {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+}
+@available(iOS 11.0, *)
+extension InfoChurchViewControllers: MKMapViewDelegate {
+    // 1
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        // 2
+//        guard let annotation = annotation as?  MKPointAnnotation else { return nil }
+//        // 3
+//        let identifier = "marker"
+//        var view: MKMarkerAnnotationView
+//        // 4
+//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//            as? MKMarkerAnnotationView {
+//            dequeuedView.annotation = annotation
+//            view = dequeuedView
+//        } else {
+//            // 5
+//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//            view.canShowCallout = true
+//            view.calloutOffset = CGPoint(x: -5, y: 5)
+//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//        }
+//        return view
+//}
     
 }
