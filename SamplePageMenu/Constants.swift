@@ -169,6 +169,9 @@ let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
 
 var REFRESHTOKENAPI:String = BASEURL.appending("api/Account/RefreshToken")
 
+var UPDATECARTAPI:String = BASEURL.appending("api/CartInfo/UpdateToCart")
+
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
     
         FirebaseApp.configure()
+        
+         getsplashmsgAPICall()
   
          //   IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
 //        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
@@ -99,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = homeNav
         
         
-      getsplashmsgAPICall()
+     
         
     //   lunchScreenView()
         
@@ -243,11 +245,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if isSuccess == true {
                 
-                let listArr = respVO.result!
-                let desc = listArr.desc!
-                self.lunchScreenView(desc)
-                
-       
+                if respVO.result != nil {
+                    
+                    let listArr = respVO.result!
+                    let desc = listArr.desc!
+                    self.lunchScreenView(desc)
+                }
+                else {
+                    
+                    let desc = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+                    self.lunchScreenView(desc)
+                    
+                }
                 
             }
             else {

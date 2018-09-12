@@ -305,6 +305,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let expiresIn = respVO.result?.expires_in
                                 
                                 kUserDefaults.set(accessToken, forKey: kAccess_token)
+                                print("accessToken:\(String(describing: accessToken))")
                                 kUserDefaults.set(tokenType, forKey: kTokenType)
                                 kUserDefaults.set(clientId, forKey: kClient_id)
                                 kUserDefaults.set(refreshToken, forKey: kRefreshToken)
