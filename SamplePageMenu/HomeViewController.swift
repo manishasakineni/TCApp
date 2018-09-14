@@ -143,7 +143,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 apppDelegate.isFirstTime = false
                 timer.invalidate()
                 
-                timer = Timer.scheduledTimer(timeInterval: Double(expireTime)!, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
+                let timeInt = Double(expireTime)!
+                
+                timer = Timer.scheduledTimer(timeInterval: timeInt, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
             }
         }
         
@@ -330,6 +332,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 
                 print(failureMessage)
+                
+                self.refreshTokenAPICall()
                 
             }
             

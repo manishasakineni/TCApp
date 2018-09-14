@@ -23,6 +23,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
      var filtered:[GetCartListResultVO] = []
      var deletelist:[deleteCartInfoResultVO] = []
     
+//    var userID = String()
+    
     //MARK:-  view Did Load
     
     override func viewDidLoad() {
@@ -79,7 +81,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
     }
     
-    
+
     
     //MARK: -   TableView delegate & DataSource  methods
     
@@ -143,8 +145,13 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         if listStr.quantity != nil {
             
-            cell.addToCartQuantityLbl.text = "\(listStr.quantity!)"
+            cell.quantityField.text = "\(listStr.quantity!)"
         }
+        
+        
+        cell.updateBtn.tag = indexPath.row
+        
+        cell.updateBtn.addTarget(self, action: #selector(updateBtnClicked(_:)), for: UIControlEvents.touchUpInside)
         
      //   cell.addToCartQuantityLbl.text = "\(listStr.quantity!)"
        
@@ -161,6 +168,109 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         
         
+    }
+    
+    @objc func  updateBtnClicked(_ sendre:UIButton) {
+        
+        let indexPath = IndexPath.init(row: sendre.tag, section: 0)
+        
+        let cartArr:GetCartListResultVO = self.filtered[indexPath.row]
+        
+        let id = cartArr.id
+        let itemId = cartArr.itemId
+        
+        if let cell = addToCartTableView.cellForRow(at: indexPath) as? AddToCareTableViewCell {
+            
+            let quantityNum = cell.quantityField.text
+            
+//            if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
+//
+//                self.userId = Int(useid)!
+//            }
+            
+            let strUrl = UPDATECARTAPI
+            
+            let dictParams = [
+                "id": id ?? 0,
+                "itemId": itemId ?? 0,
+                "userId": self.userId,
+                "quantity": Int(quantityNum!) ?? 0
+                ] as [String : Any]
+            
+            print("dic params \(dictParams)")
+            
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            print("dictHeader:\(dictHeaders)")
+            
+            if(appDelegate.checkInternetConnectivity()){
+                
+                
+                serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+                    DispatchQueue.main.async()
+                        {
+                            print("\(result)")
+                            
+                            let respVO:UpdatedCartVo = Mapper().map(JSONObject: result)!
+                            
+                            print("responseString = \(respVO)")
+                            
+                            
+                            let statusCode = respVO.isSuccess
+                            print("StatusCode:\(String(describing: statusCode))")
+                            
+                            if statusCode == true
+                            {
+                                
+                                if  let successMsg = respVO.endUserMessage {
+                                    print(successMsg)
+                                    
+                                    self.showAlertViewWithTitle("Alert".localize(), message: successMsg, buttonTitle: "Ok".localize())
+                                    
+                                    return
+                                }
+                            }
+                                
+                            else {
+                                
+                                if  let failMsg = respVO.endUserMessage {
+                                    print(failMsg)
+                                    
+                            self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
+                                    
+                                    return
+                                }
+                            }
+                            
+                            print("success")
+                            
+                    }
+                    
+                }, failureHandler:  {(error) in
+                    
+                    print(error)
+                    
+                   
+                    
+                    
+                })
+                
+            }
+            else {
+                
+                return
+            }
+        }
+        
+    }
+    
+    func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    {
+        let alertView:UIAlertView = UIAlertView();
+        alertView.title=title
+        alertView.message=message
+        alertView.addButton(withTitle: buttonTitle)
+        alertView.show()
     }
     
  //MARK:-  back Left Button Tapped
@@ -291,6 +401,9 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
 func deleteAPIService(_ sender : UIButton){
     
+    print(sender.tag)
+    print(filtered.count)
+    
      let deleteAddressInfo  = filtered[sender.tag]
     
      let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
@@ -308,6 +421,7 @@ func deleteAPIService(_ sender : UIButton){
         
         self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
         
+                self.addToCartTableView.reloadData()
         
             }
         

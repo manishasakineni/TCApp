@@ -11,6 +11,8 @@
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		354B56C5208871D400C0B33A /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B56C4208871D400C0B33A /* DocViewController.swift */; };
 		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
+		3579911A214B84400077309B /* UpdatedCartVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35799119214B843F0077309B /* UpdatedCartVo.swift */; };
+		3579911C214B852B0077309B /* UpdateCartResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3579911B214B852B0077309B /* UpdateCartResultVo.swift */; };
 		3584456D21415060009D059F /* ActivityRightsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456C21415060009D059F /* ActivityRightsVo.swift */; };
 		3584456F21415ABA009D059F /* TokenVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456E21415ABA009D059F /* TokenVo.swift */; };
 		3584457121415B26009D059F /* TokenResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584457021415B26009D059F /* TokenResultVo.swift */; };
@@ -422,6 +424,8 @@
 		354B56C4208871D400C0B33A /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
 		3550F62F2058F9A000DD4D11 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
+		35799119214B843F0077309B /* UpdatedCartVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedCartVo.swift; sourceTree = "<group>"; };
+		3579911B214B852B0077309B /* UpdateCartResultVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCartResultVo.swift; sourceTree = "<group>"; };
 		3584456C21415060009D059F /* ActivityRightsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRightsVo.swift; sourceTree = "<group>"; };
 		3584456E21415ABA009D059F /* TokenVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVo.swift; sourceTree = "<group>"; };
 		3584457021415B26009D059F /* TokenResultVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResultVo.swift; sourceTree = "<group>"; };
@@ -857,6 +861,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35799118214B83CD0077309B /* UpdateCartVo */ = {
+			isa = PBXGroup;
+			children = (
+				35799119214B843F0077309B /* UpdatedCartVo.swift */,
+				3579911B214B852B0077309B /* UpdateCartResultVo.swift */,
+			);
+			name = UpdateCartVo;
+			sourceTree = "<group>";
+		};
 		3584456921414F9C009D059F /* RefreshTokenVo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1353,6 +1366,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				35799118214B83CD0077309B /* UpdateCartVo */,
 				3584456921414F9C009D059F /* RefreshTokenVo */,
 				AF2396EF20A561B300B0320D /* ForgotPSWD */,
 				AFE9A061207F3801001CEE7A /* AddUpdateAndComments */,
@@ -2566,6 +2580,7 @@
 				AFE9A063207F3883001CEE7A /* AddUpdateEventCommentsInfoVO.swift in Sources */,
 				AF7C2E3720A063C6003D623F /* PostByEventIdResultInfoVO.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
+				3579911C214B852B0077309B /* UpdateCartResultVo.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */,
 				AF0E1E0F20C7B7B70064EA0B /* DeleteAddressInfoVO.swift in Sources */,
@@ -2687,6 +2702,7 @@
 				CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
+				3579911A214B84400077309B /* UpdatedCartVo.swift in Sources */,
 				AF15246B20CBB5CC004AA420 /* splashmessageInfoVO.swift in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
