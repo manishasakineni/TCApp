@@ -110,8 +110,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var imageArray3 = [UIImage(named:"Events"),UIImage(named:"UpComelogo"),UIImage(named:"film"),UIImage(named:"help"),UIImage(named:"Map"),UIImage(named:"Donation"),UIImage(named:"Movies"),UIImage(named:"Songs"),UIImage(named:"Videos"),UIImage(named:"Donation"),UIImage(named:"pamphlet")]
     var imageNameArray3 = ["Events","UpComingEvents","film","help","Map","Donation","Movies","Songs","Videos","Donation","pamphlet"]
-    
-    
+
     var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
     
     var PageIndex = 1
@@ -165,11 +164,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        
-        
+  
         print(kLoginSucessStatus)
-        
         
         let defaults = UserDefaults.standard
         
@@ -254,7 +250,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             if(self.appDelegate.checkInternetConnectivity()){
                 
-                self.refreshTokenAPICall()
+                 self.refreshTokenAPICall()
                 
             }
             else {

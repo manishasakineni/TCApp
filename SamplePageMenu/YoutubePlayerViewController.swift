@@ -1234,7 +1234,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
      self.allOffersTableView.endEditing(true)
     
-    print(self.commentString)
+     print(self.commentString)
     
         
         
@@ -1658,7 +1658,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
    
                 let indexPath3 = IndexPath(item: 0, section: 2)
                 
-                  self.commentString = ""
+                self.commentString = ""
                 self.allOffersTableView.scrollToRow(at: indexPath3, at: .top, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                     if let commentsCell = self.allOffersTableView.cellForRow(at: indexPath3) as? CommentsCell {
@@ -1760,6 +1760,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             self.commentingIdArray.append(id.id!)
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
+                            
+                            
                             
                             
                         }

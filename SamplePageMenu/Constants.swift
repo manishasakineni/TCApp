@@ -8,7 +8,6 @@
 
 import Foundation
 
-
  // MARK: -  API's
 
 let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
@@ -16,11 +15,11 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
 // constants
-//var BASEURL:String = "http://calibrage.co.in/"
+var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
 
 //var BASEURL:String = "http://192.168.1.250/TeluguChurches/"
 
-var BASEURL:String = "http://services.teluguchurches.church/"
+//var BASEURL:String = "http://services.teluguchurches.church/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 //let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -151,8 +150,6 @@ let DELETEADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/DeleteDel
 //let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetDeliveryAddressById/")
 
 let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetAddressById/")
-
-
 
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")
 

@@ -1234,9 +1234,9 @@
 			children = (
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
+				3D551C5E2011F462005DB3B2 /* Constants.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				AF69371F2063C40D00353909 /* MainIpad.storyboard */,
-				3D551C5E2011F462005DB3B2 /* Constants.swift */,
 				CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */,
 				9A623B862021A56400A674F2 /* Utilities */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
@@ -1287,6 +1287,8 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBF2406120904B4C00BF4E94 /* LoginViewController */,
+				CB0256AF202430150017E240 /* HomeViewController */,
 				AF0BC18720C5586B00753E3C /* AddressView */,
 				AF4EF44A20AC16C900F690F0 /* OnlineShopingViewController */,
 				AF2EB51D206DF986009B3B75 /* BibleDetailsBook */,
@@ -1305,11 +1307,9 @@
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
 				AF156CF520A416CA0055D075 /* AuthorandChurchPostViewController */,
-				CBF2406120904B4C00BF4E94 /* LoginViewController */,
 				CBF2406220904B6600BF4E94 /* SignUpViewController */,
 				3DD30F63205FF0190076B0DB /* EventDetailsViewController */,
 				3D61F3F7205AB5A30022C117 /* AuthorDetailsViewController */,
-				CB0256AF202430150017E240 /* HomeViewController */,
 				AF108A5520D396930098B70F /* NotificationsViewController */,
 				AF202EBE20D25F2B00CA505D /* UIBarButtonItem+Badge.h */,
 				AF202EBF20D25F2B00CA505D /* UIBarButtonItem+Badge.m */,
