@@ -83,6 +83,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 
     var isLike = 0
     var isDisLike = 0
+    var viewCount = 0
     var likeClick = false
     var disLikeClick = false
     var likesCount = 0
@@ -93,6 +94,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var UsersDisLikeClick = false
     var commentsCount = 0
     var replyCountArray = Array<Any>()
+    var loginUseridsArray = Array<Int>()
    // var readMoreBtnIsHidden = true
     
    var comentId = 0
@@ -730,6 +732,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             youtubeCLDSSCell.videoTitleName.text = videoNameStr
             youtubeCLDSSCell.likeCountLbl.text = String(likesCount)
             youtubeCLDSSCell.disLikeCountLbl.text = String(disLikesCount)
+            youtubeCLDSSCell.viewCountLbl.text = String(self.viewCount) + "Views"
             
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
@@ -880,14 +883,22 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
+            if self.ID == self.loginUseridsArray[indexPath.row]{
+                
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
     //    usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
         usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
-            
+            }
+            else{
+                
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                
+            }
         
             //usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
             usersCommentsTableViewCell.replyCommentBtn.isHidden = false
            
-           
+            
             return usersCommentsTableViewCell
             
             
@@ -1200,8 +1211,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         if !(self.ID == 0) {
             
         let someText:String = "Hello want to share text also"
-        let objectsToShare:URL = URL(string: "http://teluguchurches.church")!
-        let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
+        let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+        let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
         let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         
@@ -1638,6 +1649,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
 
         
+        if self.ID == self.loginUseridsArray[sender.tag]{
+
         self.editUserID = self.commentingIdArray[sender.tag]
         
         
@@ -1710,7 +1723,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
        
     }
     
-    
+    }
     private func focusItemNumberTextField() {
         
         let indexPath = IndexPath.init(row: 0, section: 2)
@@ -1730,6 +1743,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.CommentsByUserArray.removeAll()
         self.replyCountArray.removeAll()
         self.usersCommentsArray.removeAll()
+        self.loginUseridsArray.removeAll()
         
     //    self.allOffersTableView.isScrollEnabled = true
      //   self.repliesTableView.isScrollEnabled = true
@@ -1760,10 +1774,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             self.commentingIdArray.append(id.id!)
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
-                            
-                            
-                            
-                            
+                            self.loginUseridsArray.append(id.userId!)
+     
                         }
                         
                        
@@ -1806,6 +1818,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         self.isLike = (respVO.result?.postDetails![0].isLike)!
                         self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
+                        
+                        self.viewCount = (respVO.result?.postDetails![0].viewCount)!
                        
          
                         if self.isLike == 0{

@@ -81,7 +81,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .numberPad
-            textField.maxLengthTextField = 3
+            textField.maxLengthTextField = 2
         }
     
     }
@@ -95,6 +95,15 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }
         activeTextField = textField
         
+        if(textField == quantityTF) {
+            if let text = textField.text,
+                let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                if updatedText.count == 1 && updatedText == "0" {
+                    return false
+                }
+            }
+        }
         return true
         
     }

@@ -25,6 +25,7 @@ class youtubeCLDSSCell: UITableViewCell {
     
     @IBOutlet weak var shareButton: UIButton!
 
+    @IBOutlet weak var viewCountLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

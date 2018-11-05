@@ -31,6 +31,8 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var delegate: eventinfoSubtitleOfIndexDelegate?
     
+    var whiteSpaces = Bool()
+    
  //MARK: -  view Did Load
     
     override func viewDidLoad() {
@@ -136,22 +138,37 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
         print("filteredUrlString:\(newString)")
+        let whitespace = NSCharacterSet.whitespaces
         
-        if newString != nil {
+        if newString != nil{
             
-            let url = URL(string:newString!)
+            let range = newString?.rangeOfCharacter(from: .whitespaces)
             
             
-            let dataImg = try? Data(contentsOf: url!)
-            
-            if dataImg != nil {
-                
-                cell.eventImage.image = UIImage(data: dataImg!)
-            }
-            else {
+            if range != nil {
+                print("whitespace found")
+                whiteSpaces = true
                 
                 cell.eventImage.image = #imageLiteral(resourceName: "churchLogoo")
             }
+            else {
+                print("whitespace not found")
+                whiteSpaces = false
+                let url = URL(string:newString!)
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.eventImage.image = UIImage(data: dataImg!)
+                }
+                
+            }
+           
+            
+            
+            
+            
         }
         else {
             
@@ -172,11 +189,11 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
       
     //    eventDetailsViewController.eventChurchName = listStr.churchName!
-    //   eventDetailsViewController.catgoryID = listStr.churchId!
+    //    eventDetailsViewController.catgoryID = listStr.churchId!
         
         eventDetailsViewController.eventID = listStr.id!
         eventDetailsViewController.eventName = listStr.title!
-        eventDetailsViewController.eventImageArrayString = listStr.eventImage!
+        eventDetailsViewController.eventImageArrayString = (listStr.eventImage == nil) ? "" : listStr.eventImage!
         
          eventDetailsViewController.navigationStr = "navigationStr"
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
@@ -322,8 +339,8 @@ func returnEventDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr1 = ""
         
         if(selectedDateString != ""){
-            let invDtArray = selectedDateString.components(separatedBy: "T")
-            let dateString = invDtArray[0]
+            let invDtArray  = selectedDateString.components(separatedBy: "T")
+            let dateString  = invDtArray[0]
             let dateString1 = invDtArray[1]
             print(dateString1)
             let invDtArray2 = dateString1.components(separatedBy: ".")

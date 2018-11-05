@@ -190,7 +190,11 @@ class ServiceController: NSObject {
     }
     
     func refreshPostRequest(strURL:NSString,postParams:NSDictionary, postHeaders:NSDictionary,successHandler:@escaping(_ _result:Any)->Void,failureHandler:@escaping (_ error:String)->Void) -> Void {
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        DispatchQueue.main.async {
+            appDelegate = UIApplication.shared.delegate as! AppDelegate
+        }
+        
         //
         //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         

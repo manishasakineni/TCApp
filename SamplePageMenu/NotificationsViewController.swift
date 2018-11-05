@@ -285,6 +285,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             
             if isSuccess == true {
                 
+                if respVO.listResult != nil{
                 let listArr = respVO.listResult!
                 
                 for eachArray in listArr{
@@ -292,7 +293,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 }
                 
                 self.notificationsTableView.reloadData()
-                
+                }
             }
                 
             else {

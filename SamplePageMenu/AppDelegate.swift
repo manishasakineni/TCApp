@@ -18,7 +18,6 @@ import Localize
 import Firebase
 import FirebaseMessaging
 import UserNotifications
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,24 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var isFirstTime : Bool!
 
-     var countryInfoDetails : [splashmsgResultVO] = Array<splashmsgResultVO>()
+    var countryInfoDetails : [splashmsgResultVO] = Array<splashmsgResultVO>()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         isFirstTime = true
-        
         IQKeyboardManager.sharedManager().enable = true
-    
         FirebaseApp.configure()
         
          getsplashmsgAPICall()
   
-         //   IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
+//        IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
 //        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
 //        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
 //        application.registerForRemoteNotifications()
 //        application.registerUserNotificationSettings(notificationsettings)
-//        
         
         if #available(iOS 10, *) {
             
@@ -67,7 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     //FIRMessaging.messaging().remoteMessageDelegate = self
                     
                     //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
-                    application.registerForRemoteNotifications()
+                    DispatchQueue.main.async{
+                        application.registerForRemoteNotifications()
+                    }
+                    
                 }
                 else {
                     //Handle user denying permissions..

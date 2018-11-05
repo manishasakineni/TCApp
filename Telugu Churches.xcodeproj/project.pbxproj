@@ -519,7 +519,7 @@
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
 		9A058AF82021E184005A611C /* RegisterResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResultVo.swift; sourceTree = "<group>"; };
 		9A058AFA2021F394005A611C /* LoginVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVo.swift; sourceTree = "<group>"; };
-		9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldMaxLengths.swift; path = ../TextFieldMaxLengths.swift; sourceTree = "<group>"; };
+		9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 		9A5D25ED1FFF76A300316988 /* Telugu Churches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telugu Churches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SamplePageMenu/AppDelegate.swift; sourceTree = "<group>"; };
 		9A5D25F21FFF76A300316988 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -590,7 +590,7 @@
 		9AA3AB692011D7420065D4BD /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
 		9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
 		9AEAE821201F1D0100DB9D8E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalSupportingClass.swift; path = ../GlobalSupportingClass.swift; sourceTree = "<group>"; };
+		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSupportingClass.swift; sourceTree = "<group>"; };
 		9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9AF564982020944800AEA0EF /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
 		9AF5649B2020972900AEA0EF /* ForgotPasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCell.swift; sourceTree = "<group>"; };
@@ -1261,14 +1261,10 @@
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
-				AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */,
-				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
 				3D61F3ED205AB4D70022C117 /* SWRevealViewController */,
-				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
-				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */,
 				9A5D26421FFF963700316988 /* ViewCells */,
 				9A5D26411FFF960000316988 /* Controllers */,
@@ -1366,6 +1362,8 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				AF15246A20CBB5CC004AA420 /* splashmessageInfoVO.swift */,
+				AF0E1E0E20C7B7B70064EA0B /* DeleteAddressInfoVO.swift */,
 				35799118214B83CD0077309B /* UpdateCartVo */,
 				3584456921414F9C009D059F /* RefreshTokenVo */,
 				AF2396EF20A561B300B0320D /* ForgotPSWD */,
@@ -1429,6 +1427,8 @@
 		9A623B862021A56400A674F2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
+				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				9AEAE821201F1D0100DB9D8E /* Utilities.swift */,
 			);
 			name = Utilities;

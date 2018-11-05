@@ -34,6 +34,11 @@ class GlobalSupportingClass {
         return "Please Enter Years Of Experience".localize()
     }
     
+    class func blankmonthofexperienceErrorMessage() -> String {
+        return "Please Enter months Of Experience".localize()
+    }
+    
+    
     class func blankresumeErrorMessage() -> String {
         return "Please Upload Resume".localize()
     }

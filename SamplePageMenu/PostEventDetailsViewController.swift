@@ -83,8 +83,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         }
 
         getVideosAPICall()
-
-        
+ 
         // Do any additional setup after loading the view.
     }
     
@@ -176,6 +175,8 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
                                     
         self.imagesArray.append(audioDetails)
+        
+        
                                 }
                                 
         i = (audioList?.count)! > 0 ? i + 1 : i
@@ -224,13 +225,13 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                             }
                             
             }
-    else{
+     else {
                             
         self.norecordsfoundLbl.isHidden = false
                             
-    self.postEventTableView.isHidden = true
+        self.postEventTableView.isHidden = true
                             
-                        }
+            }
                         
                     }
                     
@@ -353,6 +354,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+        let mediatypeID =  (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaTypeId
         
         cell.nameLabel.text = title
         cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
@@ -431,12 +433,10 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             
         }
         else if fileExtension == ".mp4" {
-            
-            
+             
             if let embededUrlImage =  postImgUrl {
                 
                 let thumbnillImage : String = embededUrlImage
-                
                 
                 self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
                 

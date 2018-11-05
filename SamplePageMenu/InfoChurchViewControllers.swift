@@ -12,7 +12,7 @@ import MapKit
 import CoreLocation
 import Contacts
 
-class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate {
+class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,MKMapViewDelegate {
     
     
     @IBOutlet weak var infoChurchView: UIView!
@@ -97,6 +97,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         manager.requestWhenInUseAuthorization()
         manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
+        
+        infoChurchTableView.frame = self.view.bounds
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -599,6 +601,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                     cell3.mapViewOutLet.addAnnotation(annotation)
                     let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
                     cell3.mapViewOutLet.setRegion(region, animated: true)
+                    cell3.mapViewOutLet.delegate = self
                     
                     print(myLocation.latitude)
                     print(myLocation.longitude)
@@ -614,8 +617,10 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                         {
                             if let place = placemark?[0]
                             {
-                                self.annotation.subtitle = place.subLocality
-                                self.annotation.title = place.name
+//                                self.annotation.subtitle = place.subLocality
+//                                self.annotation.title = place.name
+                                self.annotation.title = "\(self.churchNamesString)"
+                                self.annotation.subtitle = "\(self.districtString),\(self.stateString)"
                                 //self.label.text = "\(String(describing: place.locality!)) \n \(String(describing: place.country!)) \n \(String(describing: place.location!))"
                             }
                             else {
@@ -872,6 +877,31 @@ else {
     }
 
     
+     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+     guard let annotation = annotation as? MKPointAnnotation else { return nil }
+     // 3
+     let identifier = "marker"
+     var mkView = UIView()
+     // 4
+     if #available(iOS 11.0, *) {
+     if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+     as? MKMarkerAnnotationView {
+     dequeuedView.annotation = annotation
+     mkView = dequeuedView
+     } else {
+     // 5
+     let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+     view.canShowCallout = true
+     view.calloutOffset = CGPoint(x: -5, y: 5)
+     view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+     mkView = view
+     }
+     } else {
+     // Fallback on earlier versions
+     }
+     return mkView as? MKAnnotationView
+     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -879,28 +909,4 @@ else {
     }
     
 }
-@available(iOS 11.0, *)
-extension InfoChurchViewControllers: MKMapViewDelegate {
-    // 1
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        // 2
-//        guard let annotation = annotation as?  MKPointAnnotation else { return nil }
-//        // 3
-//        let identifier = "marker"
-//        var view: MKMarkerAnnotationView
-//        // 4
-//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//            as? MKMarkerAnnotationView {
-//            dequeuedView.annotation = annotation
-//            view = dequeuedView
-//        } else {
-//            // 5
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        return view
-//}
-    
-}
+

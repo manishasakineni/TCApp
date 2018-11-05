@@ -242,7 +242,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     }
 
     
-//MARK:- textField Should Change Characters In range
+//MARK:- textField delegate methods
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -271,7 +271,22 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
             }
             
-        }else if activeTextField.tag == 5 {
+        }
+        
+        else if activeTextField.tag == 3 {
+          
+            if string.characters.count > 0 {
+                
+                let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                
+                let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+                let filtered = string.components(separatedBy: cs).joined(separator: "")
+                
+                return (string == filtered)
+            }
+            
+        }
+            else if activeTextField.tag == 5 {
             
             if string.characters.count > 0 {
                 
@@ -289,28 +304,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
 
         }
-        
-       
-        
-        if textField.tag == 5{
-            if string.characters.count > 0 {
-                let allowedCharacters = CharacterSet.decimalDigits
-                
-                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-                
-                return unwantedStr.characters.count == 0
-            }
-            
-            return true
-        }
+
 
         return true
         
         
        
     }
-    
-//MARK:- textField Should Should End Editing
   
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
@@ -322,13 +322,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         return true
     }
-    
- 
-    
-    
-//MARK:- textField Did End Editing
-    
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         

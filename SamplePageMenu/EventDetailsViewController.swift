@@ -79,6 +79,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var readmoreCommentClick = false
     var usersCommentsArray = Array<Any>()
     var commentedByUserArray = Array<Any>()
+    var loginUseridsArray = Array<Int>()
     
     var parentCommentId = 0
     var replyParentCommentId = 0
@@ -172,7 +173,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
         
         getEventDetailsByIdApiCall()
-        getVideosAPICall()
+       // getVideosAPICall()
         
         if let loginUserName = kUserDefaults.value(forKey: kUserName) {
             
@@ -1050,10 +1051,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             usersCommentsTableViewCell.viewCommentsBtn.addTarget(self, action: #selector(viewAllCommentBtnClick), for: UIControlEvents.touchUpInside)
             
             usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
+            
+            if self.ID == self.loginUseridsArray[indexPath.row]{
+            
+            usersCommentsTableViewCell.editCommentBn.isHidden = false
             usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
             
-            
-            usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+            }
+            else{
+               usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                
+            }
+            usersCommentsTableViewCell.buttonImgOutLet.isHidden = false
             
             return usersCommentsTableViewCell
             
@@ -1302,7 +1311,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func editCommentBnClicked(sender : UIButton){
         
-        
+        if self.ID == self.loginUseridsArray[sender.tag]{
+
         self.editUserID = self.commentingIdArray[sender.tag]
         
         
@@ -1366,7 +1376,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    
+}
     
      //MARK: -   get View All Comments APICall
     
@@ -1375,8 +1385,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         self.parentCommentIdArray.removeAll()
         self.commentingIdArray.removeAll()
         self.CommentIdArray.removeAll()
-       self.repliesCountArray.removeAll()
+        self.repliesCountArray.removeAll()
         self.usersCommentsArray.removeAll()
+        self.loginUseridsArray.removeAll()
+        self.commentedByUserArray.removeAll()
         
         self.commentId = self.parentCommentId
         
@@ -1402,6 +1414,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             self.usersCommentsArray.append(commentDetails.comment!)
             self.commentedByUserArray.append(commentDetails.commentByUser!)
             self.commentingIdArray.append(commentDetails.id!)
+            self.loginUseridsArray.append(commentDetails.userId!)
                             
         //       self.parentCommentIdArray.append(commentDetails.parentCommentId!)
                             
@@ -1759,8 +1772,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if !(self.userID == 0) {
             
             let someText:String = "Hello want to share text also"
-            let objectsToShare:URL = URL(string: "http://teluguchurches.church")!
-            let sharedObjects:[AnyObject] = [objectsToShare as AnyObject,someText as AnyObject]
+            let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+            let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
             let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
             

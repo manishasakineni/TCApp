@@ -64,7 +64,7 @@ override func viewDidLoad() {
     yearFormatter.timeZone = NSTimeZone.local
     let yearString = yearFormatter.string(from: Date())
         
-    GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+ //   GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
     
 self.resultSearchController = ({
     
@@ -114,7 +114,7 @@ override func viewWillAppear(_ animated: Bool) {
         
      //    self.churchIdMonthYearArray.removeAll()
         
-   //     GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+        GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
     
     }
     
@@ -219,9 +219,6 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             "sortbyColumnName": "UpdatedDate",
             "sortDirection": "desc",
             "searchName": str
-            
-            
-            
             ] as [String : Any]
         
         print("dic params \(dictParams)")
@@ -239,6 +236,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     let isSuccess = respVO.isSuccess
     let listArr = respVO.listResult
         
+        
     if isSuccess == true {
         
         
@@ -251,22 +249,22 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
         for church in respVO.listResult!{
                         
         self.churchIdMonthYearArray.append(church)
+      
                         
     }
-                    
-                    
+               
     let pageCout  = (respVO.totalRecords)! / 10
-    let remander = (respVO.totalRecords)! % 10
-                    
+    let remander  = (respVO.totalRecords)! % 10
+
     self.totalPages = pageCout
-                    
+
     if remander != 0 {
-                        
+
     self.totalPages = self.totalPages! + 1
-        
+
     }
-                    
-                    
+        
+        
     print("churchAdminArray", self.churchIdMonthYearArray)
                     
     self.allEventTableView.reloadData()
@@ -482,18 +480,31 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     print("filteredUrlString:\(newString)")
                     
     if newString != nil {
-                        
-    let url = URL(string:newString!)
-    let dataImg = try? Data(contentsOf: url!)
-                        
-    if dataImg != nil {
-                            
-    listOfMonthEventCell.eventImage.image = UIImage(data: dataImg!)
-}
-    else {
-                            
-    listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
-    }
+        
+        
+        let range = newString?.rangeOfCharacter(from: .whitespaces)
+        
+        
+        if range != nil {
+            print("whitespace found")
+            //whiteSpaces = true
+            listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
+ 
+     }
+            
+    else{
+        
+            
+            let url = URL(string:newString!)
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                listOfMonthEventCell.eventImage.image = UIImage(data: dataImg!)
+        
+            }
+ 
+        }
 }
 else {
                         
@@ -510,11 +521,10 @@ else {
     }
 func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-    if indexPath.row == churchIdMonthYearArray.count - 1 {
+   // if indexPath.row == churchIdMonthYearArray.count - 1 {
             
-    if(self.totalPages! > PageIndex){
-                
-                
+    if(self.totalPages! >= PageIndex){
+        
     PageIndex = PageIndex + 1
                 
     let monthFormatter = DateFormatter()
@@ -530,7 +540,7 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
                 
                 
-            }
+   //         }
         }
         
     }

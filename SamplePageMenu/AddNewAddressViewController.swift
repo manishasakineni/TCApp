@@ -107,12 +107,10 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        
         activeTextField = textField
         
         textField.autocorrectionType = .no
-        
-        
+
         if activeTextField.tag == 0 {
             
             textField.maxLengthTextField = 50
@@ -135,7 +133,11 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
-            textField.keyboardType = .numberPad
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            } else {
+                // Fallback on earlier versions
+            }
         }
             
         else if activeTextField.tag == 4{
@@ -155,10 +157,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
                 pickerData = stateDetails
                 myPickerView.reloadAllComponents()
                 myPickerView.selectRow(0, inComponent: 0, animated: false)
-            
-            
-           
-                
+     
             }
         
         else if activeTextField.tag == 6{
@@ -177,7 +176,11 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
             
             textField.maxLengthTextField = 10
             textField.clearButtonMode = .never
-            textField.keyboardType = .phonePad
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            } else {
+                // Fallback on earlier versions
+            }
         
         }
     
@@ -250,6 +253,44 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         }
         
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        /// 1. replacementString is NOT empty means we are entering text or pasting text: perform the logic
+        /// 2. replacementString is empty means we are deleting text: return true
+        
+        if textField.tag == 0{
+            if string.characters.count > 0 {
+                let allowedCharacters = CharacterSet.letters
+                
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                return unwantedStr.characters.count == 0
+            }
+            
+            return true
+        }
+        
+        if textField.tag == 1 || textField.tag == 2 || textField.tag == 4{
+            if !string.canBeConverted(to: String.Encoding.ascii){
+            
+                if string.characters.count > 0 {
+                    let allowedCharacters = CharacterSet.decimalDigits
+                    
+                    let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                    return unwantedStr.characters.count == 0
+                }
+            
+                return false
+            }
+            
+            return true
+        }
+        
+        
+        
+        
+        return true
+    }
+
     
   
     
@@ -890,8 +931,7 @@ func readDataSource(){
     func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok".localize(), style: UIAlertActionStyle.cancel,handler: {_ in
-            
-            
+    
             let indexPath : IndexPath = IndexPath(row: self.alertTag, section: 0)
             
             self.addNewAddressTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)

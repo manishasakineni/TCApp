@@ -423,7 +423,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return false
         }
         activeTextField = textField
-        if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
+        if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2 || activeTextField.tag == 3{
             
             
     if string.characters.count > 0 {
@@ -1001,33 +1001,39 @@ else {
     
   
 
-func theLink() {
-    
-    
-    let firstElement = secend
-    
-    let t = firstElement!.replacingOccurrences(of: ",35", with: "")
-    
-    let deUrl = t.characters.split{$0 == "|"}.map(String.init)
-    
-    let link = deUrl[1]
-    
-    let i = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
-    
-    let p = i!.replacingOccurrences(of: "%5Cu", with: "")
-    
-    let w =  p.replacingOccurrences(of: "0026", with: "&")
-    
-    let c = w.replacingOccurrences(of: "%252C", with: ",")
-    
-    print(c)
-    
-    let r = c
-    
-    streamLink = r
-    
-    
-}
+    func theLink() {
+        
+        if secend != nil {
+            let firstElement = secend
+            
+            let t = firstElement!.replacingOccurrences(of: ",35", with: "")
+            
+            let deUrl = t.characters.split{$0 == "|"}.map(String.init)
+            
+            let link = deUrl[1]
+            
+            let i = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+            
+            let p = i!.replacingOccurrences(of: "%5Cu", with: "")
+            
+            let w = p.replacingOccurrences(of: "0026", with: "&")
+            
+            let c = w.replacingOccurrences(of: "%252C", with: ",")
+            
+            print(c)
+            
+            let r = c
+            
+            streamLink = r
+            
+        }else{
+            
+            print("nil values..........")
+            
+        }
+        
+        
+    }
 
 //MARK:- validateAllFields
 
@@ -1084,7 +1090,7 @@ func theLink() {
             
             alertWithTitle(title: "Alert".localize(), message: errorMsg as String, ViewController: self, toFocus: activeTextField)
 
-        return false;
+            return false;
             
         }
         return true
@@ -1094,8 +1100,7 @@ func theLink() {
     func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok".localize(), style: UIAlertActionStyle.cancel,handler: {_ in
-            
-            
+ 
             let indexPath : IndexPath = IndexPath(row: self.alertTag, section: 1)
             
             self.editProfileTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
@@ -1103,8 +1108,7 @@ func theLink() {
                 
                 cell.editProfileTF.becomeFirstResponder()
             }
-            
-            
+     
         });
         alert.addAction(action)
         ViewController.present(alert, animated: true, completion:nil)
@@ -1148,9 +1152,7 @@ func theLink() {
     
     func openCamera() {
         picker.allowsEditing = true
-        
-        
-        
+ 
         let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
         alertVC.addAction(okAction)

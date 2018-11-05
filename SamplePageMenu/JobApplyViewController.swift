@@ -156,14 +156,14 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     
-    //MARK:- textField Should End Editing
+//MARK:- textField delegate methods
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         activeTextField = textField
         textField.autocorrectionType = .no
-        
+        activeTextField.keyboardType = .asciiCapable
         
         if activeTextField.tag == 0 {
             
@@ -201,7 +201,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else if activeTextField.tag == 5{
             
             textField.maxLengthTextField = 10
-            textField.keyboardType = .phonePad
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            } else {
+                // Fallback on earlier versions
+            }
             
         }
         else if activeTextField.tag == 6{
@@ -234,8 +238,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             textField.maxLengthTextField = 7
             textField.clearButtonMode = .never
             textField.keyboardType = .numberPad
-            
-            
+           
         }
        
         else if activeTextField.tag == 10{
@@ -271,18 +274,86 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     }
     
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        
+ 
+        if textField.tag == 1 || textField.tag == 2 || textField.tag == 3{
+            if string.characters.count > 0 {
+                let allowedCharacters = CharacterSet.letters
+                
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                return unwantedStr.characters.count == 0
+            }
+ 
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
+        }
+            
+        else if textField.tag == 4 {
+
+            
+            if string.characters.count > 0 {
+//                let allowedCharacters = CharacterSet.letters
+//                let allowedCharacterss = CharacterSet.init(charactersIn: "0123456789@.")
+//
+//
+//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+//                let unwantedStrs = string.trimmingCharacters(in: allowedCharacterss)
+//                return unwantedStr.characters.count == 0
+                
+                let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.@"
+                
+                let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+                let filtered = string.components(separatedBy: cs).joined(separator: "")
+                
+                return (string == filtered)
+            }
+            
+        }
+        
+        else if textField.tag == 5 {
+            
+            if string.characters.count > 0 {
+                let allowedCharacters = CharacterSet.decimalDigits
+                
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                
+                if let text = textField.text,
+                    let textRange = Range(range, in: text) {
+                    let updatedText = text.replacingCharacters(in: textRange, with: string)
+                    if updatedText.count == 1 && updatedText == "0" {
+                        return false
+                    }
+                }
+
+                return unwantedStr.characters.count == 0
+            }
+
+            
+            
+        }
+       
+        
+        else if textField.tag == 6 {
+            
+            
+            if string.characters.count > 0 {
+
+                
+                let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz."
+                
+                let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+                let filtered = string.components(separatedBy: cs).joined(separator: "")
+                
+                return (string == filtered)
+            }
+            
+        }
+        
         activeTextField = textField
         return true
         
     }
-      //MARK:- textField Should Should End Editing
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
@@ -293,13 +364,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         return true
     }
-    
-    
-    
-    
-    //MARK:- textField Did End Editing
-    
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         
@@ -420,7 +485,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DocsCollectionViewCell", for:
             indexPath) as! DocsCollectionViewCell
         
-        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx") {
+        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx")  || (filename == ".txt") || (filename == ".rtf"){
             
             cell.docsImage.contentMode = .scaleAspectFit
             cell.docsImage.image = #imageLiteral(resourceName: "docImg")
@@ -439,7 +504,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx"){
+        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx") || (filename == ".txt") || (filename == ".rtf"){
             
             print("Pdfs and docs")
             
@@ -522,7 +587,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
             signUPCell.jobApplyTF.placeholder = "Job Title".localize()
             signUPCell.jobApplyTF.text = jobtitle
-           signUPCell.jobApplyTF.isUserInteractionEnabled = false
+            signUPCell.jobApplyTF.isUserInteractionEnabled = false
                 if(self.isjobtitle == true){
                     self.readDataSource()
                 }
@@ -532,36 +597,40 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                 signUPCell.jobApplyTF.placeholder = "First Name".localize()
                 signUPCell.jobApplyTF.text = firstname
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 2{
                 
                 signUPCell.jobApplyTF.placeholder = "Middle Name".localize()
                 signUPCell.jobApplyTF.text = middlename
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
                 
             }
             else if indexPath.row == 3{
                 
             signUPCell.jobApplyTF.placeholder = "Last Name".localize()
              signUPCell.jobApplyTF.text = lastname
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
                 
             }
             else if indexPath.row == 4{
                 
             signUPCell.jobApplyTF.placeholder = "Email".localize()
               signUPCell.jobApplyTF.text = email
-                
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 5{
                 
             signUPCell.jobApplyTF.placeholder = "Mobile Number".localize()
               signUPCell.jobApplyTF.text = mobileNumber
-                
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 6{
                 
             signUPCell.jobApplyTF.placeholder = "Qualification".localize()
                 
              signUPCell.jobApplyTF.text = qualification
+                signUPCell.jobApplyTF.isUserInteractionEnabled = true
             }
             
          return signUPCell
@@ -571,6 +640,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             let signUPCell1 = jobApplyTableView.dequeueReusableCell(withIdentifier: "jobApplymonthTableViewCell", for: indexPath) as! jobApplymonthTableViewCell
+            signUPCell1.monthTF.isUserInteractionEnabled = true
+            signUPCell1.yearTF.isUserInteractionEnabled = true
             
             signUPCell1.monthTF.delegate = self
             signUPCell1.yearTF.delegate = self
@@ -590,6 +661,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
             signUPCell.jobApplyTF.delegate = self
+            signUPCell.jobApplyTF.isUserInteractionEnabled = true
             
             if indexPath.row == 0{
             
@@ -597,6 +669,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     
     signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
     signUPCell.jobApplyTF.text = currentorganization
+                
                     
         signUPCell.jobApplyTF.maxLengthTextField = 30
             
@@ -694,7 +767,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let emailStr:NSString = email as NSString
         let mobileNumberStr:NSString =  mobileNumber  as NSString
         let qualificationStr:NSString = qualification   as NSString
-        let yearofexperienceStr:NSString =  selectedYears + "" + selectedMonths as NSString
+        let yearofexperienceStr:NSString =  selectedYears  as NSString
+        
+        let monthsofexperienceStr:NSString = selectedMonths   as NSString
         
          let uploadresumeStr:NSString = uploadresume   as NSString
         
@@ -765,6 +840,12 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             errorMessage=GlobalSupportingClass.blankyearofexperienceErrorMessage() as String as String as NSString?
+            
+        }
+        else if (monthsofexperienceStr.length <= 2){
+            
+            
+            errorMessage=GlobalSupportingClass.blankmonthofexperienceErrorMessage() as String as String as NSString?
             
         }
         
@@ -1122,14 +1203,13 @@ func getjobApplicationAPICall(){
         self.docUrl = url as URL
         
   //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
-        
-        
-         imageView.isHidden = false
-        
         print("The Url is : \(docUrl)")
         
+        imageView.isHidden = false
         self.filename = docUrl.pathExtension
         let data = try! Data(contentsOf: self.docUrl)
+ 
+            
         print("The data is : \(data)")
         let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         self.docsUrlArray.append(base64String)

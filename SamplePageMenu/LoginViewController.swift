@@ -327,8 +327,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 
                                 
                                 if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString" {
-                                    
-                                    
+  
                                     let viewControllers: [UIViewController] = self.navigationController!.viewControllers
                                     for moveToVC in viewControllers {
                                         if moveToVC is YoutubePlayerViewController {

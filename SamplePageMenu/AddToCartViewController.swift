@@ -8,11 +8,10 @@
 
 import UIKit
 
-class AddToCartViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class AddToCartViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var addToCartTableView: UITableView!
-    
-    
+  
      //MARK:- variable declaration
     
      var itemID:Int = 0
@@ -23,6 +22,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
      var filtered:[GetCartListResultVO] = []
      var deletelist:[deleteCartInfoResultVO] = []
     
+     var activeTextField = UITextField()
+    
 //    var userID = String()
     
     //MARK:-  view Did Load
@@ -30,8 +31,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activeTextField.delegate = self
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
         self.AddToCart = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
         self.AddToCart.showNav = true
@@ -121,7 +122,9 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddToCareTableViewCell", for: indexPath) as! AddToCareTableViewCell
         
-        
+        activeTextField = cell.quantityField
+        activeTextField.tag = indexPath.row
+        activeTextField.delegate = self
         let listStr:GetCartListResultVO = filtered[indexPath.row]
         let postImgUrl = listStr.itemImage
         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
@@ -163,12 +166,112 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         cell.deleteBtn.addTarget(self, action: #selector(self.deleteAPIService(_:)), for: UIControlEvents.touchUpInside)
         cell.deleteBtn.tag = indexPath.row
         
-
+        cell.quantityField.tag = indexPath.row
+        cell.addToCartPriceLbl.tag = indexPath.row
+        
+        let a:Double = Double(cell.quantityField.text!)!
+        let b:Double = Double(cell.addToCartPriceLbl.text!)!
+        cell.totalPriceLbl.text = "\(a * b)"
+        
         return cell
         
         
         
     }
+    
+    
+    //MARK:- Textfield delegate methods
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        activeTextField = textField
+        
+        if let text = textField.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            if  updatedText.count == 1 && updatedText == "0" {
+                return false
+            }
+        }
+        let indexPath = IndexPath.init(row: activeTextField.tag, section: 0)
+
+        if let cell = addToCartTableView.cellForRow(at: indexPath) as? AddToCareTableViewCell {
+//
+            let listStr:GetCartListResultVO = filtered[activeTextField.tag]
+//
+            var newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            
+            if newString == "0" ||  newString == "" {
+                
+              cell.updateBtn.isHidden = true
+            }
+            else{
+              
+                cell.updateBtn.isHidden = false
+            }
+            
+//            if newString != "" {
+//          //  cell.quantityField.text = "\(listStr.quantity!)"
+//
+//
+//            let a:Double = Double(newString)!
+//
+//            let b:Double = Double(cell.addToCartPriceLbl.text!)!
+//                cell.quantityField.text = newString
+//            cell.totalPriceLbl.text = "\(a * b)"
+//
+//            self.addToCartTableView.reloadRows(at: [indexPath], with: .none)
+//
+//            }
+//            else{
+//              cell.totalPriceLbl.text = "0.0"
+//
+//            }
+       }
+        
+     //   quantity = newString as String
+//        var ext = ""
+//        if(newString != "" && listStr.price != 0){
+//             ext = "\((Float(newString))! * (Float(listStr.price!)))"
+//
+//        }
+//        else{
+//            ext = "0.0"
+//            newString = ""
+//        }
+//        let indexPath = IndexPath(item: activeTextField.tag, section: 0)
+//        if let quantitySellTableViewCell = addToCartTableView.cellForRow(at: indexPath) as? AddToCareTableViewCell {
+//
+//            quantitySellTableViewCell.totalPriceLbl.text = ext
+////            if(ext != ""){
+////                quantitySellTableViewCell.extTitle.isHidden = false
+////            }else{
+////                quantitySellTableViewCell.extTitle.isHidden = true
+////            }
+//
+//        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+       
+        let indexPath = IndexPath.init(row: activeTextField.tag, section: 0)
+        
+        if let cell = addToCartTableView.cellForRow(at: indexPath) as? AddToCareTableViewCell {
+            //
+            let listStr:GetCartListResultVO = filtered[activeTextField.tag]
+            
+            //listStr.quantity = cell.quantityField.text
+
+            
+            cell.updateBtn.isHidden = true
+            
+            
+        }
+    }
+    
+    
     
     @objc func  updateBtnClicked(_ sendre:UIButton) {
         
@@ -182,6 +285,10 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         if let cell = addToCartTableView.cellForRow(at: indexPath) as? AddToCareTableViewCell {
             
             let quantityNum = cell.quantityField.text
+            
+           cell.updateBtn.isHidden = true
+            
+            
             
 //            if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
 //
@@ -224,6 +331,12 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                                 
                                 if  let successMsg = respVO.endUserMessage {
                                     print(successMsg)
+                                    
+//                                    let a:Double = Double(cell.quantityField.text!)!
+//                                    let b:Double = Double(cell.addToCartPriceLbl.text!)!
+//                                    cell.totalPriceLbl.text = "\(a * b)"
+                                    
+                                    self.getCartInfoAPIService()
                                     
                                     self.showAlertViewWithTitle("Alert".localize(), message: successMsg, buttonTitle: "Ok".localize())
                                     

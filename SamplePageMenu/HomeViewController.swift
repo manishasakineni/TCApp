@@ -144,6 +144,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let timeInt = Double(expireTime)!
                 
+            //    let timeInt = 30.0
+              
                 timer = Timer.scheduledTimer(timeInterval: timeInt, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
             }
         }
@@ -246,7 +248,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @objc func BackgroundTimerCall()
     {
         DispatchQueue.global(qos: .background).async {
-            print("This is run on the background queue")
+            print("Refresh token API call running in background queue")
             
             if(self.appDelegate.checkInternetConnectivity()){
                 
