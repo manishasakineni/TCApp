@@ -115,7 +115,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         else
         {
             // Iphone
-            return 45;
+            return UITableViewAutomaticDimension
         }
     }
     
@@ -167,6 +167,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             else if indexPath.row == 3{
                 
                 signUPCell.jobIDDetailsLabel.text = jobdescription
+                signUPCell.jobIDDetailsLabel.numberOfLines = 0
                 
                 signUPCell.jobIDNameLabel.text = "Job Description".localize()
                 

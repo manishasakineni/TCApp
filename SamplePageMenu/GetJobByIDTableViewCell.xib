@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,45 +24,39 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chs-Np-Eab">
-                        <rect key="frame" x="7" y="4" width="135" height="36"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="135" id="PZn-Bl-sSk"/>
-                            <constraint firstAttribute="height" constant="36" id="fly-xB-P0n"/>
-                        </constraints>
+                        <rect key="frame" x="7" y="4" width="140" height="36"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLg-hT-7E0">
-                        <rect key="frame" x="150" y="4" width="167" height="36"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE3-ba-HQI">
+                        <rect key="frame" x="155" y="3" width="9" height="38"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="167" id="YQ2-ax-zOR"/>
-                            <constraint firstAttribute="height" constant="36" id="YjM-s9-KdI"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE3-ba-HQI">
-                        <rect key="frame" x="139" y="11" width="9" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="U4t-pf-yoV"/>
-                            <constraint firstAttribute="width" constant="9" id="v3d-Pk-cJ2"/>
+                            <constraint firstAttribute="width" constant="9" id="Jav-BN-ZkM"/>
+                            <constraint firstAttribute="height" constant="38" id="pa8-Ng-mRj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLg-hT-7E0">
+                        <rect key="frame" x="172" y="4" width="146" height="36"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="HLg-hT-7E0" firstAttribute="leading" secondItem="dE3-ba-HQI" secondAttribute="trailing" constant="2" id="2xD-nN-T2e"/>
-                    <constraint firstItem="dE3-ba-HQI" firstAttribute="leading" secondItem="chs-Np-Eab" secondAttribute="trailing" constant="-3" id="61J-Yv-8ks"/>
-                    <constraint firstAttribute="trailing" secondItem="HLg-hT-7E0" secondAttribute="trailing" constant="3" id="7d7-0D-2ib"/>
-                    <constraint firstItem="chs-Np-Eab" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="B1v-DX-ibF"/>
-                    <constraint firstItem="HLg-hT-7E0" firstAttribute="centerY" secondItem="dE3-ba-HQI" secondAttribute="centerY" id="Cfy-CZ-ua2"/>
-                    <constraint firstItem="HLg-hT-7E0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="UaJ-Nc-lv8"/>
-                    <constraint firstItem="dE3-ba-HQI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="e7g-Ch-X8w"/>
-                    <constraint firstItem="chs-Np-Eab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="hGc-q2-uMS"/>
+                    <constraint firstItem="chs-Np-Eab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="Am7-tH-Aw9"/>
+                    <constraint firstItem="dE3-ba-HQI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="F6F-Jx-VlY"/>
+                    <constraint firstItem="chs-Np-Eab" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="IRh-4X-woX"/>
+                    <constraint firstAttribute="bottom" secondItem="HLg-hT-7E0" secondAttribute="bottom" constant="3.5" id="UpO-Uk-rf6"/>
+                    <constraint firstAttribute="trailing" secondItem="HLg-hT-7E0" secondAttribute="trailing" constant="2" id="ViB-mo-YFa"/>
+                    <constraint firstItem="dE3-ba-HQI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dxu-Vr-1xK"/>
+                    <constraint firstItem="HLg-hT-7E0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="lWO-mF-39w"/>
+                    <constraint firstAttribute="bottom" secondItem="chs-Np-Eab" secondAttribute="bottom" constant="3.5" id="oxf-oi-XwL"/>
+                    <constraint firstItem="HLg-hT-7E0" firstAttribute="leading" secondItem="dE3-ba-HQI" secondAttribute="trailing" constant="8" id="w62-7T-cij"/>
+                    <constraint firstItem="dE3-ba-HQI" firstAttribute="leading" secondItem="chs-Np-Eab" secondAttribute="trailing" constant="8" id="wWe-Bx-CcV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
