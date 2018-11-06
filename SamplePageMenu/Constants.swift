@@ -168,6 +168,7 @@ var REFRESHTOKENAPI:String = BASEURL.appending("api/Account/RefreshToken")
 
 var UPDATECARTAPI:String = BASEURL.appending("api/CartInfo/UpdateToCart")
 
+var ADDUPDATENOTIFICATIONS:String = BASEURL.appending("api/Notification/AddUpdateNotifications")
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

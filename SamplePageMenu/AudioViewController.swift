@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate {
+class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,URLSessionDownloadDelegate,UIDocumentInteractionControllerDelegate  {
 
     @IBOutlet weak var seekLoadingLabel: UILabel!
     
@@ -50,6 +50,17 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var canclebtnOutLet: UIButton!
     
     @IBOutlet weak var textviewOutLet: UITextView!
+    
+    
+    
+    @IBOutlet weak var downloadBackGroundView: UIView!
+    
+    @IBOutlet weak var downloadingLabel: UILabel!
+    
+    @IBOutlet weak var percentageLabe: UILabel!
+    
+    @IBOutlet weak var progress: UIProgressView!
+    
     
 //MARK: -  variable declaration
     
@@ -111,6 +122,16 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var eventsDetailsArray:[EventDetailsListResultVO] = Array<EventDetailsListResultVO>()
     let buttonnn = UIButton()
     
+    
+    // 5th nov added
+    
+    var defaultSession: URLSession!
+    var downloadTask: URLSessionDownloadTask!
+   // let downloadBackGroundView = UIView()
+    let sucessLabel = UILabel()
+  //  let percentageLabe = UILabel()
+  //  let progress = UIProgressView()
+    
   //MARK: -  view Did Load
     
     override func viewDidLoad() {
@@ -119,7 +140,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         secondview.isHidden = true
         popupview.isHidden = true
-
+        downloadBackGroundView.isHidden = true
 
         backGroundView.layer.cornerRadius = 3.0
         backGroundView.layer.shadowColor = UIColor(red: 103.0/255.0, green:  171.0/255.0, blue:  208.0/255.0, alpha: 1.0).cgColor
@@ -172,7 +193,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
         }
         
-
+        let backgroundSessionConfiguration = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
+        defaultSession = Foundation.URLSession(configuration: backgroundSessionConfiguration, delegate: self, delegateQueue: OperationQueue.main)
     }
 //MARK: -  view Will Appear
     
@@ -195,8 +217,13 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
    
         getEventDetailsByIdApiCall() 
         
-        
+       
     }
+    
+    
+    
+   
+    
     
     func play(url:URL) {
         
@@ -1859,10 +1886,153 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         
     }
+ 
+    @IBAction func downloadBtn(_ sender: UIButton) {
+        
+         //downloadFile()
+        
+        downloadBackGroundView.isHidden = false
+        downloadingLabel.isHidden = false
+        progress.isHidden = false
+//        percentageLabe.text = "%"
+       // progress.setProgress(0.0, animated: true)
+        downloadBackGroundView.layer.cornerRadius = 3.0
+        downloadBackGroundView.layer.shadowColor = UIColor.lightGray.cgColor
+        downloadBackGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        downloadBackGroundView.layer.shadowOpacity = 0.6
+        downloadBackGroundView.layer.shadowRadius = 2.0
+        startDownloading ()
+        
+    }
+  
+//    func downloadFile(){
+//        
+//        
+//        downloadBackGroundView.frame = CGRect(x: 55, y: 210, width: 265, height: 152)
+//        downloadBackGroundView.backgroundColor = UIColor(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+//        
+//        
+//        sucessLabel.frame = CGRect(x: downloadBackGroundView.bounds.origin.x + 10, y: downloadBackGroundView.bounds.origin.y + 40, width: downloadBackGroundView.frame.width - 20, height: 17.5)
+//        sucessLabel.textAlignment = .center
+//        //sucessLabel.text = "Downloding..."
+//        //success.backgroundColor = UIColor(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+//        
+//        
+//        
+//        percentageLabe.frame = CGRect(x: downloadBackGroundView.bounds.origin.x + 10, y: downloadBackGroundView.bounds.origin.y + 80, width: downloadBackGroundView.frame.width - 20, height: 17.5)
+//        percentageLabe.textAlignment = .center
+//        percentageLabe.text = "0%"
+//        //  percentageLabe.backgroundColor = UIColor(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+//        
+//        
+//        
+//        
+//        progress.frame = CGRect(x: downloadBackGroundView.bounds.origin.x + 10, y: downloadBackGroundView.bounds.origin.y + 120, width: downloadBackGroundView.frame.width - 20, height: 2)
+//        
+//        
+//        downloadBackGroundView.addSubview(progress)
+//        downloadBackGroundView.addSubview(percentageLabe)
+//        
+//        downloadBackGroundView.addSubview(sucessLabel)
+//        
+//        
+//        self.view.addSubview(downloadBackGroundView)
+////         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//          self.startDownloading ()
+////        }
+//    }
+    func startDownloading () {
+        let url = URL(string: "https://archive.org/download/testmp3testfile/mpthreetest.mp3")!
+        
+        downloadTask = defaultSession.downloadTask(with: url)
+        downloadTask.resume()
+    }
+    func showFileWithPath(path: String){
+        let isFileFound:Bool? = FileManager.default.fileExists(atPath: path)
+        if isFileFound == true{
+            let viewer = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
+            viewer.delegate = self
+            viewer.presentPreview(animated: true)
+        }
+        
+    }
     
     
+    // MARK:- URLSessionDownloadDelegate
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        
+        print(downloadTask)
+        print("File download succesfully")
+        
+        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentDirectoryPath:String = path[0]
+        let fileManager = FileManager()
+        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/file.mp3"))
+        if fileManager.fileExists(atPath: destinationURLForFile.path){
+            downloadingLabel.isHidden = true
+            progress.isHidden = true
+           // sucessLabel.isHidden = false
+            percentageLabe.text = "Download Completed SuccessFull"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.downloadBackGroundView.isHidden = true
+                self.percentageLabe.text = "%"
+                self.progress.setProgress(0.0, animated: true)
+            }
+            
+             showFileWithPath(path: destinationURLForFile.path)
+            print("path of download file",destinationURLForFile.path)
+        }
+        else{
+            do {
+                try fileManager.moveItem(at: location, to: destinationURLForFile)
+                // show file
+                 showFileWithPath(path: destinationURLForFile.path)
+            }catch{
+                print("An error occurred while moving file to destination url")
+            }
+        }
+        
+        
+        
+    }
     
-
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        progress.setProgress(Float(totalBytesWritten)/Float(totalBytesExpectedToWrite), animated: true)
+        //   let percentage = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite) * 100
+        //  print(percentage)
+        downloadingLabel.isHidden = false
+        let perce = progress.progress * 100
+        print("progress progress",sucessLabel)
+        print("progressdasdasdasd",progress)
+        
+        let actualPerceArr = String(perce).components(separatedBy: ".")
+        
+        let actualPercentage    = actualPerceArr[0]
+        let removePercentage = actualPerceArr[1]
+        print("Total Percentage",actualPerceArr,actualPercentage,removePercentage)
+        print(percentageLabe.text)
+        percentageLabe.text = "\(actualPercentage) %"
+        
+        
+        
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        downloadTask = nil
+       // progress.setProgress(0.0, animated: true)
+        if (error != nil) {
+            print("didCompleteWithError \(error?.localizedDescription ?? "no value")")
+        }
+        else {
+            print("The task finished successfully")
+        }
+        
+    }
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController
+    {
+        return self
+    }
     
     private func focusItemNumberTextField() {
         
