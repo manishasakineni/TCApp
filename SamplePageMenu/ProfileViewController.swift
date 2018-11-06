@@ -444,6 +444,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         }
         
+        if textField.tag == 5 {
+            
+            if string.characters.count > 0 {
+                let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.@"
+                
+                let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+                let filtered = string.components(separatedBy: cs).joined(separator: "")
+                
+                return (string == filtered)
+            }
+
+        }
+        
         return true
     }
     
@@ -468,12 +481,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if activeTextField.tag == 0{
             
-       //     firstName = textField.text!
-            
         }
 
         
-     else    if activeTextField.tag == 1{
+     else if activeTextField.tag == 1{
             
             firstName = textField.text!
             

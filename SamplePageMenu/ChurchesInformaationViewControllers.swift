@@ -40,6 +40,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
        createPageMenu()
         
+        self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
        
            }
 
@@ -84,7 +86,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
-        controllersArray.append(authorPostsVC!)
+         controllersArray.append(authorPostsVC!)
 
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
@@ -102,7 +104,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
                                                  CAPSPageMenuOption.menuItemSeparatorColor(UIColor.white),
                                                  CAPSPageMenuOption.enableHorizontalBounce(false),
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
-                                                CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
+                                                 CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),
+                                                 CAPSPageMenuOption.hideSubTitle(false)]
         
         
         
@@ -144,9 +147,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 //MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        
-        
+ 
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.set("1", forKey: "1")

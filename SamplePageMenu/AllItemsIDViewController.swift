@@ -80,8 +80,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
-            textField.keyboardType = .numberPad
+            
             textField.maxLengthTextField = 2
+            
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            }
         }
     
     }

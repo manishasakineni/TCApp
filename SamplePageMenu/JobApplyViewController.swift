@@ -163,7 +163,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         activeTextField = textField
         textField.autocorrectionType = .no
-        activeTextField.keyboardType = .asciiCapable
+        textField.keyboardType = .asciiCapable
         
         if activeTextField.tag == 0 {
             
@@ -237,7 +237,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             textField.maxLengthTextField = 7
             textField.clearButtonMode = .never
-            textField.keyboardType = .numberPad
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            }
            
         }
        
@@ -245,7 +247,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             textField.maxLengthTextField = 7
             textField.clearButtonMode = .never
-            textField.keyboardType = .numberPad
+            if #available(iOS 10.0, *) {
+                textField.keyboardType = .asciiCapableNumberPad
+            }
             
             
         }
@@ -357,6 +361,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
+        textField.keyboardType = .asciiCapable
              if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
             
         
@@ -367,7 +372,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        
+        textField.keyboardType = .asciiCapable
         activeTextField = textField
         
         

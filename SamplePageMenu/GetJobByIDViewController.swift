@@ -110,7 +110,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad)
         {
             // Ipad
-            return 70;
+            return UITableViewAutomaticDimension;
         }
         else
         {

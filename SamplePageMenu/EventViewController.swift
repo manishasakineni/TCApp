@@ -18,7 +18,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     @IBOutlet weak var eventTableView: UITableView!
     
    //MARK: -  variable declaration
-    
+    var utilities = Utilities()
     var pasterUserId      : Int = 0
     var currentMonth = 0
     var delegate: churchChangeSubtitleOfIndexDelegate?
@@ -53,6 +53,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var calendarEvents : [FSCalendar] = []
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1 = DateFormatter()
+    var lastContentOffset: CGFloat = 0
     
     
     fileprivate lazy var dateFormatter2: DateFormatter = {
@@ -112,8 +113,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
        //MARK: -  color
     
     func calendarColor(){
-        
-        
         calendar.scope = .month
         calendar.appearance.weekdayTextColor = UIColor.red
         calendar.appearance.headerTitleColor = UIColor.red
@@ -133,12 +132,21 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         if self.eventDateArray.contains(dateString) {
             
+         //   var attributes = [NSAttributedStringKey: AnyObject]()
+
+            
+            
+           
+            
             var event = ""
             
             if let i = self.eventDateArray.index(of: dateString) {
                           print("Jason is at index \(i)")
                            let prevEventCount = self.eventsCountsArray[i]
                                event = "\(prevEventCount)"
+                
+                
+                
                       }
             
             return event
@@ -275,12 +283,45 @@ else {
         print("did deselect date \(self.dateFormatter2.string(from: date))")
         self.configureVisibleCells()
     }
+    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        
         if self.gregorian.isDateInToday(date) {
             return [UIColor.orange]
         }
+
         return [appearance.eventDefaultColor]
     }
+    
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+//
+//       let dateString = self.dateFormatter2.string(from: date)
+//
+//        if self.eventDateArray.contains(dateString)
+//        {
+//            return UIColor.blue
+//        }
+//        else{
+//            return nil
+//        }
+//    }
+
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        let dateString = self.dateFormatter2.string(from: date)
+        
+        if self.eventDateArray.contains(dateString)
+        {
+            return UIColor.cyan
+        }
+        else{
+            return nil
+        }
+ 
+    }
+    
+
+
     
 // MARK: - Private functions
     
@@ -289,6 +330,8 @@ else {
         calendar.visibleCells().forEach { (cell) in
         let date = calendar.date(for: cell)
         let position = calendar.monthPosition(for: cell)
+            
+            
             
         }
     }
@@ -608,34 +651,27 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.eventDate!)
-            
+
             if startAndEndDate1 != "" {
                 listOfMonthEventCell.eventTitle.text = startAndEndDate1
             }else{
                 
                 listOfMonthEventCell.eventTitle.text = ""
             }
-            
-//            
-//            if let startAndEndDate1 =  churchIdMonthYearList.eventDate {
-//                listOfMonthEventCell.eventStartEndDate.text =  startAndEndDate1
-//            }else{
-//            }
+
             
             return listOfMonthEventCell
         }
         return UITableViewCell()
         
-
-        
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == churchIdMonthYearArray.count - 1 {
             
             if(self.totalPages! > PageIndex){
-                
-                
+
                 PageIndex = PageIndex + 1
                 
                 let monthFormatter = DateFormatter()
@@ -647,11 +683,9 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 yearFormatter.dateFormat = "YYYY"
                 yearFormatter.timeZone = NSTimeZone.local
                 let yearString = yearFormatter.string(from: calendar.currentPage)
-
                 
-          GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
-                
-                
+                GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
+     
             }
         }
         
@@ -660,7 +694,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
  //MARK: -   Event Date Without Time
     
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
-        var newDateStr = ""
+        var newDateStr  = ""
         var newDateStr1 = ""
         
         if(selectedDateString != ""){
@@ -669,15 +703,15 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let dateString1 = invDtArray[1]
             print(dateString1)
             let invDtArray2 = dateString1.components(separatedBy: ".")
-            let dateString3 = invDtArray2[0]
-            
+            let dateString3 = invDtArray2[0]            
             print(dateString1)
             
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = dateFormatter.date(from: dateString)
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+               //  dateFormatter.dateFormat = "dd-MM-yyyy"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr = newDateString
                 print(newDateStr)

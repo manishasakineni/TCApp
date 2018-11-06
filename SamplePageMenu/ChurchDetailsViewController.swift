@@ -125,6 +125,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.churchNamesArray.removeAll()
         self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         
+        if #available(iOS 11.0, *) {
+            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        }
+        
     }
     //MARK: -  View Did Appear
     override func viewDidAppear(_ animated: Bool) {

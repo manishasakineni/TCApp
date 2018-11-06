@@ -182,6 +182,14 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     //MARK:- Textfield delegate methods
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if #available(iOS 10.0, *) {
+            textField.keyboardType = .asciiCapableNumberPad
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         activeTextField = textField
