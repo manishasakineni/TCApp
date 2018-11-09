@@ -885,17 +885,17 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             if self.ID == self.loginUseridsArray[indexPath.row]{
                 
-                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
-    //    usersCommentsTableViewCell.readMoreBtn.addTarget(self, action: #selector(readmoreClicked), for: .touchUpInside)
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = false
+    
         usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
             }
             else{
                 
                 usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
-                
+               // usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
             }
         
-            //usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+           
             usersCommentsTableViewCell.replyCommentBtn.isHidden = false
            
             

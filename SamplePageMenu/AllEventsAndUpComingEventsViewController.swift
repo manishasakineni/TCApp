@@ -31,9 +31,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-       
+
         createPageMenu()
         
     }
@@ -53,12 +51,12 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     
 private func createPageMenu() {
     
-        upConingEventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
+    upConingEventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as? UpConingEventInfoViewController
         upConingEventInfoVC?.title = "UpComing Events".localize()
         upConingEventInfoVC?.delegate  = self
     
     
-        allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as! AllEventsViewController
+    allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as? AllEventsViewController
         
         allEventsVC?.title = "ALL EVENTS".localize()
         allEventsVC?.delegate  = self

@@ -1018,8 +1018,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     
-    @IBAction func notificationBtnAction(_ sender: Any) {
+    @IBAction func notificationBtnAction(_ sender: UIButton) {
         
+        if sender.tag == 0 {
+
         
         if(self.count > 0) {
             
@@ -1042,8 +1044,21 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
             })
         }
-        
     }
+        else{
+            
+            
+            let notificationVC = self.storyboard?.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+            
+            
+            self.navigationController?.pushViewController(notificationVC, animated: true)
+            
+            
+        }
+    }
+    
+    
+    
     
 }
 

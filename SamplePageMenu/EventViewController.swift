@@ -220,9 +220,12 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         let eventTitle = eventsTitleList.eventTitle
         self.eventTitleArray.append(eventTitle!)
         let eventStartDate = eventsTitleList.startDate
-        self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
+       // self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
+            self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventStartDate!))
+            
         let eventEndDate = eventsTitleList.endDate
-        self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
+      //  self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
+            self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventEndDate!))
 
 
         print( self.eventEndDateArray)

@@ -88,7 +88,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
         Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " " , rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-
+        if #available(iOS 11.0, *) {
+            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        }
         
     }
     //MARK: -  view Will DisAppear

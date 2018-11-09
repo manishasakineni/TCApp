@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -630,12 +631,20 @@
                         <barButtonItem key="leftBarButtonItem" image="sidemenu" id="J6Y-nU-rbZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="noun_1168162_cc" id="ke9-c3-luq">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="notificationBtnAction:" destination="fRD-jQ-dvn" id="j8W-iT-ET5"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem tag="1" image="notification" id="ke9-c3-luq">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="notificationBtnAction:" destination="fRD-jQ-dvn" id="j8W-iT-ET5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="noun_1168162_cc" id="SHH-Ww-R9F">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="notificationBtnAction:" destination="fRD-jQ-dvn" id="lbF-Bu-Naz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerScrollHeight" destination="bdb-FF-vTV" id="FDe-PS-1Bz"/>
@@ -662,24 +671,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-Zz-rX4" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="cNa-gY-4nO"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
-                                        <color key="value" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qGG-A2-7cu">
-                                <rect key="frame" x="0.0" y="280" width="375" height="387"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="hVB-Zz-rX4" customClass="FSCalendar">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="280" id="cNa-gY-4nO"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
+                                            <color key="value" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="vu1-fz-ujK" id="3aw-5M-stm"/>
                                     <outlet property="delegate" destination="vu1-fz-ujK" id="y7k-Ms-lt3"/>
@@ -688,13 +698,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="top" secondItem="ldm-JT-Srv" secondAttribute="top" id="5Gs-8o-uRU"/>
-                            <constraint firstAttribute="trailing" secondItem="hVB-Zz-rX4" secondAttribute="trailing" id="5LE-fK-8i2"/>
-                            <constraint firstAttribute="trailing" secondItem="qGG-A2-7cu" secondAttribute="trailing" id="BHG-3U-tt6"/>
-                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="CUQ-Cg-uxx"/>
-                            <constraint firstItem="vIm-ut-51p" firstAttribute="top" secondItem="qGG-A2-7cu" secondAttribute="bottom" id="Drx-pg-DOW"/>
-                            <constraint firstItem="qGG-A2-7cu" firstAttribute="top" secondItem="hVB-Zz-rX4" secondAttribute="bottom" id="Msw-JF-LWs"/>
-                            <constraint firstItem="qGG-A2-7cu" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="jVB-mW-yk8"/>
+                            <constraint firstAttribute="trailing" secondItem="qGG-A2-7cu" secondAttribute="trailing" id="0F8-kC-Y0y"/>
+                            <constraint firstItem="qGG-A2-7cu" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="1w9-2v-kbK"/>
+                            <constraint firstItem="qGG-A2-7cu" firstAttribute="top" secondItem="en5-5d-AOO" secondAttribute="bottom" id="hVG-0C-rlQ"/>
+                            <constraint firstItem="vIm-ut-51p" firstAttribute="top" secondItem="qGG-A2-7cu" secondAttribute="bottom" id="jIq-rB-2xg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3199,7 +3206,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFG-0S-nd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16092" y="1150.9745127436283"/>
+            <point key="canvasLocation" x="16161" y="1113"/>
+        </scene>
+        <!--View Notification View Controller-->
+        <scene sceneID="wIQ-Wg-zwj">
+            <objects>
+                <viewController storyboardIdentifier="ViewNotificationViewController" id="Aa0-iF-anM" customClass="ViewNotificationViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fx7-gh-FAk"/>
+                        <viewControllerLayoutGuide type="bottom" id="LCt-p4-NuY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qrZ-Iu-dfs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VgS-rm-uqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16830" y="1112"/>
+        </scene>
+        <!--Read Notification View Controller-->
+        <scene sceneID="1MU-Hg-30X">
+            <objects>
+                <viewController storyboardIdentifier="ReadNotificationViewController" id="NJu-op-vM5" customClass="ReadNotificationViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MFo-OE-fQv"/>
+                        <viewControllerLayoutGuide type="bottom" id="fjg-le-kDG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PeE-PD-wBH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJQ-aM-Ari" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17515" y="1113"/>
         </scene>
     </scenes>
     <resources>
@@ -3212,6 +3255,7 @@
         <image name="icons8-visible" width="25" height="25"/>
         <image name="musimage" width="1200" height="1200"/>
         <image name="nextImage" width="1024" height="1024"/>
+        <image name="notification" width="50" height="50"/>
         <image name="noun_1168162_cc" width="30" height="30"/>
         <image name="playImage" width="626" height="626"/>
         <image name="preveee" width="626" height="626"/>

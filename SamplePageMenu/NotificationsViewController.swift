@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CAPSPageMenuDelegate {
     
     @IBOutlet weak var notificationsTableView: UITableView!
    
@@ -20,6 +20,11 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     var showNav = false
     var appVersion          : String = ""
     var IDs : String = ""
+    
+    var pageMenu : CAPSPageMenu?
+    var viewNotificationVC : ViewNotificationViewController?
+    var readNotificationVC : ReadNotificationViewController?
+    private var controllersArray: [UIViewController] = []
     
     //MARK: -   view Did Load
     
@@ -37,7 +42,9 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
             
         }
-
+       
+        createPageMenu()
+        
         notificationAPICall()
         
 
@@ -59,6 +66,53 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Notifications".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
            }
+    
+    
+    private func createPageMenu() {
+        
+        viewNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewNotificationViewController") as? ViewNotificationViewController
+        viewNotificationVC?.title = "View".localize()
+        
+        
+        
+        readNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReadNotificationViewController") as? ReadNotificationViewController
+        
+        readNotificationVC?.title = "Read".localize()
+        
+        
+        controllersArray.append(viewNotificationVC!)
+        controllersArray.append(readNotificationVC!)
+        
+        let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
+                                                 CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
+                                                 CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)),
+                                                 CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 11.0)!),
+                                                 CAPSPageMenuOption.menuHeight(36),
+                                                 CAPSPageMenuOption.centerMenuItems(true),
+                                                 CAPSPageMenuOption.selectedMenuItemLabelColor(UIColor.black),
+                                                 CAPSPageMenuOption.unselectedMenuItemLabelColor(UIColor.lightGray),
+                                                 CAPSPageMenuOption.selectionIndicatorHeight(2.5),
+                                                 CAPSPageMenuOption.menuItemMargin(0.0),
+                                                 CAPSPageMenuOption.useMenuLikeSegmentedControl(true),
+                                                 CAPSPageMenuOption.menuItemSeparatorWidth(0.0),
+                                                 CAPSPageMenuOption.menuItemSeparatorColor(UIColor.white),
+                                                 CAPSPageMenuOption.enableHorizontalBounce(false),
+                                                 CAPSPageMenuOption.addBottomMenuHairline(true),
+                                                 CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
+        
+        
+        
+        
+        pageMenu = CAPSPageMenu(viewControllers: controllersArray,
+                                frame: CGRect.init(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
+                                pageMenuOptions: parameters)
+        pageMenu?.delegate = self
+        self.addChildViewController(pageMenu!)
+        
+        view.addSubview((pageMenu?.view)!)
+        pageMenu?.didMove(toParentViewController: self)
+        
+    }
 
     //MARK: -  UITable view delegate & data source methods
     
@@ -264,11 +318,11 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func notificationAPICall(){
         
-        let paramsDict = [ 	"sortDirection": "desc",
-                           	"sortbyColumnName": "UpdatedDate",
-                           	"userId": userId,
-                           	
-            ] as [String : Any]
+        let paramsDict = [ "sortDirection": "desc",
+                           "sortbyColumnName": "UpdatedDate",
+                           "userId": userId,
+                           "pageindex" : 1,
+                           "pagesize" : 10  ] as [String : Any]
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
@@ -297,9 +351,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             }
                 
             else {
-                
-                
-                
+    
             }
             
         }) { (failureMessage) in

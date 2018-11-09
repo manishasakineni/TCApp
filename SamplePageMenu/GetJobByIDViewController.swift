@@ -138,9 +138,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
 
         }
          if indexPath.section == 1 {
+            
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GetJobByIDTableViewCell", for: indexPath) as! GetJobByIDTableViewCell
-            
-            
+
             if indexPath.row == 0{
                 
                 if !jobTitle.isEmpty {
@@ -169,7 +169,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                 signUPCell.jobIDDetailsLabel.text = jobdescription
                 signUPCell.jobIDDetailsLabel.numberOfLines = 0
                 
+                
                 signUPCell.jobIDNameLabel.text = "Job Description".localize()
+                
                 
             }
             else if indexPath.row == 4{

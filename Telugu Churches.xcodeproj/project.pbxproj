@@ -11,6 +11,8 @@
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		354B56C5208871D400C0B33A /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B56C4208871D400C0B33A /* DocViewController.swift */; };
 		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
+		357046BB2195964D00CCB916 /* ViewNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357046BA2195964C00CCB916 /* ViewNotificationViewController.swift */; };
+		357046BD2195967100CCB916 /* ReadNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357046BC2195967000CCB916 /* ReadNotificationViewController.swift */; };
 		3579911A214B84400077309B /* UpdatedCartVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35799119214B843F0077309B /* UpdatedCartVo.swift */; };
 		3579911C214B852B0077309B /* UpdateCartResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3579911B214B852B0077309B /* UpdateCartResultVo.swift */; };
 		3584456D21415060009D059F /* ActivityRightsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456C21415060009D059F /* ActivityRightsVo.swift */; };
@@ -424,6 +426,8 @@
 		354B56C4208871D400C0B33A /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
 		3550F62F2058F9A000DD4D11 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
+		357046BA2195964C00CCB916 /* ViewNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotificationViewController.swift; sourceTree = "<group>"; };
+		357046BC2195967000CCB916 /* ReadNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNotificationViewController.swift; sourceTree = "<group>"; };
 		35799119214B843F0077309B /* UpdatedCartVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedCartVo.swift; sourceTree = "<group>"; };
 		3579911B214B852B0077309B /* UpdateCartResultVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCartResultVo.swift; sourceTree = "<group>"; };
 		3584456C21415060009D059F /* ActivityRightsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRightsVo.swift; sourceTree = "<group>"; };
@@ -1596,6 +1600,8 @@
 			isa = PBXGroup;
 			children = (
 				AF0A392120D0E89F00265B7A /* NotificationsViewController.swift */,
+				357046BA2195964C00CCB916 /* ViewNotificationViewController.swift */,
+				357046BC2195967000CCB916 /* ReadNotificationViewController.swift */,
 				AF108A5120D396820098B70F /* notificationsTableViewCell.swift */,
 				AF108A5220D396820098B70F /* notificationsTableViewCell.xib */,
 			);
@@ -2603,6 +2609,7 @@
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
 				AF0E1E1620C80C1F0064EA0B /* deleteCartInfoVO.swift in Sources */,
 				CB21CE67203DA6B200B3294B /* GetChurchByIDResultVo.swift in Sources */,
+				357046BB2195964D00CCB916 /* ViewNotificationViewController.swift in Sources */,
 				AF91F13620AB0C320050A938 /* JobApplyTableViewCell.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB03C8E1203EFF9A000B96A4 /* GetEventByUserIdMonthYearResultVo.swift in Sources */,
@@ -2770,6 +2777,7 @@
 				3D927B84205B9C91004A7D45 /* AuthorEventsListResultInfoVO.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				AF0A392220D0E89F00265B7A /* NotificationsViewController.swift in Sources */,
+				357046BD2195967100CCB916 /* ReadNotificationViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */,
 				3D5357DC207253F300B8AB94 /* LikeDislikeVO.swift in Sources */,
