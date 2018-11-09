@@ -132,6 +132,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
   //  let percentageLabe = UILabel()
   //  let progress = UIProgressView()
     
+    
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
   //MARK: -  view Did Load
     
     override func viewDidLoad() {
@@ -1891,20 +1894,45 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
          //downloadFile()
         
+      
+        let urlString = audioIDArr.trimmingCharacters(in: .whitespacesAndNewlines)
+        //let urlString = "https://archive.org/download/testmp3testfile/mpthreetest.mp3".trimmingCharacters(in: .whitespacesAndNewlines)
+        
+            print("urlString",urlString)
+        
+        guard let url = URL(string: urlString) else { return
+        }
+       let validateUrl =  AVAsset(url: url).isPlayable
+        print(validateUrl)
+        
+        if(validateUrl == true){
+            
+              startDownloading (audioUrl: urlString)
+            downloadFileUI()
+            
+        }else{
+            appDelegate.window?.makeToast(invalidUrlMessage, duration:kToastDuration, position:CSToastPositionBottom)
+            
+            print("invalid url")
+        }
+
+    }
+  
+    func downloadFileUI(){
+        
         downloadBackGroundView.isHidden = false
         downloadingLabel.isHidden = false
         progress.isHidden = false
-//        percentageLabe.text = "%"
-       // progress.setProgress(0.0, animated: true)
+        //        percentageLabe.text = "%"
+        // progress.setProgress(0.0, animated: true)
         downloadBackGroundView.layer.cornerRadius = 3.0
         downloadBackGroundView.layer.shadowColor = UIColor.lightGray.cgColor
         downloadBackGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
         downloadBackGroundView.layer.shadowOpacity = 0.6
         downloadBackGroundView.layer.shadowRadius = 2.0
-        startDownloading ()
         
     }
-  
+    
 //    func downloadFile(){
 //        
 //        
@@ -1941,8 +1969,8 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
 //          self.startDownloading ()
 ////        }
 //    }
-    func startDownloading () {
-        let url = URL(string: "https://archive.org/download/testmp3testfile/mpthreetest.mp3")!
+    func startDownloading (audioUrl : String) {
+        let url = URL(string: audioUrl)!
         
         downloadTask = defaultSession.downloadTask(with: url)
         downloadTask.resume()
@@ -1959,12 +1987,29 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     
     // MARK:- URLSessionDownloadDelegate
+    
+//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+//        print("download finished to \(location.absoluteString)")
+//        do {
+//            let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+//            let savedURL = documentsURL.appendingPathComponent(location.lastPathComponent)
+//            let destinationURLForFile = savedURL.appendingPathExtension(".mp3")
+//
+//            try FileManager.default.moveItem(at: location, to: destinationURLForFile)
+//            print("moved file to: \(savedURL.absoluteString)")
+//        } catch {
+//            print ("file error: \(error)")
+//        }
+//    }
+//
+    
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        
+
         print(downloadTask)
         print("File download succesfully")
-        
+
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        
         let documentDirectoryPath:String = path[0]
         let fileManager = FileManager()
         let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/file.mp3"))
@@ -1972,15 +2017,17 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             downloadingLabel.isHidden = true
             progress.isHidden = true
            // sucessLabel.isHidden = false
-            percentageLabe.text = "Download Completed SuccessFull"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            percentageLabe.text = "Download SuccessFull"
+            print("path of download file",destinationURLForFile.path)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.downloadBackGroundView.isHidden = true
                 self.percentageLabe.text = "%"
                 self.progress.setProgress(0.0, animated: true)
+                self.showFileWithPath(path: destinationURLForFile.path)
             }
+
             
-             showFileWithPath(path: destinationURLForFile.path)
-            print("path of download file",destinationURLForFile.path)
+            
         }
         else{
             do {
@@ -1991,9 +2038,9 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 print("An error occurred while moving file to destination url")
             }
         }
-        
-        
-        
+
+
+
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

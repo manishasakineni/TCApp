@@ -212,6 +212,7 @@ let kRequestTimedOutMessage = "Therequest Timed Out"
 
 var kUserDefaults = UserDefaults.standard
 
+let invalidUrlMessage = "This file Could't be download"
 
 
 struct ScreenSize {
