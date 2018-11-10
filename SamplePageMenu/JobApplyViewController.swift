@@ -1212,13 +1212,19 @@ func getjobApplicationAPICall(){
         
         imageView.isHidden = false
         self.filename = docUrl.pathExtension
-        let data = try! Data(contentsOf: self.docUrl)
- 
-            
-        print("The data is : \(data)")
-        let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        self.docsUrlArray.append(base64String)
         
+        
+        do {
+            let data = try Data(contentsOf: self.docUrl)
+            print("The data is : \(data)")
+            let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            self.docsUrlArray.append(base64String)
+        } catch {
+            // handle exception
+            print(" handle exception")
+        }
+        
+   
         
         uploadViewheight.constant = 50
         uploadView.isHidden = false
