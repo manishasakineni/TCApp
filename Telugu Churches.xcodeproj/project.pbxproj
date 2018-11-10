@@ -18,6 +18,11 @@
 		3584456D21415060009D059F /* ActivityRightsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456C21415060009D059F /* ActivityRightsVo.swift */; };
 		3584456F21415ABA009D059F /* TokenVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584456E21415ABA009D059F /* TokenVo.swift */; };
 		3584457121415B26009D059F /* TokenResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584457021415B26009D059F /* TokenResultVo.swift */; };
+		35847C932196B414009D6FBD /* getNotificationResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35847C922196B414009D6FBD /* getNotificationResultVO.swift */; };
+		35847C952196B58D009D6FBD /* getNotificationVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35847C942196B58D009D6FBD /* getNotificationVO.swift */; };
+		35847C972196C527009D6FBD /* getNotificationCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35847C962196C527009D6FBD /* getNotificationCount.swift */; };
+		35847C9C2196E00A009D6FBD /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35847C9A2196E00A009D6FBD /* NotificationTableViewCell.swift */; };
+		35847C9D2196E00A009D6FBD /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35847C9B2196E00A009D6FBD /* NotificationTableViewCell.xib */; };
 		359CC92120626C2D0061450A /* BibleBookVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92020626C2D0061450A /* BibleBookVo.swift */; };
 		359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92220626CD20061450A /* BibleChapterVo.swift */; };
 		359CC92520626DE20061450A /* BibleVerseVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CC92420626DE20061450A /* BibleVerseVo.swift */; };
@@ -433,6 +438,11 @@
 		3584456C21415060009D059F /* ActivityRightsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRightsVo.swift; sourceTree = "<group>"; };
 		3584456E21415ABA009D059F /* TokenVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVo.swift; sourceTree = "<group>"; };
 		3584457021415B26009D059F /* TokenResultVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResultVo.swift; sourceTree = "<group>"; };
+		35847C922196B414009D6FBD /* getNotificationResultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNotificationResultVO.swift; sourceTree = "<group>"; };
+		35847C942196B58D009D6FBD /* getNotificationVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNotificationVO.swift; sourceTree = "<group>"; };
+		35847C962196C527009D6FBD /* getNotificationCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNotificationCount.swift; sourceTree = "<group>"; };
+		35847C9A2196E00A009D6FBD /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		35847C9B2196E00A009D6FBD /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		359CC92020626C2D0061450A /* BibleBookVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleBookVo.swift; sourceTree = "<group>"; };
 		359CC92220626CD20061450A /* BibleChapterVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleChapterVo.swift; sourceTree = "<group>"; };
 		359CC92420626DE20061450A /* BibleVerseVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleVerseVo.swift; sourceTree = "<group>"; };
@@ -883,6 +893,24 @@
 			name = RefreshTokenVo;
 			sourceTree = "<group>";
 		};
+		35847C982196DFB4009D6FBD /* GenderTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AF10601B204EAA8100711938 /* GenderTableViewCell.swift */,
+				AF10601C204EAA8100711938 /* GenderTableViewCell.xib */,
+			);
+			name = GenderTableViewCell;
+			sourceTree = "<group>";
+		};
+		35847C992196DFCC009D6FBD /* NotificationsTableviewCells */ = {
+			isa = PBXGroup;
+			children = (
+				35847C9A2196E00A009D6FBD /* NotificationTableViewCell.swift */,
+				35847C9B2196E00A009D6FBD /* NotificationTableViewCell.xib */,
+			);
+			name = NotificationsTableviewCells;
+			sourceTree = "<group>";
+		};
 		359CC91F20626BDF0061450A /* BibleVo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1265,6 +1293,9 @@
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
+				35847C922196B414009D6FBD /* getNotificationResultVO.swift */,
+				35847C962196C527009D6FBD /* getNotificationCount.swift */,
+				35847C942196B58D009D6FBD /* getNotificationVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -1357,8 +1388,8 @@
 				CB0256B42024428B0017E240 /* SettingTableViewCell */,
 				9AF5649A202096DC00AEA0EF /* ChangePasswordCell */,
 				3DDD89122018662100918711 /* SignUpCells */,
-				AF10601B204EAA8100711938 /* GenderTableViewCell.swift */,
-				AF10601C204EAA8100711938 /* GenderTableViewCell.xib */,
+				35847C982196DFB4009D6FBD /* GenderTableViewCell */,
+				35847C992196DFCC009D6FBD /* NotificationsTableviewCells */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -2466,6 +2497,7 @@
 				AF108A5420D396830098B70F /* notificationsTableViewCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
+				35847C9D2196E00A009D6FBD /* NotificationTableViewCell.xib in Resources */,
 				AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
 				AF91F12C20AAEF620050A938 /* GetJobidHeaderTableViewCell.xib in Resources */,
@@ -2574,6 +2606,7 @@
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				AF98E38020A04C15000C34E1 /* EventByIdVo.swift in Sources */,
 				AF1B89C920C691D40016D395 /* UpdatedeliveryAddressInfoResultVO.swift in Sources */,
+				35847C972196C527009D6FBD /* getNotificationCount.swift in Sources */,
 				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
 				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
 				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
@@ -2733,6 +2766,7 @@
 				3584457121415B26009D059F /* TokenResultVo.swift in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				AF108A5320D396820098B70F /* notificationsTableViewCell.swift in Sources */,
+				35847C9C2196E00A009D6FBD /* NotificationTableViewCell.swift in Sources */,
 				35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */,
 				354B56C5208871D400C0B33A /* DocViewController.swift in Sources */,
 				3D5852DB2072694F00994FC2 /* CommentDetailsVo.swift in Sources */,
@@ -2796,6 +2830,7 @@
 				AF4EF44D20AC16FA00F690F0 /* GetAllItemsTableViewCell.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
+				35847C952196B58D009D6FBD /* getNotificationVO.swift in Sources */,
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
 				AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */,
 				AF202EC020D25F2B00CA505D /* UIBarButtonItem+Badge.m in Sources */,
@@ -2873,6 +2908,7 @@
 				9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */,
 				CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */,
 				AF10F94120F8712B006EA5D0 /* EventcommentrepliesVo.swift in Sources */,
+				35847C932196B414009D6FBD /* getNotificationResultVO.swift in Sources */,
 				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,
 				CB03C8DC203ED22B000B96A4 /* GetAllChurchAdminsResultVo.swift in Sources */,
 				AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */,

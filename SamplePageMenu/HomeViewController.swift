@@ -34,7 +34,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var notificationbarBtn: UIBarButtonItem!
     
+    @IBOutlet weak var cartbtn: UIBarButtonItem!
     
+    @IBOutlet weak var notificationBtn: UIBarButtonItem!
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
     //MARK: -  variable declaration
@@ -227,10 +229,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.cagegoriesArray.removeAll()
         self.getAllCategoriesAPICall()
         
+        if #available(iOS 11.0, *) {
+            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        }
+        
         
     }
     
-    //MARK: -   View WillDisappear
+//MARK: -   View WillDisappear
     
     override func viewWillDisappear(_ animated: Bool) {
         if(timerForCollectionView != nil){
@@ -262,16 +268,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             DispatchQueue.main.async {
                 print("This is run on the main queue, after the previous code in outer block")
-                
-                //                self.getPropertiesListAPI()
-                
-                // NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
+
                 
             }
         }
     }
     
-    //MARK: -  Refresh Token API Call
+//MARK: -  Refresh Token API Call
     
     func refreshTokenAPICall(){
         
@@ -624,6 +627,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         if(userId != 0){
             getUserCartCount(userId)
+            getNotificationCount()
+            
         }else{
             self.navigationItem.rightBarButtonItem?.badgeValue = ""
         }
@@ -649,8 +654,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 let listArr = respVO.listResult!
                 
                 self.count = listArr.count
-                
-                self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
+                    
+                // self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
+               
+                self.cartbtn.badgeValue = "\(self.count)"
+              
                 
             }
             
@@ -661,12 +669,46 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+    func getNotificationCount() {
+        
+        let getNotificationAPI = GETNOTIFICATIONAPI
+        
+        let parameters = [
+            "sortDirection":"desc",
+            "sortbyColumnName":"UpdatedDate",
+            "userId":self.userId,
+            "pageIndex": 1,
+            "pageSize": 10
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        serviceController.postRequest(strURL: getNotificationAPI as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+        let respVO:getNotificationResultVO = Mapper().map(JSONObject: result)!
+
+            let isSuccess = respVO.isSuccess
+            
+            if isSuccess == true{
+                
+                let unreadNotificationCount = respVO.result?.unreadCount
+                
+                self.notificationBtn.badgeValue = "\(String(describing: unreadNotificationCount!))"
+            }
+            
+        }) { (failure) in
+            
+            
+        }
+        
+    }
+    
     func updateTimer() {
         seconds -= 1
         
     }
     
-    //MARK: -   Search Bar Delegate & DataSource Methods
+//MARK: -   Search Bar Delegate & DataSource Methods
     
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

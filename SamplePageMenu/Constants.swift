@@ -130,6 +130,8 @@ let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
 
 let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
 
+let GETNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
+
 
 // :-   05/06/2018
 

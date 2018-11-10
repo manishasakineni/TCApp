@@ -599,9 +599,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         profileCell.selectionStyle = .none
             
             if(btneditClick == true){
-                profileCell.cameraOutLet.isUserInteractionEnabled = true
+                profileCell.cameraOutLet.isHidden = false
             }else{
-                profileCell.cameraOutLet.isUserInteractionEnabled = false
+                profileCell.cameraOutLet.isHidden = true
             }
             
             
