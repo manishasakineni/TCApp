@@ -29,7 +29,7 @@ func getDocumentsDirectory() -> URL {
 
 
 
-class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIDocumentPickerDelegate,UICollectionViewDelegate,UICollectionViewDataSource  {
+class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIDocumentPickerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     
   @IBOutlet weak var saveBtn: UIButton!
     
@@ -103,7 +103,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var isjobtitle = false
     var addressInfo:[GetAllJobDetailsListResultVO] = Array<GetAllJobDetailsListResultVO>()
     var months = ""
-    
+    var isResumeUploaded = false
+    var docCount = 0
+    var docCountArray : Array = Array<UIImage>()
     var documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes:  ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: UIDocumentPickerMode.open)
     
 
@@ -126,16 +128,19 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let jobApplymonthTableViewCell  = UINib(nibName: "jobApplymonthTableViewCell" , bundle: nil)
         jobApplyTableView.register(jobApplymonthTableViewCell, forCellReuseIdentifier: "jobApplymonthTableViewCell")
+      
+        let resumeUploadCell  = UINib(nibName: "ExpandedResumeCell" , bundle: nil)
+        jobApplyTableView.register(resumeUploadCell, forCellReuseIdentifier: "ExpandedResumeCell")
         
-        uploadresumeOutLet.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        uploadresumeOutLet.layer.borderWidth = 1
-        uploadresumeOutLet.layer.masksToBounds = false
-        uploadresumeOutLet.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
-        uploadresumeOutLet.layer.cornerRadius = 6.0
-        uploadresumeOutLet.clipsToBounds = true
-        uploadViewheight.constant = 0
-        uploadBtnOutLet.isHidden = true
-        imageView.isHidden = true
+//        uploadresumeOutLet.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        uploadresumeOutLet.layer.borderWidth = 1
+//        uploadresumeOutLet.layer.masksToBounds = false
+//        uploadresumeOutLet.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+//        uploadresumeOutLet.layer.cornerRadius = 6.0
+//        uploadresumeOutLet.clipsToBounds = true
+  //      uploadViewheight.constant = 0
+       // uploadBtnOutLet.isHidden = true
+        //imageView.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -476,64 +481,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    //MARK: - collection view delegate and datasource methods
-  
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return docsUrlArray.count
-        
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DocsCollectionViewCell", for:
-            indexPath) as! DocsCollectionViewCell
-        
-        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx")  || (filename == ".txt") || (filename == ".rtf"){
-            
-            cell.docsImage.contentMode = .scaleAspectFit
-            cell.docsImage.image = #imageLiteral(resourceName: "docImg")
-            
-            
-        }
-       
-        
-        cell.closeBtn?.layer.setValue(indexPath.row, forKey: "index")
-        cell.closeBtn.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
-        
-        return cell
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx") || (filename == ".txt") || (filename == ".rtf"){
-            
-            print("Pdfs and docs")
-            
-            let embededUrlImage =  docUrl
-            
-            print(embededUrlImage)
-            
-            
-        let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
-        
-            self.navigationController?.pushViewController(docViewController, animated: true)
-            
-            }
-
-        
-        
-    }
    
 //MARK: - Table view delegate and datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -546,9 +500,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             return 1
         
+        }else if section == 2  {
+            
+            return 4
+            
         }
         
-        return 3
+        return 1
     }
     
     
@@ -567,12 +525,23 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         else
         {
             // Iphone
-            if indexPath.section == 1 {
-                return 60;
+            if indexPath.section == 0 {
+                return 45;
             
+            } else if indexPath.section == 1 {
+                return 60;
+                
+            } else if indexPath.section == 2 {
+                return 45;
+                
+            }
+            if isResumeUploaded == false {
+               
+               return 81;
+            }else{
+               return 150;
             }
             
-            return 45;
         }
     }
     
@@ -661,7 +630,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
             
-        else{
+        else if indexPath.section == 2 {
         
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
@@ -703,11 +672,134 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
         return signUPCell
         
+        }else {
+            
+            
+            if isResumeUploaded == false {
+                
+                let resumeUploadCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedResumeCell", for: indexPath) as! ExpandedResumeCell
+                resumeUploadCell.docCollactionView.register(UINib.init(nibName: "UploadCell", bundle: nil),forCellWithReuseIdentifier: "UploadCell")
+                resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
+                resumeUploadCell.docCollactionView.delegate = self
+                resumeUploadCell.docCollactionView.dataSource = self
+                resumeUploadCell.docCollactionView.reloadData()
+                //resumeUploadCell.docBackGroundView.isHidden = true
+                resumeUploadCell.docViewHeightConst.constant = 0
+                resumeUploadCell.uploadResumeBtn.addTarget(self, action: #selector(resumeUploadClicked(_:)), for: UIControlEvents.touchUpInside)
+                resumeUploadCell.applayBtn.addTarget(self, action: #selector(applyBtnClicked(_:)), for: UIControlEvents.touchUpInside)
+                
+                
+                return resumeUploadCell
+            }else{
+                let resumeUploadCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedResumeCell", for: indexPath) as! ExpandedResumeCell
+                
+               // resumeUploadCell.docBackGroundView.isHidden = false
+                resumeUploadCell.docCollactionView.register(UINib.init(nibName: "UploadCell", bundle: nil),forCellWithReuseIdentifier: "UploadCell")
+                resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
+                resumeUploadCell.docCollactionView.delegate = self
+                resumeUploadCell.docCollactionView.dataSource = self
+                resumeUploadCell.docCollactionView.reloadData()
+                
+                resumeUploadCell.docViewHeightConst.constant = 61
+                resumeUploadCell.uploadResumeBtn.addTarget(self, action: #selector(resumeUploadClicked(_:)), for: UIControlEvents.touchUpInside)
+                resumeUploadCell.applayBtn.addTarget(self, action: #selector(applyBtnClicked(_:)), for: UIControlEvents.touchUpInside)
+                
+
+                
+   
+                
+            }
+      
         }
   
             return UITableViewCell()
         }
+    //MARK: - collection view delegate and datasource methods
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        
+        if isResumeUploaded == true {
+            
+            
+            return docCountArray.count
+        }else{
+            
+            return 0
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        
+        
+            
+            let uploadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadCell", for:
+                indexPath) as! UploadCell
+            
+            //        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx")  || (filename == ".txt") || (filename == ".rtf"){
+            //
+            //
+            //
+            //        }
+            uploadCell.imageDoc.image = docCountArray[indexPath.row]
+          //  uploadCell.clearBtn.addTarget(self, action: #selector(clearBtnClicked(_:)), for: UIControlEvents.touchUpInside)
+              //     uploadCell.nameLbl.text = yearsArray[indexPath.row]
+            return uploadCell
+      
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx") || (filename == ".txt") || (filename == ".rtf"){
+            
+            print("Pdfs and docs")
+            
+            let embededUrlImage =  docUrl
+            
+            print(embededUrlImage)
+            
+            
+            let docViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocViewController") as! DocViewController
+            
+            self.navigationController?.pushViewController(docViewController, animated: true)
+            
+        }
+        
+        
+        
+    }
+//    func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
+//
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        return CGSize(width: 88, height: 50)
+        
+    }
+//    func  clearBtnClicked(_ sendre:UIButton) {
+//
+//
+//                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+//
+//                self.docCountArray.removeAll()
+//                self.docsUrlArray.removeAll()
+//
+//                })
+//
+//        jobApplyTableView.reloadData()
+//
+//        print("applyBtnClicked")
+//
+//    }
     //MARK: - back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -746,7 +838,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
    
-    
+
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
         
     {
@@ -943,26 +1035,86 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     
    //MARK: - upload Btn Action
     
-    @IBAction func uploadBtnAction(_ sender: Any) {
-        
-        
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
-            
+//    @IBAction func uploadBtnAction(_ sender: Any) {
+//
+//
+//        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+//
+//
+//      // self.uploadViewheight.constant = 0
+//       self.uploadView.isHidden = true
+//        self.uploadBtnOutLet.isHidden = true
+//        self.imageView.isHidden = true
+//
+//        self.docsUrlArray.removeAll()
+//
+//        })
+//
+//
+//
+//    }
     
-       self.uploadViewheight.constant = 0
-       self.uploadView.isHidden = true
-        self.uploadBtnOutLet.isHidden = true
-        self.imageView.isHidden = true
-         
-        self.docsUrlArray.removeAll()
-     
+    func  resumeUploadClicked(_ sendre:UIButton) {
+        
+        fileextension = false
+        
+      
+        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
+        
+        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
+            -> Void in
+            
+            self.documentPicker.delegate = self
+            self.present(self.documentPicker, animated: true, completion: {
+                
+                print("documentPicker presented")
+            })
+            
         })
         
         
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        menu.addAction(document)
+        menu.addAction(cancel)
         
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+            
+            present(menu, animated: true, completion: nil)
+        }
+            
+        else{
+            
+            let popup = UIPopoverController.init(contentViewController: menu)
+            
+            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            
+        }
+        
+        print("resumeUploadClicked")
+       
     }
     
-    
+    func  applyBtnClicked(_ sendre:UIButton) {
+        
+        jobApplyTableView.endEditing(true)
+        
+        if(appDelegate.checkInternetConnectivity()){
+            
+            if self.validateAllFields()
+            {
+                getjobApplicationAPICall()
+                
+            }
+        }
+        else {
+            
+            return
+            
+        }
+        
+        print("applyBtnClicked")
+        
+    }
   //MARK: - upload resume Action
     
     @IBAction func uploadresumeAction(_ sender: Any) {
@@ -1205,12 +1357,15 @@ func getjobApplicationAPICall(){
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         
+        
+        
+  
         self.docUrl = url as URL
         
   //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
         print("The Url is : \(docUrl)")
         
-        imageView.isHidden = false
+       // imageView.isHidden = false
         self.filename = docUrl.pathExtension
         
         
@@ -1222,14 +1377,30 @@ func getjobApplicationAPICall(){
         } catch {
             // handle exception
             print(" handle exception")
+            
+            isResumeUploaded = true
+            docCount = docCount + 1
+            if(docCountArray.count == 0){
+                docCountArray.append(UIImage(named:"audio_music")!)
+            }else if(docCountArray.count == 1){
+                docCountArray.append(UIImage(named:"bibleImgg")!)
+            }else{
+                docCountArray.append(UIImage(named:"audio_music")!)
+            }
+            print("docCountArray",docCountArray.count)
+            
+            jobApplyTableView.reloadData()
+            
+            
+            
         }
         
    
         
-        uploadViewheight.constant = 50
-        uploadView.isHidden = false
-        uploadBtnOutLet.isHidden = false
-        imageView.isHidden = false
+     //   uploadViewheight.constant = 50
+      //  uploadView.isHidden = false
+       // uploadBtnOutLet.isHidden = false
+       // imageView.isHidden = false
         
         print("The Url is : \(filename)")
         
@@ -1274,8 +1445,7 @@ func getjobApplicationAPICall(){
             
             
         }
-        
-        
+        jobApplyTableView.reloadData()
     }
     
     //MARK: - resize Image
@@ -1448,4 +1618,5 @@ extension NSData{
         }
     }
 }
+
 

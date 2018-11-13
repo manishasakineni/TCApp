@@ -403,6 +403,12 @@
 		CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */; };
 		CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */; };
 		CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */; };
+		CB7408FA219947BE00094EE2 /* ResumeUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7408F8219947BE00094EE2 /* ResumeUploadCell.swift */; };
+		CB7408FB219947BE00094EE2 /* ResumeUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7408F9219947BE00094EE2 /* ResumeUploadCell.xib */; };
+		CB7409002199776F00094EE2 /* ExpandedResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7408FE2199776F00094EE2 /* ExpandedResumeCell.swift */; };
+		CB7409012199776F00094EE2 /* ExpandedResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7408FF2199776F00094EE2 /* ExpandedResumeCell.xib */; };
+		CB7409052199838000094EE2 /* UploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7409032199838000094EE2 /* UploadCell.swift */; };
+		CB7409062199838000094EE2 /* UploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7409042199838000094EE2 /* UploadCell.xib */; };
 		CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834731202825980034AD4E /* EditProfileTableViewCell.swift */; };
 		CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834732202825980034AD4E /* EditProfileTableViewCell.xib */; };
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
@@ -835,6 +841,12 @@
 		CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventInfoByChurchIdMonthYearVo.swift; sourceTree = "<group>"; };
 		CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdVo.swift; sourceTree = "<group>"; };
 		CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdResultVo.swift; sourceTree = "<group>"; };
+		CB7408F8219947BE00094EE2 /* ResumeUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeUploadCell.swift; sourceTree = "<group>"; };
+		CB7408F9219947BE00094EE2 /* ResumeUploadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResumeUploadCell.xib; sourceTree = "<group>"; };
+		CB7408FE2199776F00094EE2 /* ExpandedResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedResumeCell.swift; sourceTree = "<group>"; };
+		CB7408FF2199776F00094EE2 /* ExpandedResumeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedResumeCell.xib; sourceTree = "<group>"; };
+		CB7409032199838000094EE2 /* UploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCell.swift; sourceTree = "<group>"; };
+		CB7409042199838000094EE2 /* UploadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadCell.xib; sourceTree = "<group>"; };
 		CB834731202825980034AD4E /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CB834732202825980034AD4E /* EditProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileTableViewCell.xib; sourceTree = "<group>"; };
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
@@ -1369,6 +1381,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CB7408F32199464B00094EE2 /* UploadResume */,
 				AF30B29D20DD24A800E93B26 /* ExampleCells */,
 				359CC92F206287140061450A /* BibleBooksCells */,
 				CB19E93320613C3E00007D9C /* YouTubeFunctionalCells */,
@@ -2269,6 +2282,43 @@
 			name = GetEventByDateAndUserId;
 			sourceTree = "<group>";
 		};
+		CB7408F32199464B00094EE2 /* UploadResume */ = {
+			isa = PBXGroup;
+			children = (
+				CB7408FD2199775100094EE2 /* ExpandedResumeCell */,
+				CB7408FC2199773A00094EE2 /* ResumeCell */,
+			);
+			name = UploadResume;
+			sourceTree = "<group>";
+		};
+		CB7408FC2199773A00094EE2 /* ResumeCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB7408F8219947BE00094EE2 /* ResumeUploadCell.swift */,
+				CB7408F9219947BE00094EE2 /* ResumeUploadCell.xib */,
+			);
+			name = ResumeCell;
+			sourceTree = "<group>";
+		};
+		CB7408FD2199775100094EE2 /* ExpandedResumeCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB7409022199835B00094EE2 /* UploadCollectionViewCell */,
+				CB7408FE2199776F00094EE2 /* ExpandedResumeCell.swift */,
+				CB7408FF2199776F00094EE2 /* ExpandedResumeCell.xib */,
+			);
+			name = ExpandedResumeCell;
+			sourceTree = "<group>";
+		};
+		CB7409022199835B00094EE2 /* UploadCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB7409032199838000094EE2 /* UploadCell.swift */,
+				CB7409042199838000094EE2 /* UploadCell.xib */,
+			);
+			name = UploadCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		CB8347302028257A0034AD4E /* EditProfileCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2441,6 +2491,7 @@
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
 				9A5D262F1FFF8A3700316988 /* AddMoneyCell.xib in Resources */,
 				AF4EF44E20AC16FA00F690F0 /* GetAllItemsTableViewCell.xib in Resources */,
+				CB7409012199776F00094EE2 /* ExpandedResumeCell.xib in Resources */,
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
 				CB19E92720613B9F00007D9C /* CommentsCell.xib in Resources */,
 				CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */,
@@ -2476,6 +2527,7 @@
 				3D5404F62058045A008257A6 /* AuthorInfoViewController.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
 				CB4B20FD2047D2F000402E59 /* CategorieCollectionViewCell.xib in Resources */,
+				CB7408FB219947BE00094EE2 /* ResumeUploadCell.xib in Resources */,
 				AF4EF46520AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib in Resources */,
 				AF0A392620D0F2D200265B7A /* jobApplymonthTableViewCell.xib in Resources */,
 				CB19E92B20613BAA00007D9C /* SubscribCell.xib in Resources */,
@@ -2497,6 +2549,7 @@
 				AF108A5420D396830098B70F /* notificationsTableViewCell.xib in Resources */,
 				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				AF141D7520A6D2FD00AE9FB8 /* AuthorVedioTableViewCell.xib in Resources */,
+				CB7409062199838000094EE2 /* UploadCell.xib in Resources */,
 				35847C9D2196E00A009D6FBD /* NotificationTableViewCell.xib in Resources */,
 				AF39FD0C20A9A76900712EF7 /* GetAllJobDetailsTableViewCell.xib in Resources */,
 				AF0B5E0020A3163E0039C7A4 /* authorDocumentsViewController.xib in Resources */,
@@ -2695,6 +2748,7 @@
 				AF141D6620A6A9CE00AE9FB8 /* AddUpdateJobListResultVO.swift in Sources */,
 				CB03C8DF203EFF54000B96A4 /* GetEventByUserIdMonthYearVo.swift in Sources */,
 				3D4A0FC9209C9F0800B7BDCD /* EventCommentVOO.swift in Sources */,
+				CB7409002199776F00094EE2 /* ExpandedResumeCell.swift in Sources */,
 				AFE9A065207F3899001CEE7A /* AddUpdateEventCommentsResultVO.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
@@ -2744,6 +2798,7 @@
 				CB2879A5205A4227005F3168 /* ImagesResultVo.swift in Sources */,
 				3579911A214B84400077309B /* UpdatedCartVo.swift in Sources */,
 				AF15246B20CBB5CC004AA420 /* splashmessageInfoVO.swift in Sources */,
+				CB7408FA219947BE00094EE2 /* ResumeUploadCell.swift in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */,
@@ -2757,6 +2812,7 @@
 				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
 				3D5852DC2072694F00994FC2 /* GetAllVideosVo.swift in Sources */,
 				AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */,
+				CB7409052199838000094EE2 /* UploadCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
 				3D41C7F32063771C0086BEE7 /* UsersCommentsTableViewCell.swift in Sources */,
 				AF0E1E1120C7B7CF0064EA0B /* EditAddressInfoVO.swift in Sources */,
