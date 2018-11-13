@@ -64,9 +64,9 @@ override func viewDidLoad() {
     yearFormatter.timeZone = NSTimeZone.local
     let yearString = yearFormatter.string(from: Date())
         
- //   GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
+
     
-self.resultSearchController = ({
+    self.resultSearchController = ({
     
     let controller = UISearchController(searchResultsController: nil)
     controller.searchResultsUpdater = self
@@ -272,10 +272,14 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
                     
 }
     else {
-                    
-    self.allEventTableView.isHidden = true
-                    
-    self.noRecordsLbl.isHidden = false
+        
+        if self.isSearch == false{
+            
+            self.allEventTableView.isHidden = true
+            
+            self.noRecordsLbl.isHidden = false
+        }
+    
         
        
                     
@@ -287,7 +291,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
    else {
                 
     self.allEventTableView.isHidden = true
-                
+        
     self.noRecordsLbl.isHidden = false
   
                 
@@ -520,9 +524,9 @@ else {
     }
 func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-   // if indexPath.row == churchIdMonthYearArray.count - 1 {
+    if indexPath.row == churchIdMonthYearArray.count - 1 {
             
-    if(self.totalPages! >= PageIndex){
+    if(self.totalPages! > PageIndex){
         
     PageIndex = PageIndex + 1
                 
@@ -537,14 +541,12 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     let yearString = yearFormatter.string(from: Date())
         
     GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString, searchBarText.text!)
-                
-                
-   //         }
+
         }
         
     }
     
-    
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

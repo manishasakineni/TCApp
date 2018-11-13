@@ -119,6 +119,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            lunchScreenView()
 //        }
         
+      isAppAlreadyLaunchedOnce()
+        
                return true
     }
 
@@ -414,8 +416,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print("MessageID : \(userInfo["gcd_message_ID"]!)")
 //        print(userInfo)
 //    }
+    
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return false
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return true
+        }
+    }
 
 }
+
+
+
 
 
 extension String {

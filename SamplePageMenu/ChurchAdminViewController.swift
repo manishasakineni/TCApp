@@ -520,11 +520,12 @@ func getAdminDetailsAPICall(string:String?){
             
             self.churchAdminTableView.isHidden = true
         }else{
-            self.searchLabel.isHidden = true
+            self.searchLabel.isHidden = false
             
             self.churchAdminTableView.isHidden = false
         }
-                    
+        
+        
        
         }
             

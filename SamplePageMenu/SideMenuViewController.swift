@@ -265,6 +265,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 print("Cancel")
             }
         }
+            
         else if cell.menuNameLabel.text == "ChangePassword".localize(){
         
         if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {

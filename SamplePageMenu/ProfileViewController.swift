@@ -921,18 +921,13 @@ else {
             "createdDate": "2018-03-05",
             "updatedByUserId": self.loginid,
             "updatedDate": "2018-03-05"
-            
-            
-            
-//            
-            
+ 
             ] as [String : Any]
         
         print(updateProfiledictParams)
         
         let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
+ 
         serviceController.postRequest(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
     DispatchQueue.main.async()

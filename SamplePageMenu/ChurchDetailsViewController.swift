@@ -756,57 +756,57 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
-        
-        if section == 1 {
-            
-            infoHeaderCell.subscribeBtn.isHidden = false
-            
-            if self.isSubscribed == 0{
-                
-                infoHeaderCell.subscribeBtn.setTitle("Subscribe".localize(),for: .normal)
-            }
-                
-            else{
-                
-                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
-                
-            }
-            
-            infoHeaderCell.subscribeBtn.addTarget(self, action: #selector(subscribeBtnClicked), for: .touchUpInside)
-        }
-        else {
-            
-            infoHeaderCell.subscribeBtn.isHidden = true
-        }
-        if section == 1 {
-            
-            infoHeaderCell.headerLabel.text = "Church Details".localize()
-            
-            
-        }else if section == 2 {
-            
-            infoHeaderCell.headerLabel.text = "Address".localize()
-            
-            
-        }
-        else if section == 3 {
-            
-            infoHeaderCell.headerLabel.text = "Church Author".localize()
-            
-            
-        }
-            
-        else if section == 4 {
-            
-            infoHeaderCell.headerLabel.text = "Map".localize()
-            
-        }
-        return infoHeaderCell
-    }
-    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+//
+//        if section == 1 {
+//
+//            infoHeaderCell.subscribeBtn.isHidden = false
+//
+//            if self.isSubscribed == 0{
+//
+//                infoHeaderCell.subscribeBtn.setTitle("Subscribe".localize(),for: .normal)
+//            }
+//
+//            else{
+//
+//                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
+//
+//            }
+//
+//            infoHeaderCell.subscribeBtn.addTarget(self, action: #selector(subscribeBtnClicked), for: .touchUpInside)
+//        }
+//        else {
+//
+//            infoHeaderCell.subscribeBtn.isHidden = true
+//        }
+//        if section == 1 {
+//
+//            infoHeaderCell.headerLabel.text = "Church Details".localize()
+//
+//
+//        }else if section == 2 {
+//
+//            infoHeaderCell.headerLabel.text = "Address".localize()
+//
+//
+//        }
+//        else if section == 3 {
+//
+//            infoHeaderCell.headerLabel.text = "Church Author".localize()
+//
+//
+//        }
+//
+//        else if section == 4 {
+//
+//            infoHeaderCell.headerLabel.text = "Map".localize()
+//
+//        }
+//        return infoHeaderCell
+//    }
+//
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -910,10 +910,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func subscribeBtnClicked(sender : UIButton){
         
-        
         if self.userId != 0 {
-            
-            
+  
             let paramsDict = [ "isSubscribed": isSubscribed,
                                "userId": self.userId,
                                "churchId": churchID,

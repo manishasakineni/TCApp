@@ -39,6 +39,20 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBOutlet weak var notificationBtn: UIBarButtonItem!
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var transpView: UIView!
+    
+    @IBOutlet weak var popupsView: UIView!
+    
+    @IBOutlet weak var toolPopupImgVW: UIImageView!
+    @IBOutlet weak var toolPopupLbl: UILabel!
+    
+    @IBOutlet weak var toolOk: UIButton!
+    
+    var morecategories = UIButton()
+    
+    
+    var okbtnTag = 0
+    
     //MARK: -  variable declaration
     
     
@@ -183,8 +197,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         categorieTableView.dataSource = self
         categorieTableView.delegate = self
-        
-        
         bannerScrollView.delegate = self
         
         sideMenu()
@@ -197,11 +209,34 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         pageController.numberOfPages = 0
         
         // self.navigationItem.rightBarButtonItem?.badgeValue = "5";
+
+        self.toolOk.addTarget(self, action: #selector(toolOkClicked(_:)), for: UIControlEvents.touchUpInside)
         
-      
+        popupsView.layer.cornerRadius =  toolPopupImgVW.frame.size.height/2
+        
+
+        if var isAppAlreadyLaunchedOnce : Bool = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            
+            if isAppAlreadyLaunchedOnce == true{
+                
+                
+                transpView.isHidden = false
+                defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
+                
+            }
+                
+            else{
+                
+                transpView.isHidden = true
+            }
+            
+        }
+        
+   
     }
     
-    //MARK: -   View WillAppear
+//MARK: -   View WillAppear
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -230,10 +265,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.getAllCategoriesAPICall()
         
         if #available(iOS 11.0, *) {
+            
             searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         }
-        
-        
+
+       toolPopupLbl.text = "Click here for menu"
     }
     
 //MARK: -   View WillDisappear
@@ -249,6 +285,56 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func toolOkClicked(_ sender : UIButton) {
+        
+        popupsView.isHidden = true
+
+        switch sender.tag {
+        case 0:
+            print("1 clicked ")
+            sender.tag = okbtnTag + 1
+            
+            popupsView.frame = CGRect(x: self.bannerScrollView.frame.maxX - 111, y: 70, width: 111, height: 96)
+            popupsView.isHidden = false
+            toolPopupLbl.text = "Click here for notifications"
+            
+            
+        case 1:
+            print("2 clikced")
+            sender.tag = sender.tag + 1
+            
+            popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
+            popupsView.isHidden = false
+            toolPopupLbl.text = "Click here"
+
+          
+        case 2:
+            print("3 clicked")
+            sender.tag = sender.tag + 1
+            
+            let indexPath = IndexPath(row: 1, section: 0)
+            
+            if let cell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
+                
+            
+                popupsView.frame = CGRect(x: self.categorieTableView.frame.maxX - 111, y: self.categorieTableView.frame.minY + 130 + cell.moreButton.frame.size.height + 20, width: 111, height: 96)
+                
+            }
+            
+            popupsView.isHidden = false
+            toolPopupLbl.text = "Click here more catagories"
+
+            
+            
+            
+        default:
+            print(okbtnTag)
+            transpView.isHidden = true
+        }
+        
+       // print("okclicked")
     }
     
     @objc func BackgroundTimerCall()
@@ -913,6 +999,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             
             cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+            
+            self.morecategories.frame = cell.moreButton.frame
             
             return cell
             

@@ -250,13 +250,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 jobIDViewController.churchId = (listStr.churchId == nil) ? 0 : listStr.churchId!
                 jobIDViewController.authorId = (listStr.authorId == nil) ? 0 : listStr.authorId!
-                jobIDViewController.eventId = (listStr.eventId == nil) ? 0 : listStr.eventId!
-                jobIDViewController.postId = (listStr.postId == nil) ? 0 : listStr.postId!
-                jobIDViewController.jobId = (listStr.jobId == nil) ? 0 : listStr.jobId!
-                
-                
+                jobIDViewController.eventId  = (listStr.eventId == nil) ? 0 : listStr.eventId!
+                jobIDViewController.postId   = (listStr.postId == nil) ? 0 : listStr.postId!
+                jobIDViewController.jobId    = (listStr.jobId == nil) ? 0 : listStr.jobId!
                 self.navigationController?.pushViewController(jobIDViewController, animated: true)
-                
                 
                 }
             }
