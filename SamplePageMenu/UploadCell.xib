@@ -18,22 +18,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-G0-Otu">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOT-L8-5Ly">
                         <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="docIcon" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-G0-Otu">
+                                <rect key="frame" x="2" y="2" width="65" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="aCi-0p-Tt5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-Op-T5r">
+                                <rect key="frame" x="67" y="2" width="19" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="d5i-jL-bMc"/>
+                                    <constraint firstAttribute="width" constant="19" id="flG-aq-vel"/>
+                                </constraints>
+                                <state key="normal" image="close-icon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LAf-Op-T5r" secondAttribute="trailing" constant="2" id="Dfe-cQ-l8T"/>
+                            <constraint firstAttribute="bottom" secondItem="a3J-G0-Otu" secondAttribute="bottom" constant="2" id="QYy-XE-F7a"/>
+                            <constraint firstItem="a3J-G0-Otu" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="WAe-lu-jXm"/>
+                            <constraint firstItem="a3J-G0-Otu" firstAttribute="leading" secondItem="KOT-L8-5Ly" secondAttribute="leading" constant="2" id="dNn-Md-ogp"/>
+                            <constraint firstItem="LAf-Op-T5r" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="hxR-se-wxm"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="a3J-G0-Otu" secondAttribute="trailing" id="1Wf-d0-d8Q"/>
-                <constraint firstItem="a3J-G0-Otu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FKc-EH-pbG"/>
-                <constraint firstAttribute="bottom" secondItem="a3J-G0-Otu" secondAttribute="bottom" id="b6k-uF-8D7"/>
-                <constraint firstItem="a3J-G0-Otu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hVl-cv-VwH"/>
+                <constraint firstItem="KOT-L8-5Ly" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Df-9v-McH"/>
+                <constraint firstItem="KOT-L8-5Ly" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6fl-Ye-dEr"/>
+                <constraint firstAttribute="bottom" secondItem="KOT-L8-5Ly" secondAttribute="bottom" id="tHS-py-c8S"/>
+                <constraint firstAttribute="trailing" secondItem="KOT-L8-5Ly" secondAttribute="trailing" id="uzL-AC-i0R"/>
             </constraints>
             <size key="customSize" width="88" height="50"/>
             <connections>
+                <outlet property="backGroundView" destination="KOT-L8-5Ly" id="QFB-FU-z5C"/>
+                <outlet property="clearBtn" destination="LAf-Op-T5r" id="A08-n8-VRV"/>
                 <outlet property="imageDoc" destination="a3J-G0-Otu" id="SBO-It-ZOZ"/>
             </connections>
             <point key="canvasLocation" x="52" y="79"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="close-icon" width="210" height="210"/>
+        <image name="docIcon" width="225" height="225"/>
+    </resources>
 </document>

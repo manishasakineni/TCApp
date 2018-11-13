@@ -58,7 +58,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
      var selectedImagesArray: Array<UIImage> = []
      var filename : String = ""
-     var docsUrlArray:Array<String> = []
+     var docsUrlArray:Array<String> = Array()
      var docUrl : URL = NSURL() as URL
      var image  = UIImage()
      var newImage = UIImage()
@@ -113,11 +113,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
      var monthArray : Array = ["0 Month","1 Month","2 Months","3 Months","4 Months","5 Months","6 Months","7 Months","8 Months","9 Months","10 Months","11 Months","12 Months"]
     
+    
   //MARK: - view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         jobApplyTableView.delegate = self
         jobApplyTableView.dataSource = self
         
@@ -504,9 +504,13 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             return 4
             
+        }else if section == 3  {
+            
+            return 1
+            
         }
         
-        return 1
+        return 0
     }
     
     
@@ -534,14 +538,16 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             } else if indexPath.section == 2 {
                 return 45;
                 
-            }
-            if isResumeUploaded == false {
-               
-               return 81;
+            }else if indexPath.section == 3 {
+                if docsUrlArray.count == 0 {
+                    
+                    return 81;
+                }else{
+                    return 150;
+                }
             }else{
-               return 150;
+                return 0;
             }
-            
         }
     }
     
@@ -551,17 +557,17 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if indexPath.section == 0 {
         
-            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
+            let jobApp = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
-        signUPCell.jobApplyTF.delegate = self
-         signUPCell.jobApplyTF.tag = indexPath.row
+        jobApp.jobApplyTF.delegate = self
+         jobApp.jobApplyTF.tag = indexPath.row
         
             
             if indexPath.row == 0{
                 
-            signUPCell.jobApplyTF.placeholder = "Job Title".localize()
-            signUPCell.jobApplyTF.text = jobtitle
-            signUPCell.jobApplyTF.isUserInteractionEnabled = false
+            jobApp.jobApplyTF.placeholder = "Job Title".localize()
+            jobApp.jobApplyTF.text = jobtitle
+            jobApp.jobApplyTF.isUserInteractionEnabled = false
                 if(self.isjobtitle == true){
                     self.readDataSource()
                 }
@@ -569,121 +575,122 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             else if indexPath.row == 1{
                 
-                signUPCell.jobApplyTF.placeholder = "First Name".localize()
-                signUPCell.jobApplyTF.text = firstname
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+                jobApp.jobApplyTF.placeholder = "First Name".localize()
+                jobApp.jobApplyTF.text = firstname
+                jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 2{
                 
-                signUPCell.jobApplyTF.placeholder = "Middle Name".localize()
-                signUPCell.jobApplyTF.text = middlename
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+                jobApp.jobApplyTF.placeholder = "Middle Name".localize()
+                jobApp.jobApplyTF.text = middlename
+                jobApp.jobApplyTF.isUserInteractionEnabled = true
                 
             }
             else if indexPath.row == 3{
                 
-            signUPCell.jobApplyTF.placeholder = "Last Name".localize()
-             signUPCell.jobApplyTF.text = lastname
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+            jobApp.jobApplyTF.placeholder = "Last Name".localize()
+             jobApp.jobApplyTF.text = lastname
+                jobApp.jobApplyTF.isUserInteractionEnabled = true
                 
             }
             else if indexPath.row == 4{
                 
-            signUPCell.jobApplyTF.placeholder = "Email".localize()
-              signUPCell.jobApplyTF.text = email
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+            jobApp.jobApplyTF.placeholder = "Email".localize()
+              jobApp.jobApplyTF.text = email
+                jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 5{
                 
-            signUPCell.jobApplyTF.placeholder = "Mobile Number".localize()
-              signUPCell.jobApplyTF.text = mobileNumber
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+            jobApp.jobApplyTF.placeholder = "Mobile Number".localize()
+              jobApp.jobApplyTF.text = mobileNumber
+                jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 6{
                 
-            signUPCell.jobApplyTF.placeholder = "Qualification".localize()
+            jobApp.jobApplyTF.placeholder = "Qualification".localize()
                 
-             signUPCell.jobApplyTF.text = qualification
-                signUPCell.jobApplyTF.isUserInteractionEnabled = true
+             jobApp.jobApplyTF.text = qualification
+             jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             
-         return signUPCell
+         return jobApp
         
         }
          else  if indexPath.section == 1 {
             
             
-            let signUPCell1 = jobApplyTableView.dequeueReusableCell(withIdentifier: "jobApplymonthTableViewCell", for: indexPath) as! jobApplymonthTableViewCell
-            signUPCell1.monthTF.isUserInteractionEnabled = true
-            signUPCell1.yearTF.isUserInteractionEnabled = true
+            let jobApplymonth = jobApplyTableView.dequeueReusableCell(withIdentifier: "jobApplymonthTableViewCell", for: indexPath) as! jobApplymonthTableViewCell
+            jobApplymonth.monthTF.isUserInteractionEnabled = true
+            jobApplymonth.yearTF.isUserInteractionEnabled = true
             
-            signUPCell1.monthTF.delegate = self
-            signUPCell1.yearTF.delegate = self
+            jobApplymonth.monthTF.delegate = self
+            jobApplymonth.yearTF.delegate = self
             
-            signUPCell1.yearTF.tag = 20
-            signUPCell1.monthTF.tag = 30
+            jobApplymonth.yearTF.tag = 20
+            jobApplymonth.monthTF.tag = 30
             
-            signUPCell1.monthTF.text = selectedMonths
-            signUPCell1.yearTF.text = selectedYears
+            jobApplymonth.monthTF.text = selectedMonths
+            jobApplymonth.yearTF.text = selectedYears
             
-        return signUPCell1
+        return jobApplymonth
             
         }
             
         else if indexPath.section == 2 {
         
-            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
+            let JobApply = tableView.dequeueReusableCell(withIdentifier: "JobApplyTableViewCell", for: indexPath) as! JobApplyTableViewCell
             
-            signUPCell.jobApplyTF.delegate = self
-            signUPCell.jobApplyTF.isUserInteractionEnabled = true
+            JobApply.jobApplyTF.delegate = self
+            JobApply.jobApplyTF.isUserInteractionEnabled = true
             
             if indexPath.row == 0{
             
-             signUPCell.jobApplyTF.tag = 8
+             JobApply.jobApplyTF.tag = 8
                     
-    signUPCell.jobApplyTF.placeholder = "Current Organization".localize()
-    signUPCell.jobApplyTF.text = currentorganization
+    JobApply.jobApplyTF.placeholder = "Current Organization".localize()
+    JobApply.jobApplyTF.text = currentorganization
                 
                     
-        signUPCell.jobApplyTF.maxLengthTextField = 30
+        JobApply.jobApplyTF.maxLengthTextField = 30
             
         }
        else if indexPath.row == 1{
                     
-          signUPCell.jobApplyTF.tag = 9
+          JobApply.jobApplyTF.tag = 9
             
-            signUPCell.jobApplyTF.placeholder = "Current Salary".localize()
+            JobApply.jobApplyTF.placeholder = "Current Salary".localize()
             
-            signUPCell.jobApplyTF.text = currentsalary
-                   signUPCell.jobApplyTF.maxLengthTextField = 7
+            JobApply.jobApplyTF.text = currentsalary
+                   JobApply.jobApplyTF.maxLengthTextField = 7
                     
                     }
                     
     else if indexPath.row == 2{
                     
-         signUPCell.jobApplyTF.tag = 10
-        signUPCell.jobApplyTF.placeholder = "Expected Salary".localize()
-        signUPCell.jobApplyTF.text = expectedsalary
-        signUPCell.jobApplyTF.isUserInteractionEnabled = true
+         JobApply.jobApplyTF.tag = 10
+        JobApply.jobApplyTF.placeholder = "Expected Salary".localize()
+        JobApply.jobApplyTF.text = expectedsalary
+        JobApply.jobApplyTF.isUserInteractionEnabled = true
                     
-        signUPCell.jobApplyTF.maxLengthTextField = 7
+        JobApply.jobApplyTF.maxLengthTextField = 7
                             
                     }
 
-        return signUPCell
+        return JobApply
         
-        }else {
+        }else if indexPath.section == 3 {
             
             
-            if isResumeUploaded == false {
+            if docsUrlArray.count == 0 {
                 
                 let resumeUploadCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedResumeCell", for: indexPath) as! ExpandedResumeCell
                 resumeUploadCell.docCollactionView.register(UINib.init(nibName: "UploadCell", bundle: nil),forCellWithReuseIdentifier: "UploadCell")
-                resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
                 resumeUploadCell.docCollactionView.delegate = self
                 resumeUploadCell.docCollactionView.dataSource = self
-                resumeUploadCell.docCollactionView.reloadData()
                 //resumeUploadCell.docBackGroundView.isHidden = true
+                  resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
+                resumeUploadCell.docCollactionView.reloadData()
+              
                 resumeUploadCell.docViewHeightConst.constant = 0
                 resumeUploadCell.uploadResumeBtn.addTarget(self, action: #selector(resumeUploadClicked(_:)), for: UIControlEvents.touchUpInside)
                 resumeUploadCell.applayBtn.addTarget(self, action: #selector(applyBtnClicked(_:)), for: UIControlEvents.touchUpInside)
@@ -695,24 +702,27 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                // resumeUploadCell.docBackGroundView.isHidden = false
                 resumeUploadCell.docCollactionView.register(UINib.init(nibName: "UploadCell", bundle: nil),forCellWithReuseIdentifier: "UploadCell")
-                resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
                 resumeUploadCell.docCollactionView.delegate = self
                 resumeUploadCell.docCollactionView.dataSource = self
+                 resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
                 resumeUploadCell.docCollactionView.reloadData()
-                
-                resumeUploadCell.docViewHeightConst.constant = 61
+               
+                 resumeUploadCell.docViewHeightConst.constant = 61
                 resumeUploadCell.uploadResumeBtn.addTarget(self, action: #selector(resumeUploadClicked(_:)), for: UIControlEvents.touchUpInside)
                 resumeUploadCell.applayBtn.addTarget(self, action: #selector(applyBtnClicked(_:)), for: UIControlEvents.touchUpInside)
                 
 
                 
    
-                
+                return resumeUploadCell
             }
       
+        }else{
+            
+            return UITableViewCell()
         }
   
-            return UITableViewCell()
+//            return UITableViewCell()
         }
     //MARK: - collection view delegate and datasource methods
     
@@ -721,8 +731,10 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if isResumeUploaded == true {
             
+           
+            return docsUrlArray.count
             
-            return docCountArray.count
+            
         }else{
             
             return 0
@@ -738,14 +750,14 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let uploadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadCell", for:
                 indexPath) as! UploadCell
-            
+            uploadCell.clearBtn.tag = indexPath.row
             //        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx")  || (filename == ".txt") || (filename == ".rtf"){
             //
             //
             //
             //        }
-            uploadCell.imageDoc.image = docCountArray[indexPath.row]
-          //  uploadCell.clearBtn.addTarget(self, action: #selector(clearBtnClicked(_:)), for: UIControlEvents.touchUpInside)
+            //uploadCell.imageDoc.image = docsUrlArray[indexPath.row]
+            uploadCell.clearBtn.addTarget(self, action: #selector(clearBtnClicked(_:)), for: UIControlEvents.touchUpInside)
               //     uploadCell.nameLbl.text = yearsArray[indexPath.row]
             return uploadCell
       
@@ -785,21 +797,27 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return CGSize(width: 88, height: 50)
         
     }
-//    func  clearBtnClicked(_ sendre:UIButton) {
-//
-//
-//                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
-//
-//                self.docCountArray.removeAll()
-//                self.docsUrlArray.removeAll()
-//
-//                })
-//
-//        jobApplyTableView.reloadData()
-//
-//        print("applyBtnClicked")
-//
-//    }
+    func  clearBtnClicked(_ sendre:UIButton) {
+        
+        let selectedDoc = sendre.tag
+
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+
+                    self.docsUrlArray.remove(at: selectedDoc)
+                    print("selectedDoc",selectedDoc)
+                    print("docsUrlArray",self.docsUrlArray)
+               
+                    
+                    
+                    self.jobApplyTableView.reloadData()
+                    
+                })
+
+        //jobApplyTableView.reloadData()
+
+        print("applyBtnClicked")
+
+    }
     //MARK: - back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
@@ -1058,38 +1076,53 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         
         fileextension = false
         
-      
-        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
         
-        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
-            -> Void in
-            
-            self.documentPicker.delegate = self
-            self.present(self.documentPicker, animated: true, completion: {
-                
-                print("documentPicker presented")
-            })
-            
-        })
+          let documentPicker = UIDocumentPickerViewController(documentTypes: ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: .import)
         
+     //   let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.text", "com.apple.iwork.pages.pages", "public.data"], in: .import)
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        menu.addAction(document)
-        menu.addAction(cancel)
+        documentPicker.delegate = self
+        present(documentPicker, animated: true, completion: nil)
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
-            
-            present(menu, animated: true, completion: nil)
-        }
-            
-        else{
-            
-            let popup = UIPopoverController.init(contentViewController: menu)
-            
-            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
-            
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//
+            self.jobApplyTableView.reloadData()
+//
+//        }
+     
         
+//
+//        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
+//
+//        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
+//            -> Void in
+//
+//            self.documentPicker.delegate = self
+//            self.present(self.documentPicker, animated: true, completion: {
+//
+//                print("documentPicker presented")
+//            })
+//
+//        })
+//
+//
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        menu.addAction(document)
+//        menu.addAction(cancel)
+//
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+//
+//            present(menu, animated: true, completion: nil)
+//        }
+//
+//        else{
+//
+//            let popup = UIPopoverController.init(contentViewController: menu)
+//
+//            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+//
+//        }
+//
         print("resumeUploadClicked")
        
     }
@@ -1190,9 +1223,8 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
 func getjobApplicationAPICall(){
     
     let paramsDict = [
-        
-        
-        "docString": "JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoNCjw8DQovVHlwZSAvQ2F0YWxvZw0KL091dGxpbmVzIDIgMCBSDQovUGFnZXMgMyAwIFINCj4+DQplbmRvYmoNCg0KMiAwIG9iag0KPDwNCi9UeXBlIC9PdXRsaW5lcw0KL0NvdW50IDANCj4+DQplbmRvYmoNCg0KMyAwIG9iag0KPDwNCi9UeXBlIC9QYWdlcw0KL0NvdW50IDINCi9LaWRzIFsgNCAwIFIgNiAwIFIgXSANCj4+DQplbmRvYmoNCg0KNCAwIG9iag0KPDwNCi9UeXBlIC9QYWdlDQovUGFyZW50IDMgMCBSDQovUmVzb3VyY2VzIDw8DQovRm9udCA8PA0KL0YxIDkgMCBSIA0KPj4NCi9Qcm9jU2V0IDggMCBSDQo+Pg0KL01lZGlhQm94IFswIDAgNjEyLjAwMDAgNzkyLjAwMDBdDQovQ29udGVudHMgNSAwIFINCj4+DQplbmRvYmoNCg0KNSAwIG9iag0KPDwgL0xlbmd0aCAxMDc0ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBBIFNpbXBsZSBQREYgRmlsZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIFRoaXMgaXMgYSBzbWFsbCBkZW1vbnN0cmF0aW9uIC5wZGYgZmlsZSAtICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjY0LjcwNDAgVGQNCigganVzdCBmb3IgdXNlIGluIHRoZSBWaXJ0dWFsIE1lY2hhbmljcyB0dXRvcmlhbHMuIE1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NTIuNzUyMCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDYyOC44NDgwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjE2Ljg5NjAgVGQNCiggdGV4dC4gQW5kIG1vcmUgdGV4dC4gQm9yaW5nLCB6enp6ei4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjA0Ljk0NDAgVGQNCiggbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDU5Mi45OTIwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNTY5LjA4ODAgVGQNCiggQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA1NTcuMTM2MCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBFdmVuIG1vcmUuIENvbnRpbnVlZCBvbiBwYWdlIDIgLi4uKSBUag0KRVQNCmVuZHN0cmVhbQ0KZW5kb2JqDQoNCjYgMCBvYmoNCjw8DQovVHlwZSAvUGFnZQ0KL1BhcmVudCAzIDAgUg0KL1Jlc291cmNlcyA8PA0KL0ZvbnQgPDwNCi9GMSA5IDAgUiANCj4+DQovUHJvY1NldCA4IDAgUg0KPj4NCi9NZWRpYUJveCBbMCAwIDYxMi4wMDAwIDc5Mi4wMDAwXQ0KL0NvbnRlbnRzIDcgMCBSDQo+Pg0KZW5kb2JqDQoNCjcgMCBvYmoNCjw8IC9MZW5ndGggNjc2ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBTaW1wbGUgUERGIEZpbGUgMiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIC4uLmNvbnRpbnVlZCBmcm9tIHBhZ2UgMS4gWWV0IG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NzYuNjU2MCBUZA0KKCBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY2NC43MDQwIFRkDQooIHRleHQuIE9oLCBob3cgYm9yaW5nIHR5cGluZyB0aGlzIHN0dWZmLiBCdXQgbm90IGFzIGJvcmluZyBhcyB3YXRjaGluZyApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY1Mi43NTIwIFRkDQooIHBhaW50IGRyeS4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NDAuODAwMCBUZA0KKCBCb3JpbmcuICBNb3JlLCBhIGxpdHRsZSBtb3JlIHRleHQuIFRoZSBlbmQsIGFuZCBqdXN0IGFzIHdlbGwuICkgVGoNCkVUDQplbmRzdHJlYW0NCmVuZG9iag0KDQo4IDAgb2JqDQpbL1BERiAvVGV4dF0NCmVuZG9iag0KDQo5IDAgb2JqDQo8PA0KL1R5cGUgL0ZvbnQNCi9TdWJ0eXBlIC9UeXBlMQ0KL05hbWUgL0YxDQovQmFzZUZvbnQgL0hlbHZldGljYQ0KL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcNCj4+DQplbmRvYmoNCg0KMTAgMCBvYmoNCjw8DQovQ3JlYXRvciAoUmF2ZSBcKGh0dHA6Ly93d3cubmV2cm9uYS5jb20vcmF2ZVwpKQ0KL1Byb2R1Y2VyIChOZXZyb25hIERlc2lnbnMpDQovQ3JlYXRpb25EYXRlIChEOjIwMDYwMzAxMDcyODI2KQ0KPj4NCmVuZG9iag0KDQp4cmVmDQowIDExDQowMDAwMDAwMDAwIDY1NTM1IGYNCjAwMDAwMDAwMTkgMDAwMDAgbg0KMDAwMDAwMDA5MyAwMDAwMCBuDQowMDAwMDAwMTQ3IDAwMDAwIG4NCjAwMDAwMDAyMjIgMDAwMDAgbg0KMDAwMDAwMDM5MCAwMDAwMCBuDQowMDAwMDAxNTIyIDAwMDAwIG4NCjAwMDAwMDE2OTAgMDAwMDAgbg0KMDAwMDAwMjQyMyAwMDAwMCBuDQowMDAwMDAyNDU2IDAwMDAwIG4NCjAwMDAwMDI1NzQgMDAwMDAgbg0KDQp0cmFpbGVyDQo8PA0KL1NpemUgMTENCi9Sb290IDEgMCBSDQovSW5mbyAxMCAwIFINCj4+DQoNCnN0YXJ0eHJlZg0KMjcxNA0KJSVFT0YNCg==",
+
+        "docString": self.docsUrlArray,
         "id": 0,
         "jobId": 2,
         "firstName": firstname,
@@ -1226,16 +1258,16 @@ func getjobApplicationAPICall(){
     
                 let respVO:JobApplyVO = Mapper().map(JSONObject: result)!
     
-                 let statusMsg = respVO.endUserMessage!
+                 let statusMsg = respVO.endUserMessage
                 let isSuccess = respVO.isSuccess
                 print("StatusCode:\(String(describing: isSuccess))")
     
     
                 if isSuccess == true {
     
-                    let listArr = respVO.listResult!
+                    let listArr = respVO.listResult
     
-                    self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:String( statusMsg), clickAction: {
+                    self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:statusMsg!, clickAction: {
                         
               
                     })
@@ -1247,7 +1279,10 @@ func getjobApplicationAPICall(){
     
                 else {
     
-    
+              
+                    
+                    
+                    self.jobApplyTableView.reloadData()
     
                 }
     
@@ -1354,57 +1389,56 @@ func getjobApplicationAPICall(){
     }
     
     //MARK: - documentPicker Delegate methods
-    
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         
+        docUrl = url as URL
+        print(docUrl)
+        print(url)
         
+        print(url.lastPathComponent)
         
-  
-        self.docUrl = url as URL
+        print(url.pathExtension)
         
-  //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
-        print("The Url is : \(docUrl)")
+                do {
+                    let data = try Data(contentsOf: self.docUrl)
+                    print("The data is : \(data)")
+                    //let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                    
+                    let base64String = data.base64EncodedString(options: .init(rawValue: 0))
+      
+                    
+         //   let newImage = ConvertBase64StringToImage(imageBase64String: base64String)
+              
+                   
+                    self.docsUrlArray.append("1")
+                     isResumeUploaded = true
+                   
+                    print("docCountArray",docsUrlArray.count)
+                    docCount = docCount + 1
+                    
+                    jobApplyTableView.reloadData()
+                   // if(docCount == 2){
+                    
+                    //}
+                } catch {
+                    // handle exception
+                    print(" handle exception")
         
-       // imageView.isHidden = false
-        self.filename = docUrl.pathExtension
+//                    isResumeUploaded = true
+                 
+//                    if(docCountArray.count == 0){
+//                        docCountArray.append(UIImage(named:"audio_music")!)
+//                    }else if(docCountArray.count == 1){
+//                        docCountArray.append(UIImage(named:"bibleImgg")!)
+//                    }else{
+//                        docCountArray.append(UIImage(named:"audio_music")!)
+//                    }
+//                    print("docCountArray",docCountArray.count)
         
-        
-        do {
-            let data = try Data(contentsOf: self.docUrl)
-            print("The data is : \(data)")
-            let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            self.docsUrlArray.append(base64String)
-        } catch {
-            // handle exception
-            print(" handle exception")
-            
-            isResumeUploaded = true
-            docCount = docCount + 1
-            if(docCountArray.count == 0){
-                docCountArray.append(UIImage(named:"audio_music")!)
-            }else if(docCountArray.count == 1){
-                docCountArray.append(UIImage(named:"bibleImgg")!)
-            }else{
-                docCountArray.append(UIImage(named:"audio_music")!)
-            }
-            print("docCountArray",docCountArray.count)
-            
-            jobApplyTableView.reloadData()
-            
-            
-            
-        }
-        
-   
-        
-     //   uploadViewheight.constant = 50
-      //  uploadView.isHidden = false
-       // uploadBtnOutLet.isHidden = false
-       // imageView.isHidden = false
-        
+                }
         print("The Url is : \(filename)")
         
-      // file:///private/var/mobile/Library/Mobile%20Documents/com~apple~Numbers/Documents/API%20Doubts%20_09-10-17.numbers
+        // file:///private/var/mobile/Library/Mobile%20Documents/com~apple~Numbers/Documents/API%20Doubts%20_09-10-17.numbers
         
         
         let fileManager = FileManager.default
@@ -1414,7 +1448,7 @@ func getjobApplicationAPICall(){
         do
         {
             
-        
+            
         }
         catch{
             
@@ -1447,7 +1481,165 @@ func getjobApplicationAPICall(){
         }
         jobApplyTableView.reloadData()
     }
-    
+    func getImageFromBase64(base64:String) -> UIImage {
+        let data = Data(base64Encoded: base64)
+        return UIImage(data: data!)!
+    }
+    func ConvertBase64StringToImage (imageBase64String:String) -> UIImage {
+        let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
+        let image = UIImage(data: imageData!)
+        return image!
+    }
+//    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+//
+//
+//
+//
+//        self.docUrl = url as URL
+//
+//  //      self.uploadLblOutLet.text = (self.docUrl.absoluteString.components(separatedBy: "/Documents/"))[1]
+//        print("The Url is : \(docUrl)")
+//
+//       // imageView.isHidden = false
+//        self.filename = docUrl.pathExtension
+//
+//
+//        do {
+//            let data = try Data(contentsOf: self.docUrl)
+//            print("The data is : \(data)")
+//            let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+//            self.docsUrlArray.append(base64String)
+//        } catch {
+//            // handle exception
+//            print(" handle exception")
+//
+//            isResumeUploaded = true
+//            docCount = docCount + 1
+//            if(docCountArray.count == 0){
+//                docCountArray.append(UIImage(named:"audio_music")!)
+//            }else if(docCountArray.count == 1){
+//                docCountArray.append(UIImage(named:"bibleImgg")!)
+//            }else{
+//                docCountArray.append(UIImage(named:"audio_music")!)
+//            }
+//            print("docCountArray",docCountArray.count)
+//
+//            jobApplyTableView.reloadData()
+//
+//
+//
+//        }
+//
+//
+//
+//     //   uploadViewheight.constant = 50
+//      //  uploadView.isHidden = false
+//       // uploadBtnOutLet.isHidden = false
+//       // imageView.isHidden = false
+//
+//        print("The Url is : \(filename)")
+//
+//      // file:///private/var/mobile/Library/Mobile%20Documents/com~apple~Numbers/Documents/API%20Doubts%20_09-10-17.numbers
+//
+//
+//        let fileManager = FileManager.default
+//        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+//        print(documentsUrl)
+//
+//        do
+//        {
+//
+//
+//        }
+//        catch{
+//
+//            print("Error: \(error)")
+//        }
+//
+//        let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last
+//        let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+//
+//
+//        if let iCloudDocumentsURL = iCloudDocumentsURL {
+//            var error:NSError?
+//            var isDir:ObjCBool = false
+//            if (FileManager.default.fileExists(atPath: iCloudDocumentsURL.path, isDirectory: &isDir)) {
+//
+//
+//                do {
+//
+//                    try FileManager.default.removeItem(at: iCloudDocumentsURL)
+//
+//                }
+//                catch {
+//
+//
+//                }
+//
+//            }
+//
+//
+//        }
+//        jobApplyTableView.reloadData()
+//    }
+    func uploadFiles(_ urlPath: [URL]){
+        
+        if let url = URL(string: "YourURL"){
+            var request = URLRequest(url: url)
+            let boundary:String = "Boundary-\(UUID().uuidString)"
+            
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            request.allHTTPHeaderFields = ["Content-Type": "multipart/form-data; boundary=----\(boundary)"]
+            
+            for path in urlPath{
+                do{
+                    var data2: Data = Data()
+                    var data: Data = Data()
+                    data2 = try NSData.init(contentsOf: URL.init(fileURLWithPath: path.absoluteString, isDirectory: true)) as Data
+                    /* Use this if you have to send a JSON too.
+                     let dic:[String:Any] = [
+                     "Key":Value,
+                     "Key":Value
+                     ]
+                     
+                     
+                     for (key,value) in dic{
+                     data.append("------\(boundary)\r\n")
+                     data.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                     data.append("\(value)\r\n")
+                     }
+                     */
+                    data.append("------\(boundary)\r\n")
+                    //Here you have to change the Content-Type
+                    data.append("Content-Disposition: form-data; name=\"file\"; filename=\"YourFileName\"\r\n")
+                    data.append("Content-Type: application/YourType\r\n\r\n")
+                    data.append(data2)
+                    data.append("\r\n")
+                    data.append("------\(boundary)--")
+                    
+                    request.httpBody = data
+                }catch let e{
+                    //Your errors
+                }
+                DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).sync {
+                    let session = URLSession.shared
+                    let task = session.dataTask(with: request, completionHandler: { (dataS, aResponse, error) in
+                        if let erros = error{
+                            //Your errors
+                        }else{
+                            do{
+                                let responseObj = try JSONSerialization.jsonObject(with: dataS!, options: JSONSerialization.ReadingOptions(rawValue:0)) as! [String:Any]
+                                
+                            }catch let e{
+                                
+                            }
+                        }
+                    }).resume()
+                }
+            }
+        }
+    }
     //MARK: - resize Image
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -1619,4 +1811,11 @@ extension NSData{
     }
 }
 
+extension Data{
+    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
+        if let data = string.data(using: encoding) {
+            append(data)
+        }
+    }
+}
 
