@@ -18,6 +18,8 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
     var notificationDescriptionArray = Array<String>()   /// Swift array
     
+    var notificationsArray = [getNotificationVO]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,6 +72,8 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                
                 if ((respVO.result?.notificationsList) != nil)  {
                     
+                    self.notificationsArray = (respVO.result?.notificationsList)!
+                    
                     for i in 0..<((respVO.result?.notificationsList)!)!.count {
                     
                         if let notificationdetails = respVO.result?.notificationsList![i] {
@@ -79,7 +83,8 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     self.notificationNamesArray.add(notificationdetails.name!)
                     self.notificationDescriptionArray.append(notificationdetails.desc!)
                     
-                            }
+                    
+                    }
  
                         
                     }
@@ -125,6 +130,92 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+      //  var cccc = respVO.result?.notificationsList[indexPath.row]
+        
+        let id = notificationsArray[indexPath.row].Id!
+        
+        let churchId = notificationsArray[indexPath.row].churchId ?? 0
+        
+        let authorId = notificationsArray[indexPath.row].authorId ?? 0
+        
+        let eventId = notificationsArray[indexPath.row].eventId ?? 0
+        
+        let postId = notificationsArray[indexPath.row].postId ?? 0
+        
+        let readNotificationApi = READNOTIFICATIONAPI
+        
+        let parameters = [ "roleIds": "",
+                           "userId": userId,
+                           "id": id ,
+                           "name": "",
+                           "desc": "",
+                           "htmlDesc": "",
+                           "eventId": 0,
+                           "postId": 0,
+                           "notificationTypeId": 0,
+                           "createdByUserId": 1,
+                           "createdDate": "2018-10-30T17:13:09.9372877+05:30",
+                           "updatedByUserId": 1,
+                           "updatedDate": "2018-10-30T17:13:09.952913+05:30",
+                           "serverUpdatedStatus": true ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: readNotificationApi as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            if churchId != 0{
+                
+                
+                if eventId != 0 {
+                    let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                    
+                    eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
+                    
+                    self.navigationController?.pushViewController(eventViewController, animated: true)
+                    
+                }
+                    
+                else if postId != 0 {
+                    
+                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    
+                    self.navigationController?.pushViewController(authorPostVC, animated: true)
+                }
+                
+            }
+                
+            else if authorId != 0{
+                
+                if eventId != 0 {
+                    
+                    let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+                    
+                    authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
+                    
+                    
+                    self.navigationController?.pushViewController(authorEventsVC, animated: true)
+                    
+                }
+                    
+                else if postId != 0 {
+                    
+                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    
+                    self.navigationController?.pushViewController(authorPostVC, animated: true)
+                    
+                }
+                
+            }
+            
+            
+            
+        }) { (failure) in
+            
+            
+        }
+        
         
         
     }

@@ -132,6 +132,8 @@ let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
 
 let GETNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
 
+let READNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/AddUpdateNotifications")
+
 
 // :-   05/06/2018
 

@@ -224,11 +224,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 transpView.isHidden = false
                 defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
                 
+                self.navigationController?.navigationBar.isUserInteractionEnabled = false
+                
             }
                 
             else{
                 
                 transpView.isHidden = true
+                
+                self.navigationController?.navigationBar.isUserInteractionEnabled = true
             }
             
         }
@@ -317,8 +321,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             let indexPath = IndexPath(row: 1, section: 0)
             
             if let cell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
-                
-            
+
                 popupsView.frame = CGRect(x: self.categorieTableView.frame.maxX - 111, y: self.categorieTableView.frame.minY + 130 + cell.moreButton.frame.size.height + 20, width: 111, height: 96)
                 
             }
@@ -332,6 +335,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         default:
             print(okbtnTag)
             transpView.isHidden = true
+            self.navigationController?.navigationBar.isUserInteractionEnabled = true
         }
         
        // print("okclicked")
