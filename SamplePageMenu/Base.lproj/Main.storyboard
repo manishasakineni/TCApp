@@ -1089,7 +1089,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXe-KL-RWy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="musimage" translatesAutoresizingMaskIntoConstraints="NO" id="Y9l-6T-6hO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audio1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9l-6T-6hO">
                                         <rect key="frame" x="20" y="20" width="335" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="beT-uf-LWQ"/>
@@ -3245,11 +3245,11 @@
     </scenes>
     <resources>
         <image name="Church-logo" width="240" height="233"/>
+        <image name="audio1" width="1400" height="1050"/>
         <image name="calvary_cross" width="400" height="400"/>
         <image name="down" width="35" height="35"/>
         <image name="icons8-arrows_long_left" width="25" height="25"/>
         <image name="icons8-visible" width="25" height="25"/>
-        <image name="musimage" width="1200" height="1200"/>
         <image name="nextImage" width="1024" height="1024"/>
         <image name="notification" width="20" height="20"/>
         <image name="noun_1168162_cc" width="30" height="30"/>

@@ -321,13 +321,13 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             }
     else {
         
-    cell.adminImageView.image = #imageLiteral(resourceName: "j4")
+    cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
         
     }
 }
     else {
         
-    cell.adminImageView.image = #imageLiteral(resourceName: "j4")
+    cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
     }
         
     return cell
@@ -408,14 +408,14 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                     
     }else {
                     
-   cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
+   cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
                     
         }
     }
                 
     else {
                 
-    cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
+    cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
             }
         }
         

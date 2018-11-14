@@ -106,13 +106,13 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             else {
                 
-                infoImage.image = #imageLiteral(resourceName: "j4")
+                infoImage.image = #imageLiteral(resourceName: "church11")
             }
             
         }
         else {
             
-            infoImage.image = #imageLiteral(resourceName: "j4")
+            infoImage.image = #imageLiteral(resourceName: "church11")
         }
         
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
@@ -564,12 +564,12 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
                 else {
                     
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "church11")
                 }
             }
             else {
                 
-                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                cell.collectionImgView.image = #imageLiteral(resourceName: "church11")
             }
             
         }
@@ -585,7 +585,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         else if (fileExtension == ".mp3") {
             
             cell.collectionImgView.contentMode = .scaleAspectFit
-            cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
+            cell.collectionImgView.image = #imageLiteral(resourceName: "audio3")
      
             
         }
@@ -728,12 +728,12 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
                 else {
                     
-                    imageView.image = #imageLiteral(resourceName: "j4")
+                    imageView.image = #imageLiteral(resourceName: "church11")
                 }
             }
             else {
                 
-              imageView.image = #imageLiteral(resourceName: "j4")
+              imageView.image = #imageLiteral(resourceName: "church11")
                 
             }
             

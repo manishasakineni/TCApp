@@ -149,7 +149,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                 print("whitespace found")
                 whiteSpaces = true
                 
-                cell.eventImage.image = #imageLiteral(resourceName: "churchLogoo")
+                cell.eventImage.image = #imageLiteral(resourceName: "church12")
             }
             else {
                 print("whitespace not found")
@@ -172,7 +172,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         }
         else {
             
-            cell.eventImage.image = #imageLiteral(resourceName: "churchLogoo")
+            cell.eventImage.image = #imageLiteral(resourceName: "church12")
         }
         return cell
         

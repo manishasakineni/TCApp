@@ -130,7 +130,9 @@ let GETCARTINFOAPI : String = BASEURL.appending("api/CartInfo/GetCartInfo/")
 
 let ADDTOCARTAPI : String = BASEURL.appending("api/CartInfo/AddToCart")
 
-let GETNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
+let GETUNREADNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/GetUnReadNotification")
+
+let GETREADNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/GetReadNotification")
 
 let READNOTIFICATIONAPI : String = BASEURL.appending("api/Notification/AddUpdateNotifications")
 

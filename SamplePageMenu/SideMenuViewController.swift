@@ -526,6 +526,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     else if cell.menuNameLabel.text == "LogOut".localize() {
             
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+    UserDefaults.standard.set(false, forKey: "isAppAlreadyLaunchedOnce")
             
     UserDefaults.standard.synchronize()
             

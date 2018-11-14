@@ -962,12 +962,12 @@ else {
                         
         else {
                         
-        let failMsg = respVO.endUserMessage
+            if let failMsg = respVO.endUserMessage{
                         
-            self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+            self.showAlertViewWithTitle("Alert", message: failMsg, buttonTitle: "Ok")
                         
             return
-                        
+            }
                     }
              }
             

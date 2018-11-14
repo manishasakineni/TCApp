@@ -35,7 +35,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
         }
         
-        getNotificationCount()
+        getUnReadNotificationsAPICall()
 
         // Do any additional setup after loading the view.
     }
@@ -45,12 +45,12 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     
-    func getNotificationCount() {
+    func getUnReadNotificationsAPICall() {
         
         self.notificationNamesArray.removeAllObjects()
         self.notificationDescriptionArray.removeAll()
         
-        let getNotificationAPI = GETNOTIFICATIONAPI
+        let getNotificationAPI = GETUNREADNOTIFICATIONAPI
         
         let parameters = [
             "sortDirection":"desc",
@@ -135,13 +135,13 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
         
         let id = notificationsArray[indexPath.row].Id!
         
-        let churchId = notificationsArray[indexPath.row].churchId ?? 0
+        let churchId  = notificationsArray[indexPath.row].churchId ?? 0
         
-        let authorId = notificationsArray[indexPath.row].authorId ?? 0
+        let authorId  = notificationsArray[indexPath.row].authorId ?? 0
         
-        let eventId = notificationsArray[indexPath.row].eventId ?? 0
+        let eventId   = notificationsArray[indexPath.row].eventId ?? 0
         
-        let postId = notificationsArray[indexPath.row].postId ?? 0
+        let postId    = notificationsArray[indexPath.row].postId ?? 0
         
         let readNotificationApi = READNOTIFICATIONAPI
         
@@ -162,13 +162,12 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
-        
         serviceController.postRequest(strURL: readNotificationApi as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             if churchId != 0{
                 
-                
                 if eventId != 0 {
+                    
                     let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                     
                     eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!

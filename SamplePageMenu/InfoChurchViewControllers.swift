@@ -390,11 +390,11 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
     if(churchImageLogoArray.count >= indexPath.section){
     if let url = URL(string:churchImageLogoString) {
-    cell.churchImage.sd_setImage(with:url , placeholderImage:  #imageLiteral(resourceName: "j4"))
+    cell.churchImage.sd_setImage(with:url , placeholderImage:  #imageLiteral(resourceName: "church16"))
         
         }else{
                         
-        cell.churchImage.image =  #imageLiteral(resourceName: "j4")
+        cell.churchImage.image =  #imageLiteral(resourceName: "church16")
                         
             }
         }

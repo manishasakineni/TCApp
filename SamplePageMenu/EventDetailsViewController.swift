@@ -769,18 +769,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                     }
                     else {
                         
-                        headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+                        headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "eventsdetails")
                     }
                     
                 }
                 else {
                     
-                    headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+                    headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "eventsdetails")
                 }
             }
             else {
                 
-                headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "j4")
+                headImgTableViewCell.churchImage.image = #imageLiteral(resourceName: "eventsdetails")
             }
             
         headImgTableViewCell.churchNameLabel.isHidden = true
@@ -2000,7 +2000,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         cell.nameLabel.text = title
     
-        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+        cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
@@ -2020,12 +2020,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 }
                 else {
                     
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
                 }
             }
             else {
                 
-                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
             }
             
         }
@@ -2072,7 +2072,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         else if (fileExtension == ".mp3") {
             
             cell.collectionImgView.contentMode = .scaleAspectFit
-            cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
+            cell.collectionImgView.image = #imageLiteral(resourceName: "audio3")
             
           
             
@@ -2165,12 +2165,12 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 }
                 else {
                     
-                    imageView.image = #imageLiteral(resourceName: "j4")
+                    imageView.image = #imageLiteral(resourceName: "eventsdetails")
                 }
             }
             else {
                 
-                imageView.image = #imageLiteral(resourceName: "j4")
+                imageView.image = #imageLiteral(resourceName: "eventsdetails")
                 
             }
             

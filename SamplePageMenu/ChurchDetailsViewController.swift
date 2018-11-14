@@ -674,12 +674,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 }
                 else {
                     
-                    cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                    cell.churchImage.image = #imageLiteral(resourceName: "church13")
                 }
             }
             else {
                 
-                cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                cell.churchImage.image = #imageLiteral(resourceName: "church13")
             }
             
 
@@ -726,19 +726,19 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                     
                     cell.churchImage.image = UIImage(data: dataImg!)
                 }else{
-                     cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                     cell.churchImage.image = #imageLiteral(resourceName: "church13")
                 }
             
            
             }
             else {
                 
-                cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                cell.churchImage.image = #imageLiteral(resourceName: "church13")
             }
         }
         else {
             
-            cell.churchImage.image = #imageLiteral(resourceName: "j4")
+            cell.churchImage.image = #imageLiteral(resourceName: "church13")
         }
                 
 //                cell.SubscribeBtn.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)

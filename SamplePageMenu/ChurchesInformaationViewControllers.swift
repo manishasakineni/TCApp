@@ -83,12 +83,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         authorPostsVC?.isFromChruch = isFromChruch
         authorPostsVC?.churchID = churchID
         
-        
          controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
          controllersArray.append(authorPostsVC!)
-
-        
+ 
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)),

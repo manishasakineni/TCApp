@@ -144,6 +144,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
      var paramsDict: [String: Any] = [:]
     
+    var isAppAlreadyLaunchedOnce = Bool()
+    var defaults = UserDefaults.standard
+    
     //MARK: -   View DidLoad
     
     override func viewDidLoad() {
@@ -185,7 +188,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
   
         print(kLoginSucessStatus)
         
-        let defaults = UserDefaults.standard
+        
         
         if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
             print(loginSucess)
@@ -214,28 +217,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         popupsView.layer.cornerRadius =  toolPopupImgVW.frame.size.height/2
         
-
-        if var isAppAlreadyLaunchedOnce : Bool = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
-            print("App already launched : \(isAppAlreadyLaunchedOnce)")
-            
-            if isAppAlreadyLaunchedOnce == true{
-                
-                
-                transpView.isHidden = false
-                defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
-                
-                self.navigationController?.navigationBar.isUserInteractionEnabled = false
-                
-            }
-                
-            else{
-                
-                transpView.isHidden = true
-                
-                self.navigationController?.navigationBar.isUserInteractionEnabled = true
-            }
-            
-        }
+        
+      //  }
         
    
     }
@@ -274,6 +257,33 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
 
        toolPopupLbl.text = "Click here for menu"
+        
+        if let isAppAlreadLaunchedOnce = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
+   
+        print("App already launched : \(isAppAlreadyLaunchedOnce)")
+        
+        if isAppAlreadLaunchedOnce == true {
+
+            transpView.isHidden = false
+            defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
+            
+            defaults.synchronize()
+           
+            self.navigationController?.navigationBar.isUserInteractionEnabled = false
+   
+            
+        }
+            
+        else{
+            
+            transpView.isHidden = true
+
+            self.navigationController?.navigationBar.isUserInteractionEnabled = true
+            
+            
+        }
+
+        }
     }
     
 //MARK: -   View WillDisappear
@@ -761,7 +771,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func getNotificationCount() {
         
-        let getNotificationAPI = GETNOTIFICATIONAPI
+        let getNotificationAPI = GETUNREADNOTIFICATIONAPI
         
         let parameters = [
             "sortDirection":"desc",
@@ -860,7 +870,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
     }
     
-    //MARK: -   Side Menu Method
+//MARK: -   Side Menu Method
     
     
     func sideMenu(){
@@ -1154,30 +1164,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBAction func notificationBtnAction(_ sender: UIButton) {
         
+        if self.userId != 0 {
+   
         if sender.tag == 0 {
 
         
-        if(self.count > 0) {
+    //    if(self.count > 0) {
             
             
             let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
-            
-            
+          
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
-            
-        }else{
-            
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
-                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-                
-                self.loginVC.showNav = true
-                self.loginVC.navigationString = "homeString"
-                
-                self.navigationController?.pushViewController(self.loginVC, animated: true)
-                
-            })
-        }
+         //   }
     }
         else{
             
@@ -1190,7 +1188,23 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
     }
-    
+        
+        else{
+            
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                
+                self.loginVC.showNav = true
+                self.loginVC.navigationString = "homeString"
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+            })
+
+            
+        }
+    }
     
     
     
@@ -1245,9 +1259,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             print(eventImageArray.count)
             if let url = URL(string:eventImageString) {
-                cell.autoScrollImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                cell.autoScrollImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "upcomingevents4"))
             }else{
-                cell.autoScrollImage.image = #imageLiteral(resourceName: "j4")
+                cell.autoScrollImage.image = #imageLiteral(resourceName: "upcomingevents4.jpg")
             }
             
             

@@ -420,12 +420,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
     else {
                         
-    listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
+    listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "church12")
         }
     }
  else {
                     
-   listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
+   listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "church12")
                 }
             
         }
@@ -491,8 +491,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         if range != nil {
             print("whitespace found")
             //whiteSpaces = true
-            listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
- 
+            listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "church12")
      }
             
     else{
@@ -511,7 +510,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
 else {
                         
-    listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "Church-logo")
+    listOfMonthEventCell.eventImage.image = #imageLiteral(resourceName: "church12")
         }
         
     }

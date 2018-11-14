@@ -1819,7 +1819,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         self.isLike = (respVO.result?.postDetails![0].isLike)!
                         self.isDisLike = (respVO.result?.postDetails![0].isDisLike)!
                         
-                        self.viewCount = (respVO.result?.postDetails![0].viewCount)!
+                        
+                        self.viewCount = (respVO.result?.postDetails![0].viewCount) == nil ? 0 : (respVO.result?.postDetails![0].viewCount)!
                        
          
                         if self.isLike == 0{

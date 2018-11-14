@@ -220,24 +220,24 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
                 
                 
-               var  churchImageLogoString = authorDetails.userImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
+                var  churchImageLogoString = authorDetails.userImage == nil ? "authordetails.jpg" : authorDetails.userImage
                 
-                 churchImageLogoString = churchImageLogoString.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                churchImageLogoString = churchImageLogoString?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
          
                 if(authorDetailsArray.count >= indexPath.section){
                     
                     cell.churchNameLabel.text = authorDetails.authorName
                     
-                    if let url = URL(string:churchImageLogoString) {
+                    if let url = URL(string:churchImageLogoString!) {
                         
                         
-                cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "authordetails"))
                         
                         
                       }
                     else {
                         
-                    cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+                    cell.churchImage.image = #imageLiteral(resourceName: "authordetails")
                         }
                                     
                     

@@ -73,13 +73,13 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             }
             else {
                 
-                HeadImageTitle.image = #imageLiteral(resourceName: "j4")
+                HeadImageTitle.image = #imageLiteral(resourceName: "eventsdetails")
             }
             
         }
         else {
             
-            HeadImageTitle.image = #imageLiteral(resourceName: "j4")
+            HeadImageTitle.image = #imageLiteral(resourceName: "eventsdetails")
         }
 
         getVideosAPICall()
@@ -357,7 +357,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         let mediatypeID =  (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaTypeId
         
         cell.nameLabel.text = title
-        cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+        cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
@@ -377,12 +377,12 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                 }
                 else {
                     
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
                 }
             }
             else {
                 
-                cell.collectionImgView.image = #imageLiteral(resourceName: "j4")
+                cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
             }
             
         }
@@ -427,7 +427,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         else if (fileExtension == ".mp3") {
             
             cell.collectionImgView.contentMode = .scaleAspectFit
-            cell.collectionImgView.image = #imageLiteral(resourceName: "audio_music")
+            cell.collectionImgView.image = #imageLiteral(resourceName: "audio3")
             
             
             
@@ -515,12 +515,12 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                 }
                 else {
                     
-                    imageView.image = #imageLiteral(resourceName: "j4")
+                    imageView.image = #imageLiteral(resourceName: "eventsdetails")
                 }
             }
             else {
                 
-                imageView.image = #imageLiteral(resourceName: "j4")
+                imageView.image = #imageLiteral(resourceName: "eventsdetails")
                 
             }
             

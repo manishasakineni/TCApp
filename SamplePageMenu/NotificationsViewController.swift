@@ -71,7 +71,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     private func createPageMenu() {
         
         viewNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewNotificationViewController") as? ViewNotificationViewController
-        viewNotificationVC?.title = "View".localize()
+        viewNotificationVC?.title = "New".localize()
         
         
         

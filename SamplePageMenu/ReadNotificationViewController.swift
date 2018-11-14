@@ -50,7 +50,7 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
         self.notificationNamesArray.removeAllObjects()
         self.notificationDescriptionArray.removeAll()
         
-        let getNotificationAPI = GETNOTIFICATIONAPI
+        let getNotificationAPI = GETREADNOTIFICATIONAPI
         
         let parameters = [
             "sortDirection":"desc",
