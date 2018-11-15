@@ -85,12 +85,12 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
       self.getAuthorDetailsAPICall()
     }
     
-//MARK: -    Get Author Details API Call
+//MARK: -   Get Author Details API Call
 
     func getAuthorDetailsAPICall(){
         
         
-        let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(kId)
+        let authorDetailsAPI = AUTHORDETAILS + String(authorID) + "/" + String(userId)
         
         serviceController.getRequest(strURL: authorDetailsAPI, success: { (result) in
             

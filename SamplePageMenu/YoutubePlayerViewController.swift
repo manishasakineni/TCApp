@@ -1745,7 +1745,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         self.usersCommentsArray.removeAll()
         self.loginUseridsArray.removeAll()
         
-    //    self.allOffersTableView.isScrollEnabled = true
+     //    self.allOffersTableView.isScrollEnabled = true
      //   self.repliesTableView.isScrollEnabled = true
         
         let urlStr = LIKEDISLIKECOMMENTSAPI + "" + String(self.videoId) + "/" + String(self.ID)

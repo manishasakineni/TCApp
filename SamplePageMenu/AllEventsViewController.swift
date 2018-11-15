@@ -554,12 +554,12 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
         
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
-        eventDetailsViewController.eventID = listStr.id!
-        eventDetailsViewController.eventChurchName = listStr.churchName!
-        eventDetailsViewController.eventName = listStr.title!
+        eventDetailsViewController.eventID = listStr.id == nil ? 0 :  listStr.id!
+        eventDetailsViewController.eventChurchName = listStr.churchName == nil ? "" :  listStr.churchName!
+        eventDetailsViewController.eventName = listStr.title == nil ? "" :  listStr.title!
         
         
-        eventDetailsViewController.catgoryID = listStr.churchId!
+        eventDetailsViewController.catgoryID = listStr.churchId == nil ? 0 :  listStr.churchId!
         eventDetailsViewController.navigationStr = "navigationStr"
         
         
@@ -598,10 +598,7 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     self.allEventTableView.reloadData()
         
     }
-    
-    
-    
-    
+  
 //    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 //        
 //      //  resignFirstResponder()

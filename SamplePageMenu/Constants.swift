@@ -214,7 +214,7 @@ var kId =  Int ()
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"
 let kToastDuration  = 1.5
-let kRequestTimedOutMessage = "Therequest Timed Out"
+let kRequestTimedOutMessage = "The request Timed Out"
 
 var kUserDefaults = UserDefaults.standard
 
