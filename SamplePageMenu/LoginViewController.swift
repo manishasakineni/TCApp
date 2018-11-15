@@ -95,6 +95,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = false
         
            Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        eyeBtnOutlet.isHidden = true
     }
     
     //MARK: -  View Will Disappear
@@ -126,6 +128,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
+        
+        if textField == passwordTF{
+            
+            eyeBtnOutlet.isHidden = false
+            
+        }
+
         
         return true
     }
@@ -434,11 +443,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         {
             passwordTF.isSecureTextEntry = false
             eyeBtnOutlet.tag = 1
+            eyeBtnOutlet.setImage(#imageLiteral(resourceName: "eyeopen"), for: .normal)
         }
         else{
             
             passwordTF.isSecureTextEntry = true
             eyeBtnOutlet.tag = 0
+            eyeBtnOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
             
             
         }

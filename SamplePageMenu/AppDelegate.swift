@@ -15,9 +15,11 @@ import IQKeyboardManagerSwift
 //import FBSDKLoginKit
 import SystemConfiguration
 import Localize
-import Firebase
-import FirebaseMessaging
+//import Firebase
+//import FirebaseMessaging
 import UserNotifications
+import Fabric
+import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -34,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         isFirstTime = true
         IQKeyboardManager.sharedManager().enable = true
-        FirebaseApp.configure()
+       // FirebaseApp.configure()
+        
         
          getsplashmsgAPICall()
   
@@ -44,47 +47,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        application.registerForRemoteNotifications()
 //        application.registerUserNotificationSettings(notificationsettings)
         
-        if #available(iOS 10, *) {
-            
-            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
-            
-            
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-                
-                guard error == nil else {
-                    //Display Error.. Handle Error.. etc..
-                    return
-                }
-                
-                if granted {
-                    //Do stuff here..
-                    // For iOS 10 display notification (sent via APNS)
-                    UNUserNotificationCenter.current().delegate = self
-                    //FIRMessaging.messaging().remoteMessageDelegate = self
-                    
-                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
-                    DispatchQueue.main.async{
-                        application.registerForRemoteNotifications()
-                    }
-                    
-                }
-                else {
-                    //Handle user denying permissions..
-                }
-            }
-            
-            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
-        }
-        else {
-            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        }
-        
-        
-        printFCMToken()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
-                                               name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
+//        if #available(iOS 10, *) {
+//
+//            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
+//
+//
+//            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+//
+//                guard error == nil else {
+//                    //Display Error.. Handle Error.. etc..
+//                    return
+//                }
+//
+//                if granted {
+//                    //Do stuff here..
+//                    // For iOS 10 display notification (sent via APNS)
+//                    UNUserNotificationCenter.current().delegate = self
+//                    //FIRMessaging.messaging().remoteMessageDelegate = self
+//
+//                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
+//                    DispatchQueue.main.async{
+//                        application.registerForRemoteNotifications()
+//                    }
+//
+//                }
+//                else {
+//                    //Handle user denying permissions..
+//                }
+//            }
+//
+//            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
+//        }
+//        else {
+//            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//            application.registerUserNotificationSettings(settings)
+//            application.registerForRemoteNotifications()
+//        }
+//
+//
+//        printFCMToken()
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
+//                                               name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
         
         let localize = Localize.shared
         localize.update(provider: .json)
@@ -121,6 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       isAppAlreadyLaunchedOnce()
         
+        Fabric.with([Crashlytics.self])
+        
                return true
     }
 
@@ -152,7 +157,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        Messaging.messaging().apnsToken = deviceToken
+      //  Messaging.messaging().apnsToken = deviceToken
         
            }
     
@@ -162,50 +167,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func printFCMToken() {
-        if let token = InstanceID.instanceID().token() {
-            
-            print("Your FCM token is \(token)")
-            
-            kUserDefaults.setValue(token, forKey: "DeviceID")
-            kUserDefaults.synchronize()
-        } else {
-            print("You don't yet have an FCM token.")
-        }
-    }
-    
-    func tokenRefreshNotificaiton(_ notification: Foundation.Notification)
-    {
-        // Refreshing FCM token
-        
-        if let refreshedToken = InstanceID.instanceID().token()
-        {
-            UserDefaults.standard.setValue(refreshedToken, forKey: "DeviceID")
-            UserDefaults.standard.synchronize()
-            debugPrint("InstanceID token: \(refreshedToken)")
-        }
-        connectToFcm()
-    }
-    func connectToFcm()
-    {
-        // Won't connect since there is no token
-        guard InstanceID.instanceID().token() != nil else
-        {
-            return;
-        }
-        // Disconnect previous FCM connection if it exists.
-        Messaging.messaging().disconnect()
-        Messaging.messaging().connect { (error) in
-            if (error != nil)
-            {
-                debugPrint("Unable to connect with FCM. \(String(describing: error))")
-            }
-            else
-            {
-                debugPrint("Connected to FCM.")
-            }
-        }
-    }
+//    func printFCMToken() {
+//        if let token = InstanceID.instanceID().token() {
+//
+//            print("Your FCM token is \(token)")
+//
+//            kUserDefaults.setValue(token, forKey: "DeviceID")
+//            kUserDefaults.synchronize()
+//        } else {
+//            print("You don't yet have an FCM token.")
+//        }
+//    }
+//
+//    func tokenRefreshNotificaiton(_ notification: Foundation.Notification)
+//    {
+//        // Refreshing FCM token
+//
+//        if let refreshedToken = InstanceID.instanceID().token()
+//        {
+//            UserDefaults.standard.setValue(refreshedToken, forKey: "DeviceID")
+//            UserDefaults.standard.synchronize()
+//            debugPrint("InstanceID token: \(refreshedToken)")
+//        }
+//        connectToFcm()
+//    }
+//    func connectToFcm()
+//    {
+//        // Won't connect since there is no token
+//        guard InstanceID.instanceID().token() != nil else
+//        {
+//            return;
+//        }
+//        // Disconnect previous FCM connection if it exists.
+//        Messaging.messaging().disconnect()
+//        Messaging.messaging().connect { (error) in
+//            if (error != nil)
+//            {
+//                debugPrint("Unable to connect with FCM. \(String(describing: error))")
+//            }
+//            else
+//            {
+//                debugPrint("Connected to FCM.")
+//            }
+//        }
+//    }
     
     
     

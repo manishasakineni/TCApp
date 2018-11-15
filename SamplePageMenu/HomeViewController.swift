@@ -730,7 +730,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             getNotificationCount()
             
         }else{
-            self.navigationItem.rightBarButtonItem?.badgeValue = ""
+            self.navigationItem.rightBarButtonItem?.badgeValue = "0"
         }
         
     }
@@ -757,7 +757,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                 // self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
                
-                self.cartbtn.badgeValue = "\(self.count)"
+                self.cartbtn.badgeValue = "\(self.count)" == "" ? "0" : "\(self.count)"
               
                 
             }
@@ -793,7 +793,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let unreadNotificationCount = respVO.result?.unreadCount
                 
-                self.notificationBtn.badgeValue = "\(String(describing: unreadNotificationCount!))"
+                self.notificationBtn.badgeValue = "\(String(describing: unreadNotificationCount!))" == "" ? "0" : "\(String(describing: unreadNotificationCount!))"
             }
             
         }) { (failure) in

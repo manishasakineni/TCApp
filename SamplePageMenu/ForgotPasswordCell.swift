@@ -24,8 +24,16 @@ class ForgotPasswordCell: UITableViewCell {
         // Initialization code
         
         
-        
+       eyeButtonOutlet.isHidden = true
 
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        eyeButtonOutlet.isHidden = false
+        
+        return true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

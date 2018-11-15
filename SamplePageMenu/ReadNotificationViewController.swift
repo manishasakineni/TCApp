@@ -223,9 +223,7 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 self.navigationController?.pushViewController(authorEventsVC, animated: true)
                 
                 }
-                
-                
-                
+   
                else if postId != 0 {
                 
 //                let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)

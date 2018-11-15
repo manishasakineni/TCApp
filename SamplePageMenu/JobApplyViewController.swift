@@ -502,7 +502,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         }else if section == 2  {
             
-            return 4
+            return 3
             
         }else if section == 3  {
             
@@ -1410,7 +1410,7 @@ func getjobApplicationAPICall(){
          //   let newImage = ConvertBase64StringToImage(imageBase64String: base64String)
               
                    
-                    self.docsUrlArray.append("1")
+                    self.docsUrlArray.append(base64String)
                      isResumeUploaded = true
                    
                     print("docCountArray",docsUrlArray.count)

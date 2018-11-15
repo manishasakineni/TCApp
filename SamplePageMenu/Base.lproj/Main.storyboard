@@ -196,7 +196,7 @@
                                     <constraint firstAttribute="width" constant="20" id="mXk-O8-AiV"/>
                                 </constraints>
                                 <color key="tintColor" red="0.40784313725490196" green="0.68235294117647061" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="icons8-visible"/>
+                                <state key="normal" image="eyeclosed"/>
                                 <connections>
                                     <action selector="eyeBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiX-cT-ezH"/>
                                 </connections>
@@ -3248,8 +3248,8 @@
         <image name="audio1" width="1400" height="1050"/>
         <image name="calvary_cross" width="400" height="400"/>
         <image name="down" width="35" height="35"/>
+        <image name="eyeclosed" width="128" height="128"/>
         <image name="icons8-arrows_long_left" width="25" height="25"/>
-        <image name="icons8-visible" width="25" height="25"/>
         <image name="nextImage" width="1024" height="1024"/>
         <image name="notification" width="20" height="20"/>
         <image name="noun_1168162_cc" width="30" height="30"/>

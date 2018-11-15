@@ -526,7 +526,6 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     if indexPath.row == churchIdMonthYearArray.count - 1 {
             
     if(self.totalPages! > PageIndex){
-        
     PageIndex = PageIndex + 1
                 
     let monthFormatter = DateFormatter()
@@ -550,8 +549,6 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let listStr:GetEventInfoByChurchIdMonthYearResultVo = churchIdMonthYearArray[indexPath.row]
-        
-        
         let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsAndEventPostDetailsViewController") as! EventDetailsAndEventPostDetailsViewController
         
         eventDetailsViewController.eventID = listStr.id == nil ? 0 :  listStr.id!
@@ -564,14 +561,11 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
         
         
         if listStr.eventImage != nil {
+            
             eventDetailsViewController.eventImageArrayString = listStr.eventImage!
-
-        }
-        
+        }       
         
         self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
-        
-        
         
     }
     //MARK: -   Search Bar

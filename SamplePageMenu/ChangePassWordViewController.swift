@@ -29,6 +29,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     let sharedController = ServiceController()
     let utillites =  Utilities()
     
+    var isEyeClicked = Bool()
+    
  //MARK: -   View DidLoad
     
     override func viewDidLoad() {
@@ -127,6 +129,25 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
+        }
+        
+        let indexPath = IndexPath.init(row: textField.tag, section: 0)
+        if let forgotPasswordCell = forgotPasswordTableView.cellForRow(at: indexPath) as? ForgotPasswordCell {
+  
+            forgotPasswordCell.eyeButtonOutlet.isHidden = false
+            //forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
+            
+            if !((forgotPasswordCell.resetPasswordTF.text?.isEmpty)!){
+                
+                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                
+            }
+            
+            else {
+                
+               forgotPasswordCell.eyeButtonOutlet.isHidden = true
+            }
+            
         }
         
         
@@ -239,37 +260,36 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             forgotPasswordCell.resetPasswordTF.delegate = self
             forgotPasswordCell.resetPasswordTF.tag = indexPath.row
             forgotPasswordCell.eyeButtonOutlet.tag = indexPath.row
+            forgotPasswordCell.eyeButtonOutlet.isHidden = true
+            
             if indexPath.row == 0 {
                
             forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
             forgotPasswordCell.resetPasswordTF.text = oldPassWordString
-            forgotPasswordCell.eyeButtonOutlet.isHidden = false
+            //forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 
             forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
-
-                
+     
             return forgotPasswordCell
                 
             }
             else if indexPath.row == 1 {
                 
-               
                 forgotPasswordCell.resetPasswordTF.placeholder = "New Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = newPassWordString
-                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                //forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
-
                 
                 return forgotPasswordCell
             }
+                
             else if indexPath.row == 2 {
       
                 forgotPasswordCell.resetPasswordTF.placeholder = "Confirm Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = confirmPassWordString
-                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                //forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
-
-                
+  
                 return forgotPasswordCell
             }
             
@@ -324,16 +344,26 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func  eyeButtonClicked(_ sendre:UIButton) {
         
+        
+        
         let indexPath = IndexPath.init(row: sendre.tag, section: 0)
         
         if let forgotPasswordCell = forgotPasswordTableView.cellForRow(at: indexPath) as? ForgotPasswordCell {
             
            forgotPasswordCell.resetPasswordTF.isSecureTextEntry = !forgotPasswordCell.resetPasswordTF.isSecureTextEntry
             
+            if isEyeClicked == true{
+           forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
+            isEyeClicked = false
+            }
+            else{
+                
+                forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeopen"), for: .normal)
+                isEyeClicked = true
+            }
         
         }
-
-        
+ 
         print("Eye Button Clicked......")
         
     }
