@@ -165,19 +165,39 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 
                 
                 if eventId != 0 {
-                let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-                
-                eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
-                
-                self.navigationController?.pushViewController(eventViewController, animated: true)
+//                let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+//
+//                eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
+//
+//                self.navigationController?.pushViewController(eventViewController, animated: true)
+                    
+                    
+                        let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                    
+                            eventViewController.isFromNotification = true
+                            eventViewController.pageName = "Events"
+                            eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
+                    
+                            self.navigationController?.pushViewController(eventViewController, animated: true)
+                    
+                    
                     
                 }
                 
                 else if postId != 0 {
                     
-                   let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//                   let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//
+//                    self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
+                    
+                    
+                    let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                    
+                    authorPostVC.isFromNotification = true
+                    authorPostVC.pageName = "Posts"
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
+                    
                 }
                 
             }
@@ -186,23 +206,41 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 
               if eventId != 0 {
                 
-                let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+//                let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+//
+//                authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
+//
+//
+//                self.navigationController?.pushViewController(authorEventsVC, animated: true)
                 
-                authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
+                let authorEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                
+                     authorEventsVC.isFromNotification = true
+                     authorEventsVC.pageName = "Events"
+                     authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
                 
                 
                 self.navigationController?.pushViewController(authorEventsVC, animated: true)
                 
                 }
                 
+                
+                
                else if postId != 0 {
                 
-                let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//                let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//                
+//                self.navigationController?.pushViewController(authorPostVC, animated: true)
+                
+                let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                     authorPostVC.isFromNotification = true
+                     authorPostVC.pageName = "Posts"
                 
                 self.navigationController?.pushViewController(authorPostVC, animated: true)
                 
                 }
-                
+          
+              //  AuthorDetailsViewController
             }
             
             
