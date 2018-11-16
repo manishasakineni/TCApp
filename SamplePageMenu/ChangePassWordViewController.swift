@@ -136,17 +136,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
   
             forgotPasswordCell.eyeButtonOutlet.isHidden = false
             //forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
-            
-            if !((forgotPasswordCell.resetPasswordTF.text?.isEmpty)!){
-                
-                forgotPasswordCell.eyeButtonOutlet.isHidden = false
-                
-            }
-            
-            else {
-                
-               forgotPasswordCell.eyeButtonOutlet.isHidden = true
-            }
+
             
         }
         
@@ -158,10 +148,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        
         activeTextField = textField
         
-        if activeTextField.tag == 0{
+        if activeTextField.tag == 0 {
             
             oldPassWordString = textField.text!
             

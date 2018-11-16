@@ -32,8 +32,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
     
-    @IBOutlet weak var notificationbarBtn: UIBarButtonItem!
-    
     @IBOutlet weak var cartbtn: UIBarButtonItem!
     
     @IBOutlet weak var notificationBtn: UIBarButtonItem!
@@ -133,6 +131,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
     
+    
     var bannerImageScrollArray:[BannerImageScrollResultVo] = Array<BannerImageScrollResultVo>()
     
     var bannerImageArr = Array<URL>()
@@ -227,8 +226,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
+        super.viewWillAppear(animated)
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -730,7 +729,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             getNotificationCount()
             
         }else{
-            self.navigationItem.rightBarButtonItem?.badgeValue = "0"
+            //self.navigationItem.rightBarButtonItem?.badgeValue = "0"
+            
+            self.cartbtn.badgeValue = "N"
         }
         
     }
@@ -746,18 +747,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             let respVO:GetCartInfoVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = respVO.isSuccess
-            
-            
-            
+   
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
                 
-                self.count = listArr.count
+                let cartCount = listArr.count
                     
                 // self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
                
-                self.cartbtn.badgeValue = "\(self.count)" == "" ? "0" : "\(self.count)"
+                self.cartbtn.badgeValue = "\(cartCount)" == "" ? "0" : "\(cartCount)"
               
                 
             }
@@ -1162,33 +1161,29 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     
-    @IBAction func notificationBtnAction(_ sender: UIButton) {
+    @IBAction func notificationAndCartBtnAction(_ sender: UIBarButtonItem) {
         
         if self.userId != 0 {
-   
-        if sender.tag == 0 {
+            
+            if sender.tag == 0 {
 
-        
-    //    if(self.count > 0) {
-            
-            
-            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
-          
-            self.navigationController?.pushViewController(jobIDViewController, animated: true)
-         //   }
-    }
-        else{
-            
-            
-            let notificationVC = self.storyboard?.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
-            
-            
-            self.navigationController?.pushViewController(notificationVC, animated: true)
-            
-            
+                let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+                
+                self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                
+            }
+            else{
+                
+                
+                let notificationVC = self.storyboard?.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+                
+                
+                self.navigationController?.pushViewController(notificationVC, animated: true)
+                
+                
+            }
         }
-    }
-        
+            
         else{
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
@@ -1201,11 +1196,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
                 
             })
-
+            
             
         }
+
     }
-    
     
     
 }

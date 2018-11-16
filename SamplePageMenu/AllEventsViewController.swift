@@ -210,7 +210,6 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     
         let dictParams = [
             
-            "churchId": "",
             "month": month,
             "year": year,
             "pageIndex": PageIndex,

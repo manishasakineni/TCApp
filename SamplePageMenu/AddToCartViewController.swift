@@ -54,6 +54,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         
         // Do any additional setup after loading the view.
+        
+        addToCartTableView.tableFooterView = UIView()
     }
     
     override func didReceiveMemoryWarning() {

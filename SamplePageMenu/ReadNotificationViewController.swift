@@ -21,6 +21,9 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
     var notificationsArray = [getNotificationVO]()
     
+    @IBOutlet weak var noRecordsLbl: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,10 +39,16 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
         }
         
-        getNotificationCount()
+        
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        getNotificationCount()
+        self.noRecordsLbl.isHidden = true
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,6 +79,11 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
             if isSuccess == true{
                 
+                if ((respVO.result?.unreadCount) == 0) {
+                    
+                    self.ReadNotificationsTableView.isHidden = false
+                    self.noRecordsLbl.isHidden = true
+                    
                 if ((respVO.result?.notificationsList) != nil)  {
                     
                     self.notificationsArray = (respVO.result?.notificationsList)!
@@ -90,6 +104,14 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     }
                     
                     self.ReadNotificationsTableView.reloadData()
+                }
+                    
+                }
+                
+                else{
+                    self.ReadNotificationsTableView.isHidden = true
+                    self.noRecordsLbl.isHidden = false
+                    
                 }
                 
             }

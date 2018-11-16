@@ -57,6 +57,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var DOB       : Int = 27
      var btneditClick = false
     
+    var isEyeClicked = Bool()
    
     
     var sectionsTitle : [String] = [" "]
@@ -304,8 +305,18 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
 
         }
-
-
+        
+        else if activeTextField.tag == 6 || activeTextField.tag == 7{
+            
+            let indexPath = IndexPath.init(row: textField.tag, section: 0)
+            if let forgotPasswordCell = signUpTableView.cellForRow(at: indexPath) as? SignUPTableViewCell {
+                
+                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+ 
+                
+            }
+            
+        }
         return true
         
         
@@ -510,8 +521,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             signUPCell.registrationTextfield.text = selectedDate
             signUPCell.registrationTextfield.tag = 8
             
-            
             }
+            
+         signUPCell.eyeButtonOutlet.isHidden = true
 
         return signUPCell
         
@@ -569,6 +581,16 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         if let forgotPasswordCell = signUpTableView.cellForRow(at: indexPath) as? SignUPTableViewCell {
             
             forgotPasswordCell.registrationTextfield.isSecureTextEntry = !forgotPasswordCell.registrationTextfield.isSecureTextEntry
+            if isEyeClicked == true{
+                forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
+                isEyeClicked = false
+            }
+            else{
+                
+                forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeopen"), for: .normal)
+                isEyeClicked = true
+            }
+            
             
         }
 

@@ -129,12 +129,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        if textField == passwordTF{
+        if textField == passwordTF {
             
             eyeBtnOutlet.isHidden = false
             
+            if let text = passwordTF.text,
+            let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                
+                if updatedText.count == 0 {
+                    
+                    eyeBtnOutlet.isHidden = true
+                }
+            
         }
-
+        
+        
+        }
         
         return true
     }

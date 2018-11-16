@@ -24,6 +24,7 @@ class SignUPTableViewCell: UITableViewCell {
         
         
       //  registrationTextfield.autocorrectionType = .no
+        eyeButtonOutlet.isHidden = true
         
         
     }
