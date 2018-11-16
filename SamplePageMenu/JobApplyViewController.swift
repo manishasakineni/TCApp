@@ -71,6 +71,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var appVersion          : String = ""
     let utillites =  Utilities()
     var jobtitle    :String = ""
+    var jobId = 0
+    var id = 0
     var firstname     :String = ""
     var middlename   :String = ""
     var lastname      :String = ""
@@ -894,7 +896,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 //        let expectedsalaryStr:NSString =  expectedsalary  as NSString
         
         
-        if (jobtitleStr.length <= 2){
+        if (jobtitleStr.length <= 1){
             
             
             errorMessage=GlobalSupportingClass.blankjobtitleErrorMessage() as String as String as NSString?
@@ -1226,7 +1228,7 @@ func getjobApplicationAPICall(){
 
         "docString": self.docsUrlArray,
         "id": 0,
-        "jobId": 2,
+        "jobId": jobId,
         "firstName": firstname,
         "middleName": middlename,
         "lastName": lastname,

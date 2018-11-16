@@ -351,6 +351,8 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
             let historyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobApplyViewController") as! JobApplyViewController
         historyViewController.jobtitle = jobTitle
+        historyViewController.jobId = jobId
+
             self.navigationController?.pushViewController(historyViewController, animated: true)
         
         
