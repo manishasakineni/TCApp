@@ -133,9 +133,20 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let indexPath = IndexPath.init(row: textField.tag, section: 0)
         if let forgotPasswordCell = forgotPasswordTableView.cellForRow(at: indexPath) as? ForgotPasswordCell {
-  
             forgotPasswordCell.eyeButtonOutlet.isHidden = false
             //forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
+            if let text = forgotPasswordCell.resetPasswordTF.text,
+                let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                
+                if updatedText.count == 0 {
+                    
+                    forgotPasswordCell.eyeButtonOutlet.isHidden = true
+                }
+                
+            }
+            
+            
 
             
         }

@@ -312,8 +312,16 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             if let forgotPasswordCell = signUpTableView.cellForRow(at: indexPath) as? SignUPTableViewCell {
                 
                 forgotPasswordCell.eyeButtonOutlet.isHidden = false
- 
-                
+                if let text = activeTextField.text,
+                    let textRange = Range(range, in: text) {
+                    let updatedText = text.replacingCharacters(in: textRange, with: string)
+                    
+                    if updatedText.count == 0 {
+                        
+                        forgotPasswordCell.eyeButtonOutlet.isHidden = true
+                    }
+                    
+                }
             }
             
         }

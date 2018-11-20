@@ -210,7 +210,7 @@ let accessToken:String = "accessToken"
 var kUserId :  String =  "null"
 var kId =  Int ()
 
-
+let kAddCartQuantity = "AddToCart limit 99 items only"
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"
 let kToastDuration  = 1.5

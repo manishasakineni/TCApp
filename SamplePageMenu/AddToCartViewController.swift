@@ -24,6 +24,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
      var activeTextField = UITextField()
     
+    var addCartCountdelegate: UpDateCartValueDelegate?
+    
 //    var userID = String()
     
     //MARK:-  view Did Load
@@ -399,12 +401,17 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
  //MARK:-  back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+       
         
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
+        
+        if let delegate = self.addCartCountdelegate{
+            delegate.updateCountOfAddCart()
+        }
         if let navController = self.navigationController, navController.viewControllers.count >= 2 {
             if let viewController = navController.viewControllers[navController.viewControllers.count - 2] as? LoginViewController{
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers
@@ -420,6 +427,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                 print(poppedVC as Any)
             }
         }
+        
         
            print("Back Button Clicked......")
         

@@ -22,6 +22,8 @@ class AllItemIdListResultVO: Mappable {
     var fileLocation : String?
     var fileExtention : String?
     var isActive : Bool?
+   
+    
     
     
     var createdByUserId : Int?
@@ -33,9 +35,11 @@ class AllItemIdListResultVO: Mappable {
     var createdByUser : String?
     var updatedByUser : String?
     
+     var quantity : Int?
+    
      //MARK:-  initialization of AllItemIdListResultVO
     
-    init(id: Int?,name: String?,desc: String?, itemTypeId: Int?, price: Int?, author: String?, fileName: String?, fileLocation : String?, fileExtention : String?, isActive : Bool?,createdByUserId: Int?,createdDate: String?,updatedByUserId: Int?, updatedDate: String?, itemImage: String?, itemType: String?, createdByUser: String?, updatedByUser : String?)
+    init(id: Int?,name: String?,desc: String?, itemTypeId: Int?, price: Int?, author: String?, fileName: String?, fileLocation : String?, fileExtention : String?, isActive : Bool?,createdByUserId: Int?,createdDate: String?,updatedByUserId: Int?, updatedDate: String?, itemImage: String?, itemType: String?, createdByUser: String?, updatedByUser : String?,quantity : Int?)
         
         
     {
@@ -61,6 +65,8 @@ class AllItemIdListResultVO: Mappable {
         self.createdByUser = createdByUser
         self.updatedByUser = updatedByUser
         
+         self.quantity = quantity
+       
         
     }
     
@@ -89,7 +95,7 @@ class AllItemIdListResultVO: Mappable {
         itemType <- map["itemType"]
         createdByUser <- map["createdByUser"]
         updatedByUser <- map["updatedByUser"]
-        
+        quantity <- map["quantity"]
         
         
         

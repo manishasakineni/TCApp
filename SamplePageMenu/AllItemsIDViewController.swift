@@ -8,7 +8,15 @@
 
 import UIKit
 
-class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+
+protocol UpDateCartValueDelegate {
+    func updateCountOfAddCart()
+}
+
+
+class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UpDateCartValueDelegate {
+   
+    
 
     @IBOutlet weak var allitemsIDTableView: UITableView!
     
@@ -27,7 +35,10 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     var filtered:[AllItemIdListResultVO] = []
     var quantity = ""
     var email : String? = ""
-    
+    var previousQuantity = 0
+    var previousQuantityArry = Array<Int>()
+    var totalCount : Int = 0
+    var totalQuantityCount : Int = 0
     //MARK:-  view Did Load
     
     override func viewDidLoad() {
@@ -71,6 +82,14 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: churchName1, backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
     
         
+    }
+    
+    func updateCountOfAddCart() {
+         self.previousQuantityArry.removeAll()
+         self.filtered.removeAll()
+         self.allitemsArray.removeAll()
+         allitemsIDAPIService()
+        allitemsIDTableView.reloadData()
     }
     //MARK:-  UItext field methods
     
@@ -264,9 +283,9 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     //MARK:-  all items ID API Service
     
     func allitemsIDAPIService(){
+        self.previousQuantityArry.removeAll()
         
-        
-        let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/0"
+        let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/" + "\(userId)"
         
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             let respVO:AllItemIdVO = Mapper().map(JSONObject: result)!
@@ -279,7 +298,20 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     for eachArray in listArr{
                         self.filtered.append(eachArray)
+//                        if eachArray.quantity != nil {
+//                            self.previousQuantityArry.append(eachArray.quantity!)
+//
+//                            print("previousQuantityArry",self.previousQuantityArry)
+//                        }else{
+//                            print("Quantity nil value")
+//                        }
+                    
                     }
+                    if listArr[0].quantity != nil {
+                        self.previousQuantity = listArr[0].quantity!
+                        print("previousQuantity",self.previousQuantity)
+                    }
+                    self.allitemsIDTableView.reloadData()
                 
                 }
             
@@ -290,24 +322,43 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }) { (failureMessage) in
             
         }
-        
+         self.allitemsIDTableView.reloadData()
     }
     
   
     //MARK:-  add To Cart Action
     
     @IBAction func addToCartAction(_ sender: Any) {
+       
+       
+       
+       // self.previousQuantityArry = [self.previousQuantityArry.count + Int(quantity)!]
+//        self.previousQuantityArry.append(Int(quantity)!)
+//         print("Update sucess",previousQuantityArry.count)
+        print("previousQuantity",previousQuantity)
+        print("newQuantity",quantity)
+        if quantity != "" {
+            totalQuantityCount = previousQuantity + Int(quantity)!
+            print("totalQuantityCount",totalQuantityCount)
+        }else {
+            quantity = ""
+        }
+      
+        if totalQuantityCount <= 99 {
+           
         
-        allitemsIDTableView.endEditing(true)
-        
-        if(quantity != "" && quantity != "0"){
             
- // AddToCart API
             
-                let paramsDict = [ 	"id": 0,
-                                   	"itemId": itemID,
-                                   	"userId": userId,
-                                   	"quantity": Int(quantity)!
+            allitemsIDTableView.endEditing(true)
+            
+            if(quantity != "" && quantity != "0"){
+                
+                // AddToCart API
+                
+                let paramsDict = [     "id": 0,
+                                       "itemId": itemID,
+                                       "userId": userId,
+                                       "quantity": quantity
                     
                     ] as [String : Any]
                 
@@ -324,19 +375,20 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                     print("StatusCode:\(String(describing: isSuccess))")
                     
                     
-            if isSuccess == true {
+                    if isSuccess == true {
                         
-            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+                        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
+                        jobIDViewController.addCartCountdelegate = self
                         
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
+                        self.navigationController?.pushViewController(jobIDViewController, animated: true)
                         
                         
                     }
-                
+                        
                         
                     else {
                         
-                            
+                        
                     }
                     
                 }) { (failureMessage) in
@@ -345,19 +397,26 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                     print(failureMessage)
                     
                 }
-            
+                
+            }else{
+                
+                
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Quantity".localize(), clickAction: {
+                    
+                    
+                })
+                
+                print("Please enter valid quantity")
+                
+            }
         }else{
             
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Quantity".localize(), clickAction: {
-                
-                
-            })
-            
-            print("Please enter valid quantity")
-            
+             appDelegate.window?.makeToast(kAddCartQuantity, duration:kToastDuration, position:CSToastPositionCenter)
+             print("requied 99 only")
         }
-
+      
+ self.allitemsIDTableView.reloadData()
     }
    
  
