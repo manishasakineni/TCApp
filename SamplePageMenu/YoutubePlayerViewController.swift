@@ -355,6 +355,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
        
         
         self.getVideoDetailsApiService()
+        self.updateViewCountAPI()
 
     }
     
@@ -364,10 +365,39 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
        self.player.stopVideo()
         
     }
-    
+    func updateViewCountAPI(){
+        let urlStr = UPDATEVIEWCOUNTBYPOSTID +  "" + String(self.videoId)
+        
+        print("UPDATEVIEWCOUNTBYPOSTID -> ",urlStr)
+        
+        serviceController.getRequest(strURL: urlStr, success: { (result) in
+            
+            //            DispatchQueue.main.async(){
+            
+            print(result)
+            
+            //                let respVO:GetAllVideosVo = Mapper().map(JSONObject: result)!
+            //
+            //                let isSuccess = respVO.isSuccess
+            
+            
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+        }
+        
+        self.allOffersTableView.reloadData()
+    }
     override func viewDidLayoutSubviews() {
         repliesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
+    
+    
+    
+    
     
     //MARK: - Add image to Library
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {

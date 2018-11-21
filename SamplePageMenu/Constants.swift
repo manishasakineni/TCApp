@@ -176,6 +176,8 @@ var UPDATECARTAPI:String = BASEURL.appending("api/CartInfo/UpdateToCart")
 
 var ADDUPDATENOTIFICATIONS:String = BASEURL.appending("api/Notification/AddUpdateNotifications")
 
+var UPDATEVIEWCOUNTBYPOSTID:String = BASEURL.appending("api/Post/UpdateViewCountByPostId/")
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

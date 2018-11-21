@@ -149,8 +149,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
 
                             let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
 
-                           // videosVC.videoEmbededIDStr = self.audioIDArray[1]
-                            videosVC.videoEmbededIDStr = "_9D_v6unOl0"
+                            videosVC.videoEmbededIDStr = self.audioIDArray[1]
+                           // videosVC.videoEmbededIDStr = "_9D_v6unOl0"
                             videosVC.videoNameStr = title!
 
                             videosVC.videoId = videoID!
