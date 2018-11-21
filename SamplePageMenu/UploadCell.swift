@@ -17,6 +17,7 @@ class UploadCell: UICollectionViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var backGroundView: UIView!
     
+    @IBOutlet weak var fileNameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

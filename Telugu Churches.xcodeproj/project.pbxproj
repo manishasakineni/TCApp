@@ -376,6 +376,9 @@
 		CB2879A7205A425C005F3168 /* VideoResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A6205A425C005F3168 /* VideoResultVo.swift */; };
 		CB2879A9205A428F005F3168 /* audioRessultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879A8205A428F005F3168 /* audioRessultVo.swift */; };
 		CB2879AB205A42BB005F3168 /* DocumentsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2879AA205A42BB005F3168 /* DocumentsResultVo.swift */; };
+		CB2CAFD721A51E2E006607B1 /* NullNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2CAFD621A51E2E006607B1 /* NullNotificationViewController.swift */; };
+		CB2CAFDA21A52A60006607B1 /* NullNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2CAFD821A52A60006607B1 /* NullNotificationCell.swift */; };
+		CB2CAFDB21A52A60006607B1 /* NullNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2CAFD921A52A60006607B1 /* NullNotificationCell.xib */; };
 		CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */; };
 		CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */; };
 		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
@@ -814,6 +817,9 @@
 		CB2879A6205A425C005F3168 /* VideoResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoResultVo.swift; sourceTree = "<group>"; };
 		CB2879A8205A428F005F3168 /* audioRessultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audioRessultVo.swift; sourceTree = "<group>"; };
 		CB2879AA205A42BB005F3168 /* DocumentsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsResultVo.swift; sourceTree = "<group>"; };
+		CB2CAFD621A51E2E006607B1 /* NullNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullNotificationViewController.swift; sourceTree = "<group>"; };
+		CB2CAFD821A52A60006607B1 /* NullNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullNotificationCell.swift; sourceTree = "<group>"; };
+		CB2CAFD921A52A60006607B1 /* NullNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NullNotificationCell.xib; sourceTree = "<group>"; };
 		CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileInfoVO.swift; sourceTree = "<group>"; };
 		CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileResultInfoVO.swift; sourceTree = "<group>"; };
 		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
@@ -919,6 +925,8 @@
 			children = (
 				35847C9A2196E00A009D6FBD /* NotificationTableViewCell.swift */,
 				35847C9B2196E00A009D6FBD /* NotificationTableViewCell.xib */,
+				CB2CAFD821A52A60006607B1 /* NullNotificationCell.swift */,
+				CB2CAFD921A52A60006607B1 /* NullNotificationCell.xib */,
 			);
 			name = NotificationsTableviewCells;
 			sourceTree = "<group>";
@@ -1648,6 +1656,7 @@
 				357046BC2195967000CCB916 /* ReadNotificationViewController.swift */,
 				AF108A5120D396820098B70F /* notificationsTableViewCell.swift */,
 				AF108A5220D396820098B70F /* notificationsTableViewCell.xib */,
+				CB2CAFD621A51E2E006607B1 /* NullNotificationViewController.swift */,
 			);
 			name = NotificationsViewController;
 			sourceTree = "<group>";
@@ -2511,6 +2520,7 @@
 				3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */,
 				3D5404FA2058045A008257A6 /* AuthorPostsViewController.xib in Resources */,
 				9A5D261B1FFF89D900316988 /* MearchantViewController.xib in Resources */,
+				CB2CAFDB21A52A60006607B1 /* NullNotificationCell.xib in Resources */,
 				AF0F0D1A20AD4AE700AE9BD9 /* AddToCareTableViewCell.xib in Resources */,
 				CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */,
 				AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */,
@@ -2828,6 +2838,7 @@
 				AF09007B20EA5A1D00BACB25 /* LikeandDislikeVo.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB3794E2205955AC002D3638 /* VideoSongsViewController.swift in Sources */,
+				CB2CAFDA21A52A60006607B1 /* NullNotificationCell.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
 				AF11B01F20D93EFE005E7D8F /* DocsCollectionViewCell.swift in Sources */,
 				AF0BC18F20C5685B00753E3C /* AddressInfoVO.swift in Sources */,
@@ -2921,6 +2932,7 @@
 				3D504581208078E800351662 /* EventCommentsVO.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
+				CB2CAFD721A51E2E006607B1 /* NullNotificationViewController.swift in Sources */,
 				AF7C2E3520A063AD003D623F /* PostByEventIdVO.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* YoutubePlayerViewController.swift in Sources */,
 				AF4EF45620AC405C00F690F0 /* AllItemIdListResultVO.swift in Sources */,

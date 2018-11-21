@@ -8,55 +8,73 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="UploadCell" customModule="Telugu_Churches" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="88" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="88" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOT-L8-5Ly">
-                        <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
+                        <rect key="frame" x="2" y="2" width="84" height="66"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="docIcon" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-G0-Otu">
-                                <rect key="frame" x="2" y="2" width="65" height="46"/>
+                                <rect key="frame" x="2" y="2" width="57" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="aCi-0p-Tt5"/>
+                                    <constraint firstAttribute="width" constant="57" id="JBa-Ts-Guc"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-Op-T5r">
-                                <rect key="frame" x="67" y="2" width="19" height="20"/>
+                                <rect key="frame" x="63" y="2" width="19" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="d5i-jL-bMc"/>
-                                    <constraint firstAttribute="width" constant="19" id="flG-aq-vel"/>
+                                    <constraint firstAttribute="height" constant="20" id="buY-4a-aqE"/>
+                                    <constraint firstAttribute="width" constant="19" id="mw4-C8-z3Y"/>
                                 </constraints>
                                 <state key="normal" image="close-icon"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZz-3a-pn8">
+                                <rect key="frame" x="4" y="52" width="77" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="XFK-22-TXW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="LAf-Op-T5r" secondAttribute="trailing" constant="2" id="Dfe-cQ-l8T"/>
-                            <constraint firstAttribute="bottom" secondItem="a3J-G0-Otu" secondAttribute="bottom" constant="2" id="QYy-XE-F7a"/>
-                            <constraint firstItem="a3J-G0-Otu" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="WAe-lu-jXm"/>
-                            <constraint firstItem="a3J-G0-Otu" firstAttribute="leading" secondItem="KOT-L8-5Ly" secondAttribute="leading" constant="2" id="dNn-Md-ogp"/>
-                            <constraint firstItem="LAf-Op-T5r" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="hxR-se-wxm"/>
+                            <constraint firstItem="LAf-Op-T5r" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="0Sk-dU-kdH"/>
+                            <constraint firstItem="a3J-G0-Otu" firstAttribute="leading" secondItem="KOT-L8-5Ly" secondAttribute="leading" constant="2" id="Htc-aN-SFq"/>
+                            <constraint firstItem="a3J-G0-Otu" firstAttribute="top" secondItem="KOT-L8-5Ly" secondAttribute="top" constant="2" id="Pcp-4l-spf"/>
+                            <constraint firstItem="KZz-3a-pn8" firstAttribute="leading" secondItem="KOT-L8-5Ly" secondAttribute="leading" constant="4" id="cKB-vt-tVe"/>
+                            <constraint firstItem="KZz-3a-pn8" firstAttribute="top" secondItem="a3J-G0-Otu" secondAttribute="bottom" constant="6" id="fLC-F3-R1Q"/>
+                            <constraint firstAttribute="bottom" secondItem="KZz-3a-pn8" secondAttribute="bottom" constant="2" id="fQO-JZ-zpf"/>
+                            <constraint firstAttribute="trailing" secondItem="KZz-3a-pn8" secondAttribute="trailing" constant="3" id="nO6-qT-2VU"/>
+                            <constraint firstAttribute="trailing" secondItem="LAf-Op-T5r" secondAttribute="trailing" constant="2" id="rgd-9b-vhC"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="KOT-L8-5Ly" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Df-9v-McH"/>
-                <constraint firstItem="KOT-L8-5Ly" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6fl-Ye-dEr"/>
-                <constraint firstAttribute="bottom" secondItem="KOT-L8-5Ly" secondAttribute="bottom" id="tHS-py-c8S"/>
-                <constraint firstAttribute="trailing" secondItem="KOT-L8-5Ly" secondAttribute="trailing" id="uzL-AC-i0R"/>
+                <constraint firstAttribute="trailing" secondItem="KOT-L8-5Ly" secondAttribute="trailing" constant="2" id="DGI-fK-FHJ"/>
+                <constraint firstItem="KOT-L8-5Ly" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Omo-q9-uTM"/>
+                <constraint firstItem="KOT-L8-5Ly" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="cjF-KJ-3jy"/>
+                <constraint firstAttribute="bottom" secondItem="KOT-L8-5Ly" secondAttribute="bottom" constant="2" id="i8C-lV-OGV"/>
             </constraints>
             <size key="customSize" width="88" height="50"/>
             <connections>
                 <outlet property="backGroundView" destination="KOT-L8-5Ly" id="QFB-FU-z5C"/>
                 <outlet property="clearBtn" destination="LAf-Op-T5r" id="A08-n8-VRV"/>
+                <outlet property="fileNameLbl" destination="KZz-3a-pn8" id="4u5-gQ-L27"/>
                 <outlet property="imageDoc" destination="a3J-G0-Otu" id="SBO-It-ZOZ"/>
             </connections>
             <point key="canvasLocation" x="52" y="79"/>

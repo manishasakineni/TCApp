@@ -115,7 +115,9 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
      var monthArray : Array = ["0 Month","1 Month","2 Months","3 Months","4 Months","5 Months","6 Months","7 Months","8 Months","9 Months","10 Months","11 Months","12 Months"]
     
+    var docBase64String = ""
     
+    var fileNameString = ""
   //MARK: - view Did Load
     
     override func viewDidLoad() {
@@ -541,11 +543,11 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 return 45;
                 
             }else if indexPath.section == 3 {
-                if docsUrlArray.count == 0 {
+                if docBase64String == "" {
                     
                     return 81;
                 }else{
-                    return 150;
+                    return 175;
                 }
             }else{
                 return 0;
@@ -683,7 +685,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }else if indexPath.section == 3 {
             
             
-            if docsUrlArray.count == 0 {
+            if docBase64String == "" {
                 
                 let resumeUploadCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedResumeCell", for: indexPath) as! ExpandedResumeCell
                 resumeUploadCell.docCollactionView.register(UINib.init(nibName: "UploadCell", bundle: nil),forCellWithReuseIdentifier: "UploadCell")
@@ -709,7 +711,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                  resumeUploadCell.docCollactionView.collectionViewLayout.invalidateLayout()
                 resumeUploadCell.docCollactionView.reloadData()
                
-                 resumeUploadCell.docViewHeightConst.constant = 61
+                 resumeUploadCell.docViewHeightConst.constant = 77
                 resumeUploadCell.uploadResumeBtn.addTarget(self, action: #selector(resumeUploadClicked(_:)), for: UIControlEvents.touchUpInside)
                 resumeUploadCell.applayBtn.addTarget(self, action: #selector(applyBtnClicked(_:)), for: UIControlEvents.touchUpInside)
                 
@@ -734,7 +736,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if isResumeUploaded == true {
             
            
-            return docsUrlArray.count
+            return 1
             
             
         }else{
@@ -752,7 +754,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let uploadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadCell", for:
                 indexPath) as! UploadCell
-            uploadCell.clearBtn.tag = indexPath.row
+                uploadCell.clearBtn.tag = indexPath.row
+                uploadCell.fileNameLbl.text = fileNameString
             //        if (filename == ".pdf") || (filename == ".docs") || (filename == ".docx")  || (filename == ".txt") || (filename == ".rtf"){
             //
             //
@@ -796,7 +799,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return CGSize(width: 88, height: 50)
+        return CGSize(width: 88, height: 70)
         
     }
     func  clearBtnClicked(_ sendre:UIButton) {
@@ -805,9 +808,10 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
                 Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
 
-                    self.docsUrlArray.remove(at: selectedDoc)
-                    print("selectedDoc",selectedDoc)
-                    print("docsUrlArray",self.docsUrlArray)
+                   //self.docsUrlArray.remove(at: selectedDoc)
+                 //   print("selectedDoc",selectedDoc)
+                  //  print("docsUrlArray",self.docsUrlArray)
+                    self.docBase64String = ""
                
                     
                     
@@ -967,7 +971,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         
         
-        else if (self.docsUrlArray.count == 0){
+        else if (self.docBase64String == ""){
             
             
         errorMessage=GlobalSupportingClass.blankresumeErrorMessage() as String as String as NSString?
@@ -1076,57 +1080,63 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     
     func  resumeUploadClicked(_ sendre:UIButton) {
         
-        fileextension = false
-        
-        
-          let documentPicker = UIDocumentPickerViewController(documentTypes: ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: .import)
-        
-     //   let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.text", "com.apple.iwork.pages.pages", "public.data"], in: .import)
-        
-        documentPicker.delegate = self
-        present(documentPicker, animated: true, completion: nil)
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//
+            fileextension = false
+        if docBase64String == "" {
+            
+            let documentPicker = UIDocumentPickerViewController(documentTypes: ["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.movie", "public.audiovisual-content", "public.video", "public.audio", "public.text", "public.data", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"], in: .import)
+            
+            //   let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.text", "com.apple.iwork.pages.pages", "public.data"], in: .import)
+            
+            documentPicker.delegate = self
+            present(documentPicker, animated: true, completion: nil)
+            
+            //        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            //
             self.jobApplyTableView.reloadData()
-//
-//        }
+            //
+            //        }
+            
+            
+            //
+            //        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
+            //
+            //        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
+            //            -> Void in
+            //
+            //            self.documentPicker.delegate = self
+            //            self.present(self.documentPicker, animated: true, completion: {
+            //
+            //                print("documentPicker presented")
+            //            })
+            //
+            //        })
+            //
+            //
+            //        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            //        menu.addAction(document)
+            //        menu.addAction(cancel)
+            //
+            //        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+            //
+            //            present(menu, animated: true, completion: nil)
+            //        }
+            //
+            //        else{
+            //
+            //            let popup = UIPopoverController.init(contentViewController: menu)
+            //
+            //            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            //
+            //        }
+            //
+            print("resumeUploadClicked")
+            
+        }else{
+            
+            print("limit one DocumentFile")
+            
+        }
      
-        
-//
-//        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
-//
-//        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
-//            -> Void in
-//
-//            self.documentPicker.delegate = self
-//            self.present(self.documentPicker, animated: true, completion: {
-//
-//                print("documentPicker presented")
-//            })
-//
-//        })
-//
-//
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        menu.addAction(document)
-//        menu.addAction(cancel)
-//
-//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
-//
-//            present(menu, animated: true, completion: nil)
-//        }
-//
-//        else{
-//
-//            let popup = UIPopoverController.init(contentViewController: menu)
-//
-//            popup.present(from: CGRect(x:self.view.frame.size.width/2, y:self.view.frame.size.height/4, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
-//
-//        }
-//
-        print("resumeUploadClicked")
-       
     }
     
     func  applyBtnClicked(_ sendre:UIButton) {
@@ -1226,7 +1236,7 @@ func getjobApplicationAPICall(){
     
     let paramsDict = [
 
-        "docString": self.docsUrlArray,
+        "docString": self.docBase64String,
         "id": 0,
         "jobId": jobId,
         "firstName": firstname,
@@ -1398,7 +1408,7 @@ func getjobApplicationAPICall(){
         print(url)
         
         print(url.lastPathComponent)
-        
+        fileNameString = url.lastPathComponent
         print(url.pathExtension)
         
                 do {
@@ -1412,10 +1422,11 @@ func getjobApplicationAPICall(){
          //   let newImage = ConvertBase64StringToImage(imageBase64String: base64String)
               
                    
-                    self.docsUrlArray.append(base64String)
+                    //self.docsUrlArray.append(base64String)
+                    self.docBase64String = base64String
                      isResumeUploaded = true
                    
-                    print("docCountArray",docsUrlArray.count)
+                    print("self.docBase64String ",self.docBase64String)
                     docCount = docCount + 1
                     
                     jobApplyTableView.reloadData()

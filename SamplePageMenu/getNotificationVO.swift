@@ -33,7 +33,7 @@ class getNotificationVO: Mappable {
     //MARK:-  initialization of getNotificationVO
     
     
-    init(Id:Int?, name : String?,desc : String?, htmlDesc : String?,notificationDate : String?,churchId : Int?,authorId : Int?,eventId : Int?,postId : Int?,notificationTypeId : Int?,CreatedByUserId : Int?,createdBy : String?,CreatedDate : String?,notificationGeneratedOn : String?, isRead : Bool?) {
+    init(Id:Int?, name : String?,desc : String?, htmlDesc : String?,notificationDate : String?,churchId : Int?,authorId : Int?,eventId : Int?,postId : Int?,notificationTypeId : Int?,createdByUserId : Int?,createdBy : String?,createdDate : String?,notificationGeneratedOn : String?, isRead : Bool?) {
         
         self.Id = Id
         self.name = name
@@ -45,9 +45,9 @@ class getNotificationVO: Mappable {
         self.eventId = eventId
         self.postId = postId
         self.notificationTypeId = notificationTypeId
-        self.createdByUserId = CreatedByUserId
+        self.createdByUserId = createdByUserId
         self.createdBy = createdBy
-        self.createdDate = CreatedDate
+        self.createdDate = createdDate
         self.notificationGeneratedOn = notificationGeneratedOn
         
         self.isRead = isRead
@@ -75,7 +75,7 @@ class getNotificationVO: Mappable {
         notificationTypeId <- map["notificationTypeId"]
         createdByUserId <- map["createdByUserId"]
         createdBy <- map["createdBy"]
-        createdDate <- map["CreatedDate"]
+        createdDate <- map["createdDate"]
         notificationGeneratedOn <- map["notificationGeneratedOn"]
         
         isRead <- map["isRead"]
