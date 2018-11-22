@@ -36,8 +36,8 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     var authorId : Int = 0
     var eventId : Int = 0
     var postId : Int = 0
-
-    
+    var createdByUserId : Int = 0
+    var upDatedByUserId : Int = 0
  //MARK: -  view Did Load
     
     override func viewDidLoad() {
@@ -267,7 +267,8 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     self.salary = "\(String(describing: obj.salary!))"
                    self.lastdatetoapply = (obj.lastDateToApply)!
-                
+                   self.createdByUserId = obj.createdByUserId!
+                    self.upDatedByUserId = obj.updatedByUserId!
                     if obj.adminName != nil {
                         
                 self.adminname = (obj.adminName)!
@@ -351,6 +352,9 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
             let historyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobApplyViewController") as! JobApplyViewController
         historyViewController.jobtitle = jobTitle
+        historyViewController.createdByUserId = createdByUserId
+        historyViewController.updatedByUserId = upDatedByUserId
+        
         historyViewController.jobId = jobId
 
             self.navigationController?.pushViewController(historyViewController, animated: true)

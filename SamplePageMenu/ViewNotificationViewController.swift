@@ -77,7 +77,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
             if isSuccess == true{
                
-                if ((respVO.result?.unreadCount) != 0) {
+               // if ((respVO.result?.unreadCount) != 0) {
                     
                     self.viewNotificationsTableView.isHidden = false
                     self.noRecordsLbl.isHidden = true
@@ -104,14 +104,14 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
 
                     self.viewNotificationsTableView.reloadData()
                 }
-            }
+           // }
                 
-                else {
-                    
-                    
-                    self.viewNotificationsTableView.isHidden = true
-                    self.noRecordsLbl.isHidden = false
-                }
+//                else {
+//
+//
+//                    self.viewNotificationsTableView.isHidden = true
+//                    self.noRecordsLbl.isHidden = false
+//                }
                 
 
             }
@@ -227,6 +227,23 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                 }
                 
+            } else {
+                
+                let nullNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NullNotificationViewController") as! NullNotificationViewController
+                nullNotificationVC.titleString = self.notificationsArray[indexPath.row].name!
+                nullNotificationVC.descriptionString = self.notificationsArray[indexPath.row].desc!
+                //nullNotificationVC.generatedOn = self.notificationsArray[indexPath.row].createdDate!
+                if self.notificationsArray[indexPath.row].createdDate != nil {
+                    nullNotificationVC.generatedOn =  self.returnEventDateWithoutTim1(selectedDateString: self.notificationsArray[indexPath.row].createdDate!)
+                }
+                //  returnEventDateWithoutTim1(selectedDateString: self.notificationsArray[indexPath.row].createdDate!)
+                nullNotificationVC.generatedBy = self.notificationsArray[indexPath.row].createdBy!
+                //  nullNotificationVC.createNewFolderDelegate  = self
+                //  selectedTemplateIndex = reportTemplatesVoArr.templateId!
+                self.addChildViewController(nullNotificationVC)
+                nullNotificationVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.addSubview(nullNotificationVC.view)
+                nullNotificationVC.didMove(toParentViewController: self)
             }
             
             
@@ -240,7 +257,42 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
         
     }
     
-
+    // MARK :- Convert DateString Format
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            var dateString3 = invDtArray2[0]
+            print(dateString1)
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                dateString3 = dateString3.components(separatedBy: "-")[0]
+                dateString3 = dateString3.components(separatedBy: "+")[0]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + " , " + newDateStr1
+    }
 
 
 }

@@ -86,10 +86,10 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var uploadresume        :String = ""
     
     var isActive:Bool = true
-    var createdByUserId:Int = 1
-    var createdDate : String = "2018-05-14T11:15:41.9952665+05:30"
-    var updatedByUserId : Int = 1
-    var updatedDate:String =  "2018-05-14T11:15:41.9952665+05:30"
+    var createdByUserId:Int = 0
+    var createdDate : String = ""
+    var updatedByUserId : Int = 0
+    var updatedDate:String =  ""
     let dateFormatter = DateFormatter()
     let datepicker = UIDatePicker()
     var selectedMonths : String = ""
@@ -99,7 +99,6 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var dateString :String = ""
     var selectedData : String = ""
     var financierType : Array = Array<String>()
-    var createddate : String = "2018-04-24T11:17:41.5268377+05:30"
     
     var alertTag = Int()
     var isjobtitle = false
@@ -136,6 +135,16 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let resumeUploadCell  = UINib(nibName: "ExpandedResumeCell" , bundle: nil)
         jobApplyTableView.register(resumeUploadCell, forCellReuseIdentifier: "ExpandedResumeCell")
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let result = formatter.string(from: date)
+        
+       
+        
+        createdDate =  result
+        updatedDate =  result
+        print("createdDate",updatedDate)
 //        uploadresumeOutLet.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 //        uploadresumeOutLet.layer.borderWidth = 1
 //        uploadresumeOutLet.layer.masksToBounds = false
@@ -1281,6 +1290,8 @@ func getjobApplicationAPICall(){
     
                     self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:statusMsg!, clickAction: {
                         
+                        self.dismiss(animated: true, completion: nil)
+                        
               
                     })
                     
@@ -1758,6 +1769,17 @@ func getjobApplicationAPICall(){
         
     }
 
+//        func getFormattedDate(string: String) -> String{
+//            let dateFormatterGet = DateFormatter()
+//            dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//
+//            let dateFormatterPrint = DateFormatter()
+//            dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+//
+//            let date: Date? = dateFormatterGet.date(from: "2018-02-01T19:10:04+00:00")
+//            print("Date",dateFormatterPrint.string(from: date!)) // Feb 01,2018
+//            return dateFormatterPrint.string(from: date!);
+//        }
 }
 
 
