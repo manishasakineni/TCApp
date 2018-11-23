@@ -1288,13 +1288,17 @@ func getjobApplicationAPICall(){
     
                     let listArr = respVO.listResult
     
-                    self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:statusMsg!, clickAction: {
-                        
-                        self.dismiss(animated: true, completion: nil)
-                        let getjobdetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
+                    
+                    
+                    
+//                    self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege:statusMsg!, clickAction: {
+//
+                       self.dismiss(animated: true, completion: nil)
+                       let getjobdetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "GetAllJobDetailsViewController") as! GetAllJobDetailsViewController
                         self.navigationController?.pushViewController(getjobdetailsVC, animated: true)
-              
-                    })
+                       appDelegate.window?.makeToast(statusMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+//
+//                    })
                     
                     
         self.jobApplyTableView.reloadData()

@@ -184,24 +184,44 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
         let dictHeaders = ["":"","":""] as NSDictionary
         
         serviceController.postRequest(strURL: readNotificationApi as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
+
             if churchId != 0{
                 
+                
                 if eventId != 0 {
+                    //                let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                    //
+                    //                eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
+                    //
+                    //                self.navigationController?.pushViewController(eventViewController, animated: true)
                     
-                    let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                     
+                    let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                    
+                    eventViewController.isFromNotification = true
+                    eventViewController.pageName = "Events"
                     eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
                     
                     self.navigationController?.pushViewController(eventViewController, animated: true)
+                    
+                    
                     
                 }
                     
                 else if postId != 0 {
                     
-                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    //                   let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    //
+                    //                    self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
+                    
+                    
+                    let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+                    
+                    authorPostVC.isFromNotification = true
+                    authorPostVC.pageName = "Posts"
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
+                    
                 }
                 
             }
@@ -210,8 +230,17 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 
                 if eventId != 0 {
                     
-                    let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+                    //                let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+                    //
+                    //                authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
+                    //
+                    //
+                    //                self.navigationController?.pushViewController(authorEventsVC, animated: true)
                     
+                    let authorEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                    
+                    authorEventsVC.isFromNotification = true
+                    authorEventsVC.pageName = "Events"
                     authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
                     
                     
@@ -221,14 +250,21 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                 else if postId != 0 {
                     
-                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    //                let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+                    //
+                    //                self.navigationController?.pushViewController(authorPostVC, animated: true)
+                    
+                    let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
+                    authorPostVC.isFromNotification = true
+                    authorPostVC.pageName = "Posts"
                     
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
                 }
                 
-            } else {
-                
+                //  AuthorDetailsViewController
+            }else {
+            
                 let nullNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NullNotificationViewController") as! NullNotificationViewController
                 nullNotificationVC.titleString = self.notificationsArray[indexPath.row].name!
                 nullNotificationVC.descriptionString = self.notificationsArray[indexPath.row].desc!
@@ -296,3 +332,54 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
 
 
 }
+
+
+
+
+
+// Sample Code
+
+//            if churchId != 0{
+//
+//                if eventId != 0 {
+//
+//                    let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+//
+//                    eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
+//
+//
+//                    self.navigationController?.pushViewController(eventViewController, animated: true)
+//
+//                }
+//
+//                else if postId != 0 {
+//
+//                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//
+//                    self.navigationController?.pushViewController(authorPostVC, animated: true)
+//                }
+//
+//            }
+//
+//            else if authorId != 0{
+//
+//                if eventId != 0 {
+//
+//                    let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+//
+//                    authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
+//
+//
+//                    self.navigationController?.pushViewController(authorEventsVC, animated: true)
+//
+//                }
+//
+//                else if postId != 0 {
+//
+//                    let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+//
+//                    self.navigationController?.pushViewController(authorPostVC, animated: true)
+//
+//                }
+//
+//            }
