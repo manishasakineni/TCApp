@@ -484,7 +484,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
-        
+        let mediaTypeId = (imageTag?[indexPath.row] as? ImagesResultVo)?.mediaTypeId
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
@@ -546,39 +546,75 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             
         }
             
-        else if (fileExtension == ".mp3") {
-            
-            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+        else if (mediaTypeId == 3 ){
+//            let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
+//            let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+//            print(postImgUrl)
+//            let audioUrlImage =  postImgUrl
+//            print(audioUrlImage)
+//            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+//            print(newString)
+//            if newString != nil {
+//                let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
+//                audioViewController.audioIDArr = newString!
+//                audioViewController.audioIDNameArr = title!
+//                self.navigationController?.pushViewController(audioViewController, animated: true)
+//            }
+//            else {
+//
+//            }
             let title = (imageTag?[indexPath.row] as? ImagesResultVo)?.title
+            let categoryId = (imageTag?[indexPath.row] as? ImagesResultVo)?.categoryId
             
+            let imgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.embededUrl
             
-            print(postImgUrl)
+            let userID = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
+            let audioId = (imageTag?[indexPath.row] as? ImagesResultVo)?.id
             
-            let audioUrlImage =  postImgUrl
-            print(audioUrlImage)
-            
-            let newString = audioUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-            
-            print(newString)
-            
-            if newString != nil {
+            if let embededUrlImage =  imgUrl {
                 
-                let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
-                
-                audioViewController.audioIDArr = newString!
-                audioViewController.audioIDNameArr = title!
-                self.navigationController?.pushViewController(audioViewController, animated: true)
+                let thumbnillImage : String = embededUrlImage
                 
                 
+                self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+                
+                self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
+                
+                let videothumb = URL(string: self.thumbnailImageURL)
+                
+                if videothumb != nil{
+                    
+                    let request = URLRequest(url: videothumb!)
+                    
+                    let session = URLSession.shared
+                    
+                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                        
+                        DispatchQueue.main.async()
+                            {
+                                
+                                let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+                                
+                                videosVC.videoEmbededIDStr = self.audioIDArray[1]
+                                videosVC.videoNameStr = title!
+                                videosVC.videoId = audioId!
+                                
+                                kUserDefaults.set(categoryId, forKey: "categoryId")
+                                kUserDefaults.set(userID, forKey: "userID")
+                                kUserDefaults.synchronize()
+                                self.navigationController?.pushViewController(videosVC, animated: true)
+                        }
+                        
+                    })
+                    
+                    dataTask.resume()
+                    
+                }
             }
-            else {
-                
-            }
-            
             print("audio")
             
         }
-        else if fileExtension == ".mp4" {
+        else if mediaTypeId == 4  {
             
             
             let postImgUrl = (imageTag?[indexPath.row] as? ImagesResultVo)?.postImage
