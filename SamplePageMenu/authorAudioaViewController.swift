@@ -133,7 +133,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         if let embededUrlImage =  postImgUrl {
             let thumbnillImage : String = embededUrlImage
             self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-            self.thumbnailImageURL = "https://img.m.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
+            self.thumbnailImageURL = "https://img.m.youtube.com/vi/\(self.audioIDArray[1])/audio3.jpg"
 
             let videothumb = URL(string: self.thumbnailImageURL)
 

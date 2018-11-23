@@ -77,7 +77,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
             if isSuccess == true{
                
-               // if ((respVO.result?.unreadCount) != 0) {
+                if ((respVO.result?.unreadCount) != 0) {
                     
                     self.viewNotificationsTableView.isHidden = false
                     self.noRecordsLbl.isHidden = true
@@ -104,14 +104,14 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
 
                     self.viewNotificationsTableView.reloadData()
                 }
-           // }
+            }
                 
-//                else {
-//
-//
-//                    self.viewNotificationsTableView.isHidden = true
-//                    self.noRecordsLbl.isHidden = false
-//                }
+                else {
+
+
+                    self.viewNotificationsTableView.isHidden = true
+                    self.noRecordsLbl.isHidden = false
+                }
                 
 
             }
@@ -253,7 +253,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
             
         }
         
-        
+        self.viewNotificationsTableView.reloadData()
         
     }
     
