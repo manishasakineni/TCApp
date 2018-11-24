@@ -450,12 +450,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         alertView.show()
     }
     
-    //MARK: -   Banner Image Scroll APICall
-    
+//MARK: -   Banner Image Scroll APICall
     
     func bannerImageScrollAPICall(){
-        
-        
+
         let strUrl = BANNERIMAGESURL + "" + "null"
         
         print(strUrl)
@@ -508,7 +506,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             
                             self.bannerScrollView.delegate = self
                             
-                            for (index, image) in self.bannerImageArr.enumerated() {
+                            for (index, _) in self.bannerImageArr.enumerated() {
                                 let imageView = UIImageView()
                                 imageView.contentMode = .scaleToFill
                                 imageView.backgroundColor = UIColor.blue
@@ -951,7 +949,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             if indexPath.row == 0{
                 
+                if eventImageArray.count > 0{
+                
                 return 150.0
+                    
+                }
+                else
+                {
+                    return 0.0
+                }
             }
                 
             else {
@@ -964,7 +970,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             if indexPath.row == 0{
                 
-                return 130.0
+                if eventImageArray.count > 0{
+                    
+                    return 130.0
+                    
+                }
+                else
+                {
+                    return 0.0
+                }
             }
                 
             else{

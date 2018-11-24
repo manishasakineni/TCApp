@@ -2447,7 +2447,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -3105,7 +3105,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Telugu Churches.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
@@ -3128,7 +3127,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Telugu Churches.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;

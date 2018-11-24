@@ -489,10 +489,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
             }
             
-            
             if(userId != 0) {
                 
-
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
             
@@ -508,15 +506,13 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-                
-                
+
                 self.loginVC.navigationString = "HomeString"
                 
                 self.loginVC.showNav = true
                 
                 let newController = UINavigationController.init(rootViewController:self.loginVC)
                 revealviewcontroller.pushFrontViewController(newController, animated: true)
-                
                 
             })
         }
@@ -535,10 +531,10 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     desController.showNav = true
     let newController = UINavigationController.init(rootViewController:desController)
     revealviewcontroller.pushFrontViewController(newController, animated: true)
-                
-                
-        }
-        else if cell.menuNameLabel.text == "Login".localize() {
+      
+    }
+            
+    else if cell.menuNameLabel.text == "Login".localize() {
             
     let defaults = UserDefaults.standard
     defaults.set("false", forKey: KFirstTimeLogin)
@@ -554,20 +550,22 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    //MARK: -   choose Language Clicked
-    
+//MARK: -   choose Language Clicked
     
     @IBAction func chooseLanguageClicked(_ sender: Any) {
         
+    let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage (భాషను ఎంచుకోండి)", preferredStyle: UIAlertControllerStyle.actionSheet)
+  //  let languageAry = ["a","b"]
         
-    let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
-    for language in Localize.availableLanguages() {
+         for language in Localize.availableLanguages() {
     let displayName = Localize.displayNameForLanguage(language)
-            
+
+        
     let languageAction = UIAlertAction(title: displayName, style: .default, handler: {
+        
     (alert: UIAlertAction!) -> Void in
     Localize.update(language: language)
-    self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
+        self.chooseLanguageBtn.setTitle("ChooseLanguage (భాషను ఎంచుకోండి)", for: .normal)
                 
     self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"ChangePassword".localize(),"LogOut".localize()]
         

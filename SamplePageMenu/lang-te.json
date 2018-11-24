@@ -1,14 +1,12 @@
-{
-    
+{    
     "EditProfile"      :   "ప్రొఫైల్ని సవరించండి",
     "ChangepassWord"   :   "పాస్ వర్డ్ ను మార్చండి",
     "LogOut"           :   "లాగౌట్",
     "Login"            :   "లాగిన్",
-    "ChooseLanguage"   :   "భాషను ఎంచుకోండి",
+    "ChooseLanguage"   :   "Choose Language (భాషను ఎంచుకోండి)",
     "Telugu Churches"  :   "తెలుగు చర్చిలు",
     "UpComing Events"  :   "రాబోయే ఈవెంట్స్",
-    
-    
+
     "User Name" : "వాడుకరి పేరు",
     "Password"  : "పాస్వర్డ్",
     "forgot Password" : "పాస్వర్డ్ మర్చిపోయారా?",
@@ -139,6 +137,7 @@
     "Audio" : "ఆడియో",
     "Video" : "వీడియో",
     "From :" : "నుండి :",
+    
     "To :" : "కు :",
     "Event From" : "ఈవెంట్ నుండి",
     
