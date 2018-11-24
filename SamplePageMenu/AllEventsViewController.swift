@@ -361,14 +361,30 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.filteredTableData[indexPath.row]
                 
+        if churchIdMonthYearList.churchName != nil {
+            
+            if let churchName =  churchIdMonthYearList.churchName {
                 
-        if let churchName =  churchIdMonthYearList.churchName {
-                    
-    listOfMonthEventCell.churchName.text = churchName
-                    
-    }else{
-       listOfMonthEventCell.churchName.text = ""
-    }
+                listOfMonthEventCell.churchName.text = churchName
+                
+            }else{
+                listOfMonthEventCell.churchName.text = ""
+            }
+        }
+        else if churchIdMonthYearList.authorName != nil {
+            
+            if let authorName =  churchIdMonthYearList.authorName {
+                
+                listOfMonthEventCell.churchName.text = authorName
+                
+            }else{
+                listOfMonthEventCell.churchName.text = ""
+            }
+        }
+        else {
+            listOfMonthEventCell.churchName.text = ""
+        }
+ 
 
     if let eventName =  churchIdMonthYearList.title {
                     
@@ -443,7 +459,18 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             }else{
                 listOfMonthEventCell.churchName.text = ""
             }
-        }else{
+        }
+        else if churchIdMonthYearList.authorName != nil {
+            
+            if let authorName =  churchIdMonthYearList.authorName {
+                
+                listOfMonthEventCell.churchName.text = authorName
+                
+            }else{
+                listOfMonthEventCell.churchName.text = ""
+            }
+        }
+        else{
             listOfMonthEventCell.churchName.text = ""
         }
         

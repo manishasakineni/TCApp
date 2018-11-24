@@ -27,13 +27,15 @@ class GetEventInfoByChurchIdMonthYearResultVo: Mappable {
     var createdDate : String?
     var updatedByUserId : Int?
     var updatedDate : String?
+    var authorId : Int?
+    var authorName : String?
     
   
     
     //MARK:-  initialization of GetEventInfoByChurchIdMonthYearResultVo
     
     
-    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
+    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,authorId : Int?,authorName : String?)
         
         
     {
@@ -58,7 +60,8 @@ class GetEventInfoByChurchIdMonthYearResultVo: Mappable {
         self.createdDate = createdDate
         self.updatedByUserId = updatedByUserId
         self.updatedDate = updatedDate
-        
+         self.authorId = authorId
+        self.authorName = authorName
         
     }
     
@@ -89,6 +92,8 @@ class GetEventInfoByChurchIdMonthYearResultVo: Mappable {
         createdDate <- map["createdDate"]
         updatedByUserId <- map["updatedByUserId"]
         updatedDate <- map["updatedDate"]
+        authorId <- map["authorId"]
+        authorName <- map["authorName"]
         
         
     }
