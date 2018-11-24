@@ -254,6 +254,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backGroundView" destination="QUY-54-imi" id="F6v-7H-y9Y"/>
+                <outlet property="churchANDAuthorName" destination="ARI-zR-lM2" id="Tto-Rl-cUF"/>
                 <outlet property="churchName" destination="DxF-gY-zEp" id="Kv4-NT-wK4"/>
                 <outlet property="contactNumber" destination="JmJ-3e-1ML" id="KsO-9R-gFW"/>
                 <outlet property="endDate" destination="byS-qT-Tf3" id="8LG-QW-ru4"/>

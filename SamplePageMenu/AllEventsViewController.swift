@@ -455,6 +455,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         if churchIdMonthYearList.churchName  != nil {
             if let churchName = churchIdMonthYearList.churchName {
                 listOfMonthEventCell.churchName.text = churchName
+                listOfMonthEventCell.churchANDAuthorName.text = "Church Name".localize()
+              
                 
             }else{
                 listOfMonthEventCell.churchName.text = ""
@@ -465,13 +467,17 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             if let authorName =  churchIdMonthYearList.authorName {
                 
                 listOfMonthEventCell.churchName.text = authorName
+               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                 listOfMonthEventCell.churchANDAuthorName.text = "Author Name".localize()
                 
             }else{
                 listOfMonthEventCell.churchName.text = ""
+               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
             }
         }
         else{
             listOfMonthEventCell.churchName.text = ""
+            
         }
         
         if  churchIdMonthYearList.title != nil {
