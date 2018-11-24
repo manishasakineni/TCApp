@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Medium</string>
         </array>
     </customFonts>
@@ -27,17 +28,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-54-imi">
                         <rect key="frame" x="3" y="3" width="314" height="140"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALVERY TEMPLE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-gY-zEp">
-                                <rect key="frame" x="188" y="8" width="121" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-gY-zEp">
+                                <rect key="frame" x="188" y="8" width="121" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="CALVERY TEMPLE"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Church Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARI-zR-lM2">
-                                <rect key="frame" x="72" y="4.5" width="84" height="21"/>
+                                <rect key="frame" x="72" y="-2.5" width="84" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="M7Q-8n-bL4"/>
                                     <constraint firstAttribute="height" constant="21" id="hM9-3d-V8U"/>
@@ -49,38 +47,29 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Church Name"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmJ-3e-1ML">
-                                <rect key="frame" x="188" y="55.5" width="121" height="14.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Contact Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catholic Church" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86A-JR-7yk">
-                                <rect key="frame" x="188" y="25.5" width="124" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmJ-3e-1ML">
+                                <rect key="frame" x="188" y="55.5" width="121" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-2g-5ty">
-                                <rect key="frame" x="188" y="73.5" width="121" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86A-JR-7yk">
+                                <rect key="frame" x="188" y="11" width="124" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Start Date"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byS-qT-Tf3">
-                                <rect key="frame" x="188" y="105" width="121" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-2g-5ty">
+                                <rect key="frame" x="188" y="59" width="121" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="End Date"/>
-                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byS-qT-Tf3">
+                                <rect key="frame" x="188" y="105" width="121" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.59215686274509804" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="VIo-rx-Eft">
                                 <rect key="frame" x="3" y="8" width="65" height="65"/>
@@ -97,13 +86,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44o-Dg-9La">
-                                <rect key="frame" x="9" y="124.5" width="297" height="10.5"/>
+                                <rect key="frame" x="9" y="117.5" width="297" height="17.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCF-Dz-a4e">
-                                <rect key="frame" x="72" y="28.5" width="84" height="21"/>
+                                <rect key="frame" x="72" y="21.5" width="84" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="NfH-ow-Jq8"/>
                                     <constraint firstAttribute="height" constant="21" id="qU7-2x-4Cn"/>
@@ -116,7 +105,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-Bu-P26">
-                                <rect key="frame" x="72" y="52.5" width="110" height="21"/>
+                                <rect key="frame" x="72" y="45.5" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="UiW-7x-E42"/>
                                     <constraint firstAttribute="height" constant="21" id="iRZ-74-CmE"/>
@@ -129,7 +118,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sq-4l-TKL">
-                                <rect key="frame" x="72" y="77" width="93" height="21"/>
+                                <rect key="frame" x="72" y="70" width="93" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ARn-iX-ooc"/>
                                     <constraint firstAttribute="width" constant="93" id="jZM-Po-6rS"/>
@@ -142,7 +131,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Y-TE-FlM">
-                                <rect key="frame" x="72" y="101.5" width="84" height="21"/>
+                                <rect key="frame" x="72" y="94.5" width="84" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KL0-ZE-hlW"/>
                                     <constraint firstAttribute="width" constant="84" id="qKD-yi-9eT"/>
@@ -155,7 +144,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-bo-q3z">
-                                <rect key="frame" x="161" y="7.5" width="12" height="15"/>
+                                <rect key="frame" x="161" y="0.5" width="12" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="5" id="DUz-Wc-O1a"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="QQB-US-C2d"/>
@@ -167,7 +156,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kId-9X-KDm">
-                                <rect key="frame" x="164.5" y="27.5" width="5" height="23.5"/>
+                                <rect key="frame" x="164.5" y="20.5" width="5" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="BhD-nX-F8u"/>
                                 </constraints>
@@ -176,7 +165,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lW-w7-t4h">
-                                <rect key="frame" x="165" y="56" width="5" height="15"/>
+                                <rect key="frame" x="165" y="49" width="5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="4jL-Qt-HXW"/>
                                     <constraint firstAttribute="height" constant="15" id="ZrH-1h-3Rv"/>
@@ -186,7 +175,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUx-RH-1kG">
-                                <rect key="frame" x="165.5" y="81.5" width="5" height="15"/>
+                                <rect key="frame" x="165.5" y="74.5" width="5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="NaM-Wu-gPw"/>
                                     <constraint firstAttribute="width" constant="5" id="Xwg-6R-Muu"/>
@@ -196,7 +185,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-8W-q2U">
-                                <rect key="frame" x="165" y="106" width="5" height="15"/>
+                                <rect key="frame" x="165" y="99" width="5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="Bf3-m8-HcO"/>
                                     <constraint firstAttribute="height" constant="15" id="d5t-cE-8lV"/>

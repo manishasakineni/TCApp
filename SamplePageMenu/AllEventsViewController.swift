@@ -354,7 +354,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "AllEventsTableViewCell", for: indexPath) as! AllEventsTableViewCell
         
-        
+  
     if (isSearch) {
             
     if(self.filteredTableData.count > indexPath.row ){
@@ -362,12 +362,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.filteredTableData[indexPath.row]
                 
                 
-    if let churchName =  churchIdMonthYearList.churchName {
+        if let churchName =  churchIdMonthYearList.churchName {
                     
     listOfMonthEventCell.churchName.text = churchName
                     
     }else{
-        
+       listOfMonthEventCell.churchName.text = ""
     }
 
     if let eventName =  churchIdMonthYearList.title {
@@ -375,7 +375,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     listOfMonthEventCell.eventTitle.text = eventName
                     
     }else{
-
+     listOfMonthEventCell.eventTitle.text = ""
     }
                 
     if let contactNumber =  churchIdMonthYearList.contactNumber {
@@ -383,7 +383,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     listOfMonthEventCell.contactNumber.text = contactNumber
                     
     }else{
-                    
+    listOfMonthEventCell.contactNumber.text = ""
     }
                 
     let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
@@ -393,7 +393,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     listOfMonthEventCell.startDate.text = startDate
                     
     }else{
-        
+         listOfMonthEventCell.startDate.text = ""
     }
     let endDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
     if endDate != "" {
@@ -401,7 +401,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     listOfMonthEventCell.endDate.text = endDate
         
     }else{
-        
+         listOfMonthEventCell.endDate.text = ""
     }
         
     let imgUrl = churchIdMonthYearList.eventImage
@@ -433,31 +433,45 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
             
     if(self.churchIdMonthYearArray.count > indexPath.row ){
-                    
+        
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
-                    
-    if let churchName =  churchIdMonthYearList.churchName {
-     listOfMonthEventCell.churchName.text = churchName
         
-    }else{
-}
-                    
-    if let eventName =  churchIdMonthYearList.title {
-        
-        listOfMonthEventCell.eventTitle.text = eventName
-        
-    }else{
-        
-    }
-                    
-    if let contactNumber =  churchIdMonthYearList.contactNumber {
-        
-        listOfMonthEventCell.contactNumber.text = contactNumber
-        
-        }else{
-        
-        listOfMonthEventCell.contactNumber.text = "Contact Number".localize()
+        if churchIdMonthYearList.churchName  != nil {
+            if let churchName = churchIdMonthYearList.churchName {
+                listOfMonthEventCell.churchName.text = churchName
+                
+            }else{
+                listOfMonthEventCell.churchName.text = ""
             }
+        }else{
+            listOfMonthEventCell.churchName.text = ""
+        }
+        
+        if  churchIdMonthYearList.title != nil {
+            if let eventName =  churchIdMonthYearList.title {
+                listOfMonthEventCell.eventTitle.text = eventName
+                
+            }else{
+                listOfMonthEventCell.eventTitle.text = ""
+            }
+        }else{
+               listOfMonthEventCell.eventTitle.text = ""
+        }
+    
+        
+         if  churchIdMonthYearList.contactNumber != nil {
+            
+            if let contactNumber =  churchIdMonthYearList.contactNumber {
+                
+                listOfMonthEventCell.contactNumber.text = contactNumber
+                
+            }else{
+                listOfMonthEventCell.contactNumber.text = ""
+            }
+         }else{
+            listOfMonthEventCell.contactNumber.text = ""
+        }
+   
                     
     let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
         
@@ -466,15 +480,16 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     listOfMonthEventCell.startDate.text = startDate
         
     }else{
-        
-}
+       listOfMonthEventCell.startDate.text = ""
+    }
     let endDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
     if endDate != "" {
         
     listOfMonthEventCell.endDate.text = endDate
         
     }else{
-}
+      listOfMonthEventCell.endDate.text = ""
+    }
         
     let imgUrl = churchIdMonthYearList.eventImage
     let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
