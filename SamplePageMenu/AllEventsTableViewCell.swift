@@ -23,6 +23,9 @@ class AllEventsTableViewCell: UITableViewCell {
     @IBOutlet weak var endDate: UILabel!
     @IBOutlet weak var churchANDAuthorName: UILabel!
     
+    
+    
+    
      //MARK: - Color
     
     override func awakeFromNib() {

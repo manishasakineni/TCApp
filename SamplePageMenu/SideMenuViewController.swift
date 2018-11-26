@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_638526_cc","noun_793900_cc"]
     
-
+var isSelectLanguage = false
   //MARK: -   View DidLoad
     
     override func viewDidLoad() {
@@ -168,13 +168,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         if (self.userID.isEmpty) {
             
-            
-            if indexPath.row == 9 || indexPath.row == 11 {
-                
-              cell1.isHidden = true
-                
-             
-            }
+                if indexPath.row == 9 || indexPath.row == 11 {
+                    cell1.isHidden = true
+                }
             
             if cell1.menuNameLabel.text! == "LogOut".localize(){
                 if indexPath.row == 10 {
@@ -185,12 +181,18 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                      // cell1.menuNameImg.backgroundColor = UIColor.lightGray
                 }
            
+            }else if isSelectLanguage == true {
+                if indexPath.row == 10 {
+                    cell1.menuNameLabel.text! = "Login".localize()
+                    cell1.menuNameImg.image = UIImage(named: String("LogOutlightGray"))
+                }
+          
             }
             
         }
         
         else{
-        
+
             cell1.isHidden = false
             
         }
@@ -209,7 +211,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
           
         }else{
-            
+            print("TEst Case")
             
         }
         
@@ -554,6 +556,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBAction func chooseLanguageClicked(_ sender: Any) {
         
+        isSelectLanguage = true
+        
     let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage (భాషను ఎంచుకోండి)", preferredStyle: UIAlertControllerStyle.actionSheet)
   //  let languageAry = ["a","b"]
         
@@ -566,10 +570,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     (alert: UIAlertAction!) -> Void in
     Localize.update(language: language)
         self.chooseLanguageBtn.setTitle("ChooseLanguage (భాషను ఎంచుకోండి)", for: .normal)
-                
-    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"ChangePassword".localize(),"LogOut".localize()]
+                     self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
         
-                self.menuTableView.reloadData()
+        self.menuTableView.reloadData()
         })
         actionSheet.addAction(languageAction)
         }

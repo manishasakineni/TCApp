@@ -15,12 +15,12 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
 // constants Old Test Url
-//var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
+var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
 
 
 
 // Changed constants Latest Live BASEURL 22/11/2018
-var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
+//var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
 
 
 
