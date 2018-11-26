@@ -117,14 +117,17 @@
                                 <state key="normal" image="3 dots"/>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-64-68u">
-                                <rect key="frame" x="53" y="35" width="81" height="14"/>
+                                <rect key="frame" x="53" y="35" width="140" height="14"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="pBI-JP-ehh"/>
+                                    <constraint firstAttribute="width" constant="140" id="pBI-JP-ehh"/>
                                     <constraint firstAttribute="height" constant="14" id="x8V-q0-PP1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="tintColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="VIEW REPLIES"/>
+                                <state key="normal" title="View Replies"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="View Replies"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87d-7A-cC8">
                                 <rect key="frame" x="249" y="30" width="25" height="20"/>

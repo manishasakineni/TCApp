@@ -24,6 +24,7 @@ class AddToCareTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     @IBOutlet weak var deleteBtn: UIButton!
     
+    @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var quantityField: UITextField!
     
     @IBOutlet weak var updateBtn: UIButton!

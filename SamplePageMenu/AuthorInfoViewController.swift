@@ -413,7 +413,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
             else{
                 
-                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
+                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe".localize(),for: .normal)
                 
             }
             

@@ -255,7 +255,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             
         else{
             
-            cell.subscribeButtton.setTitle("Unsubscribe",for: .normal)
+            cell.subscribeButtton.setTitle("Unsubscribe".localize(),for: .normal)
             
         }
     
@@ -442,7 +442,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
             authorDetailsViewController.churchName1 = listStr.churchAdmin!
         }
-            authorDetailsViewController.isFromChruch = false
+            authorDetailsViewController.isFromChruch = true
     authorDetailsViewController.isSubscribed = isSubscribed
             
     self.navigationController?.pushViewController(authorDetailsViewController, animated: true)

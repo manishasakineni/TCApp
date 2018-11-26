@@ -669,7 +669,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
             else{
                 
-                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe",for: .normal)
+                infoHeaderCell.subscribeBtn.setTitle("Unsubscribe".localize(),for: .normal)
                 
             }
             

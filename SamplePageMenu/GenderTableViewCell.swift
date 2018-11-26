@@ -11,6 +11,8 @@ import UIKit
 class GenderTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var femaleTxt: UITextField!
+    @IBOutlet weak var maleTxt: UITextField!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var maleUnCheckBtn: UIImageView!
     
@@ -25,6 +27,10 @@ class GenderTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    
+        maleTxt.text = "Male".localize()
+        femaleTxt.text = "Female".localize()
+    
         
            }
 

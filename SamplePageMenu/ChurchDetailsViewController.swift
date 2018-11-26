@@ -73,7 +73,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         }
         
-   //     self.getAllChurchSearchAPIService(string: searchBar.text!)
+   //    self.getAllChurchSearchAPIService(string: searchBar.text!)
         
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
@@ -88,7 +88,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         navigationItem.titleView = searchBar
-        
+        searchController.searchBar.setValue("New Title", forKey: "cancelButtonText")
 
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
@@ -150,7 +150,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     //MARK: -  Search function
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
+       // self.searchBar.showsCancelButton = true
         
         searchActive = false
         PageIndex = 1
@@ -171,7 +171,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-
         PageIndex = 1
         totalPages = 0
         self.churchNamesArray.removeAll()
@@ -202,6 +201,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
     
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
@@ -230,10 +230,14 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         }
         
         }
+
     
-    //    GETALLACTIVECHURCHESAPI
+
     
-    //MARK: -  Get All Active Church Search API Service
+    
+//    GETALLACTIVECHURCHESAPI
+    
+//MARK: -  Get All Active Church Search API Service
     
     
     func getAllActiveChurchSearchAPIService(string:String){
@@ -828,7 +832,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
         holyBibleViewController.churchID = listStr.Id!
-        holyBibleViewController.isFromChruch = true
+        holyBibleViewController.isFromChruch = false
         holyBibleViewController.nameStr = listStr.name!
 
         

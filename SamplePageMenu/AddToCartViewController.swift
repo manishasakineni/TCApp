@@ -172,7 +172,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         cell.quantityField.tag = indexPath.row
         cell.addToCartPriceLbl.tag = indexPath.row
-        
+        cell.totalPrice.text = "Total Price".localize()
         let a:Double = Double(cell.quantityField.text!)!
         let b:Double = Double(cell.addToCartPriceLbl.text!)!
         cell.totalPriceLbl.text = "\(a * b)"

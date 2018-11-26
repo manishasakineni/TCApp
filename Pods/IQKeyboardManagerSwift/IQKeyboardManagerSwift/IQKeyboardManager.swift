@@ -845,6 +845,7 @@ open class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
         //Loading IQToolbar, IQTitleBarButtonItem, IQBarButtonItem to fix first time keyboard appearance delay (Bug ID: #550)
         let textField = UITextField()
         textField.addDoneOnKeyboardWithTarget(nil, action: #selector(self.doneAction(_:)))
+        
         textField.addPreviousNextDoneOnKeyboardWithTarget(nil, previousAction: #selector(self.previousAction(_:)), nextAction: #selector(self.nextAction(_:)), doneAction: #selector(self.doneAction(_:)))
         
         disabledDistanceHandlingClasses.append(UITableViewController.self)
@@ -2072,7 +2073,7 @@ open class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                             if let doneBarButtonItemImage = toolbarDoneBarButtonItemImage {
                                 textField.addRightButtonOnKeyboardWithImage(doneBarButtonItemImage, target: self, action: #selector(self.doneAction(_:)), shouldShowPlaceholder: shouldShowToolbarPlaceholder)
                             }
-                                //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376)
+                                //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376) doneBarButtonItemText
                             else if let doneBarButtonItemText = toolbarDoneBarButtonItemText {
                                 textField.addRightButtonOnKeyboardWithText(doneBarButtonItemText, target: self, action: #selector(self.doneAction(_:)), shouldShowPlaceholder: shouldShowToolbarPlaceholder)
                             } else {
@@ -2087,7 +2088,7 @@ open class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                             if let doneBarButtonItemImage = toolbarDoneBarButtonItemImage {
                                 textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonImage: doneBarButtonItemImage, previousAction: #selector(self.previousAction(_:)), nextAction: #selector(self.nextAction(_:)), rightButtonAction: #selector(self.doneAction(_:)), shouldShowPlaceholder: shouldShowToolbarPlaceholder)
                             }
-                                //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376)
+                                //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376) doneBarButtonItemText
                             else if let doneBarButtonItemText = toolbarDoneBarButtonItemText {
                                 textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonTitle: doneBarButtonItemText, previousAction: #selector(self.previousAction(_:)), nextAction: #selector(self.nextAction(_:)), rightButtonAction: #selector(self.doneAction(_:)), shouldShowPlaceholder: shouldShowToolbarPlaceholder)
                             } else {

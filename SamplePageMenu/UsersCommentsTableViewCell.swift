@@ -56,6 +56,7 @@ class UsersCommentsTableViewCell: UITableViewCell {
         usersImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
         usersImageView.layer.cornerRadius = usersImageView.frame.height/2
         usersImageView.clipsToBounds = true
+        //viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

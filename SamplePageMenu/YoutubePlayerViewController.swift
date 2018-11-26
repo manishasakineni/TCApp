@@ -654,6 +654,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                     
                usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
                usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+               usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
                     
                usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
                usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
@@ -762,11 +763,12 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             youtubeCLDSSCell.videoTitleName.text = videoNameStr
             youtubeCLDSSCell.likeCountLbl.text = String(likesCount)
             youtubeCLDSSCell.disLikeCountLbl.text = String(disLikesCount)
-            youtubeCLDSSCell.viewCountLbl.text = String(self.viewCount) + "Views"
+            youtubeCLDSSCell.viewCountLbl.text = String(self.viewCount) + " Views".localize()
             
             youtubeCLDSSCell.likeButton.addTarget(self, action: #selector(likeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.unlikeButton.addTarget(self, action: #selector(unLikeButtonClick(_:)), for: UIControlEvents.touchUpInside)
             youtubeCLDSSCell.shareButton.addTarget(self, action: #selector(shareButtonClick(_:)), for: UIControlEvents.touchUpInside)
+            youtubeCLDSSCell.shareButton.setTitle("Share".localize(), for: .normal)
 
             return youtubeCLDSSCell
 
@@ -777,7 +779,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             let subscribCell = tableView.dequeueReusableCell(withIdentifier: "SubscribCell", for: indexPath) as! SubscribCell
             
             
-            subscribCell.subscribnameLbl.text = "Channel Name"
+            subscribCell.subscribnameLbl.text = "Channel Name".localize()
+
             
             return subscribCell
             
@@ -1694,9 +1697,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
   
         
-        let actionSheet = UIAlertController(title: nil, message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: "Select".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
             
-            let edit = UIAlertAction(title: "Edit", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            let edit = UIAlertAction(title: "Edit".localize(), style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
    
                 let indexPath3 = IndexPath(item: 0, section: 2)
@@ -1715,7 +1718,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                 
             })
             
-            let delete = UIAlertAction(title: "Delete", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            let delete = UIAlertAction(title: "Delete".localize(), style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
                 
                 self.deleteCommentAPICall(tag: sender.tag)
@@ -1729,7 +1732,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             actionSheet.addAction(delete)
             
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            let cancelAction = UIAlertAction(title: "Cancel".localize(), style: UIAlertActionStyle.cancel, handler: {
                 (alert: UIAlertAction) -> Void in
             })
             actionSheet.addAction(cancelAction)

@@ -1200,7 +1200,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         else{
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
                 

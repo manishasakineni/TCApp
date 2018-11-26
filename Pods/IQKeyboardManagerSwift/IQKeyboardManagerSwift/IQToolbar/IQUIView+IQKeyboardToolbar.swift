@@ -1098,6 +1098,7 @@ public extension UIView {
                 toolbar.doneBarButton = doneButton
             }
 
+            
             items.append(doneButton)
             
             //  Adding button to toolBar.
