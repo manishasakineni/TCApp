@@ -79,27 +79,37 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorImageTableViewCell", for: indexPath) as! AuthorImageTableViewCell
         
-        let postImgUrl = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
-        
-        
-        let title = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
-
-        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        let url = URL(string:newString!)
-        let dataImg = try? Data(contentsOf: url!)
-        
-        if dataImg != nil {
+        if (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage != nil {
             
-            cell.authorImageView.image = UIImage(data: dataImg!)
+             let postImgUrl = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+            let title = (imageResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
             
+            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            let url = URL(string:newString!)
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.authorImageView.image = UIImage(data: dataImg!)
+                
+            }
+                
+            else {
+                
+                cell.authorImageView.image = #imageLiteral(resourceName: "j4")
+            }
+            
+            cell.imageLbl.text = title
+        }else{
+            
+           // cell.authorImageView.image = #imageLiteral(resourceName: "j4")
+            print("Empty Image load......")
         }
-            
-        else {
-            
-            cell.authorImageView.image = #imageLiteral(resourceName: "j4")
-        }
         
-          cell.imageLbl.text = title
+       
+        
+        
+  
         
         return cell
         

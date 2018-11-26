@@ -144,7 +144,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         createdDate =  result
         updatedDate =  result
-        print("createdDate",updatedDate)
+        print("createdDateupdatedDateupdatedDate",updatedDate)
 //        uploadresumeOutLet.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 //        uploadresumeOutLet.layer.borderWidth = 1
 //        uploadresumeOutLet.layer.masksToBounds = false

@@ -220,6 +220,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                     authorPostVC.isFromNotification = true
                     authorPostVC.pageName = "Posts"
+                    authorPostVC.churchID = self.notificationsArray[indexPath.row].churchId!
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
                 }
@@ -257,7 +258,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                     authorPostVC.isFromNotification = true
                     authorPostVC.pageName = "Posts"
-                    
+                    authorPostVC.authorID = self.notificationsArray[indexPath.row].authorId!
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
                 }

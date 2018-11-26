@@ -56,12 +56,13 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
 
         if(isFromChruch == false){
             
-            authorAPIService()
+             churchAPIService()
+           
             
             
         }else{
             
-             churchAPIService()
+             authorAPIService()
             
         }
        

@@ -200,6 +200,7 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                             eventViewController.isFromNotification = true
                             eventViewController.pageName = "Events"
+                            eventViewController.isFromChruch = false
                             eventViewController.churchID = self.notificationsArray[indexPath.row].churchId!
                     
                             self.navigationController?.pushViewController(eventViewController, animated: true)
@@ -217,9 +218,10 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                     
                     let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
-                    
                     authorPostVC.isFromNotification = true
                     authorPostVC.pageName = "Posts"
+                    authorPostVC.isFromChruch = false
+                     authorPostVC.churchID = self.notificationsArray[indexPath.row].churchId!
                     self.navigationController?.pushViewController(authorPostVC, animated: true)
                     
                 }
@@ -241,6 +243,7 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 
                      authorEventsVC.isFromNotification = true
                      authorEventsVC.pageName = "Events"
+                     authorEventsVC.isFromChruch = true
                      authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
                 
                 
@@ -257,7 +260,8 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                      authorPostVC.isFromNotification = true
                      authorPostVC.pageName = "Posts"
-                
+                     authorPostVC.isFromChruch = true
+                     authorPostVC.authorID = self.notificationsArray[indexPath.row].authorId!
                 self.navigationController?.pushViewController(authorPostVC, animated: true)
                 
                 }

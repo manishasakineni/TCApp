@@ -83,12 +83,19 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDocumentTableViewCell", for: indexPath) as! AuthorDocumentTableViewCell
         
         if(documentResults.count > indexPath.row){
-            
-        let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
-        let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
-        
-            cell.documentImage.image = #imageLiteral(resourceName: "docImg")
-            cell.documentlbl.text = title
+             if (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage != nil {
+                let postImgUrl = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
+                let title = (documentResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
+                
+                cell.documentImage.image = #imageLiteral(resourceName: "docImg")
+                cell.documentlbl.text = title
+             }else{
+                
+            print("norecordsfoundLblnorecordsfoundLblnorecordsfoundLbl")
+                norecordsfoundLbl.isHidden = false
+                
+            }
+     
             
 
         }
