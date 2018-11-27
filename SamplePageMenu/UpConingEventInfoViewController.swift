@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
@@ -37,6 +38,8 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         self.norecordsfoundLbl.isHidden = true
 

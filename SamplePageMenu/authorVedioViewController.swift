@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class authorVedioViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -26,6 +27,8 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         authorVedioTableView.delegate = self
         authorVedioTableView.dataSource = self

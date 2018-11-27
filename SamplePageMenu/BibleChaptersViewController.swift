@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -26,6 +27,8 @@ class BibleChaptersViewController: UIViewController,UITableViewDataSource,UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         for i in 0 ... chapterCountStr - 1 {
             

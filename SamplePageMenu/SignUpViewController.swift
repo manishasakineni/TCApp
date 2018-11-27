@@ -8,6 +8,7 @@
 
 import UIKit
 import TextFieldEffects
+import IQKeyboardManagerSwift
 
 class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
@@ -67,6 +68,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         signeUpOutLet.setTitle("Submit".localize(), for: .normal)
         allreadyhaveanAccount.text = "all ready have an Account?".localize()

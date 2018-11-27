@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 protocol authorChangeSubtitleOfIndexDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
@@ -39,6 +40,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         createPageMenu()
         
         

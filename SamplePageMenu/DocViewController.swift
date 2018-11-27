@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class DocViewController: UIViewController,UIWebViewDelegate {
   
@@ -27,6 +28,7 @@ class DocViewController: UIViewController,UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
          Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(titleStr)", backTitle: "  \(titleStr)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         

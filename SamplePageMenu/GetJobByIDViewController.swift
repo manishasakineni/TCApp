@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -42,6 +43,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         getJobByIDTableView.rowHeight = UITableViewAutomaticDimension
         getJobByIDTableView.estimatedRowHeight = 44

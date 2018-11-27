@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 protocol UpDateCartValueDelegate {
@@ -43,6 +44,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         allitemsIDTableView.delegate = self
         allitemsIDTableView.dataSource = self

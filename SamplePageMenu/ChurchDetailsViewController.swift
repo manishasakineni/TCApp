@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+import IQKeyboardManagerSwift
 
 class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
@@ -66,6 +66,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
@@ -150,12 +152,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     //MARK: -  Search function
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-       // self.searchBar.showsCancelButton = true
+        self.searchBar.showsCancelButton = true
         
         searchActive = false
         PageIndex = 1
         totalPages = 0
-        
+        setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
         self.churchNamesArray.removeAll()
         self.getAllActiveChurchSearchAPIService(string: searchBar.text!)
         
@@ -166,6 +168,19 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         searchActive = false
         searchBar.resignFirstResponder()
     
+        
+    }
+    
+    func setSearchButtonText(text:String,searchBar:UISearchBar) {
+        
+        for subview in searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setTitleColor(UIColor.white, for: .normal)
+                    cancelButton.setTitle(text, for: .normal)
+                }
+            }
+        }
         
     }
     

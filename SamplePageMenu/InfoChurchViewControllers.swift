@@ -11,6 +11,7 @@ import Localize
 import MapKit
 import CoreLocation
 import Contacts
+import IQKeyboardManagerSwift
 
 class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,MKMapViewDelegate {
     
@@ -91,6 +92,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest

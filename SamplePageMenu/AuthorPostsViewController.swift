@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 protocol AuthorPostsViewControllerDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
@@ -53,6 +54,8 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         if(isFromChruch == false){
             

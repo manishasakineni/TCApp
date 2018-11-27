@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -34,6 +35,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
+        
         self.norecordsfoundLbl.isHidden = false
 
         if UserDefaults.standard.value(forKey: kIdKey) != nil {

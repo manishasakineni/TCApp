@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import IQKeyboardManagerSwift
 
 
 class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
@@ -49,6 +50,8 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         event = "\(numberEvent.count)"
        

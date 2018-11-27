@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import MediaPlayer
+import IQKeyboardManagerSwift
 
 class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
@@ -69,6 +70,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
        
 //        editProfileTableView.isHidden = true
 //    

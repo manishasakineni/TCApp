@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -26,6 +27,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         let nibName1  = UINib(nibName: "AddressTableViewCell" , bundle: nil)
         addressTableview.register(nibName1, forCellReuseIdentifier: "AddressTableViewCell")

@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 class AllEventsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating,UISearchBarDelegate {
 
@@ -44,6 +45,8 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
     
 override func viewDidLoad() {
         super.viewDidLoad()
+    
+    IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
     allEventTableView.rowHeight = UITableViewAutomaticDimension
     allEventTableView.estimatedRowHeight = 44

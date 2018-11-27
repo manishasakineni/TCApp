@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -46,6 +47,8 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         self.bibleBookAPICall()
         

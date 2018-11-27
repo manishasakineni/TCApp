@@ -9,6 +9,7 @@
 import UIKit
 import FSCalendar
 import Localize
+import IQKeyboardManagerSwift
 
 
 class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
@@ -70,6 +71,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         calendar.dataSource = self
         calendar.delegate = self

@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 
 protocol eventinfoSubtitleOfIndexDelegate {
@@ -32,6 +33,8 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
+        
         createPageMenu()
         
     }

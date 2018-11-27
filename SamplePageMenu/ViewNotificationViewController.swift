@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -25,6 +26,8 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         let nibName  = UINib(nibName: "NotificationTableViewCell" , bundle: nil)
         viewNotificationsTableView.register(nibName, forCellReuseIdentifier: "NotificationTableViewCell")

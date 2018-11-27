@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -39,6 +40,8 @@ class BibleDetailsViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         self.norecordsFoundLbl.isHidden = true
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
@@ -36,6 +37,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         let defaults = UserDefaults.standard
         
         if let uid = defaults.string(forKey: kuserIdKey) {

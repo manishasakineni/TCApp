@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate {
     
@@ -30,6 +31,8 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         authordocumentTableView.delegate = self
         authordocumentTableView.dataSource = self

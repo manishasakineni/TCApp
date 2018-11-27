@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
@@ -36,6 +37,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
       self.getallitemsAPICall(string: searchBar.text!)
         
@@ -118,8 +121,22 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         searchActive = false
         PageIndex = 1
         totalPages = 0
+        setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
         self.allitemsArray.removeAll()
         self.getallitemsAPICall(string: searchBar.text!)
+        
+    }
+    
+    func setSearchButtonText(text:String,searchBar:UISearchBar) {
+        
+        for subview in searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setTitleColor(UIColor.white, for: .normal)
+                    cancelButton.setTitle(text, for: .normal)
+                }
+            }
+        }
         
     }
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import FSCalendar
+import IQKeyboardManagerSwift
 class DIYExampleViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     
     fileprivate let gregorian = Calendar(identifier: .gregorian)
@@ -68,6 +69,8 @@ class DIYExampleViewController: UIViewController, FSCalendarDataSource, FSCalend
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         self.title = "FSCalendar"
         

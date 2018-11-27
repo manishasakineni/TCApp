@@ -8,6 +8,7 @@
 
 import UIKit
 import youtube_ios_player_helper
+import IQKeyboardManagerSwift
 
 
 class RechargesViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIWebViewDelegate{
@@ -45,7 +46,7 @@ class RechargesViewController: UIViewController,UITableViewDelegate ,UITableView
         rechargeTableView.delegate = self
         rechargeTableView.dataSource = self
         
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
     
 
         

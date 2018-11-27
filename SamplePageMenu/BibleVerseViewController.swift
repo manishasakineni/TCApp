@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -32,6 +33,8 @@ class BibleVerseViewController: UIViewController,UITableViewDataSource,UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         for i in 0 ... verseCountStr - 1 {
             

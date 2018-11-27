@@ -157,6 +157,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
+        
         secondview.isHidden = true
         popupview.isHidden = true
         

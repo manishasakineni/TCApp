@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class authorAudioaViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -28,6 +29,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         authorAudioTableView.delegate = self
         authorAudioTableView.dataSource = self

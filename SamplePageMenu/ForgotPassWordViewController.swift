@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class ForgotPassWordViewController: UIViewController {
 
@@ -17,7 +18,7 @@ class ForgotPassWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
     }
 
     override func didReceiveMemoryWarning() {

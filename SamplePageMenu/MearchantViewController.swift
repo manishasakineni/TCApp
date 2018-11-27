@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class MearchantViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
 
@@ -28,7 +29,7 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
         
         mearchantTableView.delegate = self
         mearchantTableView.dataSource = self
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
            
         registerTableViewCells()
         

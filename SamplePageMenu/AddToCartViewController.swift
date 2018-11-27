@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class AddToCartViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
@@ -32,6 +33,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         activeTextField.delegate = self
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -164,9 +167,6 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
        
         cell.addToCartPriceLbl.text = "\(listStr.price!)"
         cell.addToCartAuthorLbl.text = listStr.author
-        
-        
-        
         cell.deleteBtn.addTarget(self, action: #selector(self.deleteAPIService(_:)), for: UIControlEvents.touchUpInside)
         cell.deleteBtn.tag = indexPath.row
         
@@ -179,11 +179,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
         
         return cell
         
-        
-        
     }
-    
-    
+
     //MARK:- Textfield delegate methods
     
     

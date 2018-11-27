@@ -8,6 +8,7 @@
 
 import UIKit
 import TextFieldEffects
+import IQKeyboardManagerSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -52,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
     //    self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
         
         mobileEmailTF.placeholder = "User Name".localize()

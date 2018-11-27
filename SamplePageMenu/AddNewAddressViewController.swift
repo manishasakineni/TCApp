@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
 
@@ -59,6 +60,8 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         let nibName1  = UINib(nibName: "AddnewAddressTableViewCell" , bundle: nil)
         addNewAddressTableView.register(nibName1, forCellReuseIdentifier: "AddnewAddressTableViewCell")

@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating{
 
@@ -49,6 +50,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
 override func viewDidLoad() {
             super.viewDidLoad()
+    
+    IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
     
     print(kLoginSucessStatus)
             
@@ -238,11 +241,26 @@ func getAllSearchCategoriesAPICall(string:String){
     
 func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     self.searchBar.showsCancelButton = true
-        
+    
+    setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
     self.getAllSearchCategoriesAPICall(string: searchBar.text!)
     self.collectionView.reloadData()
         
     }
+    
+    func setSearchButtonText(text:String,searchBar:UISearchBar) {
+        
+        for subview in searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setTitleColor(UIColor.white, for: .normal)
+                    cancelButton.setTitle(text, for: .normal)
+                }
+            }
+        }
+        
+    }
+    
     
 func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false

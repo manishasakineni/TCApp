@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 
@@ -84,6 +85,8 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         self.norecordsfoundLbl.isHidden = true
         

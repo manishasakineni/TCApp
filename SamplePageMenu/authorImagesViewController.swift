@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class authorImagesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var authorImagesTableView: UITableView!
@@ -27,6 +27,8 @@ class authorImagesViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         authorImagesTableView.delegate = self
         authorImagesTableView.dataSource = self

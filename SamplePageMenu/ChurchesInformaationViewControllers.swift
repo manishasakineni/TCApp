@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 protocol churchChangeSubtitleOfIndexDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
@@ -35,6 +36,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
     print("churchID:\(churchID)")
         

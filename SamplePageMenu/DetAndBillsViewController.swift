@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 protocol DetAndBillsViewControllerDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
@@ -63,6 +64,8 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
       //  createPageMenu()
         

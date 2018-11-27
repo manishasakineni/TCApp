@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 func getDocumentsURL() -> URL {
@@ -121,6 +122,8 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         jobApplyTableView.delegate = self
         jobApplyTableView.dataSource = self
         

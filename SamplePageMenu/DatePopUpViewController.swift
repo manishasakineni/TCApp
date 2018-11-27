@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -25,6 +26,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         datePopUpTableView.delegate = self
         datePopUpTableView.dataSource = self

@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 
 protocol SttingPopOverHomeDelegate {
@@ -150,6 +151,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         let apppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -1220,7 +1222,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 }
 
 //MARK: -   CollectionView Delegate & DataSource Methods
-
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     

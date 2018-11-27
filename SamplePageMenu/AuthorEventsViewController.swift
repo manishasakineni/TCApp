@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import IQKeyboardManagerSwift
 
 class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
     
@@ -65,6 +66,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         print(authorID)
         
         print(todayDate)

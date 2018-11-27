@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import IQKeyboardManagerSwift
 
 class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,URLSessionDownloadDelegate,UIDocumentInteractionControllerDelegate  {
 
@@ -140,6 +141,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         secondview.isHidden = true
         popupview.isHidden = true

@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
@@ -47,6 +48,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         PageIndex = 1
         totalPages = 0
@@ -112,8 +115,22 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         searchActive = false
         PageIndex = 1
         totalPages = 0
+        setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
         self.churchAdminArray.removeAll()
         self.getAdminDetailsAPICall(string: searchBar.text!)
+        
+    }
+    
+    func setSearchButtonText(text:String,searchBar:UISearchBar) {
+        
+        for subview in searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setTitleColor(UIColor.white, for: .normal)
+                    cancelButton.setTitle(text, for: .normal)
+                }
+            }
+        }
         
     }
     

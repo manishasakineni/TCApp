@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class VideoTableViewCell: UITableViewCell{
 
@@ -20,7 +21,7 @@ class VideoTableViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         backGroundView.layer.cornerRadius = 3.0
         backGroundView.layer.shadowColor = UIColor.lightGray.cgColor

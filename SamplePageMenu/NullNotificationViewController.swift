@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class NullNotificationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -22,6 +23,8 @@ class NullNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
         nullNotificationTableView.delegate = self
         nullNotificationTableView.dataSource = self

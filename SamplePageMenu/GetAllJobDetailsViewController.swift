@@ -8,6 +8,7 @@
 
 import UIKit
 import Localize
+import IQKeyboardManagerSwift
 
 class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
     
@@ -37,7 +38,7 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
         getAllJobDetailsTableView.dataSource = self
         getAllJobDetailsTableView.delegate = self
@@ -103,9 +104,21 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         searchActive = false
         PageIndex = 1
         totalPages = 0
-        
+        setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
         self.jobDetailsArray.removeAll()
         self.getjobdetailsAPICall(string: searchBar.text!)
+        
+    }
+    func setSearchButtonText(text:String,searchBar:UISearchBar) {
+        
+        for subview in searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setTitleColor(UIColor.white, for: .normal)
+                    cancelButton.setTitle(text, for: .normal)
+                }
+            }
+        }
         
     }
     
