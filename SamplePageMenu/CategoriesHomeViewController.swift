@@ -102,7 +102,7 @@ override func viewWillAppear(_ animated: Bool) {
     
 func getAllCategoriesAPICall(){
         
-        let paramsDict = ["active": 1,
+        let paramsDict = ["isActive": 1,
                           "pageIndex": PageIndex,
                           "pageSize": 30,
                           "sortbyColumnName": "UpdatedDate",
@@ -166,7 +166,7 @@ func getAllCategoriesAPICall(){
     
 func getAllSearchCategoriesAPICall(string:String){
         
-        let paramsDict = ["active": 1,
+        let paramsDict = ["isActive": 1,
                           "pageIndex": PageIndex,
                           "pageSize": 50,
                           "sortbyColumnName": "UpdatedDate",

@@ -42,7 +42,7 @@ var isSelectLanguage = false
         menuTableView.dataSource = self
         
         
-    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
 
         borderColor()
         
@@ -70,7 +70,7 @@ var isSelectLanguage = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
 
     }
     
@@ -324,7 +324,7 @@ var isSelectLanguage = false
             }
             
         }
-        else if cell.menuNameLabel.text == " All Categories".localize() {
+        else if cell.menuNameLabel.text == "Categories".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -336,7 +336,7 @@ var isSelectLanguage = false
             
             
         }
-        else if cell.menuNameLabel.text == "All Churches".localize() {
+        else if cell.menuNameLabel.text == "Churches".localize() {
             
             
     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -570,7 +570,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
                 })
@@ -582,7 +582,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
                 })
@@ -594,7 +594,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
                 })
@@ -605,7 +605,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
                 })

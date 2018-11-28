@@ -19,6 +19,7 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
     
+    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var infoImage: UIImageView!
 
     @IBOutlet weak var hometableView: UITableView!
@@ -88,6 +89,8 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
+        nameLbl.text = "\(catgoryName)"
+        
         self.norecordsfoundLbl.isHidden = true
         
         if let useid = UserDefaults.standard.value(forKey: kuserIdKey) as? String {
@@ -136,8 +139,9 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
     override func viewWillAppear(_ animated: Bool) {
         
     super.viewWillAppear(animated)
+
         
-    Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(catgoryName)", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
          NotificationCenter.default.addObserver(self, selector: #selector(RefreshTokenIn), name: Notification.Name("RefreshTokenIn"), object: nil)
 

@@ -432,13 +432,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.755883"
+            timestampString = "565095496.292887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "934"
-            endingLineNumber = "934"
-            landmarkName = "VideoSongsViewController"
-            landmarkType = "3">
+            startingLineNumber = "938"
+            endingLineNumber = "938">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -448,13 +446,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.75595"
+            timestampString = "565095496.292981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "934"
-            endingLineNumber = "934"
-            landmarkName = "VideoSongsViewController"
-            landmarkType = "3">
+            startingLineNumber = "938"
+            endingLineNumber = "938">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -702,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.756824"
+            timestampString = "565095496.293255"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "763"
-            endingLineNumber = "763"
+            startingLineNumber = "767"
+            endingLineNumber = "767"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.756879"
+            timestampString = "565095496.293358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "755"
-            endingLineNumber = "755"
+            startingLineNumber = "759"
+            endingLineNumber = "759"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -1198,11 +1194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.759837"
+            timestampString = "565095496.2937829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "getVideosAPICall()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2222,11 +2218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/VideoSongsViewController.swift"
-            timestampString = "565004132.765058"
+            timestampString = "565095496.294557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2515,7 +2511,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "645"
             endingLineNumber = "645"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2531,7 +2527,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
             endingLineNumber = "230"
-            landmarkName = "updateSearchResults(for:)"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
