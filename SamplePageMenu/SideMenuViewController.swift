@@ -558,23 +558,61 @@ var isSelectLanguage = false
         
         isSelectLanguage = true
         
-    let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage (భాషను ఎంచుకోండి)", preferredStyle: UIAlertControllerStyle.actionSheet)
+    let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage(భాషను ఎంచుకోండి)".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
   //  let languageAry = ["a","b"]
         
          for language in Localize.availableLanguages() {
     let displayName = Localize.displayNameForLanguage(language)
+            if displayName == "Telugu"{
+                print("TEluguTEluguTElugu To తెలుగుతెలుగుతెలుగు")
+                let languageAction = UIAlertAction(title: displayName + "" + "(తెలుగు)", style: .default, handler: {
+                    
+                    (alert: UIAlertAction!) -> Void in
+                    Localize.update(language: language)
+                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    
+                    self.menuTableView.reloadData()
+                })
+                actionSheet.addAction(languageAction)
+            }else  if displayName == "తెలుగు" {
+                print("తెలుగుతెలుగుతెలుగుతెలుగు To TEluguTEluguTElugu")
+                let languageAction = UIAlertAction(title: displayName + "" + "(Telugu)", style: .default, handler: {
+                    
+                    (alert: UIAlertAction!) -> Void in
+                    Localize.update(language: language)
+                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    
+                    self.menuTableView.reloadData()
+                })
+                actionSheet.addAction(languageAction)
+            }else  if displayName == "English" {
+                print("Only English")
+                let languageAction = UIAlertAction(title: "English", style: .default, handler: {
+                    
+                    (alert: UIAlertAction!) -> Void in
+                    Localize.update(language: language)
+                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    
+                    self.menuTableView.reloadData()
+                })
+                actionSheet.addAction(languageAction)
+            }else {
+                let languageAction = UIAlertAction(title: "English", style: .default, handler: {
+                    
+                    (alert: UIAlertAction!) -> Void in
+                    Localize.update(language: language)
+                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    
+                    self.menuTableView.reloadData()
+                })
+                actionSheet.addAction(languageAction)
+            }
+        
 
-        
-    let languageAction = UIAlertAction(title: displayName, style: .default, handler: {
-        
-    (alert: UIAlertAction!) -> Void in
-    Localize.update(language: language)
-        self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                     self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
-        
-        self.menuTableView.reloadData()
-        })
-        actionSheet.addAction(languageAction)
         }
         let cancelAction = UIAlertAction(title: "Cancel".localize(), style: UIAlertActionStyle.cancel, handler: {
             (alert: UIAlertAction) -> Void in

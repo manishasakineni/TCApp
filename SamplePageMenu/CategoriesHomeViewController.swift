@@ -111,7 +111,7 @@ func getAllCategoriesAPICall(){
             ] as [String : Any]
         
     let dictHeaders = ["":"","":""] as NSDictionary
-        
+        print("paramsDict",paramsDict)
         
     serviceController.postRequest(strURL: GETALLCATEGORIES as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
