@@ -27,17 +27,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pko-Db-vZL">
                         <rect key="frame" x="2" y="2" width="316" height="84"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV1-Hw-sVM">
-                                <rect key="frame" x="8" y="5" width="300" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="9Pe-0X-62E"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV1-Hw-sVM">
+                                <rect key="frame" x="8" y="5" width="300" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-Ub-Yta">
-                                <rect key="frame" x="25" y="40" width="25" height="25"/>
+                                <rect key="frame" x="25" y="43" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Rnq-vj-g9j"/>
                                     <constraint firstAttribute="height" constant="25" id="mwK-4w-VoA"/>
@@ -45,7 +42,7 @@
                                 <state key="normal" image="like b"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8D-Vz-ibc">
-                                <rect key="frame" x="146" y="40" width="25" height="25"/>
+                                <rect key="frame" x="146" y="43" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="FXJ-LF-Wl3"/>
                                     <constraint firstAttribute="width" constant="25" id="pFa-Il-P20"/>
@@ -53,7 +50,7 @@
                                 <state key="normal" image="dislike b"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-2c-aVC">
-                                <rect key="frame" x="264" y="40" width="25" height="25"/>
+                                <rect key="frame" x="264" y="43" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="uod-Ef-THy"/>
                                     <constraint firstAttribute="width" constant="25" id="xTu-Y5-4pW"/>
@@ -61,7 +58,7 @@
                                 <state key="normal" title="share" image="shareIcon"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZL-4e-0bM">
-                                <rect key="frame" x="26" y="68" width="23" height="15"/>
+                                <rect key="frame" x="26" y="71" width="23" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="lFI-si-K0s"/>
                                 </constraints>
@@ -70,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brt-ox-UpL">
-                                <rect key="frame" x="147" y="68" width="23" height="15"/>
+                                <rect key="frame" x="147" y="71" width="23" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="KYp-s8-XTA"/>
                                 </constraints>
@@ -79,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRl-8m-1jT">
-                                <rect key="frame" x="261" y="68" width="32" height="15"/>
+                                <rect key="frame" x="261" y="71" width="32" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="LcO-bw-g8s"/>
                                 </constraints>
@@ -88,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-Zv-a5f">
-                                <rect key="frame" x="8" y="24" width="0.0" height="16"/>
+                                <rect key="frame" x="8" y="27" width="0.0" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="8mD-cy-Y6e"/>
                                 </constraints>

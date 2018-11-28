@@ -36,7 +36,7 @@ var isSelectLanguage = false
         let nibName2  = UINib(nibName: "menuNameTableViewCell" , bundle: nil)
         menuTableView.register(nibName2, forCellReuseIdentifier: "menuNameTableViewCell")
 
-        self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
+        self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
 
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -569,7 +569,7 @@ var isSelectLanguage = false
         
     (alert: UIAlertAction!) -> Void in
     Localize.update(language: language)
-        self.chooseLanguageBtn.setTitle("ChooseLanguage (భాషను ఎంచుకోండి)", for: .normal)
+        self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
                      self.menuArray = [" All Categories".localize(),"All Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
         
         self.menuTableView.reloadData()

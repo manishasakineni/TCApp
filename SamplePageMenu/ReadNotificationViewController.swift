@@ -89,10 +89,11 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     self.ReadNotificationsTableView.isHidden = false
                     self.noRecordsLbl.isHidden = true
                     
-                if ((respVO.result?.notificationsList) != nil)  {
+                if ((respVO.result?.notificationsList) != nil )  {
                     
                     self.notificationsArray = (respVO.result?.notificationsList)!
                     
+                    if self.notificationsArray.count > 0 {
                     for i in 0..<((respVO.result?.notificationsList)!)!.count {
                         
                         if let notificationdetails = respVO.result?.notificationsList![i] {
@@ -107,22 +108,32 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
                             
                         }
                     }
-                    
+
                     self.ReadNotificationsTableView.reloadData()
+                    }
+                    
+                    else{
+                        self.ReadNotificationsTableView.isHidden = true
+                        self.noRecordsLbl.isHidden = false
+                        
+                    }
+                    
                 }
                     
                // }
                 
-//                else{
-//                    self.ReadNotificationsTableView.isHidden = true
-//                    self.noRecordsLbl.isHidden = false
-//
-//                }
+                else{
+                    self.ReadNotificationsTableView.isHidden = true
+                    self.noRecordsLbl.isHidden = false
+
+                }
             
             }
             
         }) { (failure) in
             
+            self.ReadNotificationsTableView.isHidden = true
+            self.noRecordsLbl.isHidden = false
             
         }
         
@@ -144,7 +155,6 @@ class ReadNotificationViewController: UIViewController,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath) as! NotificationTableViewCell
-        
         
         cell.notificationNameLbl.text = self.notificationNamesArray[indexPath.row] as? String
         cell.notificationDescLbl.text = self.notificationDescriptionArray[indexPath.row]

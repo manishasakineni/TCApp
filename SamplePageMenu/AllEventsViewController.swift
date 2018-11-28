@@ -55,7 +55,7 @@ override func viewDidLoad() {
         
     searchBarText.delegate = self
     searchBarText.placeholder = "Search by Event Name".localize()
-    self.noRecordsLbl.isHidden = true
+   
         
     let monthFormatter = DateFormatter()
     monthFormatter.dateFormat = "M"
@@ -244,7 +244,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
     if (listArr?.count)! > 0 {
                     
         self.allEventTableView.isHidden = false
-        self.noRecordsLbl.isHidden = true
+        //self.noRecordsLbl.isHidden = true
         self.listResultArray = respVO.listResult!
         
         for church in respVO.listResult!{
@@ -279,7 +279,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             
             self.allEventTableView.isHidden = true
             
-            self.noRecordsLbl.isHidden = false
+            //self.noRecordsLbl.isHidden = false
         }
     
         
@@ -294,7 +294,7 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
                 
     self.allEventTableView.isHidden = true
         
-    self.noRecordsLbl.isHidden = false
+    //self.noRecordsLbl.isHidden = false
   
                 
     }
@@ -304,6 +304,10 @@ func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String
             
             
     print(failureMessage)
+    
+    self.allEventTableView.isHidden = true
+    
+    //self.noRecordsLbl.isHidden = false
             
     }
 

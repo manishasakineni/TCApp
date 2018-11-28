@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var customizedLaunchScreenView: UIView?
 
-    var window: UIWindow?
+    var window : UIWindow?
     var messge : String = ""
     
     var isFirstTime : Bool!
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // FirebaseApp.configure()
         
         UIApplication.shared.applicationIconBadgeNumber = 0
-         getsplashmsgAPICall()
+        getsplashmsgAPICall()
   
 //        IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
 //        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
@@ -93,18 +93,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         localize.update(provider: .json)
         localize.update(fileName: "lang")
         print(localize.language())
-        print(localize.availableLanguages())
+        print(localize.availableLanguages())  
        // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
-      // Override point for customization after application launch.
-     //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+       // Override point for customization after application launch.
+       // if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
             UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
             UserDefaults.standard.synchronize()
             let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.window?.rootViewController = homeNav
-        
-        
-     
-        
+  
     //   lunchScreenView()
         
      //   }
