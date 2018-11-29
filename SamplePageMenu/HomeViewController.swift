@@ -558,7 +558,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func getAllCategoriesAPICall(){
         
-        let paramsDict = [  "active": 1,
+        let paramsDict = [  "isActive": 1,
                             "pageIndex": PageIndex,
                             "pageSize": 30,
                             "sortbyColumnName": "UpdatedDate",

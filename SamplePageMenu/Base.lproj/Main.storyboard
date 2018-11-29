@@ -152,6 +152,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Forgot Password?"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="forgotPasswordClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AKD-K4-EvN"/>
                                 </connections>
@@ -259,11 +262,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4J-13-eJC">
-                                                <rect key="frame" x="135" y="111" width="73" height="25"/>
+                                                <rect key="frame" x="121.5" y="111" width="100" height="25"/>
                                                 <color key="backgroundColor" red="0.3843075037" green="0.68686300519999999" blue="0.81631654499999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="emb-5o-MO8"/>
-                                                    <constraint firstAttribute="width" constant="73" id="yb1-fT-xO1"/>
+                                                    <constraint firstAttribute="width" constant="100" id="yb1-fT-xO1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <state key="normal" title="submit">
@@ -337,10 +340,12 @@
                         <outlet property="forgotBtn" destination="l4y-41-aCd" id="RfU-gP-2b9"/>
                         <outlet property="forgotEmailTF" destination="JeZ-Zb-b67" id="UQf-fm-LT9"/>
                         <outlet property="forgotPWDView" destination="8s4-0h-Mah" id="jhL-U4-5AO"/>
+                        <outlet property="forgotPassSubmitBtn" destination="M4J-13-eJC" id="93W-6c-1Ty"/>
                         <outlet property="loginBtnOutLet" destination="Ufj-px-E5r" id="ixa-xt-3o5"/>
                         <outlet property="loginLabel" destination="0jY-b9-PZn" id="ahT-CH-rvi"/>
                         <outlet property="mobileEmailTF" destination="aU1-nw-80o" id="odg-BO-Il0"/>
                         <outlet property="passwordTF" destination="k6a-pi-HoT" id="Zqf-2a-7EF"/>
+                        <outlet property="pleaseEnterEmailLbl" destination="Dox-3d-j8m" id="CkQ-49-vp6"/>
                         <outlet property="registerBtn" destination="WlW-Ll-xCJ" id="OUG-n4-zo8"/>
                         <outlet property="transparentView" destination="EfT-Cz-fK8" id="pjo-nK-yL9"/>
                     </connections>

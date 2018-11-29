@@ -110,7 +110,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " Registration".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
         
     }

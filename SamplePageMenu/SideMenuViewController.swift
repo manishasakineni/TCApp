@@ -36,7 +36,7 @@ var isSelectLanguage = false
         let nibName2  = UINib(nibName: "menuNameTableViewCell" , bundle: nil)
         menuTableView.register(nibName2, forCellReuseIdentifier: "menuNameTableViewCell")
 
-        self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+        self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
 
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -423,7 +423,7 @@ var isSelectLanguage = false
                 
             }else{
                 
-                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
                     
@@ -464,7 +464,7 @@ var isSelectLanguage = false
         }
             else{
                 
-                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                     let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
                     
@@ -505,7 +505,7 @@ var isSelectLanguage = false
             
         else{
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login", clickAction: {
+            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
 
@@ -558,7 +558,7 @@ var isSelectLanguage = false
         
         isSelectLanguage = true
         
-    let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage(భాషను ఎంచుకోండి)".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
+    let actionSheet = UIAlertController(title: nil, message: "Choose Language(భాషను ఎంచుకోండి)".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
   //  let languageAry = ["a","b"]
         
          for language in Localize.availableLanguages() {
@@ -569,7 +569,7 @@ var isSelectLanguage = false
                     
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
-                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
                     self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
@@ -581,7 +581,7 @@ var isSelectLanguage = false
                     
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
-                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
                     self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
@@ -593,7 +593,7 @@ var isSelectLanguage = false
                     
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
-                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
                     self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()
@@ -604,7 +604,7 @@ var isSelectLanguage = false
                     
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
-                    self.chooseLanguageBtn.setTitle("ChooseLanguage(భాషను ఎంచుకోండి)".localize(), for: .normal)
+                    self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
                     self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
                     
                     self.menuTableView.reloadData()

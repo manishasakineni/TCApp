@@ -6,14 +6,14 @@
     "ChangepassWord": "Change Password",
     "LogOut" : "Log Out",
     "Login"  :  "Login",
-    "ChooseLanguage(భాషను ఎంచుకోండి)" : "ChooseLanguage(భాషను ఎంచుకోండి)",
+    "Choose Language(భాషను ఎంచుకోండి)" : "Choose Language(భాషను ఎంచుకోండి)",
     "Telugu Churches" :  "Telugu Churches",
     "UpComing Events" :  "UPCOMING EVENTS",
     
     
     "User Name" : "User Name",
     "Password" : "Password",
-    "forgot Password" : "Forgot Password?",
+    "Forgot Password?" : "Forgot Password?",
     "Register" : "Register",
     "Don't have an Account?" : "Don't Have An Account?",
     "First Name" : "First Name",

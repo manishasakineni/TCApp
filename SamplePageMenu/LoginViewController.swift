@@ -16,8 +16,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mobileEmailTF: AkiraTextField!
     
+    @IBOutlet weak var pleaseEnterEmailLbl: UILabel!
     @IBOutlet weak var forgotPWDView: UIView!
     
+    @IBOutlet weak var forgotPassSubmitBtn: UIButton!
     @IBOutlet weak var transparentView: UIView!
     
     @IBOutlet weak var passwordTF: AkiraTextField!
@@ -56,9 +58,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
     //    self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
         
+        pleaseEnterEmailLbl.text = "Please Enter e-mail".localize()
+        forgotPassSubmitBtn.setTitle("Submit".localize(), for: .normal)
         mobileEmailTF.placeholder = "User Name".localize()
         passwordTF.placeholder = "Password".localize()
-        forgotBtn.setTitle("forgot Password".localize(), for: .normal)
+        forgotBtn.setTitle("Forgot Password?".localize(), for: .normal)
         registerBtn.setTitle("Register".localize(), for: .normal)
         dontHaveAccountLbl.text = "Don't have an Account?".localize()
 
