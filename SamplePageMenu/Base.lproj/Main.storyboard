@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -650,6 +650,13 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bik-pz-OMF">
+                                                <rect key="frame" x="38" y="-13" width="18" height="39"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="18" id="Ly9-cK-tQI"/>
+                                                    <constraint firstAttribute="height" constant="39" id="xCT-w0-0qO"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.45882352941176469" green="0.54117647058823526" blue="0.54509803921568623" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -662,8 +669,10 @@
                                             <constraint firstItem="oUo-uB-xPY" firstAttribute="leading" secondItem="dbu-Kt-EBC" secondAttribute="leading" id="V0Z-Mv-S60"/>
                                             <constraint firstItem="oUo-uB-xPY" firstAttribute="top" secondItem="dbu-Kt-EBC" secondAttribute="top" id="YBa-gs-JB3"/>
                                             <constraint firstAttribute="trailing" secondItem="QFJ-Jw-MRe" secondAttribute="trailing" constant="8" id="et1-Bq-DNb"/>
+                                            <constraint firstItem="bik-pz-OMF" firstAttribute="top" secondItem="dbu-Kt-EBC" secondAttribute="top" constant="-13" id="fyv-8R-dPj"/>
                                             <constraint firstItem="hhe-Nc-ovP" firstAttribute="centerX" secondItem="dbu-Kt-EBC" secondAttribute="centerX" id="nxg-sQ-XbN"/>
                                             <constraint firstAttribute="bottom" secondItem="hhe-Nc-ovP" secondAttribute="bottom" constant="2" id="obz-eo-Ycs"/>
+                                            <constraint firstItem="bik-pz-OMF" firstAttribute="centerX" secondItem="QFJ-Jw-MRe" secondAttribute="centerX" constant="-8.5" id="pc0-FX-HWG"/>
                                             <constraint firstAttribute="width" constant="111" id="uO6-2b-Rzm"/>
                                         </constraints>
                                     </view>
@@ -714,6 +723,8 @@
                         <outlet property="bannerScrollView" destination="bEU-kk-JD2" id="QDM-Ym-1sk"/>
                         <outlet property="cartbtn" destination="SHH-Ww-R9F" id="qCs-2B-mQD"/>
                         <outlet property="categorieTableView" destination="FUz-Dw-C1v" id="lkE-zU-Xgn"/>
+                        <outlet property="gifImage" destination="bik-pz-OMF" id="OeE-Bd-d8c"/>
+                        <outlet property="imagetrillingConstrant" destination="pc0-FX-HWG" id="fes-Ig-Er5"/>
                         <outlet property="menuBarButton" destination="J6Y-nU-rbZ" id="VhD-4y-1eg"/>
                         <outlet property="notificationBtn" destination="ke9-c3-luq" id="nQH-AQ-yeL"/>
                         <outlet property="pageController" destination="PeA-cs-2Gd" id="Ike-bs-Wce"/>

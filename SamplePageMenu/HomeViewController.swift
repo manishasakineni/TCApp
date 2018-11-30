@@ -47,6 +47,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var toolOk: UIButton!
     
+    @IBOutlet weak var gifImage: UIImageView!
+
+    @IBOutlet weak var imagetrillingConstrant: NSLayoutConstraint!
+    
+    
     var morecategories = UIButton()
     
     
@@ -260,28 +265,32 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
        toolPopupLbl.text = "Click here for menu"
         
         if let isAppAlreadLaunchedOnce = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
-   
+  
+            
+            
         print("App already launched : \(isAppAlreadyLaunchedOnce)")
         
         if isAppAlreadLaunchedOnce == true {
-
+            self.imagetrillingConstrant.constant = -30
+            let imageURL = UIImage.gifImageWithName("RedUp")
+            gifImage.image = imageURL
             transpView.isHidden = false
             defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
-            
+
             defaults.synchronize()
-           
+
             self.navigationController?.navigationBar.isUserInteractionEnabled = false
-   
-            
+
+
         }
-            
+
         else{
-            
+
             transpView.isHidden = true
 
             self.navigationController?.navigationBar.isUserInteractionEnabled = true
-            
-            
+
+
         }
 
         }
@@ -311,7 +320,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             print("1 clicked ")
             sender.tag = okbtnTag + 1
             
-            popupsView.frame = CGRect(x: self.bannerScrollView.frame.maxX - 111, y: 70, width: 111, height: 96)
+           // popupsView.frame = CGRect(x: self.bannerScrollView.frame.maxX - 111, y: 70, width: 111, height: 96)
+            
+            self.imagetrillingConstrant.constant = 40
+             popupsView.frame = CGRect(x: transpView.frame.maxX - 125, y: 75, width: 111, height: 96)
             popupsView.isHidden = false
             toolPopupLbl.text = "Click here for notifications"
             
@@ -320,22 +332,35 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             print("2 clikced")
             sender.tag = sender.tag + 1
             
-            popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
+           // popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
+            
+            
+         
+            
+            popupsView.frame = CGRect(x: transpView.frame.maxX - 175, y: 75, width: 111, height: 96)
             popupsView.isHidden = false
-            toolPopupLbl.text = "Click here"
+            toolPopupLbl.text = "Click here for cart"
 
           
         case 2:
             print("3 clicked")
             sender.tag = sender.tag + 1
             
-            let indexPath = IndexPath(row: 1, section: 0)
-            
-            if let cell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
-
-                popupsView.frame = CGRect(x: self.categorieTableView.frame.maxX - 111, y: self.categorieTableView.frame.minY + 130 + cell.moreButton.frame.size.height + 20, width: 111, height: 96)
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 430, width: 111, height: 96)
+            }else{
                 
+                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 550, width: 111, height: 96)
             }
+            
+            
+         //   let indexPath = IndexPath(row: 1, section: 0)
+            
+//            if let cell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
+//
+//                popupsView.frame = CGRect(x: self.categorieTableView.frame.maxX - 111, y: self.categorieTableView.frame.minY + 130 + cell.moreButton.frame.size.height + 20, width: 111, height: 96)
+//
+//            }
             
             popupsView.isHidden = false
             toolPopupLbl.text = "Click here more catagories"

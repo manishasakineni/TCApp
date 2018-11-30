@@ -404,6 +404,7 @@
 		CB4B2101204834CD00402E59 /* InfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */; };
 		CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */; };
 		CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */; };
+		CB59262821B137A900E2247C /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59262721B137A900E2247C /* iOSDevCenters+GIF.swift */; };
 		CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */; };
 		CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */; };
 		CB7408FA219947BE00094EE2 /* ResumeUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7408F8219947BE00094EE2 /* ResumeUploadCell.swift */; };
@@ -412,6 +413,7 @@
 		CB7409012199776F00094EE2 /* ExpandedResumeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7408FF2199776F00094EE2 /* ExpandedResumeCell.xib */; };
 		CB7409052199838000094EE2 /* UploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7409032199838000094EE2 /* UploadCell.swift */; };
 		CB7409062199838000094EE2 /* UploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7409042199838000094EE2 /* UploadCell.xib */; };
+		CB7E7F6421B13A7D00F18E4F /* RedUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB7E7F6321B13A7D00F18E4F /* RedUp.gif */; };
 		CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834731202825980034AD4E /* EditProfileTableViewCell.swift */; };
 		CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834732202825980034AD4E /* EditProfileTableViewCell.xib */; };
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
@@ -845,6 +847,7 @@
 		CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoHeaderCell.xib; sourceTree = "<group>"; };
 		CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventInfoByChurchIdMonthYearResultVo.swift; sourceTree = "<group>"; };
 		CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventInfoByChurchIdMonthYearVo.swift; sourceTree = "<group>"; };
+		CB59262721B137A900E2247C /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdVo.swift; sourceTree = "<group>"; };
 		CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdResultVo.swift; sourceTree = "<group>"; };
 		CB7408F8219947BE00094EE2 /* ResumeUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeUploadCell.swift; sourceTree = "<group>"; };
@@ -853,6 +856,7 @@
 		CB7408FF2199776F00094EE2 /* ExpandedResumeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedResumeCell.xib; sourceTree = "<group>"; };
 		CB7409032199838000094EE2 /* UploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCell.swift; sourceTree = "<group>"; };
 		CB7409042199838000094EE2 /* UploadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadCell.xib; sourceTree = "<group>"; };
+		CB7E7F6321B13A7D00F18E4F /* RedUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RedUp.gif; sourceTree = "<group>"; };
 		CB834731202825980034AD4E /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CB834732202825980034AD4E /* EditProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileTableViewCell.xib; sourceTree = "<group>"; };
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
@@ -1287,6 +1291,7 @@
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				3D551C5E2011F462005DB3B2 /* Constants.swift */,
+				CB59262721B137A900E2247C /* iOSDevCenters+GIF.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				AF69371F2063C40D00353909 /* MainIpad.storyboard */,
 				CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */,
@@ -1325,6 +1330,7 @@
 				9A5D26411FFF960000316988 /* Controllers */,
 				9A5D26401FFF95EF00316988 /* ViewControllers */,
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
+				CB7E7F6321B13A7D00F18E4F /* RedUp.gif */,
 				9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */,
 				9A5D25FC1FFF76A300316988 /* Info.plist */,
 				CB1E30C320344131009FB001 /* lang-en-DE.json */,
@@ -2553,6 +2559,7 @@
 				3D41C7F92063B9860086BEE7 /* youtubeCLDSSCell.xib in Resources */,
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				CB035971205FBC15008FD878 /* AdminMonthEventListCell.xib in Resources */,
+				CB7E7F6421B13A7D00F18E4F /* RedUp.gif in Resources */,
 				9A5D260F1FFF89B700316988 /* YoutubePlayerViewController.xib in Resources */,
 				AF1B89B820C659EA0016D395 /* statecountryTableViewCell.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
@@ -2894,6 +2901,7 @@
 				AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */,
 				AF202EC020D25F2B00CA505D /* UIBarButtonItem+Badge.m in Sources */,
 				AF91F13020AB05820050A938 /* JobApplyVO.swift in Sources */,
+				CB59262821B137A900E2247C /* iOSDevCenters+GIF.swift in Sources */,
 				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,
 				CB03C8D2203EC76F000B96A4 /* ChurchAdminViewController.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,

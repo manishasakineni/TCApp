@@ -267,12 +267,21 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //                        
 //                        }
                         
-                        
-        self.likesCount = self.eventsDetailsArray[0].likeCount!
-        self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
-                        
-        self.isLike = self.eventsDetailsArray[0].isLike!
-        self.isDisLike = self.eventsDetailsArray[0].isDisLike!
+            if self.eventsDetailsArray[0].likeCount != nil {
+                self.likesCount = self.eventsDetailsArray[0].likeCount!
+            }
+            if self.eventsDetailsArray[0].disLikeCount != nil {
+                self.disLikesCount = self.eventsDetailsArray[0].disLikeCount!
+            }
+      
+            if self.eventsDetailsArray[0].isLike != nil {
+                self.isLike = self.eventsDetailsArray[0].isLike!
+            }
+            if self.eventsDetailsArray[0].isDisLike != nil {
+                 self.isDisLike = self.eventsDetailsArray[0].isDisLike!
+            }
+        
+       
                         
         print(self.eventsDetailsArray)
                         
