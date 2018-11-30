@@ -18,7 +18,7 @@ protocol UpDateCartValueDelegate {
 class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UpDateCartValueDelegate {
    
     
-
+ let appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var allitemsIDTableView: UITableView!
     
     @IBOutlet weak var quantityTF: UITextField!
@@ -383,11 +383,13 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     if isSuccess == true {
                         
+                        let successMsg = respVO.endUserMessage
+                        
                         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
                         jobIDViewController.addCartCountdelegate = self
                         
                         self.navigationController?.pushViewController(jobIDViewController, animated: true)
-                        
+                        self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                         
                     }
                         

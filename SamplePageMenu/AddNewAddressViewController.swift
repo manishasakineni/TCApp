@@ -12,6 +12,8 @@ import IQKeyboardManagerSwift
 class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
 
     @IBOutlet weak var addNewAddressTableView: UITableView!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
    
     
 //MARK:- variable declaration
@@ -134,7 +136,7 @@ class AddNewAddressViewController: UIViewController,UITableViewDataSource,UITabl
         }
         else if activeTextField.tag == 3 {
             
-            textField.maxLengthTextField = 10
+            textField.maxLengthTextField = 6
             textField.clearButtonMode = .never
             if #available(iOS 10.0, *) {
                 textField.keyboardType = .asciiCapableNumberPad
@@ -705,12 +707,13 @@ func numberOfSections(in tableView: UITableView) -> Int {
             if isSuccess == true {
                 
                 let listArr = respVO.listResult!
+                let successMsg = respVO.endUserMessage
+                
                 
                 
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
-                
-                
        self.navigationController?.popViewController(animated: true)
+                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                 
                 for eachArray in listArr{

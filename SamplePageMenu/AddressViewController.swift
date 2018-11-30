@@ -192,6 +192,13 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 //
 //        }
         
+        for i in  0..<selectedArry.count{
+            selectedArry[i] = 0
+        }
+        let currentValue = selectedArry[indexPath.row] == 0 ? 1 : 0
+        selectedArry[indexPath.row] = currentValue
+        addressTableview.reloadData()
+        
     }
     
     func selectBtnClicked(_ sender: UIButton?) {

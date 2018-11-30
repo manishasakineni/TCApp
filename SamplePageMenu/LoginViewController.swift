@@ -373,9 +373,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     
                                 else {
                                     
-                                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                                     self.appDelegate.window?.rootViewController = rootController
+                                    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                     
                                 }
                             }

@@ -33,7 +33,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     var allitemsArray:[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
     var filtered:[GetAllitemsListResultVO] = []
 
-    //MARK: -  View Did load
+//MARK: -  View Did load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -437,11 +437,11 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     func getallitemsAPICall(string:String){
         
-        self.allitemsArray.removeAll()
+     //   self.allitemsArray.removeAll()
         
         let paramsDict = [ 	"userId": "",
                            	"pageIndex": PageIndex,
-                           	"pageSize": 30,
+                           	"pageSize": 100,
                            	"sortbyColumnName": "UpdatedDate",
                            	"sortDirection": "desc",
                            	"searchName": string
