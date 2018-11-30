@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -640,10 +641,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhe-Nc-ovP">
-                                                <rect key="frame" x="40" y="64" width="30" height="30"/>
+                                                <rect key="frame" x="35" y="64" width="40" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="om1-DS-Wvm"/>
-                                                    <constraint firstAttribute="width" constant="30" id="p4a-p3-vz8"/>
+                                                    <constraint firstAttribute="width" constant="40" id="p4a-p3-vz8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <state key="normal" title="Ok">
@@ -3114,8 +3115,8 @@
                                     <constraint firstItem="jUw-UY-Jdm" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="top" constant="2" id="zm3-Ja-PnS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-Ud-hR8">
-                                <rect key="frame" x="119.5" y="323" width="136.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-Ud-hR8">
+                                <rect key="frame" x="49" y="324" width="277" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3126,11 +3127,13 @@
                             <constraint firstItem="B6L-M9-790" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leading" id="E0l-L9-bTV"/>
                             <constraint firstAttribute="trailing" secondItem="B6L-M9-790" secondAttribute="trailing" id="PVd-KN-D6d"/>
                             <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerX" secondItem="QQs-g7-fF2" secondAttribute="centerX" id="WWN-jW-jCu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9ex-Ud-hR8" secondAttribute="trailing" constant="33" id="ZBv-Dk-GPt"/>
                             <constraint firstItem="M4v-MO-Gpg" firstAttribute="top" secondItem="B6L-M9-790" secondAttribute="bottom" id="bLU-RC-Nbb"/>
                             <constraint firstItem="M4v-MO-Gpg" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leading" id="dUd-HR-M76"/>
                             <constraint firstAttribute="trailing" secondItem="M4v-MO-Gpg" secondAttribute="trailing" id="hUw-TO-XSY"/>
-                            <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerY" secondItem="QQs-g7-fF2" secondAttribute="centerY" id="iog-rC-1pu"/>
+                            <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerY" secondItem="QQs-g7-fF2" secondAttribute="centerY" constant="1" id="iog-rC-1pu"/>
                             <constraint firstItem="B6L-M9-790" firstAttribute="top" secondItem="QQs-g7-fF2" secondAttribute="top" id="pof-NI-65d"/>
+                            <constraint firstItem="9ex-Ud-hR8" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leadingMargin" constant="33" id="rei-72-BuE"/>
                             <constraint firstItem="rq4-yH-Xvg" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="bottom" id="wSk-SG-gxs"/>
                         </constraints>
                     </view>

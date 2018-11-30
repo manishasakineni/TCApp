@@ -263,6 +263,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
 
        toolPopupLbl.text = "Click here for menu"
+       
         
         if let isAppAlreadLaunchedOnce = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
   

@@ -521,7 +521,7 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                 } else {
                     
                     self.noitemsLbl.isHidden = false
-                    self.noitemsLbl.text = "Your Cart is Empty"
+                    self.noitemsLbl.text = "Your Cart is Empty".localize()
                     
                 }
                 
@@ -552,7 +552,7 @@ func deleteAPIService(_ sender : UIButton){
     
      let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
     
-     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
+     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
     
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             
@@ -574,7 +574,7 @@ func deleteAPIService(_ sender : UIButton){
                }
                 
                 self.noitemsLbl.isHidden = false
-                self.noitemsLbl.text = "Your Cart is Empty"
+                self.noitemsLbl.text = "Your Cart is Empty".localize()
                 
             }
 

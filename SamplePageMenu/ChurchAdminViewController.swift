@@ -285,12 +285,16 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         if let churchName =  listStr.churchName {
-            
+
             cell.churchName.text = churchName
-            
+
         }else{
-            
+        
         }
+        
+    
+        
+     //   cell.churchName.text = listStr.churchName!
         
         if let mobileNumber =  listStr.mobileNumber {
            

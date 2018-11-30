@@ -966,7 +966,7 @@ else {
                         
             if let failMsg = respVO.endUserMessage{
                         
-            self.showAlertViewWithTitle("Alert", message: failMsg, buttonTitle: "Ok")
+            self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok")
                         
             return
             }
