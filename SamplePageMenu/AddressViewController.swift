@@ -13,7 +13,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBOutlet weak var addressTableview: UITableView!
     
-     //MARK:- variable declaration
+    @IBOutlet weak var addNewAddressLbl: UILabel!
+    //MARK:- variable declaration
     
     var allitemsArray:[AddressInfoResultVO] = Array<AddressInfoResultVO>()
     var filtered:[AddressInfoResultVO] = []
@@ -22,6 +23,8 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
      var showNav = false
      var userId :  Int = 0
      var Id :  Int = 0
+     var isAddressClicked = false
+     var selectedArry = Array<Int>()
     
    //MARK:- view Did Load
     
@@ -58,6 +61,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         super.viewWillAppear(animated)
         addressAPICall()
+        addNewAddressLbl.isHidden = true
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -101,6 +105,20 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as! AddressTableViewCell
         
+        cell.rediationBtn.tag = indexPath.row
+        
+        cell.rediationBtn.addTarget(self, action: #selector(selectBtnClicked), for: .touchUpInside)
+        
+        if selectedArry[indexPath.row] == 1 {
+            
+            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-checked_filled-1"), for: .normal)
+        }
+        
+        else{
+            
+           cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-unchecked_circle"), for: .normal)
+        }
+      
         
         let listStr:AddressInfoResultVO = filtered[indexPath.row]
         
@@ -138,7 +156,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.deleteBtn.tag = indexPath.row
         
         
-        ///////  edit ////
+        ///////  edit ///////
         
     
         let editTap = UITapGestureRecognizer(target: self, action: #selector(self.editaddressClicked))
@@ -147,24 +165,58 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.editBtn.addGestureRecognizer(editTap)
         cell.editBtn.tag = indexPath.row
         
-        
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let indexPath : IndexPath = IndexPath(row: indexPath.row, section: 0)
+//
+//        if let cell = addressTableview.cellForRow(at: indexPath) as? AddressTableViewCell {
+//
+//         if isAddressClicked == false {
+//
+//            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-checked_filled-1"), for: .normal)
+//            isAddressClicked = true
+//        }
+//
+//        else {
+//
+//            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-unchecked_circle"), for: .normal)
+//            isAddressClicked = false
+//
+//        }
+//
+//            addressTableview.rectForRow(at: indexPath)
+//
+//        }
+        
+    }
+    
+    func selectBtnClicked(_ sender: UIButton?) {
+
+        for i in  0..<selectedArry.count{
+            selectedArry[i] = 0
+        }
+            let currentValue = selectedArry[(sender?.tag)!] == 0 ? 1 : 0
+            selectedArry[(sender?.tag)!] = currentValue
+            addressTableview.reloadData()
+        
+    }
+    
   
-    //MARK:- add New Address Action
+//MARK:- add New Address Action
 
     @IBAction func addNewAddressAction(_ sender: Any) {
         
         let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
-        
-        
+    
         self.navigationController?.pushViewController(jobIDViewController, animated: true)
-
-        
+     
     }
     
-   //MARK:- edit Address clicked
+//MARK:- edit Address clicked
     
 func  editaddressClicked( sender:UIGestureRecognizer){
         
@@ -173,7 +225,7 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         
     }
 
-    //MARK:- back Left Button Tapped
+//MARK:- back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -189,12 +241,11 @@ func  editaddressClicked( sender:UIGestureRecognizer){
     }
     
     
-    //MARK: -    Home Button Tapped
+//MARK: - Home Button Tapped
     
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
-        
-        
+      
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
@@ -244,15 +295,21 @@ func  editaddressClicked( sender:UIGestureRecognizer){
                     
                     let listArr = respVO.listResult!
                     
+                        self.addNewAddressLbl.isHidden = true
+                    
                     for eachArray in listArr{
                         
                         self.filtered.append(eachArray)
-                        
+                        self.selectedArry.append(0)
+
                     }
                     
                     self.addressTableview.reloadData()
                     
                 }else{
+                    
+                    self.addNewAddressLbl.isHidden = false
+                    self.addNewAddressLbl.text = "No Address Found.Please Add Address."
                     
                 }
                
@@ -318,6 +375,9 @@ func deleteaddressAPICall(_ sender : UIButton){
                     self.addressAPICall()
                     
                     self.addressTableview.reloadData()
+                    
+                    self.addNewAddressLbl.isHidden = false
+                    self.addNewAddressLbl.text = "No Address Found.Please Add Address."
                     
                 }
                     

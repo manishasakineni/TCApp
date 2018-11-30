@@ -2936,7 +2936,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IVk-fL-OJr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dWI-SM-ZSb" id="sl4-Ix-lqS"/>
@@ -3001,20 +3001,29 @@
                                     <constraint firstItem="6nw-aa-VaJ" firstAttribute="top" secondItem="qWq-LU-3cA" secondAttribute="top" constant="2" id="z2M-tw-Yig"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items in Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84k-nX-7f2">
+                                <rect key="frame" x="125" y="323" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qWq-LU-3cA" secondAttribute="trailing" id="2HN-ID-xV0"/>
-                            <constraint firstItem="IVk-fL-OJr" firstAttribute="leading" secondItem="nwD-6g-yJJ" secondAttribute="leading" id="2s4-CY-LwC"/>
+                            <constraint firstAttribute="trailing" secondItem="IVk-fL-OJr" secondAttribute="trailing" id="2xn-1H-uGQ"/>
                             <constraint firstItem="qWq-LU-3cA" firstAttribute="leading" secondItem="nwD-6g-yJJ" secondAttribute="leading" id="6b8-WQ-KAK"/>
+                            <constraint firstItem="IVk-fL-OJr" firstAttribute="leading" secondItem="nwD-6g-yJJ" secondAttribute="leading" id="9da-1T-pQb"/>
                             <constraint firstItem="jOt-0r-PS1" firstAttribute="top" secondItem="qWq-LU-3cA" secondAttribute="bottom" id="Bph-PZ-Df4"/>
-                            <constraint firstItem="IVk-fL-OJr" firstAttribute="top" secondItem="nwD-6g-yJJ" secondAttribute="top" id="OZM-vx-U1M"/>
-                            <constraint firstItem="qWq-LU-3cA" firstAttribute="top" secondItem="IVk-fL-OJr" secondAttribute="bottom" constant="1" id="fCo-p4-8MW"/>
-                            <constraint firstAttribute="trailing" secondItem="IVk-fL-OJr" secondAttribute="trailing" id="hAs-Ky-9pm"/>
+                            <constraint firstItem="IVk-fL-OJr" firstAttribute="top" secondItem="nwD-6g-yJJ" secondAttribute="top" id="H7u-iT-EI7"/>
+                            <constraint firstItem="qWq-LU-3cA" firstAttribute="top" secondItem="IVk-fL-OJr" secondAttribute="bottom" id="Unf-2H-pmJ"/>
+                            <constraint firstItem="84k-nX-7f2" firstAttribute="centerX" secondItem="nwD-6g-yJJ" secondAttribute="centerX" id="ckL-j6-xnc"/>
+                            <constraint firstItem="84k-nX-7f2" firstAttribute="centerY" secondItem="nwD-6g-yJJ" secondAttribute="centerY" id="kyG-83-Uod"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addToCartTableView" destination="IVk-fL-OJr" id="dZ3-qY-igN"/>
+                        <outlet property="noitemsLbl" destination="84k-nX-7f2" id="jtd-st-fC4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02u-Pp-030" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3094,19 +3103,28 @@
                                     <constraint firstItem="jUw-UY-Jdm" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="top" constant="2" id="zm3-Ja-PnS"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-Ud-hR8">
+                                <rect key="frame" x="119.5" y="323" width="136.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B6L-M9-790" firstAttribute="top" secondItem="QQs-g7-fF2" secondAttribute="top" id="75t-iK-zKa"/>
-                            <constraint firstAttribute="trailing" secondItem="B6L-M9-790" secondAttribute="trailing" id="KNc-rS-94v"/>
-                            <constraint firstItem="M4v-MO-Gpg" firstAttribute="top" secondItem="B6L-M9-790" secondAttribute="bottom" id="XA2-t1-nSk"/>
+                            <constraint firstItem="B6L-M9-790" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leading" id="E0l-L9-bTV"/>
+                            <constraint firstAttribute="trailing" secondItem="B6L-M9-790" secondAttribute="trailing" id="PVd-KN-D6d"/>
+                            <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerX" secondItem="QQs-g7-fF2" secondAttribute="centerX" id="WWN-jW-jCu"/>
+                            <constraint firstItem="M4v-MO-Gpg" firstAttribute="top" secondItem="B6L-M9-790" secondAttribute="bottom" id="bLU-RC-Nbb"/>
                             <constraint firstItem="M4v-MO-Gpg" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leading" id="dUd-HR-M76"/>
                             <constraint firstAttribute="trailing" secondItem="M4v-MO-Gpg" secondAttribute="trailing" id="hUw-TO-XSY"/>
-                            <constraint firstItem="B6L-M9-790" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leading" id="ilK-Ia-GDe"/>
+                            <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerY" secondItem="QQs-g7-fF2" secondAttribute="centerY" id="iog-rC-1pu"/>
+                            <constraint firstItem="B6L-M9-790" firstAttribute="top" secondItem="QQs-g7-fF2" secondAttribute="top" id="pof-NI-65d"/>
                             <constraint firstItem="rq4-yH-Xvg" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="bottom" id="wSk-SG-gxs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addNewAddressLbl" destination="9ex-Ud-hR8" id="SpT-LR-9Sb"/>
                         <outlet property="addressTableview" destination="B6L-M9-790" id="VOF-vy-tJ7"/>
                     </connections>
                 </viewController>

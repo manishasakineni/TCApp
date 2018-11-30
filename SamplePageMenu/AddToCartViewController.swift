@@ -15,7 +15,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
   
      //MARK:- variable declaration
     
-     var itemID:Int = 0
+    @IBOutlet weak var noitemsLbl: UILabel!
+    var itemID:Int = 0
      var quantity = ""
      var AddToCart = LoginViewController()
      var userId :  Int = 0
@@ -73,6 +74,8 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        noitemsLbl.isHidden = true
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Cart".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -503,13 +506,26 @@ class AddToCartViewController: UIViewController,UITableViewDataSource,UITableVie
                 
                 let listArr = respVO.listResult!
                 
-                for eachArray in listArr{
+                if (listArr.count > 0){
                     
-                    self.filtered.append(eachArray)
-                    print(self.filtered.count)
+                    self.noitemsLbl.isHidden = true
+                    
+                    for eachArray in listArr{
+                        
+                        self.filtered.append(eachArray)
+                        print(self.filtered.count)
+                    }
+                    
+                    self.addToCartTableView.reloadData()
+                    
+                } else {
+                    
+                    self.noitemsLbl.isHidden = false
+                    self.noitemsLbl.text = "Your Cart is Empty"
+                    
                 }
                 
-                self.addToCartTableView.reloadData()
+                
                 
             }
             
@@ -536,7 +552,7 @@ func deleteAPIService(_ sender : UIButton){
     
      let strUrl = DELETEFROMCARTAPI  + "\(deleteAddressInfo.id!)" + "/" + "\(userId)"
     
-    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
+     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove Item From Your Cart".localize(), clickAction: {
     
         serviceController.getRequest(strURL: strUrl, success: { (result) in
             
@@ -544,20 +560,29 @@ func deleteAPIService(_ sender : UIButton){
             let isSuccess = respVO.isSuccess
             
             if isSuccess == true {
+ 
+               if self.filtered.count > 0{
+
+                 self.filtered.remove(at: sender.tag)
+
+                   self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
                 
-        self.filtered.remove(at: sender.tag)
-        
-        self.addToCartTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
-        
-                self.addToCartTableView.reloadData()
-        
+                    self.getCartInfoAPIService()
+                
+                   self.addToCartTableView.reloadData()
+
+               }
+                
+                self.noitemsLbl.isHidden = false
+                self.noitemsLbl.text = "Your Cart is Empty"
+                
             }
-        
 
             })
         
         { (failureMessage) in
-                
+            
+            
         }
 
         })

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -33,9 +33,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7l-Kj-7Os">
-                        <rect key="frame" x="5" y="7" width="25" height="20"/>
+                        <rect key="frame" x="5" y="7" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="NYc-1l-Ib0"/>
+                            <constraint firstAttribute="width" constant="20" id="NYc-1l-Ib0"/>
                             <constraint firstAttribute="height" constant="20" id="qbD-1x-0v7"/>
                         </constraints>
                         <state key="normal" title="Button" image="icons8-Unchecked Circle-50"/>
@@ -117,7 +117,7 @@
                     <constraint firstItem="Zqe-pi-Ffu" firstAttribute="leading" secondItem="vLc-Ky-hQ5" secondAttribute="leading" id="beb-8q-0me"/>
                     <constraint firstAttribute="bottom" secondItem="m9D-9D-CWT" secondAttribute="bottom" constant="5.5" id="cqB-Cd-yCE"/>
                     <constraint firstAttribute="trailing" secondItem="sny-mv-Q36" secondAttribute="trailing" constant="8" id="eB9-JF-McK"/>
-                    <constraint firstItem="wax-vr-5qn" firstAttribute="leading" secondItem="t7l-Kj-7Os" secondAttribute="trailing" constant="8" id="iEg-fU-TjL"/>
+                    <constraint firstItem="wax-vr-5qn" firstAttribute="leading" secondItem="t7l-Kj-7Os" secondAttribute="trailing" constant="13" id="iEg-fU-TjL"/>
                     <constraint firstItem="qJ1-H5-May" firstAttribute="leading" secondItem="gRi-uz-pwK" secondAttribute="leading" id="o9I-rx-GDO"/>
                     <constraint firstItem="t7l-Kj-7Os" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="pAs-kl-cnb"/>
                     <constraint firstItem="Zqe-pi-Ffu" firstAttribute="top" secondItem="vLc-Ky-hQ5" secondAttribute="bottom" constant="5" id="qq2-mt-SdI"/>

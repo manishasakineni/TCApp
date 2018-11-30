@@ -84,6 +84,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: churchName1, backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
     
+        quantityTF.text = ""
         
     }
     
@@ -92,9 +93,10 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
          self.filtered.removeAll()
          self.allitemsArray.removeAll()
          allitemsIDAPIService()
-        allitemsIDTableView.reloadData()
+         allitemsIDTableView.reloadData()
     }
-    //MARK:-  UItext field methods
+    
+//MARK:-  UItext field Delegate methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -286,6 +288,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     //MARK:-  all items ID API Service
     
     func allitemsIDAPIService(){
+        
         self.previousQuantityArry.removeAll()
         
         let strUrl = ALLITEMSIDAPI  + "\(itemID)" + "/" + "\(userId)"

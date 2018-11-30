@@ -40,15 +40,13 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
-      self.getallitemsAPICall(string: searchBar.text!)
-        
       self.norecordsFoundLbl.isHidden = true
         
         
         let nibName1  = UINib(nibName: "GetAllItemsTableViewCell" , bundle: nil)
         getAllitemsTableView.register(nibName1, forCellReuseIdentifier: "GetAllItemsTableViewCell")
         
-       getAllitemsTableView.dataSource = self
+        getAllitemsTableView.dataSource = self
         getAllitemsTableView.delegate = self
         
         
@@ -65,12 +63,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         self.navigationController?.isNavigationBarHidden = false
         self.searchController.searchBar.delegate = self
         definesPresentationContext = true
-        
 
-        
-    //    getallitemsAPICall()
-        
-    // Do any additional setup after loading the view.
         
     }
     
@@ -93,6 +86,11 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         totalPages = 0
         self.allitemsArray.removeAll()
         self.getallitemsAPICall(string: searchBar.text!)
+        
+        if #available(iOS 11.0, *) {
+            
+            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        }
         
     }
     
@@ -273,6 +271,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                 
                 PageIndex = PageIndex + 1
                 
+                print("page indexxx -->> %@",PageIndex)
+                
                 self.getallitemsAPICall(string: searchBar.text!)
                 
             }
@@ -436,6 +436,8 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
  //MARK: -  get All items API Call
     
     func getallitemsAPICall(string:String){
+        
+        self.allitemsArray.removeAll()
         
         let paramsDict = [ 	"userId": "",
                            	"pageIndex": PageIndex,

@@ -42,7 +42,7 @@ var isSelectLanguage = false
         menuTableView.dataSource = self
         
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
 
         borderColor()
         
@@ -70,7 +70,7 @@ var isSelectLanguage = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
 
     }
     
@@ -268,7 +268,7 @@ var isSelectLanguage = false
             }
         }
             
-        else if cell.menuNameLabel.text == "ChangePassword".localize(){
+        else if cell.menuNameLabel.text == "Change Password".localize(){
         
         if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
 
@@ -570,9 +570,12 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
+                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    
+                    appDelegate.window?.rootViewController = rootController
                 })
                 actionSheet.addAction(languageAction)
             }else  if displayName == "తెలుగు" {
@@ -582,9 +585,13 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
+                    
+                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    
+                    appDelegate.window?.rootViewController = rootController
                 })
                 actionSheet.addAction(languageAction)
             }else  if displayName == "English" {
@@ -594,9 +601,14 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
+                    
+                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    
+                    appDelegate.window?.rootViewController = rootController
+                    
                 })
                 actionSheet.addAction(languageAction)
             }else {
@@ -605,12 +617,17 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"ChangePassword".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
+                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    
+                    appDelegate.window?.rootViewController = rootController
                 })
                 actionSheet.addAction(languageAction)
             }
+            
+            
         
 
         }
