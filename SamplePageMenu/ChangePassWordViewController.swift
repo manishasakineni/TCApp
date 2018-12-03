@@ -218,7 +218,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
             section1HeaderLabel2.textColor = UIColor.white
-            section1HeaderLabel2.text = "Change PassWord".localize()
+            section1HeaderLabel2.text = "Change Password".localize()
             section1HeaderLabel2.textAlignment = .center
             section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 14.0)!
             headerView.addSubview(section1HeaderLabel2)

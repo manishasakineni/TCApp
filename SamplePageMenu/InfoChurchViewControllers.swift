@@ -782,7 +782,7 @@ else {
     }else {
             
             
-     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Please Login To Subscribe", clickAction: {
+     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login To Subscribe".localize(), clickAction: {
         
         self.navigationController?.pushViewController(self.loginVC, animated: true)
         

@@ -204,7 +204,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             if email!.isEmpty{
                 
-                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please provide UserName".localize(), clickAction: {
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter UserName".localize(), clickAction: {
                     
                     
                 })

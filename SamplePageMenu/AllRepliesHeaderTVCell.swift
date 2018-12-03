@@ -13,9 +13,14 @@ class AllRepliesHeaderTVCell: UITableViewCell {
     
     @IBOutlet weak var repliesCloseBtn: UIButton!
     
+    @IBOutlet weak var allRepliesLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        allRepliesLbl.text = "All Replies".localize()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

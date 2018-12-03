@@ -818,7 +818,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let selectedDoc = sendre.tag
 
-                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Are You Sure Want To Remove".localize(), clickAction: {
+                Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Are You Sure Want To Remove".localize(), clickAction: {
 
                    //self.docsUrlArray.remove(at: selectedDoc)
                  //   print("selectedDoc",selectedDoc)
@@ -1177,9 +1177,9 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
     @IBAction func uploadresumeAction(_ sender: Any) {
         
         fileextension = false
-        let menu = UIAlertController(title: nil, message: "Select Image", preferredStyle: .actionSheet)
+        let menu = UIAlertController(title: nil, message: "Select Image".localize(), preferredStyle: .actionSheet)
         
-        let document = UIAlertAction(title: "Upload Document", style: .default, handler: { (alert : UIAlertAction!)
+        let document = UIAlertAction(title: "Upload Document".localize(), style: .default, handler: { (alert : UIAlertAction!)
             -> Void in
             
             self.documentPicker.delegate = self
@@ -1191,7 +1191,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         })
         
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: nil)
         menu.addAction(document)
         menu.addAction(cancel)
     
@@ -1218,7 +1218,7 @@ func alertWithTitle(title: String!, message: String, ViewController: UIViewContr
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
         
         
-        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert", messege: "Areyousurewanttodeletethisimage?") {
+        Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Are you sure want to delete this image?") {
             
             self.selectedImagesArray.remove(at: i)
             
@@ -1370,9 +1370,9 @@ func getjobApplicationAPICall(){
         
         // Adding Button ToolBar
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
+        let doneButton = UIBarButtonItem(title: "Done".localize(), style: .plain, target: self, action: #selector(self.done))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancel))
+        let cancelButton = UIBarButtonItem(title: "Cancel".localize(), style: .plain, target: self, action: #selector(self.cancel))
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         toolBar.isUserInteractionEnabled = true

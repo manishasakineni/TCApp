@@ -267,7 +267,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         if isSubscribed == 0{
             
-            cell.subscribeButtton.setTitle("Subscribe",for: .normal)
+            cell.subscribeButtton.setTitle("Subscribe".localize(),for: .normal)
         }
             
         else{

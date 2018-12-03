@@ -216,7 +216,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: "donedatePicker")
+        let doneButton = UIBarButtonItem(title: "Done".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: "donedatePicker")
         
         toolbar.setItems([doneButton], animated: false)
         activeTextField.inputAccessoryView = toolbar

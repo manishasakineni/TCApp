@@ -544,9 +544,9 @@ func numberOfSections(in tableView: UITableView) -> Int {
         
         // Adding Button ToolBar
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.done))
+        let doneButton = UIBarButtonItem(title: "Done".localize(), style: .plain, target: self, action: #selector(self.done))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancel))
+        let cancelButton = UIBarButtonItem(title: "Cancel".localize(), style: .plain, target: self, action: #selector(self.cancel))
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         toolBar.isUserInteractionEnabled = true

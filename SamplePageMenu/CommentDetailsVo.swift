@@ -23,15 +23,15 @@ class CommentDetailsVo: Mappable {
     var commentByUser : String?
     var userImage : String?
     var replyCount : Int?
+    var shortTitle : String?
    
      //MARK:-  initialization of CommentDetailsVo
     
-    init(id: Int?,postId: Int?,comment: String?, parentCommentId: Int?, userId: Int?, commentByUser: String?, userImage: String?, replyCount : Int?)
+    init(id: Int?,postId: Int?,comment: String?, parentCommentId: Int?, userId: Int?, commentByUser: String?, userImage: String?, replyCount : Int?, shortTitle : String?)
         
         
     {
-        
-        
+   
         self.id = id
         self.postId = postId
         self.comment = comment
@@ -40,6 +40,7 @@ class CommentDetailsVo: Mappable {
         self.commentByUser = commentByUser
         self.userImage = userImage
         self.replyCount = replyCount
+        self.shortTitle = shortTitle
         
     }
     
@@ -59,6 +60,7 @@ class CommentDetailsVo: Mappable {
         
         userImage <- map["userImage"]
         replyCount <- map["replyCount"]
+        shortTitle <- map["shortTitle"]
     }
     
     

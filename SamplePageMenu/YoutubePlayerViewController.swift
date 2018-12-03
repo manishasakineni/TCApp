@@ -354,8 +354,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             self.ID = (kUserDefaults.value(forKey: kIdKey) as? Int )!
             
         }
-       
-        
+  
         self.getVideoDetailsApiService()
         self.updateViewCountAPI()
 
@@ -1810,6 +1809,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
                             self.loginUseridsArray.append(id.userId!)
+                            
      
                         }
                         
