@@ -928,9 +928,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             "RoleId": roleId,
             "Email": email,
             "IsActive": isActive,
-            "CreatedByUserId": createdByUserId,
+            "CreatedByUserId": null,
             "CreatedDate": createdDate,
-            "UpdatedByUserId": updatedByUserId,
+            "UpdatedByUserId": null,
             "UpdatedDate": updatedDate,
             
             "GenderTypeId" : genderTypeID,
