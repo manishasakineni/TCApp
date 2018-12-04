@@ -152,7 +152,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
    
     let buttonnn = UIButton()
-    
+    var postShortTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,7 +194,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             }
             else {
                 
-                categoryImgView.image = #imageLiteral(resourceName: "j4")
+                categoryImgView.image = #imageLiteral(resourceName: "Church-logo")
                 
             }
             
@@ -309,10 +309,10 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                         
                     }
                     }else{
-                          categoryImgView.image = #imageLiteral(resourceName: "j4")
+                          categoryImgView.image = #imageLiteral(resourceName: "Church-logo")
                     }
                 }else{
-                        categoryImgView.image = #imageLiteral(resourceName: "j4")
+                        categoryImgView.image = #imageLiteral(resourceName: "Church-logo")
                 }
                 
             
@@ -1245,7 +1245,9 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         if !(self.ID == 0) {
             
         let someText:String = "Hello want to share text also"
-        let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+//        let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+            let urlString  = SHARELINKURL + "" + postShortTitle
+            let objectsToShare:URL = URL(string: urlString)!
         let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
         let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -1857,6 +1859,13 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         self.viewCount = (respVO.result?.postDetails![0].viewCount) == nil ? 0 : (respVO.result?.postDetails![0].viewCount)!
                        
+                        
+                        if (respVO.result?.postDetails![0].postShortTitle) != nil {
+                            
+                            self.postShortTitle = (respVO.result?.postDetails![0].postShortTitle)!
+                        }
+
+                        
          
                         if self.isLike == 0{
                         self.likeClick = false

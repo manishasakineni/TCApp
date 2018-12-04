@@ -112,13 +112,13 @@ class VideoSongsViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             else {
                 
-                infoImage.image = #imageLiteral(resourceName: "church11")
+                infoImage.image = #imageLiteral(resourceName: "Church-logo")
             }
             
         }
         else {
             
-            infoImage.image = #imageLiteral(resourceName: "church11")
+            infoImage.image = #imageLiteral(resourceName: "Church-logo")
         }
         
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
@@ -571,12 +571,12 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
                 else {
                     
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "church11")
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "Church-logo")
                 }
             }
             else {
                 
-                cell.collectionImgView.image = #imageLiteral(resourceName: "church11")
+                cell.collectionImgView.image = #imageLiteral(resourceName: "Church-logo")
             }
             
         }
@@ -735,12 +735,28 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
                 else {
                     
-                    imageView.image = #imageLiteral(resourceName: "church11")
+                    let videosVC = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+                    
+                    videosVC.videoId = userID!
+                    videosVC.videoNameStr = title!
+                    if dataImg != nil {
+                       videosVC.imgData = dataImg!
+                    }
+                    
+                    
+                    videosVC.videoImgStr = "image"
+                    
+                    kUserDefaults.set(categoryId!, forKey: "categoryId")
+                    kUserDefaults.synchronize()
+                    
+                    self.navigationController?.pushViewController(videosVC, animated: true)
                 }
             }
             else {
                 
-              imageView.image = #imageLiteral(resourceName: "church11")
+              imageView.image = #imageLiteral(resourceName: "Church-logo")
+                
+               // Church-logo
                 
             }
             
