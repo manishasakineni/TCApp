@@ -3419,6 +3419,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelBtnOutlet" destination="ACm-iL-pfa" id="uhq-k2-z9z"/>
+                        <outlet property="notificationDetailsLbl" destination="cIz-v0-3dd" id="f66-kK-VVp"/>
                         <outlet property="nullNotificationTableView" destination="FaV-oU-M9F" id="9TZ-Nf-wKU"/>
                     </connections>
                 </viewController>

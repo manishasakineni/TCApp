@@ -185,22 +185,24 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         else if activeTextField.tag == 8{
             
-            textField.inputView = datepicker
-            textField.clearButtonMode = .never
-            textField.inputView = datepicker
+            CreatedatePicker()
             
-            let todayDate = NSDate()
-            self.datepicker.maximumDate = todayDate as Date
-            datepicker.datePickerMode = .date
-            let toolBar = UIToolbar()
-            toolBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            toolBar.sizeToFit()
-            
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-            
-            toolBar.setItems([doneButton], animated: true)
-            textField.inputAccessoryView = toolBar
-            activeTextField.text = selectedDate
+//            textField.inputView = datepicker
+//            textField.clearButtonMode = .never
+//            textField.inputView = datepicker
+//
+//            let todayDate = NSDate()
+//            self.datepicker.maximumDate = todayDate as Date
+//            datepicker.datePickerMode = .date
+//            let toolBar = UIToolbar()
+//            toolBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//            toolBar.sizeToFit()
+//
+//            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+//
+//            toolBar.setItems([doneButton], animated: true)
+//            textField.inputAccessoryView = toolBar
+//            activeTextField.text = selectedDate
             
             
         }
@@ -215,8 +217,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        let doneButton = UIBarButtonItem(title: "Done".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: "donedatePicker")
+//        let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(title: "Done".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: #selector(donePressed))
         
         toolbar.setItems([doneButton], animated: false)
         activeTextField.inputAccessoryView = toolbar
@@ -238,6 +240,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         dateofBirth = dateFormatter.string(from: datepicker.date)
         
         selectedDate = dateFormatter.string(from: datepicker.date)
+        activeTextField.text = selectedDate
         print(selectedDate)
         print(dateofBirth)
         self.view.endEditing(true)

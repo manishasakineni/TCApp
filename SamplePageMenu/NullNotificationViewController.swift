@@ -13,6 +13,7 @@ class NullNotificationViewController: UIViewController,UITableViewDelegate,UITab
     
     
     
+    @IBOutlet weak var notificationDetailsLbl: UILabel!
     @IBOutlet weak var cancelBtnOutlet: UIButton!
     @IBOutlet weak var nullNotificationTableView: UITableView!
     
@@ -28,6 +29,7 @@ class NullNotificationViewController: UIViewController,UITableViewDelegate,UITab
 
         nullNotificationTableView.delegate = self
         nullNotificationTableView.dataSource = self
+        notificationDetailsLbl.text = "Notification Details".localize()
 //        let nullNotificationCell  = UINib(nibName: "NullNotificationCell" , bundle: nil)
 //        nullNotificationTableView.register(nullNotificationCell, forCellReuseIdentifier: "NullNotificationCell")
         
