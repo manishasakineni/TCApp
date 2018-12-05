@@ -1121,6 +1121,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
+        print("In bannerImageArr.count",bannerImageArr.count)
         let pageWidth:CGFloat = bannerScrollView.frame.width
         let maxWidth:CGFloat = pageWidth * imgsCount
         let contentOffset:CGFloat = bannerScrollView.contentOffset.x
@@ -1135,7 +1136,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         pageController.currentPage = Int(currentPage)
         bannerScrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:bannerScrollView.frame.height), animated: true)
         
+          print("Out bannerImageArr.count",bannerImageArr.count)
     }
+  
     
     //MARK: Page tap action
     

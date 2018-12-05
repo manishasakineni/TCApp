@@ -106,6 +106,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var replyMainCommentUser = ""
     var editUserID = 0
     
+    var eventShortTitle = ""
+    
 //MARK: -   View Did Load
     
     override func viewDidLoad() {
@@ -281,8 +283,11 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                  self.isDisLike = self.eventsDetailsArray[0].isDisLike!
             }
         
-       
-                        
+            if self.eventsDetailsArray[0].eventShortTitle != nil {
+                self.eventShortTitle = self.eventsDetailsArray[0].eventShortTitle!
+            }
+        
+            
         print(self.eventsDetailsArray)
                         
         if self.isLike == 0{
@@ -1784,7 +1789,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if !(self.userID == 0) {
             
             let someText:String = "Hello want to share text also"
-            let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+          //  let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
+            let urlString  = SHARELINKURL + "" + eventShortTitle
+            
+            let objectsToShare:URL = URL(string: urlString)!
             let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
             let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
@@ -1795,7 +1803,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             self.present(activityViewController, animated: true, completion: nil)
             
-            print("Share Clicked.............")
+            print("Share Clicked.............",urlString)
         }
             
         else {
