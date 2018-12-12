@@ -42,7 +42,7 @@
     "Please Enter Password": "దయచేసి పాస్వర్డ్ను అందించండి",
     "Please Enter Confirm Password": "దయచేసి పాస్వర్డ్ని నిర్ధారించండి",
     "Incorrect Confirm Password": "సరికాని పాస్వర్డ్ని నిర్ధారించండి",
-    "Password Missmatch": "పాస్వర్డ్ మిస్ మేచ్",
+    "Password Mismatch": "పాస్వర్డ్ మిస్ మేచ్",
     "Please Enter New Password": "దయచేసి క్రొత్త పాస్వర్డ్ను అందించండి",
     "Please Enter Reset-Password": "దయచేసి రీసెట్-పాస్వర్డ్ను అందించండి",
     "password must have at least one uppercase letter": "పాస్వర్డ్ తప్పనిసరిగా కనీసం ఒక పెద్ద అక్షరం కలిగి ఉండాలి",

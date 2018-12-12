@@ -15,14 +15,18 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
 
+
+
+
+
 // Below Three is BASEURL's for TeluguChurches
 
 // Changed constants Latest Live BASEURL 22/11/2018
-//var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
+var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
 
 
 // constants Old Test Url
-var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
+//var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
 
 
 
@@ -198,7 +202,11 @@ var ADDUPDATENOTIFICATIONS:String = BASEURL.appending("api/Notification/AddUpdat
 var UPDATEVIEWCOUNTBYPOSTID:String = BASEURL.appending("api/Post/UpdateViewCountByPostId/")
 
 
-var SHARELINKURL : String = "http://183.82.111.111/TeluguChurches/Web/post/"
+//var SHARELINKURL : String = "http://183.82.111.111/TeluguChurches/Web/post/"
+
+var SHARELINKURL : String = "http://teluguchurches.church/post/"
+
+
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

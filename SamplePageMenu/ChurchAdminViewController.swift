@@ -420,18 +420,20 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
     let url = URL(string:newString!)
                 
+        if url != nil {
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
                 
-    let dataImg = try? Data(contentsOf: url!)
+                cell.adminImageView.image = UIImage(data: dataImg!)
                 
-    if dataImg != nil {
-                    
-    cell.adminImageView.image = UIImage(data: dataImg!)
-                    
-    }else {
-                    
-   cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
-                    
+            }else {
+                
+                cell.adminImageView.image = #imageLiteral(resourceName: "pastor1")
+                
+            }
         }
+ 
     }
                 
     else {
