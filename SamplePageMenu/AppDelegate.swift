@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         isFirstTime = true
         IQKeyboardManager.sharedManager().enable = true
+        
        // FirebaseApp.configure()
         
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -151,10 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        // receiving FCM token
-        
-        
-        
+      // receiving FCM token
       //  Messaging.messaging().apnsToken = deviceToken
         
            }
@@ -212,7 +210,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    // MARK: - Check Internet Connectivity
+// MARK: - Check Internet Connectivity
     
     func checkInternetConnectivity() -> Bool {
         
@@ -235,7 +233,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return (isReachable && !needsConnection)
     }
     
- 
     func getsplashmsgAPICall() {
         
         serviceController.getRequest(strURL: GETSPLASHMSGAPI , success: { (result) in
@@ -257,15 +254,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 else {
                     
-                    let desc = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
+                    let desc = "Jesus answered, I am the way and the truth and the life. No one comes to the Father except through me."
                     self.lunchScreenView(desc)
                     
                 }
                 
             }
             else {
-                
-                
                 
             }
             
@@ -276,16 +271,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
     }
-    
-    
 
-    
-    
     func lunchScreenView(_ text : String){
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
             
             // customized launch screen
     if let window = self.window {
@@ -438,10 +427,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-
-
-
-
 extension String {
     
     func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
@@ -474,8 +459,7 @@ extension UILabel {
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     // Receive displayed notifications for iOS 10 devices.
-    
-    
+   
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         // Print message ID.

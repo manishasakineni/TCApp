@@ -158,7 +158,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
        
         
-        getProfileInfoAPIService()
+        
         
     }
     
@@ -277,7 +277,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
       }
     }
         
-}, failure:  {(error) in
+  }, failure:  {(error) in
                 
     print(error)
                 
@@ -286,14 +286,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
     self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
                     
-                    
     }
     
-})
+    })
             
-  }
+   }
+            
  else {
-                self.editProfileTableView.isHidden = true
+            self.editProfileTableView.isHidden = true
             appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
     }
@@ -322,6 +322,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        getProfileInfoAPIService()
         
         print(showNav)
         

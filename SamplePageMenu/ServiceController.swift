@@ -11,17 +11,11 @@ import Foundation
 
 let reachability = Reachability()!
 
-
-
-
-
 var appDelegate = AppDelegate()
 
 let content_type = "application/json; charset=utf-8"
 
 class ServiceController: NSObject {
-    
-    
     
     
     func postRequest(strURL:NSString,postParams:NSDictionary,postHeaders:NSDictionary,successHandler:@escaping(_ _result:Any)->Void,failureHandler:@escaping (_ error:String)->Void) -> Void {

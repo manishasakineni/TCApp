@@ -14,30 +14,19 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 
 //http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
-
-
-
-
-
 // Below Three is BASEURL's for TeluguChurches
 
 // Changed constants Latest Live BASEURL 22/11/2018
 var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
 
 
-// constants Old Test Url
+// constants  Test Url
 //var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
 
 
 
 // New Local Test Url given on 03/12/2018
 //var BASEURL:String = "http://192.168.1.121/TeluguChurchesTestAPI/"
-
-
-
-
-
-
 
 //var BASEURL:String = "http://192.168.1.250/TeluguChurches/"
 
@@ -182,13 +171,11 @@ let EDITADDRESSAPI : String = BASEURL.appending("api/DeliveryAddress/GetAddressB
 
 let DELETEFROMCARTAPI : String = BASEURL.appending("api/CartInfo/DeleteFromCart/")
 
-
 let NOTIFICATIONSAPI : String = BASEURL.appending("api/Notification/GetWebNotification")
 
 let GETSPLASHMSGAPI : String = BASEURL.appending("api/SplashMessage/GetSplashMessageByDate")
 
 let GETEVENTBYIDAPI : String = BASEURL.appending("api/Events/GetEventByEventId/")
-
 
 // mapper names  :-  AddUpdateJobVO, AddUpdateJobListResultVO
 let ADDUPDATEJOBAPI : String = BASEURL.appending("api/JobDetails/AddUpdateJob")
@@ -205,6 +192,8 @@ var UPDATEVIEWCOUNTBYPOSTID:String = BASEURL.appending("api/Post/UpdateViewCount
 //var SHARELINKURL : String = "http://183.82.111.111/TeluguChurches/Web/post/"
 
 var SHARELINKURL : String = "http://teluguchurches.church/post/"
+
+var HELPPDFURL : String = "http://183.82.111.111/TChurchesLive/API/api/UserManuals/GetUserManual/2"
 
 
 

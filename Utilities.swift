@@ -20,10 +20,7 @@ class Utilities: NSObject {
     
     static let bordrColor : CGColor = #colorLiteral(red: 0.3843137255, green: 0.6862745098, blue: 0.8156862745, alpha: 1).cgColor
     
-    
-    
-    
-    
+
     //MARK: - Nil Check
     
     func isObjectNull(_ object: AnyObject?) -> Bool {
@@ -614,10 +611,7 @@ class Utilities: NSObject {
 
         
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-        
-        
-
-        
+            
         
     }
     
@@ -1161,11 +1155,7 @@ class Utilities: NSObject {
         
         let rightButtonImage: UIImage = UIImage(named: rightImage)!
         let rightButton: UIButton = UIButton(type: .custom)
-        
-        
-
-        
-        
+ 
         leftButton.frame = CGRect(x: 0, y: 0, width: 50, height: leftButtonImage.size.height)
         
         if backTitle.characters.count > 0 {

@@ -25,7 +25,6 @@ import UIKit
     @objc optional func willMoveToPage(_ controller: UIViewController, index: Int)
     @objc optional func didMoveToPage(_ controller: UIViewController, index: Int)
   
-    
 }
 
 class MenuItemView: UIView {

@@ -25,7 +25,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var loginVC = LoginViewController()
     var count = 0
     
-    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","EditProfile","noun_638526_cc","noun_793900_cc"]
+    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","noun_help","EditProfile","noun_638526_cc","noun_793900_cc"]
     
 var isSelectLanguage = false
   //MARK: -   View DidLoad
@@ -42,7 +42,7 @@ var isSelectLanguage = false
         menuTableView.dataSource = self
         
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
 
         borderColor()
         
@@ -70,7 +70,7 @@ var isSelectLanguage = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
 
     }
     
@@ -117,7 +117,7 @@ var isSelectLanguage = false
         
         if (self.userID.isEmpty) {
         
-            if indexPath.row == 9 || indexPath.row == 11 {
+            if indexPath.row == 10 || indexPath.row == 12 {
                 
             return 0
             
@@ -138,7 +138,7 @@ var isSelectLanguage = false
        
         if (self.userID.isEmpty) {
             
-            if indexPath.row == 9 || indexPath.row == 11 {
+            if indexPath.row == 10 || indexPath.row == 12 {
                 
                 return 0
                 
@@ -168,12 +168,12 @@ var isSelectLanguage = false
         
         if (self.userID.isEmpty) {
             
-                if indexPath.row == 9 || indexPath.row == 11 {
+                if indexPath.row == 10 || indexPath.row == 12 {
                     cell1.isHidden = true
                 }
             
             if cell1.menuNameLabel.text! == "LogOut".localize(){
-                if indexPath.row == 10 {
+                if indexPath.row == 11 {
                     
                     cell1.menuNameLabel.text! = "Login".localize()
                     cell1.menuNameImg.image = UIImage(named: String("LogOutlightGray"))
@@ -182,7 +182,7 @@ var isSelectLanguage = false
                 }
            
             }else if isSelectLanguage == true {
-                if indexPath.row == 10 {
+                if indexPath.row == 11 {
                     cell1.menuNameLabel.text! = "Login".localize()
                     cell1.menuNameImg.image = UIImage(named: String("LogOutlightGray"))
                 }
@@ -480,6 +480,19 @@ var isSelectLanguage = false
             }
             
         }
+            
+        else if cell.menuNameLabel.text == "Help".localize() {
+          
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+          let helpVC = mainstoryboard.instantiateViewController(withIdentifier: "UserManualViewController") as! UserManualViewController
+  
+                helpVC.showNav = true
+            let newController = UINavigationController.init(rootViewController:helpVC)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+        }
+            
         else if cell.menuNameLabel.text == "Notifications".localize() {
             
             
@@ -570,7 +583,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
@@ -585,7 +598,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
                     
@@ -601,7 +614,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
                     
@@ -617,7 +630,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
                     
                     self.menuTableView.reloadData()
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
