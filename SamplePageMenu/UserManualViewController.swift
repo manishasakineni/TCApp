@@ -33,7 +33,7 @@ class UserManualViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Help".localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
 //        if let url = Bundle.main.path(forResource: "SwiftLanguage", ofType: "pdf"){
 //
