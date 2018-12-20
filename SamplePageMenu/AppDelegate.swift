@@ -23,7 +23,7 @@ import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var customizedLaunchScreenView: UIView?
+    var customizedLaunchScreenView: UIView?   
 
     var window : UIWindow?
     var messge : String = ""
