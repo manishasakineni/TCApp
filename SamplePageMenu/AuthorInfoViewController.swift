@@ -315,7 +315,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 if indexPath.row == 0 {
                     
-                    cell3.infoLabel.text = "Church Name".localize()
+                    cell3.infoLabel.text = "Church".localize()
                     
                     cell3.addressLabel.text = authorDetails.churchName
                     

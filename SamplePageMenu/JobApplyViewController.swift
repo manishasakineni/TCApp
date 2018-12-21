@@ -591,7 +591,7 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             else if indexPath.row == 1{
                 
-                jobApp.jobApplyTF.placeholder = "First Name".localize()
+                jobApp.jobApplyTF.placeholder = "First Name*".localize()
                 jobApp.jobApplyTF.text = firstname
                 jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
@@ -604,26 +604,26 @@ class JobApplyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             else if indexPath.row == 3{
                 
-            jobApp.jobApplyTF.placeholder = "Last Name".localize()
+            jobApp.jobApplyTF.placeholder = "Last Name*".localize()
              jobApp.jobApplyTF.text = lastname
                 jobApp.jobApplyTF.isUserInteractionEnabled = true
                 
             }
             else if indexPath.row == 4{
                 
-            jobApp.jobApplyTF.placeholder = "Email".localize()
+            jobApp.jobApplyTF.placeholder = "Email*".localize()
               jobApp.jobApplyTF.text = email
                 jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 5{
                 
-            jobApp.jobApplyTF.placeholder = "Mobile Number".localize()
+            jobApp.jobApplyTF.placeholder = "Mobile Number*".localize()
               jobApp.jobApplyTF.text = mobileNumber
                 jobApp.jobApplyTF.isUserInteractionEnabled = true
             }
             else if indexPath.row == 6{
                 
-            jobApp.jobApplyTF.placeholder = "Qualification".localize()
+            jobApp.jobApplyTF.placeholder = "Qualification*".localize()
                 
              jobApp.jobApplyTF.text = qualification
              jobApp.jobApplyTF.isUserInteractionEnabled = true

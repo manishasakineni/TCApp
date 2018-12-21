@@ -1005,7 +1005,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 if eventImageArray.count > 0{
                     
-                    return 130.0
+                    return 180.0
                     
                 }
                 else
