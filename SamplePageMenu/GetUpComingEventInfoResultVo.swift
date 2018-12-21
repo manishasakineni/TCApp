@@ -27,12 +27,13 @@ class GetUpComingEventInfoResultVo: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
     var eventImage : String?
+    var authorName : String?
     
     
     //MARK:-  initialization of GetUpComingEventInfoResultVo
     
     
-    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,eventImage : String?)
+    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?,eventImage : String?, authorName : String?)
         
         
     {
@@ -52,6 +53,7 @@ class GetUpComingEventInfoResultVo: Mappable {
         self.updatedByUserId = updatedByUserId
         self.updatedDate = updatedDate
         self.eventImage = eventImage
+        self.authorName = authorName
        
         
     }
@@ -76,6 +78,9 @@ class GetUpComingEventInfoResultVo: Mappable {
         updatedByUserId <- map["updatedByUserId"]
         updatedDate <- map["updatedDate"]
         eventImage <- map["eventImage"]
+        authorName <- map["authorName"]
+
+        
         
     }
     

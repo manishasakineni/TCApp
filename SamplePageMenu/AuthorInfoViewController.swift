@@ -163,7 +163,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         else if section == 1 {
             
             
-            return 5
+            return 12
             
             
             
@@ -267,9 +267,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 } else if indexPath.row == 1 {
                     
-                    cell2.infoLabel.text = "Email".localize()
+                    cell2.infoLabel.text = "User Name".localize()
                     
-                    cell2.addressLabel.text =  authorDetails.authorEmail
+                    cell2.addressLabel.text =  authorDetails.userName
                     
                     
                 } else if indexPath.row == 2 {
@@ -280,6 +280,13 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     
                 }else if indexPath.row == 3 {
+                    
+                    cell2.infoLabel.text = "Author Email".localize()
+                    
+                    cell2.addressLabel.text =  authorDetails.authorEmail
+                    
+                    
+                }else if indexPath.row == 4 {
                     
                     cell2.infoLabel.text = "Date Of Birth".localize()
                     
@@ -297,11 +304,53 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 }
                 
-                else if indexPath.row == 4 {
+                else if indexPath.row == 5 {
                     
                     cell2.infoLabel.text = "Gender".localize()
                     
                     cell2.addressLabel.text = authorDetails.gender
+                    
+                }
+                else if indexPath.row == 6 {
+                    
+                    cell2.infoLabel.text = "Village Name".localize()
+                    
+                    cell2.addressLabel.text = authorDetails.villageName
+                    
+                }
+                else if indexPath.row == 7 {
+                    
+                    cell2.infoLabel.text = "Mandal Name".localize()
+                    
+                    cell2.addressLabel.text = authorDetails.mandalName
+                    
+                }
+                else if indexPath.row == 8 {
+                    
+                    cell2.infoLabel.text = "District Name".localize()
+                    
+                    cell2.addressLabel.text = authorDetails.districtName
+                    
+                }
+                else if indexPath.row == 9 {
+                    
+                    cell2.infoLabel.text = "State Name".localize()
+                    
+                    cell2.addressLabel.text = authorDetails.stateName
+                    
+                }
+                else if indexPath.row == 10 {
+                    
+                    cell2.infoLabel.text = "Pin Code".localize()
+                
+                    cell2.addressLabel.text = "\(String(describing: authorDetails.pinCode!))"
+                    
+                }
+                else if indexPath.row == 11 {
+                    
+                    cell2.infoLabel.text = "Country".localize()
+                    
+                    cell2.addressLabel.text = authorDetails.countryName
                     
                 }
                 return cell2

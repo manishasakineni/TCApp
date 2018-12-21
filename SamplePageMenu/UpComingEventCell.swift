@@ -12,8 +12,10 @@ class UpComingEventCell: UITableViewCell {
 
     @IBOutlet weak var chuechName: UILabel!
     
+    @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var eventTitle: UILabel!
     
+    @IBOutlet weak var contactNumber: UILabel!
     @IBOutlet weak var eventStart: UILabel!
     
     @IBOutlet weak var eventEndDate: UILabel!

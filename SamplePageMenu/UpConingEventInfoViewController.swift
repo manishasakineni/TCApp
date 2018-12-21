@@ -115,6 +115,18 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
             
         }else{
         }
+        if let authorName =  listStr.authorName {
+            
+            cell.authorName.text =  authorName
+            
+        }else{
+        }
+        if let contactNumber =  listStr.contactNumber {
+            
+            cell.contactNumber.text =  contactNumber
+            
+        }else{
+        }
         
         if let eventStart =  listStr.startDate {
             
@@ -128,7 +140,8 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         if let eventEndDate =  listStr.endDate {
             
             cell.eventEndDate.text =  returnEventDateWithoutTime(selectedDateString : eventEndDate)
-        }else{
+        }
+        else{
         }
 //        if let registrationNumber = listStr.registrationNumber {
 //            cell.registrationNumber.text =  registrationNumber
