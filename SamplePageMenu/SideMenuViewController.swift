@@ -115,9 +115,11 @@ var isSelectLanguage = false
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
+        
+        
         if (self.userID.isEmpty) {
         
-            if indexPath.row == 10 || indexPath.row == 12 {
+            if indexPath.row == 10 || indexPath.row == 12 || indexPath.row == 8{
                 
             return 0
             
@@ -130,6 +132,10 @@ var isSelectLanguage = false
             }
         }
         
+        if indexPath.row == 8 {
+            
+            return 0
+        }
     
         return 43
     }
@@ -155,16 +161,27 @@ var isSelectLanguage = false
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        
+ 
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuNameTableViewCell")
             as!menuNameTableViewCell
         
         cell1.selectionStyle = .none
         
+        if indexPath.row == 8 {
+            
+            cell1.menuNameImg.isHidden = true
+            cell1.menuNameLabel.isHidden = true
+        }
+        else{
+            
+            cell1.menuNameImg.isHidden = false
+            cell1.menuNameLabel.isHidden = false
+        }
+        
         cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
         
         cell1.menuNameLabel.text! = menuArray[indexPath.row]
+        
         
         if (self.userID.isEmpty) {
             
@@ -191,7 +208,7 @@ var isSelectLanguage = false
             
         }
         
-        else{
+        else {
 
             cell1.isHidden = false
             

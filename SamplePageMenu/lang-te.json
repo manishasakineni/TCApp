@@ -7,18 +7,18 @@
     "Telugu Churches": "తెలుగు చర్చిలు",
     "UpComing Events": "రాబోయే ఈవెంట్స్",
     
-    "User Name": "వాడుకరి పేరు",
-    "Password": "పాస్వర్డ్",
+    "User Name*": "వాడుకరి పేరు*",
+    "Password*": "పాస్వర్డ్*",
     "Forgot Password?": "పాస్వర్డ్ మర్చిపోయారా?",
     "Register": "నమోదు",
     "Don't have an Account?": "మీకు ఖాతా ఉందా?",
-    "First Name": "మొదటి పేరు",
-    "Last Name": "చివరి పేరు",
-    "Middle Name": "మధ్య పేరు(ఐచ్ఛికము)",
-    "Mobile Number": "మొబైల్ సంఖ్య",
-    "E-mail": "ఇ-మెయిల్",
+    "First Name*": "మొదటి పేరు*",
+    "Last Name*": "చివరి పేరు*",
+    "Middle Name": "మధ్య పేరు (ఐచ్ఛికము)",
+    "Mobile Number*": "మొబైల్ సంఖ్య*",
+    "E-mail*": "ఇ-మెయిల్*",
     
-    "Confirm Password": "పాస్వర్డ్ని నిర్ధారించండి",
+    "Confirm Password*": "పాస్వర్డ్ని నిర్ధారించండి*",
     "Submit": "సమర్పించండి",
     "Registration": "నమోదు",
     "all ready have an Account?": "ఖాతా కలిగి ఉన్నారా?",
@@ -125,7 +125,7 @@
     "Bible Posts": " బైబిల్ పోస్ట్",
     
     "More": "మరింత",
-    "Authors": "రచయితలు",
+    "Authors": "పాస్టర్",
     "Churches": "చర్చిలు",
     "Images": "చిత్రాలు",
     "Document": "పత్రం",
@@ -255,6 +255,15 @@
     "Please Upload Resume": "దయచేసి రెస్యూమ్ని అప్లోడ్ చేయండి",
     "Please Enter months Of Experience" : "నెలల అనుభవాలను ఎంటర్ చెయ్యండి",
     "Notification Details" : "నోటిఫికేషన్ వివరాలు",
-    "Help" : "సహాయం"
-   
+    "Help" : "సహాయం",
+    "No Pastors Found" : "పాస్టర్లేవీ కనుగొనబడలేదు",
+    "No Churches Found" : "చర్చిలు కనుగొనబడలేదు",
+    "No Categories Found" : "ఏ వర్గం కనుగొనబడలేదు",
+    "No Events Found" : "ఈవెంట్లు కనుగొనబడలేదు",
+     "No Careers Found" : "ఉద్యోగాలు లేవు",
+    "No Notifications Found" : "నోటిఫికేషన్లు కనుగొనబడలేదు",
+    "No Items Found" : "అంశాలు కనుగొనబడలేదు",
+    "No Address Found" : "చిరునామా ఏదీ కనుగొనబడలేదు",
+    "No Posts Found" : "పోస్ట్లు లేవు"
+    
 }

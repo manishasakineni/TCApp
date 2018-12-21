@@ -11,18 +11,18 @@
     "UpComing Events": "UPCOMING EVENTS",
     
     
-    "User Name": "User Name",
-    "Password": "Password",
+    "User Name*": "User Name*",
+    "Password*": "Password*",
     "Forgot Password?": "Forgot Password?",
     "Register": "Register",
     "Don't have an Account?": "Don't Have An Account?",
-    "First Name": "First Name",
-    "Last Name": "Last Name",
-    "Middle Name": "Middle Name(Optional)",
-    "Mobile Number": "Mobile Number",
-    "E-mail": "E-mail",
+    "First Name*": "First Name*",
+    "Last Name*": "Last Name*",
+    "Middle Name": "Middle Name (Optional)",
+    "Mobile Number*": "Mobile Number*",
+    "E-mail*": "E-mail*",
     
-    "Confirm Password": "Confirm Password",
+    "Confirm Password*": "Confirm Password*",
     "Submit": "Submit",
     "Registration": "Registration",
     "all ready have an Account?": "Already Have An Account?",
@@ -130,7 +130,7 @@
     "Bible Posts": "Bible Posts",
     
     "More": "More",
-    "Authors": "Authors",
+    "Authors": "Pastors",
     "Churches": "Churches",
     "Images": "Images",
     "Document": "Documents",
@@ -261,7 +261,16 @@
     "Please Upload Resume": "Please Upload Resume",
     "Please Enter months Of Experience" : "Please Enter months Of Experience",
     "Notification Details" : "Notification Details",
-    "Help" : "Help"
+    "Help" : "Help",
+    "No Pastors Found" : "No Pastors Found",
+    "No Churches Found" : "No Churches Found",
+    "No Categories Found" : "No Categories Found",
+    "No Events Found" : "No Events Found",
+    "No Careers Found" : "No Careers Found",
+    "No Notifications Found" : "No Notifications Found"
+    "No Items Found" : "No Items Found",
+    "No Address Found" : "No Address Found",
+    "No Posts Found" : "No Posts Found"
     
     
 }

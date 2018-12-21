@@ -62,7 +62,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
    
     
     var sectionsTitle : [String] = [" "]
-    var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize(),"Date Of Birth".localize()]
+    var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
     
 //MARK: -   View Did Load
 
@@ -411,19 +411,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         
  
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        if section == 0{
             
         return signUpTFPlaceholdersArray.count
-            
-        }else {
-            
-        return 1
-        }
         
     }
     
@@ -440,23 +433,17 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-       
-        
-        if indexPath.section == 0{
             
         let signUPCell = tableView.dequeueReusableCell(withIdentifier: "SignUPTableViewCell", for: indexPath) as! SignUPTableViewCell
         
-
         signUPCell.registrationTextfield.delegate = self
-        
         signUPCell.registrationTextfield.tag = indexPath.row
-        
         signUPCell.eyeButtonOutlet.tag = indexPath.row
 
 
         if indexPath.row == 0{
             
-        signUPCell.registrationTextfield.placeholder = "First Name".localize()
+        signUPCell.registrationTextfield.placeholder = "First Name*".localize()
         signUPCell.registrationTextfield.text = firstName
         signUPCell.eyeButtonOutlet.isHidden = true
             
@@ -467,41 +454,35 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.registrationTextfield.placeholder = "Middle Name".localize()
         signUPCell.registrationTextfield.text = middleName
         signUPCell.eyeButtonOutlet.isHidden = true
-
-            
-            
+    
         }
         else if indexPath.row == 2{
             
-        signUPCell.registrationTextfield.placeholder = "Last Name".localize()
+        signUPCell.registrationTextfield.placeholder = "Last Name*".localize()
         signUPCell.registrationTextfield.text = lastName
         signUPCell.eyeButtonOutlet.isHidden = true
-
-            
-            
+    
         }
         
        else if indexPath.row == 3{
             
-        signUPCell.registrationTextfield.placeholder = "User Name".localize()
+        signUPCell.registrationTextfield.placeholder = "User Name*".localize()
         signUPCell.registrationTextfield.text = userName
         signUPCell.eyeButtonOutlet.isHidden = true
-
-
             
         }
             
         else if indexPath.row == 4{
             
         signUPCell.registrationTextfield.text = email
-        signUPCell.registrationTextfield.placeholder = "E-mail".localize()
+        signUPCell.registrationTextfield.placeholder = "E-mail*".localize()
         signUPCell.eyeButtonOutlet.isHidden = true
             
         }
         else if indexPath.row == 5{
             
         signUPCell.registrationTextfield.text = mobileNumber
-        signUPCell.registrationTextfield.placeholder = "Mobile Number".localize()
+        signUPCell.registrationTextfield.placeholder = "Mobile Number*".localize()
         signUPCell.eyeButtonOutlet.isHidden = true
 
         
@@ -509,7 +490,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         else if indexPath.row == 6{
             
         signUPCell.registrationTextfield.text = password
-        signUPCell.registrationTextfield.placeholder = "Password".localize()
+        signUPCell.registrationTextfield.placeholder = "Password*".localize()
         signUPCell.eyeButtonOutlet.isHidden = false
         signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
@@ -519,70 +500,62 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         else if indexPath.row == 7{
             
         signUPCell.registrationTextfield.text = confirmpassword
-        signUPCell.registrationTextfield.placeholder = "Confirm Password".localize()
+        signUPCell.registrationTextfield.placeholder = "Confirm Password*".localize()
         signUPCell.eyeButtonOutlet.isHidden = false
         signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
             
         }
             
-        else if indexPath.row == 8{
-            
-            signUPCell.registrationTextfield.text = confirmpassword
-            signUPCell.registrationTextfield.placeholder = "Date Of Birth".localize()
-            signUPCell.eyeButtonOutlet.isHidden = true
-           
-            signUPCell.registrationTextfield.text = selectedDate
-            signUPCell.registrationTextfield.tag = 8
-            
-            }
-            
+//        else if indexPath.row == 8{
+//
+//            signUPCell.registrationTextfield.text = confirmpassword
+//            signUPCell.registrationTextfield.placeholder = "Date Of Birth".localize()
+//            signUPCell.eyeButtonOutlet.isHidden = true
+//
+//            signUPCell.registrationTextfield.text = selectedDate
+//            signUPCell.registrationTextfield.tag = 8
+//
+//            }
+        
          signUPCell.eyeButtonOutlet.isHidden = true
 
         return signUPCell
+
         
-        
-        }
-        
-        else {
-            
-            
-            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
-            
-            
-//            signUPCell.selectionStyle = .none
-//            signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-//            signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-//            
-            
-            if genderTypeID == 30 {
-                
-                signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
-                
-                signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
-                
-            }
-            else {
-                
-                
-                signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
-                
-                signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
-                
-            }
-            
-            signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
-            
-            signUPCell.maleBtn.tag = 27
-            
-            
-            signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
-            
-            signUPCell.femaleBtn.tag = 30
-            
-            return signUPCell
-            
-        }
+//        else {
+//
+//
+//            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
+//
+//            if genderTypeID == 30 {
+//
+//                signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
+//
+//                signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+//
+//            }
+//            else {
+//
+//
+//                signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+//
+//                signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+//
+//            }
+//
+//            signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
+//
+//            signUPCell.maleBtn.tag = 27
+//
+//
+//            signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
+//
+//            signUPCell.femaleBtn.tag = 30
+//
+//            return signUPCell
+//
+//        }
     }
     
 //MARK: -   Eye Button Clicked
@@ -796,8 +769,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
         }
-            
-            
         else  if (emailIDStr.length > 1) && (emailIDStr.length < 5) {
             
             alertTag = 4
@@ -810,15 +781,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if (mobileNumberStr.length <= 0){
             alertTag = 5
-
-            
             errorMessage=GlobalSupportingClass.blankMobilenumberErrorMessage() as String as String as NSString?
             
         }
         else if (mobileNumberStr.length <= 9) {
             alertTag = 5
-
-            
             errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
         }
             
@@ -860,13 +827,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         
         
-        else if (dataOfBirth.length <= 0){
-            
-            alertTag = 8
-            
-            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
-            
-        }
+//        else if (dataOfBirth.length <= 0){
+//
+//            alertTag = 8
+//
+//            errorMessage=GlobalSupportingClass.blankDOBErrorMessage() as String as String as NSString?
+//
+//        }
         
         
         
@@ -936,8 +903,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             "UpdatedByUserId": null,
             "UpdatedDate": updatedDate,
             
-            "GenderTypeId" : genderTypeID,
-            "DOB" : dateofBirth ,
+            "GenderTypeId" : "",
+            "DOB" : "" ,
             "FileLocation" : null,
             
             "FileName" : null,

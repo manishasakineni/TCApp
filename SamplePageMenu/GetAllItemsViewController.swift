@@ -493,22 +493,22 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                 }
                 else {
                     
-//                    if(self.PageIndex == 0){
-//
-//                        self.norecordsFoundLbl.isHidden = false
-//
-//                        self.getAllitemsTableView.isHidden = true
-//
-//                    }else{
-//                        self.norecordsFoundLbl.isHidden = true
-//
-//                        self.getAllitemsTableView.isHidden = false
-//                    }
+                    if(self.PageIndex == 0){
+
+                        self.norecordsFoundLbl.isHidden = false
+
+                        self.getAllitemsTableView.isHidden = true
+
+                    }else{
+                        self.norecordsFoundLbl.isHidden = true
+
+                        self.getAllitemsTableView.isHidden = false
+                    }
                     
-                    self.norecordsFoundLbl.isHidden = false
-                    
-                    self.getAllitemsTableView.isHidden = true
-                    
+//                    self.norecordsFoundLbl.isHidden = false
+//
+//                    self.getAllitemsTableView.isHidden = true
+//
                     
                 }
                 

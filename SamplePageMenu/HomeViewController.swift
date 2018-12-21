@@ -226,6 +226,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
       //  }
         
+       cartbtn.isEnabled = false
+        
+    
+    
+        
    
     }
     
@@ -757,7 +762,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }else{
             //self.navigationItem.rightBarButtonItem?.badgeValue = "0"
             
-            self.cartbtn.badgeValue = "N"
+           // self.cartbtn.badgeValue = "N"
         }
         
     }
@@ -782,7 +787,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                 // self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
                
-                self.cartbtn.badgeValue = "\(cartCount)" == "" ? "0" : "\(cartCount)"
+              //  self.cartbtn.badgeValue = "\(cartCount)" == "" ? "0" : "\(cartCount)"
               
                 
             }

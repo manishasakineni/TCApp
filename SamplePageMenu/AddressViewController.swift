@@ -316,7 +316,7 @@ func  editaddressClicked( sender:UIGestureRecognizer){
                 }else{
                     
                     self.addNewAddressLbl.isHidden = false
-                    self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
+                   // self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
                     
                 }
                
@@ -384,7 +384,7 @@ func deleteaddressAPICall(_ sender : UIButton){
                     self.addressTableview.reloadData()
                     
                     self.addNewAddressLbl.isHidden = false
-                    self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
+                   // self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
                     
                 }
                     

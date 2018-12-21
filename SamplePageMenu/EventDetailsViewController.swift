@@ -1110,7 +1110,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-     //MARK: -   users Like Btn Click
+//MARK: -   users Like Btn Click
     
     func usersLikeBtnClick(sender : UIButton){
         
@@ -1147,9 +1147,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    //MARK: -   users Dislike Btn Click
+//MARK: -   users Dislike Btn Click
     
-    func usersDislikeBtnClick(sender : UIButton){
+   func usersDislikeBtnClick(sender : UIButton){
         
         if !(self.userID == 0) {
             
@@ -1196,7 +1196,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-  //MARK: -   reply Comment Btn Click
+//MARK: -   reply Comment Btn Click
     
     func replyCommentBtnClick(sender : UIButton){
         
@@ -1239,7 +1239,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-  //MARK: -   view All Comment Btn Click
+//MARK: -   view All Comment Btn Click
     
     func viewAllCommentBtnClick(sender : UIButton){
         
@@ -1303,7 +1303,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-  //MARK: -   replies Close Btn Clicked
+//MARK: -   replies Close Btn Clicked
     
     func repliesCloseBtnClicked(){
         
@@ -1324,7 +1324,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
    
- //MARK: -   edit Comment Btn Clicked
+//MARK: -   edit Comment Btn Clicked
     
     func editCommentBnClicked(sender : UIButton){
         
@@ -1395,7 +1395,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
 }
     
-     //MARK: -   get View All Comments APICall
+//MARK: -   get View All Comments APICall
     
     func getViewAllCommentsAPICall(tag : Int){
         
@@ -1465,7 +1465,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-     //MARK: -   delete Comments APICall
+//MARK: -   delete Comments APICall
     
     func deleteCommentAPICall(tag : Int){
         
@@ -1782,7 +1782,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
-    //MARK: -   share Button Clicked
+//MARK: -   share Button Clicked
     
     func  shareButtonClick(_ sendre:UIButton) {
         
@@ -1790,7 +1790,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let someText:String = "Hello want to share text also"
           //  let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
-            let urlString  = SHARELINKURL + "" + eventShortTitle
+            let urlString  = EVENTSHARELINKURL + "" + eventShortTitle + "/" + String(eventID)
             
             let objectsToShare:URL = URL(string: urlString)!
             let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]

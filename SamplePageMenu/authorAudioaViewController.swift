@@ -20,8 +20,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     var imageView  = ["bible1","bible1","bible1"]
     var audioArray = Array<Any>()
     var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
-     var PageIndex = 1
-     var audioIDArray : Array<String> = Array()
+    var PageIndex = 1
+    var audioIDArray : Array<String> = Array()
     var videoEmbededIDStr = String()
     var thumbnailImageURL = String()
     
@@ -92,6 +92,60 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         
               cell.audioLabel.text = title
         
+        let thumbnillImage : String = ((audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.embededUrl)!
+        
+        
+        let audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+        let thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/default.jpg"
+        
+        print("thumbnailImageURL",thumbnailImageURL)
+        
+        // https://img.youtube.com/vi/uJwBepmeoGo/default.jpg
+        
+        let videothumb = URL(string: thumbnailImageURL)
+        let defultImage: UIImage = UIImage(named: "videostatic")!
+        
+        if videothumb != nil{
+            
+            let request = URLRequest(url: videothumb!)
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                
+                DispatchQueue.main.async()
+                    {
+                        
+                        if data != nil {
+                            
+                            
+                            cell.authorAudioImage.image = UIImage(data: data!)
+                            
+                        }
+                        else{
+                            
+                            print("Image not found")
+
+                            cell.authorAudioImage.image = defultImage
+                        }
+                        
+                        
+                }
+                
+            }) 
+            
+            dataTask.resume()
+            
+        }
+    
+        
+        else{
+            
+            
+            
+             cell.authorAudioImage.image = defultImage
+            
+        }
+        
         
         return cell
         
@@ -149,13 +203,11 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
 
                     DispatchQueue.main.async()
                         {
-
                             let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
 
                             videosVC.videoEmbededIDStr = self.audioIDArray[1]
-                           // videosVC.videoEmbededIDStr = "_9D_v6unOl0"
+                            // videosVC.videoEmbededIDStr = "_9D_v6unOl0"
                             videosVC.videoNameStr = title!
-
                             videosVC.videoId = videoID!
                             kUserDefaults.set(categoryId, forKey: "categoryId")
                             kUserDefaults.set(videoID, forKey: "videoID")
@@ -169,23 +221,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
 
             }
         }
-        
-        
-       
-        
-            
+    
         print("audio")
         
         }
     }
-   
-    
-    
-
-
-
-
-
-
-
-

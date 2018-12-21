@@ -584,7 +584,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
             
             cell.collectionImgView.contentMode = .scaleAspectFit
-            cell.collectionImgView.image = #imageLiteral(resourceName: "docImg")
+            cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
 
 
         }
