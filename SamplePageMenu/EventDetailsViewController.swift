@@ -854,6 +854,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             if indexPath.row == 2 {
                 
         informationTableViewCell.infoLabel.text = "Event Details".localize()
+        informationTableViewCell.infoLabel.font = UIFont.boldSystemFont(ofSize: 13.0)
                 
         informationTableViewCell.addressLabel.text =  ""
                 

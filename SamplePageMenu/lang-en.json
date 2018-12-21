@@ -12,17 +12,24 @@
     
     
     "User Name*": "User Name*",
+    "User Name": "User Name",
     "Password*": "Password*",
+    "Password": "Password",
     "Forgot Password?": "Forgot Password?",
     "Register": "Register",
     "Don't have an Account?": "Don't Have An Account?",
     "First Name*": "First Name*",
+    "First Name": "First Name",
     "Last Name*": "Last Name*",
+    "Last Name": "Last Name",
     "Middle Name": "Middle Name (Optional)",
     "Mobile Number*": "Mobile Number*",
+    "Mobile Number": "Mobile Number",
     "E-mail*": "E-mail*",
+    "E-mail": "E-mail",
     
     "Confirm Password*": "Confirm Password*",
+    "Confirm Password": "Confirm Password",
     "Submit": "Submit",
     "Registration": "Registration",
     "all ready have an Account?": "Already Have An Account?",
@@ -90,6 +97,7 @@
     "Mission": "Mission",
     
     "Email": "Email",
+    "Email*": "Email*",
     "Web Address": "Web Address",
     "Landmark": "Landmark",
     "State": "State",
@@ -178,13 +186,13 @@
     "Job Title": "Job Title",
     "Last Date To Apply": "Last Date To Apply",
     
-    "Qualification": "Qualification",
+    "Qualification*": "Qualification*",
     "Vacancies": "Vacancies",
     "Contact Person": "Contact Person",
     "Job Description": "Job Description",
     "Salary": "Salary",
-    "Upload Resume": "Upload Resume",
-    "Year Of Experience": "Year Of Experience",
+    "Upload Resume*": "Upload Resume*",
+    "Year Of Experience*": "Year Of Experience*",
     "Current Organization": "Current Organization",
     "Current Salary": "Current Salary",
     "Expected Salary": "Expected Salary",
@@ -232,7 +240,7 @@
     "Please Login To Reply": "Please Login To Reply",
     "Please Add Reply": "Please Add Reply",
     "Total Price": "Total Price",
-    " Views": "Views",
+    " Views": " Views",
     "Share": "Share",
     "Channel Name": "Channel Name",
     "View Replies": "View Replies",
@@ -270,6 +278,9 @@
     "No Notifications Found" : "No Notifications Found",
     "No Items Found" : "No Items Found",
     "No Address Found" : "No Address Found",
-    "No Posts Found" : "పోస్ట్లు లేవు"
+    "No Posts Found" : "No Posts Found",
+    "Church" : "Church",
+    "Upcoming Events" : "Upcoming Events",
+    "Clear" : "Clear"
     
 }

@@ -8,17 +8,25 @@
     "UpComing Events": "రాబోయే ఈవెంట్స్",
     
     "User Name*": "వాడుకరి పేరు*",
+    "User Name": "వాడుకరి పేరు",
     "Password*": "పాస్వర్డ్*",
+    "Password": "పాస్వర్డ్",
     "Forgot Password?": "పాస్వర్డ్ మర్చిపోయారా?",
     "Register": "నమోదు",
     "Don't have an Account?": "మీకు ఖాతా ఉందా?",
     "First Name*": "మొదటి పేరు*",
+    "First Name": "మొదటి పేరు",
     "Last Name*": "చివరి పేరు*",
+    "Last Name": "చివరి పేరు",
     "Middle Name": "మధ్య పేరు (ఐచ్ఛికము)",
     "Mobile Number*": "మొబైల్ సంఖ్య*",
+    "Mobile Number": "మొబైల్ సంఖ్య",
     "E-mail*": "ఇ-మెయిల్*",
-    
+    "E-mail": "ఇ-మెయిల్",
+
     "Confirm Password*": "పాస్వర్డ్ని నిర్ధారించండి*",
+    "Confirm Password": "పాస్వర్డ్ని నిర్ధారించండి",
+
     "Submit": "సమర్పించండి",
     "Registration": "నమోదు",
     "all ready have an Account?": "ఖాతా కలిగి ఉన్నారా?",
@@ -86,6 +94,8 @@
     "Vision": "దృష్టి",
     "Mission": "మిషన్",
     "Email": "ఇమెయిల్",
+    "Email*": "ఇమెయిల్*",
+
     "Web Address": "వెబ్ చిరునామా",
     "Landmark": "మైలురాయి",
     "State": "రాష్ట్రం",
@@ -171,14 +181,14 @@
     "Continue": "కొనసాగించు",
     "Job Title": "ఉద్యోగ శీర్షిక",
     "Last Date To Apply": "చివరి తేదీ వర్తించు",
-    "Qualification": "అర్హతలు",
+    "Qualification*": "అర్హతలు*",
     "Vacancies": "ఖాళీలు",
     "Contact Person": "వ్యక్తి సంప్రదించండి",
     "Job Description": "ఉద్యోగ వివరణ",
     "Salary": "జీతం",
-    "Upload Resume": "అప్లోడ్ రెస్యూమ్",
+    "Upload Resume*": "అప్లోడ్ రెస్యూమ్*",
     
-    "Year Of Experience": "అనుభవ సంవత్సరం",
+    "Year Of Experience*": "అనుభవ సంవత్సరం*",
     "Current Organization": "ప్రస్తుత సంస్థ",
     "Current Salary": "ప్రస్తుత జీతం",
     "Expected Salary": "ఆశిస్తున్న జీతం",
@@ -227,7 +237,7 @@
     "Please Login To Reply": "ప్రత్యుత్తరం ఇవ్వండి",
     "Please Add Reply": "ప్రత్యుత్తరం జోడించండి",
     "Total Price": "మొత్తం విలువ",
-    " Views": "చూశారు",
+    " Views": " చూశారు",
     "Share": "షేర్",
     "Channel Name": "ఛానల్ పేరు",
     "View Replies": "ప్రత్యుత్తరాలు చూడండి",
@@ -264,6 +274,12 @@
     "No Notifications Found" : "నోటిఫికేషన్లు కనుగొనబడలేదు",
     "No Items Found" : "అంశాలు కనుగొనబడలేదు",
     "No Address Found" : "చిరునామా ఏదీ కనుగొనబడలేదు",
-    "No Posts Found" : "పోస్ట్లు లేవు"
+    "No Posts Found" : "పోస్ట్లు లేవు",
+    "Church" : "చర్చి",
+    "Upcoming Events" : "రాబోయే ఈవెంట్స్",
+    "Clear" : "తొలగించు"
+
+
+
     
 }

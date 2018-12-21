@@ -591,7 +591,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         if indexPath.section == 1  {
             
-            return 60
+            return 0
             
         }
 

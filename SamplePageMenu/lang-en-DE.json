@@ -1,7 +1,6 @@
 {
     
     
-    
     "EditProfile": "Profile",
     "Change Password": "Change Password",
     "LogOut": "Log Out",
@@ -178,13 +177,13 @@
     "Job Title": "Job Title",
     "Last Date To Apply": "Last Date To Apply",
     
-    "Qualification": "Qualification",
+    "Qualification*": "Qualification*",
     "Vacancies": "Vacancies",
     "Contact Person": "Contact Person",
     "Job Description": "Job Description",
     "Salary": "Salary",
-    "Upload Resume": "Upload Resume",
-    "Year Of Experience": "Year Of Experience",
+    "Upload Resume*": "Upload Resume*",
+    "Year Of Experience*": "Year Of Experience*",
     "Current Organization": "Current Organization",
     "Current Salary": "Current Salary",
     "Expected Salary": "Expected Salary",
@@ -232,7 +231,7 @@
     "Please Login To Reply": "Please Login To Reply",
     "Please Add Reply": "Please Add Reply",
     "Total Price": "Total Price",
-    " Views": "Views",
+    " Views": " Views",
     "Share": "Share",
     "Channel Name": "Channel Name",
     "View Replies": "View Replies",
@@ -270,7 +269,11 @@
     "No Notifications Found" : "No Notifications Found"
     "No Items Found" : "No Items Found",
     "No Address Found" : "No Address Found",
-    "No Posts Found" : "No Posts Found"
+    "No Posts Found" : "No Posts Found",
+    "Church" : "Church"
+    "Upcoming Events" : "Upcoming Events",
+    "Clear" : "Clear"
+
     
     
 }
