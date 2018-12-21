@@ -78,7 +78,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="localizeText" value="Female"/>
                         </userDefinedRuntimeAttributes>
                     </textField>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_83366" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-Ro-4dp">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Unchecked Circle-50" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-Ro-4dp">
                         <rect key="frame" x="32" y="38" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="IbH-DD-KmB"/>
@@ -135,7 +135,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checked_83366" width="32" height="32"/>
         <image name="icons8-Unchecked Circle-50" width="50" height="50"/>
     </resources>
 </document>

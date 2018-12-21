@@ -61,8 +61,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     let datepicker = UIDatePicker()
     var dateofBirth:String = ""
     var gender : String = ""
-    var male = true
-    var female = false
+    var male = Bool()
+    var female = Bool()
     var genderTypeID:Int = 0
     
   //MARK: -   View DidLoad
@@ -223,14 +223,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else {
                                     
-        self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+        self.profileimage = #imageLiteral(resourceName: "Profiledefault")
             
         }
     }
             
  else {
                                 
- self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+ self.profileimage = #imageLiteral(resourceName: "Profiledefault")
             
  }
                             
@@ -238,13 +238,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             
     if self.dateofBirth != "" {
                                 
-    self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+        self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
         
         }
                             
                             
     if let gender = respVO.listResult?[0].genderTypeId {
-    self.genderTypeID = (gender)
+        
+       self.genderTypeID = (gender)
     
         }
         else{
@@ -536,13 +537,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func CreatedatePicker(){
         
         datepicker.datePickerMode = .date
+        datepicker.maximumDate = Date()
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
 //        let donebutton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         let doneButton = UIBarButtonItem(title: "Done".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: #selector(donePressed))
         
-        toolbar.setItems([doneButton], animated: false)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.bordered, target: self, action: #selector(CancelPressed))
+      //  toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
         activeTextField.inputAccessoryView = toolbar
         activeTextField.inputView = datepicker
         
@@ -551,7 +557,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    //MARK:- UITableView Delegate & DataSource
+//MARK:- UITableView Delegate & DataSource
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -583,7 +589,17 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+
+        if btneditClick == false {
+
+        if indexPath.section == 1{
+
+            if indexPath.row == 2 || indexPath.row == 3{
+
+                return 0
+            }
+        }
+    }
         return UITableViewAutomaticDimension
     }
     
@@ -595,14 +611,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
+
         if indexPath.section == 0 {
             
-        let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
+            let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
             
-        profileCell.selectionStyle = .none
+            profileCell.selectionStyle = .none
             
             if(btneditClick == true){
                 profileCell.cameraOutLet.isHidden = false
@@ -613,41 +627,57 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         if indexPath.row == 0{
                 
-    profileCell.cameraOutLet.addTarget(self, action: #selector(self.cameraBtnClicked), for: .touchDown)
-                
-                
-    profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
-                
-    profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
-    profileCell.progileImageView.layer.borderWidth = 1
-    profileCell.progileImageView.clipsToBounds = true
-    profileCell.progileImageView.image = profileimage
-    profileCell.editBtnOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
+            profileCell.cameraOutLet.addTarget(self, action: #selector(self.cameraBtnClicked), for: .touchDown)
+            
+            
+            profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
+            
+            profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
+            profileCell.progileImageView.layer.borderWidth = 1
+            profileCell.progileImageView.clipsToBounds = true
+            profileCell.progileImageView.image = profileimage
+            profileCell.editBtnOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
             
             
     }
             
     return profileCell
             
-    } else if indexPath.section == 1 {
+    }
+        
+    else if indexPath.section == 1 {
+          
+       let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
             
+       signUPCell.editProfileTF.delegate = self
             
-    let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
-            
-    signUPCell.editProfileTF.delegate = self
-            
-    signUPCell.editProfileTF.tag = indexPath.row
+       signUPCell.editProfileTF.tag = indexPath.row
             
             if(btneditClick == true){
                 signUPCell.editProfileTF.isUserInteractionEnabled = true
             }else{
                 signUPCell.editProfileTF.isUserInteractionEnabled = false
             }
-        
+            
+            if btneditClick == false{
+                
+                if indexPath.row == 2 || indexPath.row == 3{
+                    
+                   signUPCell.isHidden = true
+                }
+                
+                else{
+                    signUPCell.isHidden = false
+                }
+            }
+                
+            else{
+                signUPCell.isHidden = false
+            }
             
     if indexPath.row == 0{
                 
-    signUPCell.editProfileTF.placeholder = "User Name".localize()
+    signUPCell.editProfileTF.placeholder = "User Name*".localize()
     signUPCell.editProfileTF.text = self.userID
     signUPCell.editProfileTF.isUserInteractionEnabled = false
     signUPCell.editProfileTF.textColor = UIColor.lightGray
@@ -655,27 +685,38 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
             
     else if indexPath.row == 1{
-                
-    signUPCell.editProfileTF.placeholder = "First Name".localize()
-    signUPCell.editProfileTF.text = self.firstName
         
-         signUPCell.editProfileTF.tag = 1
+    signUPCell.editProfileTF.tag = 1
+        
+        if btneditClick == false {
+         
+            signUPCell.editProfileTF.placeholder = "Full Name*".localize()
+            signUPCell.editProfileTF.text = self.firstName + " " + self.middleName + " " + self.lastName
+            
+        }
+        
+        else {
+
+            signUPCell.editProfileTF.placeholder = "First Name*".localize()
+            signUPCell.editProfileTF.text = self.firstName
+            
+        }
         
     }
                 
     else if indexPath.row == 2{
-                
-                
+        
     signUPCell.editProfileTF.placeholder = "Middle Name".localize()
     signUPCell.editProfileTF.text = self.middleName
       
         signUPCell.editProfileTF.tag = 2
+
         
         }
         
     else if indexPath.row == 3{
         
-    signUPCell.editProfileTF.placeholder = "Last Name".localize()
+    signUPCell.editProfileTF.placeholder = "Last Name*".localize()
     signUPCell.editProfileTF.text = self.lastName
       signUPCell.editProfileTF.tag = 3
         
@@ -683,7 +724,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
   else if indexPath.row == 4{
                 
-    signUPCell.editProfileTF.placeholder = "Mobile Number".localize()
+    signUPCell.editProfileTF.placeholder = "Mobile Number*".localize()
     signUPCell.editProfileTF.isUserInteractionEnabled = false
     signUPCell.editProfileTF.textColor = UIColor.lightGray
     signUPCell.editProfileTF.text = self.mobileNumber
@@ -694,22 +735,23 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
     else if indexPath.row == 5{
                 
-    signUPCell.editProfileTF.placeholder = "E-mail".localize()
+    signUPCell.editProfileTF.placeholder = "E-mail*".localize()
     signUPCell.editProfileTF.text = self.email
         
          signUPCell.editProfileTF.tag = 5
-        
-        
+       
     }
                 
     else if indexPath.row == 6{
                 
     signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
     signUPCell.editProfileTF.text = selectedDate
-         signUPCell.editProfileTF.tag = 6
+     signUPCell.editProfileTF.tag = 6
         
         
             }
+            
+            
             
     return signUPCell
         }
@@ -741,24 +783,37 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
             
     if genderTypeID == 30 {
-                    
-    signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
-                    
-    signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
-                    
-    }
-else {
-                    
-                    
-    signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
-                    
-    signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+
+        signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
+        signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+        
+        male = false
+        female = true
         
     }
-                
+     if genderTypeID == 27 {
+
+
+        signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+
+        signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+        
+        male = true
+        female = false
+
+    }
+    
+     if genderTypeID == 0 {
+        
+        signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+        
+        signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+        
+     }
+            
     signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
                 
-   signUPCell.maleBtn.tag = 27
+    signUPCell.maleBtn.tag = 27
                 
                 
     signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
@@ -913,7 +968,7 @@ else {
             "middleName": self.middleName,
             "mobileNumber": self.mobileNumber,
             "genderTypeId": self.genderTypeID,
-            "dob": self.dateofBirth,
+            "dob": self.selectedDate,
             "userName": null,
             "password": null,
             "description" : null,
@@ -1126,7 +1181,7 @@ else {
         ViewController.present(alert, animated: true, completion:nil)
     }
 
-  //MARK: -  done Pressed
+  //MARK: -  done Pressed & Cancel
     
     func donePressed(){
         
@@ -1140,6 +1195,14 @@ else {
         activeTextField.text = selectedDate
         print(selectedDate)
         print(dateofBirth)
+        self.view.endEditing(true)
+        
+        editProfileTableView.reloadData()
+    }
+    
+    func CancelPressed(){
+        
+       selectedDate = ""
         self.view.endEditing(true)
         
         editProfileTableView.reloadData()
@@ -1254,33 +1317,30 @@ else {
             
             if (male == true)
             {
-                
-                cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
-                
-                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+               // cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+//                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+//
+//                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
                 male = false
+                
+                genderTypeID == sender.tag
                 
             }
             else
             {
-                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
-                
-                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+//                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+//
+//                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+                genderTypeID = 0
                 
                 male = true
             }
             
         }
-        
-        genderTypeID = sender.tag
-        
-        print(genderTypeID)
-        
+
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
-        
-        
-        
+  
     }
     
     //MARK:- Female Btn Clicked
@@ -1297,7 +1357,9 @@ else {
                 
             cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
-            cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+            //cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+                
                 
             male = false
                 
@@ -1306,7 +1368,7 @@ else {
             {
                 cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
                 
-                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
+                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
                 
                 male = true
             }

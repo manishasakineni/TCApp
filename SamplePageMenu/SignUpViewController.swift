@@ -769,6 +769,14 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
         }
+        
+        else  if (emailIDStr.length < 1) && (emailIDStr.length < 5) {
+            
+            alertTag = 4
+            
+            errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
+        }
+            
         else  if (emailIDStr.length > 1) && (emailIDStr.length < 5) {
             
             alertTag = 4
