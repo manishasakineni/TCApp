@@ -313,28 +313,28 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 }
                 else if indexPath.row == 6 {
                     
-                    cell2.infoLabel.text = "Village Name".localize()
+                    cell2.infoLabel.text = "Village".localize()
                     
                     cell2.addressLabel.text = authorDetails.villageName
                     
                 }
                 else if indexPath.row == 7 {
                     
-                    cell2.infoLabel.text = "Mandal Name".localize()
+                    cell2.infoLabel.text = "Mandal".localize()
                     
                     cell2.addressLabel.text = authorDetails.mandalName
                     
                 }
                 else if indexPath.row == 8 {
                     
-                    cell2.infoLabel.text = "District Name".localize()
+                    cell2.infoLabel.text = "District".localize()
                     
                     cell2.addressLabel.text = authorDetails.districtName
                     
                 }
                 else if indexPath.row == 9 {
                     
-                    cell2.infoLabel.text = "State Name".localize()
+                    cell2.infoLabel.text = "State".localize()
                     
                     cell2.addressLabel.text = authorDetails.stateName
                     
@@ -456,7 +456,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             
             infoHeaderCell.subscribeBtn.isHidden = false
-            infoHeaderCell.headerLabel.text = "Author Details".localize()
+            infoHeaderCell.headerLabel.text = "Pastor Information".localize()
             
             if self.isSubscribed == 0{
                 
