@@ -867,19 +867,21 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
         }
 
+
+            
         if indexPath.row == 3 {
-            
-        informationTableViewCell.infoLabel.text = "Church Name".localize()
-                
-        informationTableViewCell.addressLabel.text =  eventList.churchName
-            
-            }
-            
-        if indexPath.row == 4 {
                 
         informationTableViewCell.infoLabel.text = "Event Name:".localize()
                 
         informationTableViewCell.addressLabel.text =  eventList.title
+                
+            }
+            
+            if indexPath.row == 4 {
+                
+                informationTableViewCell.infoLabel.text = "Church Name".localize()
+                
+                informationTableViewCell.addressLabel.text =  eventList.churchName
                 
             }
             
@@ -950,7 +952,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             commentsCell.commentTexView.text = self.commentString
-            commentsCell.commentCountLab.text = String(usersCommentsArray.count)
+            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments"
             commentsCell.commentTexView.delegate = self
             commentsCell.commentTexView.tag = 2001
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)

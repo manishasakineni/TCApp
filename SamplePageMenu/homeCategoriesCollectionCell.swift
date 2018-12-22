@@ -22,6 +22,10 @@ class homeCategoriesCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        viewOutLet.layer.borderWidth = 2
+        viewOutLet.layer.cornerRadius = 5.0
+        viewOutLet.layer.borderColor = UIColor(red: 210.0/255.0, green: 231.0/255.0, blue: 242.0/255.0, alpha: 1.0).cgColor
+        
     }
 
 }

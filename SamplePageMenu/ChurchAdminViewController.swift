@@ -215,9 +215,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
          else {
             
             return churchAdminArray.count
-        }
-        
-        
+        }    
         
     }
     
@@ -252,7 +250,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
         

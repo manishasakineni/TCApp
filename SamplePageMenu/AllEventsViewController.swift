@@ -368,30 +368,32 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.filteredTableData[indexPath.row]
                 
-        if churchIdMonthYearList.churchName != nil {
-            
-            if let churchName =  churchIdMonthYearList.churchName {
-                
-                listOfMonthEventCell.churchName.text = churchName
-                
-            }else{
-                listOfMonthEventCell.churchName.text = ""
-            }
-        }
-        else if churchIdMonthYearList.authorName != nil {
-            
-            if let authorName =  churchIdMonthYearList.authorName {
-                
-                listOfMonthEventCell.churchName.text = authorName
-                
-            }else{
-                listOfMonthEventCell.churchName.text = ""
-            }
-        }
-        else {
-            listOfMonthEventCell.churchName.text = ""
-        }
+//        if churchIdMonthYearList.churchName != nil {
+//
+//            if let churchName =  churchIdMonthYearList.churchName {
+//
+//                listOfMonthEventCell.churchName.text = churchName
+//
+//            }else{
+//                listOfMonthEventCell.churchName.text = ""
+//            }
+//        }
+//        else if churchIdMonthYearList.authorName != nil {
+//
+//            if let authorName =  churchIdMonthYearList.authorName {
+//
+//                listOfMonthEventCell.churchName.text = authorName
+//
+//            }else{
+//                listOfMonthEventCell.churchName.text = ""
+//            }
+//        }
+//        else {
+//            listOfMonthEventCell.churchName.text = ""
+//        }
  
+        listOfMonthEventCell.churchName.text = churchIdMonthYearList.churchName == "" ? "" :  churchIdMonthYearList.churchName
+        listOfMonthEventCell.authorName.text = churchIdMonthYearList.authorName == "" ? "" :  churchIdMonthYearList.authorName
         
     if let eventName =  churchIdMonthYearList.title {
                     
@@ -408,6 +410,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }else{
     listOfMonthEventCell.contactNumber.text = ""
     }
+        
+ //   listOfMonthEventCell.authorName.text = churchIdMonthYearList.authorName == "" ? "" : churchIdMonthYearList.authorName
                 
     let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
                 
@@ -459,33 +463,36 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
         
-        if churchIdMonthYearList.churchName  != nil {
-            if let churchName = churchIdMonthYearList.churchName {
-                listOfMonthEventCell.churchName.text = churchName
-                listOfMonthEventCell.churchANDAuthorName.text = "Church Name".localize()
-              
-                
-            }else{
-                listOfMonthEventCell.churchName.text = ""
-            }
-        }
-        else if churchIdMonthYearList.authorName != nil {
-            
-            if let authorName =  churchIdMonthYearList.authorName {
-                
-                listOfMonthEventCell.churchName.text = authorName
-               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
-                 listOfMonthEventCell.churchANDAuthorName.text = "Author Name".localize()
-                
-            }else{
-                listOfMonthEventCell.churchName.text = ""
-               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
-            }
-        }
-        else{
-            listOfMonthEventCell.churchName.text = ""
-            
-        }
+//        if churchIdMonthYearList.churchName  != nil {
+//            if let churchName = churchIdMonthYearList.churchName {
+//                listOfMonthEventCell.churchName.text = churchName
+//                listOfMonthEventCell.churchANDAuthorName.text = "Church Name".localize()
+//
+//
+//            }else{
+//                listOfMonthEventCell.churchName.text = ""
+//            }
+//        }
+//        else if churchIdMonthYearList.authorName != nil {
+//
+//            if let authorName =  churchIdMonthYearList.authorName {
+//
+//                listOfMonthEventCell.churchName.text = authorName
+//               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+//                 listOfMonthEventCell.churchANDAuthorName.text = "Author Name".localize()
+//
+//            }else{
+//                listOfMonthEventCell.churchName.text = ""
+//               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+//            }
+//        }
+//        else{
+//            listOfMonthEventCell.churchName.text = ""
+//
+//        }
+        
+        listOfMonthEventCell.churchName.text = churchIdMonthYearList.churchName == "" ? "" :  churchIdMonthYearList.churchName
+        listOfMonthEventCell.authorName.text = churchIdMonthYearList.authorName == "" ? "" :  churchIdMonthYearList.authorName
         
         if  churchIdMonthYearList.title != nil {
             if let eventName =  churchIdMonthYearList.title {

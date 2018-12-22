@@ -793,7 +793,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         
         commentsCell.commentTexView.text = self.commentString
-        commentsCell.commentCountLab.text = String(usersCommentsArray.count)
+        commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments".localize()
         commentsCell.commentTexView.delegate = self
         commentsCell.commentTexView.tag = 2001
         commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)

@@ -11,6 +11,7 @@ import UIKit
 class AutoScrollImagesCell: UITableViewCell {
     
     
+    @IBOutlet weak var upcomingEventsTitle: UILabel!
     @IBOutlet weak var autoScrollCollectionView: UICollectionView!
     
 //MARK: -  variable declaration

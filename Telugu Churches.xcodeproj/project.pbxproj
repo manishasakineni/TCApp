@@ -36,6 +36,8 @@
 		35A69D2821C3C2BE00C4014E /* UserManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A69D2721C3C2BE00C4014E /* UserManualViewController.swift */; };
 		35A69D2C21C3DBF400C4014E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A69D2B21C3DBF400C4014E /* WebKit.framework */; };
 		35B1E6ED21C8C8A1003107D0 /* getHelpPdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1E6EC21C8C8A1003107D0 /* getHelpPdf.swift */; };
+		35B3FA0021CD42BC00640DA7 /* ContactUSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3F9FF21CD42BC00640DA7 /* ContactUSViewController.swift */; };
+		35B3FA0221CD558800640DA7 /* ContactUsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3FA0121CD558800640DA7 /* ContactUsVO.swift */; };
 		35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */; };
 		35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */; };
 		3D088AE6207F910F009242D9 /* IsLikeIsDislikeVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */; };
@@ -474,6 +476,8 @@
 		35A69D2D21C3DD1E00C4014E /* UserManualIOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManualIOS.pdf; sourceTree = "<group>"; };
 		35AEEF0221C781200034AD95 /* User Manual IOS PDF.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "User Manual IOS PDF.pdf"; sourceTree = "<group>"; };
 		35B1E6EC21C8C8A1003107D0 /* getHelpPdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHelpPdf.swift; sourceTree = "<group>"; };
+		35B3F9FF21CD42BC00640DA7 /* ContactUSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSViewController.swift; sourceTree = "<group>"; };
+		35B3FA0121CD558800640DA7 /* ContactUsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVO.swift; sourceTree = "<group>"; };
 		35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllCategoriesVo.swift; sourceTree = "<group>"; };
 		35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResultVo.swift; sourceTree = "<group>"; };
 		3D088AE5207F910F009242D9 /* IsLikeIsDislikeVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsLikeIsDislikeVO.swift; sourceTree = "<group>"; };
@@ -1366,6 +1370,7 @@
 				9A623B8B2021A73700A674F2 /* MBProgressHUD */,
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
+				35B3FA0121CD558800640DA7 /* ContactUsVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -1374,6 +1379,7 @@
 				9A5D26421FFF963700316988 /* ViewCells */,
 				9A5D26411FFF960000316988 /* Controllers */,
 				9A5D26401FFF95EF00316988 /* ViewControllers */,
+				35B3F9FF21CD42BC00640DA7 /* ContactUSViewController.swift */,
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
 				350D30B621C3E024006DE09D /* Resources */,
 				CB7E7F6321B13A7D00F18E4F /* RedUp.gif */,
@@ -2783,6 +2789,7 @@
 				CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */,
 				3D2E342A2053D9A800CF8F16 /* UpcomingEventsInfoVO.swift in Sources */,
 				AF1B89C220C685BA0016D395 /* CountryInfoVO.swift in Sources */,
+				35B3FA0021CD42BC00640DA7 /* ContactUSViewController.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
@@ -2916,6 +2923,7 @@
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				AF0F0D1E20AD52F900AE9BD9 /* AddToCartVO.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
+				35B3FA0221CD558800640DA7 /* ContactUsVO.swift in Sources */,
 				AF1B89C720C691C30016D395 /* UpdatedeliveryAddressInfoVO.swift in Sources */,
 				3D5404F52058045A008257A6 /* AuthorInfoViewController.swift in Sources */,
 				AFE9A05C207F332F001CEE7A /* EventLikeorDislikeInfoVO.swift in Sources */,

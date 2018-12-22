@@ -23,6 +23,7 @@ class AllEventsTableViewCell: UITableViewCell {
     @IBOutlet weak var endDate: UILabel!
     @IBOutlet weak var churchANDAuthorName: UILabel!
     
+    @IBOutlet weak var authorName: UILabel!
     
     
     

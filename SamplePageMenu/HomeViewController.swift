@@ -1039,6 +1039,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.autoScrollCollectionView.dataSource = self
             cell.autoScrollCollectionView.reloadData()
             
+            if eventImageArray.count > 0{
+                
+                cell.upcomingEventsTitle.isHidden = false
+                
+            }
+            else
+            {
+                cell.upcomingEventsTitle.isHidden = true
+            }
+            
             return cell
             
             
@@ -1050,6 +1060,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "CategorieCollectionViewCell")
             
+           
             
             cell.homeCollectionView.tag = 1
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()

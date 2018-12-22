@@ -739,7 +739,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             
             commentsCell.commentTexView.text = self.commentString
-            commentsCell.commentCountLab.text = String(usersCommentsArray.count)
+            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments"
             commentsCell.commentTexView.delegate = self
             commentsCell.commentTexView.tag = 2001
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)

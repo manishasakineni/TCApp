@@ -25,7 +25,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var loginVC = LoginViewController()
     var count = 0
     
-    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","noun_help","EditProfile","noun_638526_cc","noun_793900_cc"]
+    let imageView = ["category_menu","churches_menu","events_menu","author_menu1","BibleBook","BibleBook","noun_1209595_cc","careers (1)","shopping (2)","noun_help","EditProfile","noun_638526_cc","noun_793900_cc","Contact"]
     
 var isSelectLanguage = false
   //MARK: -   View DidLoad
@@ -42,7 +42,7 @@ var isSelectLanguage = false
         menuTableView.dataSource = self
         
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
 
         borderColor()
         
@@ -70,7 +70,7 @@ var isSelectLanguage = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
 
     }
     
@@ -580,6 +580,19 @@ var isSelectLanguage = false
             
         }
         
+        else if cell.menuNameLabel.text == "Contact Us".localize() {
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let contactUsVC = mainstoryboard.instantiateViewController(withIdentifier: "ContactUSViewController") as! ContactUSViewController
+           
+            
+            let newController = UINavigationController.init(rootViewController:contactUsVC)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+        }
+        
+        
     }
     
 //MARK: -   choose Language Clicked
@@ -600,7 +613,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
                     
                     self.menuTableView.reloadData()
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
@@ -615,7 +628,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
                     
                     self.menuTableView.reloadData()
                     
@@ -631,7 +644,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
                     
                     self.menuTableView.reloadData()
                     
@@ -647,7 +660,7 @@ var isSelectLanguage = false
                     (alert: UIAlertAction!) -> Void in
                     Localize.update(language: language)
                     self.chooseLanguageBtn.setTitle("Choose Language(భాషను ఎంచుకోండి)".localize(), for: .normal)
-                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize()]
+                    self.menuArray = ["Categories".localize(),"Churches".localize(),"Events".localize(),"Authors".localize(),"Holy Bible - Telugu".localize(),"Holy Bible - English".localize(),"Notifications".localize(),"Careers".localize(),"Online Shopping".localize(),"Help".localize(),"Profile".localize(),"LogOut".localize(),"Change Password".localize(),"Contact Us".localize()]
                     
                     self.menuTableView.reloadData()
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController

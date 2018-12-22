@@ -196,6 +196,8 @@ var EVENTSHARELINKURL : String = "http://teluguchurches.church/church-event-deta
 
 var HELPPDFURL : String = "http://183.82.111.111/TChurchesLive/API/api/UserManuals/GetUserManual/2"
 
+var CONTACTUSAPI : String = "http://183.82.111.111/TChurchesLive/API/api/UserInfoo/GetContactDetails"
+
 
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}

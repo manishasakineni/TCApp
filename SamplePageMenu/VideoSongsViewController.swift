@@ -489,7 +489,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         }
         else {
             
-            return 150.0
+            return 180.0
             
             
         }

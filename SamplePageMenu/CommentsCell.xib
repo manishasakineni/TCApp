@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,7 +27,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZF-XQ-1JS">
                         <rect key="frame" x="3" y="3" width="314" height="93.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZT-rg-ocl">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZT-rg-ocl">
                                 <rect key="frame" x="8" y="5" width="85" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3AM-4x-Hs9"/>
@@ -37,10 +37,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7Y-Nw-m8d">
-                                <rect key="frame" x="93" y="5" width="118" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7Y-Nw-m8d">
+                                <rect key="frame" x="8" y="5" width="298" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="118" id="8DE-Y7-qs2"/>
+                                    <constraint firstAttribute="width" constant="298" id="8DE-Y7-qs2"/>
                                     <constraint firstAttribute="height" constant="21" id="NOp-Zg-M1d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -101,9 +102,9 @@
                             <constraint firstAttribute="bottom" secondItem="BX7-zB-37R" secondAttribute="bottom" constant="18.5" id="6BI-oI-aXx"/>
                             <constraint firstItem="lZT-rg-ocl" firstAttribute="leading" secondItem="HZF-XQ-1JS" secondAttribute="leading" constant="8" id="BXJ-yM-M8U"/>
                             <constraint firstItem="48T-LN-Kxm" firstAttribute="top" secondItem="uKQ-Ep-AZ3" secondAttribute="bottom" constant="10" id="D8o-hi-Z4Q"/>
+                            <constraint firstItem="J7Y-Nw-m8d" firstAttribute="leading" secondItem="HZF-XQ-1JS" secondAttribute="leading" constant="8" id="NHB-NT-r41"/>
                             <constraint firstItem="ero-Jb-T3z" firstAttribute="leading" secondItem="BX7-zB-37R" secondAttribute="trailing" constant="-11" id="PCj-hr-gV7"/>
                             <constraint firstAttribute="bottom" secondItem="48T-LN-Kxm" secondAttribute="bottom" constant="1" id="Qcn-Na-zDE"/>
-                            <constraint firstItem="J7Y-Nw-m8d" firstAttribute="leading" secondItem="lZT-rg-ocl" secondAttribute="trailing" id="SzQ-LD-cvd"/>
                             <constraint firstItem="48T-LN-Kxm" firstAttribute="leading" secondItem="HZF-XQ-1JS" secondAttribute="leading" id="Tzm-vb-Lco"/>
                             <constraint firstAttribute="trailing" secondItem="48T-LN-Kxm" secondAttribute="trailing" id="Z2S-i6-KvH"/>
                             <constraint firstAttribute="trailing" secondItem="ero-Jb-T3z" secondAttribute="trailing" constant="14" id="ZD2-bk-0Zm"/>

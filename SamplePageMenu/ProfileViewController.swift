@@ -158,13 +158,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
        
         
-        
+        getProfileInfoAPIService()
         
     }
     
-    //MARK: -  get Profile Info API Service
+//MARK: -  get Profile Info API Service
     
-    func getProfileInfoAPIService(){
+func getProfileInfoAPIService(){
         
         if(appDelegate.checkInternetConnectivity()){
             
@@ -190,7 +190,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             
         self.userID = (respVO.listResult?[0].UserName)!
         self.firstName = (respVO.listResult?[0].FirstName)!
-        self.middleName = (respVO.listResult?[0].MiddleName)!
+        self.middleName = (respVO.listResult?[0].MiddleName) == nil ? "" :  (respVO.listResult?[0].MiddleName)!
         self.lastName = (respVO.listResult?[0].Lastname)!
         self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
         self.email = (respVO.listResult?[0].Email)!
@@ -202,17 +202,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
                             
         if newString != "" {
-                                
-                                
+            
         let url = URL(string:newString)
-                                
-        if let data = try? Data(contentsOf: url!)
-            
-        {
-            
-        let image: UIImage = UIImage(data: data)!
-        
-        }
                                 
         let dataImg = try? Data(contentsOf: url!)
                                 
@@ -223,16 +214,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else {
                                     
-        self.profileimage = #imageLiteral(resourceName: "Profiledefault")
+        self.profileimage = #imageLiteral(resourceName: "profile_pic")
             
         }
     }
             
- else {
+   else {
                                 
- self.profileimage = #imageLiteral(resourceName: "Profiledefault")
+    self.profileimage = #imageLiteral(resourceName: "profile_pic")
             
- }
+   }
                             
     self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
                             
@@ -318,13 +309,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return nil
     }
 
- //MARK: -  view Will Appear
+//MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-        getProfileInfoAPIService()
         
         print(showNav)
         
@@ -545,7 +534,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let doneButton = UIBarButtonItem(title: "Done".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: #selector(donePressed))
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.bordered, target: self, action: #selector(CancelPressed))
+        let cancelButton = UIBarButtonItem(title: "Clear".localize(), style: UIBarButtonItemStyle.bordered, target: self, action: #selector(ClearPressed))
       //  toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
@@ -809,6 +798,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
         
+        male = false
+        female = false
+        
      }
             
     signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
@@ -954,10 +946,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
          let imageData = UIImagePNGRepresentation(profileimage)
          base64String = (imageData?.base64EncodedString())!
-    
-        
+ 
         let null = NSNull()
-        
+  
         let updateProfiledictParams = [
             
             "imageString": base64String,
@@ -967,7 +958,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             "lastname": self.lastName,
             "middleName": self.middleName,
             "mobileNumber": self.mobileNumber,
-            "genderTypeId": self.genderTypeID,
+            "genderTypeId": self.genderTypeID == 0 ? "" :  self.genderTypeID,
             "dob": self.selectedDate,
             "userName": null,
             "password": null,
@@ -1200,7 +1191,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         editProfileTableView.reloadData()
     }
     
-    func CancelPressed(){
+    func ClearPressed(){
         
        selectedDate = ""
         self.view.endEditing(true)
@@ -1323,17 +1314,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
 //                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
                 male = false
+                genderTypeID = 0
                 
-                genderTypeID == sender.tag
                 
             }
             else
+                
             {
 //                cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
 //
 //                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
-                genderTypeID = 0
                 
+                
+                genderTypeID = sender.tag
                 male = true
             }
             
@@ -1352,30 +1345,32 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if let cell : GenderTableViewCell = self.editProfileTableView.cellForRow(at: indexPath) as? GenderTableViewCell {
             
-            if (male == true)
+            if (female == true)
             {
                 
-            cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+//            cell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
+//
+//            //cell.femaleUnCheck.image = UIImage(named:"checked_83366")
+//            cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
-            //cell.femaleUnCheck.image = UIImage(named:"checked_83366")
-                cell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
                 
-                
-            male = false
+            female = false
+            genderTypeID = 0
                 
             }
             else
             {
-                cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+//                cell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
+//
+//                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
                 
-                cell.femaleUnCheck.image = UIImage(named:"checked_83366")
-                
-                male = true
+                female = true
+                genderTypeID = sender.tag
             }
             
         }
         
-        genderTypeID = sender.tag
+        
         print(genderTypeID)
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
         
