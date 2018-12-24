@@ -20,6 +20,9 @@ class AutoScrollCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mobileNoLabel: UILabel!
     
     @IBOutlet weak var eventDateLabel: UILabel!
+    
+    @IBOutlet weak var eventToLbl: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -112,7 +112,9 @@
     "Event Title": "Event Title:",
     "ALL EVENTS": "ALL EVENTS",
     "Event Name:": "Event Name",
+    "Event Name": "Event Name",
     "Event Date:": "Event Date",
+    "Event Date": "Event Date",
     "  Events": "  Events",
     "contact Number:": "contact Number:",
     "StartDate EndDate:": "StartDate EndDate",
@@ -178,6 +180,7 @@
     "Last Date To Apply": "Last Date To Apply",
     
     "Qualification*": "Qualification*",
+    "Qualification": "Qualification",
     "Vacancies": "Vacancies",
     "Contact Person": "Contact Person",
     "Job Description": "Job Description",
@@ -280,7 +283,16 @@
     "State Name" : "State Name",
     "Contact Us" : "Contact Us",
     "Contact Details" : "Contact Details",
+    "Device does not support phone calls" : "Device does not support phone calls",
+    "Are you sure you want to call?" : "Are you sure you want to call?",
+    "Unread" : "Unread",
+    "Add a public comment..." : "Add a public comment...",
+    "Event to" : "Event to",
+    "Pastor Name" : "Pastor Name",
     "Pastor Information" : "Pastor Information"
+    
+    
+
 
 
     

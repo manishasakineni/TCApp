@@ -149,6 +149,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        noRecordsFoundLbl.isEnabled = true
+        
     }
     
     //MARK: -  view Did Appear

@@ -63,13 +63,12 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
     
     }
+
     
 //MARK: -    Create Page Menu
-  
-    
+
     private func createPageMenu() {
-        
-        
+
         authorInfoVC = AuthorInfoViewController(nibName: "AuthorInfoViewController", bundle: nil)
         authorInfoVC?.title = "Information".localize()
         authorInfoVC?.delegate  = self

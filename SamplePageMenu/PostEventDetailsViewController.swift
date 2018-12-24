@@ -275,17 +275,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            return 200.0
-        }
-        else {
-            
-            return 150.0
-            
-            
-        }
+        return 150
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -392,39 +382,52 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             
         else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
             
-            
-            if let embededUrlImage =  postImgUrl {
-                
-                let thumbnillImage : String = embededUrlImage
-                
-                
-                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
-                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
-                
-                let videothumb = URL(string: self.thumbnailImageURL)
-                
-                if videothumb != nil{
-                    
-                    let request = URLRequest(url: videothumb!)
-                    let session = URLSession.shared
-                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
-                        DispatchQueue.main.async()
-                            {
-                                
-                                if data != nil {
-                                    
-                                    cell.collectionImgView.image = UIImage(data: data!)
-                                }
-                                
-                        }
-                        
-                    })
-                    
-                    dataTask.resume()
-                    
-                }
-            }
+            cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+//            if let embededUrlImage =  postImgUrl {
+//
+//                let thumbnillImage : String = embededUrlImage
+//
+//
+//                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
+//                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
+//
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//
+//                if videothumb != nil{
+//
+//                    let request = URLRequest(url: videothumb!)
+//                    let session = URLSession.shared
+//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//
+//                        DispatchQueue.main.async()
+//                            {
+//
+//                                if data != nil {
+//
+//                                    cell.collectionImgView.image = UIImage(data: data!)
+//                                }
+//                                else {
+//
+//                                    cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+//                                }
+//
+//
+//
+//                        }
+//
+//                    })
+//
+//                    dataTask.resume()
+//
+//                }
+//
+//                else{
+//
+//                    cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+//                }
+//
+//
+//            }
         }
             
         else if (fileExtension == ".mp3") {
@@ -678,7 +681,8 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 150.0, height: 130.0)
+       // return CGSize(width: 150.0, height: 150.0)
+        return CGSize(width: 140.0, height: 105.0)
         
         
     }

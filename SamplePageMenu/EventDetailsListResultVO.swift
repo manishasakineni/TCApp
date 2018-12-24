@@ -37,11 +37,14 @@ class EventDetailsListResultVO: Mappable {
     var updatedByUserId : Int?
     var updatedDate : String?
     var eventShortTitle : String?
+    var description : String?
+    var authorName : String?
+    
     
 
    //MARK:-  initialization of EventDetailsListResultVO
     
-    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?, registrationNumber : String?, contactNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?, isLike : Int?, isDisLike : Int?, likeCount : Int?, disLikeCount : Int?, commentCount : Int?, isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, eventShortTitle : String?)
+    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?, registrationNumber : String?, contactNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?, isLike : Int?, isDisLike : Int?, likeCount : Int?, disLikeCount : Int?, commentCount : Int?, isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, eventShortTitle : String?,description : String?,authorName : String?)
         
         
     {
@@ -72,6 +75,8 @@ class EventDetailsListResultVO: Mappable {
         self.eventImage = eventImage
         
         self.eventShortTitle = eventShortTitle
+        self.description = description
+        self.authorName = authorName
         
         
         
@@ -108,6 +113,8 @@ class EventDetailsListResultVO: Mappable {
         eventImage <- map["eventImage"]
         
         eventShortTitle <- map["eventShortTitle"]
+        description <- map["description"]
+        authorName <- map["authorName"]
         
         
     }

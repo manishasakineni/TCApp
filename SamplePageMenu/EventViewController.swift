@@ -645,12 +645,12 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
-            if let churchName =  churchIdMonthYearList.churchName {
-                listOfMonthEventCell.churchName.text = churchName
+            if let eventName =  churchIdMonthYearList.eventName {
+                listOfMonthEventCell.churchName.text = eventName
             }else{
+                
             }
             
-        
             if let contactNumber =  churchIdMonthYearList.contactNumber {
                 listOfMonthEventCell.contactNumber.text =  contactNumber
             }else{

@@ -426,7 +426,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if authorDetails.authorName != nil {
                 
-                 cell.authornameLbl.text = authorDetails.authorName!
+                 cell.authornameLbl.text = authorDetails.eventName!
             }
             
             if authorDetails.mobileNumber != nil {
@@ -578,7 +578,18 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         return [appearance.eventDefaultColor]
     }
     
-
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        let dateString = self.dateFormatter2.string(from: date)
+        
+        if self.eventDateArray.contains(dateString)
+        {
+            return UIColor.cyan
+        }
+        else{
+            return nil
+        }
+        
+    }
     
     private func configureVisibleCells() {
         

@@ -482,17 +482,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            
-            return 200.0
-        }
-        else {
-            
-            return 180.0
-            
-            
-        }
+        return 150
         
     }
     
@@ -552,7 +542,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
         
         cell.nameLabel.text = title
-        
+        cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
+
 
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG") || (fileExtension == ".PNG") || (fileExtension == ".JPEG"){
             
@@ -571,12 +562,14 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
                 }
                 else {
                     
-                    cell.collectionImgView.image = #imageLiteral(resourceName: "Church-logo")
+                    cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
+
                 }
             }
             else {
                 
-                cell.collectionImgView.image = #imageLiteral(resourceName: "Church-logo")
+                cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
+
             }
             
         }
@@ -656,35 +649,35 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         print("You selected cell #\(indexPath.item)!")
         
-        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
-        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+//        let imageTag = self.imagesArrayTag["\(collectionView.tag)"] as? NSArray
+//        let fileExtension = (imageTag?[indexPath.row] as? ImagesResultVo)?.fileExtention
+//
+//        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
+//
+//             return CGSize(width: 150.0, height: 130.0)
+//
+//        }
+//
+//        else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
+//
+//
+//            return CGSize(width: 100.0, height: 130.0)
+//
+//
+//        }
+//        else if (fileExtension == ".mp3") {
+//
+//            return CGSize(width: 130.0, height: 130.0)
+//
+//        }
+//
+//        else {
+//
+//            return CGSize(width: 150.0, height: 130.0)
+//        }
+//
         
-        if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
-            
-             return CGSize(width: 150.0, height: 130.0)
-            
-        }
-        
-        else if (fileExtension == ".pdf") || (fileExtension == ".docs") || (fileExtension == ".docx") {
-            
-            
-            return CGSize(width: 100.0, height: 150.0)
-            
-            
-        }
-        else if (fileExtension == ".mp3") {
-            
-            return CGSize(width: 130.0, height: 130.0)
-            
-        }
-        
-        else {
-            
-            return CGSize(width: 150.0, height: 130.0)
-        }
-        
-        
-        
+        return CGSize(width: 140.0, height: 105.0)
         
     }
     

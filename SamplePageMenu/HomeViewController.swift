@@ -1307,10 +1307,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             cell.eventNameLabel.text = eventList.title
             cell.mobileNoLabel.text = eventList.contactNumber
             
+            
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
             
             cell.eventDateLabel.text = startAndEndDate1
             
+            let startAndEndDate2 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+            cell.eventToLbl.text = startAndEndDate2
             
             print(eventImageArray.count)
             if let url = URL(string:eventImageString) {

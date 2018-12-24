@@ -72,7 +72,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
         
         EventDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventDetailsViewController") as? EventDetailsViewController
-        EventDetailsVC?.title = "Church Event Details".localize()
+        EventDetailsVC?.title = "Event Details".localize()
         EventDetailsVC?.delegate  = self
         EventDetailsVC?.eventID = eventID
         EventDetailsVC?.eventChurchName = eventChurchName

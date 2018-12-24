@@ -25,6 +25,7 @@ class AuthorEventDateCountInfoVO: Mappable {
     var fileName : String?
     var fileExtention : String?
     var authorImage : String?
+    var eventName : String?
     
  
     
@@ -32,7 +33,7 @@ class AuthorEventDateCountInfoVO: Mappable {
     //MARK:-  initialization of AuthorEventDateCountInfoVO
     
     
-    init(eventsCount : Int?,churchName : String?,eventDate : String?,churchId : Int?, authorId : Int?, authorName : String?, mobileNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,authorImage : String?)
+    init(eventsCount : Int?,churchName : String?,eventDate : String?,churchId : Int?, authorId : Int?, authorName : String?, mobileNumber : String?, fileLocation : String?,fileName : String?,fileExtention : String?,authorImage : String?,eventName : String?)
         
         
     {
@@ -51,6 +52,7 @@ class AuthorEventDateCountInfoVO: Mappable {
         self.fileName = fileName
         self.fileExtention = fileExtention
         self.authorImage = authorImage
+        self.eventName = eventName
         
         
         
@@ -76,6 +78,7 @@ class AuthorEventDateCountInfoVO: Mappable {
         fileName <- map["fileName"]
         fileExtention <- map["fileExtention"]
         authorImage <- map["authorImage"]
+        eventName <- map["eventName"]
         
         
         

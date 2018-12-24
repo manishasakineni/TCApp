@@ -79,7 +79,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var ID = Int()
     var isFromImageView = false
     var imageUrl = ""
-    var commentString : String = "Add a public comment..."
+    var commentString : String = "Add a public comment...".localize()
 
     var isLike = 0
     var isDisLike = 0
@@ -801,7 +801,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
           
             
             
-            if(commentString == "Add a public comment..."){
+            if(commentString == "Add a public comment...".localize()){
                 commentsCell.commentTexView.textColor = UIColor.lightGray
             }else{
                 commentsCell.commentTexView.textColor = UIColor.black
@@ -1008,7 +1008,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
       //  self.allOffersTableView.isScrollEnabled = false
      //   self.repliesTableView.isScrollEnabled = false
         
-        if textView.text == "Add a public comment..." {
+        if textView.text == "Add a public comment...".localize() {
             
             textView.text = ""
             
@@ -1031,7 +1031,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         if textView.text == "" {
         
-        textView.text = "Add a public comment..."
+        textView.text = "Add a public comment...".localize()
         textView.textColor = UIColor.lightGray
         
         }
@@ -1371,7 +1371,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         
                         print(respVO.result)
                         
-                        self.commentString = "Add a public comment..."
+                        self.commentString = "Add a public comment...".localize()
                         
                         self.comentId = 0
                         self.parentCommentId = 0
@@ -1494,7 +1494,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         popupview.isHidden = false
         secondview.isHidden = false
         
-        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.text = "Add a public comment...".localize()
         textviewOutLet.textColor = UIColor.lightGray
 
      //   textviewOutLet.text = ""
@@ -2081,7 +2081,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         popupview.isHidden = true
         secondview.isHidden = true
         
-        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+        if (self.commentString == "" || self.commentString == "Add a public comment...".localize()){
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Add Reply".localize(), clickAction: {
                 

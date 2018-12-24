@@ -84,8 +84,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     var parentCommentId = 0
     var replyParentCommentId = 0
-    var commentString : String = "Add a public comment..."
-    var commentedbyusername : String = "Add a public comment..."
+    var commentString : String = "Add a public comment...".localize()
+    var commentedbyusername : String = "Add a public comment...".localize()
     var username = String()
     var usersLikeClick = false
     var UsersDisLikeClick = false
@@ -237,7 +237,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if result.count > 0{
                 
-         print(result)
+       print(result)
         self.getViewAllCommentsAPICall(tag: 0)
         let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
@@ -498,7 +498,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         for imageDetails in imageList!{
                             
-                            self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
+                            self.numberOfRows.updateValue(imageList?.count , forKey: "\(i)")
                             
                             self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
                             
@@ -563,9 +563,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         }
         
-        if section == 0 {
+        if  section == 0 {
 
-        return 8
+            return 10
             
         }
             
@@ -578,13 +578,13 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-        return 0
+            return 0
             
         }
         
         if section == 2 {
         
-        return 1
+            return 1
             
         }
             
@@ -608,16 +608,9 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if indexPath.section == 0 {
         
-        if indexPath.row == 0 {
+            if indexPath.row == 0 {
             
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-                
-                return 250
-            }
-            else {
-                
-                return 140
-            }
+             return 150
         
         }
             
@@ -866,18 +859,16 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 
 
         }
-
-
-            
+ 
         if indexPath.row == 3 {
                 
-        informationTableViewCell.infoLabel.text = "Event Name:".localize()
+            informationTableViewCell.infoLabel.text = "Event Name:".localize()
                 
-        informationTableViewCell.addressLabel.text =  eventList.title
+            informationTableViewCell.addressLabel.text =  eventList.title
                 
             }
             
-            if indexPath.row == 4 {
+        if indexPath.row == 4 {
                 
                 informationTableViewCell.infoLabel.text = "Church Name".localize()
                 
@@ -885,38 +876,54 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-            if indexPath.row == 5 {
+        if indexPath.row == 5 {
                 
-        informationTableViewCell.infoLabel.text = "Contact Number".localize()
+                informationTableViewCell.infoLabel.text = "Author Name".localize()
                 
-        informationTableViewCell.addressLabel.text =  eventList.contactNumber
+                informationTableViewCell.addressLabel.text =  eventList.authorName
                 
             }
             
         if indexPath.row == 6 {
                 
-        informationTableViewCell.infoLabel.text = "Start Date".localize()
+            informationTableViewCell.infoLabel.text = "Contact Number".localize()
                 
-        let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
+            informationTableViewCell.addressLabel.text =  eventList.contactNumber
                 
-        informationTableViewCell.addressLabel.text =  startAndEndDate1
             }
             
         if indexPath.row == 7 {
                 
-        informationTableViewCell.infoLabel.text = "End Date".localize()
+            informationTableViewCell.infoLabel.text = "Start Date".localize()
                 
-        let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
                 
-        informationTableViewCell.addressLabel.text =  startAndEndDate1
+            informationTableViewCell.addressLabel.text =  startAndEndDate1
+            }
+            
+        if indexPath.row == 8 {
+                
+            informationTableViewCell.infoLabel.text = "End Date".localize()
+                
+            let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
+                
+            informationTableViewCell.addressLabel.text =  startAndEndDate1
+                
+            }
+            
+        if indexPath.row == 9 {
+                
+                informationTableViewCell.infoLabel.text = "Description".localize()
+
+                informationTableViewCell.addressLabel.text =  eventList.description
                 
             }
             
             return informationTableViewCell
         }
             
-        }
-        }
+    }
+    }
             
         if indexPath.section == 1 {
             
@@ -948,17 +955,17 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
        
         if indexPath.section == 2 {
+            
             let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-            
-            
+    
             commentsCell.commentTexView.text = self.commentString
-            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments"
+            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments".localize()
             commentsCell.commentTexView.delegate = self
             commentsCell.commentTexView.tag = 2001
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
             commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
             
-            if(commentString == "Add a public comment..."){
+            if(commentString == "Add a public comment...".localize()){
                commentsCell.commentTexView.textColor = UIColor.lightGray
             }else{
                 commentsCell.commentTexView.textColor = UIColor.black
@@ -1206,7 +1213,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         popupview.isHidden = false
         secondview.isHidden = false
-        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.text = "Add a public comment...".localize()
         textviewOutLet.textColor = UIColor.lightGray
         
         self.parentCommentId = self.commentingIdArray[sender.tag]
@@ -1560,7 +1567,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
        // self.repliesTableView.isScrollEnabled = false
  
         
-        if textView.text == "Add a public comment..." {
+        if textView.text == "Add a public comment...".localize() {
             
             textView.text = ""
             
@@ -1588,7 +1595,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if textView.text == "" {
             
-            textView.text = "Add a public comment..."
+            textView.text = "Add a public comment...".localize()
             textView.textColor = UIColor.lightGray
             
         }
@@ -1892,7 +1899,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 let  successMsg = respVO.endUserMessage
                 let  createdComment = respVO.result
                 
-                self.commentString = "Add a public comment..."
+                self.commentString = "Add a public comment...".localize()
                 self.comentId = 0
                 self.parentCommentId = 0
                 
@@ -1937,7 +1944,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         popupview.isHidden = true
         secondview.isHidden = true
         
-        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+        if (self.commentString == "" || self.commentString == "Add a public comment...".localize()){
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Add Reply".localize(), clickAction: {
                 
@@ -2056,40 +2063,50 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
             
             
-            if let embededUrlImage =  postImgUrl {
-                
-                let thumbnillImage : String = embededUrlImage
-                
-                
-                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
-                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
-                
-                let videothumb = URL(string: self.thumbnailImageURL)
-                
-                if videothumb != nil{
-                    
-                    let request = URLRequest(url: videothumb!)
-                    
-                    let session = URLSession.shared
-                    
-                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
-                        DispatchQueue.main.async()
-                            {
-                                
-                                if data != nil {
-                                    
-                                    cell.collectionImgView.image = UIImage(data: data!)
-                                }
-                                
-                        }
-                        
-                    })
-                    
-                    dataTask.resume()
-                    
-                }
-            }
+//            if let embededUrlImage =  postImgUrl {
+//
+//                let thumbnillImage : String = embededUrlImage
+//
+//
+//                docsIDArray = thumbnillImage.components(separatedBy: "Document\\")
+//                self.thumbnailImageURL = "http://192.168.1.171/TeluguChurchesRepository/FileRepository/2018/03/09/Post/Document//\(docsIDArray[1])"
+//
+//                let videothumb = URL(string: self.thumbnailImageURL)
+//
+//                if videothumb != nil{
+//
+//                    let request = URLRequest(url: videothumb!)
+//
+//                    let session = URLSession.shared
+//
+//                    let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+//
+//                        DispatchQueue.main.async()
+//                            {
+//
+//                                if data != nil {
+//
+//                                    cell.collectionImgView.image = UIImage(data: data!)
+//                                }
+//
+//                                else{
+//                                    cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+//                                }
+//
+//                        }
+//
+//                    })
+//
+//                    dataTask.resume()
+//
+//                }
+//
+//                else{
+//                    cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+//                }
+//            }
+            
+            cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
         }
             
         else if (fileExtension == ".mp3") {
@@ -2325,7 +2342,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-         return CGSize(width: 150.0, height: 130.0)
+         return CGSize(width: 140.0, height: 105.0)
     
         
     }

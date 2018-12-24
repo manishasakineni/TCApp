@@ -3090,8 +3090,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
@@ -3114,7 +3114,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
+				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3144,8 +3144,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
@@ -3161,7 +3161,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
+				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3175,16 +3175,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeluguChurchesApp26112018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesNewDev;
+				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChrchesDistributionProfile26112018;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -3198,15 +3198,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeluguChurchesApp26112018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67a86a57-3a2d-45c4-9976-310f74b2a2f6";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesNewDev;
+				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChrchesDistributionProfile26112018;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

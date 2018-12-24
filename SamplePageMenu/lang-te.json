@@ -76,9 +76,9 @@
     
     "EventStartDate": "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate": "ఈవెంట్ ముగింపు తేదీ",
-    "EventName": "ఈవెంట్ పేరు",
+    "Event Name": "ఈవెంట్ పేరు",
     
-    "Event Name:": "ఈవెంట్ పేరు",
+    "Event Name:" : "ఈవెంట్ పేరు",
     "Date": "తేదీ",
     "ChangePhoto": "ఫోటో మార్చు",
     "save": "సేవ్",
@@ -182,6 +182,7 @@
     "Job Title": "ఉద్యోగ శీర్షిక",
     "Last Date To Apply": "చివరి తేదీ వర్తించు",
     "Qualification*": "అర్హతలు*",
+    "Qualification": "అర్హతలు",
     "Vacancies": "ఖాళీలు",
     "Contact Person": "వ్యక్తి సంప్రదించండి",
     "Job Description": "ఉద్యోగ వివరణ",
@@ -225,6 +226,7 @@
     "Please Enter Expected Salary": "దయచేసి ఊహించిన జీతం ఎంటర్ చేయండి",
     "Cart": "కార్ట్",
     "Event Date:": "ఈవెంట్ తేదీ",
+    "Event Date": "ఈవెంట్ తేదీ",
     "Event Details": "ఈవెంట్ వివరాలు",
     "Seller Information": "విక్రేత సమాచారం",
     "Price": "ధర",
@@ -285,8 +287,13 @@
     "State Name" : "రాష్ట్రం పేరు",
     "Contact Us" : "మమ్మల్ని సంప్రదించండి",
     "Contact Details" : "సంప్రదింపు వివరాలు",
+    "Device does not support phone calls" : "పరికరం ఫోన్ కాల్లకు మద్దతు ఇవ్వదు",
+    "Are you sure you want to call?" : "మీరు ఖచ్చితంగా కాల్ చేయాలనుకుంటున్నారా?",
+    "Unread" : "చదవనివి",
+    "Add a public comment..." : "పబ్లిక్ వ్యాఖ్యను జోడించండి ...",
+    "Event to" : "ఈవెంట్ వరకు",
+    "Pastor Name" : "పాస్టర్ పేరు",
     "Pastor Information" : "పాస్టర్ సమాచారం"
-
 
 
 

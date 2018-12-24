@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreTelephony
+import MessageUI
 
-class ContactUSViewController: UIViewController {
+
+class ContactUSViewController: UIViewController,MFMailComposeViewControllerDelegate {
     
     
     @IBOutlet weak var contactNoLbl: UILabel!
@@ -18,11 +21,19 @@ class ContactUSViewController: UIViewController {
     
     @IBOutlet weak var addressLbl: UILabel!
     
+    var tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let phoneTap = UITapGestureRecognizer(target: self, action: #selector(ContactUSViewController.phoneTapFunction))
+        contactNoLbl.isUserInteractionEnabled = true
+        contactNoLbl.addGestureRecognizer(phoneTap)
+        
+        let mailTap = UITapGestureRecognizer(target: self, action: #selector(ContactUSViewController.mailTapFunction))
+        
+        mailIDLbl.isUserInteractionEnabled = true
+        mailIDLbl.addGestureRecognizer(mailTap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +45,7 @@ class ContactUSViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+    
         
         Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Contact Details".localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -47,7 +59,7 @@ class ContactUSViewController: UIViewController {
              let respVO:ContactUsVO = Mapper().map(JSONObject: result)!
                 
                 self.contactNoLbl.text = respVO.contactNo
-                self.mailIDLbl.text    = respVO.email
+                self.mailIDLbl.text    = respVO.email! + "@gmail.com"
                 
                 
                 let address = respVO.address
@@ -115,14 +127,85 @@ class ContactUSViewController: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func phoneTapFunction(sender:UITapGestureRecognizer) {
+        
+        print("Phonetap working")
+        
+        self.callToNumber(telePhoneNumber: self.contactNoLbl.text!)
     }
-    */
+    
+    
+    @objc func mailTapFunction(sender:UITapGestureRecognizer){
+        
+        print("mailTap working")
+        
+        if !MFMailComposeViewController.canSendMail() {
+           // Utilities.showToast(self.view, text: "Mail services are not available in your device")
+            return
+        }else{
+            let composeVC = MFMailComposeViewController()
+            composeVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+            
+            // Configure the fields of the interface.
+            composeVC.setToRecipients([self.mailIDLbl.text!])
+           // composeVC.setSubject("Feedback from App")
+            
+            
+            // Present the view controller modally.
+            self.present(composeVC, animated: true, completion: nil)
+        }
+        
+        
+        
+    }
+    
+    func callToNumber(telePhoneNumber : String){
+        
+        // Making a Phone Call
+        if let phoneCallURL:URL = URL(string: "tel:\(telePhoneNumber)") {
+            
+            let networkInfo = CTTelephonyNetworkInfo()
+            let carrier: CTCarrier? = networkInfo.subscriberCellularProvider
+            let code: String? = carrier?.mobileNetworkCode
+            
+//            if (code != nil) {
+                let application:UIApplication = UIApplication.shared
+                if (application.canOpenURL(phoneCallURL)) {
+                    
+              let message = "Are you sure you want to call?".localize() +  "\n\(telePhoneNumber)?"
+                    Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege:  message, clickAction: {() in
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(phoneCallURL)
+                        } else {
+                            UIApplication.shared.openURL(phoneCallURL)
+                        }
+                    })
+                    
+                }
+//            }
+//            else {
+//
+//                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert", messege: "No SIM Installed" , clickAction: {() in
+//                })
+//            }
+            
+        }else{
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Device does not support phone calls".localize(), clickAction: {
+            })
+        }
+    }
+
+    
+    
+    //MARK: - Mail Delegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        // Check the result or perform other tasks.
+        
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
 
 }

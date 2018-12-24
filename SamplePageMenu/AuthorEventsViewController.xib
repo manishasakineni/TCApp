@@ -21,11 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fox-1b-q18">
+                    <rect key="frame" x="0.0" y="280" width="375" height="387"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-Fc-w6e" customClass="FSCalendar">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="280" id="cB2-d3-MdP"/>
+                        <constraint firstAttribute="height" constant="280" id="jh9-lR-5Fb"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
@@ -36,20 +40,16 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fox-1b-q18">
-                    <rect key="frame" x="0.0" y="280" width="375" height="387"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="96E-Fc-w6e" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="O6N-aI-QRb"/>
-                <constraint firstAttribute="bottom" secondItem="Fox-1b-q18" secondAttribute="bottom" id="Wp0-XL-nHI"/>
-                <constraint firstAttribute="trailing" secondItem="Fox-1b-q18" secondAttribute="trailing" id="fMy-PY-2zD"/>
-                <constraint firstAttribute="trailing" secondItem="96E-Fc-w6e" secondAttribute="trailing" id="ifZ-YN-GMX"/>
-                <constraint firstItem="96E-Fc-w6e" firstAttribute="top" secondItem="TbG-in-67Y" secondAttribute="top" id="jRO-rn-XVU"/>
-                <constraint firstItem="Fox-1b-q18" firstAttribute="top" secondItem="96E-Fc-w6e" secondAttribute="bottom" id="lXA-gB-72N"/>
-                <constraint firstItem="Fox-1b-q18" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="qmv-Xr-3hO"/>
+                <constraint firstAttribute="trailing" secondItem="Fox-1b-q18" secondAttribute="trailing" id="5Ta-eT-e8a"/>
+                <constraint firstItem="Fox-1b-q18" firstAttribute="top" secondItem="96E-Fc-w6e" secondAttribute="bottom" id="BXz-RI-J5c"/>
+                <constraint firstItem="96E-Fc-w6e" firstAttribute="top" secondItem="TbG-in-67Y" secondAttribute="top" id="D2h-qg-UNx"/>
+                <constraint firstAttribute="bottom" secondItem="Fox-1b-q18" secondAttribute="bottom" id="GiC-cC-oOU"/>
+                <constraint firstItem="Fox-1b-q18" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="Gzc-8F-5Kh"/>
+                <constraint firstAttribute="trailing" secondItem="96E-Fc-w6e" secondAttribute="trailing" id="Ldq-oZ-CtM"/>
+                <constraint firstItem="96E-Fc-w6e" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="OwZ-qp-w1w"/>
             </constraints>
             <point key="canvasLocation" x="-239.5" y="-294.5"/>
         </view>

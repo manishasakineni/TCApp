@@ -86,6 +86,8 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     override func viewWillAppear(_ animated: Bool) {
         
       self.getAuthorDetailsAPICall()
+        
+        self.norecordsfoundLbl.isHidden = true
     }
     
 //MARK: -   Get Author Details API Call

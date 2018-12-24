@@ -98,7 +98,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var parentCommentId = 0
     var replyParentCommentId = 0
     var comentId = 0
-    var commentString : String = "Add a public comment..."
+    var commentString : String = "Add a public comment...".localize()
     var activeLabel = UILabel()
     var loginVC = LoginViewController()
     var parentCommentIdArray = Array<Int>()
@@ -739,14 +739,14 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
             
             
             commentsCell.commentTexView.text = self.commentString
-            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments"
+            commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments".localize()
             commentsCell.commentTexView.delegate = self
             commentsCell.commentTexView.tag = 2001
             commentsCell.sendBtn.addTarget(self, action: #selector(commentSendBtnClicked),for: .touchUpInside)
             commentsCell.commentTWBtn.addTarget(self, action: #selector(commentTWBtnClicked),for: .touchUpInside)
             
             
-            if(commentString == "Add a public comment..."){
+            if(commentString == "Add a public comment...".localize()){
                 commentsCell.commentTexView.textColor = UIColor.lightGray
             }else{
                 commentsCell.commentTexView.textColor = UIColor.black
@@ -1203,7 +1203,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         popupview.isHidden = false
         secondview.isHidden = false
         
-        textviewOutLet.text = "Add a public comment..."
+        textviewOutLet.text = "Add a public comment...".localize()
         textviewOutLet.textColor = UIColor.lightGray
      //   textviewOutLet.text = ""
         
@@ -1460,7 +1460,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 let createdComment = respVO.result
                 
-                 self.commentString = "Add a public comment..."
+                 self.commentString = "Add a public comment...".localize()
                 
                 self.comentId = 0
                 self.parentCommentId = 0
@@ -1561,7 +1561,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
      //   self.repliesTableView.isScrollEnabled = false
 
         
-        if textView.text == "Add a public comment..." {
+        if textView.text == "Add a public comment...".localize() {
             
             textView.text = ""
             
@@ -1584,7 +1584,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         if textView.text == "" {
             
-            textView.text = "Add a public comment..."
+            textView.text = "Add a public comment...".localize()
             textView.textColor = UIColor.lightGray
             
         }
@@ -1853,7 +1853,7 @@ class AudioViewController: UIViewController,UITableViewDataSource,UITableViewDel
         secondview.isHidden = true
         
         
-        if (self.commentString == "" || self.commentString == "Add a public comment..."){
+        if (self.commentString == "" || self.commentString == "Add a public comment...".localize()){
             
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Add Reply".localize(), clickAction: {
                 
