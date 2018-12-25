@@ -117,9 +117,9 @@
                                 <state key="normal" image="3 dots"/>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-64-68u">
-                                <rect key="frame" x="53" y="35" width="80" height="14"/>
+                                <rect key="frame" x="53" y="35" width="69" height="14"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="pBI-JP-ehh"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="155" id="pBI-JP-ehh"/>
                                     <constraint firstAttribute="height" constant="14" id="x8V-q0-PP1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>

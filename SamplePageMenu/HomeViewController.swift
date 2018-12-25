@@ -350,7 +350,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             sender.tag = sender.tag + 1
             
             if(UIDevice.current.userInterfaceIdiom == .phone){
-                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 430, width: 111, height: 96)
+                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: self.categorieTableView.frame.minY + 180 + 30, width: 111, height: 96)
             }else{
                 
                 popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 550, width: 111, height: 96)

@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDX-iR-YeI">
-                                <rect key="frame" x="107" y="122" width="162" height="132"/>
+                                <rect key="frame" x="107" y="142" width="162" height="132"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ppb-8u-Cmy">
                                         <rect key="frame" x="0.0" y="0.0" width="162" height="132"/>
@@ -105,7 +105,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aU1-nw-80o" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="279" width="343" height="40"/>
+                                <rect key="frame" x="16" y="299" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pcp-B3-4wg"/>
                                 </constraints>
@@ -125,7 +125,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PassWord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-pi-HoT" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="335" width="343" height="40"/>
+                                <rect key="frame" x="16" y="355" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pD8-xV-a6M"/>
                                 </constraints>
@@ -145,7 +145,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4y-41-aCd">
-                                <rect key="frame" x="238" y="464" width="99" height="26"/>
+                                <rect key="frame" x="238" y="484" width="99" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="Fqw-hy-Ddn"/>
                                 </constraints>
@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-4J-e5w">
-                                <rect key="frame" x="97" y="517" width="137" height="20"/>
+                                <rect key="frame" x="97" y="537" width="137" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fHN-2T-KNP"/>
                                     <constraint firstAttribute="width" constant="137" id="sie-96-kHn"/>
@@ -171,7 +171,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jY-b9-PZn">
-                                <rect key="frame" x="107" y="80" width="162" height="34"/>
+                                <rect key="frame" x="107" y="100" width="162" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Krw-wN-l3e"/>
                                 </constraints>
@@ -180,7 +180,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlW-Ll-xCJ">
-                                <rect key="frame" x="234" y="517" width="46" height="20"/>
+                                <rect key="frame" x="234" y="537" width="46" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="4AU-t4-djO"/>
                                     <constraint firstAttribute="height" constant="20" id="lJ2-Xh-e6q"/>
@@ -194,7 +194,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-Lp-WaH">
-                                <rect key="frame" x="324" y="351" width="20" height="20"/>
+                                <rect key="frame" x="324" y="371" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5hc-cE-nhW"/>
                                     <constraint firstAttribute="width" constant="20" id="mXk-O8-AiV"/>
@@ -206,7 +206,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-px-E5r">
-                                <rect key="frame" x="60" y="413" width="256" height="30"/>
+                                <rect key="frame" x="60" y="433" width="256" height="30"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0tC-aD-ZQv"/>

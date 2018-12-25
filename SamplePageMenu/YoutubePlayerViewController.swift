@@ -404,12 +404,12 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
-            let ac = UIAlertController(title: "Save Error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let ac = UIAlertController(title: "Save Error".localize(), message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK".localize(), style: .default))
             present(ac, animated: true)
         } else {
-            let ac = UIAlertController(title: "Saved!", message: "Your Altered Image Has Been Saved To Your Photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let ac = UIAlertController(title: "Saved!".localize(), message: "Your Altered Image Has Been Saved To Your Photos.".localize(), preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK".localize(), style: .default))
             present(ac, animated: true)
         }
     }
@@ -651,27 +651,28 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
                 if indexPath.row == 0{
                 
-                let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
+                    let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
                     
-               usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-               usersCommentsTableViewCell.replyCommentBtn.isHidden = false
-               usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
+                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+                    usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
                     
-               usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
-               usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
-                    if replyCountArray.count > 0{
-                usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+                    usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+                    usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                  
+                if replyCountArray.count > 0{
+                        
+                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
                     }
                     
-                    else{
-                        usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                else {
                         
+                        usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                         usersCommentsTableViewCell.editCommentBn.isHidden = true
                         usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                         usersCommentsTableViewCell.replayCountLbl.text = ""
                     }
-             //  usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
-             //  usersCommentsTableViewCell.replyCommentBtn.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+
                     return usersCommentsTableViewCell
                 }
                 
@@ -714,9 +715,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-                
                 usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replayCountLbl.text = ""
 
@@ -1497,9 +1496,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         textviewOutLet.text = "Add a public comment...".localize()
         textviewOutLet.textColor = UIColor.lightGray
 
-     //   textviewOutLet.text = ""
-
-        
         self.parentCommentId = self.commentingIdArray[sender.tag]
         self.comentId = 0
         
@@ -1681,26 +1677,21 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     }
     
     
-    func editCommentBnClicked(sender : UIButton){
+func editCommentBnClicked(sender : UIButton){
         
 
         
-        if self.ID == self.loginUseridsArray[sender.tag]{
+        if  self.ID == self.loginUseridsArray[sender.tag]{
 
-        self.editUserID = self.commentingIdArray[sender.tag]
-        
-        
-     //   self.parentCommentId = self.parentCommentIdArray[sender.tag]
-        self.comentId = self.commentingIdArray[sender.tag]
+            self.editUserID = self.commentingIdArray[sender.tag]
+
+            self.comentId = self.commentingIdArray[sender.tag]
         
 
         
-        let userCommentString = self.usersCommentsArray[sender.tag] as! String
+            let userCommentString = self.usersCommentsArray[sender.tag] as! String
 
-        
-  
-        
-        let actionSheet = UIAlertController(title: nil, message: "Select".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
+            let actionSheet = UIAlertController(title: nil, message: "Select".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let edit = UIAlertAction(title: "Edit".localize(), style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 
@@ -2076,25 +2067,22 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         
         self.allOffersTableView.endEditing(true)
         self.sendCommentClick = false
-        self.textviewOutLet.text = self.commentString
+        self.commentString = self.textviewOutLet.text
         
-        popupview.isHidden = true
+       
         secondview.isHidden = true
         
         if (self.commentString == "" || self.commentString == "Add a public comment...".localize()){
             
-            Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Add Reply".localize(), clickAction: {
-                
-                
-            })
-            
+           appDelegate.window?.makeToast("Please Add Reply".localize(), duration:kToastDuration, position:CSToastPositionCenter)
+
             return
-            
-            
+  
         }
 
-        
-        
+        else {
+            
+             popupview.isHidden = true
           if !(self.ID == 0) {
             
             
@@ -2104,6 +2092,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             commentSendBtnAPIService(textComment: self.commentString)
             
             self.textviewOutLet.text = ""
+            self.commentString = ""
             
         }
             
@@ -2116,7 +2105,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             })
             
         }
-        
+        }
         
     }
     

@@ -50,7 +50,7 @@ class UsersCommentsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         usersImageView.layer.borderWidth = 0.50
-       
+        editCommentBn.isHidden = true
 
         usersImageView.layer.masksToBounds = false
         usersImageView.layer.borderColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor

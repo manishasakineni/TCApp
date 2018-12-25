@@ -298,6 +298,9 @@
     "Event to" : "Event to",
      "Pastor Name" : "Pastor Name",
     "Pastor Information" : "Pastor Information",
-    "Please enter registered email" : "Please enter registered email"
+    "Please enter registered email" : "Please enter registered email",
+    "Your Altered Image Has Been Saved To Your Photos." : "Your Altered Image Has Been Saved To Your Photos.",
+    "Saved!" : "Saved!",
+    "Save Error" : "Save Error"
     
 }
