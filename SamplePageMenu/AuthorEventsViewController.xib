@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthorEventsViewController" customModule="Telugu_Churches" customModuleProvider="target">
-            <connections>
-                <outlet property="authorEventsTableView" destination="Fox-1b-q18" id="mAn-h9-nhv"/>
-                <outlet property="calendar" destination="96E-Fc-w6e" id="d7q-Wh-OPy"/>
-                <outlet property="view" destination="TbG-in-67Y" id="GV1-FE-yHU"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="TbG-in-67Y">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fox-1b-q18">
-                    <rect key="frame" x="0.0" y="280" width="375" height="387"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-Fc-w6e" customClass="FSCalendar">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-Fc-w6e">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -43,13 +37,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Fox-1b-q18" secondAttribute="trailing" id="5Ta-eT-e8a"/>
-                <constraint firstItem="Fox-1b-q18" firstAttribute="top" secondItem="96E-Fc-w6e" secondAttribute="bottom" id="BXz-RI-J5c"/>
+                <constraint firstItem="Fox-1b-q18" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="06a-YG-trV"/>
                 <constraint firstItem="96E-Fc-w6e" firstAttribute="top" secondItem="TbG-in-67Y" secondAttribute="top" id="D2h-qg-UNx"/>
-                <constraint firstAttribute="bottom" secondItem="Fox-1b-q18" secondAttribute="bottom" id="GiC-cC-oOU"/>
-                <constraint firstItem="Fox-1b-q18" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="Gzc-8F-5Kh"/>
+                <constraint firstAttribute="trailing" secondItem="Fox-1b-q18" secondAttribute="trailing" id="Dyb-oc-kjq"/>
                 <constraint firstAttribute="trailing" secondItem="96E-Fc-w6e" secondAttribute="trailing" id="Ldq-oZ-CtM"/>
                 <constraint firstItem="96E-Fc-w6e" firstAttribute="leading" secondItem="TbG-in-67Y" secondAttribute="leading" id="OwZ-qp-w1w"/>
+                <constraint firstAttribute="bottom" secondItem="Fox-1b-q18" secondAttribute="bottom" id="Sio-px-v59"/>
+                <constraint firstItem="Fox-1b-q18" firstAttribute="top" secondItem="TbG-in-67Y" secondAttribute="top" id="l54-k5-Fv8"/>
             </constraints>
             <point key="canvasLocation" x="-239.5" y="-294.5"/>
         </view>

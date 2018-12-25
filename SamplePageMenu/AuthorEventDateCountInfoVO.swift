@@ -26,7 +26,6 @@ class AuthorEventDateCountInfoVO: Mappable {
     var fileExtention : String?
     var authorImage : String?
     var eventName : String?
-    
  
     
     
@@ -55,7 +54,6 @@ class AuthorEventDateCountInfoVO: Mappable {
         self.eventName = eventName
         
         
-        
     }
     
     required init?(map: Map) {
@@ -79,6 +77,7 @@ class AuthorEventDateCountInfoVO: Mappable {
         fileExtention <- map["fileExtention"]
         authorImage <- map["authorImage"]
         eventName <- map["eventName"]
+        
         
         
         

@@ -75,7 +75,10 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         authorInfoVC?.authorID = authorID
         authorInfoVC?.isSubscribed = isSubscribed
         
-        authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+//        authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
+        
+        authorEventsVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorEventsViewController") as? AuthorEventsViewController
+        
         authorEventsVC?.title = "Events".localize()
         authorEventsVC?.authorID = authorID
         authorEventsVC?.delegate  = self

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lob-iz-H6P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lob-iz-H6P">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -810,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8b-lR-gyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3229.5999999999999" y="1006.1469265367317"/>
+            <point key="canvasLocation" x="2268" y="1085"/>
         </scene>
         <!--Date Pop Up View Controller-->
         <scene sceneID="hSx-l7-Bav">
@@ -3655,6 +3655,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Cz-77-Gya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11517.6" y="-455.62218890554726"/>
+        </scene>
+        <!--Author Events View Controller-->
+        <scene sceneID="dGs-xT-ONL">
+            <objects>
+                <viewController storyboardIdentifier="AuthorEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="chf-OO-jq9" customClass="AuthorEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ace-U0-uHO"/>
+                        <viewControllerLayoutGuide type="bottom" id="YIt-Ph-xyh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qzq-pt-5pQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LaV-HX-QWD">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="osx-Ik-fSb" customClass="FSCalendar">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="280" id="blN-cK-100"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
+                                            <color key="value" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="chf-OO-jq9" id="Xer-dc-rq4"/>
+                                    <outlet property="delegate" destination="chf-OO-jq9" id="Znp-9d-SUT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LaV-HX-QWD" firstAttribute="leading" secondItem="qzq-pt-5pQ" secondAttribute="leading" id="OY1-Kv-okD"/>
+                            <constraint firstItem="LaV-HX-QWD" firstAttribute="top" secondItem="Ace-U0-uHO" secondAttribute="bottom" id="UFg-PO-OPr"/>
+                            <constraint firstItem="YIt-Ph-xyh" firstAttribute="top" secondItem="LaV-HX-QWD" secondAttribute="bottom" id="in6-dz-Ltg"/>
+                            <constraint firstAttribute="trailing" secondItem="LaV-HX-QWD" secondAttribute="trailing" id="uWd-G0-taP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorEventsTableView" destination="LaV-HX-QWD" id="JD6-bG-f26"/>
+                        <outlet property="calendar" destination="osx-Ik-fSb" id="AR0-2c-Zmd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSQ-lD-CDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="1084"/>
         </scene>
     </scenes>
     <resources>

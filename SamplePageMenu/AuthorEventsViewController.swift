@@ -16,6 +16,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBOutlet weak var authorEventsTableView: UITableView!
     
+    
+    
 //MARK: -  variable declaration
     
    var monthString = ""
@@ -79,14 +81,21 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         month = String(calendars.component(.month, from: todayDate as Date))
         
         
-        let listOfMonthEventCell = UINib(nibName: "AuthorleventTableViewCell" , bundle: nil)
-        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "AuthorleventTableViewCell")
+//        let listOfMonthEventCell = UINib(nibName: "AuthorleventTableViewCell" , bundle: nil)
+//        authorEventsTableView.register(listOfMonthEventCell, forCellReuseIdentifier: "AuthorleventTableViewCell")
+//
+//        let authorEventsCalenderTableViewCell  = UINib(nibName: "AuthorEventsCalenderTableViewCell" , bundle: nil)
+//        authorEventsTableView.register(authorEventsCalenderTableViewCell, forCellReuseIdentifier: "AuthorEventsCalenderTableViewCell")
+//
+//
+//
+//        authorEventsTableView.register(UINib.init(nibName: "AllEventHeaderCell", bundle: nil),
+//                                       forCellReuseIdentifier: "AllEventHeaderCell")
         
-        let authorEventsCalenderTableViewCell  = UINib(nibName: "AuthorEventsCalenderTableViewCell" , bundle: nil)
-        authorEventsTableView.register(authorEventsCalenderTableViewCell, forCellReuseIdentifier: "AuthorEventsCalenderTableViewCell")
-        
-        
-        
+        let nibName  = UINib(nibName: "ListOfMonthEventCell" , bundle: nil)
+        authorEventsTableView.register(nibName, forCellReuseIdentifier: "ListOfMonthEventCell")
+
+
         authorEventsTableView.register(UINib.init(nibName: "AllEventHeaderCell", bundle: nil),
                                 forCellReuseIdentifier: "AllEventHeaderCell")
 
@@ -367,7 +376,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
 
-    return 100
+    return 115
        
 
         
@@ -422,26 +431,54 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
        let authorDetails = authorDetailsArray[indexPath.row]
             
             
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorleventTableViewCell", for: indexPath) as! AuthorleventTableViewCell
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorleventTableViewCell", for: indexPath) as! AuthorleventTableViewCell
+//            
+//            if authorDetails.authorName != nil {
+//                
+//                 cell.authornameLbl.text = authorDetails.eventName!
+//            }
+//            
+//            if authorDetails.mobileNumber != nil {
+//               
+//                 cell.phnoLbl.text = authorDetails.mobileNumber
+//            }
+//            
+//            if authorDetails.eventDate != nil {
+//                
+//                
+//                 cell.timeLbl.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.eventDate!))
+//            }
+//           
+//            return cell
+    
+            let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
-            if authorDetails.authorName != nil {
+            if let eventName =  authorDetails.eventName {
+                listOfMonthEventCell.churchName.text = eventName
+            }else{
                 
-                 cell.authornameLbl.text = authorDetails.eventName!
             }
             
-            if authorDetails.mobileNumber != nil {
-               
-                 cell.phnoLbl.text = authorDetails.mobileNumber
+            if let contactNumber =  authorDetails.mobileNumber {
+                listOfMonthEventCell.contactNumber.text =  contactNumber
+            }else{
             }
             
-            if authorDetails.eventDate != nil {
+            let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: authorDetails.eventDate!)
+            
+            if startAndEndDate1 != "" {
+                listOfMonthEventCell.eventTitle.text = startAndEndDate1
+            }else{
                 
-                
-                 cell.timeLbl.text =  self.returnEventDateWithoutTim1(selectedDateString: String(describing: authorDetails.eventDate!))
+                listOfMonthEventCell.eventTitle.text = ""
             }
-           
-            return cell
-            }
+            
+            
+            return listOfMonthEventCell
+            
+            
+        
+        }
         
         else {
         
