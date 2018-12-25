@@ -427,6 +427,8 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
         
         serviceController.getRequest(strURL: getChurchEventsAPI, success: { (result) in
             
+            if result.count > 0 {
+            
             let responseVO:ChurchEventsVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = responseVO.isSuccess
@@ -441,7 +443,7 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
                 }
                 
             }
-            
+            }
             
         }) { (failureMessage) in
             
@@ -647,7 +649,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return  115
+        return  136
         
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -676,7 +678,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
             if let eventName =  churchIdMonthYearList.title {
-                listOfMonthEventCell.churchName.text = eventName
+                listOfMonthEventCell.eventTitle.text = eventName
             }else{
                 
             }
@@ -687,14 +689,25 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             let eventStartDate = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
-            let eventEndDate = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
+            
 
             if eventStartDate != "" {
-                listOfMonthEventCell.eventTitle.text = eventStartDate + " to : " + eventEndDate
+                listOfMonthEventCell.churchName.text = eventStartDate
             }else{
                 
-                listOfMonthEventCell.eventTitle.text = ""
+                listOfMonthEventCell.churchName.text = ""
             }
+            
+            let eventEndDate = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
+            
+            if eventStartDate != "" {
+                listOfMonthEventCell.eventStartEndDate.text = eventEndDate
+            }else{
+                
+                listOfMonthEventCell.eventStartEndDate.text = ""
+            }
+            
+            
 
             
             return listOfMonthEventCell

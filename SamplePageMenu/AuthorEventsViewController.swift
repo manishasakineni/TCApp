@@ -36,6 +36,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     var currentMonthDataArray = Array<String>()
     var currentMonth = 0
     var authorDetailsArray  : [AuthorEventDateCountInfoVO] = Array<AuthorEventDateCountInfoVO>()
+    var authorEventsArray : [AuthorEventsListInfoVO] = Array<AuthorEventsListInfoVO>()
     var delegate: authorChangeSubtitleOfIndexDelegate?
     var eventDateArray = Array<String>()
     var eventsCountsArray = Array<Int>()
@@ -363,14 +364,21 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         serviceController.getRequest(strURL: getAuthorEventsAPI, success: { (result) in
             
+            if result.count > 0 {
             let responseVO : AuthorEventsVO = Mapper().map(JSONObject: result)!
             let isSuccess = responseVO.isSuccess
 
             if isSuccess == true {
                 
+                if responseVO.listResult!.count > 0 {
+                    
+                 self.authorEventsArray = responseVO.listResult!
+                    self.authorEventsTableView.reloadData()
+                    
+                }
                 
             }
-
+            }
             
         }) { (failureMessage) in
             
@@ -390,7 +398,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
   
         
-        return self.authorDetailsArray.count
+        return self.authorEventsArray.count
         
     
         
@@ -399,7 +407,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
 
-    return 115
+    return 136
        
 
         
@@ -408,7 +416,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == authorDetailsArray.count - 1 {
+        if indexPath.row == authorEventsArray.count - 1 {
             
             if(self.totalPages! > PageIndex){
                 
@@ -449,9 +457,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        
-        if(authorDetailsArray.count > 0){
+        if(authorEventsArray.count > 0){
             
-       let authorDetails = authorDetailsArray[indexPath.row]
+       let authorDetails = authorEventsArray[indexPath.row]
             
             
 //                let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorleventTableViewCell", for: indexPath) as! AuthorleventTableViewCell
@@ -476,8 +484,8 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
-            if let eventName =  authorDetails.eventName {
-                listOfMonthEventCell.churchName.text = eventName
+            if let eventName =  authorDetails.title {
+                listOfMonthEventCell.eventTitle.text = eventName
             }else{
                 
             }
@@ -487,13 +495,21 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             }else{
             }
             
-            let startAndEndDate1 = returnEventDateWithoutTim1(selectedDateString: authorDetails.eventDate!)
+            let eventStartDate = returnEventDateWithoutTim1(selectedDateString: authorDetails.startDate!)
+            let eventEndDate = returnEventDateWithoutTim1(selectedDateString: authorDetails.endDate!)
             
-            if startAndEndDate1 != "" {
-                listOfMonthEventCell.eventTitle.text = startAndEndDate1
+            if eventStartDate != "" {
+                listOfMonthEventCell.churchName.text = eventStartDate
             }else{
                 
-                listOfMonthEventCell.eventTitle.text = ""
+                listOfMonthEventCell.churchName.text = ""
+            }
+            
+            if eventStartDate != "" {
+                listOfMonthEventCell.eventStartEndDate.text = eventEndDate
+            }else{
+                
+                listOfMonthEventCell.eventStartEndDate.text = ""
             }
             
             
