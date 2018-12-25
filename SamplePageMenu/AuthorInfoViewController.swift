@@ -264,28 +264,28 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell2.infoLabel.text = "Author Name".localize()
                     
-                    cell2.addressLabel.text = authorDetails.authorName
+                    cell2.addressLabel.text = authorDetails.authorName == nil ? "" :  authorDetails.authorName
                     
                     
                 } else if indexPath.row == 1 {
                     
                     cell2.infoLabel.text = "User Name".localize()
                     
-                    cell2.addressLabel.text =  authorDetails.userName
+                    cell2.addressLabel.text =  authorDetails.userName == nil ? "" :  authorDetails.userName
                     
                     
                 } else if indexPath.row == 2 {
                     
                     cell2.infoLabel.text = "Contact Number".localize()
                     
-                    cell2.addressLabel.text =  authorDetails.authorContactNumbar
+                    cell2.addressLabel.text =  authorDetails.authorContactNumbar == nil ? "" :  authorDetails.authorContactNumbar
                     
                     
                 }else if indexPath.row == 3 {
                     
                     cell2.infoLabel.text = "Author Email".localize()
                     
-                    cell2.addressLabel.text =  authorDetails.authorEmail
+                    cell2.addressLabel.text =  authorDetails.authorEmail == nil ? "" :  authorDetails.authorEmail
                     
                     
                 }else if indexPath.row == 4 {
@@ -310,49 +310,49 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell2.infoLabel.text = "Gender".localize()
                     
-                    cell2.addressLabel.text = authorDetails.gender
+                    cell2.addressLabel.text = authorDetails.gender == nil ? "" :  authorDetails.gender
                     
                 }
                 else if indexPath.row == 6 {
                     
                     cell2.infoLabel.text = "Village".localize()
                     
-                    cell2.addressLabel.text = authorDetails.villageName
+                    cell2.addressLabel.text = authorDetails.villageName == nil ? "" :  authorDetails.villageName
                     
                 }
                 else if indexPath.row == 7 {
                     
                     cell2.infoLabel.text = "Mandal".localize()
                     
-                    cell2.addressLabel.text = authorDetails.mandalName
+                    cell2.addressLabel.text = authorDetails.mandalName == nil ? "" :  authorDetails.mandalName
                     
                 }
                 else if indexPath.row == 8 {
                     
                     cell2.infoLabel.text = "District".localize()
                     
-                    cell2.addressLabel.text = authorDetails.districtName
+                    cell2.addressLabel.text = authorDetails.districtName == nil ? "" :  authorDetails.districtName
                     
                 }
                 else if indexPath.row == 9 {
                     
                     cell2.infoLabel.text = "State".localize()
                     
-                    cell2.addressLabel.text = authorDetails.stateName
+                    cell2.addressLabel.text = authorDetails.stateName == nil ? "" :  authorDetails.stateName
                     
                 }
                 else if indexPath.row == 10 {
                     
                     cell2.infoLabel.text = "Pin Code".localize()
                 
-                    cell2.addressLabel.text = "\(String(describing: authorDetails.pinCode!))"
+                    cell2.addressLabel.text = authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
                     
                 }
                 else if indexPath.row == 11 {
                     
                     cell2.infoLabel.text = "Country".localize()
                     
-                    cell2.addressLabel.text = authorDetails.countryName
+                    cell2.addressLabel.text = authorDetails.countryName == nil ? "" :  authorDetails.countryName
                     
                 }
                 return cell2
@@ -368,20 +368,20 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell3.infoLabel.text = "Church".localize()
                     
-                    cell3.addressLabel.text = authorDetails.churchName
+                    cell3.addressLabel.text = authorDetails.churchName == nil ? "" :  authorDetails.churchName
                     
                 } else if indexPath.row == 1 {
                     
                     cell3.infoLabel.text = "Church Registration Number".localize()
                     
-                    cell3.addressLabel.text =  authorDetails.registrationNumber
+                    cell3.addressLabel.text =  authorDetails.registrationNumber == nil ? "" :  authorDetails.registrationNumber
                     
                     
                 } else if indexPath.row == 2 {
                     
                     cell3.infoLabel.text = "State".localize()
                     
-                    cell3.addressLabel.text =  authorDetails.stateName
+                    cell3.addressLabel.text =  authorDetails.stateName == nil ? "" :  authorDetails.stateName
                     
                     
                 }else if indexPath.row == 3 {
@@ -389,21 +389,21 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell3.infoLabel.text = "District".localize()
                     
                     
-                    cell3.addressLabel.text = authorDetails.districtName
+                    cell3.addressLabel.text = authorDetails.districtName == nil ? "" :  authorDetails.districtName
                     
                 }else if indexPath.row == 4 {
                     
                     cell3.infoLabel.text = "Mandal".localize()
                     
                     
-                    cell3.addressLabel.text = authorDetails.mandalName
+                    cell3.addressLabel.text = authorDetails.mandalName == nil ? "" :  authorDetails.mandalName
                     
                 }
                 else if indexPath.row == 5 {
                     
                     cell3.infoLabel.text = "Village".localize()
                     
-                    cell3.addressLabel.text = authorDetails.villageName
+                    cell3.addressLabel.text = authorDetails.villageName == nil ? "" :  authorDetails.villageName
                     
                 }
                 else if indexPath.row == 6 {
@@ -412,7 +412,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     if authorDetails.pinCode != nil {
                         
-                        cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
+                        cell3.addressLabel.text =  authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
                         
                     }
                     else {
@@ -427,7 +427,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell3.infoLabel.text = "Country".localize()
                     
                     
-                    cell3.addressLabel.text = authorDetails.countryName
+                    cell3.addressLabel.text = authorDetails.countryName == nil ? "" :  authorDetails.countryName
                     
                     }
                 

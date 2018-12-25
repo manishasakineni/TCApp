@@ -660,13 +660,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             let listStr:ChurchDetailsListResultVO = filtered[indexPath.row]
             
-            cell.churchNameLbl.text = listStr.name
-            cell.phNoLabel.text = listStr.contactNumber
-            cell.addressLabel.text = listStr.email
-             cell.stateLbl.text = listStr.stateName
-             cell.mandalLbl.text = listStr.mandalName
-             cell.districtLbl.text = listStr.districtName
-            cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
+            cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
+            cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
+            cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
+            cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
+            cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
+            cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
+            cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
             
             let imgUrl = listStr.churchImage
             
@@ -710,27 +710,21 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             if self.churchNamesArray.count > 0 {
                 
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
-        
-        
-        cell.churchNameLbl.text = listStr.name
 
-        cell.phNoLabel.text     = listStr.contactNumber
-        
-
-                cell.addressLabel.text = listStr.email
-                cell.stateLbl.text = listStr.stateName
-                cell.mandalLbl.text = listStr.mandalName
-                cell.districtLbl.text = listStr.districtName
-         cell.timeLabel.text = listStr.openingTime! + " - " + listStr.closingTime!
+                cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
+                cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
+                cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
+                cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
+                cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
+                cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
+                cell.timeLabel.text     = listStr.openingTime! + " - " + listStr.closingTime!
                 
-                
-        
-        
+  
         let imgUrl = listStr.churchImage
         
         let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         
-        print("filteredUrlString:\(newString)")
+                print("filteredUrlString:\(String(describing: newString))")
         
         if newString != nil {
             
@@ -759,12 +753,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             cell.churchImage.image = #imageLiteral(resourceName: "church13")
         }
-                
-//                cell.SubscribeBtn.addTarget(self, action: #selector(subscribeButttonClicked), for: .touchUpInside)
-//                
-//                
-//                cell.SubscribeBtn.tag = indexPath.row
-       
+
         }
         
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserManualViewController: UIViewController {
+class UserManualViewController: UIViewController,UIWebViewDelegate {
     
     var serviceController = ServiceController()
     
@@ -19,6 +19,7 @@ class UserManualViewController: UIViewController {
         
         super.viewDidLoad()
         
+        webView.delegate = self
         // Do any additional setup after loading the view, typically from a nib. UserManualIOS
         
     }
@@ -86,6 +87,17 @@ class UserManualViewController: UIViewController {
             
         }
         
+    }
+    
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        
+        serviceController.showLoadingHUD(to_view: appDelegate.window!)
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        serviceController.hideLoadingHUD(for_view: appDelegate.window!)
     }
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {

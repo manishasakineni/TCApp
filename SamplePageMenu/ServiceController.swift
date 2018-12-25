@@ -373,7 +373,7 @@ class ServiceController: NSObject {
         let request = NSMutableURLRequest(url: fileUrl! as URL)
         request.addValue(content_type, forHTTPHeaderField: "Content-Type")
         request.addValue(content_type, forHTTPHeaderField: "Accept")
-        //// request.setValue(api_key, forHTTPHeaderField: "api_key")
+        // request.setValue(api_key, forHTTPHeaderField: "api_key")
         //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         //        request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
         request.httpMethod = "GET"

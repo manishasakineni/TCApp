@@ -334,21 +334,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             toolPopupLbl.text = "Click here for notifications"
             
             
-        case 1:
-            print("2 clikced")
-            sender.tag = sender.tag + 1
-            
-           // popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
-            
-            
-         
-            
-            popupsView.frame = CGRect(x: transpView.frame.maxX - 175, y: 75, width: 111, height: 96)
-            popupsView.isHidden = false
-            toolPopupLbl.text = "Click here for cart"
+//        case 1:
+//            print("2 clikced")
+//            sender.tag = sender.tag + 1
+//
+//           // popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
+//
+//            popupsView.frame = CGRect(x: transpView.frame.maxX - 175, y: 75, width: 111, height: 96)
+//            popupsView.isHidden = false
+//            toolPopupLbl.text = "Click here for cart"
 
           
-        case 2:
+        case 1:
             print("3 clicked")
             sender.tag = sender.tag + 1
             
@@ -358,15 +355,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 550, width: 111, height: 96)
             }
-            
-            
-         //   let indexPath = IndexPath(row: 1, section: 0)
-            
-//            if let cell = self.categorieTableView.cellForRow(at: indexPath) as? CategorieHomeCell {
-//
-//                popupsView.frame = CGRect(x: self.categorieTableView.frame.maxX - 111, y: self.categorieTableView.frame.minY + 130 + cell.moreButton.frame.size.height + 20, width: 111, height: 96)
-//
-//            }
+
             
             popupsView.isHidden = false
             toolPopupLbl.text = "Click here more catagories"

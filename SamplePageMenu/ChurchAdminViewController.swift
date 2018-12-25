@@ -44,7 +44,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     var filteredData: [String]!
     var filtered:[GetAllChurchAdminsResultVo] = []
     
-  //MARK: -  view Did Load
+//MARK: -  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
        
     }
     
-  //MARK: -  view Will Appear
+//MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -96,7 +96,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
     }
-    //MARK: -  view Will DisAppear
+    
+//MARK: -  view Will DisAppear
     
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -107,7 +108,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-    //MARK: -  search Bar
+//MARK: -  search Bar
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true

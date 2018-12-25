@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         isFirstTime = true
         IQKeyboardManager.sharedManager().enable = true
         
-       // FirebaseApp.configure()
-        
         UIApplication.shared.applicationIconBadgeNumber = 0
         getsplashmsgAPICall()
   
@@ -95,30 +93,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         localize.update(fileName: "lang")
         print(localize.language())
         print(localize.availableLanguages())  
-       // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
-       // Override point for customization after application launch.
-       // if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
-            UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-            UserDefaults.standard.synchronize()
-            let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-            self.window?.rootViewController = homeNav
-  
-    //   lunchScreenView()
         
-     //   }
-            
-//        else{
-//            
-//          //  let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-//          //  self.window?.rootViewController = launchNav
-//            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-//            desController.showNav = false
-//            let newController = UINavigationController.init(rootViewController:desController)
-//            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
-//            appDelegate.window?.rootViewController = newController
-//            lunchScreenView()
-//        }
+    //    Thread.sleep(forTimeInterval: 3.0)
+        
+       
+   
+
         
       isAppAlreadyLaunchedOnce()
         
@@ -236,8 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getsplashmsgAPICall() {
         
         serviceController.getRequest(strURL: GETSPLASHMSGAPI , success: { (result) in
-            
-            
+
             let respVO:splashmsgInfoVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = respVO.isSuccess
@@ -270,136 +249,141 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(failureMessage)
             
         }
+        
+    
     }
 
-    func lunchScreenView(_ text : String){
+func lunchScreenView(_ text : String){
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
             // customized launch screen
-    if let window = self.window {
-    self.customizedLaunchScreenView = UIView(frame: window.bounds)
-         self.customizedLaunchScreenView?.backgroundColor = UIColor.white
-//    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
-        
-    self.window?.makeKeyAndVisible()
-                
-    var imageView : UIImageView
-    imageView  = UIImageView(frame: window.bounds)
-    imageView.image = UIImage(named:"Church-logo")
-    let codedLabel:UILabel = UILabel()
-        
-        imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 400, height: 400)
-        
-        codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 7, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
-        
-                
-    codedLabel.textAlignment = .center
-    var stringCount : Double = 0.0
-                
-    var str = text
-    stringCount = Double(str.characters.count)
-    print(str.characters.count)
-    codedLabel.animate(newText:str, characterDelay: 0.05)
-    codedLabel.numberOfLines = 0
-    codedLabel.textColor = UIColor.black
-    codedLabel.font = UIFont.systemFont(ofSize: 20)
-                
-        self.customizedLaunchScreenView?.addSubview(imageView)
-        self.customizedLaunchScreenView?.addSubview(codedLabel)
-        self.window?.addSubview(self.customizedLaunchScreenView!)
-        self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-        UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
-        animations: { () -> Void in
-        self.customizedLaunchScreenView?.alpha = 0 },
-        completion: { _ in
-        self.customizedLaunchScreenView?.removeFromSuperview() })
-            }
+        if let window = self.window {
+            self.customizedLaunchScreenView = UIView(frame: window.bounds)
+            self.customizedLaunchScreenView?.backgroundColor = UIColor.white
+            //    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+            
+            self.window?.makeKeyAndVisible()
+            
+            var imageView : UIImageView
+            imageView  = UIImageView(frame: window.bounds)
+            imageView.image = UIImage(named:"Church-logo")
+            let codedLabel:UILabel = UILabel()
+            
+            imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 3.5, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 400, height: 400)
+            
+            codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 7, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
+            
+            
+            codedLabel.textAlignment = .center
+            var stringCount : Double = 0.0
+            
+            var str = text
+            stringCount = Double(str.characters.count)
+            print(str.characters.count)
+            codedLabel.animate(newText:str, characterDelay: 0.05)
+            codedLabel.numberOfLines = 0
+            codedLabel.textColor = UIColor.black
+            codedLabel.font = UIFont.systemFont(ofSize: 20)
+            
+            self.customizedLaunchScreenView?.addSubview(imageView)
+            self.customizedLaunchScreenView?.addSubview(codedLabel)
+            self.window?.addSubview(self.customizedLaunchScreenView!)
+            self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+            UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
+                           animations: { () -> Void in
+                            self.customizedLaunchScreenView?.alpha = 0 },
+                           completion: { _ in
+                            self.customizedLaunchScreenView?.removeFromSuperview() })
         }
-        else {
+     }
             
+    else {
             
-            
-    if let window = self.window {
-    self.customizedLaunchScreenView = UIView(frame: window.bounds)
-    self.customizedLaunchScreenView?.backgroundColor = UIColor.white
-        
-    self.window?.makeKeyAndVisible()
+            if let window = self.window {
+                self.customizedLaunchScreenView = UIView(frame: window.bounds)
+                self.customizedLaunchScreenView?.backgroundColor = UIColor.white
                 
-    var imageView : UIImageView
-    imageView  = UIImageView(frame: window.bounds)
-    imageView.image = UIImage(named:"Church-logo")
-    let codedLabel:UILabel = UILabel()
+                self.window?.makeKeyAndVisible()
                 
-    let bounds = UIScreen.main.bounds
-    let height = bounds.size.height
+                var imageView : UIImageView
+                imageView  = UIImageView(frame: window.bounds)
+                imageView.image = UIImage(named:"Church-logo")
+                let codedLabel:UILabel = UILabel()
                 
-    switch height {
-    case 480.0:
-      print("iPhone 3,4")
-                    
-                  
-    case 568.0:
-        print("iPhone 5")
-                    
-    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
-    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
+                let bounds = UIScreen.main.bounds
+                let height = bounds.size.height
+                
+                switch height {
+                case 480.0:
+                    print("iPhone 3,4")
                     
                     
-    case 667.0:
-        
-       print("iPhone 6")
+                case 568.0:
+                    print("iPhone 5")
                     
-    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 50, height: imageView.frame.size.height)
                     
-    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 100, height: imageView.frame.size.height)
-                  
                     
-        case 736.0:
-        print("iPhone 6+")
-                   
-        imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                case 667.0:
                     
-        codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
+                    print("iPhone 6")
+                    
+                    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                    
+                    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 100, height: imageView.frame.size.height)
+                    
+                    
+                case 736.0:
+                    print("iPhone 6+")
+                    
+                    imageView.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 4, y: (customizedLaunchScreenView?.frame.size.height)! / 4, width: 200, height: 200)
+                    
+                    codedLabel.frame = CGRect(x: (customizedLaunchScreenView?.frame.size.width)!  / 9, y: (customizedLaunchScreenView?.frame.size.height)! / 2, width: imageView.frame.size.width + 130, height: imageView.frame.size.height)
+                    
+                    
+                case 1024.0:
+                    print("iPadAir")
+                    
+                    
+                default:
+                    print("not an iPhone")
+                    
+                }
 
-        
-        case 1024.0:
-        print("iPadAir")
-   
-        
-        default:
-        print("not an iPhone")
-        
-        }
-
-     
-        
-        
-        
-    codedLabel.textAlignment = .center
-    var stringCount : Double = 0.0
+                codedLabel.textAlignment = .center
+                var stringCount : Double = 0.0
                 
-    var str = text
-    stringCount = Double(str.characters.count)
-    print(str.characters.count)
-    codedLabel.animate(newText:str, characterDelay: 0.05)
-    codedLabel.numberOfLines=0
-    codedLabel.textColor=UIColor.black
-    codedLabel.font=UIFont.systemFont(ofSize: 12)
+                var str = text
+                stringCount = Double(str.characters.count)
+                print(str.characters.count)
+                codedLabel.animate(newText:str, characterDelay: 0.05)
+                codedLabel.numberOfLines=0
+                codedLabel.textColor=UIColor.black
+                codedLabel.font=UIFont.systemFont(ofSize: 12)
                 
-    self.customizedLaunchScreenView?.addSubview(imageView)
-    self.customizedLaunchScreenView?.addSubview(codedLabel)
-    self.window?.addSubview(self.customizedLaunchScreenView!)
-    self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-    UIView.animate(withDuration: 1, delay: (stringCount + 0.2) * 0.1 , options: .curveEaseOut,
-    animations: { () -> Void in
-    self.customizedLaunchScreenView?.alpha = 0 },
-    completion: { _ in
-    self.customizedLaunchScreenView?.removeFromSuperview() })
+                self.customizedLaunchScreenView?.addSubview(imageView)
+                self.customizedLaunchScreenView?.addSubview(codedLabel)
+                self.window?.addSubview(self.customizedLaunchScreenView!)
+                self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+                UIView.animate(withDuration: 1, delay: (stringCount + 0.2) * 0.1 , options: .curveEaseOut,
+                               animations: { () -> Void in
+                                self.customizedLaunchScreenView?.alpha = 0 },
+                               completion: { _ in
+                                self.customizedLaunchScreenView?.removeFromSuperview()
+                                
+                                UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+                                UserDefaults.standard.synchronize()
+                                let initialViewController : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                                self.window?.rootViewController = initialViewController
+                                
+                                
+                })
             }
+            
+    
         }
-        
-        
     }
     
     

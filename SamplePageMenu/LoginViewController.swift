@@ -441,7 +441,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       
     }
 
- //MARK:- Register Clicked
+//MARK:- Register Clicked
     
     @IBAction func registerClicked(_ sender: Any) {
         
@@ -501,20 +501,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotPWDSubmitAction(_ sender: Any) {
         
-        forgotPWDView.isHidden = true
-        transparentView.isHidden = true
+        
         
       self.view.endEditing(true)
         
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
        
         if (forgotEmailTF.text?.isEmpty)!{
+            
+            utillites.alertWithOkButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please enter registered email".localize(), clickAction: {
+                
+            })
+            
+            
         
         }
         
         else {
         
             self.forgotPWDAPIService()
+            
+            
             
         }
         
@@ -551,9 +558,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
     print("StatusCode:\(String(describing: endUserMessage))")
             
-    Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: endUserMessage!, clickAction: {
+    Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert".localize(), messege: endUserMessage!, clickAction: {
     
-    
+        self.forgotPWDView.isHidden = true
+        self.transparentView.isHidden = true
+        
              })
         
             
