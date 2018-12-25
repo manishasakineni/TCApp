@@ -1013,8 +1013,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             let invDtArray = str.components(separatedBy: "-")
             let dateString1 = invDtArray[0]
             let dateString2 = invDtArray[1]
+            
             if(dateString1 != ""){
-                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .medium
                 dateFormatter.dateFormat = "HH:mm:ss"

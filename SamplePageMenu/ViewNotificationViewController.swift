@@ -207,8 +207,6 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                     self.navigationController?.pushViewController(eventViewController, animated: true)
                     
-                    
-                    
                 }
                     
                 else if postId != 0 {
@@ -233,14 +231,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
             else if authorId != 0{
                 
                 if eventId != 0 {
-                    
-                    //                let authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
-                    //
-                    //                authorEventsVC.authorID = self.notificationsArray[indexPath.row].authorId!
-                    //
-                    //
-                    //                self.navigationController?.pushViewController(authorEventsVC, animated: true)
-                    
+
                     let authorEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                     
                     authorEventsVC.isFromNotification = true
@@ -253,11 +244,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 }
                     
                 else if postId != 0 {
-                    
-                    //                let authorPostVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
-                    //
-                    //                self.navigationController?.pushViewController(authorPostVC, animated: true)
-                    
+
                     let authorPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
                     authorPostVC.isFromNotification = true
                     authorPostVC.pageName = "Posts"
@@ -266,8 +253,8 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                     
                 }
                 
-                //  AuthorDetailsViewController
-            }else {
+
+            } else {
             
                 let nullNotificationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NullNotificationViewController") as! NullNotificationViewController
                 nullNotificationVC.titleString = self.notificationsArray[indexPath.row].name!
@@ -276,6 +263,7 @@ class ViewNotificationViewController: UIViewController,UITableViewDelegate,UITab
                 if self.notificationsArray[indexPath.row].createdDate != nil {
                     nullNotificationVC.generatedOn =  self.returnEventDateWithoutTim1(selectedDateString: self.notificationsArray[indexPath.row].createdDate!)
                 }
+                
                 //  returnEventDateWithoutTim1(selectedDateString: self.notificationsArray[indexPath.row].createdDate!)
                 nullNotificationVC.generatedBy = self.notificationsArray[indexPath.row].createdBy!
                 //  nullNotificationVC.createNewFolderDelegate  = self
