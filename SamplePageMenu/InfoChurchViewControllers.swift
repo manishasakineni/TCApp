@@ -58,6 +58,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var MissionString = ""
     var VissionString = ""
     var stateString = ""
+    var countryString = ""
     
     var wedAddressString = ""
     var districtString = ""
@@ -244,6 +245,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     self.districtString = (respVO.listResult?[0].districtName == nil ? "" : (respVO.listResult?[0].districtName)!)
                                 
     self.villageString = (respVO.listResult?[0].villageName == nil ? "" : (respVO.listResult?[0].villageName)!)
+    self.countryString = (respVO.listResult?[0].countryName == nil ? "" : (respVO.listResult?[0].countryName)!)
         
     self.genderString = (respVO.listResult?[0].gender == nil ? "" : (respVO.listResult?[0].gender)!)
                                 
@@ -322,13 +324,13 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }else if section == 1 {
             
             
-            return 5
+            return 9
             
             
             
         }else if section == 2 {
             
-            return 9
+            return 8
             
         }
         else if section == 3 {
@@ -425,33 +427,65 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
         } else if indexPath.row == 1 {
                 
-        cell1.infoLabel.text = "Name".localize()
+        cell1.infoLabel.text = "Contact Number".localize()
                 
-        cell1.addressLabel.text = churchNamesString
+        cell1.addressLabel.text = contactNumberString
                
             
         } else if indexPath.row == 2 {
                 
-        cell1.infoLabel.text = "Description".localize()
+        cell1.infoLabel.text = "Email".localize()
                 
-        cell1.addressLabel.text =  descriptionString
+        cell1.addressLabel.text = emailString
                 
                 
         }else if indexPath.row == 3 {
                 
-        cell1.infoLabel.text = "Vision".localize()
+        cell1.infoLabel.text = "Website Address".localize()
                 
-        cell1.addressLabel.text = VissionString
+        cell1.addressLabel.text = wedAddressString
                 
                 
         }else if indexPath.row == 4 {
                 
-        cell1.infoLabel.text = "Mission".localize()
+        cell1.infoLabel.text = "Opening Time".localize()
                 
                 
-        cell1.addressLabel.text = MissionString
+        cell1.addressLabel.text = openTimeString
                 
                
+        }else if indexPath.row == 5 {
+            
+            cell1.infoLabel.text = "Closing Time".localize()
+            
+            
+            cell1.addressLabel.text = closeTimeString
+            
+            
+        }else if indexPath.row == 6 {
+            
+            cell1.infoLabel.text = "Description".localize()
+            
+            
+            cell1.addressLabel.text = descriptionString
+            
+            
+        }else if indexPath.row == 7 {
+            
+            cell1.infoLabel.text = "Mission".localize()
+            
+            
+            cell1.addressLabel.text = MissionString
+            
+            
+        }else if indexPath.row == 8 {
+            
+            cell1.infoLabel.text = "Vision".localize()
+            
+            
+            cell1.addressLabel.text = VissionString
+            
+            
         }
             
             
@@ -471,60 +505,54 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
     } else if indexPath.row == 1 {
                 
-    cell3.infoLabel.text = "Email".localize()
-                
-                
-    cell3.addressLabel.text =  emailStr
-                
-                
-    } else if indexPath.row == 2 {
-                
-    cell3.infoLabel.text = "Web Address".localize()
-                
-    cell3.addressLabel.text =  wedAddressString
-            
-        }else if indexPath.row == 3 {
-                
         cell3.infoLabel.text = "Landmark".localize()
                 
                 
         cell3.addressLabel.text = landMarkString
                 
-                
-                
-        }else if indexPath.row == 4 {
+    }  else if indexPath.row == 2 {
+        
+        cell3.infoLabel.text = "Village".localize()
+        
+        cell3.addressLabel.text = villageString
+        
+    }
+    else if indexPath.row == 3 {
+        
+        cell3.infoLabel.text = "Mandal".localize()
+        
+        cell3.addressLabel.text = mandalNameString
+        
+    }
+    else if indexPath.row == 4 {
+        
+        cell3.infoLabel.text = "District".localize()
+        
+        
+        cell3.addressLabel.text = districtString
+        
+        
+    }
+    
+    else if indexPath.row == 5 {
                 
     cell3.infoLabel.text = "State".localize()
                 
                 
     cell3.addressLabel.text = stateString
             
-            }
-    else if indexPath.row == 5 {
-                
-    cell3.infoLabel.text = "District".localize()
-                
-                
-    cell3.addressLabel.text = districtString
-                
-                
-            }
+    }
+        
     else if indexPath.row == 6 {
-                
-    cell3.infoLabel.text = "Mandal".localize()
-                
-    cell3.addressLabel.text = mandalNameString
-                
-            }
-    else if indexPath.row == 7 {
-                
-    cell3.infoLabel.text = "Village".localize()
-                
-    cell3.addressLabel.text = villageString
         
-            }
+        cell3.infoLabel.text = "Country".localize()
         
-    else if indexPath.row == 8 {
+        
+        cell3.addressLabel.text = countryString
+        
+    }
+        
+   else if indexPath.row == 7 {
             
     cell3.infoLabel.text = "Pin Code".localize()
                 
@@ -541,23 +569,23 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
     let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
     if indexPath.row == 0 {
                 
-    cell2.infoLabel.text = "Author Name".localize()
+    cell2.infoLabel.text = "Pastor Name".localize()
         
     cell2.addressLabel.text = authorNameString
                 
                 
     } else if indexPath.row == 1 {
                 
-    cell2.infoLabel.text = "Email".localize()
+    cell2.infoLabel.text = "Contact Number".localize()
                 
-    cell2.addressLabel.text =  emailString
+    cell2.addressLabel.text =  phoneNoString
                 
                 
     } else if indexPath.row == 2 {
                 
-    cell2.infoLabel.text = "Contact Number".localize()
+    cell2.infoLabel.text = "Email".localize()
                 
-    cell2.addressLabel.text =  contactNumberString
+    cell2.addressLabel.text =  emailString
                 
                 
         }else if indexPath.row == 3 {
@@ -565,16 +593,11 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         cell2.infoLabel.text = "Date Of Birth".localize()
         
     
-                
         let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)
                 
         cell2.addressLabel.text = startAndEndDate1
         
        
-    
-        
-        
-
         }else if indexPath.row == 4 {
                 
     cell2.infoLabel.text = "Gender".localize()
@@ -686,7 +709,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }
         if section == 1 {
             
-            infoHeaderCell.headerLabel.text = "Church Details".localize()
+            infoHeaderCell.headerLabel.text = "Church Information".localize()
             
             
         }else if section == 2 {
@@ -697,7 +720,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
         }
         else if section == 3 {
             
-        infoHeaderCell.headerLabel.text = "Church Author".localize()
+        infoHeaderCell.headerLabel.text = "Church Pastor".localize()
             
             
         }

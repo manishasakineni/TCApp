@@ -293,6 +293,15 @@
     "Please enter registered email" : "Please enter registered email",
     "Your Altered Image Has Been Saved To Your Photos." : "Your Altered Image Has Been Saved To Your Photos.",
     "Saved!" : "Saved!",
-    "Save Error" : "Save Error"
+    "Save Error" : "Save Error",
+    "Church Information" : "Church Information",
+    "Church Pastor" : "Church Pastor",
+    "Website Address" : "Website Address",
+    "Opening Time" : "Opening Time",
+    "Closing Time" : "Closing Time",
+    "Pastor Email" : "Pastor Email"
+    
+    
+    
     
 }
