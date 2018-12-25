@@ -150,6 +150,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
         
         getAthorEventsCountApiCall(monthString, yearString)
+        getEventInfoDetailsByUserIdMonthYearApiCall(monthString, yearString)
         
      
         
@@ -353,6 +354,28 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
         
+    }
+
+    
+    func getEventInfoDetailsByUserIdMonthYearApiCall(_ month : String, _ year : String){
+        
+        let getAuthorEventsAPI = AUTHOREVENTSAPI + "\(authorID)" +  "/" + "\(monthString)" + "/" + "\(yearString)"
+        
+        serviceController.getRequest(strURL: getAuthorEventsAPI, success: { (result) in
+            
+            let responseVO : AuthorEventsVO = Mapper().map(JSONObject: result)!
+            let isSuccess = responseVO.isSuccess
+
+            if isSuccess == true {
+                
+                
+            }
+
+            
+        }) { (failureMessage) in
+            
+            
+        }
     }
 
     
