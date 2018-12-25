@@ -262,7 +262,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 if indexPath.row == 0 {
                     
-                    cell2.infoLabel.text = "Author Name".localize()
+                    cell2.infoLabel.text = "Pastor Name".localize()
                     
                     cell2.addressLabel.text = authorDetails.authorName == nil ? "" :  authorDetails.authorName
                     
@@ -283,7 +283,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 }else if indexPath.row == 3 {
                     
-                    cell2.infoLabel.text = "Author Email".localize()
+                    cell2.infoLabel.text = "Pastor Email".localize()
                     
                     cell2.addressLabel.text =  authorDetails.authorEmail == nil ? "" :  authorDetails.authorEmail
                     
@@ -341,20 +341,23 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell2.addressLabel.text = authorDetails.stateName == nil ? "" :  authorDetails.stateName
                     
                 }
+                    
                 else if indexPath.row == 10 {
-                    
-                    cell2.infoLabel.text = "Pin Code".localize()
-                
-                    cell2.addressLabel.text = authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
-                    
-                }
-                else if indexPath.row == 11 {
                     
                     cell2.infoLabel.text = "Country".localize()
                     
                     cell2.addressLabel.text = authorDetails.countryName == nil ? "" :  authorDetails.countryName
                     
                 }
+                    
+                else if indexPath.row == 11 {
+                    
+                    cell2.infoLabel.text = "Pin Code".localize()
+                
+                    cell2.addressLabel.text = authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
+                    
+                }
+                
                 return cell2
                 
             }
@@ -377,21 +380,15 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell3.addressLabel.text =  authorDetails.registrationNumber == nil ? "" :  authorDetails.registrationNumber
                     
                     
-                } else if indexPath.row == 2 {
+                }else if indexPath.row == 2 {
                     
-                    cell3.infoLabel.text = "State".localize()
+                    cell3.infoLabel.text = "Village".localize()
                     
-                    cell3.addressLabel.text =  authorDetails.stateName == nil ? "" :  authorDetails.stateName
+                    cell3.addressLabel.text = authorDetails.villageName == nil ? "" :  authorDetails.villageName
                     
+                }
                     
-                }else if indexPath.row == 3 {
-                    
-                    cell3.infoLabel.text = "District".localize()
-                    
-                    
-                    cell3.addressLabel.text = authorDetails.districtName == nil ? "" :  authorDetails.districtName
-                    
-                }else if indexPath.row == 4 {
+                else if indexPath.row == 3 {
                     
                     cell3.infoLabel.text = "Mandal".localize()
                     
@@ -399,14 +396,35 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     cell3.addressLabel.text = authorDetails.mandalName == nil ? "" :  authorDetails.mandalName
                     
                 }
+                    
+            else if indexPath.row == 4 {
+                
+                cell3.infoLabel.text = "District".localize()
+                
+                
+                cell3.addressLabel.text = authorDetails.districtName == nil ? "" :  authorDetails.districtName
+                
+            }
+                
                 else if indexPath.row == 5 {
                     
-                    cell3.infoLabel.text = "Village".localize()
+                    cell3.infoLabel.text = "State".localize()
                     
-                    cell3.addressLabel.text = authorDetails.villageName == nil ? "" :  authorDetails.villageName
+                    cell3.addressLabel.text =  authorDetails.stateName == nil ? "" :  authorDetails.stateName
+                    
+        
+                }
+                    
+                else if indexPath.row == 6 {
+                    
+                    cell3.infoLabel.text = "Country".localize()
+                    
+                    
+                    cell3.addressLabel.text = authorDetails.countryName == nil ? "" :  authorDetails.countryName
                     
                 }
-                else if indexPath.row == 6 {
+                    
+                else if indexPath.row == 7 {
                     
                     cell3.infoLabel.text = "Pin Code".localize()
                     
@@ -422,14 +440,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     }
                     
                 }
-                else if indexPath.row == 7 {
-                    
-                    cell3.infoLabel.text = "Country".localize()
-                    
-                    
-                    cell3.addressLabel.text = authorDetails.countryName == nil ? "" :  authorDetails.countryName
-                    
-                    }
+                
                 
                 return cell3
                 
@@ -480,7 +491,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             
             infoHeaderCell.subscribeBtn.isHidden = true
-            infoHeaderCell.headerLabel.text = "Church Details".localize()
+            infoHeaderCell.headerLabel.text = "Church Information".localize()
             return infoHeaderCell
             
         }
