@@ -198,6 +198,8 @@ var HELPPDFURL : String = "http://183.82.111.111/TChurchesLive/API/api/UserManua
 
 var CONTACTUSAPI : String = "http://183.82.111.111/TChurchesLive/API/api/UserInfoo/GetContactDetails"
 
+var CHURCHEVENTSAPI : String = BASEURL.appending("api/Events/GetEventDetailsInfoByChurchIdMonthYear/")     // {ChurchId}/{Month}/{Year}
+var AUTHOREVENTSAPI :String = BASEURL.appending("api/Events/GetEventInfoDetailsByUserIdMonthYear/") //{ChurchId}/{Month}/{Year}
 
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}

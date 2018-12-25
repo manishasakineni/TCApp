@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
 		3504633421C765C500A329F0 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3504633321C765C500A329F0 /* SwiftLanguage.pdf */; };
+		3513646121D25CB700986D09 /* ChurchEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513645F21D25CB600986D09 /* ChurchEventsListVO.swift */; };
+		3513646221D25CB700986D09 /* ChurchEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513646021D25CB700986D09 /* ChurchEventsVO.swift */; };
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		354B56C5208871D400C0B33A /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B56C4208871D400C0B33A /* DocViewController.swift */; };
 		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
@@ -446,6 +448,10 @@
 
 /* Begin PBXFileReference section */
 		3504633321C765C500A329F0 /* SwiftLanguage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwiftLanguage.pdf; sourceTree = "<group>"; };
+		3513645F21D25CB600986D09 /* ChurchEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsListVO.swift; path = ../../ChurchEventsListVO.swift; sourceTree = "<group>"; };
+		3513646021D25CB700986D09 /* ChurchEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsVO.swift; path = ../../ChurchEventsVO.swift; sourceTree = "<group>"; };
+		3513646321D25D0300986D09 /* AuthorEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsListVO.swift; sourceTree = "<group>"; };
+		3513646421D25D0400986D09 /* AuthorEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsVO.swift; sourceTree = "<group>"; };
 		352F87DA206F6DF5006867BD /* MyStringItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStringItemSource.swift; sourceTree = "<group>"; };
 		354B56C4208871D400C0B33A /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
@@ -1372,6 +1378,10 @@
 				9A623B872021A57F00A674F2 /* Categories */,
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				35B3FA0121CD558800640DA7 /* ContactUsVO.swift */,
+				3513646321D25D0300986D09 /* AuthorEventsListVO.swift */,
+				3513646421D25D0400986D09 /* AuthorEventsVO.swift */,
+				3513645F21D25CB600986D09 /* ChurchEventsListVO.swift */,
+				3513646021D25CB700986D09 /* ChurchEventsVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -2814,6 +2824,7 @@
 				CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
 				3D5404F42058045A008257A6 /* AuthorDetailsViewController.swift in Sources */,
+				3513646221D25CB700986D09 /* ChurchEventsVO.swift in Sources */,
 				359CC9322062874D0061450A /* BibleBooksTableViewCell.swift in Sources */,
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
@@ -2920,6 +2931,7 @@
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
 				CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */,
 				CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */,
+				3513646121D25CB700986D09 /* ChurchEventsListVO.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
 				AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
