@@ -884,7 +884,7 @@ else {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = dateFormatter.date(from: dateString)
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.dateFormat = "dd-MM-YYY"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr = newDateString
                 print(newDateStr)

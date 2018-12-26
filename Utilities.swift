@@ -1490,7 +1490,7 @@ class Utilities: NSObject {
 
 extension DateFormatter {
     
-    // let dateFormatter = DateFormatter()
+    // let dateFormatter = DateFormatter() 2018-12-24T15:22:11
     
     static let dateee : DateFormatter = DateFormatter()
     

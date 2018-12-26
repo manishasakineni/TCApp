@@ -274,19 +274,13 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         let listStr:GetAllJobDetailsListResultVO = filtered[indexPath.row]
         
-        cell.jobtitleLabel.text = listStr.jobTitle
-        cell.qualificationLabel.text = listStr.qualification
-        cell.churchNameLabel.text = listStr.churchName
-        cell.cintactNumberLabel.text = listStr.contactNumber
-        cell.lastdateToApplyLabel.text = listStr.lastDateToApply
+                cell.jobtitleLabel.text = listStr.jobTitle
+                cell.qualificationLabel.text = listStr.qualification
+                cell.churchNameLabel.text = listStr.churchName
+                cell.cintactNumberLabel.text = listStr.contactNumber
+                cell.lastdateToApplyLabel.text = listStr.lastDateToApply == nil ? "" : returnEventDateWithoutTim1(selectedDateString: listStr.lastDateToApply!)
 
-        if(listStr.lastDateToApply! != ""){
-            let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
-            let dateString = dobStringArray?[0]
-            cell.lastdateToApplyLabel.text  = dateString!
-        }else{
-            cell.lastdateToApplyLabel.text  = ""
-        }
+         
                 
                 
             }
@@ -305,15 +299,15 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
             cell.qualificationLabel.text = listStr.qualification
             cell.churchNameLabel.text = listStr.churchName
             cell.cintactNumberLabel.text = listStr.contactNumber
-            cell.lastdateToApplyLabel.text = listStr.lastDateToApply
+                cell.lastdateToApplyLabel.text = listStr.lastDateToApply == nil ? "" : returnEventDateWithoutTim1(selectedDateString: listStr.lastDateToApply!)
                 
-            if(listStr.lastDateToApply! != ""){
-                let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
-                let dateString = dobStringArray?[0]
-                cell.lastdateToApplyLabel.text  = dateString!
-            }else{
-                cell.lastdateToApplyLabel.text  = ""
-            }
+//            if(listStr.lastDateToApply! != ""){
+//                let dobStringArray = listStr.lastDateToApply?.components(separatedBy: "T")
+//                let dateString = dobStringArray?[0]
+//                cell.lastdateToApplyLabel.text  = dateString!
+//            }else{
+//                cell.lastdateToApplyLabel.text  = ""
+//            }
         }
         
 
@@ -474,6 +468,45 @@ class GetAllJobDetailsViewController: UIViewController,UITableViewDelegate,UITab
         print("Home Button Clicked......")
         
     }
+    
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "dd-MM-YYYY"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
     
     
     

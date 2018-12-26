@@ -760,7 +760,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = dateFormatter.date(from: dateString)
-                dateFormatter.dateFormat = "dd/MM/yyyy"
+                dateFormatter.dateFormat = "dd-MM-YYYY"
                //  dateFormatter.dateFormat = "dd-MM-yyyy"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr = newDateString

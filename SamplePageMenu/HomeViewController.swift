@@ -267,7 +267,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         }
 
-       toolPopupLbl.text = "Click here for menu"
+       toolPopupLbl.text = "Click here for Menu"
        
         
         if let isAppAlreadLaunchedOnce = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
@@ -331,7 +331,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             self.imagetrillingConstrant.constant = 40
              popupsView.frame = CGRect(x: transpView.frame.maxX - 125, y: 75, width: 111, height: 96)
             popupsView.isHidden = false
-            toolPopupLbl.text = "Click here for notifications"
+            toolPopupLbl.text = "Click here for Notifications"
             
             
 //        case 1:
@@ -358,7 +358,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
             
             popupsView.isHidden = false
-            toolPopupLbl.text = "Click here more catagories"
+            toolPopupLbl.text = "Click here more Catagories"
 
             
             
@@ -574,7 +574,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
-    //MARK: -  Get All Categories API Call
+//MARK: -  Get All Categories API Call
     
     func getAllCategoriesAPICall(){
         
@@ -1298,7 +1298,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
-            
+
             cell.eventDateLabel.text = startAndEndDate1
             
             let startAndEndDate2 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
@@ -1460,7 +1460,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = dateFormatter.date(from: dateString)
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.dateFormat = "dd-MM-YYYY"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr = newDateString
                 print(newDateStr)
