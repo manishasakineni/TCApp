@@ -1375,7 +1375,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 eventDetailsViewController.eventID = eventList.id!
                 eventDetailsViewController.eventChurchName = eventList.churchName ?? "0"
                 eventDetailsViewController.eventName = eventList.title!
-                
+                eventDetailsViewController.homeString = "homeString"
                 eventDetailsViewController.catgoryID = eventList.churchId ?? 0
                 
                 

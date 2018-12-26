@@ -49,6 +49,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var eventName = ""
     var catgoryID:Int = 0
     var churchName1 : String = ""
+    var homeString      : String        = ""
 
     let buttonnn = UIButton()
     var imagesArray : [ImagesResultVo] = Array<ImagesResultVo>()
@@ -204,8 +205,15 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         super.viewWillAppear(animated)
         
-
-//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText:"", backTitle: "  \(authorName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        if homeString == "homeString" {
+            
+            Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText:eventName, backTitle: " ".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+            
+        }
+        
+        else{
+            
+        }
         
         
         if kUserDefaults.value(forKey: kIdKey) as? Int != nil {
