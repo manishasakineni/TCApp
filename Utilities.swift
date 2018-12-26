@@ -887,10 +887,7 @@ class Utilities: NSObject {
     }
     
     class func UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
-        
-        
-        
-        
+
         var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
         
         if (titlelabel == nil) {

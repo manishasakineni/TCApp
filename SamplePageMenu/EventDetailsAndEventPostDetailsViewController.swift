@@ -54,7 +54,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
         super.viewWillAppear(animated)
         
-        Utilities.eventDetailsAndEventPostDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(eventName)", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.eventDetailsAndEventPostDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: " \(eventName)", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
 
         
     }

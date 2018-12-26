@@ -208,7 +208,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     let dobStringArray = lastdatetoapply.components(separatedBy: "T")
                     let dateString = dobStringArray[0]
-                    signUPCell.jobIDDetailsLabel.text  = dateString
+                    signUPCell.jobIDDetailsLabel.text  = returnEventDateWithoutTim1(selectedDateString: dateString)
                     
                 }else{
                     signUPCell.jobIDDetailsLabel.text  = ""
@@ -364,7 +364,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         
     }
     
-    //MARK: -   Event Date Without Time
+    //MARK: -   Event Date Without Time  2019-01-15T00:00:00
     
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
@@ -373,12 +373,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
         if(selectedDateString != ""){
             let invDtArray = selectedDateString.components(separatedBy: "T")
             let dateString = invDtArray[0]
-            let dateString1 = invDtArray[1]
-            print(dateString1)
-            let invDtArray2 = dateString1.components(separatedBy: ".")
-            let dateString3 = invDtArray2[0]
-            
-            print(dateString1)
+
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -400,7 +395,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
             //                print(newDateStr1)
             //            }
         }
-        return newDateStr + "" + newDateStr1
+        return newDateStr
     }
     
 

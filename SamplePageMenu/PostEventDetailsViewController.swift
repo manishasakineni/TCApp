@@ -97,7 +97,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         super.viewWillAppear(animated)
         
         
-        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "  \(eventName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "  \(eventName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
               
     }
