@@ -28,30 +28,48 @@
                             <inset key="sectionInset" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uG-oR-qNk">
-                        <rect key="frame" x="165.5" y="5" width="120.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uG-oR-qNk">
+                        <rect key="frame" x="8" y="5" width="120.5" height="21"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="120.5" id="07j-O9-fPj"/>
                             <constraint firstAttribute="height" constant="21" id="20t-RI-IS6"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Upcoming Events"/>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mp-n0-aNE">
+                        <rect key="frame" x="352" y="4" width="90" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="a1Z-9u-ji7"/>
+                            <constraint firstAttribute="width" constant="90" id="bkg-Qh-vYy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="More">
+                            <color key="titleColor" red="0.3957391381" green="0.6137114763" blue="0.70604485269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="More"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4mp-n0-aNE" secondAttribute="trailing" constant="8" id="138-tl-9bU"/>
                     <constraint firstItem="FeH-QJ-5Sf" firstAttribute="top" secondItem="6uG-oR-qNk" secondAttribute="bottom" constant="5" id="8dC-Hk-r5Y"/>
+                    <constraint firstItem="6uG-oR-qNk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="DDv-Fj-9bK"/>
                     <constraint firstAttribute="bottom" secondItem="FeH-QJ-5Sf" secondAttribute="bottom" constant="2.5" id="Jms-h1-22u"/>
                     <constraint firstAttribute="trailing" secondItem="FeH-QJ-5Sf" secondAttribute="trailing" id="Lbe-Ce-tb9"/>
-                    <constraint firstItem="6uG-oR-qNk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MKU-gx-EtX"/>
                     <constraint firstItem="FeH-QJ-5Sf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QIc-TL-lhm"/>
                     <constraint firstItem="6uG-oR-qNk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="mUF-S7-FAu"/>
+                    <constraint firstItem="4mp-n0-aNE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="xUg-Ux-fCq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="autoScrollCollectionView" destination="FeH-QJ-5Sf" id="h95-n7-Fr7"/>
+                <outlet property="moreBtn" destination="4mp-n0-aNE" id="VFB-8O-zd7"/>
                 <outlet property="upcomingEventsTitle" destination="6uG-oR-qNk" id="gpG-M5-UV8"/>
             </connections>
             <point key="canvasLocation" x="91" y="121"/>

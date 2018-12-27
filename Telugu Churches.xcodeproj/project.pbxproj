@@ -11,6 +11,8 @@
 		3504633421C765C500A329F0 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3504633321C765C500A329F0 /* SwiftLanguage.pdf */; };
 		3513646921D2736A00986D09 /* ChurchEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513646721D2736800986D09 /* ChurchEventsListVO.swift */; };
 		3513646A21D2736A00986D09 /* ChurchEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513646821D2736900986D09 /* ChurchEventsVO.swift */; };
+		352D0AA021D3983B00A6622C /* ChurchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */; };
+		352D0AA121D3983B00A6622C /* ChurchesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352D0A9F21D3983B00A6622C /* ChurchesCollectionViewCell.xib */; };
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
 		354B56C5208871D400C0B33A /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B56C4208871D400C0B33A /* DocViewController.swift */; };
 		354C1C88207F2120005DEB11 /* EventDetailsResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */; };
@@ -452,6 +454,8 @@
 		3513646421D25D0400986D09 /* AuthorEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsVO.swift; sourceTree = "<group>"; };
 		3513646721D2736800986D09 /* ChurchEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsListVO.swift; path = ../../ChurchEventsListVO.swift; sourceTree = "<group>"; };
 		3513646821D2736900986D09 /* ChurchEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsVO.swift; path = ../../ChurchEventsVO.swift; sourceTree = "<group>"; };
+		352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesCollectionViewCell.swift; sourceTree = "<group>"; };
+		352D0A9F21D3983B00A6622C /* ChurchesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChurchesCollectionViewCell.xib; sourceTree = "<group>"; };
 		352F87DA206F6DF5006867BD /* MyStringItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStringItemSource.swift; sourceTree = "<group>"; };
 		354B56C4208871D400C0B33A /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		354C1C87207F211F005DEB11 /* EventDetailsResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsResultVo.swift; sourceTree = "<group>"; };
@@ -2095,6 +2099,8 @@
 				3D2E34192053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib */,
 				3D2E341A2053A0BF00CF8F16 /* BannerCollectionViewCell.swift */,
 				3D2E341B2053A0BF00CF8F16 /* BannerCollectionViewCell.xib */,
+				352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */,
+				352D0A9F21D3983B00A6622C /* ChurchesCollectionViewCell.xib */,
 			);
 			name = "HomeTableView&CollectionViewCell";
 			sourceTree = "<group>";
@@ -2627,6 +2633,7 @@
 				CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
 				3D41C7F92063B9860086BEE7 /* youtubeCLDSSCell.xib in Resources */,
+				352D0AA121D3983B00A6622C /* ChurchesCollectionViewCell.xib in Resources */,
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				CB035971205FBC15008FD878 /* AdminMonthEventListCell.xib in Resources */,
 				CB7E7F6421B13A7D00F18E4F /* RedUp.gif in Resources */,
@@ -2904,6 +2911,7 @@
 				359CC92320626CD20061450A /* BibleChapterVo.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3584457121415B26009D059F /* TokenResultVo.swift in Sources */,
+				352D0AA021D3983B00A6622C /* ChurchesCollectionViewCell.swift in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				AF108A5320D396820098B70F /* notificationsTableViewCell.swift in Sources */,
 				35847C9C2196E00A009D6FBD /* NotificationTableViewCell.swift in Sources */,
@@ -3106,8 +3114,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
@@ -3130,7 +3138,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
+				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3160,8 +3168,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
@@ -3177,7 +3185,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
+				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3191,16 +3199,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeluguChurchesApp26112018;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChrchesDistributionProfile26112018;
+				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesDevApp;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -3214,16 +3222,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venkata SrinivasaRao (4QGCP9MXKS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Venkata SrinivasaRao (9528DZ4J62)";
 				DEVELOPMENT_TEAM = 4QGCP9MXKS;
 				INFOPLIST_FILE = SamplePageMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeluguChurchesApp26112018;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Calibrage.TeluguChurchesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de296a86-db64-4327-be67-15a8811394a9";
-				PROVISIONING_PROFILE_SPECIFIER = TeluguChrchesDistributionProfile26112018;
+				PROVISIONING_PROFILE = "83d02e46-b68c-44eb-a79c-db3829531333";
+				PROVISIONING_PROFILE_SPECIFIER = TeluguChurchesDevApp;
 				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

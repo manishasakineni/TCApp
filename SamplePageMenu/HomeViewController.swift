@@ -19,6 +19,7 @@ protocol SttingPopOverHomeDelegate {
 
 var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
 
+
 class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating,UIScrollViewDelegate  {
     
     @IBOutlet weak var categorieTableView: UITableView!
@@ -51,7 +52,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
     @IBOutlet weak var imagetrillingConstrant: NSLayoutConstraint!
     
-    
+    var churchDetailsArray:[ChurchDetailsListResultVO] = Array<ChurchDetailsListResultVO>()
     var morecategories = UIButton()
     
     
@@ -96,7 +97,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var searchController: UISearchController!
     
     var searchActive : Bool = false
-    var data = [" ","Categories".localize()]
+    var data = ["Upcoming Events".localize(),"Categories".localize(),"Churches".localize()]
     var filtered:[String] = []
     
     var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
@@ -185,6 +186,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let autoScrollImagesCell  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
         categorieTableView.register(autoScrollImagesCell, forCellReuseIdentifier: "AutoScrollImagesCell")
         
+        
+        
+       
+        
         self.navigationController?.navigationBar.barTintColor = Utilities.appColor
         self.navigationItem.title = "Telugu Churches".localize()
         self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -261,6 +266,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         self.cagegoriesArray.removeAll()
         self.getAllCategoriesAPICall()
+        self.getChurchesAPICall()
         
         if #available(iOS 11.0, *) {
             
@@ -755,6 +761,65 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         
     }
+
+
+    func getChurchesAPICall(){
+       
+        self.churchDetailsArray.removeAll()
+        
+        let paramsDict = [
+            
+            "userId": 1,
+            "pageIndex": 1,
+            "pageSize": 50,
+            "sortbyColumnName": "UpdatedDate",
+            "sortDirection": "desc",
+            "searchName": ""
+            
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: GETALLACTIVECHURCHESAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            if isSuccess == true {
+                
+                let listArr = respVO.listResult!
+                if listArr.count > 0 {
+                  
+                    for eachArray in listArr{
+                        
+                        
+                        self.churchDetailsArray.append(eachArray)
+                        
+                        print("eachArray.churchImage",eachArray.churchImage ?? "")
+                    }
+                    
+                    
+                       self.categorieTableView.reloadData()
+                
+                }
+            }
+            
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+
+    }
+    
     
     func getUserCartCount( _ id : Int){
         
@@ -966,31 +1031,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+
             
-            if indexPath.row == 0{
+            if indexPath.row == 0 {
                 
-                if eventImageArray.count > 0{
+             return 160
                 
-                return 150.0
-                    
-                }
-                else
-                {
-                    return 0.0
-                }
             }
                 
-            else {
-                return 170.0
-                
-            }
-        }
-            
-        else {
-            
-            if indexPath.row == 0{
+            if indexPath.row == 1 {
                 
                 if eventImageArray.count > 0{
                     
@@ -1001,28 +1050,50 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 {
                     return 0.0
                 }
-            }
+             }
                 
             else{
                 return 150.0
                 
-            }
         }
         
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+       
         if indexPath.row == 0 {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
+            
+            cell.autoScrollCollectionView.register(UINib.init(nibName: "ChurchesCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "ChurchesCollectionViewCell")
+            
+            cell.upcomingEventsTitle.text = "Churches".localize()
+            cell.moreBtn.isHidden = false
+            cell.autoScrollCollectionView.tag = 0
+            cell.autoScrollCollectionView.collectionViewLayout.invalidateLayout()
+            cell.autoScrollCollectionView.delegate = self
+            cell.autoScrollCollectionView.dataSource = self
+            cell.autoScrollCollectionView.reloadData()
+            
+            cell.moreBtn.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+            
+            self.morecategories.frame = cell.moreBtn.frame
+            return cell
+            
+        }
+        
+        if indexPath.row == 1  {
+            
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
             
             cell.autoScrollCollectionView.register(UINib.init(nibName: "AutoScrollCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "AutoScrollCollectionViewCell")
             
-            
-            cell.autoScrollCollectionView.tag = 0
+            cell.upcomingEventsTitle.text = "Upcoming Events".localize()
+            cell.moreBtn.isHidden = true
+            cell.autoScrollCollectionView.tag = 1
             cell.autoScrollCollectionView.collectionViewLayout.invalidateLayout()
             cell.autoScrollCollectionView.delegate = self
             cell.autoScrollCollectionView.dataSource = self
@@ -1040,25 +1111,22 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             return cell
             
-            
         }
-            
-        else {
+        
+        if indexPath.row == 2  {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
             
             cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            
-           
-            
-            cell.homeCollectionView.tag = 1
+
+            cell.homeCollectionView.tag = 2
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
             cell.homeCollectionView.reloadData()
             
             
-            cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
             
             self.morecategories.frame = cell.moreButton.frame
             
@@ -1066,13 +1134,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
         }
         
+        return UITableViewCell()
+        
     }
-    
-    
-    
+
     func scrollAutomatically(_ timer1: Timer) {
         
-        let indexPath : IndexPath = IndexPath(row: 0, section: 0)
+        let indexPath : IndexPath = IndexPath(row: 1, section: 0)
         
         
         if let autoScrollImagesCell : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath) as? AutoScrollImagesCell {
@@ -1175,13 +1243,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     func  categorieOneClicked(_ sendre:UIButton) {
+
         
-        
-        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-        churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
-        churchDetailsViewController.categorieNamesArray = self.imageNameArray
-        churchDetailsViewController.bibleInt = 10
+        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+        
+//        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+//        churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
+//        churchDetailsViewController.categorieNamesArray = self.imageNameArray
+//        churchDetailsViewController.bibleInt = 10
+//        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
         
         print("Eye Button Clicked......")
         
@@ -1191,11 +1262,20 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     func  categorieTwoClicked(_ sendre:UIButton) {
         
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-        churchDetailsViewController.categorieImageArray = self.imageArray2 as! Array<UIImage>
-        churchDetailsViewController.categorieNamesArray = self.imageNameArray2
-        churchDetailsViewController.bibleInt = 11
-        
+        churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
+        churchDetailsViewController.categorieNamesArray = self.imageNameArray
+        churchDetailsViewController.bibleInt = 10
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+        
+        
+        
+//
+//        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+//        churchDetailsViewController.categorieImageArray = self.imageArray2 as! Array<UIImage>
+//        churchDetailsViewController.categorieNamesArray = self.imageNameArray2
+//        churchDetailsViewController.bibleInt = 11
+//
+//        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
        
     }
     
@@ -1265,6 +1345,16 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if  collectionView.tag == 0 {
             
+            print(churchDetailsArray.count)
+            
+            return churchDetailsArray.count
+
+            
+        }
+            
+        else if  collectionView.tag == 1 {
+
+            
             print(eventImageArray.count)
             
             return eventImageArray.count
@@ -1278,13 +1368,54 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
     }
-    
-    
-    
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         if collectionView.tag  == 0 {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChurchesCollectionViewCell", for: indexPath) as! ChurchesCollectionViewCell
+            
+            let listStr:ChurchDetailsListResultVO = churchDetailsArray[indexPath.row]
+            
+            cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
+            cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
+            cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
+            cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
+            cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
+            cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
+            cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
+            
+            let imgUrl = listStr.churchImage
+            
+            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            //    print("filteredUrlString:\(newString)")
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                
+                if url != nil {
+                    
+                    
+                    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                    
+                }
+                else {
+                    
+                    cell.churchImage.image = #imageLiteral(resourceName: "church13")
+                }
+            }
+            else {
+                
+                cell.churchImage.image = #imageLiteral(resourceName: "church13")
+            }
+            
+            return cell
+            
+        }
+        if collectionView.tag  == 1 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AutoScrollCollectionViewCell", for: indexPath) as! AutoScrollCollectionViewCell
             
@@ -1315,7 +1446,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
             
         }
-            
+        
+
+
         else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
@@ -1364,12 +1497,27 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if collectionView.tag == 0{
             
+            if self.churchDetailsArray.count > 0 {
+                let listStr:ChurchDetailsListResultVO = churchDetailsArray[indexPath.row]
+                
+                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+ 
+                holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
+                holyBibleViewController.churchID = listStr.Id!
+                holyBibleViewController.isFromChruch = false
+                holyBibleViewController.nameStr = listStr.name!
+
+                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                
+            }
+            
+        }
+        
+        if collectionView.tag == 1{
+            
             if upComingEventsArray.count > 0{
                 
-                
                 let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
-                
-                
                 let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
                 
                 eventDetailsViewController.eventID = eventList.id!
@@ -1384,7 +1532,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
         }
         
-        if collectionView.tag  == 1 {
+        if collectionView.tag  == 2 {
             
             if cagegoriesArray.count > 0 {
                 
@@ -1425,13 +1573,18 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         if collectionView.tag  == 0 {
+            
+            return CGSize(width: 300, height: 140)
+        }
+            
+        else if collectionView.tag  == 1 {
             
             return CGSize(width: 300, height: 200)
         }
+            
         else {
             
             return CGSize(width: 100, height: 100)

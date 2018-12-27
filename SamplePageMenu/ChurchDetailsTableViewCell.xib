@@ -39,7 +39,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="fIx-mt-TVj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -180,7 +180,7 @@
                 <outlet property="stateLbl" destination="3Ia-xz-2AI" id="JrC-el-rHU"/>
                 <outlet property="timeLabel" destination="19A-NE-weG" id="EGM-Dd-VrK"/>
             </connections>
-            <point key="canvasLocation" x="-5" y="34"/>
+            <point key="canvasLocation" x="-211" y="-98"/>
         </tableViewCell>
     </objects>
 </document>

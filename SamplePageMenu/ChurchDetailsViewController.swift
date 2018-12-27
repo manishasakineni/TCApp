@@ -709,7 +709,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             if self.churchNamesArray.count > 0 {
                 
-        let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
+               let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
 
                 cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
                 cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
@@ -839,8 +839,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         holyBibleViewController.isFromChruch = false
         holyBibleViewController.nameStr = listStr.name!
 
-        
-        
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }

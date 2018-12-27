@@ -14,6 +14,8 @@ class AutoScrollImagesCell: UITableViewCell {
     @IBOutlet weak var upcomingEventsTitle: UILabel!
     @IBOutlet weak var autoScrollCollectionView: UICollectionView!
     
+    @IBOutlet weak var moreBtn: UIButton!
+    
 //MARK: -  variable declaration
 
     
@@ -32,8 +34,23 @@ class AutoScrollImagesCell: UITableViewCell {
         layout.minimumLineSpacing = 5.0
         layout.minimumInteritemSpacing = 5.0
         autoScrollCollectionView.setCollectionViewLayout(layout, animated: true)
-        
+     
         autoScrollCollectionView.reloadData()
+        
+        
+        moreBtn.layer.cornerRadius = 1.0
+        moreBtn.layer.borderWidth = 1
+        
+        moreBtn.layer.borderColor = Utilities.bordrColor
+        
+        
+        moreBtn.layer.cornerRadius = 3.0
+        moreBtn.layer.shadowColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        moreBtn.layer.shadowOffset = CGSize(width: 0, height: 3)
+        moreBtn.layer.shadowOpacity = 0.6
+        moreBtn.layer.shadowRadius = 2.0
+        
+        moreBtn.setTitleColor(Utilities.appColor, for: .normal)
         
            }
 
