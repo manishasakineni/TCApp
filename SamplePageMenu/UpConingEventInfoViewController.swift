@@ -100,14 +100,42 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCell
         
         
-        if let chuechName =  listStr.churchName {
-            
-            cell.chuechName.text =  chuechName
-            
-        }else{
-           
-             cell.chuechName.text =  ""
-        }
+                if listStr.churchName  != nil {
+                    if let churchName = listStr.churchName {
+                        cell.chuechName.text = churchName
+                        cell.churchName.text = "Church Name".localize()
+        
+        
+                    }else{
+                        cell.churchName.text = ""
+                    }
+                }
+                else if listStr.authorName != nil {
+        
+                    if let authorName =  listStr.authorName {
+        
+                        cell.chuechName.text = authorName
+                       // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                         cell.churchName.text = "Pastor Name".localize()
+        
+                    }else{
+                        cell.chuechName.text = ""
+                       // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                    }
+                }
+                else{
+                    cell.chuechName.text = ""
+        
+                }
+        
+//        if let chuechName =  listStr.churchName {
+//
+//            cell.chuechName.text =  chuechName
+//
+//        }else{
+//
+//             cell.chuechName.text =  ""
+//        }
         
         if let eventTitle =  listStr.title {
             
@@ -115,12 +143,12 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
             
         }else{
         }
-        if let authorName =  listStr.authorName {
-            
-            cell.authorName.text =  authorName
-            
-        }else{
-        }
+//        if let authorName =  listStr.authorName {
+//
+//            cell.authorName.text =  authorName
+//
+//        }else{
+//        }
         if let contactNumber =  listStr.contactNumber {
             
             cell.contactNumber.text =  contactNumber

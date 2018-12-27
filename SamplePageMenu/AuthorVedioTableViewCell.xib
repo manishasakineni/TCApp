@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,13 +27,13 @@
                         <rect key="frame" x="3" y="3" width="314" height="142.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videostatic" translatesAutoresizingMaskIntoConstraints="NO" id="BJI-bt-fWf">
-                                <rect key="frame" x="0.0" y="0.0" width="314" height="106"/>
+                                <rect key="frame" x="4" y="4" width="306" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="bOU-yB-A9e"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnB-DE-r59">
-                                <rect key="frame" x="0.0" y="114" width="314" height="21"/>
+                                <rect key="frame" x="4" y="118" width="310" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,13 +42,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MnB-DE-r59" secondAttribute="bottom" constant="7.5" id="AcL-mw-cQ3"/>
-                            <constraint firstAttribute="trailing" secondItem="BJI-bt-fWf" secondAttribute="trailing" id="LLI-99-Rha"/>
+                            <constraint firstAttribute="trailing" secondItem="BJI-bt-fWf" secondAttribute="trailing" constant="4" id="LLI-99-Rha"/>
                             <constraint firstItem="MnB-DE-r59" firstAttribute="top" secondItem="BJI-bt-fWf" secondAttribute="bottom" constant="8" id="SVB-fx-yqg"/>
                             <constraint firstAttribute="trailing" secondItem="MnB-DE-r59" secondAttribute="trailing" id="ZqQ-zr-U8Y"/>
-                            <constraint firstItem="BJI-bt-fWf" firstAttribute="leading" secondItem="v14-WQ-yap" secondAttribute="leading" id="lNr-0O-b2c"/>
+                            <constraint firstItem="BJI-bt-fWf" firstAttribute="leading" secondItem="v14-WQ-yap" secondAttribute="leading" constant="4" id="lNr-0O-b2c"/>
                             <constraint firstItem="MnB-DE-r59" firstAttribute="leading" secondItem="BJI-bt-fWf" secondAttribute="leading" id="n9R-2g-dVA"/>
-                            <constraint firstItem="MnB-DE-r59" firstAttribute="centerX" secondItem="BJI-bt-fWf" secondAttribute="centerX" id="ohf-sZ-dVs"/>
-                            <constraint firstItem="BJI-bt-fWf" firstAttribute="top" secondItem="v14-WQ-yap" secondAttribute="top" id="zSH-rb-UE4"/>
+                            <constraint firstItem="BJI-bt-fWf" firstAttribute="top" secondItem="v14-WQ-yap" secondAttribute="top" constant="4" id="zSH-rb-UE4"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -62,6 +61,7 @@
             <connections>
                 <outlet property="authorVedioImage" destination="BJI-bt-fWf" id="Ykd-n1-5ac"/>
                 <outlet property="authorVedioLabel" destination="MnB-DE-r59" id="3VM-59-G4S"/>
+                <outlet property="videoView" destination="v14-WQ-yap" id="dfy-yY-ZfE"/>
             </connections>
             <point key="canvasLocation" x="26" y="104.5"/>
         </tableViewCell>

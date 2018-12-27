@@ -14,6 +14,7 @@ class AuthorVedioTableViewCell: UITableViewCell {
     @IBOutlet weak var authorVedioImage: UIImageView!
     
     
+    @IBOutlet weak var videoView: UIView!
     
     @IBOutlet weak var authorVedioLabel: UILabel!
     
@@ -21,6 +22,10 @@ class AuthorVedioTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        videoView.layer.borderWidth = 2
+        videoView.layer.cornerRadius = 5.0
+        videoView.layer.borderColor = UIColor(red: 210.0/255.0, green: 231.0/255.0, blue: 242.0/255.0, alpha: 1.0).cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

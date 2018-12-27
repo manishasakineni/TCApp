@@ -178,6 +178,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     print("result:\(result)")
                         
     let respVO:GetChurchByIDVo = Mapper().map(JSONObject: result)!
+            
+    print(result)
                         
     print("responseString = \(respVO)")
             
@@ -227,8 +229,30 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     self.landMarkString = (respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark)!
     self.address1String = (respVO.listResult?[0].address1 == nil ? "" : respVO.listResult?[0].address1)!
     self.address2String = (respVO.listResult?[0].address2 == nil ? "" : respVO.listResult?[0].address2)!
-    self.openTimeString = (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)!
-    self.closeTimeString = (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss."
+        let date = dateFormatter.date(from: (respVO.listResult?[0].openingTime)!)
+        
+        // To convert the date into an HH:mm format
+        dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+        var dateString = dateFormatter.string(from: date!)
+        print(dateString)
+        
+    self.openTimeString = dateString
+        
+        
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "HH:mm:ss."
+        let date1 = dateFormatter1.date(from: (respVO.listResult?[0].closingTime)!)
+        
+        // To convert the date into an HH:mm format
+        dateFormatter1.dateFormat = "hh:mm a" // or //h:mm a
+        var dateString1 = dateFormatter.string(from: date1!)
+        print(dateString1)
+        
+     self.closeTimeString = dateString1
+        
     self.contactNumberString = (respVO.listResult?[0].contactNumber == nil ? "" : respVO.listResult?[0].contactNumber)!
     self.mandalNameString = (respVO.listResult?[0].mandalName == nil ? "" : respVO.listResult?[0].mandalName)!
     self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
@@ -447,17 +471,34 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
                 
         }else if indexPath.row == 4 {
-                
+            
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "HH:mm:ss."
+//            let date = dateFormatter.date(from: openTimeString)
+//
+//            // To convert the date into an HH:mm format
+//            dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+//            let dateString = dateFormatter.string(from: date!)
+//            print(dateString)
+
         cell1.infoLabel.text = "Opening Time".localize()
                 
-                
         cell1.addressLabel.text = openTimeString
+            
                 
                
         }else if indexPath.row == 5 {
             
-            cell1.infoLabel.text = "Closing Time".localize()
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "HH:mm:ss."
+//            let date = dateFormatter.date(from: closeTimeString)
+//
+//            // To convert the date into an HH:mm format
+//            dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+//            let dateString = dateFormatter.string(from: date!)
+//            print(dateString)
             
+            cell1.infoLabel.text = "Closing Time".localize()
             
             cell1.addressLabel.text = closeTimeString
             
@@ -590,7 +631,7 @@ self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok
                 
         }else if indexPath.row == 3 {
                 
-        cell2.infoLabel.text = "Date Of Birth".localize()
+        cell2.infoLabel.text = "Date of Birth".localize()
         
     
         let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString : dobString)

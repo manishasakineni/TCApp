@@ -463,36 +463,36 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
         
-//        if churchIdMonthYearList.churchName  != nil {
-//            if let churchName = churchIdMonthYearList.churchName {
-//                listOfMonthEventCell.churchName.text = churchName
-//                listOfMonthEventCell.churchANDAuthorName.text = "Church Name".localize()
-//
-//
-//            }else{
-//                listOfMonthEventCell.churchName.text = ""
-//            }
-//        }
-//        else if churchIdMonthYearList.authorName != nil {
-//
-//            if let authorName =  churchIdMonthYearList.authorName {
-//
-//                listOfMonthEventCell.churchName.text = authorName
-//               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
-//                 listOfMonthEventCell.churchANDAuthorName.text = "Author Name".localize()
-//
-//            }else{
-//                listOfMonthEventCell.churchName.text = ""
-//               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
-//            }
-//        }
-//        else{
-//            listOfMonthEventCell.churchName.text = ""
-//
-//        }
+        if churchIdMonthYearList.churchName  != nil {
+            if let churchName = churchIdMonthYearList.churchName {
+                listOfMonthEventCell.churchName.text = churchName
+                listOfMonthEventCell.infoChurchName.text = "Church Name".localize()
+
+
+            }else{
+                listOfMonthEventCell.churchName.text = ""
+            }
+        }
+        else if churchIdMonthYearList.authorName != nil {
+
+            if let authorName =  churchIdMonthYearList.authorName {
+
+                listOfMonthEventCell.churchName.text = authorName
+               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                 listOfMonthEventCell.infoChurchName.text = "Pastor Name".localize()
+
+            }else{
+                listOfMonthEventCell.churchName.text = ""
+               // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+            }
+        }
+        else{
+            listOfMonthEventCell.churchName.text = ""
+
+        }
         
-        listOfMonthEventCell.churchName.text = churchIdMonthYearList.churchName == "" ? "" :  churchIdMonthYearList.churchName
-        listOfMonthEventCell.authorName.text = churchIdMonthYearList.authorName == "" ? "" :  churchIdMonthYearList.authorName
+//        listOfMonthEventCell.churchName.text = churchIdMonthYearList.churchName == "" ? "" :  churchIdMonthYearList.churchName
+//        listOfMonthEventCell.authorName.text = churchIdMonthYearList.authorName == "" ? "" :  churchIdMonthYearList.authorName
         
         if  churchIdMonthYearList.title != nil {
             if let eventName =  churchIdMonthYearList.title {

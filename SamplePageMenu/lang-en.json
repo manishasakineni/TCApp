@@ -88,7 +88,7 @@
     "Address": "Address",
     "Church Author": "Church Author",
     "Map": "Map",
-    "Date Of Birth": "Date Of Birth",
+    "Date of Birth": "Date of Birth",
     "Registration Number": "Registration Number",
     "Name": "Name",
     
@@ -308,6 +308,7 @@
     "Opening Time" : "Opening Time",
     "Closing Time" : "Closing Time",
     "Pastor Email" : "Pastor Email",
-    "Church Address" : "Church Address"
+    "Church Address" : "Church Address",
+    "Add a public reply..." : "Add a public reply..."
     
 }

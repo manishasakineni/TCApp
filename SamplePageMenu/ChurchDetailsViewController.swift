@@ -526,6 +526,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
           
             
+            print(result)
+            
             let isSuccess = respVO.isSuccess
             
             print("StatusCode:\(String(describing: isSuccess))")
@@ -663,8 +665,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
             cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
             cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
-            cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
-            cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
+            cell.stateLbl.text       = listStr.mandalName == nil ? "" :  listStr.mandalName
+            cell.mandalLbl.text      = listStr.stateName == nil ? "" :  listStr.stateName
             cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
             cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
             
@@ -714,10 +716,34 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
                 cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
                 cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
-                cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
-                cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
+                cell.stateLbl.text       = listStr.mandalName == nil ? "" :  listStr.mandalName
+                cell.mandalLbl.text      = listStr.stateName == nil ? "" :  listStr.stateName
                 cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
-                cell.timeLabel.text     = listStr.openingTime! + " - " + listStr.closingTime!
+                
+//                cell.timeLabel.text = amAppend(str: listStr.openingTime!) + " - " + amAppend(str: listStr.closingTime!)
+                
+                
+               // cell.timeLabel.text     = listStr.openingTime! + " - " + listStr.closingTime!
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm:ss."
+                let date = dateFormatter.date(from: listStr.openingTime!)
+                
+                // To convert the date into an HH:mm format
+                dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+                let dateString = dateFormatter.string(from: date!)
+                print(dateString)
+                
+                let dateFormatter1 = DateFormatter()
+                dateFormatter1.dateFormat = "HH:mm:ss."
+                let date1 = dateFormatter1.date(from: listStr.closingTime!)
+                
+                // To convert the date into an HH:mm format
+                dateFormatter1.dateFormat = "hh:mm a" // or //h:mm a
+                let dateString1 = dateFormatter1.string(from: date1!)
+                print(dateString1)
+                
+                cell.timeLabel.text = dateString + " - " + dateString1
                 
   
         let imgUrl = listStr.churchImage

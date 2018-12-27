@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
 		3504633421C765C500A329F0 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3504633321C765C500A329F0 /* SwiftLanguage.pdf */; };
-		3513646921D2736A00986D09 /* ChurchEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513646721D2736800986D09 /* ChurchEventsListVO.swift */; };
-		3513646A21D2736A00986D09 /* ChurchEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513646821D2736900986D09 /* ChurchEventsVO.swift */; };
 		352D0AA021D3983B00A6622C /* ChurchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */; };
 		352D0AA121D3983B00A6622C /* ChurchesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352D0A9F21D3983B00A6622C /* ChurchesCollectionViewCell.xib */; };
 		352F87DB206F6DF5006867BD /* MyStringItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F87DA206F6DF5006867BD /* MyStringItemSource.swift */; };
@@ -118,6 +116,8 @@
 		3DEF9133206CB15D0068BAC2 /* ChurchAuthorSubscriptionResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF9132206CB15D0068BAC2 /* ChurchAuthorSubscriptionResultVO.swift */; };
 		88C967D021D243F0004FF0BA /* AuthorEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C967CF21D243F0004FF0BA /* AuthorEventsVO.swift */; };
 		88C967D221D24597004FF0BA /* AuthorEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C967D121D24597004FF0BA /* AuthorEventsListVO.swift */; };
+		88DD971821D495AA006A0FE8 /* ChurchEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD971621D495A9006A0FE8 /* ChurchEventsListVO.swift */; };
+		88DD971921D495AA006A0FE8 /* ChurchEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD971721D495AA006A0FE8 /* ChurchEventsVO.swift */; };
 		9A058AF92021E184005A611C /* RegisterResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A058AF82021E184005A611C /* RegisterResultVo.swift */; };
 		9A058AFB2021F395005A611C /* LoginVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A058AFA2021F394005A611C /* LoginVo.swift */; };
 		9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */; };
@@ -452,8 +452,6 @@
 		3504633321C765C500A329F0 /* SwiftLanguage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwiftLanguage.pdf; sourceTree = "<group>"; };
 		3513646321D25D0300986D09 /* AuthorEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsListVO.swift; sourceTree = "<group>"; };
 		3513646421D25D0400986D09 /* AuthorEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsVO.swift; sourceTree = "<group>"; };
-		3513646721D2736800986D09 /* ChurchEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsListVO.swift; path = ../../ChurchEventsListVO.swift; sourceTree = "<group>"; };
-		3513646821D2736900986D09 /* ChurchEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChurchEventsVO.swift; path = ../../ChurchEventsVO.swift; sourceTree = "<group>"; };
 		352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesCollectionViewCell.swift; sourceTree = "<group>"; };
 		352D0A9F21D3983B00A6622C /* ChurchesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChurchesCollectionViewCell.xib; sourceTree = "<group>"; };
 		352F87DA206F6DF5006867BD /* MyStringItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStringItemSource.swift; sourceTree = "<group>"; };
@@ -568,6 +566,8 @@
 		3DEF9132206CB15D0068BAC2 /* ChurchAuthorSubscriptionResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchAuthorSubscriptionResultVO.swift; sourceTree = "<group>"; };
 		88C967CF21D243F0004FF0BA /* AuthorEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsVO.swift; sourceTree = "<group>"; };
 		88C967D121D24597004FF0BA /* AuthorEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsListVO.swift; sourceTree = "<group>"; };
+		88DD971621D495A9006A0FE8 /* ChurchEventsListVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChurchEventsListVO.swift; path = ../../../Downloads/ChurchEventsListVO.swift; sourceTree = "<group>"; };
+		88DD971721D495AA006A0FE8 /* ChurchEventsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChurchEventsVO.swift; path = ../../../Downloads/ChurchEventsVO.swift; sourceTree = "<group>"; };
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
 		9A058AF82021E184005A611C /* RegisterResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResultVo.swift; sourceTree = "<group>"; };
 		9A058AFA2021F394005A611C /* LoginVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVo.swift; sourceTree = "<group>"; };
@@ -1383,9 +1383,9 @@
 				9A623B8120219B8700A674F2 /* MapperVO */,
 				35B3FA0121CD558800640DA7 /* ContactUsVO.swift */,
 				3513646321D25D0300986D09 /* AuthorEventsListVO.swift */,
-				3513646721D2736800986D09 /* ChurchEventsListVO.swift */,
-				3513646821D2736900986D09 /* ChurchEventsVO.swift */,
 				3513646421D25D0400986D09 /* AuthorEventsVO.swift */,
+				88DD971621D495A9006A0FE8 /* ChurchEventsListVO.swift */,
+				88DD971721D495AA006A0FE8 /* ChurchEventsVO.swift */,
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* Get&PostServiceController */,
 				3D61F3EE205AB4E30022C117 /* CAPSPageMenu */,
@@ -2831,7 +2831,6 @@
 				CB3794EA20595870002D3638 /* homeCategoriesCollectionCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
 				3D5404F42058045A008257A6 /* AuthorDetailsViewController.swift in Sources */,
-				3513646A21D2736A00986D09 /* ChurchEventsVO.swift in Sources */,
 				359CC9322062874D0061450A /* BibleBooksTableViewCell.swift in Sources */,
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
@@ -2894,6 +2893,7 @@
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF0F0D2320AD7A1A00AE9BD9 /* GetCartInfoVO.swift in Sources */,
 				AF09007920EA59DD00BACB25 /* LikeResultVO.swift in Sources */,
+				88DD971921D495AA006A0FE8 /* ChurchEventsVO.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				AF10F94820F88965006EA5D0 /* EventCommRepliesVO.swift in Sources */,
@@ -2939,7 +2939,6 @@
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
 				CB1F74CB205F7D6200FDEE8D /* AudioViewController.swift in Sources */,
 				CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */,
-				3513646921D2736A00986D09 /* ChurchEventsListVO.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
 				AF2EB52E206DFCB6009B3B75 /* BibleDetailsCellIResultVo.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
@@ -2985,6 +2984,7 @@
 				CB3794E620595867002D3638 /* homeCategoriesCell.swift in Sources */,
 				AF2396F120A561DE00B0320D /* ForgotPswdVO.swift in Sources */,
 				AF202EC020D25F2B00CA505D /* UIBarButtonItem+Badge.m in Sources */,
+				88DD971821D495AA006A0FE8 /* ChurchEventsListVO.swift in Sources */,
 				AF91F13020AB05820050A938 /* JobApplyVO.swift in Sources */,
 				CB59262821B137A900E2247C /* iOSDevCenters+GIF.swift in Sources */,
 				3DD30F61205FE4050076B0DB /* EventDetailsListResultVO.swift in Sources */,

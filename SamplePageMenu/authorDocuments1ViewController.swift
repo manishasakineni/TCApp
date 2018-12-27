@@ -71,7 +71,7 @@ class authorDocumentsViewController: UIViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-        return 150
+        return 176
     }
     
     

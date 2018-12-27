@@ -86,7 +86,7 @@
     "Address": "చిరునామా",
     "Church Author": "చర్చి రచయిత",
     "Map": "చిహ్నం",
-    "Date Of Birth": "పుట్టిన తేది",
+    "Date of Birth": "పుట్టిన తేది",
     "Registration Number": "నమోదు సంఖ్య",
     
     "Name": "పేరు",
@@ -304,7 +304,9 @@
     "Opening Time" : "ప్రారంభ సమయం",
     "Closing Time" : "ముగింపు సమయం",
     "Pastor Email" : "పాస్టర్ ఇమెయిల్",
-    "Church Address" : "చర్చి చిరునామా"
+    "Church Address" : "చర్చి చిరునామా",
+    "Add a public reply..." : "పబ్లిక్ ప్రత్యుత్తరాన్ని జోడించు ..."
+
 
 
     
