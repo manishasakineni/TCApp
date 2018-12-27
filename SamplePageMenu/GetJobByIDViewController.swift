@@ -222,7 +222,7 @@ class GetJobByIDViewController: UIViewController,UITableViewDataSource,UITableVi
                     
                     
                 signUPCell.jobIDDetailsLabel.text = adminname
-                signUPCell.jobIDNameLabel.text = "Admin Name".localize()
+                signUPCell.jobIDNameLabel.text = "Pastor Name".localize()
                 
      //   }
             }

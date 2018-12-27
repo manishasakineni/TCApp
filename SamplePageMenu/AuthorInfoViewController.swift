@@ -171,7 +171,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
         }else if section == 2 {
             
-            return 8
+            return 9
             
         }
       
@@ -382,13 +382,19 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 }else if indexPath.row == 2 {
                     
+                    cell3.infoLabel.text = "Church Address".localize()
+                    
+                    cell3.addressLabel.text =  authorDetails.churchAddress == nil ? "" :  authorDetails.churchAddress
+                    
+                }else if indexPath.row == 3 {
+                    
                     cell3.infoLabel.text = "Village".localize()
                     
                     cell3.addressLabel.text = authorDetails.villageName == nil ? "" :  authorDetails.villageName
                     
                 }
                     
-                else if indexPath.row == 3 {
+                else if indexPath.row == 4 {
                     
                     cell3.infoLabel.text = "Mandal".localize()
                     
@@ -397,7 +403,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 }
                     
-            else if indexPath.row == 4 {
+            else if indexPath.row == 5 {
                 
                 cell3.infoLabel.text = "District".localize()
                 
@@ -406,7 +412,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 
             }
                 
-                else if indexPath.row == 5 {
+                else if indexPath.row == 6 {
                     
                     cell3.infoLabel.text = "State".localize()
                     
@@ -415,7 +421,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         
                 }
                     
-                else if indexPath.row == 6 {
+                else if indexPath.row == 7 {
                     
                     cell3.infoLabel.text = "Country".localize()
                     
@@ -424,7 +430,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                 }
                     
-                else if indexPath.row == 7 {
+                else if indexPath.row == 8 {
                     
                     cell3.infoLabel.text = "Pin Code".localize()
                     

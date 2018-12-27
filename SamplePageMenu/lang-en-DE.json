@@ -7,7 +7,7 @@
     "Login": "Login",
     "Choose Language(భాషను ఎంచుకోండి)": "Choose Language (భాషను ఎంచుకోండి)",
     "Telugu Churches": "Telugu Churches",
-    "UpComing Events": "UPCOMING EVENTS",
+    "Upcoming Events": "Upcoming Events",
     
     
     "User Name*": "User Name*",
@@ -110,7 +110,7 @@
     "End Date": "End Date",
     "Start Date": "Start Date",
     "Event Title": "Event Title:",
-    "ALL EVENTS": "ALL EVENTS",
+    "All Events": "All Events",
     "Event Name:": "Event Name",
     "Event Name": "Event Name",
     "Event Date:": "Event Date",
@@ -299,7 +299,9 @@
     "Website Address" : "Website Address",
     "Opening Time" : "Opening Time",
     "Closing Time" : "Closing Time",
-    "Pastor Email" : "Pastor Email"
+    "Pastor Email" : "Pastor Email",
+    "Church Address" : "Church Address"
+
     
     
     

@@ -56,13 +56,12 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
 private func createPageMenu() {
     
     upConingEventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as? UpConingEventInfoViewController
-        upConingEventInfoVC?.title = "UpComing Events".localize()
+        upConingEventInfoVC?.title = "Upcoming Events".localize()
         upConingEventInfoVC?.delegate  = self
-    
     
     allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as? AllEventsViewController
         
-        allEventsVC?.title = "ALL EVENTS".localize()
+        allEventsVC?.title = "All Events".localize()
         allEventsVC?.delegate  = self
         
         controllersArray.append(upConingEventInfoVC!)
@@ -71,7 +70,7 @@ private func createPageMenu() {
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)),
-                                                 CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 11.0)!),
+                                                 CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 13.0)!),
                                                  CAPSPageMenuOption.menuHeight(36),
                                                  CAPSPageMenuOption.centerMenuItems(true),
                                                  CAPSPageMenuOption.selectedMenuItemLabelColor(UIColor.black),

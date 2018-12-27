@@ -5,7 +5,7 @@
     "Login": "లాగిన్",
     "Choose Language(భాషను ఎంచుకోండి)": "భాషను ఎంచుకోండి (Choose Language)",
     "Telugu Churches": "తెలుగు చర్చిలు",
-    "UpComing Events": "రాబోయే ఈవెంట్స్",
+    "Upcoming Events": "రాబోయే ఈవెంట్స్",
     
     "User Name*": "వాడుకరి పేరు*",
     "User Name": "వాడుకరి పేరు",
@@ -117,7 +117,7 @@
     "End Date": "ఆఖరి తేది",
     "Start Date": "ప్రారంబపు తేది",
     "Event Title": "ఈవెంట్ శీర్షిక",
-    "ALL EVENTS": "అన్ని కార్యక్రమాలు",
+    "All Events": "అన్ని కార్యక్రమాలు",
     "  Events": "  ఈవెంట్స్",
     "contact Number:": "సంఖ్య సంప్రదించండి:",
     "StartDate EndDate:": "ప్రారంభ తేదీ ముగింపు తేదీ",
@@ -303,8 +303,8 @@
     "Website Address" : "వెబ్సైట్ చిరునామా",
     "Opening Time" : "ప్రారంభ సమయం",
     "Closing Time" : "ముగింపు సమయం",
-    "Pastor Email" : "పాస్టర్ ఇమెయిల్"
-
+    "Pastor Email" : "పాస్టర్ ఇమెయిల్",
+    "Church Address" : "చర్చి చిరునామా"
 
 
     
