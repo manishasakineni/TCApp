@@ -24,8 +24,12 @@ class ForgotPasswordCell: UITableViewCell {
         // Initialization code
         
         
-       eyeButtonOutlet.isHidden = true
-
+        eyeButtonOutlet.isHidden = true
+        
+        resetPasswordTF.clearsOnBeginEditing = false
+        
+        resetPasswordTF.clearsOnInsertion = false
+    
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -42,4 +46,30 @@ class ForgotPasswordCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    
 }
+
+class resetPasswordTF: UITextField {
+    
+    override var isSecureTextEntry: Bool {
+        didSet {
+            if isFirstResponder {
+                _ = becomeFirstResponder()
+            }
+        }
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        
+        let success = super.becomeFirstResponder()
+        if isSecureTextEntry, let text = self.text {
+            self.text?.removeAll()
+            insertText(text)
+        }
+        return success
+    }
+    
+}
+
+

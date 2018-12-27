@@ -81,6 +81,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if activeTextField.tag == 0 {
             
+            textField.text = oldPassWordString
             textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
@@ -90,6 +91,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 1 {
             
+            textField.text = newPassWordString
             textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
@@ -97,13 +99,13 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             textField.rightViewMode = .always
             textField.rightView = PwButton
-
             textField.setLeftPaddingPoints(4)
 
 
         }
         else if activeTextField.tag == 2 {
             
+            textField.text = confirmPassWordString
             textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
@@ -117,17 +119,14 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-            
-            
-
-            
+    
         }
         return true
     }
 
   //MARK: -   textField should Change Characters In range
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
@@ -135,11 +134,15 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let indexPath = IndexPath.init(row: textField.tag, section: 0)
         if let forgotPasswordCell = forgotPasswordTableView.cellForRow(at: indexPath) as? ForgotPasswordCell {
+            
             forgotPasswordCell.eyeButtonOutlet.isHidden = false
             //forgotPasswordCell.eyeButtonOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
             if let text = forgotPasswordCell.resetPasswordTF.text,
                 let textRange = Range(range, in: text) {
                 let updatedText = text.replacingCharacters(in: textRange, with: string)
+                
+               
+
                 
                 if updatedText.count == 0 {
                     

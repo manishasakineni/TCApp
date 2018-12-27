@@ -918,6 +918,8 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         self.navigationController?.popViewController(animated: true)
         
+        Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
 
     }
     

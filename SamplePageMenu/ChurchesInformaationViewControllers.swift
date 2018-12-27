@@ -158,6 +158,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
     let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "" , backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
         self.navigationController?.popViewController(animated: true)
         print("Back Button Clicked......")
         

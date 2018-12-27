@@ -95,6 +95,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var commentsCount = 0
     var replyCountArray = Array<Any>()
     var loginUseridsArray = Array<Int>()
+    var replayMainCommentUserID = 0
    // var readMoreBtnIsHidden = true
     
    var comentId = 0
@@ -524,49 +525,50 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if tableView == repliesTableView {
+            if tableView == repliesTableView {
             
-        return 2
+                return 2
             
-        }
+            }
         
-        else {
+            else {
         
-        return 4
+                return 4
             
-        }
+            }
             
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-       if tableView == repliesTableView{
+        if tableView == repliesTableView {
         
-        if section == 0 {
+            if section == 0 {
         
-            return 2
-        }
+                return 1
+            }
         
-        else {
+            else  {
         
-           return self.repliesCommentsArray.count
-        }
+                return self.repliesCommentsArray.count
+            }
         
         }
         
        else {
-        if section == 3 {
+        
+            if section == 3 {
             
-            return usersCommentsArray.count
-        }
+                return usersCommentsArray.count
+            }
        
-         else  {
+            else  {
             
-        return 1
+                return 1
             
+            }
         }
-    }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -583,24 +585,23 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
         else {
             
-        if indexPath.section == 0  {
+            if indexPath.section == 0  {
         
-        return 90
+                return 90
             
-        }
+                }
             
-        if indexPath.section == 1  {
+            if indexPath.section == 1  {
             
-            return 0
+                return 0
             
-        }
+                }
 
-        else {
-        
-        
-        return UITableViewAutomaticDimension
+            else {
             
-        }
+                return UITableViewAutomaticDimension
+            
+                }
         
         }
         
@@ -613,10 +614,15 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         if tableView == repliesTableView {
          
             if section == 0 {
-        return 40
+                
+                return 40
+            }
+            else {
+                return 0
+            }
+        }
         
-        }
-        }
+        
         return 0
     }
     
@@ -627,15 +633,16 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             if section == 0 {
      
-        let allRepliesHeaderTVCell = self.repliesTableView.dequeueReusableCell(withIdentifier: "AllRepliesHeaderTVCell") as! AllRepliesHeaderTVCell
+                let allRepliesHeaderTVCell = self.repliesTableView.dequeueReusableCell(withIdentifier: "AllRepliesHeaderTVCell") as! AllRepliesHeaderTVCell
             
-            allRepliesHeaderTVCell.repliesCloseBtn.addTarget(self, action: #selector(repliesCloseBtnClicked), for: .touchUpInside)
-            allRepliesHeaderTVCell.backgroundColor = #colorLiteral(red: 0.9999127984, green: 1, blue: 0.9998814464, alpha: 1)
-            allRepliesHeaderTVCell.repliesCloseBtn = buttonnn
+                allRepliesHeaderTVCell.repliesCloseBtn.addTarget(self, action: #selector(repliesCloseBtnClicked), for: .touchUpInside)
+                allRepliesHeaderTVCell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                allRepliesHeaderTVCell.repliesCloseBtn = buttonnn
             
-            return allRepliesHeaderTVCell
+                return allRepliesHeaderTVCell
                 
             }
+            
 
         }
     
@@ -649,34 +656,37 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             if indexPath.section == 0 {
             
-                if indexPath.row == 0{
+                
                 
                     let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
                     
-                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                    usersCommentsTableViewCell.replyCommentBtn.isHidden = true
+                    usersCommentsTableViewCell.editCommentBn.isHidden   = true
+                    usersCommentsTableViewCell.replayCountLbl.text = ""
                     usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
                     
                     usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
                     usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+    
                   
-                if replyCountArray.count > 0{
-                        
-                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
-                    }
-                    
-                else {
-                        
-                        usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                        usersCommentsTableViewCell.editCommentBn.isHidden = true
-                        usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
-                        usersCommentsTableViewCell.replayCountLbl.text = ""
-                    }
+//                if replyCountArray.count > 0{
+//
+//                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+//                    }
+//
+//                else {
+//
+//                        usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//                        usersCommentsTableViewCell.editCommentBn.isHidden = true
+//                        usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+//                        usersCommentsTableViewCell.replayCountLbl.text = ""
+//                    }
 
                     return usersCommentsTableViewCell
-                }
                 
-                else {
+                
+               
                 
 //                  let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
 //                    
@@ -700,7 +710,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 //                    
 //                    return commentsCell
                 
-                }
+         
             
             }
         
@@ -708,17 +718,19 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
            
-                usersCommentsTableViewCell.usersCommentLbl.text = self.repliesCommentsArray[indexPath.row] as? String
-                usersCommentsTableViewCell.usersNameLbl.text = self.repliesCommentsUsernamesArray[indexPath.row] as? String
-                usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replyCommentBtn.isHidden = true
-                usersCommentsTableViewCell.editCommentBn.isHidden = true
-                usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                usersCommentsTableViewCell.replayCountLbl.isHidden  = true
+                usersCommentsTableViewCell.usersCommentLbl.text     = self.repliesCommentsArray[indexPath.row] as? String
+                usersCommentsTableViewCell.usersNameLbl.text        = self.repliesCommentsUsernamesArray[indexPath.row] as? String
+                
+               
+                usersCommentsTableViewCell.usersLikeBtn.tintColor    = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
-                usersCommentsTableViewCell.replayCountLbl.text = ""
+                usersCommentsTableViewCell.replayCountLbl.text       = ""
 
+               
                 return usersCommentsTableViewCell
             }
             
@@ -726,35 +738,33 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
         else {
             
-        if indexPath.section == 0 {
+            if indexPath.section == 0 {
             
            
-            let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
+                let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
-            if likeClick == true{
+                if likeClick == true{
                 
-            youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-           
+                    youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+                }
+                    
+                else {
                 
+                    youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            
+            
             }
-            else {
-                
-            youtubeCLDSSCell.likeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             
             
-            }
-            
-            
-            if disLikeClick == true{
+                if disLikeClick == true{
                 
-                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-               
+                    youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+                    
+                }
                 
-            }
-                
-            else {
+                else {
 
-                youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    youtubeCLDSSCell.unlikeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
                 
             }
             
@@ -900,14 +910,14 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
             if replyCount > 0{
                 
-            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-            usersCommentsTableViewCell.replayCountLbl.text = String(replyCount)
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                usersCommentsTableViewCell.replayCountLbl.text = String(replyCount)
             }
                 
             else{
-            
-            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-            usersCommentsTableViewCell.replayCountLbl.text = ""
+                
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.replayCountLbl.text = ""
             }
             
         usersCommentsTableViewCell.usersLikeBtn.addTarget(self, action: #selector(usersLikeBtnClick), for: UIControlEvents.touchUpInside)
@@ -919,13 +929,14 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             if self.ID == self.loginUseridsArray[indexPath.row]{
                 
                 usersCommentsTableViewCell.buttonImgOutLet.isHidden = false
-    
-        usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
+                usersCommentsTableViewCell.editCommentBn.isHidden = false
+                usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
             }
             else{
                 
                 usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
                // usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.editCommentBn.isHidden = true
             }
         
            
@@ -957,8 +968,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         
 
         if tableView == repliesTableView {
-            
-            
+     
         }
             
         else {
@@ -1493,7 +1503,7 @@ func  unLikeButtonClick(_ sendre:UIButton) {
         popupview.isHidden = false
         secondview.isHidden = false
         
-        textviewOutLet.text = "Add a public comment...".localize()
+        textviewOutLet.text = "Add a public replay...".localize()
         textviewOutLet.textColor = UIColor.lightGray
 
         self.parentCommentId = self.commentingIdArray[sender.tag]
@@ -1538,19 +1548,16 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
             if let usersCommentsTableViewCell = allOffersTableView.cellForRow(at: indexPath) as? UsersCommentsTableViewCell {
                 
-                self.replyMainComment = self.usersCommentsArray[sender.tag] as! String
-                self.replyMainCommentUser = self.CommentsByUserArray[sender.tag] as! String
-                commentIdNum = self.commentingIdArray[sender.tag]
+                self.replyMainComment        = self.usersCommentsArray[sender.tag] as! String
+                self.replyMainCommentUser    = self.CommentsByUserArray[sender.tag] as! String
+                self.replayMainCommentUserID = self.loginUseridsArray[sender.tag]
+                commentIdNum                 = self.commentingIdArray[sender.tag]
                 
             }
-            
-            
-            
+
             self.repliesCommentsUsernamesArray.removeAll()
             self.repliesCommentsArray.removeAll()
-            
-            
-            
+  
             if((replyDetails.count) > 0){
                 
                 for eachComment in replyDetails{
@@ -1565,6 +1572,8 @@ func  unLikeButtonClick(_ sendre:UIButton) {
                         if let commentByUser = eachComment.commentByUser{
                             self.repliesCommentsUsernamesArray.append(commentByUser)
                         }
+                        
+                        
                     }
                     
                     
@@ -1572,11 +1581,6 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             }
             self.allOffersTableView.endEditing(true)
             self.repliesTableView.reloadData()
-            
-            
-
-
-            
             self.allOffersTableView.endEditing(true)
             
         //   self.getViewAllCommentsAPICall(tag: sender.tag)
@@ -1679,16 +1683,12 @@ func  unLikeButtonClick(_ sendre:UIButton) {
     
 func editCommentBnClicked(sender : UIButton){
         
-
-        
-        if  self.ID == self.loginUseridsArray[sender.tag]{
+        if  self.ID == self.loginUseridsArray[sender.tag] {
 
             self.editUserID = self.commentingIdArray[sender.tag]
 
             self.comentId = self.commentingIdArray[sender.tag]
-        
 
-        
             let userCommentString = self.usersCommentsArray[sender.tag] as! String
 
             let actionSheet = UIAlertController(title: nil, message: "Select".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)

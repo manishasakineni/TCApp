@@ -78,6 +78,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var y = 1
     
+    var z = 1
+    
     var loginVC = LoginViewController()
     
     var userId :  Int = 0
@@ -185,22 +187,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let autoScrollImagesCell  = UINib(nibName: "AutoScrollImagesCell" , bundle: nil)
         categorieTableView.register(autoScrollImagesCell, forCellReuseIdentifier: "AutoScrollImagesCell")
-        
-        
-        
-       
-        
-        self.navigationController?.navigationBar.barTintColor = Utilities.appColor
-        self.navigationItem.title = "Telugu Churches".localize()
-        self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+
   
         print(kLoginSucessStatus)
-        
-        
-        
+
         if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
             print(loginSucess)
             //      self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
@@ -246,6 +236,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         super.viewWillAppear(animated)
         
+        
+        if #available(iOS 11.0, *) {
+            
+            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        }
+        
+        self.navigationController?.navigationBar.barTintColor = Utilities.appColor
+        self.navigationItem.title = "Telugu Churches".localize()
+        self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let textAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
             
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
@@ -262,16 +264,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         else{
             
             self.bannerScrollHeight.constant = 300
-            
         }
+        
         self.cagegoriesArray.removeAll()
         self.getAllCategoriesAPICall()
         self.getChurchesAPICall()
-        
-        if #available(iOS 11.0, *) {
-            
-            searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
-        }
+
 
        toolPopupLbl.text = "Click here for Menu"
        
@@ -1137,12 +1135,31 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         return UITableViewCell()
         
     }
+  
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == (cagegoriesArray.count) - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                PageIndex = PageIndex + 1
+                
+                // getAllCategoriesAPICall()
+                
+                
+                
+            }
+        }
+    }
 
+    
     func scrollAutomatically(_ timer1: Timer) {
         
         let indexPath : IndexPath = IndexPath(row: 1, section: 0)
-        
-        
+
         if let autoScrollImagesCell : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath) as? AutoScrollImagesCell {
             
             if self.y < self.eventImageArray.count {
@@ -1161,29 +1178,34 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.y = 0
                 autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
             }
-            
-            
-            
-            
+   
         }
-    }
-    
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        let indexPath0 : IndexPath = IndexPath(row: 0, section: 0)
         
-        if indexPath.row == (cagegoriesArray.count) - 1 {
+        if let autoScrollImagesCell0 : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath0) as? AutoScrollImagesCell {
             
-            if(self.totalPages! > PageIndex){
+            if self.z < self.churchDetailsArray.count {
                 
-                PageIndex = PageIndex + 1
+                let newIndexPath0 = IndexPath(item: z, section: 0)
+                print("Test")
+                print(z)
+                print(self.churchDetailsArray.count)
+                autoScrollImagesCell0.autoScrollCollectionView.scrollToItem(at: newIndexPath0, at: .left, animated: true)
                 
-                // getAllCategoriesAPICall()
-                
-                
-                
+                z = (churchDetailsArray.count - 1 > z) ? (z + 1) : 0
             }
+                
+            else {
+                
+                self.z = 0
+                autoScrollImagesCell0.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
+            }
+   
+            
         }
+        
+        
     }
     
     //MARK: -   Banner Animation
@@ -1383,7 +1405,27 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
             cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
             cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
-            cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
+           // cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss."
+            let date = dateFormatter.date(from: listStr.openingTime!)
+            
+            // To convert the date into an HH:mm format
+            dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+            let dateString = dateFormatter.string(from: date!)
+            print(dateString)
+            
+            let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateFormat = "HH:mm:ss."
+            let date1 = dateFormatter1.date(from: listStr.closingTime!)
+            
+            // To convert the date into an HH:mm format
+            dateFormatter1.dateFormat = "hh:mm a" // or //h:mm a
+            let dateString1 = dateFormatter1.string(from: date1!)
+            print(dateString1)
+            
+            cell.timeLabel.text = dateString + " - " + dateString1
             
             let imgUrl = listStr.churchImage
             
@@ -1429,7 +1471,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
-
             cell.eventDateLabel.text = startAndEndDate1
             
             let startAndEndDate2 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
@@ -1446,9 +1487,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
             
         }
-        
-
-
+            
         else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
@@ -1528,6 +1567,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 
                 self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
+                
             }
             
         }
@@ -1577,12 +1617,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if collectionView.tag  == 0 {
             
-            return CGSize(width: 300, height: 140)
+            return CGSize(width: self.view.frame.size.width, height: 140)
+    
         }
             
         else if collectionView.tag  == 1 {
             
-            return CGSize(width: 300, height: 200)
+            return CGSize(width: self.view.frame.size.width, height: 200)
         }
             
         else {
@@ -1631,6 +1672,22 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         return newDateStr + "," + newDateStr1
+    }
+    
+    
+    func dateFormatFrom24Hto12H(selectedString : String) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss."
+        let date = dateFormatter.date(from: selectedString)
+        
+        // To convert the date into an HH:mm format
+        dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
+        let dateString = dateFormatter.string(from: date!)
+        print(dateString)
+        
+        
+        return dateString
     }
     
    

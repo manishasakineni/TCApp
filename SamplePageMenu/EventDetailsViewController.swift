@@ -1695,6 +1695,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         UserDefaults.standard.synchronize()
         self.navigationController?.popViewController(animated: true)
         
+        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText:"", backTitle: " ".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
+        
         print("Back Button Clicked......")
         
     }
