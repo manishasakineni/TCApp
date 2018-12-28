@@ -9,7 +9,6 @@
 import Foundation
 class ChurchEventsListVO: Mappable {
     
-    
     //MARK:-  Declaration of ChurchEventsListVO
     
     var id : Int?

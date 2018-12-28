@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-Lb-ANM">
-                                <rect key="frame" x="0.0" y="95.5" width="136" height="18.5"/>
+                                <rect key="frame" x="5" y="96" width="126" height="19"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18.5" id="rVs-um-g2d"/>
@@ -39,20 +39,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
-                                <rect key="frame" x="5" y="5" width="126" height="88.5"/>
+                                <rect key="frame" x="5" y="5" width="126" height="88"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="2" id="9qb-Nh-usK"/>
+                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="1" id="9qb-Nh-usK"/>
                             <constraint firstAttribute="trailing" secondItem="oPC-5A-Fdq" secondAttribute="trailing" constant="5" id="D2o-ps-BV8"/>
-                            <constraint firstAttribute="bottom" secondItem="6yE-Lb-ANM" secondAttribute="bottom" constant="2" id="Q9F-29-Rth"/>
                             <constraint firstItem="oPC-5A-Fdq" firstAttribute="top" secondItem="4Vm-uU-ghy" secondAttribute="top" constant="5" id="VS8-X0-RKl"/>
-                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" id="abK-O5-wlA"/>
                             <constraint firstItem="oPC-5A-Fdq" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="5" id="dHc-Fq-f0F"/>
-                            <constraint firstAttribute="trailing" secondItem="6yE-Lb-ANM" secondAttribute="trailing" id="gNO-Du-Uy1"/>
-                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="2" id="xWe-on-dDe"/>
-                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" id="yvq-CW-HlM"/>
+                            <constraint firstAttribute="trailing" secondItem="6yE-Lb-ANM" secondAttribute="trailing" constant="5" id="gNO-Du-Uy1"/>
+                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="3" id="xWe-on-dDe"/>
+                            <constraint firstItem="6yE-Lb-ANM" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="5" id="yvq-CW-HlM"/>
                         </constraints>
                     </view>
                 </subviews>

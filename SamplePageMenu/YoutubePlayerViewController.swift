@@ -655,9 +655,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         if tableView == repliesTableView {
             
             if indexPath.section == 0 {
-            
-                
-                
+  
                     let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
                     
                     usersCommentsTableViewCell.viewCommentsBtn.isHidden = true

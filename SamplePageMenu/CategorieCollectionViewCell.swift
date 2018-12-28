@@ -23,7 +23,8 @@ class CategorieCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         
-        
+        nameLabel.adjustsFontSizeToFitWidth = false;
+        nameLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
         
         viewOutLet.layer.cornerRadius = 3.0
       //  viewOutLet.layer.shadowColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
