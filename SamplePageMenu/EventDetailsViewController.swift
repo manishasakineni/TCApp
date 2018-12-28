@@ -886,7 +886,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         if indexPath.row == 5 {
                 
-                informationTableViewCell.infoLabel.text = "Author Name".localize()
+                informationTableViewCell.infoLabel.text = "Pastor Name".localize()
                 
                 informationTableViewCell.addressLabel.text =  eventList.authorName
                 

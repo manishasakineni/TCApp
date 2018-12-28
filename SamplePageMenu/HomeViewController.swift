@@ -450,7 +450,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     
                 else {
                     
-                    self.showAlertViewWithTitle("Alert".localize(), message: endUserMsg!, buttonTitle: "Ok".localize())
+                    //self.showAlertViewWithTitle("Alert".localize(), message: endUserMsg!, buttonTitle: "Ok".localize())
                     
                 }
                 
@@ -691,6 +691,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         serviceController.postRequest(strURL: UPCOMMINGEVENTS as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
+            print(result)
             
             let respVO:UpcomingEventsInfoVO = Mapper().map(JSONObject: result)!
             
@@ -1465,7 +1466,36 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
             
-            cell.churchNameLabel.text = eventList.churchName
+            
+            if eventList.churchName  != nil {
+                if let churchName = eventList.churchName {
+                    cell.churchNameLabel.text = churchName
+                    cell.churchName.text = "Church Name".localize()
+                    
+                    
+                }else{
+                    cell.churchName.text = ""
+                }
+            }
+            else if eventList.authorName != nil {
+                
+                if let authorName =  eventList.authorName {
+                    
+                    cell.churchNameLabel.text = authorName
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                    cell.churchName.text = "Pastor Name".localize()
+                    
+                }else{
+                    cell.churchNameLabel.text = ""
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                }
+            }
+            else{
+                cell.churchNameLabel.text = ""
+                
+            }
+            
+            //cell.churchNameLabel.text = eventList.churchName
             cell.eventNameLabel.text = eventList.title
             cell.mobileNoLabel.text = eventList.contactNumber
             

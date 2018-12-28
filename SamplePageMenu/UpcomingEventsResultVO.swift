@@ -22,6 +22,7 @@ class UpcomingEventsResultVO: Mappable {
     var churchName : String?
     var registrationNumber : String?
     var contactNumber : String?
+    var authorName : String?
     
     var fileLocation : String?
     var fileName : String?
@@ -39,7 +40,7 @@ class UpcomingEventsResultVO: Mappable {
     //MARK:-  initialization of UpcomingEventsResultVO
     
     
-    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
+    init(id : Int?,title : String?,startDate : String?,endDate : String?,churchId : Int?,churchName : String?,registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, authorName : String?)
         
         
     {
@@ -63,6 +64,7 @@ class UpcomingEventsResultVO: Mappable {
         self.fileName = fileName
         self.fileExtention = fileExtention
         self.eventImage = eventImage
+        self.authorName = authorName
         
 
         
@@ -92,6 +94,7 @@ class UpcomingEventsResultVO: Mappable {
         fileName <- map["fileName"]
         fileExtention <- map["fileExtention"]
         eventImage <- map["eventImage"]
+        authorName <- map["authorName"]
         
 
         

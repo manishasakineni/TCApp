@@ -11,6 +11,7 @@ import UIKit
 class AutoScrollCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var churchName: UILabel!
     @IBOutlet weak var autoScrollImage: UIImageView!
     
     @IBOutlet weak var churchNameLabel: UILabel!
