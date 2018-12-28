@@ -249,6 +249,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         self.getViewAllCommentsAPICall(tag: 0)
         let responseVO:EventDetailsVO = Mapper().map(JSONObject: result)!
                 
+                print(result)
+                
         let isSuccess = responseVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
                 
@@ -573,7 +575,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if  section == 0 {
 
-            return 10
+            return 9
             
         }
             
@@ -878,29 +880,86 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
         if indexPath.row == 4 {
                 
-                informationTableViewCell.infoLabel.text = "Church Name".localize()
+//                informationTableViewCell.infoLabel.text = "Church Name".localize()
+//
+//                informationTableViewCell.addressLabel.text =  eventList.churchName
+            
+            if eventList.churchName  != nil {
+                if let churchName = eventList.churchName {
+                    informationTableViewCell.addressLabel.text = churchName
+                    informationTableViewCell.infoLabel.text = "Church Name".localize()
+                    
+                    
+                }else{
+                    informationTableViewCell.addressLabel.text = ""
+                }
+            }
+            else if eventList.mobileNumber != nil {
                 
-                informationTableViewCell.addressLabel.text =  eventList.churchName
+                if let authorName =  eventList.authorName {
+                    
+                    informationTableViewCell.addressLabel.text = authorName
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                    informationTableViewCell.infoLabel.text = "Pastor Name".localize()
+                    
+                }else{
+                    informationTableViewCell.addressLabel.text = ""
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                }
+            }
+            else{
+                informationTableViewCell.addressLabel.text = ""
                 
             }
+            
+            
+            }
+            
+//        if indexPath.row == 5 {
+//
+//                informationTableViewCell.infoLabel.text = "Pastor Name".localize()
+//
+//                informationTableViewCell.addressLabel.text =  eventList.authorName
+//
+//            }
             
         if indexPath.row == 5 {
                 
-                informationTableViewCell.infoLabel.text = "Pastor Name".localize()
+//            informationTableViewCell.infoLabel.text = "Contact Number".localize()
+//
+//            informationTableViewCell.addressLabel.text =  eventList.contactNumber
+            
+            if eventList.contactNumber  != nil {
+                if let contactNumber = eventList.contactNumber {
+                    informationTableViewCell.addressLabel.text = contactNumber
+                    informationTableViewCell.infoLabel.text = "Contact Number".localize()
+                    
+                    
+                }else{
+                    informationTableViewCell.addressLabel.text = ""
+                }
+            }
+            else if eventList.mobileNumber != nil {
                 
-                informationTableViewCell.addressLabel.text =  eventList.authorName
+                if let mobileNumber =  eventList.mobileNumber {
+                    
+                    informationTableViewCell.addressLabel.text = mobileNumber
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                    informationTableViewCell.infoLabel.text = "Mobile Number".localize()
+                    
+                }else{
+                    informationTableViewCell.addressLabel.text = ""
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                }
+            }
+            else{
+                informationTableViewCell.addressLabel.text = ""
                 
+            }
+            
             }
             
         if indexPath.row == 6 {
-                
-            informationTableViewCell.infoLabel.text = "Contact Number".localize()
-                
-            informationTableViewCell.addressLabel.text =  eventList.contactNumber
-                
-            }
-            
-        if indexPath.row == 7 {
                 
             informationTableViewCell.infoLabel.text = "Start Date".localize()
                 
@@ -909,7 +968,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             informationTableViewCell.addressLabel.text =  startAndEndDate1
             }
             
-        if indexPath.row == 8 {
+        if indexPath.row == 7 {
                 
             informationTableViewCell.infoLabel.text = "End Date".localize()
                 
@@ -919,7 +978,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
             
-        if indexPath.row == 9 {
+        if indexPath.row == 8 {
                 
                 informationTableViewCell.infoLabel.text = "Description".localize()
 

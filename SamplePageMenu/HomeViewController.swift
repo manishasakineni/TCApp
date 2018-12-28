@@ -354,7 +354,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             sender.tag = sender.tag + 1
             
             if(UIDevice.current.userInterfaceIdiom == .phone){
-                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: self.categorieTableView.frame.minY + 180 + 30, width: 111, height: 96)
+                popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: self.categorieTableView.frame.minY + 30, width: 111, height: 96)
             }else{
                 
                 popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 550, width: 111, height: 96)
@@ -362,7 +362,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
             
             popupsView.isHidden = false
-            toolPopupLbl.text = "Click here more Catagories"
+            toolPopupLbl.text = "Click here for more Churches"
 
             
             
@@ -1497,7 +1497,36 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             //cell.churchNameLabel.text = eventList.churchName
             cell.eventNameLabel.text = eventList.title
-            cell.mobileNoLabel.text = eventList.contactNumber
+            //cell.mobileNoLabel.text = eventList.contactNumber
+            
+            
+            if eventList.contactNumber  != nil {
+                if let contactNumber = eventList.contactNumber {
+                    cell.mobileNoLabel.text = contactNumber
+                    cell.mobileNumber.text = "Contact Number".localize()
+                    
+                    
+                }else{
+                    cell.mobileNoLabel.text = ""
+                }
+            }
+            else if eventList.mobileNumber != nil {
+                
+                if let mobileNumber =  eventList.mobileNumber {
+                    
+                    cell.mobileNoLabel.text = mobileNumber
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                    cell.mobileNumber.text = "Mobile Number".localize()
+                    
+                }else{
+                    cell.mobileNoLabel.text = ""
+                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                }
+            }
+            else{
+                cell.mobileNoLabel.text = ""
+                
+            }
             
             
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)

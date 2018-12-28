@@ -252,6 +252,7 @@
                 <outlet property="eventNameLabel" destination="jqD-sk-qos" id="T2O-H6-Tpt"/>
                 <outlet property="eventToLbl" destination="IeQ-6W-dMN" id="Fmr-xA-hFh"/>
                 <outlet property="mobileNoLabel" destination="bT6-y0-RJQ" id="aoN-n3-MSB"/>
+                <outlet property="mobileNumber" destination="toP-y5-Vnl" id="Ypa-4d-BMx"/>
             </connections>
             <point key="canvasLocation" x="177.5" y="158"/>
         </collectionViewCell>

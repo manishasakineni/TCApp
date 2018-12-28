@@ -11,6 +11,7 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -240,6 +241,7 @@
                 <outlet property="eventImage" destination="gUN-JE-lzc" id="lNc-IF-r58"/>
                 <outlet property="eventStart" destination="DpD-F8-ePp" id="wJP-mn-xrZ"/>
                 <outlet property="eventTitle" destination="Gic-0p-tP9" id="oTH-Bi-hdY"/>
+                <outlet property="infoContactNumber" destination="ufa-ia-HsA" id="8mn-gj-kTe"/>
             </connections>
             <point key="canvasLocation" x="22" y="57"/>
         </tableViewCell>

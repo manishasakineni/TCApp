@@ -149,12 +149,42 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
 //
 //        }else{
 //        }
-        if let contactNumber =  listStr.contactNumber {
-            
-            cell.contactNumber.text =  contactNumber
-            
-        }else{
+        
+        if listStr.contactNumber  != nil {
+            if let contactNumber = listStr.contactNumber {
+                cell.contactNumber.text = contactNumber
+                cell.infoContactNumber.text = "Contact Number".localize()
+                
+                
+            }else{
+                cell.contactNumber.text = ""
+            }
         }
+        else if listStr.mobileNumber != nil {
+            
+            if let mobileNumber =  listStr.mobileNumber {
+                
+                cell.contactNumber.text = mobileNumber
+                // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+                cell.infoContactNumber.text = "Mobile Number".localize()
+                
+            }else{
+                cell.contactNumber.text = ""
+                // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
+            }
+        }
+        else{
+            cell.contactNumber.text = ""
+            
+        }
+        
+        
+//        if let contactNumber =  listStr.contactNumber {
+//
+//            cell.contactNumber.text =  contactNumber
+//
+//        }else{
+//        }
         
         if let eventStart =  listStr.startDate {
             

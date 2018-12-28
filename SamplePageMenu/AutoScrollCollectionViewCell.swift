@@ -14,6 +14,7 @@ class AutoScrollCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var churchName: UILabel!
     @IBOutlet weak var autoScrollImage: UIImageView!
     
+    @IBOutlet weak var mobileNumber: UILabel!
     @IBOutlet weak var churchNameLabel: UILabel!
     
     @IBOutlet weak var eventNameLabel: UILabel!
