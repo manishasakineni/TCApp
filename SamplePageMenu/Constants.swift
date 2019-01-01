@@ -19,7 +19,6 @@ let videosURL = "http://192.168.1.198/TeluguChurchesApi/api/GetEmbedLinks/"
 // Changed constants Latest Live BASEURL 22/11/2018
 var BASEURL:String = "http://183.82.111.111/TChurchesLive/API/"
 
-
  //constants  Test Url
 //var BASEURL:String = "http://183.82.111.111/TeluguChurches/API/"
 
@@ -51,10 +50,9 @@ let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdm
 
 let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByChurchIdMonthYear/")
 
-let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndChurchId/")
+let GETEVENTBYDATEANDUSERID : String   = BASEURL.appending("api/Events/GetEventByDateAndChurchId/")
 
 let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEventsInfo/")
-
 
 let BANNERIMAGESURL : String = BASEURL.appending("api/Banners/GetAllBannersById/")
 

@@ -149,7 +149,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         
     }
-    //MARK: -  Search function
+    
+//MARK: -  Search function
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true

@@ -210,27 +210,39 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if result.count > 0 {
                 
-        let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
+                let responseVO : AuthorEventDateCountResultVO = Mapper().map(JSONObject: result)!
                 
-        let isSuccess = responseVO.isSuccess
+                let isSuccess = responseVO.isSuccess
                 
-        if isSuccess == true{
+                if isSuccess == true {
                     
-        self.eventDateArray.removeAll()
-       self.eventsCountsArray.removeAll()
-        self.authorDetailsArray = responseVO.listResult!
+                    self.eventDateArray.removeAll()
+                    self.eventsCountsArray.removeAll()
+                    self.authorDetailsArray = responseVO.listResult!
+            
+            
+                    if self.authorDetailsArray.count > 0 {
                     
-        for authorDetailsCount in responseVO.listResult! {
+                    for authorDetailsCount in responseVO.listResult! {
                         
-            let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
+                        let dateString = self.returnDateWithoutTime(selectedDateString: authorDetailsCount.eventDate!)
                         
-            self.eventDateArray.append(dateString)
-            self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
+                        self.eventDateArray.append(dateString)
+                        self.eventsCountsArray.append(authorDetailsCount.eventsCount!)
+            
+                        }
             
                     }
-            
-                    self.calendar.reloadData()
-                    self.authorEventsTableView.reloadData()
+                    
+                    else {
+                        
+                        self.authorDetailsArray.removeAll()
+                    }
+                    
+                        self.calendar.reloadData()
+                        self.authorEventsTableView.reloadData()
+                    
+                    
                 }
                     
                     
@@ -276,6 +288,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
+        self.authorDetailsArray.removeAll()
         print("gdfgdfgdfgdfg",calendar.currentPage)
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
@@ -293,9 +306,10 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
             
             authorDetailsArray.removeAll()
+            authorEventsArray.removeAll()
             
            //  self.authorEventsTableView.reloadData()
-            
+            getEventInfoDetailsByUserIdMonthYearApiCall(monthString, yearString)
             getAthorEventsCountApiCall(monthString, yearString)
          
 
@@ -365,19 +379,25 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         serviceController.getRequest(strURL: getAuthorEventsAPI, success: { (result) in
             
             if result.count > 0 {
-            let responseVO : AuthorEventsVO = Mapper().map(JSONObject: result)!
-            let isSuccess = responseVO.isSuccess
+                let responseVO : AuthorEventsVO = Mapper().map(JSONObject: result)!
+                let isSuccess = responseVO.isSuccess
 
-            if isSuccess == true {
+                if isSuccess == true {
                 
-                if responseVO.listResult!.count > 0 {
+                    if responseVO.listResult!.count > 0 {
                     
-                 self.authorEventsArray = responseVO.listResult!
-                    self.authorEventsTableView.reloadData()
-                    
+                        self.authorEventsArray = responseVO.listResult!
+     
                 }
                 
-            }
+                else{
+                    
+                    self.authorEventsArray.removeAll()
+                }
+                
+                self.authorEventsTableView.reloadData()
+                
+              }
             }
             
         }) { (failureMessage) in
@@ -395,22 +415,15 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-  
-        
+   
         return self.authorEventsArray.count
-        
-    
-        
+   
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
 
-    return 136
-       
-
-        
+        return 136
+      
     }
     
     
@@ -445,9 +458,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let allEventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "AllEventHeaderCell") as! AllEventHeaderCell
-        
-        
-        
+  
         return allEventHeaderCell
         
     }
@@ -456,10 +467,9 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       
         if(authorEventsArray.count > 0){
             
-       let authorDetails = authorEventsArray[indexPath.row]
+            let authorDetails = authorEventsArray[indexPath.row]
             
             
 //                let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorleventTableViewCell", for: indexPath) as! AuthorleventTableViewCell
@@ -530,13 +540,11 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
        return UITableViewCell()
     
-            }
+    }
     
+
     
-    
-    
-    
-    //MARK: -   Event calendar
+//MARK: -   Event calendar
     
     
     

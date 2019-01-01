@@ -166,6 +166,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         print("gdfgdfgdfgdfg",calendar.currentPage)
         
+        self.churchEventsArray.removeAll()
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
@@ -181,7 +182,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
       
         if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
              churchIdMonthYearArray.removeAll()
+             churchEventsArray.removeAll()
+            
             getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
+            getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr: monthString, _yearStr: yearString)
         }
         print("this is the current Month \(currentMonth)")
     }
@@ -361,15 +365,13 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
             
         DispatchQueue.main.async()
         {
-                        
-            
         print("result:\(result)")
                         
         let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
                         
-      let isSuccess = respVO.isSuccess
+            let isSuccess = respVO.isSuccess
             
-      print("StatusCode:\(String(describing: isSuccess))")
+            print("StatusCode:\(String(describing: isSuccess))")
             
      if isSuccess == true {
                             
@@ -390,9 +392,10 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
                 }
                             
             }
-    else {
+            else {
         
-      self.currentMonthDataArray.removeAll()
+                self.currentMonthDataArray.removeAll()
+                
                 
     }
                             
@@ -425,24 +428,30 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
         
         let getChurchEventsAPI = CHURCHEVENTSAPI + "" + "\(churchID)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
         
-        serviceController.getRequest(strURL: getChurchEventsAPI, success: { (result) in
+            serviceController.getRequest(strURL: getChurchEventsAPI, success: { (result) in
             
-            if result.count > 0 {
+                if result.count > 0 {
             
-            let responseVO:ChurchEventsVO = Mapper().map(JSONObject: result)!
+                    let responseVO:ChurchEventsVO = Mapper().map(JSONObject: result)!
             
-            let isSuccess = responseVO.isSuccess
+                    let isSuccess = responseVO.isSuccess
             
-            if isSuccess == true{
-                
-                if responseVO.listResult!.count > 0 {
+                    if isSuccess == true  {
+                        
+                        if responseVO.listResult!.count > 0 {
                     
-                self.churchEventsArray = responseVO.listResult!
-                self.eventTableView.reloadData()
+                            self.churchEventsArray = responseVO.listResult!
+ 
+                        }
+                
+                        else {
+                   
+                            self.churchEventsArray.removeAll()
+                        }
+                
+                    self.eventTableView.reloadData()
                 
                 }
-                
-            }
             }
             
         }) { (failureMessage) in
