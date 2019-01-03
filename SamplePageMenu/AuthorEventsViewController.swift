@@ -124,6 +124,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         calendar.delegate = self
         calendar.dataSource = self
+        calendar.placeholderType = .none
         
         
     }
@@ -170,7 +171,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         calendar.appearance.todayColor = UIColor.orange
         calendar.appearance.todaySelectionColor = UIColor.black
         
-        calendar.allowsMultipleSelection = true
+     //   calendar.allowsMultipleSelection = true
         
     }
     
@@ -186,7 +187,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         calendar.appearance.todayColor = UIColor.orange
         calendar.appearance.todaySelectionColor = UIColor.black
         
-        calendar.allowsMultipleSelection = true
+        //calendar.allowsMultipleSelection = true
         
     }
     
@@ -554,6 +555,7 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
         print("did select date \(self.dateFormatter2.string(from: date))")
         let selectedDateString = self.dateFormatter2.string(from: date)
         
@@ -667,7 +669,12 @@ class AuthorEventsViewController: UIViewController,UITableViewDelegate,UITableVi
         
         if self.eventDateArray.contains(dateString)
         {
-            return UIColor.cyan
+            if self.gregorian.isDateInToday(date) {
+                return UIColor.orange
+            }
+            else {
+                return UIColor.cyan
+            }
         }
         else{
             return nil

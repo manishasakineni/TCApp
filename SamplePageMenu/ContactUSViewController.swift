@@ -59,7 +59,7 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
              let respVO:ContactUsVO = Mapper().map(JSONObject: result)!
                 
                 self.contactNoLbl.text = respVO.contactNo
-                self.mailIDLbl.text    = respVO.email! + "@gmail.com"
+                self.mailIDLbl.text    = respVO.email!
                 
                 
                 let address = respVO.address

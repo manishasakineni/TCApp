@@ -79,6 +79,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
         calendar.dataSource = self
         calendar.delegate = self
+        calendar.placeholderType = .none
         
         eventTableView.dataSource = self
         eventTableView.delegate = self
@@ -105,6 +106,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
 
         calendarColor()
+    
         
     }
     
@@ -128,7 +130,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         calendar.appearance.todayColor = UIColor.orange
         calendar.appearance.todaySelectionColor = UIColor.black
 
-        calendar.allowsMultipleSelection = true
+        //calendar.allowsMultipleSelection = true
     
     }
     
@@ -188,6 +190,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr: monthString, _yearStr: yearString)
         }
         print("this is the current Month \(currentMonth)")
+        
+        calendar.appearance.todayColor = UIColor.orange
     }
 
 
@@ -197,17 +201,20 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
     print("did select date \(self.dateFormatter2.string(from: date))")
+        
      let selectedDateString = self.dateFormatter2.string(from: date)
        
-    if(eventDateArray.contains(selectedDateString)){
+        if(eventDateArray.contains(selectedDateString)){
             
-    if(appDelegate.checkInternetConnectivity()){
+            if(appDelegate.checkInternetConnectivity()){
                 
-        let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(churchID)"
+                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(churchID)"
                 
-        print(strUrl)
-        serviceController.getRequest(strURL:strUrl, success:{(result) in
+                print(strUrl)
+                
+                serviceController.getRequest(strURL:strUrl, success:{(result) in
         DispatchQueue.main.async()
         {
             
@@ -227,47 +234,47 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                                 
         let successMsg = respVO.endUserMessage
                                 
-        for eventsTitleList in respVO.listResult!{
+            for eventsTitleList in respVO.listResult!{
                                     
-        let eventTitle = eventsTitleList.eventTitle
-        self.eventTitleArray.append(eventTitle!)
-        let eventStartDate = eventsTitleList.startDate
+                let eventTitle = eventsTitleList.eventTitle
+                self.eventTitleArray.append(eventTitle!)
+                let eventStartDate = eventsTitleList.startDate
        // self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
-            self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventStartDate!))
+                self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventStartDate!))
             
-        let eventEndDate = eventsTitleList.endDate
+                let eventEndDate = eventsTitleList.endDate
       //  self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
-            self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventEndDate!))
+                self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventEndDate!))
 
 
-        print( self.eventEndDateArray)
+                print( self.eventEndDateArray)
 
     }
                                 
         print(self.eventTitleArray)
         print(self.eventStartDateArray)
-       print( self.eventEndDateArray)
+        print(self.eventEndDateArray)
             
     let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
                                 
-    var params : Dictionary = Dictionary<String,Any>()
-    params.updateValue(self.eventTitleArray, forKey: selectedDateString)
-    params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
-    params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
+            var params : Dictionary = Dictionary<String,Any>()
+                params.updateValue(self.eventTitleArray, forKey: selectedDateString)
+                params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
+                params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
 
-   print(params)
+                print(params)
                                 
-    reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
-    reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
-    reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
+                reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
+                reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
+                reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
             
-    reOrderPopOverVC.eventsDateString = selectedDateString
-    self.addChildViewController(reOrderPopOverVC)
-    reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-    self.view.addSubview(reOrderPopOverVC.view)
-    reOrderPopOverVC.didMove(toParentViewController: self)
+                reOrderPopOverVC.eventsDateString = selectedDateString
+                self.addChildViewController(reOrderPopOverVC)
+                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.addSubview(reOrderPopOverVC.view)
+                reOrderPopOverVC.didMove(toParentViewController: self)
                                 
-    self.calendar.reloadData()
+                self.calendar.reloadData()
             
     }
                             
@@ -304,7 +311,7 @@ else {
         if self.gregorian.isDateInToday(date) {
             return [UIColor.orange]
         }
-
+        
         return [appearance.eventDefaultColor]
     }
     
@@ -327,12 +334,20 @@ else {
         
         if self.eventDateArray.contains(dateString)
         {
-            return UIColor.cyan
+            if self.gregorian.isDateInToday(date) {
+                return UIColor.orange
+            }
+            else {
+              return UIColor.cyan
+            }
+            
+            
         }
         else{
             return nil
         }
- 
+      
+        
     }
     
 
@@ -345,8 +360,6 @@ else {
         calendar.visibleCells().forEach { (cell) in
         let date = calendar.date(for: cell)
         let position = calendar.monthPosition(for: cell)
-            
-            
             
         }
     }
@@ -385,6 +398,7 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
                     self.eventDateArray.append(dateString)
                     let eventsCountsString = eventsList.eventsCount
                     self.eventsCountsArray.append(eventsCountsString!)
+                    
                     self.currentMonthDataArray.append(dateString)
         
                     self.churchIdMonthYearArray.append(eventsList)
@@ -411,12 +425,12 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
             
      }, failure:  {(error) in
                 
-    print(error)
+        print(error)
                 
-    if(error == "unAuthorized"){
+            if(error == "unAuthorized"){
                 
                     
-       }
+            }
                 
       })
 
@@ -663,9 +677,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let allEventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "AllEventHeaderCell") as! AllEventHeaderCell
-        
-        
+        let allEventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "AllEventHeaderCell") as! AllEventHeaderCell     
         
         return allEventHeaderCell
         
@@ -715,8 +727,6 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 
                 listOfMonthEventCell.eventStartEndDate.text = ""
             }
-            
-            
 
             
             return listOfMonthEventCell

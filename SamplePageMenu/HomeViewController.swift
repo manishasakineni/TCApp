@@ -408,9 +408,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             //            refreshToken = rToken
             
             paramsDict = [
-                "client_id": "ConsoleApp",
-                "client_secret": "abc@123",
-                "refresh_token": rToken
+                "client_id"     : "ConsoleApp",
+                "client_secret" : "abc@123",
+                "refresh_token" : rToken
                 
                 ] as [String : Any]
             
@@ -1213,9 +1213,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     func bannerAnimation() {
-        
-        
-        
+ 
         let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
         print("In bannerImageArr.count",bannerImageArr.count)
         let pageWidth:CGFloat = bannerScrollView.frame.width

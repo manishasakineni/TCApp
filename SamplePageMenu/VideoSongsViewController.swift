@@ -878,7 +878,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
 //    kUserDefaults.set(self.audioIDArray[1], forKey: "videoEmbededIDStr")
         kUserDefaults.synchronize()
 
-        self.navigationController?.pushViewController(videosVC, animated: true)
+                self.navigationController?.pushViewController(videosVC, animated: true)
                 
             }
                                     
@@ -887,7 +887,7 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
             dataTask.resume()
                                 
                             }
-                        }
+                }
             
         }
         
@@ -920,13 +920,11 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-
     }
     
   //MARK: -    Home Left Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
-        
         
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
@@ -938,7 +936,6 @@ public func tableView(_ tableView: UITableView, numberOfRowsInSection section: I
         
         appDelegate.window?.rootViewController = rootController
         
-                
         print("Home Button Clicked......")
         
     }

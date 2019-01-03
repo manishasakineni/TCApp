@@ -962,7 +962,7 @@ func getProfileInfoAPIService(){
             "userName": null,
             "password": null,
             "description" : null,
-            "roleId": 1,
+            "roleId": 3,
             "email": self.email,
             "fileLocation": null,
             "fileName": null,
