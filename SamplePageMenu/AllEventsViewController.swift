@@ -209,6 +209,8 @@ func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
 func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String, _ str:String) {
     
+       self.churchIdMonthYearArray.removeAll()
+    
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
     
         let dictParams = [

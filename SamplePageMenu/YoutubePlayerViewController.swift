@@ -9,6 +9,7 @@
 import UIKit
 import youtube_ios_player_helper
 import IQKeyboardManagerSwift
+import SDWebImage
 
 
 class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate,UITextViewDelegate{
@@ -95,6 +96,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
     var commentsCount = 0
     var replyCountArray = Array<Any>()
     var loginUseridsArray = Array<Int>()
+    var userImagesArray = Array<String>()
     var replayMainCommentUserID = 0
    // var readMoreBtnIsHidden = true
     
@@ -358,6 +360,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
   
         self.getVideoDetailsApiService()
         self.updateViewCountAPI()
+        
+    self.allOffersTableView.tableFooterView = UIView()
 
     }
     
@@ -838,6 +842,37 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             
           // self.parentCommentId = self.parentCommentIdArray[indexPath.row]
          //  self.replyParentCommentId = self.parentCommentIdArray[indexPath.row]
+            
+            var newString = self.userImagesArray[indexPath.row]
+            
+             newString = newString.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+          
+            if newString != nil {
+                
+                let url = URL(string:newString)
+                
+                
+                //                let dataImg = try? Data(contentsOf: url!)
+                //
+                //                if dataImg != nil {
+                //
+                //                    cell.churchImage.image = UIImage(data: dataImg!)
+                
+                if url != nil {
+                    
+                    
+                    usersCommentsTableViewCell.usersImageView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                    
+                }
+                else {
+                    
+                    usersCommentsTableViewCell.usersImageView.image = #imageLiteral(resourceName: "Church-logo")
+                }
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersImageView.image = #imageLiteral(resourceName: "Church-logo")
+            }
             
            
           usersCommentsTableViewCell.usersNameLbl.text = self.CommentsByUserArray[indexPath.row] as? String
@@ -1769,6 +1804,7 @@ func editCommentBnClicked(sender : UIButton){
         self.replyCountArray.removeAll()
         self.usersCommentsArray.removeAll()
         self.loginUseridsArray.removeAll()
+        self.userImagesArray.removeAll()
         
      //    self.allOffersTableView.isScrollEnabled = true
      //   self.repliesTableView.isScrollEnabled = true
@@ -1800,6 +1836,7 @@ func editCommentBnClicked(sender : UIButton){
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
                             self.loginUseridsArray.append(id.userId!)
+                            self.userImagesArray.append(id.userImage!)
                             
      
                         }
