@@ -355,7 +355,14 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     cell2.infoLabel.text = "Pin Code".localize()
                 
-                    cell2.addressLabel.text = authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
+                    
+                    if authorDetails.pinCode != nil {
+                        cell2.addressLabel.text = String(describing: authorDetails.pinCode!)
+                    }else{
+                        cell2.addressLabel.text = ""
+                    }
+                    
+                   
                     
                 }
                 
@@ -437,7 +444,13 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     if authorDetails.pinCode != nil {
                         
-                        cell3.addressLabel.text =  authorDetails.pinCode == nil ? "" :  authorDetails.pinCode
+                        if authorDetails.pinCode != nil {
+                             cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
+                        }else{
+                             cell3.addressLabel.text = ""
+                        }
+                        
+                        
                         
                     }
                     else {

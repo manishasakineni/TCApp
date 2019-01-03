@@ -41,7 +41,7 @@ class AuthorDetailsListResultVO: Mappable {
     var mandalId : Int?
     var mandalName : String?
     var villageName : String?
-    var pinCode : String?
+    var pinCode : Int?
     var churchImage : String?
     var userImage : String?
     var userName : String?
@@ -66,7 +66,7 @@ class AuthorDetailsListResultVO: Mappable {
     
     init(id : Int?,userId : String?,firstName : String?,middleName : String?,lastName : String?,authorName : String?,authorContactNumbar : String?,authorEmail : String?,dob : String?,genderTypeId : Int?,gender : String?,countryId : Int?,churchId : Int?,churchName : String?,
         stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId: Int?,
-        mandalName : String?,villageName : String?,pinCode : String?,churchImage : String?,userImage : String?,userName : String?,churchAddress : String?,createdByUser : String?,updatedByUser : String?,countryName : String?,
+        mandalName : String?,villageName : String?,pinCode : Int?,churchImage : String?,userImage : String?,userName : String?,churchAddress : String?,createdByUser : String?,updatedByUser : String?,countryName : String?,
          
          registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?, isSubscribed : Int?)
         
