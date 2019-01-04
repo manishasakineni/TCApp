@@ -20,20 +20,14 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // BYE
-        
         appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     
   
     
-    // MARK: -
+// MARK: - Alert methods with multiple buttons
     
     func showAlertView1WithTitle(_ title:String,message:String,buttonTitle:String)
     {

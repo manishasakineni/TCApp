@@ -10,10 +10,7 @@ import Foundation
 class AuthorEventsListInfoVO: Mappable {
     
     //MARK:-  Declaration of AuthorEventsListResultInfoVO
-    
-    
-    
-    
+
     var id : Int?
     var title : String?
     var startDate : String?
@@ -39,9 +36,6 @@ class AuthorEventsListInfoVO: Mappable {
     var eventShortTitle : String?
     var authorShortTitle : String?
 
-    
-    
-    
     
     //MARK:-  initialization of AuthorEventsListResultInfoVO
     

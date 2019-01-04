@@ -38,33 +38,26 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-        
-    print("churchID:\(churchID)")
-        
-       createPageMenu()
-        
+        print("churchID:\(churchID)")
+        createPageMenu()
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-       
-           }
+
+       }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-    
     }
     
-   //MARK: -  view Will Appear
+//MARK: -  view Will Appear
 
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-        
     }
     
-   //MARK: - create Page Menu
+//MARK: - create Page Menu
     
     private func createPageMenu() {
         
@@ -156,7 +149,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         UserDefaults.standard.synchronize()
         
         
-    let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+        let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "" , backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
@@ -180,9 +173,6 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-            
-        
-        print("Home Button Clicked......")
         
     }
 

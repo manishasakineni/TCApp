@@ -54,9 +54,7 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     var vedioDetailsVC : authorVedioViewController?
     var imagesEventDetailsVC : authorImagesViewController?
     var documentEventDetailsVC : authorDocumentsViewController?
-    
-    
-    
+
     private var controllersArray: [UIViewController] = []
     var authorName : String = ""
     var nameStr          : String = ""
@@ -66,42 +64,29 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-        
-      //  createPageMenu()
-        
+
        churchIdAPIService()
-        
-    // Do any additional setup after loading the view.
+
         
     }
+ 
     
-    
-    
-    //MARK: - create Page Menu
+//MARK: - create Page Menu
     
     private func createPageMenu() {
         
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
         audioEventDetailsVC?.title = "Audio"
-        
-    //     audioEventDetailsVC?.audioResults = self.audioResults
-        
+
         vedioDetailsVC = authorVedioViewController(nibName: "authorVedioViewController", bundle: nil)
         vedioDetailsVC?.title = "Video"
-        
-    //     vedioDetailsVC?.videoResults = self.videoResults
-        
+  
         imagesEventDetailsVC = authorImagesViewController(nibName: "authorImagesViewController", bundle: nil)
         imagesEventDetailsVC?.title = "Image"
-        
-     //    imagesEventDetailsVC?.imageResults = self.imageResults
-        
-        
+
         documentEventDetailsVC = authorDocumentsViewController(nibName: "authorDocumentsViewController", bundle: nil)
         documentEventDetailsVC?.title = "Document"
-        
-     //   documentEventDetailsVC?.documentResults = self.documentResults
-        
+
         controllersArray.append(audioEventDetailsVC!)
         controllersArray.append(vedioDetailsVC!)
         controllersArray.append(imagesEventDetailsVC!)
@@ -154,39 +139,29 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        
-        
-        
+
         print("Back Button Clicked......")
         
     }
 
-    
-    
+//MARK: - ChurchIDAPICall
     
     func churchIdAPIService(){
-        
-        
-        
+
         let params = ["pageIndex": 1,
                       "pageSize": 100,
                       "sortbyColumnName": "UpdatedDate",
                       "sortDirection": "desc",
                       "authorId": authorID,
                       "mediaTypeId": ""
-            
-            
-            ] as [String : Any]
+                        ] as [String : Any]
         
         print("dic params \(params)")
         
         let dictHeaders = ["":"","":""] as NSDictionary
-        
-        
+  
         serviceController.postRequest(strURL: GETPOSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-                        
             print("\(result)")
             
             let respVO:PostByChurchIDVO = Mapper().map(JSONObject: result)!
@@ -242,11 +217,7 @@ class DetAndBillsViewController: UIViewController,CAPSPageMenuDelegate,DetAndBil
             
         }
     }
-    
-
-        
-    
-    
+   
     
 }
 

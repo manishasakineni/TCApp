@@ -16,29 +16,6 @@ import Foundation
 var serviceController = ServiceController()
 
 class Services: NSObject {
-    
-    
-//    static func getElectricityList(completion:@escaping CompletionWithTupleResult) {
-//        
-//        let strUrl = electricityUrl
-//        
-//        let url : NSURL = NSURL(string: strUrl)!
-//        
-//        serviceController.getRequest(strURL: url, success: { (result) in
-//            
-//            if let response = result {
-//            
-//                completion(result as AnyObject)
-//                
-//            }
-//            
-//            
-//        }) { (error) in
-//            
-//            
-//        }
-//        
-//    }
-    
+
     
 }
