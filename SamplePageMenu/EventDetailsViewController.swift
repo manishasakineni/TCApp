@@ -1094,9 +1094,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 usersCommentsTableViewCell.usersImageView.image = #imageLiteral(resourceName: "Church-logo")
             }
             
+            if self.repliesCountArray[indexPath.row] > 0{
+               usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+                
+             }
+            
+            else{
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+            }
+            
             usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
    
-            usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+            
             usersCommentsTableViewCell.replyCommentBtn.isHidden = false
             
             usersCommentsTableViewCell.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String

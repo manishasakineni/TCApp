@@ -204,7 +204,6 @@ var AUTHOREVENTSAPI :String = BASEURL.appending("api/Events/GetEventInfoDetailsB
 
 
 let KFirstTimeLogin = "first Time Login"
-
 let kuserIdKey:String = "kuserId"
 let kIdKey:String = "kloginId"
 let kUserName : String = "kUserName"

@@ -665,7 +665,8 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                     usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                     usersCommentsTableViewCell.replyCommentBtn.isHidden = true
                     usersCommentsTableViewCell.editCommentBn.isHidden   = true
-                    usersCommentsTableViewCell.replayCountLbl.text = ""
+                    usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                    usersCommentsTableViewCell.replayCountLbl.text      = ""
                     usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
                     
                     usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
@@ -686,33 +687,6 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
 //                    }
 
                     return usersCommentsTableViewCell
-                
-                
-               
-                
-//                  let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-//                    
-//                    commentsCell.commentTexView.delegate = self
-//                    commentsCell.commentTexView.text = self.commentString
-//                    commentsCell.commentTexView.tag = 2000
-//                    activeTextView = commentsCell.commentTexView
-//                    if sendCommentClick == false{
-//                        
-//                        commentsCell.sendBtn.isHidden = true
-//                        
-//                    }
-//                        
-//                    else{
-//                        
-//                        commentsCell.sendBtn.isHidden = false
-//                        
-//                        
-//                    }
-//                 
-//                    
-//                    return commentsCell
-                
-         
             
             }
         
@@ -723,10 +697,11 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
                 usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replyCommentBtn.isHidden = true
                 usersCommentsTableViewCell.replayCountLbl.isHidden  = true
+                usersCommentsTableViewCell.editCommentBn.isHidden   = true
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
                 usersCommentsTableViewCell.usersCommentLbl.text     = self.repliesCommentsArray[indexPath.row] as? String
                 usersCommentsTableViewCell.usersNameLbl.text        = self.repliesCommentsUsernamesArray[indexPath.row] as? String
-                
-               
+
                 usersCommentsTableViewCell.usersLikeBtn.tintColor    = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -801,8 +776,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
         if indexPath.section == 2 {
             
          let commentsCell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
-        
-        
+          
         commentsCell.commentTexView.text = self.commentString
         commentsCell.commentCountLab.text = String(usersCommentsArray.count) + " " + "Comments".localize()
         commentsCell.commentTexView.delegate = self
@@ -888,8 +862,7 @@ class YoutubePlayerViewController: UIViewController,UITableViewDelegate ,UITable
             print(commentLblHeight)
             
             if commentLblHeight  > 50  && activeLblNumberofLines == 3 {
-            
-            
+
                  usersCommentsTableViewCell.usersCommentLbl.numberOfLines = activeLblNumberofLines
                  usersCommentsTableViewCell.readMoreBtn.isHidden = true
             }

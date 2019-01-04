@@ -64,9 +64,7 @@ class Utilities: NSObject {
         }
 }
     
-    
-    
-    
+
     
     //MARK:- UIAlert Controller Actions
     
