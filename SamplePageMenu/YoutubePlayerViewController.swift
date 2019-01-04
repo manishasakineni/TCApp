@@ -1288,19 +1288,28 @@ func  unLikeButtonClick(_ sendre:UIButton) {
             
         let someText:String = "Hello want to share text also"
 //        let objectsToShare:URL = URL(string: "http://183.82.111.111/TeluguChurches/Web/")!
-            let urlString  = SHARELINKURL + "" + postShortTitle
-            let objectsToShare:URL = URL(string: urlString)!
-        let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
-        let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        
-//        activityViewController.excludedActivityTypes = [UIActivityType.airDrop,        UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
-        
-        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-        
-        self.present(activityViewController, animated: true, completion: nil)
-        
-        print("Share Clicked.............")
+            
+            //http://teluguchurches.church/post/"
+           // http://teluguchurches.church/church-event-details/"
+            //http://teluguchurches.church/post/"
+                let urlString  = SHARELINKURL + "" + postShortTitle
+     
+          guard let objectsToShare:URL = URL(string: urlString) else {
+                return
+            }
+               // let objectsToShare:URL = URL(string: urlString)!
+                let sharedObjects:[AnyObject] = [objectsToShare as AnyObject]
+                let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                
+                //        activityViewController.excludedActivityTypes = [UIActivityType.airDrop,        UIActivityType.postToFacebook,UIActivityType.postToTwitter,UIActivityType.mail]
+                
+                activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+                
+                self.present(activityViewController, animated: true, completion: nil)
+                
+                print("Share Clicked.............")
+           
             
     }
         
@@ -1836,7 +1845,8 @@ func editCommentBnClicked(sender : UIButton){
                             self.CommentsByUserArray.append(id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
                             self.loginUseridsArray.append(id.userId!)
-                            self.userImagesArray.append(id.userImage!)
+                            
+                            self.userImagesArray.append(id.userImage == nil ? "" : id.userImage!)
                             
      
                         }
