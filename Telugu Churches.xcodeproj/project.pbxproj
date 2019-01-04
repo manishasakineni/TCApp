@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
-		3504633421C765C500A329F0 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3504633321C765C500A329F0 /* SwiftLanguage.pdf */; };
 		3511A6E821D5E5F100534DF2 /* ChurchEventsListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3511A6E621D5E5F000534DF2 /* ChurchEventsListVO.swift */; };
 		3511A6E921D5E5F100534DF2 /* ChurchEventsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3511A6E721D5E5F100534DF2 /* ChurchEventsVO.swift */; };
 		352D0AA021D3983B00A6622C /* ChurchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D0A9E21D3983B00A6622C /* ChurchesCollectionViewCell.swift */; };
@@ -305,7 +304,6 @@
 		AF4EF46120AC46EC00F690F0 /* AllitemIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */; };
 		AF4EF46420AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */; };
 		AF4EF46520AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */; };
-		AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF69371F2063C40D00353909 /* MainIpad.storyboard */; };
 		AF7C2E2F20A04E7D003D623F /* EventByIdInfoVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */; };
 		AF7C2E3120A04F73003D623F /* EventByIdEventDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */; };
 		AF7C2E3320A04F8A003D623F /* EventByIdCommentDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7C2E3220A04F8A003D623F /* EventByIdCommentDetailsVO.swift */; };
@@ -449,7 +447,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3504633321C765C500A329F0 /* SwiftLanguage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwiftLanguage.pdf; sourceTree = "<group>"; };
 		3511A6E621D5E5F000534DF2 /* ChurchEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchEventsListVO.swift; sourceTree = "<group>"; };
 		3511A6E721D5E5F100534DF2 /* ChurchEventsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchEventsVO.swift; sourceTree = "<group>"; };
 		3513646321D25D0300986D09 /* AuthorEventsListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorEventsListVO.swift; sourceTree = "<group>"; };
@@ -764,7 +761,6 @@
 		AF4EF45F20AC46EC00F690F0 /* AllitemIDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllitemIDTableViewCell.xib; sourceTree = "<group>"; };
 		AF4EF46220AC604500F690F0 /* AllitemIdDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllitemIdDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		AF4EF46320AC604500F690F0 /* AllitemIdDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllitemIdDetailsTableViewCell.xib; sourceTree = "<group>"; };
-		AF69371F2063C40D00353909 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		AF7C2E2E20A04E7D003D623F /* EventByIdInfoVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdInfoVo.swift; sourceTree = "<group>"; };
 		AF7C2E3020A04F73003D623F /* EventByIdEventDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdEventDetailsVO.swift; sourceTree = "<group>"; };
 		AF7C2E3220A04F8A003D623F /* EventByIdCommentDetailsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventByIdCommentDetailsVO.swift; sourceTree = "<group>"; };
@@ -1349,14 +1345,12 @@
 		9A5D25E41FFF76A300316988 = {
 			isa = PBXGroup;
 			children = (
-				3504633321C765C500A329F0 /* SwiftLanguage.pdf */,
 				35AEEF0221C781200034AD95 /* User Manual IOS PDF.pdf */,
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				3D551C5E2011F462005DB3B2 /* Constants.swift */,
 				CB59262721B137A900E2247C /* iOSDevCenters+GIF.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
-				AF69371F2063C40D00353909 /* MainIpad.storyboard */,
 				CBFFEA1920919AC4000077CF /* GoogleService-Info.plist */,
 				9A623B862021A56400A674F2 /* Utilities */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
@@ -2559,8 +2553,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0B5DF820A315F90039C7A4 /* authorVedioViewController.xib in Resources */,
-				AF6937202063C40D00353909 /* MainIpad.storyboard in Resources */,
-				3504633421C765C500A329F0 /* SwiftLanguage.pdf in Resources */,
 				AF141D7920A6D31A00AE9FB8 /* AuthorImageTableViewCell.xib in Resources */,
 				AF4EF46120AC46EC00F690F0 /* AllitemIDTableViewCell.xib in Resources */,
 				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,

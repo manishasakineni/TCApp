@@ -23,8 +23,8 @@
             <objects>
                 <viewController storyboardIdentifier="LaunchScreenViewController" id="5J6-iA-7CB" customClass="LaunchScreenViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AGC-Fo-uqM"/>
-                        <viewControllerLayoutGuide type="bottom" id="4nH-4B-CPu"/>
+                        <viewControllerLayoutGuide type="top" id="Fe6-Fk-ueB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nrz-bA-sk5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NHf-hi-8yu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW1-VQ-qO3">
-                                <rect key="frame" x="119" y="576" width="137" height="30"/>
+                                <rect key="frame" x="119" y="576" width="35" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="74W-0N-ufi"/>
                                 </constraints>
@@ -58,14 +58,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kXn-F1-Zzr" firstAttribute="top" secondItem="AGC-Fo-uqM" secondAttribute="bottom" constant="319" id="2yx-GB-hZP"/>
-                            <constraint firstItem="4nH-4B-CPu" firstAttribute="top" secondItem="GXH-el-EGc" secondAttribute="bottom" constant="8" id="HcL-US-OaJ"/>
+                            <constraint firstItem="kXn-F1-Zzr" firstAttribute="top" secondItem="Fe6-Fk-ueB" secondAttribute="bottom" constant="319" id="2yx-GB-hZP"/>
+                            <constraint firstItem="Nrz-bA-sk5" firstAttribute="top" secondItem="GXH-el-EGc" secondAttribute="bottom" constant="8" id="HcL-US-OaJ"/>
                             <constraint firstAttribute="trailing" secondItem="GXH-el-EGc" secondAttribute="trailing" constant="8" id="QjA-qs-Hjh"/>
                             <constraint firstItem="kXn-F1-Zzr" firstAttribute="centerX" secondItem="GXH-el-EGc" secondAttribute="centerX" id="Sbt-TO-jkE"/>
                             <constraint firstItem="GXH-el-EGc" firstAttribute="top" secondItem="NHf-hi-8yu" secondAttribute="top" constant="8" id="YVN-h7-qqZ"/>
                             <constraint firstItem="pW1-VQ-qO3" firstAttribute="leading" secondItem="NHf-hi-8yu" secondAttribute="leading" constant="119" id="qi2-yZ-Vhg"/>
-                            <constraint firstAttribute="trailing" secondItem="pW1-VQ-qO3" secondAttribute="trailing" constant="119" id="tM0-9B-vxe"/>
-                            <constraint firstItem="4nH-4B-CPu" firstAttribute="top" secondItem="pW1-VQ-qO3" secondAttribute="bottom" constant="61" id="tvV-Ve-hiF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pW1-VQ-qO3" secondAttribute="trailing" id="tM0-9B-vxe"/>
+                            <constraint firstItem="Nrz-bA-sk5" firstAttribute="top" secondItem="pW1-VQ-qO3" secondAttribute="bottom" constant="61" id="tvV-Ve-hiF"/>
                             <constraint firstItem="GXH-el-EGc" firstAttribute="leading" secondItem="NHf-hi-8yu" secondAttribute="leading" constant="8" id="y7V-fT-fBs"/>
                         </constraints>
                     </view>
@@ -82,8 +82,8 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KfG-gy-bVk"/>
-                        <viewControllerLayoutGuide type="bottom" id="yXG-T0-mm6"/>
+                        <viewControllerLayoutGuide type="top" id="GOO-OY-Z2u"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgq-Uu-z7a"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -163,6 +163,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-4J-e5w">
                                 <rect key="frame" x="97" y="517" width="137" height="20"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Fhn-zm-dEM"/>
+                                    <constraint firstAttribute="width" constant="137" id="Kpm-eC-eHN"/>
                                     <constraint firstAttribute="height" constant="20" id="fHN-2T-KNP"/>
                                     <constraint firstAttribute="width" constant="137" id="sie-96-kHn"/>
                                 </constraints>
@@ -182,8 +184,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlW-Ll-xCJ">
                                 <rect key="frame" x="234" y="517" width="46" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="4AU-t4-djO"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="9PS-4V-Mtw"/>
                                     <constraint firstAttribute="height" constant="20" id="lJ2-Xh-e6q"/>
+                                    <constraint firstAttribute="height" constant="20" id="xPy-Ap-p42"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <state key="normal" title="Register">
@@ -210,6 +213,8 @@
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.63137254899999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0tC-aD-ZQv"/>
+                                    <constraint firstAttribute="width" constant="256" id="iRw-Je-AmI"/>
+                                    <constraint firstAttribute="height" constant="30" id="udI-TP-VOb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Login">
@@ -229,7 +234,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dox-3d-j8m">
-                                                        <rect key="frame" x="104.5" y="10.5" width="134" height="19"/>
+                                                        <rect key="frame" x="105" y="11" width="134" height="19"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -263,11 +268,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4J-13-eJC">
-                                                <rect key="frame" x="121.5" y="111" width="100" height="25"/>
+                                                <rect key="frame" x="150" y="111" width="43" height="25"/>
                                                 <color key="backgroundColor" red="0.3843075037" green="0.68686300519999999" blue="0.81631654499999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="emb-5o-MO8"/>
-                                                    <constraint firstAttribute="width" constant="100" id="yb1-fT-xO1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <state key="normal" title="submit">
@@ -303,33 +307,63 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="81" id="1wL-CS-hkc"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3mx-VD-7Jd"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="EfT-Cz-fK8" secondAttribute="centerX" id="5N2-iA-zm1"/>
                             <constraint firstAttribute="trailing" secondItem="IDX-iR-YeI" secondAttribute="trailing" constant="106" id="5Xe-2m-Obe"/>
                             <constraint firstItem="ZxN-Lp-WaH" firstAttribute="leading" secondItem="k6a-pi-HoT" secondAttribute="trailing" constant="-35" id="5hA-8Z-Aqz"/>
                             <constraint firstItem="l4y-41-aCd" firstAttribute="top" secondItem="Ufj-px-E5r" secondAttribute="bottom" constant="21" id="9n1-8a-CPr"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="517" id="DfV-7W-gVF"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="E1a-Yg-OUf"/>
                             <constraint firstAttribute="trailing" secondItem="EfT-Cz-fK8" secondAttribute="trailing" id="F0x-s7-Wg3"/>
                             <constraint firstItem="WlW-Ll-xCJ" firstAttribute="centerY" secondItem="m1e-4J-e5w" secondAttribute="centerY" id="GDS-aD-xZe"/>
+                            <constraint firstAttribute="bottom" secondItem="m1e-4J-e5w" secondAttribute="bottom" constant="130" id="IDV-Tc-0wn"/>
                             <constraint firstItem="EfT-Cz-fK8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Kap-LQ-R2n"/>
+                            <constraint firstAttribute="bottom" secondItem="WlW-Ll-xCJ" secondAttribute="bottom" constant="130" id="LUK-bj-mqM"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="aU1-nw-80o" secondAttribute="centerX" id="Lc8-SK-hTq"/>
                             <constraint firstItem="m1e-4J-e5w" firstAttribute="top" secondItem="Ufj-px-E5r" secondAttribute="bottom" constant="74" id="M74-xT-ucV"/>
                             <constraint firstAttribute="trailing" secondItem="k6a-pi-HoT" secondAttribute="trailing" constant="16" id="MlN-lb-6Sq"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="97" id="NBt-kj-LwV"/>
                             <constraint firstItem="Ufj-px-E5r" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="38" id="OGZ-Ys-GvL"/>
+                            <constraint firstItem="WlW-Ll-xCJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="517" id="OKS-nv-UXz"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="top" secondItem="IDX-iR-YeI" secondAttribute="bottom" constant="25" id="PQI-uQ-njP"/>
-                            <constraint firstItem="yXG-T0-mm6" firstAttribute="top" secondItem="EfT-Cz-fK8" secondAttribute="bottom" id="RBP-hI-wNk"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="IDX-iR-YeI" secondAttribute="centerX" id="Psr-2c-d8e"/>
+                            <constraint firstItem="jgq-Uu-z7a" firstAttribute="top" secondItem="EfT-Cz-fK8" secondAttribute="bottom" id="RBP-hI-wNk"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="centerY" secondItem="WlW-Ll-xCJ" secondAttribute="centerY" id="Slb-Ia-xg8"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="top" secondItem="Ufj-px-E5r" secondAttribute="bottom" constant="74" id="VMe-gS-aaq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WlW-Ll-xCJ" secondAttribute="trailing" constant="79" id="VO1-4P-ZOJ"/>
+                            <constraint firstItem="WlW-Ll-xCJ" firstAttribute="leading" secondItem="m1e-4J-e5w" secondAttribute="trailing" id="Y4G-i8-RaM"/>
+                            <constraint firstAttribute="bottom" secondItem="Ufj-px-E5r" secondAttribute="bottom" constant="224" id="YjK-ts-xQU"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="413" id="Z9m-Tf-fBJ"/>
                             <constraint firstItem="m1e-4J-e5w" firstAttribute="centerX" secondItem="Ufj-px-E5r" secondAttribute="centerX" constant="-23" id="a5I-ai-JLV"/>
-                            <constraint firstItem="0jY-b9-PZn" firstAttribute="top" secondItem="KfG-gy-bVk" secondAttribute="bottom" constant="16" id="afz-jK-Ta5"/>
+                            <constraint firstItem="0jY-b9-PZn" firstAttribute="top" secondItem="GOO-OY-Z2u" secondAttribute="bottom" constant="16" id="afz-jK-Ta5"/>
                             <constraint firstItem="ZxN-Lp-WaH" firstAttribute="centerY" secondItem="k6a-pi-HoT" secondAttribute="centerY" constant="6" id="aj9-Hd-Jk3"/>
+                            <constraint firstAttribute="trailing" secondItem="WlW-Ll-xCJ" secondAttribute="trailing" constant="95" id="bli-FY-NfJ"/>
                             <constraint firstAttribute="trailing" secondItem="aU1-nw-80o" secondAttribute="trailing" constant="16" id="cZr-7o-3u8"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="eXI-u9-2W5"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ehy-Sc-2H7"/>
                             <constraint firstAttribute="trailing" secondItem="0jY-b9-PZn" secondAttribute="trailing" constant="106" id="fB7-TY-qwn"/>
-                            <constraint firstItem="Ufj-px-E5r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="iZi-Pe-Pco"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="k6a-pi-HoT" secondAttribute="centerX" id="hfi-Zj-ppO"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="38" id="k2r-2I-JxC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ufj-px-E5r" secondAttribute="trailing" constant="43" id="lNV-ck-yuP"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="centerX" secondItem="0jY-b9-PZn" secondAttribute="centerX" id="mN4-0V-O1t"/>
                             <constraint firstItem="0jY-b9-PZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="107" id="mau-Lh-zsy"/>
                             <constraint firstItem="k6a-pi-HoT" firstAttribute="top" secondItem="aU1-nw-80o" secondAttribute="bottom" constant="16" id="n1N-M7-g3W"/>
+                            <constraint firstItem="WlW-Ll-xCJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="234" id="n8K-HD-TP9"/>
+                            <constraint firstItem="jgq-Uu-z7a" firstAttribute="top" secondItem="m1e-4J-e5w" secondAttribute="bottom" constant="130" id="nlF-1I-b5f"/>
                             <constraint firstItem="IDX-iR-YeI" firstAttribute="top" secondItem="0jY-b9-PZn" secondAttribute="bottom" constant="8" id="oYY-Xr-pAq"/>
                             <constraint firstItem="IDX-iR-YeI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="107" id="ori-Su-bDC"/>
                             <constraint firstItem="l4y-41-aCd" firstAttribute="trailing" secondItem="ZxN-Lp-WaH" secondAttribute="trailing" constant="-7" id="pXt-08-Xqy"/>
                             <constraint firstItem="WlW-Ll-xCJ" firstAttribute="leading" secondItem="m1e-4J-e5w" secondAttribute="trailing" id="qpt-rs-HEE"/>
+                            <constraint firstItem="Ufj-px-E5r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="sTW-h8-zvW"/>
+                            <constraint firstItem="jgq-Uu-z7a" firstAttribute="top" secondItem="WlW-Ll-xCJ" secondAttribute="bottom" constant="130" id="tdu-gL-9Ri"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="97" id="uAF-dY-JCW"/>
+                            <constraint firstItem="l4y-41-aCd" firstAttribute="top" secondItem="Ufj-px-E5r" secondAttribute="bottom" constant="21" id="uOe-mq-eoO"/>
                             <constraint firstItem="k6a-pi-HoT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="vD0-Bl-SIB"/>
+                            <constraint firstItem="WlW-Ll-xCJ" firstAttribute="top" secondItem="l4y-41-aCd" secondAttribute="bottom" constant="27" id="vE4-ER-1MJ"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="bottom" secondItem="WlW-Ll-xCJ" secondAttribute="bottom" id="wTe-Wk-FiK"/>
                             <constraint firstItem="EfT-Cz-fK8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xSq-of-unq"/>
-                            <constraint firstAttribute="trailing" secondItem="Ufj-px-E5r" secondAttribute="trailing" constant="59" id="zaW-re-0gY"/>
+                            <constraint firstItem="m1e-4J-e5w" firstAttribute="top" secondItem="WlW-Ll-xCJ" secondAttribute="top" id="zh6-I2-cdY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iQi-12-4h6"/>
@@ -360,8 +394,8 @@
             <objects>
                 <viewController id="lob-iz-H6P" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eRq-Ut-xn7"/>
-                        <viewControllerLayoutGuide type="bottom" id="et5-K4-hKX"/>
+                        <viewControllerLayoutGuide type="top" id="ybd-fF-n9n"/>
+                        <viewControllerLayoutGuide type="bottom" id="O2k-jK-BVU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Z30-nb-niV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -378,8 +412,8 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" id="lOi-la-yXE" customClass="SignUpViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xc9-8u-6Jf"/>
-                        <viewControllerLayoutGuide type="bottom" id="cdS-za-VCG"/>
+                        <viewControllerLayoutGuide type="top" id="MJV-cl-4rD"/>
+                        <viewControllerLayoutGuide type="bottom" id="7X6-up-AmM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yj2-4O-J9X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -447,7 +481,7 @@
                             <constraint firstItem="Q1B-tN-SMs" firstAttribute="top" secondItem="Yj2-4O-J9X" secondAttribute="top" id="LU4-9j-0MZ"/>
                             <constraint firstItem="HfL-NQ-1ay" firstAttribute="leading" secondItem="Yj2-4O-J9X" secondAttribute="leading" id="RSg-ph-rri"/>
                             <constraint firstItem="HfL-NQ-1ay" firstAttribute="top" secondItem="Q1B-tN-SMs" secondAttribute="bottom" id="Xcd-gj-nvB"/>
-                            <constraint firstItem="cdS-za-VCG" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="bottom" id="ch2-zc-M0z"/>
+                            <constraint firstItem="7X6-up-AmM" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="bottom" id="ch2-zc-M0z"/>
                             <constraint firstAttribute="trailing" secondItem="Q1B-tN-SMs" secondAttribute="trailing" id="r7V-aU-B72"/>
                             <constraint firstItem="Q1B-tN-SMs" firstAttribute="leading" secondItem="Yj2-4O-J9X" secondAttribute="leading" id="rI7-4W-K9n"/>
                             <constraint firstAttribute="trailing" secondItem="HfL-NQ-1ay" secondAttribute="trailing" id="rNI-56-DdQ"/>
@@ -468,8 +502,8 @@
             <objects>
                 <viewController storyboardIdentifier="ChangePassWordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lcb-1V-K8W" customClass="ChangePassWordViewController" customModule="Telugu_Churches" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HV5-OD-zZh"/>
-                        <viewControllerLayoutGuide type="bottom" id="zSl-DQ-V8k"/>
+                        <viewControllerLayoutGuide type="top" id="zo1-FU-biz"/>
+                        <viewControllerLayoutGuide type="bottom" id="cEC-wn-gvW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bX8-Dt-ICN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -500,7 +534,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tP2-Ug-Uch" secondAttribute="trailing" id="YIN-Bh-drB"/>
-                            <constraint firstItem="tP2-Ug-Uch" firstAttribute="top" secondItem="HV5-OD-zZh" secondAttribute="bottom" constant="130" id="b3e-Wf-UVp"/>
+                            <constraint firstItem="tP2-Ug-Uch" firstAttribute="top" secondItem="zo1-FU-biz" secondAttribute="bottom" constant="130" id="b3e-Wf-UVp"/>
                             <constraint firstItem="tP2-Ug-Uch" firstAttribute="leading" secondItem="bX8-Dt-ICN" secondAttribute="leading" id="sF4-Jm-JWA"/>
                         </constraints>
                     </view>
@@ -518,8 +552,8 @@
             <objects>
                 <viewController storyboardIdentifier="SideMenuViewController" id="42U-a2-vSM" customClass="SideMenuViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Yot-rI-x0L"/>
-                        <viewControllerLayoutGuide type="bottom" id="2Nx-pe-5br"/>
+                        <viewControllerLayoutGuide type="top" id="aIw-ug-oyQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4bh-HV-f1j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OYN-6d-IoZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -578,7 +612,7 @@
                             <constraint firstAttribute="trailing" secondItem="6e7-0I-p09" secondAttribute="trailing" id="Qrl-je-9TZ"/>
                             <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="6e7-0I-p09" secondAttribute="bottom" id="VAL-Lb-CJ6"/>
                             <constraint firstItem="Eov-ZN-TGn" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" id="hCm-WT-HIF"/>
-                            <constraint firstItem="2Nx-pe-5br" firstAttribute="top" secondItem="Eov-ZN-TGn" secondAttribute="bottom" id="heZ-pY-hUN"/>
+                            <constraint firstItem="4bh-HV-f1j" firstAttribute="top" secondItem="Eov-ZN-TGn" secondAttribute="bottom" id="heZ-pY-hUN"/>
                             <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="zeg-Et-8lB"/>
                         </constraints>
                     </view>
@@ -598,8 +632,8 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="fRD-jQ-dvn" customClass="HomeViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ams-dN-3le"/>
-                        <viewControllerLayoutGuide type="bottom" id="uYn-ZM-Ryx"/>
+                        <viewControllerLayoutGuide type="top" id="xiX-ZJ-LSE"/>
+                        <viewControllerLayoutGuide type="bottom" id="dKK-hh-MJ3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hnU-aU-fqr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -706,7 +740,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FUz-Dw-C1v" secondAttribute="trailing" id="1QZ-1Y-u9U"/>
-                            <constraint firstItem="uYn-ZM-Ryx" firstAttribute="top" secondItem="2rN-xc-DoD" secondAttribute="bottom" id="EYz-rB-0ow"/>
+                            <constraint firstItem="dKK-hh-MJ3" firstAttribute="top" secondItem="2rN-xc-DoD" secondAttribute="bottom" id="EYz-rB-0ow"/>
                             <constraint firstItem="2rN-xc-DoD" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" id="JUG-LI-nSQ"/>
                             <constraint firstItem="FUz-Dw-C1v" firstAttribute="top" secondItem="bQC-Li-U8u" secondAttribute="bottom" id="RYW-Te-tBu"/>
                             <constraint firstItem="2rN-xc-DoD" firstAttribute="top" secondItem="hnU-aU-fqr" secondAttribute="top" id="SUU-bZ-k7E"/>
@@ -714,8 +748,8 @@
                             <constraint firstAttribute="trailing" secondItem="bQC-Li-U8u" secondAttribute="trailing" id="Zru-2t-1eY"/>
                             <constraint firstAttribute="trailing" secondItem="2rN-xc-DoD" secondAttribute="trailing" id="oIG-be-Rnr"/>
                             <constraint firstItem="FUz-Dw-C1v" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" id="ocC-gI-IXj"/>
-                            <constraint firstItem="bQC-Li-U8u" firstAttribute="top" secondItem="Ams-dN-3le" secondAttribute="bottom" id="v1j-a5-5Mw"/>
-                            <constraint firstItem="uYn-ZM-Ryx" firstAttribute="top" secondItem="FUz-Dw-C1v" secondAttribute="bottom" id="zRm-Fn-iqo"/>
+                            <constraint firstItem="bQC-Li-U8u" firstAttribute="top" secondItem="xiX-ZJ-LSE" secondAttribute="bottom" id="v1j-a5-5Mw"/>
+                            <constraint firstItem="dKK-hh-MJ3" firstAttribute="top" secondItem="FUz-Dw-C1v" secondAttribute="bottom" id="zRm-Fn-iqo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wj5-8g-kjb">
@@ -763,8 +797,8 @@
             <objects>
                 <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vu1-fz-ujK" customClass="EventViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="k4k-s0-xN7"/>
-                        <viewControllerLayoutGuide type="bottom" id="dpn-mK-qy0"/>
+                        <viewControllerLayoutGuide type="top" id="wGF-Xb-YsP"/>
+                        <viewControllerLayoutGuide type="bottom" id="7lK-ya-nJt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ldm-JT-Srv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -799,8 +833,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qGG-A2-7cu" secondAttribute="trailing" id="0F8-kC-Y0y"/>
                             <constraint firstItem="qGG-A2-7cu" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="1w9-2v-kbK"/>
-                            <constraint firstItem="qGG-A2-7cu" firstAttribute="top" secondItem="k4k-s0-xN7" secondAttribute="bottom" id="hVG-0C-rlQ"/>
-                            <constraint firstItem="dpn-mK-qy0" firstAttribute="top" secondItem="qGG-A2-7cu" secondAttribute="bottom" id="jIq-rB-2xg"/>
+                            <constraint firstItem="qGG-A2-7cu" firstAttribute="top" secondItem="wGF-Xb-YsP" secondAttribute="bottom" id="hVG-0C-rlQ"/>
+                            <constraint firstItem="7lK-ya-nJt" firstAttribute="top" secondItem="qGG-A2-7cu" secondAttribute="bottom" id="jIq-rB-2xg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -817,8 +851,8 @@
             <objects>
                 <viewController storyboardIdentifier="DatePopUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jEv-vj-BTU" customClass="DatePopUpViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jEH-FG-2z1"/>
-                        <viewControllerLayoutGuide type="bottom" id="NVV-KQ-9Zr"/>
+                        <viewControllerLayoutGuide type="top" id="BLy-Dm-Z9d"/>
+                        <viewControllerLayoutGuide type="bottom" id="t5M-vO-mck"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="83H-ID-T8C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -892,8 +926,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="d9W-qa-iys" secondAttribute="trailing" id="4HE-Fm-BFq"/>
                             <constraint firstItem="d9W-qa-iys" firstAttribute="leading" secondItem="83H-ID-T8C" secondAttribute="leading" id="GPD-y9-Jcr"/>
-                            <constraint firstItem="NVV-KQ-9Zr" firstAttribute="top" secondItem="d9W-qa-iys" secondAttribute="bottom" constant="197" id="mAL-ss-PPj"/>
-                            <constraint firstItem="d9W-qa-iys" firstAttribute="top" secondItem="jEH-FG-2z1" secondAttribute="bottom" constant="70" id="qTZ-sB-ZHE"/>
+                            <constraint firstItem="t5M-vO-mck" firstAttribute="top" secondItem="d9W-qa-iys" secondAttribute="bottom" constant="197" id="mAL-ss-PPj"/>
+                            <constraint firstItem="d9W-qa-iys" firstAttribute="top" secondItem="BLy-Dm-Z9d" secondAttribute="bottom" constant="70" id="qTZ-sB-ZHE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -909,8 +943,8 @@
             <objects>
                 <viewController storyboardIdentifier="UpConingEventInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d58-74-bX1" customClass="UpConingEventInfoViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RKX-da-Qe9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Tpg-Ln-8gK"/>
+                        <viewControllerLayoutGuide type="top" id="hxU-xY-HdK"/>
+                        <viewControllerLayoutGuide type="bottom" id="yXf-gE-VMd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SFZ-nx-lRD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -939,7 +973,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tpg-Ln-8gK" firstAttribute="top" secondItem="nVY-AZ-5Uf" secondAttribute="bottom" id="0Ai-Fy-fcZ"/>
+                            <constraint firstItem="yXf-gE-VMd" firstAttribute="top" secondItem="nVY-AZ-5Uf" secondAttribute="bottom" id="0Ai-Fy-fcZ"/>
                             <constraint firstItem="NdQ-Sn-TWM" firstAttribute="centerY" secondItem="SFZ-nx-lRD" secondAttribute="centerY" id="ESu-WF-xyn"/>
                             <constraint firstItem="nVY-AZ-5Uf" firstAttribute="top" secondItem="SFZ-nx-lRD" secondAttribute="top" id="EXI-gi-oCw"/>
                             <constraint firstAttribute="trailing" secondItem="NdQ-Sn-TWM" secondAttribute="trailing" id="GJS-8A-Age"/>
@@ -963,8 +997,8 @@
             <objects>
                 <viewController storyboardIdentifier="AllEventsAndUpComingEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lSD-ow-ZvL" customClass="AllEventsAndUpComingEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ec1-pO-URG"/>
-                        <viewControllerLayoutGuide type="bottom" id="RJl-YO-kHb"/>
+                        <viewControllerLayoutGuide type="top" id="qbm-XL-Jhh"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgb-72-HI5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UO6-nk-1HU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -981,8 +1015,8 @@
             <objects>
                 <viewController storyboardIdentifier="AllEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hiD-Op-EUh" customClass="AllEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YeR-zQ-3Yw"/>
-                        <viewControllerLayoutGuide type="bottom" id="r8a-Ua-NLW"/>
+                        <viewControllerLayoutGuide type="top" id="sRg-di-JaM"/>
+                        <viewControllerLayoutGuide type="bottom" id="3RV-7I-NYr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Szs-LM-D9E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1015,13 +1049,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CuS-V5-7Pu" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="5Ap-9V-9dZ"/>
-                            <constraint firstItem="r8a-Ua-NLW" firstAttribute="top" secondItem="CuS-V5-7Pu" secondAttribute="bottom" id="DUR-lx-PgM"/>
+                            <constraint firstItem="3RV-7I-NYr" firstAttribute="top" secondItem="CuS-V5-7Pu" secondAttribute="bottom" id="DUR-lx-PgM"/>
                             <constraint firstAttribute="trailing" secondItem="Ao1-d2-ao5" secondAttribute="trailing" id="SNN-CS-B0G"/>
                             <constraint firstAttribute="trailing" secondItem="Yxj-Rm-7zg" secondAttribute="trailing" id="Xf2-iM-LEn"/>
                             <constraint firstAttribute="trailing" secondItem="CuS-V5-7Pu" secondAttribute="trailing" id="Yl6-au-mBi"/>
                             <constraint firstItem="Yxj-Rm-7zg" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="bbU-RA-IRL"/>
                             <constraint firstItem="Ao1-d2-ao5" firstAttribute="centerY" secondItem="Szs-LM-D9E" secondAttribute="centerY" id="m35-aB-jvf"/>
-                            <constraint firstItem="Yxj-Rm-7zg" firstAttribute="top" secondItem="YeR-zQ-3Yw" secondAttribute="bottom" constant="6" id="o9f-Pm-6K0"/>
+                            <constraint firstItem="Yxj-Rm-7zg" firstAttribute="top" secondItem="sRg-di-JaM" secondAttribute="bottom" constant="6" id="o9f-Pm-6K0"/>
                             <constraint firstItem="CuS-V5-7Pu" firstAttribute="top" secondItem="Yxj-Rm-7zg" secondAttribute="bottom" id="oM2-hZ-llu"/>
                             <constraint firstItem="Ao1-d2-ao5" firstAttribute="centerX" secondItem="Szs-LM-D9E" secondAttribute="centerX" id="rFK-m3-hx2"/>
                             <constraint firstItem="Ao1-d2-ao5" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="tUB-qq-QaD"/>
@@ -1041,8 +1075,8 @@
             <objects>
                 <viewController storyboardIdentifier="VideoSongsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ruE-iY-jZk" customClass="VideoSongsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="R1X-Sc-Vv2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lcw-zO-pSW"/>
+                        <viewControllerLayoutGuide type="top" id="yEn-wE-DW7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vcx-Pc-Tmk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VF2-mI-h0U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1117,7 +1151,7 @@
                         <constraints>
                             <constraint firstItem="uco-YI-D7w" firstAttribute="top" secondItem="VF2-mI-h0U" secondAttribute="top" id="AlW-wI-oHC"/>
                             <constraint firstAttribute="trailing" secondItem="LEC-fi-2xP" secondAttribute="trailing" id="F5F-Bo-zf9"/>
-                            <constraint firstItem="Lcw-zO-pSW" firstAttribute="top" secondItem="uco-YI-D7w" secondAttribute="bottom" id="Gsb-ID-3oL"/>
+                            <constraint firstItem="Vcx-Pc-Tmk" firstAttribute="top" secondItem="uco-YI-D7w" secondAttribute="bottom" id="Gsb-ID-3oL"/>
                             <constraint firstAttribute="trailing" secondItem="uco-YI-D7w" secondAttribute="trailing" id="anq-xg-kLe"/>
                             <constraint firstItem="LEC-fi-2xP" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="dzI-zB-T4k"/>
                             <constraint firstItem="uco-YI-D7w" firstAttribute="leading" secondItem="VF2-mI-h0U" secondAttribute="leading" id="lon-g4-7oT"/>
@@ -1141,8 +1175,8 @@
             <objects>
                 <viewController storyboardIdentifier="AudioViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MFD-oM-AZt" customClass="AudioViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="akD-WW-bFE"/>
-                        <viewControllerLayoutGuide type="bottom" id="ciO-lk-KBo"/>
+                        <viewControllerLayoutGuide type="top" id="lhw-v5-d0t"/>
+                        <viewControllerLayoutGuide type="bottom" id="bYw-L0-lv0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleAspectFit" id="QQT-Ie-dmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1455,7 +1489,7 @@
                             <constraint firstItem="VL9-x0-Lwa" firstAttribute="centerY" secondItem="QQT-Ie-dmo" secondAttribute="centerY" id="56w-RT-1nu"/>
                             <constraint firstItem="e5t-RY-YPf" firstAttribute="leading" secondItem="QQT-Ie-dmo" secondAttribute="leading" constant="12" id="6tT-jh-u1j"/>
                             <constraint firstItem="VL9-x0-Lwa" firstAttribute="centerX" secondItem="QQT-Ie-dmo" secondAttribute="centerX" id="7oL-oJ-8E9"/>
-                            <constraint firstItem="ciO-lk-KBo" firstAttribute="top" secondItem="WrH-Gj-Y8A" secondAttribute="bottom" constant="2" id="7rh-U7-MCR"/>
+                            <constraint firstItem="bYw-L0-lv0" firstAttribute="top" secondItem="WrH-Gj-Y8A" secondAttribute="bottom" constant="2" id="7rh-U7-MCR"/>
                             <constraint firstItem="WrH-Gj-Y8A" firstAttribute="leading" secondItem="QQT-Ie-dmo" secondAttribute="leading" id="DVV-4W-0bK"/>
                             <constraint firstAttribute="trailing" secondItem="P8O-tS-h8b" secondAttribute="trailing" constant="10" id="EY4-uc-lKn"/>
                             <constraint firstItem="bQt-YZ-Qvq" firstAttribute="top" secondItem="MXe-KL-RWy" secondAttribute="bottom" constant="6" id="G4a-G4-wKR"/>
@@ -1468,7 +1502,7 @@
                             <constraint firstAttribute="trailing" secondItem="WrH-Gj-Y8A" secondAttribute="trailing" id="mjD-gF-J5Q"/>
                             <constraint firstItem="e5t-RY-YPf" firstAttribute="top" secondItem="MXe-KL-RWy" secondAttribute="bottom" constant="6" id="qzc-gv-yyx"/>
                             <constraint firstAttribute="trailing" secondItem="MXe-KL-RWy" secondAttribute="trailing" id="r88-VP-3xD"/>
-                            <constraint firstItem="ciO-lk-KBo" firstAttribute="top" secondItem="3gO-eA-3hz" secondAttribute="bottom" id="rWC-E4-7Oi"/>
+                            <constraint firstItem="bYw-L0-lv0" firstAttribute="top" secondItem="3gO-eA-3hz" secondAttribute="bottom" id="rWC-E4-7Oi"/>
                             <constraint firstItem="bQt-YZ-Qvq" firstAttribute="centerX" secondItem="Y9l-6T-6hO" secondAttribute="centerX" id="rsC-CS-GoU"/>
                             <constraint firstItem="WrH-Gj-Y8A" firstAttribute="top" secondItem="P8O-tS-h8b" secondAttribute="bottom" constant="2" id="usk-41-oZo"/>
                             <constraint firstAttribute="trailing" secondItem="e5t-RY-YPf" secondAttribute="trailing" constant="28" id="zbl-ew-sme"/>
@@ -1512,8 +1546,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleBooksViewController" id="J8r-sG-q1D" customClass="BibleBooksViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bdX-Kh-xF9"/>
-                        <viewControllerLayoutGuide type="bottom" id="bzU-wa-QWX"/>
+                        <viewControllerLayoutGuide type="top" id="mdg-iA-4s0"/>
+                        <viewControllerLayoutGuide type="bottom" id="nuI-SR-9zG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BbH-TV-xiX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1527,7 +1561,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bkT-eQ-vTr" firstAttribute="top" secondItem="BbH-TV-xiX" secondAttribute="top" id="JlW-EQ-iMw"/>
-                            <constraint firstItem="bzU-wa-QWX" firstAttribute="top" secondItem="bkT-eQ-vTr" secondAttribute="bottom" id="bri-ld-LJA"/>
+                            <constraint firstItem="nuI-SR-9zG" firstAttribute="top" secondItem="bkT-eQ-vTr" secondAttribute="bottom" id="bri-ld-LJA"/>
                             <constraint firstAttribute="trailing" secondItem="bkT-eQ-vTr" secondAttribute="trailing" id="mGI-zC-Ibv"/>
                             <constraint firstItem="bkT-eQ-vTr" firstAttribute="leading" secondItem="BbH-TV-xiX" secondAttribute="leading" id="mVV-7E-m93"/>
                         </constraints>
@@ -1545,8 +1579,8 @@
             <objects>
                 <viewController storyboardIdentifier="DocViewController" id="ZkC-hw-z4b" customClass="DocViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b3P-PO-is9"/>
-                        <viewControllerLayoutGuide type="bottom" id="CY3-ic-4IC"/>
+                        <viewControllerLayoutGuide type="top" id="iK1-RI-r55"/>
+                        <viewControllerLayoutGuide type="bottom" id="KX4-eJ-CO2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dB4-3B-Lnk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1569,12 +1603,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="F2G-a7-d8l" firstAttribute="leading" secondItem="dB4-3B-Lnk" secondAttribute="leading" id="ER8-Wh-2gd"/>
-                            <constraint firstItem="CY3-ic-4IC" firstAttribute="top" secondItem="ZZI-u1-T0W" secondAttribute="bottom" constant="323" id="MOc-NO-rbW"/>
+                            <constraint firstItem="KX4-eJ-CO2" firstAttribute="top" secondItem="ZZI-u1-T0W" secondAttribute="bottom" constant="323" id="MOc-NO-rbW"/>
                             <constraint firstAttribute="trailing" secondItem="F2G-a7-d8l" secondAttribute="trailing" id="Nw1-O7-A8D"/>
-                            <constraint firstItem="ZZI-u1-T0W" firstAttribute="top" secondItem="b3P-PO-is9" secondAttribute="bottom" constant="303" id="VO6-qx-N64"/>
+                            <constraint firstItem="ZZI-u1-T0W" firstAttribute="top" secondItem="iK1-RI-r55" secondAttribute="bottom" constant="303" id="VO6-qx-N64"/>
                             <constraint firstItem="F2G-a7-d8l" firstAttribute="top" secondItem="dB4-3B-Lnk" secondAttribute="top" id="WNx-KD-Ly1"/>
                             <constraint firstItem="ZZI-u1-T0W" firstAttribute="leading" secondItem="dB4-3B-Lnk" secondAttribute="leading" constant="86" id="Z08-UO-vZf"/>
-                            <constraint firstItem="CY3-ic-4IC" firstAttribute="top" secondItem="F2G-a7-d8l" secondAttribute="bottom" id="fWa-2l-FTe"/>
+                            <constraint firstItem="KX4-eJ-CO2" firstAttribute="top" secondItem="F2G-a7-d8l" secondAttribute="bottom" id="fWa-2l-FTe"/>
                             <constraint firstAttribute="trailing" secondItem="ZZI-u1-T0W" secondAttribute="trailing" constant="86" id="sta-bd-qcs"/>
                         </constraints>
                     </view>
@@ -1592,8 +1626,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleChaptersViewController" id="RUC-I2-NbF" customClass="BibleChaptersViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="585-J7-YLg"/>
-                        <viewControllerLayoutGuide type="bottom" id="1lf-xv-gkF"/>
+                        <viewControllerLayoutGuide type="top" id="3If-8l-OmC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fgb-3u-S2D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="div-0g-O9s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1609,7 +1643,7 @@
                             <constraint firstItem="b1d-CQ-Tk5" firstAttribute="leading" secondItem="div-0g-O9s" secondAttribute="leading" id="Enx-QP-CTl"/>
                             <constraint firstItem="b1d-CQ-Tk5" firstAttribute="top" secondItem="div-0g-O9s" secondAttribute="top" id="Lyh-jo-gzw"/>
                             <constraint firstAttribute="trailing" secondItem="b1d-CQ-Tk5" secondAttribute="trailing" id="Lzi-ja-kVV"/>
-                            <constraint firstItem="1lf-xv-gkF" firstAttribute="top" secondItem="b1d-CQ-Tk5" secondAttribute="bottom" id="rTP-Qb-i6Q"/>
+                            <constraint firstItem="Fgb-3u-S2D" firstAttribute="top" secondItem="b1d-CQ-Tk5" secondAttribute="bottom" id="rTP-Qb-i6Q"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1625,8 +1659,8 @@
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y8f-RI-chi" customClass="SettingViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wzd-RP-noA"/>
-                        <viewControllerLayoutGuide type="bottom" id="u5p-Cp-i3c"/>
+                        <viewControllerLayoutGuide type="top" id="BLN-PP-dAw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ycu-c6-31N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oA6-ga-Chk">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -1655,7 +1689,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u5p-Cp-i3c" firstAttribute="top" secondItem="UZA-xn-MuK" secondAttribute="bottom" id="DiP-dd-3TL"/>
+                            <constraint firstItem="ycu-c6-31N" firstAttribute="top" secondItem="UZA-xn-MuK" secondAttribute="bottom" id="DiP-dd-3TL"/>
                             <constraint firstItem="UZA-xn-MuK" firstAttribute="leading" secondItem="oA6-ga-Chk" secondAttribute="leading" id="kDq-Cv-Pr9"/>
                             <constraint firstItem="UZA-xn-MuK" firstAttribute="top" secondItem="oA6-ga-Chk" secondAttribute="top" id="nSD-au-UIc"/>
                             <constraint firstAttribute="trailing" secondItem="UZA-xn-MuK" secondAttribute="trailing" id="oqJ-aI-0c3"/>
@@ -1676,8 +1710,8 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FM0-x1-pFc" customClass="CategoriesHomeViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="71V-vb-EVM"/>
-                        <viewControllerLayoutGuide type="bottom" id="fvj-7E-byw"/>
+                        <viewControllerLayoutGuide type="top" id="bcs-Aq-GnL"/>
+                        <viewControllerLayoutGuide type="bottom" id="csb-hn-FYP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rfy-2i-Ow6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1722,7 +1756,7 @@
                             <constraint firstItem="EFx-nb-yyL" firstAttribute="top" secondItem="rfy-2i-Ow6" secondAttribute="top" id="1HJ-Qw-Psx"/>
                             <constraint firstItem="wrT-lD-nBe" firstAttribute="leading" secondItem="rfy-2i-Ow6" secondAttribute="leading" id="2qV-Oc-y4r"/>
                             <constraint firstAttribute="trailing" secondItem="EFx-nb-yyL" secondAttribute="trailing" id="3EK-1r-fmZ"/>
-                            <constraint firstItem="fvj-7E-byw" firstAttribute="top" secondItem="EFx-nb-yyL" secondAttribute="bottom" id="CXT-nA-dlz"/>
+                            <constraint firstItem="csb-hn-FYP" firstAttribute="top" secondItem="EFx-nb-yyL" secondAttribute="bottom" id="CXT-nA-dlz"/>
                             <constraint firstAttribute="trailing" secondItem="wrT-lD-nBe" secondAttribute="trailing" id="OlC-5H-WUj"/>
                             <constraint firstItem="wrT-lD-nBe" firstAttribute="centerY" secondItem="rfy-2i-Ow6" secondAttribute="centerY" id="f8A-HR-iYa"/>
                             <constraint firstItem="EFx-nb-yyL" firstAttribute="leading" secondItem="rfy-2i-Ow6" secondAttribute="leading" id="xDd-76-QQQ"/>
@@ -1742,8 +1776,8 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HRu-xn-enm" customClass="ProfileViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GQ7-RW-geC"/>
-                        <viewControllerLayoutGuide type="bottom" id="36i-GJ-YSx"/>
+                        <viewControllerLayoutGuide type="top" id="Usa-7q-NDa"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFW-FF-2Qm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i1c-B2-mgZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1784,7 +1818,7 @@
                         <constraints>
                             <constraint firstItem="Woq-UF-4i7" firstAttribute="top" secondItem="oLU-1T-VHf" secondAttribute="bottom" id="LeI-89-y71"/>
                             <constraint firstItem="oLU-1T-VHf" firstAttribute="top" secondItem="i1c-B2-mgZ" secondAttribute="top" id="OnL-We-J9C"/>
-                            <constraint firstItem="36i-GJ-YSx" firstAttribute="top" secondItem="Woq-UF-4i7" secondAttribute="bottom" id="Osw-wF-0or"/>
+                            <constraint firstItem="oFW-FF-2Qm" firstAttribute="top" secondItem="Woq-UF-4i7" secondAttribute="bottom" id="Osw-wF-0or"/>
                             <constraint firstAttribute="trailing" secondItem="oLU-1T-VHf" secondAttribute="trailing" id="bNZ-T8-XOw"/>
                             <constraint firstItem="Woq-UF-4i7" firstAttribute="leading" secondItem="i1c-B2-mgZ" secondAttribute="leading" id="fm5-zL-Q3S"/>
                             <constraint firstAttribute="trailing" secondItem="Woq-UF-4i7" secondAttribute="trailing" id="plb-YU-Qo5"/>
@@ -1804,8 +1838,8 @@
             <objects>
                 <viewController storyboardIdentifier="ChurchDetailsViewController" id="tiA-aV-1BB" customClass="ChurchDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hfn-gq-C0Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="sDq-bg-mKB"/>
+                        <viewControllerLayoutGuide type="top" id="qTf-uN-Mp5"/>
+                        <viewControllerLayoutGuide type="bottom" id="PRl-bo-OHd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53I-aR-6QA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1841,7 +1875,7 @@
                             <constraint firstItem="dRf-ch-tRM" firstAttribute="leading" secondItem="53I-aR-6QA" secondAttribute="leading" id="hEn-K5-p7R"/>
                             <constraint firstAttribute="trailing" secondItem="dRf-ch-tRM" secondAttribute="trailing" id="mgN-aB-7TF"/>
                             <constraint firstItem="9Ef-iL-Y1D" firstAttribute="centerY" secondItem="53I-aR-6QA" secondAttribute="centerY" id="nvH-10-tbU"/>
-                            <constraint firstItem="dRf-ch-tRM" firstAttribute="bottom" secondItem="sDq-bg-mKB" secondAttribute="top" id="z3l-sV-9pP"/>
+                            <constraint firstItem="dRf-ch-tRM" firstAttribute="bottom" secondItem="PRl-bo-OHd" secondAttribute="top" id="z3l-sV-9pP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1858,8 +1892,8 @@
             <objects>
                 <viewController storyboardIdentifier="ChurchesInformaationViewControllers" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4kJ-2A-mFX" customClass="ChurchesInformaationViewControllers" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5eg-JM-OVA"/>
-                        <viewControllerLayoutGuide type="bottom" id="eRG-m8-duW"/>
+                        <viewControllerLayoutGuide type="top" id="nMg-jo-CbQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="E0Q-cX-ZvW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5V0-SR-Xjb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1876,8 +1910,8 @@
             <objects>
                 <viewController storyboardIdentifier="ChurchAdminViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Di7-N2-up5" customClass="ChurchAdminViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uBG-H8-HOs"/>
-                        <viewControllerLayoutGuide type="bottom" id="zul-Ih-nAC"/>
+                        <viewControllerLayoutGuide type="top" id="hRZ-aB-TVt"/>
+                        <viewControllerLayoutGuide type="bottom" id="AiD-4T-Bps"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JZi-vs-ciI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1906,7 +1940,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zul-Ih-nAC" firstAttribute="top" secondItem="8YR-xf-47E" secondAttribute="bottom" id="3Nm-QM-WAj"/>
+                            <constraint firstItem="AiD-4T-Bps" firstAttribute="top" secondItem="8YR-xf-47E" secondAttribute="bottom" id="3Nm-QM-WAj"/>
                             <constraint firstItem="8YR-xf-47E" firstAttribute="leading" secondItem="JZi-vs-ciI" secondAttribute="leading" id="9hv-Yo-EGu"/>
                             <constraint firstItem="pUM-Cq-5Lc" firstAttribute="centerY" secondItem="JZi-vs-ciI" secondAttribute="centerY" id="Cyu-pG-8n4"/>
                             <constraint firstAttribute="trailing" secondItem="pUM-Cq-5Lc" secondAttribute="trailing" id="YG8-mu-S9d"/>
@@ -1930,8 +1964,8 @@
             <objects>
                 <viewController storyboardIdentifier="AuthorDetailsViewController" id="ysU-9g-VsC" customClass="AuthorDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="apk-ZO-5MB"/>
-                        <viewControllerLayoutGuide type="bottom" id="nf6-Rv-DUy"/>
+                        <viewControllerLayoutGuide type="top" id="6cT-3K-vwg"/>
+                        <viewControllerLayoutGuide type="bottom" id="rVC-Tf-1kL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7bu-Qw-W5Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1948,8 +1982,8 @@
             <objects>
                 <viewController storyboardIdentifier="EventDetailsViewController" id="O47-Jy-dv0" customClass="EventDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8K5-hG-bKo"/>
-                        <viewControllerLayoutGuide type="bottom" id="mRZ-rb-fgT"/>
+                        <viewControllerLayoutGuide type="top" id="oR7-g5-RyF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lf0-At-4oU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DDO-80-v7d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2092,19 +2126,19 @@
                         <constraints>
                             <constraint firstItem="uVr-mm-aCW" firstAttribute="top" secondItem="DDO-80-v7d" secondAttribute="top" id="1Sv-4z-qI0"/>
                             <constraint firstItem="uVr-mm-aCW" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="4UW-dF-xNP"/>
-                            <constraint firstItem="mRZ-rb-fgT" firstAttribute="top" secondItem="uVr-mm-aCW" secondAttribute="bottom" id="7cF-sA-qVt"/>
+                            <constraint firstItem="Lf0-At-4oU" firstAttribute="top" secondItem="uVr-mm-aCW" secondAttribute="bottom" id="7cF-sA-qVt"/>
                             <constraint firstItem="SB0-eB-pzx" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="AjJ-Ur-TtF"/>
                             <constraint firstAttribute="trailing" secondItem="f9c-j9-2Le" secondAttribute="trailing" id="FKK-QL-rlJ"/>
-                            <constraint firstItem="oFO-uA-fyz" firstAttribute="bottom" secondItem="mRZ-rb-fgT" secondAttribute="top" id="OR9-wK-PpQ"/>
+                            <constraint firstItem="oFO-uA-fyz" firstAttribute="bottom" secondItem="Lf0-At-4oU" secondAttribute="top" id="OR9-wK-PpQ"/>
                             <constraint firstItem="f9c-j9-2Le" firstAttribute="leading" secondItem="DDO-80-v7d" secondAttribute="leading" id="PI6-CI-cgx"/>
                             <constraint firstAttribute="trailing" secondItem="uVr-mm-aCW" secondAttribute="trailing" id="Pqs-II-MO3"/>
                             <constraint firstItem="f9c-j9-2Le" firstAttribute="centerX" secondItem="DDO-80-v7d" secondAttribute="centerX" id="SMV-H0-RiR"/>
-                            <constraint firstItem="mRZ-rb-fgT" firstAttribute="top" secondItem="SB0-eB-pzx" secondAttribute="bottom" id="WkT-xq-xGD"/>
+                            <constraint firstItem="Lf0-At-4oU" firstAttribute="top" secondItem="SB0-eB-pzx" secondAttribute="bottom" id="WkT-xq-xGD"/>
                             <constraint firstItem="oFO-uA-fyz" firstAttribute="trailing" secondItem="f9c-j9-2Le" secondAttribute="trailing" id="gBN-3N-eVH"/>
                             <constraint firstAttribute="trailing" secondItem="SB0-eB-pzx" secondAttribute="trailing" id="lKS-S1-G8c"/>
                             <constraint firstItem="f9c-j9-2Le" firstAttribute="centerY" secondItem="DDO-80-v7d" secondAttribute="centerY" id="p5K-GV-luV"/>
                             <constraint firstItem="SB0-eB-pzx" firstAttribute="top" secondItem="DDO-80-v7d" secondAttribute="top" id="qfx-GX-5MM"/>
-                            <constraint firstItem="oFO-uA-fyz" firstAttribute="top" secondItem="mRZ-rb-fgT" secondAttribute="top" id="usv-lT-A6C"/>
+                            <constraint firstItem="oFO-uA-fyz" firstAttribute="top" secondItem="Lf0-At-4oU" secondAttribute="top" id="usv-lT-A6C"/>
                             <constraint firstItem="oFO-uA-fyz" firstAttribute="leading" secondItem="f9c-j9-2Le" secondAttribute="leading" id="w23-gA-MxH"/>
                         </constraints>
                     </view>
@@ -2128,8 +2162,8 @@
             <objects>
                 <viewController storyboardIdentifier="authorpostCAPagemenuViewController" id="5c0-b7-WCG" customClass="authorpostCAPagemenuViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c0l-vL-IwA"/>
-                        <viewControllerLayoutGuide type="bottom" id="NCR-Ly-JO8"/>
+                        <viewControllerLayoutGuide type="top" id="vgg-6J-goe"/>
+                        <viewControllerLayoutGuide type="bottom" id="roJ-ud-LfK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NsA-k4-HhA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2146,8 +2180,8 @@
             <objects>
                 <viewController storyboardIdentifier="AuthorPostsViewController" id="vyr-DK-hRU" customClass="AuthorPostsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="El1-8u-0sY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yr3-6d-Ky8"/>
+                        <viewControllerLayoutGuide type="top" id="ivc-gv-w5F"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wha-Wb-iqx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="umO-oW-uni">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2181,7 +2215,7 @@
                             <constraint firstItem="ZUU-5a-2lO" firstAttribute="centerX" secondItem="umO-oW-uni" secondAttribute="centerX" id="Ixf-JL-eGf"/>
                             <constraint firstAttribute="trailing" secondItem="88M-l2-NBf" secondAttribute="trailing" id="Jci-ka-Gv9"/>
                             <constraint firstItem="88M-l2-NBf" firstAttribute="leading" secondItem="umO-oW-uni" secondAttribute="leading" id="bwh-AS-ROy"/>
-                            <constraint firstItem="Yr3-6d-Ky8" firstAttribute="top" secondItem="88M-l2-NBf" secondAttribute="bottom" id="crw-NK-hif"/>
+                            <constraint firstItem="Wha-Wb-iqx" firstAttribute="top" secondItem="88M-l2-NBf" secondAttribute="bottom" id="crw-NK-hif"/>
                             <constraint firstAttribute="trailing" secondItem="ZUU-5a-2lO" secondAttribute="trailing" id="edb-Da-cPe"/>
                             <constraint firstItem="ZUU-5a-2lO" firstAttribute="leading" secondItem="umO-oW-uni" secondAttribute="leading" id="oRJ-5M-pIQ"/>
                         </constraints>
@@ -2200,8 +2234,8 @@
             <objects>
                 <viewController storyboardIdentifier="EventDetailsAndEventPostDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b5a-Sk-aq4" customClass="EventDetailsAndEventPostDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="un7-8E-Dem"/>
-                        <viewControllerLayoutGuide type="bottom" id="5xA-2N-5Yr"/>
+                        <viewControllerLayoutGuide type="top" id="SbZ-v5-lHi"/>
+                        <viewControllerLayoutGuide type="bottom" id="k7c-1c-vSk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QAX-cJ-rdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2218,8 +2252,8 @@
             <objects>
                 <viewController storyboardIdentifier="PostEventDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qxg-Jh-xgK" customClass="PostEventDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NKp-92-Fz6"/>
-                        <viewControllerLayoutGuide type="bottom" id="5bB-EB-iHV"/>
+                        <viewControllerLayoutGuide type="top" id="svJ-Jv-iKT"/>
+                        <viewControllerLayoutGuide type="bottom" id="VSv-sG-HCd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fNb-iB-MER">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2273,7 +2307,7 @@
                             <constraint firstItem="ALQ-cz-BdO" firstAttribute="centerY" secondItem="fNb-iB-MER" secondAttribute="centerY" id="XtC-32-cng"/>
                             <constraint firstAttribute="trailing" secondItem="ALQ-cz-BdO" secondAttribute="trailing" id="cnP-qU-BIi"/>
                             <constraint firstItem="uSN-tS-8Jw" firstAttribute="leading" secondItem="fNb-iB-MER" secondAttribute="leading" id="d0h-2Q-rLC"/>
-                            <constraint firstItem="5bB-EB-iHV" firstAttribute="top" secondItem="uSN-tS-8Jw" secondAttribute="bottom" id="jnj-M9-Egq"/>
+                            <constraint firstItem="VSv-sG-HCd" firstAttribute="top" secondItem="uSN-tS-8Jw" secondAttribute="bottom" id="jnj-M9-Egq"/>
                             <constraint firstItem="uSN-tS-8Jw" firstAttribute="top" secondItem="Bzp-AV-yFX" secondAttribute="bottom" id="l41-VR-O89"/>
                             <constraint firstAttribute="trailing" secondItem="Bzp-AV-yFX" secondAttribute="trailing" id="lwI-pT-tEs"/>
                             <constraint firstAttribute="trailing" secondItem="uSN-tS-8Jw" secondAttribute="trailing" id="zGj-up-2dh"/>
@@ -2294,8 +2328,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleDetailsViewController" id="uXc-WN-If1" customClass="BibleDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IXD-e3-lcs"/>
-                        <viewControllerLayoutGuide type="bottom" id="ywu-ly-3yG"/>
+                        <viewControllerLayoutGuide type="top" id="cJK-aw-upf"/>
+                        <viewControllerLayoutGuide type="bottom" id="fpP-GG-ep0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7MZ-OU-3ep">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2327,7 +2361,7 @@
                             <constraint firstItem="It7-02-OGp" firstAttribute="top" secondItem="7MZ-OU-3ep" secondAttribute="top" id="77z-7m-Wwy"/>
                             <constraint firstItem="88e-rw-jq7" firstAttribute="leading" secondItem="7MZ-OU-3ep" secondAttribute="leading" id="Lcg-Me-SiW"/>
                             <constraint firstAttribute="trailing" secondItem="88e-rw-jq7" secondAttribute="trailing" id="QWh-79-nM8"/>
-                            <constraint firstItem="ywu-ly-3yG" firstAttribute="top" secondItem="It7-02-OGp" secondAttribute="bottom" id="QrA-Ss-Uge"/>
+                            <constraint firstItem="fpP-GG-ep0" firstAttribute="top" secondItem="It7-02-OGp" secondAttribute="bottom" id="QrA-Ss-Uge"/>
                             <constraint firstItem="88e-rw-jq7" firstAttribute="centerY" secondItem="7MZ-OU-3ep" secondAttribute="centerY" id="eYZ-HS-gTc"/>
                             <constraint firstItem="88e-rw-jq7" firstAttribute="centerX" secondItem="7MZ-OU-3ep" secondAttribute="centerX" id="hLU-0o-aeS"/>
                             <constraint firstItem="It7-02-OGp" firstAttribute="leading" secondItem="7MZ-OU-3ep" secondAttribute="leading" id="o04-Gm-7Xv"/>
@@ -2348,8 +2382,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleDetailsCellViewController" id="3qg-ZQ-ACP" customClass="BibleDetailsCellViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="f7a-Hf-Urb"/>
-                        <viewControllerLayoutGuide type="bottom" id="M0c-mJ-lXq"/>
+                        <viewControllerLayoutGuide type="top" id="6bo-PR-cca"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAZ-Dj-B6w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f3T-HK-gL1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2384,7 +2418,7 @@
                             <constraint firstItem="T0s-ce-vFF" firstAttribute="leading" secondItem="f3T-HK-gL1" secondAttribute="leading" id="b2a-I9-Ntv"/>
                             <constraint firstItem="Icx-EF-aDr" firstAttribute="centerX" secondItem="f3T-HK-gL1" secondAttribute="centerX" id="dEm-qe-m7e"/>
                             <constraint firstItem="Icx-EF-aDr" firstAttribute="centerY" secondItem="f3T-HK-gL1" secondAttribute="centerY" id="hvT-7L-aYs"/>
-                            <constraint firstItem="M0c-mJ-lXq" firstAttribute="top" secondItem="T0s-ce-vFF" secondAttribute="bottom" id="iK8-gq-z89"/>
+                            <constraint firstItem="qAZ-Dj-B6w" firstAttribute="top" secondItem="T0s-ce-vFF" secondAttribute="bottom" id="iK8-gq-z89"/>
                             <constraint firstAttribute="trailing" secondItem="Icx-EF-aDr" secondAttribute="trailing" id="xU1-PH-EjZ"/>
                         </constraints>
                     </view>
@@ -2402,8 +2436,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleDetailsVerseViewController" id="1ka-vp-wcr" customClass="BibleDetailsVerseViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4JV-Fa-xhV"/>
-                        <viewControllerLayoutGuide type="bottom" id="W4Z-bS-H9i"/>
+                        <viewControllerLayoutGuide type="top" id="zfn-Fz-hCg"/>
+                        <viewControllerLayoutGuide type="bottom" id="oso-wQ-q7j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mal-s2-did">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2521,7 +2555,7 @@
                             <constraint firstItem="gSc-hc-gQ2" firstAttribute="centerX" secondItem="mal-s2-did" secondAttribute="centerX" id="EzJ-Qa-W3L"/>
                             <constraint firstItem="gSc-hc-gQ2" firstAttribute="leading" secondItem="mal-s2-did" secondAttribute="leading" id="F6j-PV-tR4"/>
                             <constraint firstAttribute="trailing" secondItem="gSc-hc-gQ2" secondAttribute="trailing" id="Mrl-sA-V3X"/>
-                            <constraint firstItem="W4Z-bS-H9i" firstAttribute="top" secondItem="LZh-yH-GMp" secondAttribute="bottom" id="ROb-98-fSQ"/>
+                            <constraint firstItem="oso-wQ-q7j" firstAttribute="top" secondItem="LZh-yH-GMp" secondAttribute="bottom" id="ROb-98-fSQ"/>
                             <constraint firstItem="LZh-yH-GMp" firstAttribute="top" secondItem="Z1E-VW-lDZ" secondAttribute="bottom" constant="2" id="RvW-Hr-2OR"/>
                             <constraint firstItem="LZh-yH-GMp" firstAttribute="leading" secondItem="mal-s2-did" secondAttribute="leading" id="Vzx-iR-npD"/>
                             <constraint firstItem="Z1E-VW-lDZ" firstAttribute="top" secondItem="mal-s2-did" secondAttribute="top" id="bLM-Fe-ncV"/>
@@ -2546,8 +2580,8 @@
             <objects>
                 <viewController storyboardIdentifier="UserManualViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gE8-Pg-Rcs" customClass="UserManualViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wDV-AZ-mVO"/>
-                        <viewControllerLayoutGuide type="bottom" id="eSq-Hg-J75"/>
+                        <viewControllerLayoutGuide type="top" id="kQX-4c-rgP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ihq-WR-6Bj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h9s-F2-W3a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2574,8 +2608,8 @@
             <objects>
                 <viewController storyboardIdentifier="SWRevealViewController" id="dTu-EV-ahh" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fuE-Pz-WOF"/>
-                        <viewControllerLayoutGuide type="bottom" id="sia-jb-KyQ"/>
+                        <viewControllerLayoutGuide type="top" id="3Pb-2q-abp"/>
+                        <viewControllerLayoutGuide type="bottom" id="xvy-3C-Iko"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bjo-ld-2Mv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2597,8 +2631,8 @@
             <objects>
                 <viewController storyboardIdentifier="ForgotPassWordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pha-1Q-yai" customClass="ForgotPassWordViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Pm-FA-uR9"/>
-                        <viewControllerLayoutGuide type="bottom" id="804-3k-9tG"/>
+                        <viewControllerLayoutGuide type="top" id="aSk-Cq-q3o"/>
+                        <viewControllerLayoutGuide type="bottom" id="VsE-X7-XPn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lsU-cw-bEl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2626,7 +2660,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9XT-ZR-r57" firstAttribute="leading" secondItem="lsU-cw-bEl" secondAttribute="leading" id="H6R-Ta-taf"/>
-                            <constraint firstItem="804-3k-9tG" firstAttribute="top" secondItem="9XT-ZR-r57" secondAttribute="bottom" id="MgM-Vc-Ffw"/>
+                            <constraint firstItem="VsE-X7-XPn" firstAttribute="top" secondItem="9XT-ZR-r57" secondAttribute="bottom" id="MgM-Vc-Ffw"/>
                             <constraint firstAttribute="trailing" secondItem="9XT-ZR-r57" secondAttribute="trailing" id="SyG-2a-NVI"/>
                             <constraint firstItem="9XT-ZR-r57" firstAttribute="top" secondItem="lsU-cw-bEl" secondAttribute="top" id="lJ9-He-Mii"/>
                         </constraints>
@@ -2677,8 +2711,8 @@
             <objects>
                 <viewController storyboardIdentifier="BibleVerseViewController" id="PMz-fO-O50" customClass="BibleVerseViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2KE-rV-HIt"/>
-                        <viewControllerLayoutGuide type="bottom" id="Euj-yV-A9s"/>
+                        <viewControllerLayoutGuide type="top" id="Nnq-W9-4Hd"/>
+                        <viewControllerLayoutGuide type="bottom" id="sz0-Ix-bOi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7bN-18-6cK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2691,7 +2725,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Euj-yV-A9s" firstAttribute="top" secondItem="AHc-cw-oTg" secondAttribute="bottom" id="649-NK-Zwy"/>
+                            <constraint firstItem="sz0-Ix-bOi" firstAttribute="top" secondItem="AHc-cw-oTg" secondAttribute="bottom" id="649-NK-Zwy"/>
                             <constraint firstItem="AHc-cw-oTg" firstAttribute="leading" secondItem="7bN-18-6cK" secondAttribute="leading" id="Ver-PI-Lbz"/>
                             <constraint firstItem="AHc-cw-oTg" firstAttribute="top" secondItem="7bN-18-6cK" secondAttribute="top" id="mvI-Jb-Xtb"/>
                             <constraint firstAttribute="trailing" secondItem="AHc-cw-oTg" secondAttribute="trailing" id="sYK-2c-qS0"/>
@@ -2710,8 +2744,8 @@
             <objects>
                 <viewController storyboardIdentifier="GetAllJobDetailsViewController" id="Eey-Em-3Iy" customClass="GetAllJobDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="69N-Cv-LDU"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mse-hy-MY4"/>
+                        <viewControllerLayoutGuide type="top" id="0Go-GO-BuA"/>
+                        <viewControllerLayoutGuide type="bottom" id="vmr-yM-dkH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X5C-5b-frf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2743,7 +2777,7 @@
                             <constraint firstItem="G5P-AL-NoS" firstAttribute="leading" secondItem="X5C-5b-frf" secondAttribute="leading" id="4q8-d3-w2s"/>
                             <constraint firstItem="G5P-AL-NoS" firstAttribute="top" secondItem="X5C-5b-frf" secondAttribute="top" id="7yE-pr-Nye"/>
                             <constraint firstItem="EUn-mU-AQO" firstAttribute="centerY" secondItem="X5C-5b-frf" secondAttribute="centerY" id="XLM-ff-vm6"/>
-                            <constraint firstItem="Mse-hy-MY4" firstAttribute="top" secondItem="G5P-AL-NoS" secondAttribute="bottom" id="cMS-BN-JBV"/>
+                            <constraint firstItem="vmr-yM-dkH" firstAttribute="top" secondItem="G5P-AL-NoS" secondAttribute="bottom" id="cMS-BN-JBV"/>
                             <constraint firstItem="EUn-mU-AQO" firstAttribute="centerX" secondItem="X5C-5b-frf" secondAttribute="centerX" id="iF2-86-8i5"/>
                             <constraint firstAttribute="trailing" secondItem="G5P-AL-NoS" secondAttribute="trailing" id="o2B-hY-Smx"/>
                             <constraint firstAttribute="trailing" secondItem="EUn-mU-AQO" secondAttribute="trailing" id="qg4-Sp-OdW"/>
@@ -2764,8 +2798,8 @@
             <objects>
                 <viewController storyboardIdentifier="GetJobByIDViewController" id="bGO-kk-XDe" customClass="GetJobByIDViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GCY-xl-PMK"/>
-                        <viewControllerLayoutGuide type="bottom" id="q72-No-QlX"/>
+                        <viewControllerLayoutGuide type="top" id="P1W-zN-HPK"/>
+                        <viewControllerLayoutGuide type="bottom" id="QRA-2n-Yxs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BF1-ie-LcP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2783,7 +2817,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="360-eu-SPs" secondAttribute="trailing" id="Iar-mP-9t8"/>
-                            <constraint firstItem="q72-No-QlX" firstAttribute="top" secondItem="360-eu-SPs" secondAttribute="bottom" id="JFm-ln-RNg"/>
+                            <constraint firstItem="QRA-2n-Yxs" firstAttribute="top" secondItem="360-eu-SPs" secondAttribute="bottom" id="JFm-ln-RNg"/>
                             <constraint firstItem="360-eu-SPs" firstAttribute="top" secondItem="BF1-ie-LcP" secondAttribute="top" id="RRa-cr-V9n"/>
                             <constraint firstItem="360-eu-SPs" firstAttribute="leading" secondItem="BF1-ie-LcP" secondAttribute="leading" id="Ueg-Ah-xQ1"/>
                         </constraints>
@@ -2801,8 +2835,8 @@
             <objects>
                 <viewController storyboardIdentifier="JobApplyViewController" id="zbf-vU-65t" customClass="JobApplyViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="crk-J1-Xek"/>
-                        <viewControllerLayoutGuide type="bottom" id="YDR-oK-JIm"/>
+                        <viewControllerLayoutGuide type="top" id="aT9-CE-Me3"/>
+                        <viewControllerLayoutGuide type="bottom" id="00C-lf-u7b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e8T-Os-9zq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2819,7 +2853,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YDR-oK-JIm" firstAttribute="top" secondItem="xsS-zq-S37" secondAttribute="bottom" id="A2P-Ma-Ie8"/>
+                            <constraint firstItem="00C-lf-u7b" firstAttribute="top" secondItem="xsS-zq-S37" secondAttribute="bottom" id="A2P-Ma-Ie8"/>
                             <constraint firstAttribute="trailing" secondItem="xsS-zq-S37" secondAttribute="trailing" id="Y7N-Np-ndX"/>
                             <constraint firstItem="xsS-zq-S37" firstAttribute="leading" secondItem="e8T-Os-9zq" secondAttribute="leading" id="hAR-w2-Jo9"/>
                             <constraint firstItem="xsS-zq-S37" firstAttribute="top" secondItem="e8T-Os-9zq" secondAttribute="top" id="yWo-nF-CNc"/>
@@ -2838,8 +2872,8 @@
             <objects>
                 <viewController storyboardIdentifier="GetAllItemsViewController" id="42G-s9-754" customClass="GetAllItemsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CbY-u5-J10"/>
-                        <viewControllerLayoutGuide type="bottom" id="I2e-Ys-YT6"/>
+                        <viewControllerLayoutGuide type="top" id="cik-YP-TGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="MlT-sw-T6K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7eZ-xC-4rK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2875,7 +2909,7 @@
                             <constraint firstItem="KZV-bA-xGJ" firstAttribute="centerY" secondItem="7eZ-xC-4rK" secondAttribute="centerY" id="XGp-i5-2G5"/>
                             <constraint firstAttribute="trailing" secondItem="KZV-bA-xGJ" secondAttribute="trailing" id="lpd-rb-oZr"/>
                             <constraint firstItem="JbZ-WY-ISG" firstAttribute="leading" secondItem="7eZ-xC-4rK" secondAttribute="leading" id="qjI-8r-krc"/>
-                            <constraint firstItem="I2e-Ys-YT6" firstAttribute="top" secondItem="JbZ-WY-ISG" secondAttribute="bottom" id="uSx-y5-WEP"/>
+                            <constraint firstItem="MlT-sw-T6K" firstAttribute="top" secondItem="JbZ-WY-ISG" secondAttribute="bottom" id="uSx-y5-WEP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2892,8 +2926,8 @@
             <objects>
                 <viewController storyboardIdentifier="AllItemsIDViewController" id="UJu-RF-rhl" customClass="AllItemsIDViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4V1-yX-9G0"/>
-                        <viewControllerLayoutGuide type="bottom" id="izd-LO-W7g"/>
+                        <viewControllerLayoutGuide type="top" id="aIB-vL-Ulr"/>
+                        <viewControllerLayoutGuide type="bottom" id="yba-0s-e1c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fcf-rh-f3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2969,7 +3003,7 @@
                             <constraint firstAttribute="trailing" secondItem="AfF-tv-Ofr" secondAttribute="trailing" id="XhX-WG-KK9"/>
                             <constraint firstAttribute="trailing" secondItem="Rx9-Tw-ya3" secondAttribute="trailing" id="Ydx-b0-7EA"/>
                             <constraint firstItem="t49-hi-3YG" firstAttribute="top" secondItem="Rx9-Tw-ya3" secondAttribute="bottom" constant="4" id="YyB-Hi-HHc"/>
-                            <constraint firstItem="izd-LO-W7g" firstAttribute="top" secondItem="AfF-tv-Ofr" secondAttribute="bottom" id="gIm-Dd-e9P"/>
+                            <constraint firstItem="yba-0s-e1c" firstAttribute="top" secondItem="AfF-tv-Ofr" secondAttribute="bottom" id="gIm-Dd-e9P"/>
                             <constraint firstItem="t49-hi-3YG" firstAttribute="centerX" secondItem="Rx9-Tw-ya3" secondAttribute="centerX" constant="-63.75" id="pfU-4g-jQn"/>
                             <constraint firstItem="AfF-tv-Ofr" firstAttribute="leading" secondItem="Fcf-rh-f3c" secondAttribute="leading" id="wZ6-vv-KAj"/>
                             <constraint firstItem="Rx9-Tw-ya3" firstAttribute="top" secondItem="Fcf-rh-f3c" secondAttribute="top" id="ye3-0d-t5r"/>
@@ -2989,8 +3023,8 @@
             <objects>
                 <viewController storyboardIdentifier="AddToCartViewController" id="dWI-SM-ZSb" customClass="AddToCartViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yR9-gI-eXg"/>
-                        <viewControllerLayoutGuide type="bottom" id="OaP-fW-3qd"/>
+                        <viewControllerLayoutGuide type="top" id="UCV-aG-UOW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Npt-pi-b0A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nwD-6g-yJJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3075,7 +3109,7 @@
                             <constraint firstAttribute="trailing" secondItem="IVk-fL-OJr" secondAttribute="trailing" id="2xn-1H-uGQ"/>
                             <constraint firstItem="qWq-LU-3cA" firstAttribute="leading" secondItem="nwD-6g-yJJ" secondAttribute="leading" id="6b8-WQ-KAK"/>
                             <constraint firstItem="IVk-fL-OJr" firstAttribute="leading" secondItem="nwD-6g-yJJ" secondAttribute="leading" id="9da-1T-pQb"/>
-                            <constraint firstItem="OaP-fW-3qd" firstAttribute="top" secondItem="qWq-LU-3cA" secondAttribute="bottom" id="Bph-PZ-Df4"/>
+                            <constraint firstItem="Npt-pi-b0A" firstAttribute="top" secondItem="qWq-LU-3cA" secondAttribute="bottom" id="Bph-PZ-Df4"/>
                             <constraint firstItem="IVk-fL-OJr" firstAttribute="top" secondItem="nwD-6g-yJJ" secondAttribute="top" id="H7u-iT-EI7"/>
                             <constraint firstItem="qWq-LU-3cA" firstAttribute="top" secondItem="IVk-fL-OJr" secondAttribute="bottom" id="Unf-2H-pmJ"/>
                             <constraint firstItem="84k-nX-7f2" firstAttribute="centerX" secondItem="nwD-6g-yJJ" secondAttribute="centerX" id="ckL-j6-xnc"/>
@@ -3096,8 +3130,8 @@
             <objects>
                 <viewController storyboardIdentifier="AddressViewController" id="DTU-hF-Oir" customClass="AddressViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wnf-u9-a3U"/>
-                        <viewControllerLayoutGuide type="bottom" id="qaD-WE-kNd"/>
+                        <viewControllerLayoutGuide type="top" id="dTj-Se-Ze1"/>
+                        <viewControllerLayoutGuide type="bottom" id="54D-hf-lqz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QQs-g7-fF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3186,7 +3220,7 @@
                             <constraint firstItem="9ex-Ud-hR8" firstAttribute="centerY" secondItem="QQs-g7-fF2" secondAttribute="centerY" constant="1" id="iog-rC-1pu"/>
                             <constraint firstItem="B6L-M9-790" firstAttribute="top" secondItem="QQs-g7-fF2" secondAttribute="top" id="pof-NI-65d"/>
                             <constraint firstItem="9ex-Ud-hR8" firstAttribute="leading" secondItem="QQs-g7-fF2" secondAttribute="leadingMargin" constant="33" id="rei-72-BuE"/>
-                            <constraint firstItem="qaD-WE-kNd" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="bottom" id="wSk-SG-gxs"/>
+                            <constraint firstItem="54D-hf-lqz" firstAttribute="top" secondItem="M4v-MO-Gpg" secondAttribute="bottom" id="wSk-SG-gxs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3203,8 +3237,8 @@
             <objects>
                 <viewController storyboardIdentifier="AddNewAddressViewController" id="qxY-5h-g6c" customClass="AddNewAddressViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lEL-jt-64R"/>
-                        <viewControllerLayoutGuide type="bottom" id="cP6-4r-O11"/>
+                        <viewControllerLayoutGuide type="top" id="Um1-qJ-mLY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rbr-9A-dBM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="o5q-QD-weQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3239,7 +3273,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Sim-L4-uCM" firstAttribute="leading" secondItem="o5q-QD-weQ" secondAttribute="leading" id="AG8-uY-zTd"/>
-                            <constraint firstItem="cP6-4r-O11" firstAttribute="top" secondItem="Sim-L4-uCM" secondAttribute="bottom" id="CbQ-vb-NV2"/>
+                            <constraint firstItem="Rbr-9A-dBM" firstAttribute="top" secondItem="Sim-L4-uCM" secondAttribute="bottom" id="CbQ-vb-NV2"/>
                             <constraint firstItem="i6U-uM-0gQ" firstAttribute="top" secondItem="o5q-QD-weQ" secondAttribute="top" id="Qgn-Py-CFI"/>
                             <constraint firstAttribute="trailing" secondItem="i6U-uM-0gQ" secondAttribute="trailing" id="WcK-nt-4BO"/>
                             <constraint firstItem="Sim-L4-uCM" firstAttribute="top" secondItem="i6U-uM-0gQ" secondAttribute="bottom" id="bsj-Hl-7Gc"/>
@@ -3260,8 +3294,8 @@
             <objects>
                 <viewController storyboardIdentifier="NotificationsViewController" id="02l-R5-PY0" customClass="NotificationsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LB5-jj-yTd"/>
-                        <viewControllerLayoutGuide type="bottom" id="S7x-SN-7X9"/>
+                        <viewControllerLayoutGuide type="top" id="7GK-Zp-3ow"/>
+                        <viewControllerLayoutGuide type="bottom" id="ekD-y1-NKr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0Lx-5u-i5d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3281,7 +3315,7 @@
                             <constraint firstItem="BaZ-sR-1gi" firstAttribute="top" secondItem="0Lx-5u-i5d" secondAttribute="top" id="4Yf-oZ-7kD"/>
                             <constraint firstAttribute="trailing" secondItem="BaZ-sR-1gi" secondAttribute="trailing" id="PHs-X5-rWi"/>
                             <constraint firstItem="BaZ-sR-1gi" firstAttribute="leading" secondItem="0Lx-5u-i5d" secondAttribute="leading" id="QRE-R9-Xm8"/>
-                            <constraint firstItem="S7x-SN-7X9" firstAttribute="top" secondItem="BaZ-sR-1gi" secondAttribute="bottom" id="cNb-at-w3p"/>
+                            <constraint firstItem="ekD-y1-NKr" firstAttribute="top" secondItem="BaZ-sR-1gi" secondAttribute="bottom" id="cNb-at-w3p"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3297,8 +3331,8 @@
             <objects>
                 <viewController storyboardIdentifier="ViewNotificationViewController" id="Aa0-iF-anM" customClass="ViewNotificationViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pAQ-jx-gWd"/>
-                        <viewControllerLayoutGuide type="bottom" id="ROL-tL-USM"/>
+                        <viewControllerLayoutGuide type="top" id="ZN0-GF-Y1j"/>
+                        <viewControllerLayoutGuide type="bottom" id="zpl-vF-n6B"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qrZ-Iu-dfs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3323,7 +3357,7 @@
                             <constraint firstItem="n1b-gv-ja9" firstAttribute="centerX" secondItem="qrZ-Iu-dfs" secondAttribute="centerX" id="7Bg-5w-Bgf"/>
                             <constraint firstItem="WYF-w0-a84" firstAttribute="leading" secondItem="qrZ-Iu-dfs" secondAttribute="leading" id="Ltf-kq-rmd"/>
                             <constraint firstAttribute="trailing" secondItem="WYF-w0-a84" secondAttribute="trailing" id="QVf-1R-hRu"/>
-                            <constraint firstItem="WYF-w0-a84" firstAttribute="top" secondItem="pAQ-jx-gWd" secondAttribute="bottom" id="bEQ-Rc-zZ3"/>
+                            <constraint firstItem="WYF-w0-a84" firstAttribute="top" secondItem="ZN0-GF-Y1j" secondAttribute="bottom" id="bEQ-Rc-zZ3"/>
                             <constraint firstAttribute="bottom" secondItem="WYF-w0-a84" secondAttribute="bottom" id="mlp-Zg-SHw"/>
                             <constraint firstItem="n1b-gv-ja9" firstAttribute="centerY" secondItem="qrZ-Iu-dfs" secondAttribute="centerY" id="xX4-gk-VUl"/>
                         </constraints>
@@ -3342,8 +3376,8 @@
             <objects>
                 <viewController storyboardIdentifier="ReadNotificationViewController" id="NJu-op-vM5" customClass="ReadNotificationViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jOs-mD-Lob"/>
-                        <viewControllerLayoutGuide type="bottom" id="5AK-S7-5vT"/>
+                        <viewControllerLayoutGuide type="top" id="bxi-tu-TM2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qmp-Gb-WYq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PeE-PD-wBH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3365,8 +3399,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dea-gf-EFO" firstAttribute="top" secondItem="jOs-mD-Lob" secondAttribute="bottom" id="5LH-W4-cR1"/>
-                            <constraint firstItem="5AK-S7-5vT" firstAttribute="top" secondItem="dea-gf-EFO" secondAttribute="bottom" id="Jax-Pb-vZf"/>
+                            <constraint firstItem="dea-gf-EFO" firstAttribute="top" secondItem="bxi-tu-TM2" secondAttribute="bottom" id="5LH-W4-cR1"/>
+                            <constraint firstItem="Qmp-Gb-WYq" firstAttribute="top" secondItem="dea-gf-EFO" secondAttribute="bottom" id="Jax-Pb-vZf"/>
                             <constraint firstItem="bqH-tD-qtw" firstAttribute="centerY" secondItem="PeE-PD-wBH" secondAttribute="centerY" id="Ye6-BN-uIX"/>
                             <constraint firstItem="bqH-tD-qtw" firstAttribute="centerX" secondItem="PeE-PD-wBH" secondAttribute="centerX" id="iT8-BO-7Pe"/>
                             <constraint firstItem="dea-gf-EFO" firstAttribute="leading" secondItem="PeE-PD-wBH" secondAttribute="leading" id="mBk-n0-67n"/>
@@ -3387,8 +3421,8 @@
             <objects>
                 <viewController storyboardIdentifier="NullNotificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KxB-sh-Oir" customClass="NullNotificationViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vCG-Fw-XjP"/>
-                        <viewControllerLayoutGuide type="bottom" id="uih-1H-drP"/>
+                        <viewControllerLayoutGuide type="top" id="DPr-Ju-Pz9"/>
+                        <viewControllerLayoutGuide type="bottom" id="trV-sq-tvZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bfV-d3-s96">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3470,8 +3504,8 @@
                         <color key="backgroundColor" white="0.94151475694444442" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9BH-7B-aq3" secondAttribute="trailing" constant="25" id="16j-qY-lKA"/>
-                            <constraint firstItem="9BH-7B-aq3" firstAttribute="top" secondItem="vCG-Fw-XjP" secondAttribute="bottom" id="Nv4-Xa-iCs"/>
-                            <constraint firstItem="uih-1H-drP" firstAttribute="top" secondItem="9BH-7B-aq3" secondAttribute="bottom" constant="130" id="faD-qr-uid"/>
+                            <constraint firstItem="9BH-7B-aq3" firstAttribute="top" secondItem="DPr-Ju-Pz9" secondAttribute="bottom" id="Nv4-Xa-iCs"/>
+                            <constraint firstItem="trV-sq-tvZ" firstAttribute="top" secondItem="9BH-7B-aq3" secondAttribute="bottom" constant="130" id="faD-qr-uid"/>
                             <constraint firstItem="9BH-7B-aq3" firstAttribute="leading" secondItem="bfV-d3-s96" secondAttribute="leading" constant="25" id="z7U-wY-4qE"/>
                         </constraints>
                     </view>
@@ -3490,8 +3524,8 @@
             <objects>
                 <viewController storyboardIdentifier="ContactUSViewController" id="pcD-cz-8ck" customClass="ContactUSViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9NF-lf-5JQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Tqm-pW-XAA"/>
+                        <viewControllerLayoutGuide type="top" id="YzK-C7-wbc"/>
+                        <viewControllerLayoutGuide type="bottom" id="5n2-la-SwA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WJ9-cP-mkc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3660,8 +3694,8 @@
             <objects>
                 <viewController storyboardIdentifier="AuthorEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="chf-OO-jq9" customClass="AuthorEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ace-U0-uHO"/>
-                        <viewControllerLayoutGuide type="bottom" id="YIt-Ph-xyh"/>
+                        <viewControllerLayoutGuide type="top" id="MiM-im-SGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="F0j-xv-ZN2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qzq-pt-5pQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3695,8 +3729,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LaV-HX-QWD" firstAttribute="leading" secondItem="qzq-pt-5pQ" secondAttribute="leading" id="OY1-Kv-okD"/>
-                            <constraint firstItem="LaV-HX-QWD" firstAttribute="top" secondItem="Ace-U0-uHO" secondAttribute="bottom" id="UFg-PO-OPr"/>
-                            <constraint firstItem="YIt-Ph-xyh" firstAttribute="top" secondItem="LaV-HX-QWD" secondAttribute="bottom" id="in6-dz-Ltg"/>
+                            <constraint firstItem="LaV-HX-QWD" firstAttribute="top" secondItem="MiM-im-SGh" secondAttribute="bottom" id="UFg-PO-OPr"/>
+                            <constraint firstItem="F0j-xv-ZN2" firstAttribute="top" secondItem="LaV-HX-QWD" secondAttribute="bottom" id="in6-dz-Ltg"/>
                             <constraint firstAttribute="trailing" secondItem="LaV-HX-QWD" secondAttribute="trailing" id="uWd-G0-taP"/>
                         </constraints>
                     </view>
