@@ -18,7 +18,6 @@ protocol eventDetailsSubtitleOfIndexDelegate {
 class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMenuDelegate,eventDetailsSubtitleOfIndexDelegate {
     
 //MARK: -  variable declaration
-    
     var eventID = Int()
     var loginVC = LoginViewController()
     var eventChurchName = ""
@@ -35,18 +34,16 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
     var nameStr          : String = ""
 
 
-    //MARK: -   View Did Load
-    
+//MARK: -  View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-
+        
+//MARK: -  Here calling PageMenu Method
         createPageMenu()
         
         // Do any additional setup after loading the view.
     }
-    
     
     //MARK: -   View WillAppear
     
@@ -55,22 +52,11 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         super.viewWillAppear(animated)
         
         Utilities.eventDetailsAndEventPostDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: " \(eventName)", backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-
-        
     }
     
-    //MARK: - create Page Menu
+//MARK: - create Page Menu 
     
     private func createPageMenu() {
-        
-//        eventDetailsViewController.eventID = listStr.id!
-//        eventDetailsViewController.eventChurchName = listStr.churchName!
-//        eventDetailsViewController.eventName = listStr.title!
-//        
-//        eventDetailsViewController.catgoryID = listStr.churchId!
-//        eventDetailsViewController.navigationStr = "navigationStr"
-        
-        
         EventDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventDetailsViewController") as? EventDetailsViewController
         EventDetailsVC?.title = "Event Details".localize()
         EventDetailsVC?.delegate  = self
@@ -79,8 +65,6 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         EventDetailsVC?.eventName = eventName
         EventDetailsVC?.catgoryID = catgoryID
         EventDetailsVC?.navigationStr = navigationStr
-
-        
         
         PostEventDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostEventDetailsViewController") as? PostEventDetailsViewController
         PostEventDetailsVC?.title = "Posts".localize()
@@ -91,11 +75,8 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         PostEventDetailsVC?.catgoryID = catgoryID
         PostEventDetailsVC?.navigationStr = navigationStr
         
-        
         controllersArray.append(EventDetailsVC!)
         controllersArray.append(PostEventDetailsVC!)
-        
-        
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
@@ -114,9 +95,6 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
                                                  CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
-        
-        
-        
         pageMenu = CAPSPageMenu(viewControllers: controllersArray,
                                 frame: CGRect.init(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
                                 pageMenuOptions: parameters)
@@ -129,6 +107,7 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
     }
     
+//MARK: -   Number of Items in SideMenu Bar
     func nameOfItem(indexNumber: Int, countText :String ){
         let menuItem = pageMenu?.menuItems[indexNumber]
         menuItem?.subtitleLabel?.text = "  " + countText + "  "
@@ -138,22 +117,15 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         
     }
     
-    
-  //MARK: -   back Left Button Tapped
+//MARK: -   back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
         
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         self.navigationController?.popViewController(animated: true)
-
-        
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
         print("Back Button Clicked......")
         
     }
@@ -162,17 +134,13 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         self.navigationController?.popViewController(animated: true)
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
         print("Home Button Clicked......")
         
     }
@@ -181,8 +149,6 @@ class EventDetailsAndEventPostDetailsViewController: UIViewController,CAPSPageMe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
 

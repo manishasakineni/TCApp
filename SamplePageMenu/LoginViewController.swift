@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var dontHaveAccountLbl: UILabel!
     
+    
     //MARK: -  variable declaration
 
     var email : String? = ""
@@ -50,14 +51,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var placeHolderName = ["User Name","Password"]
     var deviceId = ""
     
+    
   //MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-    //    self.deviceId  = kUserDefaults.value(forKey: "DeviceID") as! String
-    
         pleaseEnterEmailLbl.text = "Please Enter e-mail".localize()
         forgotPassSubmitBtn.setTitle("Submit".localize(), for: .normal)
         mobileEmailTF.placeholder = "User Name".localize()
@@ -69,7 +69,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginBtnOutLet.layer.borderWidth = 1.0
         loginBtnOutLet.layer.cornerRadius = 6.0
         loginBtnOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
-        
         
         mobileEmailTF.delegate = self
         passwordTF.delegate = self
@@ -88,32 +87,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    //MARK: -  View Will Appear
+//MARK: -  View Will Appear
   
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        
         print(showNav)
-        
         self.navigationController?.navigationBar.isHidden = false
-        
-           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
+        Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "homeImg", cntr:self, titleView: nil, withText: "Login".localize(), backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         eyeBtnOutlet.isHidden = true
     }
     
-    //MARK: -  View Will Disappear
+//MARK: -  View Will Disappear
  
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
     }
     
-    //MARK: -  textField Did Begin Editing
+    
+    /* ::::::::::::::::::::::::::::::::::::::::::::::::::::  TextField Delegate Methods  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+    
+    
+//MARK: -  textField Did Begin Editing
   
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -122,7 +120,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
          if textField == passwordTF{
             
             passwordTF.isSecureTextEntry = true
-            
         }
         
     }
@@ -137,47 +134,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if textField == passwordTF {
             
             eyeBtnOutlet.isHidden = false
-            
             if let text = passwordTF.text,
             let textRange = Range(range, in: text) {
                 let updatedText = text.replacingCharacters(in: textRange, with: string)
-                
                 if updatedText.count == 0 {
-                    
                     eyeBtnOutlet.isHidden = true
                 }
-            
+        
+            }
+    
         }
         
-        
-        }
-        
-        return true
-    }
+    return true
+}
     
  //MARK: -  textField Did End Editing
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        
         if textField == mobileEmailTF{
             email = mobileEmailTF.text!
             
         }
-            
         else if textField == passwordTF{
             
             password = passwordTF.text!
-            
         }
-        
     }
-    
     
 //MARK: -  validate phone number
     
     func validatePhoneNumber(phoneNumber: String) -> Bool {
-        
         
         let EmailTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         
@@ -196,7 +183,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    
     @IBAction func loginClicked(_ sender: Any) {
         
-    
         email = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         password = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
@@ -205,66 +191,48 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if email!.isEmpty{
                 
                 Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter UserName".localize(), clickAction: {
-                    
-                    
                 })
-                
             }
             else if password!.isEmpty{
-                
                 Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Password".localize(), clickAction: {
                     
-                    
                 })
-                
             }
             else{
-
-        self.loginAPIService()
+                
+// MARK :- Here calling Login API-Service
+           self.loginAPIService()
                 
             }
-            
-        }else{
+        }
+        else{
             
             appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             
-            return
+          return
         }
-
     }
     
 //MARK:- validateAllFields
     
-    func validateAllFields() -> Bool
-    {
-    
+    func validateAllFields() -> Bool{
         self.view.endEditing(true)
         
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-        
     
          if email!.isEmpty{
             
             Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize().localize(), messege: "Please provide UserName".localize(), clickAction: {
-                
-                
             })
-            
         }
         if password!.isEmpty{
             
             Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Password".localize(), clickAction: {
-                
-                
             })
-            
         }
-
-        else {
-            
+        else{
             print("Home Page Navigate")
-            
         }
         
      return true
@@ -282,6 +250,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let strUrl = LOGINURL
         
+//MARK:- Passing Params
         let dictParams = [
             "userName": email!,
             "password": password!,
@@ -306,19 +275,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             print("\(result)")
                             
                             let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
-                            
                             print("responseString = \(respVO)")
-                            
-                            
                             let statusCode = respVO.isSuccess
                             print("StatusCode:\(String(describing: statusCode))")
-                            
                             if statusCode == true
                             {
-                                
                                 let successMsg = respVO.endUserMessage
                                 print(successMsg!)
-                                
                                 let loginStatus = successMsg
                                 let userid = respVO.result?.userId
                                 let loginid =  respVO.result?.userDetails?.id
@@ -328,7 +291,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let clientId = respVO.result?.client_id
                                 let refreshToken = respVO.result?.refresh_token
                                 let expiresIn = respVO.result?.expires_in
-                                
                                 kUserDefaults.set(accessToken, forKey: kAccess_token)
                                 print("accessToken:\(String(describing: accessToken))")
                                 kUserDefaults.set(tokenType, forKey: kTokenType)
@@ -350,7 +312,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 kId = kUserDefaults.value(forKey: kIdKey) as! Int
                                 kUserDefaults.synchronize()
                                 
-                                
                                 if self.navigationString == "navigationString" ||  self.navigationString == "authorInfoString" || self.navigationString == "churchInfoString" {
   
                                     let viewControllers: [UIViewController] = self.navigationController!.viewControllers
@@ -370,44 +331,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     }
                                     
                                 }
-                                    
-                                else {
-                                    
+                                else{
                                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                                     self.appDelegate.window?.rootViewController = rootController
                                     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                     
                                 }
                             }
-                                
-                            else {
-                                
+                            else{
                                 if  let failMsg = respVO.endUserMessage {
                                     print(failMsg)
-                                    
                                     self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
                                     
                                     return
                                 }
                             }
-                            
                             print("success")
-                            
                     }
                     
                 }, failureHandler:  {(error) in
-                    
                     print(error)
-                    
                     if(error == "Enter Valid Credentials"){
-                        
-                        
                         self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
-                        
-                        
                     }
-                    
-                    
                 })
             }
         }
@@ -415,30 +361,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             return
         }
-        
     }
     
   //MARK:- Forgot Password Clicked
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
-        
-    
-//        let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
-//        
-//        self.navigationController?.pushViewController(forgotPassWordViewController, animated: true)
-       
-     //   UIView.animate(withDuration: 1, animations: { // 3.0 are the seconds
-            
+
             // Write your code here for e.g. Increasing any Subviews height.
-        
             self.forgotPWDView.isHidden = false
             self.transparentView.isHidden = false
-            
-            
-//            self.view.layoutIfNeeded()
-//            
-//        })
-      
     }
 
 //MARK:- Register Clicked
@@ -448,7 +379,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let signUpViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         
         self.navigationController?.pushViewController(signUpViewController, animated: true)
-        
     }
     
 //MARK:- Eye Btn Action
@@ -462,18 +392,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             eyeBtnOutlet.setImage(#imageLiteral(resourceName: "eyeopen"), for: .normal)
         }
         else{
-            
             passwordTF.isSecureTextEntry = true
             eyeBtnOutlet.tag = 0
             eyeBtnOutlet.setImage(#imageLiteral(resourceName: "eyeclosed"), for: .normal)
-            
-            
         }
-        
     }
     
     
-//MARK: -    Back Left Button Tapped
+//MARK: - Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -481,13 +407,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
         print("Back Button Clicked......")
         
     }
+    
+//MARK: - Show alertView for end user message
     
      func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
@@ -498,11 +424,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alertView.show()
     }
     
+//MARK: - Forgot Password button action from StoryBoard
     
     @IBAction func forgotPWDSubmitAction(_ sender: Any) {
-        
-        
-        
+      
       self.view.endEditing(true)
         
         mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
@@ -512,27 +437,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             utillites.alertWithOkButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please enter registered email".localize(), clickAction: {
                 
             })
-            
-            
-        
         }
-        
         else {
-        
+            
+ //MARK: - Hear calling forgot password API-Service
+            
             self.forgotPWDAPIService()
-            
-            
-            
         }
-        
     }
     
+ //MARK: - Get Forgot Password API-Service
     
     func forgotPWDAPIService(){
-    
         
         let strUrl = FORGOTPASSWORDAPI
-        
         
         let dictParams = [
             
@@ -546,11 +464,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         print("dictHeader:\(dictHeaders)")
 
-                
-    serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+        serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
         
         DispatchQueue.main.async(){
-                            
             
     let respVO:ForgotPswdVO = Mapper().map(JSONObject: result)!
                                                         
@@ -564,7 +480,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.transparentView.isHidden = true
         
              })
-        
             
         }  }) { (failureMessage) in
             

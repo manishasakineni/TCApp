@@ -11,6 +11,8 @@ import Localize
 import IQKeyboardManagerSwift
 
 
+//MARK: -  Custom Protocol Delegate Methods
+
 protocol SttingPopOverHomeDelegate {
     func helpClicked()
     func aboutUS()
@@ -58,8 +60,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var okbtnTag = 0
     
-    //MARK: -  variable declaration
-    
+//MARK: -  variable declaration
     
     var visibleIndexPath: IndexPath? = nil
     var offSet: CGFloat = 0
@@ -83,10 +84,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var loginVC = LoginViewController()
     
     var userId :  Int = 0
-    
-    
-//    var timer: Timer?
-    
+  
     var timer: Timer = Timer.init()
     
     var count = 0
@@ -172,13 +170,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let timeInt = Double(expireTime)!
                 
-            //    let timeInt = 30.0
-              
                 timer = Timer.scheduledTimer(timeInterval: timeInt, target: self, selector: #selector(self.BackgroundTimerCall), userInfo: nil, repeats: true)
             }
         }
         
-        
+        // Register Custom TableviewCell
         let categorieHomeCell  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         categorieTableView.register(categorieHomeCell, forCellReuseIdentifier: "CategorieHomeCell")
         
@@ -212,36 +208,25 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         pageController.tintColor = Utilities.appColor
         pageController.numberOfPages = 0
         
-        // self.navigationItem.rightBarButtonItem?.badgeValue = "5";
-
         self.toolOk.addTarget(self, action: #selector(toolOkClicked(_:)), for: UIControlEvents.touchUpInside)
         
         popupsView.layer.cornerRadius =  toolPopupImgVW.frame.size.height/2
-        
-        
-      //  }
-        
+      
        cartbtn.isEnabled = false
-        
-    
-    
-        
-   
+      
     }
     
 //MARK: -   View WillAppear
-    
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        
         if #available(iOS 11.0, *) {
             
             searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         }
-        
+       // Set navigationController with title
         self.navigationController?.navigationBar.barTintColor = Utilities.appColor
         self.navigationItem.title = "Telugu Churches".localize()
         self.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -267,17 +252,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         
         self.cagegoriesArray.removeAll()
+        
+        // Calling  All Categories AND All Churches API-Service
         self.getAllCategoriesAPICall()
         self.getChurchesAPICall()
 
-
        toolPopupLbl.text = "Click here for Menu"
        
-        
         if let isAppAlreadLaunchedOnce = defaults.value(forKey: "isAppAlreadyLaunchedOnce") as? Bool{
-  
-            
-            
         print("App already launched : \(isAppAlreadyLaunchedOnce)")
         
         if isAppAlreadLaunchedOnce == true {
@@ -286,25 +268,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             gifImage.image = imageURL
             transpView.isHidden = false
             defaults.set(false, forKey: "isAppAlreadyLaunchedOnce")
-
             defaults.synchronize()
-
             self.navigationController?.navigationBar.isUserInteractionEnabled = false
-
-
         }
-
         else{
-
             transpView.isHidden = true
-
             self.navigationController?.navigationBar.isUserInteractionEnabled = true
-
-
-        }
-
         }
     }
+ }
     
 //MARK: -   View WillDisappear
     
@@ -312,14 +284,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         if(timerForCollectionView != nil){
           timerForCollectionView.invalidate()
         }
-        
         super.viewWillDisappear(animated)
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+//MARK: - Suggestion Method (ToolTip-Method)
     
     func toolOkClicked(_ sender : UIButton) {
         
@@ -336,19 +308,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
              popupsView.frame = CGRect(x: transpView.frame.maxX - 125, y: 75, width: 111, height: 96)
             popupsView.isHidden = false
             toolPopupLbl.text = "Click here for Notifications"
-            
-            
-//        case 1:
-//            print("2 clikced")
-//            sender.tag = sender.tag + 1
-//
-//           // popupsView.frame = CGRect(x: self.categorieTableView.frame.minX + 50, y: self.categorieTableView.frame.minY + 50, width: 111, height: 96)
-//
-//            popupsView.frame = CGRect(x: transpView.frame.maxX - 175, y: 75, width: 111, height: 96)
-//            popupsView.isHidden = false
-//            toolPopupLbl.text = "Click here for cart"
 
-          
         case 1:
             print("3 clicked")
             sender.tag = sender.tag + 1
@@ -359,13 +319,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 popupsView.frame = CGRect(x: transpView.frame.maxX - 150, y: 550, width: 111, height: 96)
             }
-
-            
             popupsView.isHidden = false
             toolPopupLbl.text = "Click here for more Churches"
-
-            
-            
             
         default:
             print(okbtnTag)
@@ -373,8 +328,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             self.navigationController?.navigationBar.isUserInteractionEnabled = true
         }
         
-       // print("okclicked")
     }
+
+//MARK: - BackgroundTimer
     
     @objc func BackgroundTimerCall()
     {

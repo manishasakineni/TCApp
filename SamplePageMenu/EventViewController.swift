@@ -18,7 +18,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     @IBOutlet weak var eventTableView: UITableView!
     
-   //MARK: -  variable declaration
+//MARK: - variable declaration
+    
     var utilities = Utilities()
     var pasterUserId      : Int = 0
     var currentMonth = 0
@@ -58,7 +59,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     fileprivate lazy var dateFormatter1 = DateFormatter()
     var lastContentOffset: CGFloat = 0
     
-    
+//MARK: -  DateFormatter  declaration
     fileprivate lazy var dateFormatter2: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -67,6 +68,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         return formatter
     }()
     
+//MARK: -  Programmatically  UILabel declaration
     let codedLabel:UILabel = UILabel()
 
 //MARK: -  view Did Load
@@ -84,14 +86,16 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         eventTableView.dataSource = self
         eventTableView.delegate = self
         
-        
+//MARK: -  Register the Custom DataCell
+    
         let nibName  = UINib(nibName: "ListOfMonthEventCell" , bundle: nil)
         eventTableView.register(nibName, forCellReuseIdentifier: "ListOfMonthEventCell")
-        
-        
+    
         eventTableView.register(UINib.init(nibName: "AllEventHeaderCell", bundle: nil),
                                 forCellReuseIdentifier: "AllEventHeaderCell")
-        
+    
+//MARK: -  Initializing DateFormatter
+    
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
@@ -100,7 +104,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         yearFormatter.dateFormat = "YYYY"
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: calendar.currentPage)
-        
+    
+//MARK: - Here calling method of EventByUserIdMonthYear AND ChurchEventsGetEventDetailsInfoByChurchIdMonthYear API-Service's AND CalenderColor Method"
         self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
         self.getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr: monthString, _yearStr: yearString)
     
@@ -110,17 +115,16 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
     }
     
- //MARK: -  view Will Appear
+//MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
         
-//     Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Notifications".localize(), backTitle: "Categories".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")   
-//        
-//        
+        //First Call Super
+        super.viewDidAppear(true)
+      
     }
 
-       //MARK: -  color
+//MARK: -  Set Calendar Color
     
     func calendarColor(){
         calendar.scope = .month
@@ -134,31 +138,18 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     }
     
-   //MARK: -   Event calendar  
+//MARK: - Calendar Delegate Methods
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
-        
         if self.eventDateArray.contains(dateString) {
-            
-         //   var attributes = [NSAttributedStringKey: AnyObject]()
-
-            
-            
-           
-            
             var event = ""
-            
             if let i = self.eventDateArray.index(of: dateString) {
-                          print("Jason is at index \(i)")
-                           let prevEventCount = self.eventsCountsArray[i]
-                               event = "\(prevEventCount)"
-                
-                
-                
-                      }
-            
+                    print("Jason is at index \(i)")
+                let prevEventCount = self.eventsCountsArray[i]
+                    event = "\(prevEventCount)"
+            }
             return event
         }
         return nil
@@ -167,24 +158,23 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
         print("gdfgdfgdfgdfg",calendar.currentPage)
-        
         self.churchEventsArray.removeAll()
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
         let monthString = monthFormatter.string(from: calendar.currentPage)
         
-        
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "YYYY"
         yearFormatter.timeZone = NSTimeZone.local
         let yearString = yearFormatter.string(from: calendar.currentPage)
-        
          print(monthString,yearString)
       
         if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
              churchIdMonthYearArray.removeAll()
              churchEventsArray.removeAll()
+            
+//MARK: - Here calling method of EventByUserIdMonthYear AND ChurchEventsGetEventDetailsInfoByChurchIdMonthYear API-Service's" when user can change current page(MONTH) to next page(NEXT MONTH) below API's are called.
             
             getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
             getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr: monthString, _yearStr: yearString)
@@ -199,6 +189,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         self.view.layoutIfNeeded()
     }
     
+//MARK: - Here calling GETEVENTBYDATEANDUSERID API-Service
+//MARK: - When user can select the date it will show information above the selected date
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
@@ -217,65 +209,45 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                 serviceController.getRequest(strURL:strUrl, success:{(result) in
         DispatchQueue.main.async()
         {
-            
             print("result:\(result)")
-                            
-                            
             let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
                             
          let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
-                            
         self.eventTitleArray.removeAll()
         self.eventStartDateArray.removeAll()
         self.eventEndDateArray.removeAll()
 
         if isSuccess == true {
-                                
         let successMsg = respVO.endUserMessage
-                                
             for eventsTitleList in respVO.listResult!{
-                                    
                 let eventTitle = eventsTitleList.eventTitle
                 self.eventTitleArray.append(eventTitle!)
                 let eventStartDate = eventsTitleList.startDate
-       // self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
                 self.eventStartDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventStartDate!))
-            
                 let eventEndDate = eventsTitleList.endDate
-      //  self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
                 self.eventEndDateArray.append(self.returnEventDateWithoutTim1(selectedDateString: eventEndDate!))
-
-
                 print( self.eventEndDateArray)
-
-    }
-                                
+        }
         print(self.eventTitleArray)
         print(self.eventStartDateArray)
         print(self.eventEndDateArray)
             
     let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
-                                
             var params : Dictionary = Dictionary<String,Any>()
                 params.updateValue(self.eventTitleArray, forKey: selectedDateString)
                 params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
                 params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
-
                 print(params)
-                                
                 reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
                 reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
                 reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
-            
                 reOrderPopOverVC.eventsDateString = selectedDateString
                 self.addChildViewController(reOrderPopOverVC)
                 reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
                 self.view.addSubview(reOrderPopOverVC.view)
                 reOrderPopOverVC.didMove(toParentViewController: self)
-                                
                 self.calendar.reloadData()
-            
     }
                             
 }
@@ -314,40 +286,25 @@ else {
         
         return [appearance.eventDefaultColor]
     }
-    
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-//
-//       let dateString = self.dateFormatter2.string(from: date)
-//
-//        if self.eventDateArray.contains(dateString)
-//        {
-//            return UIColor.blue
-//        }
-//        else{
-//            return nil
-//        }
-//    }
-
-    
+ 
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let dateString = self.dateFormatter2.string(from: date)
         
         if self.eventDateArray.contains(dateString)
         {
             if self.gregorian.isDateInToday(date) {
-                return UIColor.orange
+               
+              return UIColor.orange
             }
-            else {
+            else{
+                
               return UIColor.cyan
             }
-            
-            
         }
         else{
+            
             return nil
         }
-      
-        
     }
     
 
@@ -364,12 +321,9 @@ else {
         }
     }
     
-    
+// MARK: - Here initializing method of EventByUserIdMonthYear API-Service
 func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
     
-            
-       // GetEventInfoByChurchIdMonthYearAPIService(_monthStr, _yearStr) pasterUserId
-            
         let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(churchID)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
             
         print(strUrl)
@@ -393,91 +347,59 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
             if((respVO.listResult?.count)! > 0){
         
                 for eventsList in respVO.listResult! {
-                            
                     let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
                     self.eventDateArray.append(dateString)
                     let eventsCountsString = eventsList.eventsCount
                     self.eventsCountsArray.append(eventsCountsString!)
-                    
                     self.currentMonthDataArray.append(dateString)
-        
                     self.churchIdMonthYearArray.append(eventsList)
-        
                 }
-                            
             }
             else {
-        
                 self.currentMonthDataArray.removeAll()
-                
-                
-    }
-                            
+            }
         print("self.eventDateArray,Count", self.eventDateArray.count)
         print("self.eventsCountsArray", self.eventsCountsArray)
-        
         self.calendar.reloadData()
         self.eventTableView.reloadData()
 
-    }
+         }
                         
-    }
-            
-     }, failure:  {(error) in
+     }
+  
+ }, failure:  {(error) in
                 
-        print(error)
+    print(error)
+    if(error == "unAuthorized"){
                 
-            if(error == "unAuthorized"){
-                
-                    
-            }
+        }
                 
       })
-
-        
-    }
+}
     
-
-    func getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr : String, _yearStr: String)   {
-        
+ // MARK: - Here initializing method of ChurchEventsGetEventDetailsInfoByChurchIdMonthYear API-Service
+    func getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr : String, _yearStr: String){
         let getChurchEventsAPI = CHURCHEVENTSAPI + "" + "\(churchID)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
-        
             serviceController.getRequest(strURL: getChurchEventsAPI, success: { (result) in
-            
                 if result.count > 0 {
-            
                     let responseVO:ChurchEventsVO = Mapper().map(JSONObject: result)!
-            
                     let isSuccess = responseVO.isSuccess
-            
                     if isSuccess == true  {
-                        
-                        if responseVO.listResult!.count > 0 {
-                    
+                        if responseVO.listResult!.count > 0{
                             self.churchEventsArray = responseVO.listResult!
- 
                         }
-                
-                        else {
-                   
+                        else{
                             self.churchEventsArray.removeAll()
-                        }
-                
+                      }
                     self.eventTableView.reloadData()
-                
                 }
             }
             
         }) { (failureMessage) in
-            
-            
-        }
-        
-        
     }
+}
     
 //MARK: -   Event Date Without Time
-    
     func returnDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""
         if(selectedDateString != ""){
@@ -492,16 +414,14 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
                 newDateStr = newDateString
                 print(newDateStr)
             }
-
         }
         return newDateStr
     }
     
-    
+//MARK: -  Convert date and Time format
     func returnEventDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""
         var newDateStr1 = ""
-        
         if(selectedDateString != ""){
             let invDtArray = selectedDateString.components(separatedBy: "T")
             let dateString = invDtArray[0]
@@ -540,16 +460,12 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
     UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
     UserDefaults.standard.set("1", forKey: "1")
     UserDefaults.standard.removeObject(forKey: "1")
-        
     UserDefaults.standard.synchronize()
     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
         print("Back Button Clicked......")
     }
 
@@ -566,13 +482,11 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
 
 extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     
- //MARK: -   Get Event Info By Church Id Month Year API Service
+//MARK: -   Get Event Info By Church Id Month Year API Service
     
     func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String){
         
-        
         let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
-        
         
         let dictParams = [
             "churchId": churchID,
@@ -590,67 +504,34 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         
         print("dictHeader:\(dictHeaders)")
         
-        
         serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
-            
             let respVO:GetEventInfoByChurchIdMonthYearVo = Mapper().map(JSONObject: result)!
-            
-            
             let isSuccess = respVO.isSuccess
-            
             if isSuccess == true {
-                
                 let successMsg = respVO.endUserMessage
-                
-                
                 self.listResultArray = respVO.listResult!
-                
                 let pageCout  = (respVO.totalRecords)! / 10
-                
                 let remander = (respVO.totalRecords)! % 10
-                
                 self.totalPages = pageCout
-                
                 if remander != 0 {
-                    
                     self.totalPages = self.totalPages! + 1
-                    
                 }
-                
-                for church in respVO.listResult!{
-                    
-                 //   self.churchIdMonthYearArray.append(church)
-                    
-                }
-                
-                
-           //     print("churchAdminArray", self.churchIdMonthYearArray)
-                
-                
                 self.eventTableView.reloadData()
-                
-                
             }
-                
             else {
-                
-                
-            }
-            
-            
-        }) { (failureMessage) in
-            
+
+        }
+    
+    }) { (failureMessage) in
             
             print(failureMessage)
-            
-        }
-        
-        
-    }
+  }
 
-  //MARK: -   TableView Delegate & DataSource Methods
+}
+
+//MARK: -   TableView Delegate & DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -694,65 +575,47 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         if(self.churchEventsArray.count > indexPath.row ){
             
             let churchIdMonthYearList:ChurchEventsListVO = self.churchEventsArray[indexPath.row]
-            
-            
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
-            
             if let eventName =  churchIdMonthYearList.title {
                 listOfMonthEventCell.eventTitle.text = eventName
             }else{
-                
             }
-            
             if let contactNumber =  churchIdMonthYearList.contactNumber {
                 listOfMonthEventCell.contactNumber.text =  contactNumber
             }else{
             }
-            
             let eventStartDate = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
-            
-
             if eventStartDate != "" {
                 listOfMonthEventCell.churchName.text = eventStartDate
             }else{
-                
                 listOfMonthEventCell.churchName.text = ""
             }
-            
             let eventEndDate = returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
-            
             if eventStartDate != "" {
                 listOfMonthEventCell.eventStartEndDate.text = eventEndDate
             }else{
-                
                 listOfMonthEventCell.eventStartEndDate.text = ""
             }
-
-            
             return listOfMonthEventCell
         }
         return UITableViewCell()
         
     }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == churchEventsArray.count - 1 {
-            
             if(self.totalPages! > PageIndex){
-
                 PageIndex = PageIndex + 1
-                
                 let monthFormatter = DateFormatter()
                 monthFormatter.dateFormat = "M"
                 monthFormatter.timeZone = NSTimeZone.local
                 let monthString = monthFormatter.string(from: calendar.currentPage)
-                
                 let yearFormatter = DateFormatter()
                 yearFormatter.dateFormat = "YYYY"
                 yearFormatter.timeZone = NSTimeZone.local
                 let yearString = yearFormatter.string(from: calendar.currentPage)
                 
+//MARK: -  Here calling EventInfoByChurchIdMonthYear API-Service
                 GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
      
             }
@@ -760,8 +623,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
 
- //MARK: -   Event Date Without Time
-    
+//MARK: -  Convert date and Time format(Modified Event Date Without Time)
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr  = ""
         var newDateStr1 = ""
@@ -774,7 +636,6 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let invDtArray2 = dateString1.components(separatedBy: ".")
             let dateString3 = invDtArray2[0]            
             print(dateString1)
-            
             if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -786,7 +647,6 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 print(newDateStr)
             }
             if(dateString3 != "" || dateString != "."){
-                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .medium
                 dateFormatter.dateFormat = "HH:mm:ss"

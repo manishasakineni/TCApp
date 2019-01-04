@@ -14,6 +14,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var datePopUpTableView: UITableView!
 
+//MARK: - Variable Ceclaration
     var eventsLisrArray = Array<String>()
     var eventStartDateLisrArray = Array<String>()
     var eventEndDateLisrArray = Array<String>()
@@ -22,7 +23,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     var eventsDateString : String = ""
 
-
+//MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,14 +32,13 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         datePopUpTableView.delegate = self
         datePopUpTableView.dataSource = self
         
+//MARK: - Register for Custom TableViewCells
         let nibName1  = UINib(nibName: "EventInformationCell" , bundle: nil)
         datePopUpTableView.register(nibName1, forCellReuseIdentifier: "EventInformationCell")
         datePopUpTableView.register(UINib.init(nibName: "EventHeaderCell", bundle: nil),
         forCellReuseIdentifier: "EventHeaderCell")
 
-        
-        
-        
+//MARK: - Set Popup View BackgroundColor
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
     }
@@ -49,6 +49,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
 
+//MARK: - UITableView Delegate AND DataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -61,7 +62,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         if section == 0{
             
             return eventsLisrArray.count
-
         }
         return 0
     }
@@ -85,9 +85,6 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         eventHeaderCell.eventStartDate.text = "EventStartDate".localize()
         eventHeaderCell.eventEndDate.text = "EventEndDate".localize()
 
-        
-       
-        
         return eventHeaderCell
         
     }
@@ -100,20 +97,21 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        
-            let eventInformationCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
-        
+        //MARK: - Here Custome TableViewCell Reference
+         let eventInformationCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
              eventInformationCell.eventType.text = self.eventsLisrArray[indexPath.row]
              eventInformationCell.eventStartDateLabel.text = self.eventStartDateLisrArray[indexPath.row]
              eventInformationCell.eventEndDateLabel.text = self.eventEndDateLisrArray[indexPath.row]
- 
-            return eventInformationCell
-       
+        
+        //Return Cell
+      return eventInformationCell
+
     }
     
     
     @IBAction func okButtonAction(_ sender: UIButton) {
-        
+    
+//MARK: - Here Calling Method for dismiss the PopupView
         removeAnimate()
         
     }
@@ -123,7 +121,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         removeAnimate()
         
     }
-    
+//MARK: - Here remove superview
     func removeAnimate()
     {
         UIView.animate(withDuration: 0.25, animations: {

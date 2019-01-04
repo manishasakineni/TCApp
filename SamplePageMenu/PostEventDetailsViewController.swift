@@ -47,18 +47,16 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     var gggg = String()
     var thumbnailImageURL = String()
 
-//MARK: -   view Did Load
-    
+//MARK: -  view Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-        
         postEventTableView.delegate = self
         postEventTableView.dataSource = self
+        self.norecordsfoundLbl.isHidden = true
         
-          self.norecordsfoundLbl.isHidden = true
-        
+       // Register for Custom TableviewCell
         let nibName  = UINib(nibName: "homeCategoriesCell" , bundle: nil)
         postEventTableView.register(nibName, forCellReuseIdentifier: "homeCategoriesCell")
         
@@ -71,26 +69,24 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             let dataImg = try? Data(contentsOf: url!)
             
             if dataImg != nil {
-                
                 HeadImageTitle.image = UIImage(data: dataImg!)
             }
-            else {
-                
+            else{
                 HeadImageTitle.image = #imageLiteral(resourceName: "eventsdetails")
             }
-            
         }
-        else {
+        else{
             
             HeadImageTitle.image = #imageLiteral(resourceName: "eventsdetails")
         }
-
+        
+     // Here Calling Videos API-Service
         getVideosAPICall()
  
         // Do any additional setup after loading the view.
     }
     
-    //MARK: -   view Will Appear
+ //MARK: -  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -102,19 +98,7 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
               
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        
-//        super.viewWillDisappear(animated)
-//        
-//        
-//        Utilities.authorDetailsnextViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-//    }
-//    
-//    
-    
-    
 //MARK: -    Get Videos API Call
-    
     
     func getVideosAPICall(){
         
@@ -151,16 +135,12 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                                 
             if !(videoList?.isEmpty)! {
                                     
-            self.categoryStr.append("Videos")
-                                }
-                                
-                                
+                self.categoryStr.append("Videos")
+            }
             for authorDetails in videoList!{
-                                    
-            self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
-            self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
-            self.imagesArray.append(authorDetails)
-                
+                self.numberOfRows.updateValue(videoList?.count, forKey: "\(i)")
+                self.imagesArrayTag.updateValue(videoList, forKey: "\(i)")
+                self.imagesArray.append(authorDetails)
             }
                                 
             i = (videoList?.count)! > 0 ? i + 1 : i
@@ -178,75 +158,62 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         self.imagesArrayTag.updateValue(audioList, forKey: "\(i)")
                                     
         self.imagesArray.append(audioDetails)
-        
-        
-                                }
-                                
+      }
         i = (audioList?.count)! > 0 ? i + 1 : i
                                 
             let docsList = self.allCagegoryListArray?.documents
                                 
             if !(docsList?.isEmpty)! {
                                     
-            self.categoryStr.append("Documents")
-                                }
+              self.categoryStr.append("Documents")
+            }
                                 
             for docsDetails in docsList!{
                                     
-        self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
-                                    
-        self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
-                                    
-        self.imagesArray.append(docsDetails)
-                                }
-                                
+                self.numberOfRows.updateValue(docsList?.count, forKey: "\(i)")
+                self.imagesArrayTag.updateValue(docsList, forKey: "\(i)")
+                self.imagesArray.append(docsDetails)
+            }
             i = (docsList?.count)! > 0 ? i + 1 : i
                                 
             let imageList = self.allCagegoryListArray?.images
                                 
             if !(imageList?.isEmpty)! {
                                     
-            self.categoryStr.append("Images")
-    }
-                                
-                for imageDetails in imageList!{
+               self.categoryStr.append("Images")
+           }
+             for imageDetails in imageList!{
                                     
-            self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
+                 self.numberOfRows.updateValue(imageList?.count, forKey: "\(i)")
                                     
-            self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
+                 self.imagesArrayTag.updateValue(imageList, forKey: "\(i)")
                                     
-            self.imagesArray.append(imageDetails)
-                                }
+                 self.imagesArray.append(imageDetails)
+                }
                                 
-            self.isResponseFromServer = true
-            self.postEventTableView.reloadData()
-                            }
-            else {
+                 self.isResponseFromServer = true
+                 self.postEventTableView.reloadData()
+                }
+                else {
                                 
+                  self.norecordsfoundLbl.isHidden = false
+                  self.postEventTableView.isHidden = true
+                }
+                            
+            }
+            else{
+                            
             self.norecordsfoundLbl.isHidden = false
             self.postEventTableView.isHidden = true
-                            }
-                            
             }
-     else {
-                            
-        self.norecordsfoundLbl.isHidden = false
-                            
-        self.postEventTableView.isHidden = true
-                            
-            }
-                        
-                    }
-                    
-            }
-                    
-        }) { (failureMessage) in
-            
-            
-        }
+         }
+     }
+  }) { (failureMessage) in
+ 
+}
         
         self.postEventTableView.reloadData()
-    }
+}
     
     //MARK: -   TableView Delegate & DataSource Methods
     
@@ -254,7 +221,6 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         return 1
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -281,36 +247,21 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-      //  if indexPath.section == 1 {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "homeCategoriesCell", for: indexPath) as! homeCategoriesCell
             
-            cell.homeCollectionView.register(UINib.init(nibName: "homeCategoriesCollectionCell", bundle: nil),
+// Mark :- Register Custom CollectionViewCell in TableView
+        cell.homeCollectionView.register(UINib.init(nibName: "homeCategoriesCollectionCell", bundle: nil),
                                              forCellWithReuseIdentifier: "homeCategoriesCollectionCell")
             cell.homeCollectionView.tag = indexPath.row
-            
             cell.selectionStyle = .none
-            
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-            
             cell.homeCollectionView.reloadData()
-            
-            
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
-            
             if categoryStr.count > 0 {
-                
                 cell.categorieName.text = self.categoryStr[indexPath.row]
-                
             }
-            
             return cell
-            
-            
-       // }
-        
-    // return UITableViewCell()
     }
     
 // Mark :- Collectionview  Delegate & DataSource methods
@@ -330,13 +281,10 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             print("totalItems:\(String(describing: totalItems))")
             
             return totalItems!
-            
         }
         
         return 0
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -351,16 +299,16 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
         
         cell.nameLabel.text = title
         cell.collectionImgView.image = #imageLiteral(resourceName: "eventsdetails")
+
+    //  Here we get Images extention Types like(.png, .jpeg,  .jpg, .JPG)
         
         if (fileExtension == ".png") || (fileExtension == ".jpeg") || (fileExtension == ".jpg") || (fileExtension == ".JPG"){
             
             let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
-            
             if newString != nil {
                 
                 let url = URL(string:newString!)
-                
                 
                 let dataImg = try? Data(contentsOf: url!)
                 
@@ -379,10 +327,12 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
             }
             
         }
+   //  Here we get Document extention Types like(.pdf, .docs)
             
         else if (fileExtension == ".pdf") || (fileExtension == ".docs") {
             
             cell.collectionImgView.image = #imageLiteral(resourceName: "defaultdocument")
+            
 //            if let embededUrlImage =  postImgUrl {
 //
 //                let thumbnillImage : String = embededUrlImage
@@ -428,16 +378,17 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
 //
 //
 //            }
-        }
+       
+}
+   //  Here we get MP3 formatted files. extention Types like(.mp3)
             
-        else if (fileExtension == ".mp3") {
-            
+    else if (fileExtension == ".mp3") {
             cell.collectionImgView.contentMode = .scaleAspectFit
             cell.collectionImgView.image = #imageLiteral(resourceName: "audio3")
-            
-            
-            
         }
+      
+   //  Here we get MP4 formatt files. extention Types like(.mp4) => Video,Audio files both
+            
         else if fileExtension == ".mp4" {
              
             if let embededUrlImage =  postImgUrl {
@@ -460,26 +411,18 @@ class PostEventDetailsViewController: UIViewController,UITableViewDelegate,UITab
                         
                         DispatchQueue.main.async()
                             {
-                                
                                 if data != nil {
-                                    
                                     cell.collectionImgView.image = UIImage(data: data!)
-                                    
                                 }
-                                
                         }
                         
                     })
-                    
                     dataTask.resume()
                     
                 }
             }
         }
-        
-        
         return cell
-        
     }
     
     
@@ -811,6 +754,7 @@ DispatchQueue.main.async {
         
     }
     
+// Mark :- Read Document From Url Method
     func openSelectedDocumentFromURL(documentURLString: String) {
         
         let documentURL: NSURL = NSURL(fileURLWithPath: documentURLString)
