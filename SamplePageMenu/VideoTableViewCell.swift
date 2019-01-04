@@ -15,8 +15,7 @@ class VideoTableViewCell: UITableViewCell{
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var IdLabel: UILabel!
-    
-    
+
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -28,8 +27,7 @@ class VideoTableViewCell: UITableViewCell{
         backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
-        
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

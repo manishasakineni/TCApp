@@ -31,8 +31,6 @@ class ServiceController: NSObject {
             return
         }
         
-        //MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
-        
         showLoadingHUD(to_view: appDelegate.window!)
         
         let urlStr:NSString = strURL.addingPercentEscapes(using:String.Encoding.utf8.rawValue)! as NSString
@@ -44,10 +42,6 @@ class ServiceController: NSObject {
         request.addValue("application/json",forHTTPHeaderField:"Accept")
         
         if postHeaders["Authorization"] != nil  {
-            //            request.addValue(postHeaders[kCustomer_id] as! String, forHTTPHeaderField: kCustomer_id)
-            //            request.addValue(postHeaders[tokenType + " " + accessToken] as! String, forHTTPHeaderField: "Authorization")
-            
-            //            request.setValue(tokenType + " " + accessToken,forHTTPHeaderField: "Authorization")
             
         }
         
@@ -94,11 +88,7 @@ class ServiceController: NSObject {
             DispatchQueue.main.async(){
                 self.hideLoadingHUD(for_view: appDelegate.window!)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                //   MBProgressHUD.hide(for: appDelegate.window, animated: true)
-                
-                
-                
+
                 if response != nil {
                     
                     let statusCode = (response as! HTTPURLResponse).statusCode
@@ -107,34 +97,7 @@ class ServiceController: NSObject {
                     if statusCode == 401 {
                         
                         failureHandler("unAuthorized")
-                        
-                        //                    failure("unAuthorized")
-                        
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
-                        
-                        //                        backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                        //                        UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier!)
-                        //
-                        //                            })
-                        //                     let expireTokenTime:String = UserDefaults.standard.value(forKey: expiresIn) as! String
-                        //
-                        //                            if let expiresInSeconds = Int(expireTokenTime) {
-                        //
-                        //                                timer.invalidate()
-                        //
-                        //                                timer = Timer.scheduledTimer(timeInterval: TimeInterval(expiresInSeconds), target: self, selector: #selector(self.refreshTokenForLogin), userInfo: nil, repeats: false)
-                        //
-                        //                                    guard isManualLogin else { return }
-                        //
-                        //                    }
-                        //
-                        //                                    isManualLogin = false
+
                         
                     }
                     
@@ -143,13 +106,6 @@ class ServiceController: NSObject {
                         print("failuer 1")
                         
                         failureHandler("unAuthorized")
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
                         
                     }
                         
@@ -168,9 +124,7 @@ class ServiceController: NSObject {
                         } catch let error as NSError {
                             
                             print("error=\(error)")
-                            //                    appDelegate.window?.makeToast((error.localizedDescription) as String, duration:kToastDuration , position:CSToastPositionCenter)
-                            
-                            //                     appDelegate.window?.makeToast("Network is either slow or not Connected", duration:kToastDuration , position:CSToastPositionCenter)
+
                             return
                         }
                     }
@@ -188,21 +142,14 @@ class ServiceController: NSObject {
         DispatchQueue.main.async {
             appDelegate = UIApplication.shared.delegate as! AppDelegate
         }
-        
-        //
-        //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         
         if appDelegate.checkInternetConnectivity() == false {
-            
-            //            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            //            appDelegate.window?.makeToast(kNetworkStatusMessage,duration:kToastDuration,position:CSToastPositionBottom)
+
             
             return
         }
-        
-        //MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
-        
-        //        showLoadingHUD(to_view: appDelegate.window!)
+
         
         let urlStr:NSString = strURL.addingPercentEscapes(using:String.Encoding.utf8.rawValue)! as NSString
         let url: NSURL = NSURL(string: urlStr as String)!
@@ -213,20 +160,8 @@ class ServiceController: NSObject {
         request.addValue("application/json",forHTTPHeaderField:"Accept")
         
         if postHeaders["Authorization"] != nil  {
-            //            request.addValue(postHeaders[kCustomer_id] as! String, forHTTPHeaderField: kCustomer_id)
-            //            request.addValue(postHeaders[tokenType + " " + accessToken] as! String, forHTTPHeaderField: "Authorization")
-            
-            //            request.setValue(tokenType + " " + accessToken,forHTTPHeaderField: "Authorization")
-            
+
         }
-        
-        //        let defaults = UserDefaults.standard
-        //
-        //        if let authToken = defaults.string(forKey: accessToken) {
-        //
-        //            request.setValue("Bearer" + " " + authToken,forHTTPHeaderField: "Authorization")
-        //
-        //        }
         
         do {
             let data = try! JSONSerialization.data(withJSONObject:postParams, options:.prettyPrinted)
@@ -261,11 +196,7 @@ class ServiceController: NSObject {
             DispatchQueue.main.async(){
                 //                self.hideLoadingHUD(for_view: appDelegate.window!)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                //   MBProgressHUD.hide(for: appDelegate.window, animated: true)
-                
-                
-                
+
                 if response != nil {
                     
                     let statusCode = (response as! HTTPURLResponse).statusCode
@@ -274,34 +205,7 @@ class ServiceController: NSObject {
                     if statusCode == 401 {
                         
                         failureHandler("unAuthorized")
-                        
-                        //                    failure("unAuthorized")
-                        
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
-                        
-                        //                        backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                        //                        UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier!)
-                        //
-                        //                            })
-                        //                     let expireTokenTime:String = UserDefaults.standard.value(forKey: expiresIn) as! String
-                        //
-                        //                            if let expiresInSeconds = Int(expireTokenTime) {
-                        //
-                        //                                timer.invalidate()
-                        //
-                        //                                timer = Timer.scheduledTimer(timeInterval: TimeInterval(expiresInSeconds), target: self, selector: #selector(self.refreshTokenForLogin), userInfo: nil, repeats: false)
-                        //
-                        //                                    guard isManualLogin else { return }
-                        //
-                        //                    }
-                        //
-                        //                                    isManualLogin = false
+
                         
                     }
                     
@@ -310,20 +214,13 @@ class ServiceController: NSObject {
                         print("failuer 1")
                         
                         failureHandler("unAuthorized")
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
-                        
+
                     }
                         
                     else if error != nil
                     {
                         print("error=\(String(describing: error))")
-                        //                        appDelegate.window?.makeToast(kRequestTimedOutMessage, duration:kToastDuration , position:CSToastPositionCenter)
+
                         return
                         
                     } else{
@@ -335,9 +232,7 @@ class ServiceController: NSObject {
                         } catch let error as NSError {
                             
                             print("error=\(error)")
-                            //                    appDelegate.window?.makeToast((error.localizedDescription) as String, duration:kToastDuration , position:CSToastPositionCenter)
-                            
-                            //                     appDelegate.window?.makeToast("Network is either slow or not Connected", duration:kToastDuration , position:CSToastPositionCenter)
+
                             return
                         }
                     }
@@ -363,9 +258,7 @@ class ServiceController: NSObject {
             appDelegate.window?.makeToast(kNetworkStatusMessage, duration: kToastDuration, position: CSToastPositionBottom)
             return
         }
-        
-        // MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
-        
+
         showLoadingHUD(to_view: appDelegate.window!)
         
         let fileUrl = NSURL(string: strURL)
@@ -373,9 +266,7 @@ class ServiceController: NSObject {
         let request = NSMutableURLRequest(url: fileUrl! as URL)
         request.addValue(content_type, forHTTPHeaderField: "Content-Type")
         request.addValue(content_type, forHTTPHeaderField: "Accept")
-        // request.setValue(api_key, forHTTPHeaderField: "api_key")
-        //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        //        request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
+
         request.httpMethod = "GET"
         
         if let authToken = kUserDefaults.string(forKey: kAccess_token) {
@@ -391,8 +282,7 @@ class ServiceController: NSObject {
         
         let task = URLSession.shared.dataTask(with:request as URLRequest){(data,response,error) in
             DispatchQueue.main.async(){
-                
-                //   MBProgressHUD.hide(for:appDelegate.window,animated:true)
+
                 self.hideLoadingHUD(for_view: appDelegate.window!)
                 print(response)
                 
@@ -406,13 +296,6 @@ class ServiceController: NSObject {
                         print("failuer 1")
                         
                         failure("unAuthorized")
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
                         
                     }
                     if statusCode == 500 {
@@ -420,13 +303,6 @@ class ServiceController: NSObject {
                         print("failuer 1")
                         
                         failure("unAuthorized")
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
                         
                     }
                     
@@ -435,14 +311,6 @@ class ServiceController: NSObject {
                         print("failuer 1")
                         
                         failure("Enter Valid Credentials")
-                        //self.refreshTokenForLogin()
-                        
-                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        //
-                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        //                    appDelegate.window?.rootViewController = viewController
-                        
                     }
                     else if error != nil
                     {
@@ -474,10 +342,6 @@ class ServiceController: NSObject {
                         }
                         catch{
                             print("error=\(error)")
-                            //                        appDelegate.window?.makeToast(error.localizedDescription, duration:kToastDuration , position:CSToastPositionCenter)
-                            
-                            //                        appDelegate.window?.makeToast("Your session has been timed out. Please login again", duration:kToastDuration , position:CSToastPositionCenter)
-                            
                             
                             return
                         }
@@ -502,8 +366,7 @@ class ServiceController: NSObject {
     func showLoadingHUD(to_view: UIView) {
         MBProgressHUD.showAdded(to: to_view, animated: true)
         //  hud.label.text = "Loading..."
-        
-        //  hud?.labelText = "Loading..."
+
         
     }
     

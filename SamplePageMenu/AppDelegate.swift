@@ -8,23 +8,16 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-//import FBSDKLoginKit
-//import FacebookCore
-//import Google
-//import GoogleSignIn
-//import FBSDKLoginKit
 import SystemConfiguration
 import Localize
-//import Firebase
-//import FirebaseMessaging
 import UserNotifications
 import Fabric
 import Crashlytics
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var customizedLaunchScreenView: UIView?   
-
+    var customizedLaunchScreenView: UIView?
     var window : UIWindow?
     var messge : String = ""
     
@@ -39,72 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.applicationIconBadgeNumber = 0
         getsplashmsgAPICall()
-  
-//        IQKeyboardManager.sharedManager().toolbarTintColor = UIColor.red
-//        let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
-//        let notificationsettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-//        application.registerForRemoteNotifications()
-//        application.registerUserNotificationSettings(notificationsettings)
-        
-//        if #available(iOS 10, *) {
-//
-//            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
-//
-//
-//            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-//
-//                guard error == nil else {
-//                    //Display Error.. Handle Error.. etc..
-//                    return
-//                }
-//
-//                if granted {
-//                    //Do stuff here..
-//                    // For iOS 10 display notification (sent via APNS)
-//                    UNUserNotificationCenter.current().delegate = self
-//                    //FIRMessaging.messaging().remoteMessageDelegate = self
-//
-//                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
-//                    DispatchQueue.main.async{
-//                        application.registerForRemoteNotifications()
-//                    }
-//
-//                }
-//                else {
-//                    //Handle user denying permissions..
-//                }
-//            }
-//
-//            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
-//        }
-//        else {
-//            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-//            application.registerUserNotificationSettings(settings)
-//            application.registerForRemoteNotifications()
-//        }
-//
-//
-//        printFCMToken()
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
-//                                               name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
-        
+
         let localize = Localize.shared
         localize.update(provider: .json)
         localize.update(fileName: "lang")
         print(localize.language())
         print(localize.availableLanguages())  
-        
-    //    Thread.sleep(forTimeInterval: 3.0)
-        
-       
-   
-
-        
-      isAppAlreadyLaunchedOnce()
+ 
+        isAppAlreadyLaunchedOnce()
         
         Fabric.with([Crashlytics.self])
         
-               return true
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -141,55 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error){
         print("i am not available in simulator \(error)")
     }
-    
-    
-//    func printFCMToken() {
-//        if let token = InstanceID.instanceID().token() {
-//
-//            print("Your FCM token is \(token)")
-//
-//            kUserDefaults.setValue(token, forKey: "DeviceID")
-//            kUserDefaults.synchronize()
-//        } else {
-//            print("You don't yet have an FCM token.")
-//        }
-//    }
-//
-//    func tokenRefreshNotificaiton(_ notification: Foundation.Notification)
-//    {
-//        // Refreshing FCM token
-//
-//        if let refreshedToken = InstanceID.instanceID().token()
-//        {
-//            UserDefaults.standard.setValue(refreshedToken, forKey: "DeviceID")
-//            UserDefaults.standard.synchronize()
-//            debugPrint("InstanceID token: \(refreshedToken)")
-//        }
-//        connectToFcm()
-//    }
-//    func connectToFcm()
-//    {
-//        // Won't connect since there is no token
-//        guard InstanceID.instanceID().token() != nil else
-//        {
-//            return;
-//        }
-//        // Disconnect previous FCM connection if it exists.
-//        Messaging.messaging().disconnect()
-//        Messaging.messaging().connect { (error) in
-//            if (error != nil)
-//            {
-//                debugPrint("Unable to connect with FCM. \(String(describing: error))")
-//            }
-//            else
-//            {
-//                debugPrint("Connected to FCM.")
-//            }
-//        }
-//    }
-    
-    
-    
+
 // MARK: - Check Internet Connectivity
     
     func checkInternetConnectivity() -> Bool {
@@ -212,6 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
+
+// MARK: - Spash message API call
     
     func getsplashmsgAPICall() {
         
@@ -220,9 +113,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let respVO:splashmsgInfoVO = Mapper().map(JSONObject: result)!
             
             let isSuccess = respVO.isSuccess
-            print("StatusCode:\(String(describing: isSuccess))")
-            
-            
+                print("StatusCode:\(String(describing: isSuccess))")
+
             if isSuccess == true {
                 
                 if respVO.result != nil {
@@ -244,8 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }) { (failureMessage) in
-            
-            
+
             print(failureMessage)
             
         }
@@ -261,8 +152,6 @@ func lunchScreenView(_ text : String){
         if let window = self.window {
             self.customizedLaunchScreenView = UIView(frame: window.bounds)
             self.customizedLaunchScreenView?.backgroundColor = UIColor.white
-            //    self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
-            
             self.window?.makeKeyAndVisible()
             
             var imageView : UIImageView
@@ -290,11 +179,10 @@ func lunchScreenView(_ text : String){
             self.customizedLaunchScreenView?.addSubview(codedLabel)
             self.window?.addSubview(self.customizedLaunchScreenView!)
             self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-            UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
-                           animations: { () -> Void in
-                            self.customizedLaunchScreenView?.alpha = 0 },
-                           completion: { _ in
-                            self.customizedLaunchScreenView?.removeFromSuperview() })
+            UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut, animations: { () -> Void in      self.customizedLaunchScreenView?.alpha = 0 }, completion: { _ in
+                            self.customizedLaunchScreenView?.removeFromSuperview()
+                
+            })
         }
      }
             
@@ -386,14 +274,6 @@ func lunchScreenView(_ text : String){
         }
     }
     
-    
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-//        
-//        print("MessageID : \(userInfo["gcd_message_ID"]!)")
-//        print(userInfo)
-//    }
-    
-    
     func isAppAlreadyLaunchedOnce()->Bool{
         let defaults = UserDefaults.standard
         
@@ -458,40 +338,13 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         
         print(userInfo)
-        
-//        // Print all of userInfo
-//        for (key, value) in userInfo {
-//            print("userInfo: \(key) —> value = \(value)")
-//        }
-//        
-//        if let info = userInfo["aps"] as? Dictionary<String, AnyObject> {
-//            // Default printout of info = userInfo["aps"]
-//            print("All of info: \n\(info)\n")
-//            
-//            for (key, value) in info {
-//                print("APS: \(key) —> \(value)")
-//            }
-//            
-//            
-//            if  let myType = info["type"] as? String {
-//                // Printout of (userInfo["aps"])["type"]
-//                print("\nFrom APS-dictionary with key \"type\":  \( myType)")
-//                
-//                // Do your stuff?
-//            }
-//        }
-//    
-        
-        
+ 
         if let currentNavigationController = UIApplication.shared.delegate?.window??.rootViewController as? SWRevealViewController {
             
             let roootNavigation = currentNavigationController.frontViewController as? UINavigationController
             
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            
-            
-            
+
             let allOrdersDetailsVC = mainStoryboard.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
             
             allOrdersDetailsVC.catgoryID = 8

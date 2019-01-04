@@ -12,14 +12,12 @@ class GlobalSupportingClass {
     
     static let dateFormatStandard:String = "yyyy-MM-dd HH:mm:ss"
     static let dateFormatInputField:String = "MM/dd/yyyy hh:mm a"
-    
-    //2017-10-30T04:37:57.006Z
-    
+
     var autTokenn = UserDefaults.standard.string(forKey: "accessToken")
     var authTokenType = UserDefaults.standard.string(forKey: "tokenType")
     
     
-    // MARK: - Error Messages
+// MARK: - Error Messages
     
     class func blankjobtitleErrorMessage() -> String {
         return "Please Enter jobtitle".localize()
@@ -147,9 +145,7 @@ class GlobalSupportingClass {
     class func blankResetPasswordErrorMessage() -> String {
         return "Please Enter Reset-Password".localize()
     }
-    //    class func blankConfirmPassWordErrorMessage() -> String {
-    //        return "Please ConfirmPassWord Password"
-    //    }
+    
     class func capitalLetterMessage() -> String {
         return "password must have at least one uppercase letter".localize()
     }
@@ -166,6 +162,7 @@ class GlobalSupportingClass {
     class func invalidPassWordErrorMessage() -> String {
         return "Please Enter Minimum 8 Characters Password".localize()
     }
+    
     //    class func invalidPhoneNumberErrorMessage() -> String {
     //        return "app.Pleaseprovide10digitsmobilenumber".localize()
     //    }
@@ -197,7 +194,7 @@ class GlobalSupportingClass {
         return "Please Enter Valid Old Password".localize()
     }
     
-    // MARK: - Capital
+ // MARK: - Capital
     
     class func capitalOnly(password: String) -> Bool {
         let capitalLetterRegEx  = ".*[A-Z]+.*"
@@ -207,7 +204,7 @@ class GlobalSupportingClass {
         return true
     }
     
-    //MARK: -  validate password
+ //MARK: -  validate password
     
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
@@ -216,7 +213,7 @@ class GlobalSupportingClass {
     
     
     
-    // MARK: - Phone Number Valdation
+// MARK: - Phone Number Valdation
     
    class func phoneValidate(value: String) -> Bool {
         let PHONE_REGEX = "^((\\+)|(00))[0-9]{6,14}$"
@@ -225,17 +222,9 @@ class GlobalSupportingClass {
         return result
     }
     
-//    // MARK: - Capital
-//    
-//    class func capitalOnly(password: String) -> Bool {
-//        let capitalLetterRegEx  = ".*[A-Z]+.*"
-//        let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
-//        guard texttest.evaluate(with: password) else { return false }
-//        
-//        return true
-//    }
+
     
-    // MARK: - Number Only
+// MARK: - Number Only
     
     class func numberOnly(password: String) -> Bool {
         
@@ -246,7 +235,7 @@ class GlobalSupportingClass {
         return true
     }
     
-    // MARK: - Special Char Only
+// MARK: - Special Char Only
     
     class func specialCharOnly(password: String) -> Bool {
         
@@ -259,7 +248,7 @@ class GlobalSupportingClass {
     
     
     
-    // MARK: - Validate
+// MARK: - Validate
     
     class func isValidEmail(_ emailID:NSString) -> Bool {
         // println("validate calendar: \(testStr)")
@@ -270,7 +259,7 @@ class GlobalSupportingClass {
     }
     
     
-    //MARK : - Special character checking in string
+//MARK : - Special character checking in string
     
     class func isHavingSpecialCharacter(_ string:NSString) -> Bool {
         
@@ -294,7 +283,8 @@ class GlobalSupportingClass {
         return true
     }
     
-    //MARK : - Navigation
+ //MARK : - Navigation
+    
     class func imageLayerForNavigationGradientBackground(_ frame :CGRect) -> UIImage {
         
         var updatedFrame = frame
@@ -312,7 +302,7 @@ class GlobalSupportingClass {
         return image!
     }
     
-    //MARK: - Date Methods
+//MARK: - Date Methods
     
     static  func getDateFromFormat(_ currFormat:String,ToFormat toFormat:String, WithDate strDate:String) ->String
     {
@@ -371,84 +361,7 @@ class GlobalSupportingClass {
         
         return resultString
     }
-    
-//    class func saveAccessToken(_ accessToken: String) {
-//        
-//        if let accessTokenData = accessToken.data(using: String.Encoding.utf8) {
-//            
-//            let encryptedAccessToken = RNCryptor.encrypt(data: accessTokenData, withPassword: autTokenn)
-//            UserDefaults.standard.setValue(encryptedAccessToken, forKey: autTokenn)
-//            UserDefaults.standard.synchronize()
-//        }
-//    }
-//    
-//    class func getAccessToken() -> String {
-//        
-//        if let accessTokenData = UserDefaults.standard.value(forKey: autTokenn) as? Data {
-//            
-//            do {
-//                
-//                let decryptedAccessToken = try RNCryptor.decrypt(data: accessTokenData, withPassword: autTokenn)
-//                
-//                if let accessToken = String.init(data: decryptedAccessToken, encoding: String.Encoding.utf8) {
-//                    
-//                    return accessToken
-//                }
-//                
-//            } catch {
-//                
-//                fatalError("Error fetching password items - \(error)")
-//            }
-//        }
-//        
-//        return ""
-//    }
-//    
-//    class func saveTokenType(_ tokenType: String) {
-//        
-//        UserDefaults.standard.setValue(tokenType, forKey: autTokenn)
-//        UserDefaults.standard.synchronize()
-//    }
-//    
-//    class func getTokenType() -> String {
-//        
-//        let tokenType = UserDefaults.standard.value(forKey: autTokenn) as? String
-//        
-//        if tokenType == nil {
-//            
-//            return ""
-//            
-//        } else {
-//            
-//            return tokenType!
-//        }
-//    }
-    
-//    //MARK: - Alert
-//    
-//    static func showAlertViewWithTitle(title:String,message:String,buttonTitle:String)
-//    {
-//        let alertView:UIAlertView = UIAlertView();
-//        alertView.title=title
-//        alertView.message=message
-//        alertView.addButton(withTitle: buttonTitle)
-//        alertView.show()
-//    }
-//
-//    static func showAlertViewWithTitleAndButtons(title:String,message:String,arrButtons:
-//        
-//        NSArray,delegate:AnyObject)
-//    {
-//        let alertView:UIAlertView = UIAlertView();
-//        alertView.title=title
-//        alertView.message=message
-//        alertView.delegate=delegate
-//        for  buttonTitle in arrButtons
-//        {
-//            alertView.addButtonWithTitle(buttonTitle as! String)
-//        }
-//        alertView.show()
-//    }
+
     
 }
 

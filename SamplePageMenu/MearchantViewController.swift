@@ -13,10 +13,7 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
 
     
     @IBOutlet weak var mearchantTableView: UITableView!
-    
-   // var delegate: changeSubtitleOfIndexDelegate?
 
-    
     let imageView = ["bible7","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible2","bible1"]
 
     
@@ -46,6 +43,7 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
         
     }
     
+//MARK: - TextView Delegate methods
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -73,15 +71,9 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let youtubePlayerCell = tableView.dequeueReusableCell(withIdentifier: "YoutubePlayerCell", for: indexPath) as! YoutubePlayerCell
-        
-        
-        youtubePlayerCell.allOffersImageView.image = UIImage(named: String(imageView[indexPath.row]))
-        
-        
-        youtubePlayerCell.allOffersImg.image = UIImage(named: String(imageView1[indexPath.row]))
-        
+            youtubePlayerCell.allOffersImageView.image = UIImage(named: String(imageView[indexPath.row]))
+            youtubePlayerCell.allOffersImg.image = UIImage(named: String(imageView1[indexPath.row]))
 
-        
         return youtubePlayerCell
         
     }
