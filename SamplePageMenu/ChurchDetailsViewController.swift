@@ -118,6 +118,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         super.viewWillAppear(true)
 
+        self.churchDetailsTableView.tableFooterView = UIView()
         
         Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         

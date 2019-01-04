@@ -185,6 +185,9 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     @IBAction func backwardBtnAction(_ sender: UIButton) {
         
+        forwardBtn.isHidden = false
+
+        
         if (eventNum >= 1) {
             
             eventNum = eventNum - 1
@@ -202,8 +205,9 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         else {
             
             print("No Records Found")
+            bacwordBtn.isHidden = true
             
-            appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
+//            appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
         }
         
        
@@ -221,6 +225,8 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
     
     @IBAction func forwardBtnAction(_ sender: UIButton) {
         
+        bacwordBtn.isHidden = false
+
     
          let versesDict = verseStringDict["\(index)"] as? Dictionary<String,Any>
         
@@ -252,9 +258,11 @@ class BibleDetailsVerseViewController: UIViewController,UITableViewDataSource,UI
         }
     else {
             
-    print("No Records Found")
+            print("No Records Found")
+            forwardBtn.isHidden = true
+
             
-    appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
+//    appDelegate.window?.makeToast("No Records Found".localize(), duration:kToastDuration, position:CSToastPositionCenter)
             
     }
         
