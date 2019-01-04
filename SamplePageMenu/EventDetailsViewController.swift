@@ -82,6 +82,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     var usersCommentsArray = Array<Any>()
     var commentedByUserArray = Array<Any>()
     var loginUseridsArray = Array<Int>()
+    var userImagesArray = Array<String>()
     
     var parentCommentId = 0
     var replyParentCommentId = 0
@@ -702,37 +703,39 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         if tableView == repliesTableView   {
             
             if indexPath.section == 0 {
-                
-                if indexPath.row == 0{
                     
                     let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
                     
-                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
-                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+//                    usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
+//                    usersCommentsTableViewCell.replyCommentBtn.isHidden = false
+//
+//                    usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+//                    usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
+                
+                usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+                usersCommentsTableViewCell.replyCommentBtn.isHidden = true
+                usersCommentsTableViewCell.editCommentBn.isHidden   = true
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                usersCommentsTableViewCell.replayCountLbl.text = ""
+                usersCommentsTableViewCell.viewCommentsBtn.setTitle("View Replies".localize(), for: .normal)
+                
+                usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
+                usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
                     
-                    usersCommentsTableViewCell.usersCommentLbl.text = self.replyMainComment
-                    usersCommentsTableViewCell.usersNameLbl.text = self.replyMainCommentUser
-                    
-                    if repliesCommentsArray.count > 0{
-                        
-                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
-                   
-                    }else{
-                         usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                          usersCommentsTableViewCell.editCommentBn.isHidden = true
-                        usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
-                         usersCommentsTableViewCell.replayCountLbl.text = ""
-                    }
+//                    if repliesCommentsArray.count > 0{
+//
+//                        usersCommentsTableViewCell.replayCountLbl.text = String(repliesCommentsArray.count)
+//
+//                    }else{
+//                         usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//                         usersCommentsTableViewCell.editCommentBn.isHidden = true
+//                         usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
+//                         usersCommentsTableViewCell.replayCountLbl.text = ""
+//                    }
                   //  usersCommentsTableViewCell.backgroundColor = #colorLiteral(red: 0.9475968553, green: 0.9569790024, blue: 0.9569790024, alpha: 1)
                     
                     return usersCommentsTableViewCell
-                }
-                    
-                else {
-                    
-                    
-
-                }
+          
                 
             }
                 
@@ -748,7 +751,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 usersCommentsTableViewCell.usersLikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 usersCommentsTableViewCell.usersDislikeBtn.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
                 
-                  usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                usersCommentsTableViewCell.buttonImgOutLet.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 usersCommentsTableViewCell.editCommentBn.isHidden = true
                 usersCommentsTableViewCell.viewCommentsBtn.isHidden = true
                 usersCommentsTableViewCell.replayCountLbl.text = ""
@@ -761,23 +764,23 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         else {
 
         
-        if indexPath.section == 0 {
+            if indexPath.section == 0 {
          
-        if eventsDetailsArray.count > 0 {
+                if eventsDetailsArray.count > 0 {
             
-        let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
+                    let eventList: EventDetailsListResultVO = self.eventsDetailsArray[0]
             
-        if indexPath.row == 0 {
+                    if indexPath.row == 0 {
         
-        let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+                    let headImgTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
             
-            let img = eventList.eventImage
+                    let img = eventList.eventImage
             
-            let newString = img?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                    let newString = img?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
-            if newString != nil {
+                    if newString != nil {
                 
-                let url = URL(string:newString!)
+                    let url = URL(string:newString!)
                 
                 if url != nil {
                     
@@ -812,7 +815,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
             
             
-        if indexPath.row == 1{
+        if indexPath.row == 1 {
                 
         let youtubeCLDSSCell = tableView.dequeueReusableCell(withIdentifier: "youtubeCLDSSCell", for: indexPath) as! youtubeCLDSSCell
             
@@ -850,7 +853,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
             }
         
-        else{
+        else {
         
         let informationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
@@ -1060,15 +1063,45 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
       
             let usersCommentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UsersCommentsTableViewCell", for: indexPath) as! UsersCommentsTableViewCell
             
+            var newString = self.userImagesArray[indexPath.row]
             
-           usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
+            newString = newString.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            if newString != nil {
+                
+                let url = URL(string:newString)
+                
+                
+                //                let dataImg = try? Data(contentsOf: url!)
+                //
+                //                if dataImg != nil {
+                //
+                //                    cell.churchImage.image = UIImage(data: dataImg!)
+                
+                if url != nil {
+                    
+                    
+                    usersCommentsTableViewCell.usersImageView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                    
+                }
+                else {
+                    
+                    usersCommentsTableViewCell.usersImageView.image = #imageLiteral(resourceName: "Church-logo")
+                }
+            }
+            else {
+                
+                usersCommentsTableViewCell.usersImageView.image = #imageLiteral(resourceName: "Church-logo")
+            }
+            
+            usersCommentsTableViewCell.usersCommentLbl.text = usersCommentsArray[indexPath.row] as? String
    
             usersCommentsTableViewCell.viewCommentsBtn.isHidden = false
             usersCommentsTableViewCell.replyCommentBtn.isHidden = false
             
             usersCommentsTableViewCell.usersNameLbl.text = self.commentedByUserArray[indexPath.row] as? String
             
-            usersCommentsTableViewCell.replayCountLbl.text = (self.repliesCountArray[indexPath.row] as? Int)! > 0 ? "\((self.repliesCountArray[indexPath.row]))" : ""
+            usersCommentsTableViewCell.replayCountLbl.text = (self.repliesCountArray[indexPath.row] as? Int)! > 0 ? "\((self.repliesCountArray[indexPath.row]))" : "0"
             
             
             let commentString = usersCommentsArray[indexPath.row] as? String
@@ -1148,17 +1181,21 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if self.ID == self.loginUseridsArray[indexPath.row]{
             
-            usersCommentsTableViewCell.editCommentBn.isHidden = false
-            usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
+                usersCommentsTableViewCell.editCommentBn.isHidden = false
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = false
+                usersCommentsTableViewCell.editCommentBn.addTarget(self, action: #selector(editCommentBnClicked), for: .touchUpInside)
             
             }
             else{
-               usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
+                usersCommentsTableViewCell.editCommentBn.isHidden = true
+                usersCommentsTableViewCell.buttonImgOutLet.isHidden = true
                 
             }
-            usersCommentsTableViewCell.buttonImgOutLet.isHidden = false
             
-            return usersCommentsTableViewCell
+            
+                return usersCommentsTableViewCell
             
             }
         }
@@ -1504,18 +1541,19 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
                 
         if (responseVO.result?.commentDetails?.count)! > 0{
                         
-            for commentDetails in (responseVO.result?.commentDetails!)!{
-            self.usersCommentsArray.append(commentDetails.comment!)
-            self.commentedByUserArray.append(commentDetails.commentByUser!)
-            self.commentingIdArray.append(commentDetails.id!)
-            self.loginUseridsArray.append(commentDetails.userId!)
+            for commentDetails in (responseVO.result?.commentDetails!)! {
+                
+                self.usersCommentsArray.append(commentDetails.comment!)
+                self.commentedByUserArray.append(commentDetails.commentByUser!)
+                self.commentingIdArray.append(commentDetails.id!)
+                self.loginUseridsArray.append(commentDetails.userId!)
+                self.userImagesArray.append(commentDetails.userImage == nil ? "" : commentDetails.userImage!)
                             
         //       self.parentCommentIdArray.append(commentDetails.parentCommentId!)
                             
-        self.repliesCountArray.append(commentDetails.replyCount!)
-                            
-        self.CommentIdArray.append(commentDetails.eventId!)
-                }
+                self.repliesCountArray.append(commentDetails.replyCount!)
+                self.CommentIdArray.append(commentDetails.eventId!)
+            }
                 
                     }
                     

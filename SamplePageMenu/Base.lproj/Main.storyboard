@@ -3520,10 +3520,9 @@
                                 <rect key="frame" x="8" y="199" width="359" height="207"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEX-2k-Cac">
-                                        <rect key="frame" x="8" y="15" width="140" height="21"/>
+                                        <rect key="frame" x="8" y="15" width="113.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="LU0-f0-VFW"/>
-                                            <constraint firstAttribute="width" constant="140" id="d8J-60-1yk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -3569,13 +3568,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-DE-R0T">
-                                        <rect key="frame" x="178" y="47" width="5" height="20"/>
+                                        <rect key="frame" x="175" y="47" width="5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWz-NZ-kZk">
-                                        <rect key="frame" x="177.5" y="78" width="5" height="20"/>
+                                        <rect key="frame" x="175.5" y="78" width="5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3620,7 +3619,7 @@
                                     <constraint firstItem="Hq9-gC-xbH" firstAttribute="top" secondItem="uVu-2v-dx2" secondAttribute="bottom" constant="10" id="TKh-wT-h82"/>
                                     <constraint firstItem="5Hx-zR-mpl" firstAttribute="centerX" secondItem="3vi-Dc-Lgm" secondAttribute="centerX" id="Vsm-80-0Po"/>
                                     <constraint firstItem="zay-ev-OXI" firstAttribute="top" secondItem="Hq9-gC-xbH" secondAttribute="top" id="aKT-YO-8xG"/>
-                                    <constraint firstItem="lGj-DE-R0T" firstAttribute="centerX" secondItem="5Hx-zR-mpl" secondAttribute="centerX" id="dBh-3U-QzI"/>
+                                    <constraint firstItem="lGj-DE-R0T" firstAttribute="centerX" secondItem="5Hx-zR-mpl" secondAttribute="centerX" constant="-2.5" id="dBh-3U-QzI"/>
                                     <constraint firstAttribute="trailing" secondItem="04a-mr-CzT" secondAttribute="trailing" constant="8" id="hc7-pZ-nlz"/>
                                     <constraint firstItem="uVu-2v-dx2" firstAttribute="leading" secondItem="EEX-2k-Cac" secondAttribute="leading" id="iB9-3Q-azW"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zay-ev-OXI" secondAttribute="bottom" constant="8" id="j5B-Sd-EdW"/>
