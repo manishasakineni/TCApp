@@ -13,25 +13,23 @@ import MessageUI
 
 class ContactUSViewController: UIViewController,MFMailComposeViewControllerDelegate {
     
-    
     @IBOutlet weak var contactNoLbl: UILabel!
-    
     @IBOutlet weak var mailIDLbl: UILabel!
-    
-    
     @IBOutlet weak var addressLbl: UILabel!
     
+//MARK: - Variable Declaration
+
     var tapGesture = UITapGestureRecognizer()
-    
+   
+//MARK: - View Did Load
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let phoneTap = UITapGestureRecognizer(target: self, action: #selector(ContactUSViewController.phoneTapFunction))
         contactNoLbl.isUserInteractionEnabled = true
         contactNoLbl.addGestureRecognizer(phoneTap)
-        
         let mailTap = UITapGestureRecognizer(target: self, action: #selector(ContactUSViewController.mailTapFunction))
-        
         mailIDLbl.isUserInteractionEnabled = true
         mailIDLbl.addGestureRecognizer(mailTap)
     }
@@ -41,27 +39,19 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
+//MARK: - View Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
-    
         
         Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Contact Details".localize(), backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
-        
         serviceController.getRequest(strURL: CONTACTUSAPI, success: { (result) in
-            
             print(result)
-            
             if result.count > 0{
-                
-             let respVO:ContactUsVO = Mapper().map(JSONObject: result)!
-                
+                let respVO:ContactUsVO = Mapper().map(JSONObject: result)!
                 self.contactNoLbl.text = respVO.contactNo
                 self.mailIDLbl.text    = respVO.email!
-                
-                
                 let address = respVO.address
                 let companyName = respVO.companyName
                 let landmark = respVO.landmark
@@ -69,64 +59,34 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
                 let mandal = respVO.mandal
                 let district = respVO.district
                 let state = respVO.state
-                
                 let addressStr = address! + "," + companyName! + "," + landmark!
                 let addressStr1 = village! + "," + mandal!
                 let addressStr2 = district! + "," + state!
                 self.addressLbl.text   = addressStr + "," + addressStr1 + "," + addressStr2
-
-
-                
-                
             }
-            
         }) { (failureMessage) in
-            
             
         }
     }
     
 
-    //MARK: -    Back Left Button Tapped
-    
+//MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        
-//        UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-//        UserDefaults.standard.set("1", forKey: "1")
-//        UserDefaults.standard.synchronize()
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
         print("Back Button Clicked......")
-        
     }
     
-    //MARK: -    Home Button Tapped
-    
+//MARK: -    Home Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
-        
-//        UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-//        UserDefaults.standard.set("1", forKey: "1")
-//        UserDefaults.standard.synchronize()
-//        self.navigationController?.popViewController(animated: true)
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
         print("Home Button Clicked......")
-        
     }
-    
 
     @objc func phoneTapFunction(sender:UITapGestureRecognizer) {
         
@@ -134,7 +94,6 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
         
         self.callToNumber(telePhoneNumber: self.contactNoLbl.text!)
     }
-    
     
     @objc func mailTapFunction(sender:UITapGestureRecognizer){
         
@@ -160,6 +119,8 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
         
     }
     
+//MARK: - Cell Delegate
+
     func callToNumber(telePhoneNumber : String){
         
         // Making a Phone Call
@@ -168,9 +129,7 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
             let networkInfo = CTTelephonyNetworkInfo()
             let carrier: CTCarrier? = networkInfo.subscriberCellularProvider
             let code: String? = carrier?.mobileNetworkCode
-            
-//            if (code != nil) {
-                let application:UIApplication = UIApplication.shared
+            let application:UIApplication = UIApplication.shared
                 if (application.canOpenURL(phoneCallURL)) {
                     
               let message = "Are you sure you want to call?".localize() +  "\n\(telePhoneNumber)?"
@@ -183,22 +142,14 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
                     })
                     
                 }
-//            }
-//            else {
-//
-//                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert", messege: "No SIM Installed" , clickAction: {() in
-//                })
-//            }
-            
-        }else{
+        }
+        else{
             Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Device does not support phone calls".localize(), clickAction: {
             })
         }
     }
 
-    
-    
-    //MARK: - Mail Delegate
+//MARK: - Mail Delegate
     
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult, error: Error?) {

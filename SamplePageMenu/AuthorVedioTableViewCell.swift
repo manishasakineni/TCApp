@@ -10,14 +10,9 @@ import UIKit
 
 class AuthorVedioTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var authorVedioImage: UIImageView!
-    
-    
     @IBOutlet weak var videoView: UIView!
-    
     @IBOutlet weak var authorVedioLabel: UILabel!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +25,6 @@ class AuthorVedioTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-    
 }

@@ -10,11 +10,8 @@ import UIKit
 
 class AuthorDocumentTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var documentImage: UIImageView!
-    
     @IBOutlet weak var documentView: UIView!
-    
     @IBOutlet weak var documentlbl: UILabel!
 
     override func awakeFromNib() {
@@ -28,8 +25,6 @@ class AuthorDocumentTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-    
 }

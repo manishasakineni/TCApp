@@ -13,14 +13,12 @@ protocol AuthorPostsViewControllerDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
 }
 
-
 class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPostsViewControllerDelegate {
     
     @IBOutlet weak var authorpostTableView: UITableView!
-    
     @IBOutlet weak var norecordsfoundLbl: UILabel!
    
-    //MARK: -  variable declaration
+//MARK: -  variable declaration
     
     var mediaTypeID : Int = 0
     var PageIndex = 1
@@ -38,7 +36,6 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var churchName1 : String = ""
     var navigationStr = String()
     var isFromChruch = false
-    
     var pageMenu : CAPSPageMenu?
     var eventImageArrayString = ""
     var audioEventDetailsVC : authorAudioaViewController?
@@ -50,67 +47,45 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
     var nameStr          : String = ""
     var audioArray = Array<Any>()
     
-     //MARK: -   view Did Load
+
+//MARK: -   view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
-
         if(isFromChruch == false){
             
              churchAPIService()
-           
-            
-            
         }else{
             
              authorAPIService()
-            
         }
-       
-        
-        //    createPageMenu()
-        
-    // Do any additional setup after loading the view.
-        
     }
     
     
-    
-    //MARK: - create Page Menu
+//MARK: - create Page Menu
     
     private func createPageMenu() {
+        
+        //Registering Cells
         
         audioEventDetailsVC = authorAudioaViewController(nibName: "authorAudioaViewController", bundle: nil)
         audioEventDetailsVC?.title = "Audio".localize()
         audioEventDetailsVC?.audioResults = self.audioResults
-        
-
-        
         vedioDetailsVC = authorVedioViewController(nibName: "authorVedioViewController", bundle: nil)
         vedioDetailsVC?.title = "Video".localize()
-        
         vedioDetailsVC?.videoResults = self.videoResults
-        
         imagesEventDetailsVC = authorImagesViewController(nibName: "authorImagesViewController", bundle: nil)
         imagesEventDetailsVC?.title = "Images".localize()
-        
-          imagesEventDetailsVC?.imageResults = self.imageResults
-        
-        
+        imagesEventDetailsVC?.imageResults = self.imageResults
         documentEventDetailsVC = authorDocumentsViewController(nibName: "authorDocumentsViewController", bundle: nil)
         documentEventDetailsVC?.title = "Document".localize()
         documentEventDetailsVC?.documentResults = self.documentResults
-        
-        
-        
         controllersArray.append(audioEventDetailsVC!)
         controllersArray.append(vedioDetailsVC!)
         controllersArray.append(imagesEventDetailsVC!)
         controllersArray.append(documentEventDetailsVC!)
-  
-      
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
@@ -127,38 +102,31 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                                                  CAPSPageMenuOption.menuItemSeparatorColor(UIColor.white),
                                                  CAPSPageMenuOption.enableHorizontalBounce(false),
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
-                                                 CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
-        
-        
-        
+                                             CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
         pageMenu = CAPSPageMenu(viewControllers: controllersArray,
                                 frame: CGRect.init(x: 0.0, y: 0.0, width: super.view.frame.size.width, height: super.view.frame.size.height),
                                 pageMenuOptions: parameters)
-        
         pageMenu?.delegate = self
         self.addChildViewController(pageMenu!)
-        
         super.view.addSubview((pageMenu?.view)!)
         pageMenu?.didMove(toParentViewController: self)
-        
     }
     
+    
     func nameOfItem(indexNumber: Int, countText :String ){
+        
         let menuItem = pageMenu?.menuItems[indexNumber]
         menuItem?.subtitleLabel?.text = "  " + countText + "  "
         menuItem?.subtitleLabel?.textAlignment = .left
         menuItem?.subtitleLabel?.sizeToFit()
         menuItem?.subtitleLabel?.center = CGPoint(x: (menuItem?.bounds.midX)!, y: (menuItem?.bounds.midY)! + 8)
-        
     }
     
     
 //MARK: -   author API Service
 
-    
    func authorAPIService(){
-    
     
         let params = ["pageIndex": PageIndex,
                       "pageSize": 100,
@@ -166,78 +134,48 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                       "sortDirection": "desc",
                       "authorId": authorID,
                       "mediaTypeId": ""
-            
-            
             ] as [String : Any]
     
     print("dic params \(params)")
-    
     let dictHeaders = ["":"","":""] as NSDictionary
-    
     
     serviceController.postRequest(strURL: GETPOSTBYAUTHORIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
         
-        
         print("\(result)")
-        
         let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
-        
         print("responseString = \(respVO)")
-        
         let isSuccess = respVO.isSuccess
         
         if isSuccess == true{
-        
-        for listResult in respVO.listResult!{
-        
-        
-            if listResult.mediaType == "Audio"{
+                 for listResult in respVO.listResult!{
+                    
+                    if listResult.mediaType == "Audio"{
+                        self.audioResults.append(listResult)
+                    }
+                    
+                    if listResult.mediaType == "Image"{
+                        self.imageResults.append(listResult)
+                    }
             
-            self.audioResults.append(listResult)
+                    if listResult.mediaType == "Video"{
+                        self.videoResults.append(listResult)
+                    }
             
-            }
-            
-            if listResult.mediaType == "Image"{
-                
-                self.imageResults.append(listResult)
-                
-            }
-            
-            if listResult.mediaType == "Video"{
-                
-                self.videoResults.append(listResult)
-                
-            }
-            
-            if listResult.mediaType == "Document"{
-                
-                self.documentResults.append(listResult)
-                
-            }
-            
-            
-        }
+                    if listResult.mediaType == "Document"{
+                        self.documentResults.append(listResult)
+                    }
+                }
            self.createPageMenu()
-          
-        let statusCode = respVO.isSuccess
-        
-        print("StatusCode:\(String(describing: statusCode))")
-     
-        
+            let statusCode = respVO.isSuccess
+            print("StatusCode:\(String(describing: statusCode))")
         }
-        
-        
     }) { (failureMessage) in
-        
-        
-        
     }
     }
     
-    //MARK: -   church API Service
+//MARK: -   church API Service
    
     func churchAPIService(){
-        
         
         let params = ["pageIndex": PageIndex,
                       "pageSize": 100,
@@ -245,84 +183,43 @@ class AuthorPostsViewController: UIViewController,CAPSPageMenuDelegate,AuthorPos
                       "sortDirection": "desc",
                       "churchId": churchID,
                       "mediaTypeId": ""
-            
-            
-            ] as [String : Any]
+           ] as [String : Any]
         
         print("dic params \(params)")
-        
         let dictHeaders = ["":"","":""] as NSDictionary
-        
         
         serviceController.postRequest(strURL: POSTBYCHURCHIDAPI as NSString, postParams: params as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
-            
             print("\(result)")
-            
             let respVO:PostByAutorIdVO = Mapper().map(JSONObject: result)!
-            
             print("responseString = \(respVO)")
-            
             let isSuccess = respVO.isSuccess
             
             if isSuccess == true{
                 
                 for listResult in respVO.listResult!{
                     
-                    
-                    
                     if listResult.mediaType == "Audio"{
-                        
                         self.audioResults.append(listResult)
-                        
                     }
                     
                     if listResult.mediaType == "Image"{
-                        
                         self.imageResults.append(listResult)
-                        
                     }
                     
                     if listResult.mediaType == "Video"{
-                        
                         self.videoResults.append(listResult)
-                        
                     }
                     
                     if listResult.mediaType == "Document"{
-                        
                         self.documentResults.append(listResult)
-                        
                     }
                   }
                 self.createPageMenu()
-                
                 let statusCode = respVO.isSuccess
-                
                 print("StatusCode:\(String(describing: statusCode))")
-                
             }
-            
-            
         }) { (failureMessage) in
-            
-            
-            
         }
-    }
-   
-    
-    
-    
-    
-    
+    }    
 }
-
-
-
-
-
-
-
-
-

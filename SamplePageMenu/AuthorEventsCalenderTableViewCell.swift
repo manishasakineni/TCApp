@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class AuthorEventsCalenderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

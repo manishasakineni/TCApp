@@ -15,7 +15,6 @@ class notificationsTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

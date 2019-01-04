@@ -11,11 +11,8 @@ import UIKit
 class AuthorImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorImageView: UIImageView!
-    
-    
     @IBOutlet weak var imgView: UIView!
     @IBOutlet weak var imageLbl: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +25,6 @@ class AuthorImageTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-    
 }

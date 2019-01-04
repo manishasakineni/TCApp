@@ -12,20 +12,20 @@ import IQKeyboardManagerSwift
 class authorAudioaViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var authorAudioTableView: UITableView!
-    
     @IBOutlet weak var norecordsfoundLbl: UILabel!
    
-    //MARK: -  variable declaration
+//MARK: -  variable declaration
     
-    var imageView  = ["bible1","bible1","bible1"]
-    var audioArray = Array<Any>()
-    var audioResults : Array<PostByAutorIdResultInfoVO> = Array()
-    var PageIndex = 1
-    var audioIDArray : Array<String> = Array()
+    var imageView         = ["bible1","bible1","bible1"]
+    var audioArray        = Array<Any>()
+    var PageIndex         = 1
     var videoEmbededIDStr = String()
     var thumbnailImageURL = String()
+    var audioResults      : Array<PostByAutorIdResultInfoVO> = Array()
+    var audioIDArray      : Array<String> = Array()
+
     
-    //MARK: -   View Did Load
+//MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         authorAudioTableView.delegate = self
         authorAudioTableView.dataSource = self
         
+        // Registering Tableview Cell
+        
         let nibName1  = UINib(nibName: "AuthorAudiioTableViewCell" , bundle: nil)
         authorAudioTableView.register(nibName1, forCellReuseIdentifier: "AuthorAudiioTableViewCell")
         
@@ -43,10 +45,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         }else{
               self.norecordsfoundLbl.isHidden = false
         }
-       
-        
-        // Do any additional setup after loading the view.
-    }
+       }
     
     
     override func didReceiveMemoryWarning() {
@@ -54,7 +53,7 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: -   UITable view delegate and datasource methods
+//MARK: -   UITable view delegate and datasource methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -62,16 +61,13 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
+
         return audioResults.count
-        
-        
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
+
         return 150
     }
     
@@ -85,26 +81,16 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorAudiioTableViewCell", for: indexPath) as! AuthorAudiioTableViewCell
-                
-                
-        let title = (audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
-        
-        
-              cell.audioLabel.text = title
-        
+        let title                   = (audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
         let thumbnillImage : String = ((audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.embededUrl)!
+        let audioIDArray            = thumbnillImage.components(separatedBy: "embed/")
+        let thumbnailImageURL       = "https://img.youtube.com/vi/\(audioIDArray[1])/default.jpg"
+        let videothumb              = URL(string: thumbnailImageURL)
+        let defultImage: UIImage    = UIImage(named: "videostatic")!
         
-        
-        let audioIDArray = thumbnillImage.components(separatedBy: "embed/")
-        let thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/default.jpg"
-        
+        cell.audioLabel.text = title
         print("thumbnailImageURL",thumbnailImageURL)
-        
-        // https://img.youtube.com/vi/uJwBepmeoGo/default.jpg
-        
-        let videothumb = URL(string: thumbnailImageURL)
-        let defultImage: UIImage = UIImage(named: "videostatic")!
-        
+
         if videothumb != nil{
             
             let request = URLRequest(url: videothumb!)
@@ -114,99 +100,48 @@ class authorAudioaViewController: UIViewController,UITableViewDataSource,UITable
                 
                 DispatchQueue.main.async()
                     {
-                        
                         if data != nil {
-                            
-                            
                             cell.authorAudioImage.image = UIImage(data: data!)
-                            
                         }
                         else{
-                            
                             print("Image not found")
 
                             cell.authorAudioImage.image = defultImage
-                        }
-                        
-                        
-                }
-                
-            }) 
-            
+                            }
+                    }
+            })
             dataTask.resume()
-            
         }
-    
-        
-        else{
-            
-            
-            
+         else{
              cell.authorAudioImage.image = defultImage
-            
         }
-        
-        
+
         return cell
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-        
-//        let postImgUrl = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.postImage
-//
-//        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-//
-//        let categoryId = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.categoryId
-//
-//
-//        let audioID = (self.audioResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.id
-//
-//        if newString != nil {
-//
-//
-//            let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
 
-       //   audioViewController.audioIDArr = "https://archive.org/download/testmp3testfile/mpthreetest.mp3"
-//            audioViewController.audioIDArr = newString!
-//            audioViewController.audioIDNameArr = title!
-//            audioViewController.audioID = audioID!
-//            audioViewController.categoryID = categoryId!
-//            self.navigationController?.pushViewController(audioViewController, animated: true)
-
-
-       // } else {
-
-
-       // }
-        
-        let imageTag = self.audioResults[indexPath.row]
+        let imageTag   = self.audioResults[indexPath.row]
         let postImgUrl = imageTag.embededUrl
-        let title = imageTag.title
+        let title      = imageTag.title
         let categoryId = imageTag.categoryId
-        let videoID = imageTag.id
+        let videoID    = imageTag.id
         if let embededUrlImage =  postImgUrl {
-            let thumbnillImage : String = embededUrlImage
+           let thumbnillImage : String = embededUrlImage
             self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
             self.thumbnailImageURL = "https://img.m.youtube.com/vi/\(self.audioIDArray[1])/audio3.jpg"
-
             let videothumb = URL(string: self.thumbnailImageURL)
 
             if videothumb != nil{
 
-                let request = URLRequest(url: videothumb!)
-                let session = URLSession.shared
-
+                let request  = URLRequest(url: videothumb!)
+                let session  = URLSession.shared
                 let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
 
                     DispatchQueue.main.async()
                         {
                             let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
-
                             videosVC.videoEmbededIDStr = self.audioIDArray[1]
-                            // videosVC.videoEmbededIDStr = "_9D_v6unOl0"
                             videosVC.videoNameStr = title!
                             videosVC.videoId = videoID!
                             kUserDefaults.set(categoryId, forKey: "categoryId")

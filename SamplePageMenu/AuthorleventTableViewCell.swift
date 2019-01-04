@@ -10,12 +10,10 @@ import UIKit
 
 class AuthorleventTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var authornameLbl: UILabel!
-    
     @IBOutlet weak var phnoLbl: UILabel!
-    
     @IBOutlet weak var timeLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

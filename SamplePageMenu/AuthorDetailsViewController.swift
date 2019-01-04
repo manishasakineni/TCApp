@@ -18,22 +18,21 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     
 //MARK: -  variable declaration
     
-    var pageMenu : CAPSPageMenu?
-    
+    var pageMenu       : CAPSPageMenu?
     var authorInfoVC   : AuthorInfoViewController?
     var authorEventsVC : AuthorEventsViewController?
     var authorPostsVC  : AuthorPostsViewController?
     private var controllersArray: [UIViewController] = []
-    var viewTitle = ""
-    var catgoryName:String = ""
-    var churchName = ""
-    var isFromChruch = false
-    var authorID : Int = 0
+    var viewTitle            = ""
+    var catgoryName:String   = ""
+    var churchName           = ""
+    var isFromChruch         = false
+    var authorID : Int       = 0
     var churchName1 : String = ""
     var appVersion  : String = ""
-    var isSubscribed = Int()
-    var isFromNotification = false
-    var pageName = ""
+    var isSubscribed         = Int()
+    var isFromNotification   = false
+    var pageName             = ""
     
 //MARK: -   View DidLoad
     
@@ -42,8 +41,6 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
 
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         createPageMenu()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,15 +50,10 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     
 //MARK: -   View WillAppear
   
-
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
 
    Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: churchName1, backTitle: " ", rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-        
-        
-    
     }
 
     
@@ -69,26 +61,19 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
 
     private func createPageMenu() {
 
-        authorInfoVC = AuthorInfoViewController(nibName: "AuthorInfoViewController", bundle: nil)
-        authorInfoVC?.title = "Information".localize()
-        authorInfoVC?.delegate  = self
-        authorInfoVC?.authorID = authorID
-        authorInfoVC?.isSubscribed = isSubscribed
-        
-//        authorEventsVC = AuthorEventsViewController(nibName: "AuthorEventsViewController", bundle: nil)
-        
+        authorInfoVC                = AuthorInfoViewController(nibName: "AuthorInfoViewController", bundle: nil)
+        authorInfoVC?.title         = "Information".localize()
+        authorInfoVC?.delegate      = self
+        authorInfoVC?.authorID      = authorID
+        authorInfoVC?.isSubscribed  = isSubscribed
         authorEventsVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthorEventsViewController") as? AuthorEventsViewController
-        
-        authorEventsVC?.title = "Events".localize()
-        authorEventsVC?.authorID = authorID
-        authorEventsVC?.delegate  = self
-        
-        authorPostsVC = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
-        authorPostsVC?.title = "Posts".localize()
-        authorPostsVC?.authorID = authorID
+        authorEventsVC?.title       = "Events".localize()
+        authorEventsVC?.authorID    = authorID
+        authorEventsVC?.delegate    = self
+        authorPostsVC               = AuthorPostsViewController(nibName: "AuthorPostsViewController", bundle: nil)
+        authorPostsVC?.title        = "Posts".localize()
+        authorPostsVC?.authorID     = authorID
         authorPostsVC?.isFromChruch = isFromChruch
-        //authorPostsVC?.delegate  = self
-        
         controllersArray.append(authorInfoVC!)
         controllersArray.append(authorEventsVC!)
         controllersArray.append(authorPostsVC!)
@@ -108,17 +93,13 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
                                                  CAPSPageMenuOption.menuItemSeparatorColor(UIColor.white),
                                                  CAPSPageMenuOption.enableHorizontalBounce(false),
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
-                                                 CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
-        
-        
-        
+                                             CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
         pageMenu = CAPSPageMenu(viewControllers: controllersArray,
                                 frame: CGRect.init(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
                                 pageMenuOptions: parameters)
         pageMenu?.delegate = self
         self.addChildViewController(pageMenu!)
-        
         view.addSubview((pageMenu?.view)!)
         if(isFromNotification == true){
             if(pageName == "Posts"){
@@ -129,8 +110,6 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
   
         }
         pageMenu?.didMove(toParentViewController: self)
-        
-        
     }
     
     func nameOfItem(indexNumber: Int, countText :String ){
@@ -150,38 +129,22 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
-        
-        
         self.navigationController?.popViewController(animated: true)
-        
-
         print("Back Button Clicked......")
-        
     }
     
 //MARK: -    Home Button Tapped
 
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            appDelegate.window?.rootViewController = rootController
+            print("Home Button Clicked......")
         
-        appDelegate.window?.rootViewController = rootController
-        
-        print("Home Button Clicked......")
-        
-    }
-    
-    
-
-    
-    
+    } 
 }

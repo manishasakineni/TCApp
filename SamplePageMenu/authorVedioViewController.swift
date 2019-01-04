@@ -12,18 +12,17 @@ import IQKeyboardManagerSwift
 class authorVedioViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var authorVedioTableView: UITableView!
-    
     @IBOutlet weak var norecordsfoundLbl: UILabel!
     
-    //MARK: -  variable declaration
+//MARK: -  variable declaration
 
-    var imageView  = ["bible1","bible1","bible1","bible1","bible1"]
-     var videoResults : Array<PostByAutorIdResultInfoVO> = Array()
-     var audioIDArray : Array<String> = Array()
      var thumbnailImageURL = String()
-     var imagesArrayTag : Dictionary<String,Any> = Dictionary()
+     var imageView         = ["bible1","bible1","bible1","bible1","bible1"]
+     var videoResults      : Array<PostByAutorIdResultInfoVO> = Array()
+     var audioIDArray      : Array<String> = Array()
+     var imagesArrayTag    : Dictionary<String,Any> = Dictionary()
  
-    //MARK: -   View Did Load
+//MARK: -   View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,8 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         authorVedioTableView.delegate = self
         authorVedioTableView.dataSource = self
         
+        // Registering Tableview cell
+        
         let nibName1  = UINib(nibName: "AuthorVedioTableViewCell" , bundle: nil)
         authorVedioTableView.register(nibName1, forCellReuseIdentifier: "AuthorVedioTableViewCell")
         
@@ -41,8 +42,6 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         }else{
             self.norecordsfoundLbl.isHidden = false
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,11 +57,9 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
+
         return videoResults.count
-        
-        
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,8 +67,7 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
         
         return 150
     }
-    
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return UITableViewAutomaticDimension
@@ -81,62 +77,41 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorVedioTableViewCell", for: indexPath) as! AuthorVedioTableViewCell
-        
-        
-        let title = (videoResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
-        
-        
-        let thumbnillImage : String = ((videoResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.embededUrl)!
-                
-                
-        let audioIDArray = thumbnillImage.components(separatedBy: "embed/")
+        let title             = (videoResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.title
+        let thumbnillImage    : String = ((videoResults[indexPath.row] as? PostByAutorIdResultInfoVO)?.embededUrl)!
+        let audioIDArray      = thumbnillImage.components(separatedBy: "embed/")
         let thumbnailImageURL = "https://img.youtube.com/vi/\(audioIDArray[1])/default.jpg"
+        let videothumb        = URL(string: thumbnailImageURL)
                 
-            let videothumb = URL(string: thumbnailImageURL)
-                
-                if videothumb != nil{
+            if videothumb != nil{
                     
                     let request = URLRequest(url: videothumb!)
                     let session = URLSession.shared
                     
                     let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
                         DispatchQueue.main.async()
                             {
-                                
-                        if data != nil {
-                                    
-                        cell.authorVedioImage.image = UIImage(data: data!)
-                                    
+                                if data != nil {
+                                    cell.authorVedioImage.image = UIImage(data: data!)
+                                }
                             }
-                                
-                        }
-                        
                     })
                     
                     dataTask.resume()
                     
-                }
+            }
         
         cell.authorVedioLabel.text = title
-        
         return cell
-        
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        
-      let imageTag = self.videoResults[indexPath.row]
-            
-            
-            let postImgUrl = imageTag.embededUrl
-            let title = imageTag.title
-            let categoryId = imageTag.categoryId
-            
-        
-        let videoID = imageTag.id
+        let imageTag   = self.videoResults[indexPath.row]
+        let postImgUrl = imageTag.embededUrl
+        let title      = imageTag.title
+        let categoryId = imageTag.categoryId
+        let videoID    = imageTag.id
             
         if let embededUrlImage =  postImgUrl {
                 
@@ -146,38 +121,29 @@ class authorVedioViewController: UIViewController,UITableViewDelegate,UITableVie
                 
         let videothumb = URL(string: self.thumbnailImageURL)
                 
-        if videothumb != nil{
+                if videothumb != nil{
                     
         let request = URLRequest(url: videothumb!)
         let session = URLSession.shared
                     
         let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
-                        
             DispatchQueue.main.async()
                             {
                                 
             let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
-                                
             videosVC.videoEmbededIDStr = self.audioIDArray[1]
             videosVC.videoNameStr = title!
-                                
             videosVC.videoId = videoID!
             kUserDefaults.set(categoryId, forKey: "categoryId")
             kUserDefaults.set(videoID, forKey: "videoID")
             kUserDefaults.synchronize()
             self.navigationController?.pushViewController(videosVC, animated: true)
-                        }
+                                
+                            }
                         
-                    })
-                    
-                    dataTask.resume()
-                    
+            })
+               dataTask.resume()
                 }
             }
-            
-        
     }
-    
-    
-    
 }
