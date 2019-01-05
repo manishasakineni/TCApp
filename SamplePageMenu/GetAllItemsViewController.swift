@@ -10,60 +10,58 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
-
+    
     
     @IBOutlet weak var getAllitemsTableView: UITableView!
     
     @IBOutlet weak var norecordsFoundLbl: UILabel!
- 
-     //MARK:- variable declaration
     
-    var showNav = false
-    var appVersion          : String = ""
+//MARK:- variable declaration
+    
+    var showNav     = false
+    var appVersion  = ""
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
-    var searchController: UISearchController!
-    var searchActive : Bool = false
-    var searchTextStr:String = ""
+    var searchController : UISearchController!
+    var searchActive     : Bool = false
+    var searchTextStr    = ""
+    var uid              = 0
+    var PageIndex        = 1
+    var totalPages       = 0
+    var totalRecords     = 0
+    var sortbyColumnName = ""
+    var allitemsArray    :[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
+    var filtered         :[GetAllitemsListResultVO] = []
     
-    var uid : Int = 0
-    var PageIndex = 1
-    var totalPages : Int? = 0
-    var totalRecords : Int? = 0
-    var sortbyColumnName : String = ""
-    var allitemsArray:[GetAllitemsListResultVO] = Array<GetAllitemsListResultVO>()
-    var filtered:[GetAllitemsListResultVO] = []
-
 //MARK: -  View Did load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
+        self.norecordsFoundLbl.isHidden = true
         
-       self.norecordsFoundLbl.isHidden = true
+        getAllitemsTableView.dataSource = self
+        getAllitemsTableView.delegate   = self
         
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.tintColor   = UIColor.black
+        searchBar.delegate    = self
+        searchBar.placeholder = "Search".localize()
+        searchController      = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater   = self
+        searchController.dimsBackgroundDuringPresentation = false
+        navigationItem.titleView = searchBar
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.searchController.searchBar.delegate         = self
+        definesPresentationContext                       = true
+        
+        // Registering tableview cell
         
         let nibName1  = UINib(nibName: "GetAllItemsTableViewCell" , bundle: nil)
         getAllitemsTableView.register(nibName1, forCellReuseIdentifier: "GetAllItemsTableViewCell")
         
-        getAllitemsTableView.dataSource = self
-        getAllitemsTableView.delegate = self
-        
-        
-        searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        searchBar.tintColor = UIColor.black
-        searchBar.delegate = self
-        searchBar.placeholder = "Search".localize()
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        navigationItem.titleView = searchBar
-
-        self.navigationController?.isNavigationBarHidden = false
-        self.searchController.searchBar.delegate = self
-        definesPresentationContext = true
-
         
     }
     
@@ -72,18 +70,17 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: -  View will Appear
+//MARK: -  View will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
         Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
-      
-        searchBar.text = ""
-        PageIndex = 1
-        totalPages = 0
+  
+        searchBar.text   = ""
+        PageIndex        = 1
+        totalPages       = 0
         self.allitemsArray.removeAll()
         self.getallitemsAPICall(string: searchBar.text!)
         
@@ -96,8 +93,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
 //MARK: -  View Did Appear
     override func viewDidAppear(_ animated: Bool) {
-        
-       getAllitemsTableView.isHidden = false
+        getAllitemsTableView.isHidden = false
         
     }
     
@@ -111,14 +107,14 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
-//MARK: -  Search function
+//MARK: -  Searchbar delegate methods
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
         
         searchActive = false
-        PageIndex = 1
-        totalPages = 0
+        PageIndex    = 1
+        totalPages   = 0
         setSearchButtonText(text: "Cancel".localize(), searchBar: searchBar)
         self.allitemsArray.removeAll()
         self.getallitemsAPICall(string: searchBar.text!)
@@ -142,18 +138,16 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         
         searchActive = false
         searchBar.resignFirstResponder()
-        
-        
+    
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        
-        PageIndex = 1
+
+        PageIndex  = 1
         totalPages = 0
         self.allitemsArray.removeAll()
         self.getallitemsAPICall(string: searchBar.text!)
-    
+        
         if(filtered.count == 0){
             searchActive = false
         } else {
@@ -173,20 +167,22 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        
-        
+    
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchActive = false
+        searchBar.text              = ""
+        searchActive                = false
         searchBar.resignFirstResponder()
         
-        PageIndex = 1
+        PageIndex  = 1
         totalPages = 0
         
         self.allitemsArray.removeAll()
+        
+        // get all item api call..
+        
         self.getallitemsAPICall(string: searchBar.text!)
         self.getAllitemsTableView.reloadData()
         
@@ -205,51 +201,36 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
         }
         
     }
-    
-   
-    
-    
-//MARK: -  churchDetails TableView delegate & DataSource  methods
+  
+//MARK: - TableView delegate & DataSource  methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-    
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-    if(searchActive) {
+        if(searchActive) {
             
-        if filtered.count > 0 {
-                
-        return filtered.count
-                
-        }
-    else {
-                
-        return 0
-            
-        }
-    }
-    else {
-            
-        if allitemsArray.count > 0 {
-                
-        return allitemsArray.count
-                
-        }
-        else {
-                
-        return 0
-            
+            if filtered.count > 0 {
+                return filtered.count
+            }
+            else {
+                return 0
             }
         }
-        
-        
-        
-        
+        else {
+            
+            if allitemsArray.count > 0 {
+                return allitemsArray.count
+            }
+            else
+            {
+                return 0
+                
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -258,20 +239,20 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
         return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        
         if indexPath.row == (allitemsArray.count) - 1 {
             
-            if(self.totalPages! > PageIndex){
+            if(self.totalPages > PageIndex){
                 
                 PageIndex = PageIndex + 1
                 
                 print("page indexxx -->> %@",PageIndex)
+                
+                // get all item api call..
                 
                 self.getallitemsAPICall(string: searchBar.text!)
                 
@@ -283,112 +264,85 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "GetAllItemsTableViewCell", for: indexPath) as! GetAllItemsTableViewCell
         
         if(searchActive){
             
             if filtered.count > 0 {
-        
-        let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
-        
-        cell.allitemsLabel.text = listStr.name
-        cell.allitemsDescLabel.text = listStr.desc
-        cell.allitemsauthorLabel.text = listStr.author
-        cell.allitemsPriceLabel.text = "\(listStr.price!)"
-        
-    
-        
-        let postImgUrl = listStr.itemImage
-        let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-        let url = URL(string:newString!)
-        let dataImg = try? Data(contentsOf: url!)
-        
-        if dataImg != nil {
+                
+                let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
+                
+                cell.allitemsLabel.text         = listStr.name
+                cell.allitemsDescLabel.text     = listStr.desc
+                cell.allitemsauthorLabel.text   = listStr.author
+                cell.allitemsPriceLabel.text    = "\(listStr.price!)"
+
+                let postImgUrl  = listStr.itemImage
+                let newString   = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                let url         = URL(string:newString!)
+                let dataImg     = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    cell.allitemsImage.image = UIImage(data: dataImg!)
+                }
+                else {
+                    cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
+                }
+                
+            }
             
-            cell.allitemsImage.image = UIImage(data: dataImg!)
-            
-        }
-            
-        else {
-            
-            cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
-        }
-            
-        }
-        
         }
         else {
             
             if allitemsArray.count > 0 {
-
-            let listStr:GetAllitemsListResultVO = allitemsArray[indexPath.row]
-            cell.allitemsLabel.text = listStr.name
-            cell.allitemsDescLabel.text = listStr.desc
-            cell.allitemsauthorLabel.text = listStr.author
-            cell.allitemsPriceLabel.text = "\(listStr.price!)"
                 
-            let postImgUrl = listStr.itemImage
-            
-            let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-            
-            let url = URL(string:newString!)
-            let dataImg = try? Data(contentsOf: url!)
-            if dataImg != nil {
+                let listStr:GetAllitemsListResultVO  = allitemsArray[indexPath.row]
+                cell.allitemsLabel.text              = listStr.name
+                cell.allitemsDescLabel.text          = listStr.desc
+                cell.allitemsauthorLabel.text        = listStr.author
+                cell.allitemsPriceLabel.text         = "\(listStr.price!)"
                 
-                cell.allitemsImage.image = UIImage(data: dataImg!)
+                let postImgUrl = listStr.itemImage
+                let newString  = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
                 
+                let url        = URL(string:newString!)
+                let dataImg    = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    cell.allitemsImage.image = UIImage(data: dataImg!)
+                }
+                else {
+                    cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
+                }
             }
-                
-            else {
-                
-                cell.allitemsImage.image = #imageLiteral(resourceName: "j4")
-            }
-                
-            }
-            
         }
-  
-               
         return cell
-        
-        
-        
+   
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         if filtered.count > 0 {
             
             let listStr:GetAllitemsListResultVO = filtered[indexPath.row]
+            let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllItemsIDViewController") as! AllItemsIDViewController
             
-        
-        let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllItemsIDViewController") as! AllItemsIDViewController
-        
-           jobIDViewController.itemID = listStr.id!
+            jobIDViewController.itemID      = listStr.id!
+            jobIDViewController.churchName1 = listStr.name!
             
-        jobIDViewController.churchName1 = listStr.name!
-
-            
-        self.navigationController?.pushViewController(jobIDViewController, animated: true)
-      
-      
-            
-
-        
-    }
+            self.navigationController?.pushViewController(jobIDViewController, animated: true)
+        }
         
     }
     
-    //MARK: -  back Left Button Tapped
-  
+//MARK: -  back Left Button Tapped
+    
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
+        kUserDefaults.removeObject(forKey: "1")
+        kUserDefaults.removeObject(forKey: kLoginSucessStatus)
+        kUserDefaults.set("1", forKey: "1")
+        kUserDefaults.synchronize()
         
         self.navigationController?.popViewController(animated: true)
         
@@ -404,40 +358,32 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     
-    //MARK: -    Home Button Tapped
-    
+ //MARK: -    Home Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
         
-        UserDefaults.standard.removeObject(forKey: "1")
+        kUserDefaults.removeObject(forKey: "1")
+
+        kUserDefaults.removeObject(forKey: kLoginSucessStatus)
         
-        
-        
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
+        kUserDefaults.set("1", forKey: "1")
+        kUserDefaults.synchronize()
         
         self.navigationController?.popViewController(animated: true)
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
         
         print("Home Button Clicked......")
         
     }
     
- //MARK: -  get All items API Call
+//MARK: -  get All items API Call
     
     func getallitemsAPICall(string:String){
         
-     //   self.allitemsArray.removeAll()
+        //   self.allitemsArray.removeAll()
         
         let paramsDict = [ 	"userId": "",
                            	"pageIndex": PageIndex,
@@ -445,8 +391,7 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                            	"sortbyColumnName": "UpdatedDate",
                            	"sortDirection": "desc",
                            	"searchName": string
-            
-            ] as [String : Any]
+                         ] as [String : Any]
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
@@ -470,11 +415,11 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                     self.getAllitemsTableView.isHidden = false
                     
                     self.norecordsFoundLbl.isHidden = true
-                
-                for eachArray in listArr{
-                    self.allitemsArray.append(eachArray)
-                }
-                
+                    
+                    for eachArray in listArr{
+                        self.allitemsArray.append(eachArray)
+                    }
+                    
                     self.filtered = self.allitemsArray
                     
                     let pageCout  = (respVO.totalRecords)! / 10
@@ -484,38 +429,28 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
                     self.totalPages = pageCout
                     
                     if remander != 0 {
-                        
-                        self.totalPages = self.totalPages! + 1
-                        
+                        self.totalPages = self.totalPages + 1
                     }
                     
-                self.getAllitemsTableView.reloadData()
+                    self.getAllitemsTableView.reloadData()
                 }
                 else {
                     
                     if(self.PageIndex == 0){
-
+                        
                         self.norecordsFoundLbl.isHidden = false
-
+                        
                         self.getAllitemsTableView.isHidden = true
-
+                        
                     }else{
                         self.norecordsFoundLbl.isHidden = true
-
+                        
                         self.getAllitemsTableView.isHidden = false
                     }
-                    
-//                    self.norecordsFoundLbl.isHidden = false
-//
-//                    self.getAllitemsTableView.isHidden = true
-//
-                    
                 }
                 
             }
-                
-       
-                
+      
             else {
                 
                 self.norecordsFoundLbl.isHidden = false
@@ -525,13 +460,12 @@ class GetAllItemsViewController: UIViewController,UITableViewDataSource,UITableV
             
         }) { (failureMessage) in
             
-            
             print(failureMessage)
             
         }
     }
     
-
+    
     
     
 }

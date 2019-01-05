@@ -23,44 +23,45 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBOutlet weak var quantityTF: UITextField!
    
-     //MARK:- variable declaration
+//MARK:- variable declaration
     
-    var appVersion          : String = ""
-    var itemID:Int = 0
-    var churchName1 : String = ""
-    let utillites =  Utilities()
+    var appVersion      = ""
+    var itemID:Int      = 0
+    var churchName1     = ""
+    let utillites       =  Utilities()
     var activeTextField = UITextField()
-    var alertTag = Int()
-    var userId :  Int = 0
-    var allitemsArray:[AllItemIdListResultVO] = Array<AllItemIdListResultVO>()
-    var filtered:[AllItemIdListResultVO] = []
-    var quantity = ""
+    var alertTag        = Int()
+    var userId :  Int   = 0
+    var allitemsArray   :   [AllItemIdListResultVO] = Array<AllItemIdListResultVO>()
+    var filtered        :   [AllItemIdListResultVO] = []
+    var quantity        = ""
     var email : String? = ""
-    var previousQuantity = 0
+    var previousQuantity     = 0
     var previousQuantityArry = Array<Int>()
-    var totalCount : Int = 0
+    var totalCount : Int     = 0
     var totalQuantityCount : Int = 0
-    //MARK:-  view Did Load
+    
+//MARK:-  view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
-        allitemsIDTableView.delegate = self
+        allitemsIDTableView.delegate   = self
         allitemsIDTableView.dataSource = self
-        quantityTF.delegate = self
-        quantityTF.keyboardType = .numberPad
-        quantityTF.maxLengthTextField = 3
+        quantityTF.delegate            = self
+        quantityTF.keyboardType        = .numberPad
+        quantityTF.maxLengthTextField  = 3
         
-        if UserDefaults.standard.value(forKey: kIdKey) != nil {
-            
-            userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
-            
+        if kUserDefaults.value(forKey: kIdKey) != nil {
+            userId = kUserDefaults.value(forKey: kIdKey) as! Int
         }
+      // All items api calling
         
-      allitemsIDAPIService()
-        
+        allitemsIDAPIService()
+      
+      // Restring tableview cells
         
         let nibName1  = UINib(nibName: "AllitemIDTableViewCell" , bundle: nil)
         allitemsIDTableView.register(nibName1, forCellReuseIdentifier: "AllitemIDTableViewCell")
@@ -68,7 +69,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         let nibName2  = UINib(nibName: "AllitemIdDetailsTableViewCell" , bundle: nil)
         allitemsIDTableView.register(nibName2, forCellReuseIdentifier: "AllitemIdDetailsTableViewCell")
         
-              // Do any additional setup after loading the view.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +77,7 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
-      //MARK:-  view Will Appear
+//MARK:-  view Will Appear
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -96,15 +97,14 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
          allitemsIDTableView.reloadData()
     }
     
-//MARK:-  UItext field Delegate methods
+//MARK:-  Textfield Delegate methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         if activeTextField.tag == 0 {
             
             textField.maxLengthTextField = 50
-            textField.clearButtonMode = .never
-            
+            textField.clearButtonMode    = .never
             textField.maxLengthTextField = 2
             
             if #available(iOS 10.0, *) {
@@ -113,10 +113,8 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }
     
     }
-    
-   
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
@@ -135,19 +133,16 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         return true
         
     }
-    //MARK:- textField Should Should End Editing
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         if let newRegCell : JobApplyTableViewCell = textField.superview?.superview as? JobApplyTableViewCell {
-            
-            
+   
         }
         
         return true
     }
     
-
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         activeTextField = textField
@@ -198,7 +193,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllitemIDTableViewCell", for: indexPath) as! AllitemIDTableViewCell
         
-        
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
         let postImgUrl = listStr.itemImage
         let newString = postImgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
@@ -208,7 +202,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         if dataImg != nil {
             
             cell.allitemIdImage.image = UIImage(data: dataImg!)
-            
         }
             
         else {
@@ -224,17 +217,13 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllitemIdDetailsTableViewCell", for: indexPath) as! AllitemIdDetailsTableViewCell
         
-        
         let listStr:AllItemIdListResultVO = filtered[indexPath.row]
         
-      //   cell.nameLabel.text = listStr.name
-        
-         cell.itemName.text = listStr.name
-         cell.priceLabel.text = "\(listStr.price!)"
+         cell.itemName.text      = listStr.name
+         cell.priceLabel.text    = "\(listStr.price!)"
          cell.sellerInfoLbl.text = listStr.author
-         cell.authorLabel.text = listStr.desc
-        
-        cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
+         cell.authorLabel.text   = listStr.desc
+         cell.isactiveLabel.text = listStr.isActive == true ? "InStock".localize() : "Out Of Stock".localize()
         
         return cell
         
@@ -249,43 +238,35 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
 
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
+        kUserDefaults.removeObject(forKey: "1")
+        kUserDefaults.removeObject(forKey: kLoginSucessStatus)
+        kUserDefaults.set("1", forKey: "1")
+        kUserDefaults.synchronize()
         
         self.navigationController?.popViewController(animated: true)
-        
-        
         print("Back Button Clicked......")
         
     }
     
     
-    //MARK: -    Home Button Tapped
-    
+ //MARK: -    Home Button Tapped
     
     @IBAction func homeButtonTapped(_ sender:UIButton) {
         
-        
-        UserDefaults.standard.removeObject(forKey: "1")
-        
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
+        kUserDefaults.removeObject(forKey: "1")
+        kUserDefaults.removeObject(forKey: kLoginSucessStatus)
+        kUserDefaults.set("1", forKey: "1")
+        kUserDefaults.synchronize()
         
         self.navigationController?.popViewController(animated: true)
-        
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
     
         print("Home Button Clicked......")
         
     }
     
-    //MARK:-  all items ID API Service
+//MARK:-  all items ID API Service
     
     func allitemsIDAPIService(){
         
@@ -304,13 +285,6 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     for eachArray in listArr{
                         self.filtered.append(eachArray)
-//                        if eachArray.quantity != nil {
-//                            self.previousQuantityArry.append(eachArray.quantity!)
-//
-//                            print("previousQuantityArry",self.previousQuantityArry)
-//                        }else{
-//                            print("Quantity nil value")
-//                        }
                     
                     }
                     if listArr[0].quantity != nil {
@@ -321,28 +295,25 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                 
                 }
             
-            
             self.allitemsIDTableView.reloadData()
             
             
         }) { (failureMessage) in
+            
+            print(failureMessage)
             
         }
          self.allitemsIDTableView.reloadData()
     }
     
   
-    //MARK:-  add To Cart Action
+ //MARK:-  add To Cart Action
     
     @IBAction func addToCartAction(_ sender: Any) {
-       
-       
-       
-       // self.previousQuantityArry = [self.previousQuantityArry.count + Int(quantity)!]
-//        self.previousQuantityArry.append(Int(quantity)!)
-//         print("Update sucess",previousQuantityArry.count)
+
         print("previousQuantity",previousQuantity)
         print("newQuantity",quantity)
+        
         if quantity != "" {
             totalQuantityCount = previousQuantity + Int(quantity)!
             print("totalQuantityCount",totalQuantityCount)
@@ -351,15 +322,12 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
         }
       
         if totalQuantityCount <= 99 {
-           
-        
-            
-            
+
             allitemsIDTableView.endEditing(true)
             
             if(quantity != "" && quantity != "0"){
                 
-                // AddToCart API
+                // AddToCart API = ADDTOCARTAPI calling
                 
                 let paramsDict = [     "id": 0,
                                        "itemId": itemID,
@@ -393,25 +361,18 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
                         
                     }
                         
-                        
                     else {
-                        
                         
                     }
                     
                 }) { (failureMessage) in
                     
-                    
                     print(failureMessage)
                     
                 }
                 
-            }else{
-                
-                
+            }else{                
                 Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Quantity".localize(), clickAction: {
-                    
-                    
                 })
                 
                 print("Please enter valid quantity")
@@ -419,12 +380,11 @@ class AllItemsIDViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }else{
             
-            
              appDelegate.window?.makeToast(kAddCartQuantity, duration:kToastDuration, position:CSToastPositionCenter)
              print("requied 99 only")
         }
       
- self.allitemsIDTableView.reloadData()
+        self.allitemsIDTableView.reloadData()
     }
    
  

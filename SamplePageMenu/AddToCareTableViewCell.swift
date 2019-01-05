@@ -12,44 +12,24 @@ class AddToCareTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     
     @IBOutlet weak var addToCartImage: UIImageView!
-    
     @IBOutlet weak var addToCartNameLbl: UILabel!
-    
-//    @IBOutlet weak var addToCartQuantityLbl: UILabel!
-    
     @IBOutlet weak var addToCartAuthorLbl: UILabel!
-    
-    
     @IBOutlet weak var addToCartPriceLbl: UILabel!
-    
     @IBOutlet weak var deleteBtn: UIButton!
-    
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var quantityField: UITextField!
-    
     @IBOutlet weak var updateBtn: UIButton!
-    
     @IBOutlet weak var totalPriceLbl: UILabel!
-    
-    var activeTextField = UITextField()
+        var activeTextField = UITextField()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
+
         quantityField.delegate = self
-        
         updateBtn.isHidden = true
-        
         quantityField.keyboardType = .numberPad
         quantityField.maxLengthTextField = 2
-        
         updateBtn.layer.cornerRadius = 6
-//        updateBtn.layer.borderColor = UIColor.white.cgColor
-//        updateBtn.layer.borderWidth = 1
-        
-        
-//        quantityField.addDoneOnKeyboardWithTarget(self, action: #selector(doneButtonClicked))
         quantityField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 
@@ -59,10 +39,9 @@ class AddToCareTableViewCell: UITableViewCell,UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
-    //MARK: -  Text field delegate methods
+//MARK: -  Text field delegate methods
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
     
         if(textField == quantityField) {
             if let text = textField.text,
@@ -84,7 +63,7 @@ class AddToCareTableViewCell: UITableViewCell,UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         if textField.text != "0" || textField.text != "" {
-       // updateBtn.isHidden = false
+       
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -95,7 +74,7 @@ class AddToCareTableViewCell: UITableViewCell,UITextFieldDelegate {
     func textFieldDidChange(_ textField: UITextField) {
         
         if textField.text != "0" || textField.text != "" {
-          //  updateBtn.isHidden = false
+          
         }
         
         else{
