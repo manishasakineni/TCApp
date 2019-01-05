@@ -1,0 +1,395 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LocalizeStrings"
+provides-nominal:
+- "8Localize0A7StringsC"
+provides-member:
+- ["8Localize0A7StringsC", ""]
+provides-dynamic-lookup:
+- "availableLanguages"
+- "localize"
+depends-top-level:
+- !private "!="
+- !private "??"
+- "AssignmentPrecedence"
+- !private "Bundle"
+- "LocalizeCommonProtocol"
+- "LocalizeProtocol"
+- "LocalizeStrings"
+- "String"
+depends-member:
+- !private ["Sa", "index"]
+- !private ["Sa", "remove"]
+- !private ["s23BidirectionalCollectionP", "index"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "remove"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So6BundleC", "init"]
+- !private ["So6BundleC", "localizations"]
+- !private ["So6BundleC", "localizedString"]
+- !private ["So6BundleC", "path"]
+- !private ["s7CVarArgP", "Bundle"]
+- ["s7CVarArgP", "availableLanguages"]
+- !private ["s7CVarArgP", "bundle"]
+- !private ["s7CVarArgP", "currentLanguage"]
+- ["s7CVarArgP", "defaultLanguage"]
+- ["s7CVarArgP", "displayNameForLanguage"]
+- !private ["s7CVarArgP", "fileName"]
+- !private ["s7CVarArgP", "index"]
+- !private ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "language"]
+- !private ["s7CVarArgP", "localizations"]
+- ["s7CVarArgP", "localize"]
+- !private ["s7CVarArgP", "localizedString"]
+- !private ["s7CVarArgP", "path"]
+- !private ["s7CVarArgP", "remove"]
+- ["s7CVarArgP", "resetLanguage"]
+- ["s7CVarArgP", "testing"]
+- ["s7CVarArgP", "testingMode"]
+- ["s7CVarArgP", "update"]
+- ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "index"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "remove"]
+- !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Bundle"]
+- ["s28CustomDebugStringConvertibleP", "availableLanguages"]
+- !private ["s28CustomDebugStringConvertibleP", "bundle"]
+- !private ["s28CustomDebugStringConvertibleP", "currentLanguage"]
+- ["s28CustomDebugStringConvertibleP", "defaultLanguage"]
+- ["s28CustomDebugStringConvertibleP", "displayNameForLanguage"]
+- !private ["s28CustomDebugStringConvertibleP", "fileName"]
+- !private ["s28CustomDebugStringConvertibleP", "index"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "language"]
+- !private ["s28CustomDebugStringConvertibleP", "localizations"]
+- ["s28CustomDebugStringConvertibleP", "localize"]
+- !private ["s28CustomDebugStringConvertibleP", "localizedString"]
+- !private ["s28CustomDebugStringConvertibleP", "path"]
+- !private ["s28CustomDebugStringConvertibleP", "remove"]
+- ["s28CustomDebugStringConvertibleP", "resetLanguage"]
+- ["s28CustomDebugStringConvertibleP", "testing"]
+- ["s28CustomDebugStringConvertibleP", "testingMode"]
+- ["s28CustomDebugStringConvertibleP", "update"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "index"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "remove"]
+- !private ["s23CustomStringConvertibleP", "Bundle"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "availableLanguages"]
+- !private ["s23CustomStringConvertibleP", "bundle"]
+- !private ["s23CustomStringConvertibleP", "currentLanguage"]
+- ["s23CustomStringConvertibleP", "defaultLanguage"]
+- ["s23CustomStringConvertibleP", "displayNameForLanguage"]
+- !private ["s23CustomStringConvertibleP", "fileName"]
+- !private ["s23CustomStringConvertibleP", "index"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "language"]
+- !private ["s23CustomStringConvertibleP", "localizations"]
+- ["s23CustomStringConvertibleP", "localize"]
+- !private ["s23CustomStringConvertibleP", "localizedString"]
+- !private ["s23CustomStringConvertibleP", "path"]
+- !private ["s23CustomStringConvertibleP", "remove"]
+- ["s23CustomStringConvertibleP", "resetLanguage"]
+- ["s23CustomStringConvertibleP", "testing"]
+- ["s23CustomStringConvertibleP", "testingMode"]
+- ["s23CustomStringConvertibleP", "update"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "index"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "remove"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "index"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "remove"]
+- !private ["s9EquatableP", "Bundle"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- ["s9EquatableP", "availableLanguages"]
+- !private ["s9EquatableP", "bundle"]
+- !private ["s9EquatableP", "currentLanguage"]
+- ["s9EquatableP", "defaultLanguage"]
+- ["s9EquatableP", "displayNameForLanguage"]
+- !private ["s9EquatableP", "fileName"]
+- !private ["s9EquatableP", "init"]
+- ["s9EquatableP", "language"]
+- !private ["s9EquatableP", "localizations"]
+- ["s9EquatableP", "localize"]
+- !private ["s9EquatableP", "localizedString"]
+- !private ["s9EquatableP", "path"]
+- ["s9EquatableP", "resetLanguage"]
+- ["s9EquatableP", "testing"]
+- ["s9EquatableP", "testingMode"]
+- ["s9EquatableP", "update"]
+- ["s9EquatableP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "index"]
+- !private ["s25ExpressibleByArrayLiteralP", "remove"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "Bundle"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- ["s8HashableP", "availableLanguages"]
+- !private ["s8HashableP", "bundle"]
+- !private ["s8HashableP", "currentLanguage"]
+- ["s8HashableP", "defaultLanguage"]
+- ["s8HashableP", "displayNameForLanguage"]
+- !private ["s8HashableP", "fileName"]
+- !private ["s8HashableP", "init"]
+- ["s8HashableP", "language"]
+- !private ["s8HashableP", "localizations"]
+- ["s8HashableP", "localize"]
+- !private ["s8HashableP", "localizedString"]
+- !private ["s8HashableP", "path"]
+- ["s8HashableP", "resetLanguage"]
+- ["s8HashableP", "testing"]
+- ["s8HashableP", "testingMode"]
+- ["s8HashableP", "update"]
+- ["s8HashableP", ""]
+- !private ["8Localize0A14CommonProtocolC", "Bundle"]
+- ["8Localize0A14CommonProtocolC", "String"]
+- ["8Localize0A14CommonProtocolC", "availableLanguages"]
+- !private ["8Localize0A14CommonProtocolC", "bundle"]
+- !private ["8Localize0A14CommonProtocolC", "currentLanguage"]
+- ["8Localize0A14CommonProtocolC", "defaultLanguage"]
+- ["8Localize0A14CommonProtocolC", "displayNameForLanguage"]
+- !private ["8Localize0A14CommonProtocolC", "fileName"]
+- ["8Localize0A14CommonProtocolC", "init"]
+- ["8Localize0A14CommonProtocolC", "language"]
+- ["8Localize0A14CommonProtocolC", "localize"]
+- ["8Localize0A14CommonProtocolC", "resetLanguage"]
+- ["8Localize0A14CommonProtocolC", "testing"]
+- ["8Localize0A14CommonProtocolC", "testingMode"]
+- ["8Localize0A14CommonProtocolC", "update"]
+- ["8Localize0A14CommonProtocolC", ""]
+- !private ["8Localize0A8ProtocolP", "Bundle"]
+- ["8Localize0A8ProtocolP", "availableLanguages"]
+- !private ["8Localize0A8ProtocolP", "bundle"]
+- !private ["8Localize0A8ProtocolP", "currentLanguage"]
+- ["8Localize0A8ProtocolP", "defaultLanguage"]
+- ["8Localize0A8ProtocolP", "displayNameForLanguage"]
+- !private ["8Localize0A8ProtocolP", "fileName"]
+- ["8Localize0A8ProtocolP", "language"]
+- ["8Localize0A8ProtocolP", "localize"]
+- ["8Localize0A8ProtocolP", "resetLanguage"]
+- ["8Localize0A8ProtocolP", "testing"]
+- ["8Localize0A8ProtocolP", "testingMode"]
+- ["8Localize0A8ProtocolP", "update"]
+- ["8Localize0A8ProtocolP", ""]
+- !private ["8Localize0A7StringsC", "Bundle"]
+- ["8Localize0A7StringsC", "String"]
+- ["8Localize0A7StringsC", "availableLanguages"]
+- !private ["8Localize0A7StringsC", "bundle"]
+- !private ["8Localize0A7StringsC", "currentLanguage"]
+- ["8Localize0A7StringsC", "defaultLanguage"]
+- ["8Localize0A7StringsC", "deinit"]
+- ["8Localize0A7StringsC", "displayNameForLanguage"]
+- !private ["8Localize0A7StringsC", "fileName"]
+- ["8Localize0A7StringsC", "init"]
+- ["8Localize0A7StringsC", "language"]
+- ["8Localize0A7StringsC", "localize"]
+- ["8Localize0A7StringsC", "resetLanguage"]
+- ["8Localize0A7StringsC", "testing"]
+- ["8Localize0A7StringsC", "testingMode"]
+- ["8Localize0A7StringsC", "update"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "index"]
+- !private ["s17MutableCollectionP", "remove"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "Bundle"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "availableLanguages"]
+- !private ["So8NSObjectC", "bundle"]
+- !private ["So8NSObjectC", "currentLanguage"]
+- ["So8NSObjectC", "defaultLanguage"]
+- ["So8NSObjectC", "displayNameForLanguage"]
+- !private ["So8NSObjectC", "fileName"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "language"]
+- !private ["So8NSObjectC", "localizations"]
+- ["So8NSObjectC", "localize"]
+- !private ["So8NSObjectC", "localizedString"]
+- !private ["So8NSObjectC", "path"]
+- ["So8NSObjectC", "resetLanguage"]
+- ["So8NSObjectC", "testing"]
+- ["So8NSObjectC", "testingMode"]
+- ["So8NSObjectC", "update"]
+- !private ["So16NSObjectProtocolP", "Bundle"]
+- ["So16NSObjectProtocolP", "availableLanguages"]
+- !private ["So16NSObjectProtocolP", "bundle"]
+- !private ["So16NSObjectProtocolP", "currentLanguage"]
+- ["So16NSObjectProtocolP", "defaultLanguage"]
+- ["So16NSObjectProtocolP", "displayNameForLanguage"]
+- !private ["So16NSObjectProtocolP", "fileName"]
+- !private ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "language"]
+- !private ["So16NSObjectProtocolP", "localizations"]
+- ["So16NSObjectProtocolP", "localize"]
+- !private ["So16NSObjectProtocolP", "localizedString"]
+- !private ["So16NSObjectProtocolP", "path"]
+- ["So16NSObjectProtocolP", "resetLanguage"]
+- ["So16NSObjectProtocolP", "testing"]
+- ["So16NSObjectProtocolP", "testingMode"]
+- ["So16NSObjectProtocolP", "update"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So8NSStringC", "init"]
+- !private ["s22RandomAccessCollectionP", "index"]
+- !private ["s22RandomAccessCollectionP", "remove"]
+- !private ["s26RangeReplaceableCollectionP", "index"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "remove"]
+- !private ["s8SequenceP", "index"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "remove"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s14_ArrayProtocolP", "index"]
+- !private ["s14_ArrayProtocolP", "remove"]
+- !private ["s23_BidirectionalIndexableP", "index"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "remove"]
+- !private ["s24_DestructorSafeContainerP", "index"]
+- !private ["s24_DestructorSafeContainerP", "remove"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s10_IndexableP", "index"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "remove"]
+- !private ["s14_IndexableBaseP", "index"]
+- !private ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "remove"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Bundle"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "availableLanguages"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "bundle"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "currentLanguage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "defaultLanguage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "displayNameForLanguage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fileName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "language"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizations"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "localize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedString"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "path"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "resetLanguage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "testing"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "testingMode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "update"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s17_MutableIndexableP", "index"]
+- !private ["s17_MutableIndexableP", "remove"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "index"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "remove"]
+- !private ["s22_RandomAccessIndexableP", "index"]
+- !private ["s22_RandomAccessIndexableP", "remove"]
+- !private ["s26_RangeReplaceableIndexableP", "index"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "remove"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- !private "So6BundleC"
+- "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- "8Localize0A14CommonProtocolC"
+- "8Localize0A8ProtocolP"
+- "8Localize0A7StringsC"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s8SequenceP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/Localize/Localize-umbrella.h"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Localize.build/unextended-module.modulemap"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "1cc6c259cc0a462905b1828dfa1e30f1"

@@ -330,7 +330,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
 
-//MARK: - BackgroundTimer
+//MARK: - BackgroundTimer Call
     
     @objc func BackgroundTimerCall()
     {
@@ -403,11 +403,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     NotificationCenter.default.post(name: Notification.Name("RefreshTokenIn"), object: nil)
                     
                 }
-                    
-                else {
-                    
+                else{
                     //self.showAlertViewWithTitle("Alert".localize(), message: endUserMsg!, buttonTitle: "Ok".localize())
-                    
                 }
                 
             }) { (failureMessage) in
@@ -418,10 +415,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.refreshTokenAPICall()
                 
             }
-            
         }
-        
     }
+    
+//MARK: - ShowAlertView for end user message
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
@@ -450,12 +447,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                     let isSuccess = respVO.isSuccess
                     print("StatusCode:\(String(describing: isSuccess))")
                     
-                    
                     if isSuccess == true {
                         
-                        
                         let listArr = respVO.listResult!
-                        
                         
                         for eachArray in listArr{
                             
@@ -473,65 +467,44 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                                 
                                 self.bannerImageArr.append(url!)
                             }
-                            
-                            
                         }
-                        
                         if self.bannerImageArr.count > 0 {
-                            
                             self.pageController.numberOfPages = self.bannerImageArr.count
                             self.bannerScrollView.isPagingEnabled = true
                             self.bannerScrollView.contentSize.height = 180
                             self.bannerScrollView.backgroundColor = UIColor.white
                             self.bannerScrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(self.bannerImageArr.count)
                             self.bannerScrollView.showsHorizontalScrollIndicator = false
-                            
                             self.bannerScrollView.delegate = self
-                            
                             for (index, _) in self.bannerImageArr.enumerated() {
                                 let imageView = UIImageView()
                                 imageView.contentMode = .scaleToFill
                                 imageView.backgroundColor = UIColor.blue
-                                
                                 imageView.frame = self.bannerScrollView.frame
                                 imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
                                 print(UIScreen.main.bounds.size.width)
                                 imageView.sd_setImage(with:self.bannerImageArr[index] , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                                 self.bannerScrollView.addSubview(imageView)
-                                
                             }
-                            
                         }
-                        else {
-                            
+                        else{
                             self.arrImages += [UIImage(named:"j1")!,UIImage(named: "j2")!, UIImage(named: "jesues")!, UIImage(named: "skyJSU")!, UIImage(named: "j3")!, UIImage(named: "j4")!, UIImage(named: "j6")!, UIImage(named: "jesues")!]
-                            //self.bannerImageArr = self.arrImages
                             self.categorieTableView.reloadData()
                         }
-                        
                         print(self.bannerImageArr)
-                        
                         Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.bannerAnimation), userInfo: nil, repeats: true)
-                        
                     }
-                    
             }
-            
             
         }) { (failureMessage) in
             
-            
             print(failureMessage)
-            
         }
-        
         self.eventImageArray.removeAll()
         
+     //Here calling Up Comming Events API-Service
         self.upcommingEventsAPICall()
-        
         self.categorieTableView.reloadData()
-        
-        
     }
     
 //MARK: -  Get All Categories API Call
@@ -550,61 +523,44 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         serviceController.postRequest(strURL: GETALLCATEGORIES as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
-            
             print(result)
-            
             let respVO:GetAllCategoriesVo = Mapper().map(JSONObject: result)!
-            
             let isSuccess = respVO.isSuccess
             print("StatusCode:\(String(describing: isSuccess))")
             
-            
-            
             if isSuccess == true {
                 
-                
                 let listArr = respVO.listResult!
-                
                 
                 for eachArray in listArr{
                     
                     self.cagegoriesArray.append(eachArray)
                 }
                 
-                
                 let pageCout  = (respVO.totalRecords)! / 15
-                
                 let remander = (respVO.totalRecords)! % 15
-                
                 self.totalPages = pageCout
-                
                 if remander != 0 {
-                    
                     self.totalPages = self.totalPages! + 1
-                    
                 }
-                
                 self.categorieTableView.reloadData()
-                
             }
-                
-            else {
-                
+            else{
             }
             
         }) { (failureMessage) in
             
-            
             print(failureMessage)
-            
         }
         self.bannerImageArr.removeAll()
+        
+      // Here calling BannerImageScrollI API-Service
         self.bannerImageScrollAPICall()
         self.categorieTableView.reloadData()
     }
     
     
-    //MARK: -   upComming Events APICall
+//MARK: -   upComming Events APICall
     
     func upcommingEventsAPICall(){
         
@@ -617,14 +573,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let toDateString = fromDateFormatter.string(from: date!)
         print("fromDateString And toDateString",fromDateString,toDateString)
         
-        
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"
         monthFormatter.timeZone = NSTimeZone.local
         let fromMonthString = monthFormatter.string(from: Date())
         let toMonthString = monthFormatter.string(from: date!)
         print("fromMonthString and toMonthString",fromMonthString,toMonthString)
-        
         
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "YYYY"
@@ -633,7 +587,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let toYearString = yearFormatter.string(from: date!)
         print("fromYearString And toYearString",fromYearString,toYearString)
         
-        
+     // Parameters Passing
         let parameters = [
             "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
             "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
@@ -644,80 +598,53 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
-        
         serviceController.postRequest(strURL: UPCOMMINGEVENTS as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
             let respVO:UpcomingEventsInfoVO = Mapper().map(JSONObject: result)!
             
-            
             print("responseString = \(respVO)")
-            
             
             let statusCode = respVO.isSuccess
             
             if statusCode == true
             {
-                
                 self.eventImageArray.removeAll()
-                
                 for churchDetails in respVO.listResult!{
-                    
                     self.eventImage = churchDetails.eventImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
-                    
                     self.eventImage = (churchDetails.eventImage == nil ? "" : churchDetails.eventImage!.replacingOccurrences(of: "\\", with: "//"))
-                    
-                    
                     self.eventImageArray.append(self.eventImage)
-                    
                     self.upComingEventsArray.append(churchDetails)
-                    
-                    
                 }
-                
                 if self.eventImageArray.count > 0{
-                    
-                    
-                    self.timerForCollectionView = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
+                   self.timerForCollectionView = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
                     RunLoop.current.add(self.timerForCollectionView, forMode: RunLoopMode.defaultRunLoopMode)
-                    
                 }
-                
                 self.categorieTableView.reloadData()
-                
             }
             else {
-                
-                
             }
             
-            
         }) { (failure) in
-            
-            
-        }
-        
+    }
         var userId = 0
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
-            
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
-            
         }
         if(userId != 0){
             getUserCartCount(userId)
             getNotificationCount()
             
-        }else{
-            //self.navigationItem.rightBarButtonItem?.badgeValue = "0"
-            
-           // self.cartbtn.badgeValue = "N"
         }
-        
+        else{
+            
+        }
     }
 
-
+//MARK: - Here ChurchesAPI-Service
+    
     func getChurchesAPICall(){
        
         self.churchDetailsArray.removeAll()
@@ -735,7 +662,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         let dictHeaders = ["":"","":""] as NSDictionary
         
-        
         serviceController.postRequest(strURL: GETALLACTIVECHURCHESAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
@@ -747,27 +673,20 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             print("StatusCode:\(String(describing: isSuccess))")
             
             if isSuccess == true {
-                
                 let listArr = respVO.listResult!
                 if listArr.count > 0 {
                   
                     for eachArray in listArr{
                         
-                        
                         self.churchDetailsArray.append(eachArray)
                         
                         print("eachArray.churchImage",eachArray.churchImage ?? "")
                     }
-                    
-                    
                        self.categorieTableView.reloadData()
-                
                 }
             }
             
-            
         }) { (failureMessage) in
-            
             
             print(failureMessage)
             
@@ -775,14 +694,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
     }
     
-    
+//MARK: - Here CartCount API-Service
     func getUserCartCount( _ id : Int){
         
-        
         let strUrl = GETCARTINFOAPI  + "\(id)"
-        
         serviceController.getRequest(strURL: strUrl, success: { (result) in
-            
             
             let respVO:GetCartInfoVO = Mapper().map(JSONObject: result)!
             
@@ -794,20 +710,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 
                 let cartCount = listArr.count
                     
-                // self.navigationItem.rightBarButtonItem?.badgeValue = "\(self.count)"
-               
-              //  self.cartbtn.badgeValue = "\(cartCount)" == "" ? "0" : "\(cartCount)"
-              
-                
             }
-            
             
         }) { (failureMessage) in
             
-        }
-        
     }
-    
+}
+ 
+//MARK: - Here Notification Count API-Service
     func getNotificationCount() {
         
         let getNotificationAPI = GETUNREADNOTIFICATIONAPI
@@ -825,52 +735,41 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         serviceController.postRequest(strURL: getNotificationAPI as NSString, postParams: parameters as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
         let respVO:getNotificationResultVO = Mapper().map(JSONObject: result)!
-
             let isSuccess = respVO.isSuccess
-            
             if isSuccess == true{
-                
                 let unreadNotificationCount = respVO.result?.unreadCount
                 
                 self.notificationBtn.badgeValue = "\(String(describing: unreadNotificationCount!))" == "" ? "0" : "\(String(describing: unreadNotificationCount!))"
             }
-            
         }) { (failure) in
             
-            
-        }
-        
     }
+        
+}
     
+//MARK: - Update Timer Count
     func updateTimer() {
         seconds -= 1
-        
     }
     
-//MARK: -   Search Bar Delegate & DataSource Methods
     
+           //::::::::::::::::::::::::::::::::::::::::::: Search Bar Delegate & DataSource Methods ::::::::::::::::::::::::::::::::::::::::::://
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
-        
     }
-    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
     }
-    
     private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false
     }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
     }
-    
     @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
         searchActive = false
     }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filtered = data.filter({ (text) -> Bool in
@@ -885,17 +784,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         self.categorieTableView.reloadData()
     }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchActive = false
         self.categorieTableView.reloadData()
         searchBar.resignFirstResponder()
-        
-        
     }
-    
     func updateSearchResults(for searchController: UISearchController) {
         
         
@@ -911,29 +806,20 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
 //MARK: -   Side Menu Method
     
-    
     func sideMenu(){
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
             if revealViewController() != nil{
-                
                 menuBarButton.target = revealViewController()
                 menuBarButton.action = #selector(revealViewController().revealToggle(_:))
                 
                 revealViewController().rearViewRevealWidth = 330
-                
             }
         }else{
-            
-            
             if revealViewController() != nil{
-                
                 menuBarButton.target = revealViewController()
                 menuBarButton.action = #selector(revealViewController().revealToggle(_:))
-                
                 revealViewController().rearViewRevealWidth = 270
-               
             }
             
         }
@@ -941,7 +827,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     
     
-    
+//MARK: -   Setting Button Action
     @IBAction func settingClicked(_ sender: UIBarButtonItem) {
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         popController.delegate = self
@@ -951,9 +837,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         popover.delegate = self
         popover.permittedArrowDirections = .up
         popover.sourceView = self.navigationController?.view
-        
         popover.sourceRect = CGRect(x: UIScreen.main.bounds.size.width - 5 , y: 25, width:20, height: 30)
-        
         self.present(popController, animated: true, completion: nil)
     }
     
@@ -962,22 +846,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         return UIModalPresentationStyle.none
     }
     
-    //MARK: -   TableView Delegate & DataSource Methods
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::  TableView Delegate & DataSource Methods ::::::::::::::::::::::::::::::::::::::::::::::::::::://
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
-        
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        
-        
+      
         return data.count
-        
-        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -987,34 +865,23 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-            
             if indexPath.row == 0 {
                 
              return 160
-                
-            }
-                
+           }
             if indexPath.row == 1 {
-                
-                if eventImageArray.count > 0{
-                    
+              if eventImageArray.count > 0{
                     return 180.0
-                    
                 }
                 else
-                {
-                    return 0.0
+                   {
+                   return 0.0
                 }
-             }
-                
+            }
             else{
                 return 150.0
-                
         }
-        
     }
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        
@@ -1023,7 +890,6 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
             
             cell.autoScrollCollectionView.register(UINib.init(nibName: "ChurchesCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "ChurchesCollectionViewCell")
-            
             cell.upcomingEventsTitle.text = "Churches".localize()
             cell.moreBtn.isHidden = false
             cell.autoScrollCollectionView.tag = 0
@@ -1031,21 +897,14 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.autoScrollCollectionView.delegate = self
             cell.autoScrollCollectionView.dataSource = self
             cell.autoScrollCollectionView.reloadData()
-            
             cell.moreBtn.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
-            
             self.morecategories.frame = cell.moreBtn.frame
             return cell
-            
         }
-        
         if indexPath.row == 1  {
             
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "AutoScrollImagesCell", for: indexPath) as! AutoScrollImagesCell
-            
             cell.autoScrollCollectionView.register(UINib.init(nibName: "AutoScrollCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "AutoScrollCollectionViewCell")
-            
             cell.upcomingEventsTitle.text = "Upcoming Events".localize()
             cell.moreBtn.isHidden = true
             cell.autoScrollCollectionView.tag = 1
@@ -1057,13 +916,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             if eventImageArray.count > 0{
                 
                 cell.upcomingEventsTitle.isHidden = false
-                
             }
             else
             {
                 cell.upcomingEventsTitle.isHidden = true
             }
-            
             return cell
             
         }
@@ -1073,101 +930,70 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
             
             cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-
             cell.homeCollectionView.tag = 2
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
             cell.homeCollectionView.reloadData()
-            
-            
             cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
-            
             self.morecategories.frame = cell.moreButton.frame
             
             return cell
-            
         }
-        
         return UITableViewCell()
         
     }
   
-    
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         
         if indexPath.row == (cagegoriesArray.count) - 1 {
             
             if(self.totalPages! > PageIndex){
                 
                 PageIndex = PageIndex + 1
-                
-                // getAllCategoriesAPICall()
-                
-                
-                
+               
             }
         }
     }
 
+  //MARK: - ScrollAutomatically Images or Records(Animation)
     
     func scrollAutomatically(_ timer1: Timer) {
         
         let indexPath : IndexPath = IndexPath(row: 1, section: 0)
-
         if let autoScrollImagesCell : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath) as? AutoScrollImagesCell {
-            
             if self.y < self.eventImageArray.count {
-                
                 let newIndexPath = IndexPath(item: y, section: 0)
                 print("Test")
                 print(y)
                 print(self.eventImageArray.count)
                 autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
-                
                 y = (eventImageArray.count - 1 > y) ? (y + 1) : 0
             }
-                
-            else {
-                
+            else{
                 self.y = 0
                 autoScrollImagesCell.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
             }
-   
         }
-        
         let indexPath0 : IndexPath = IndexPath(row: 0, section: 0)
         
         if let autoScrollImagesCell0 : AutoScrollImagesCell = self.categorieTableView.cellForRow(at: indexPath0) as? AutoScrollImagesCell {
-            
             if self.z < self.churchDetailsArray.count {
-                
                 let newIndexPath0 = IndexPath(item: z, section: 0)
                 print("Test")
                 print(z)
                 print(self.churchDetailsArray.count)
                 autoScrollImagesCell0.autoScrollCollectionView.scrollToItem(at: newIndexPath0, at: .left, animated: true)
-                
                 z = (churchDetailsArray.count - 1 > z) ? (z + 1) : 0
             }
-                
-            else {
-                
+            else{
                 self.z = 0
                 autoScrollImagesCell0.autoScrollCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
             }
-   
-            
         }
-        
-        
     }
     
-    //MARK: -   Banner Animation
-    
-    
+//MARK: -   Banner Animation
     func bannerAnimation() {
  
         let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
@@ -1182,16 +1008,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             slideToX = 0
         }
         let currentPage:CGFloat = slideToX / pageWidth
-        
         pageController.currentPage = Int(currentPage)
         bannerScrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:bannerScrollView.frame.height), animated: true)
-        
           print("Out bannerImageArr.count",bannerImageArr.count)
     }
   
-    
-    //MARK: Page tap action
-    
+//MARK: Page tap action
     func pageChanged() {
         let indexPath = IndexPath.init(row: 1, section: 0)
         
@@ -1210,207 +1032,122 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func aboutUS(){
         print("changePassWordClicked")
-        
-        
     }
     func notificationClicked(){
         print("notificationClicked")
-        
     }
     
-    
-    func  categorieOneClicked(_ sendre:UIButton) {
-
-        
+//MARK: More Button Action it will show list of Churches related records or information
+    func categorieOneClicked(_ sendre:UIButton) {
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-        
-//        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-//        churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
-//        churchDetailsViewController.categorieNamesArray = self.imageNameArray
-//        churchDetailsViewController.bibleInt = 10
-//        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-        
         print("Eye Button Clicked......")
-        
-        
-        
     }
+//MARK: More Button Action it will show list of Categorie related records or information
     func  categorieTwoClicked(_ sendre:UIButton) {
-        
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
         churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
         churchDetailsViewController.categorieNamesArray = self.imageNameArray
         churchDetailsViewController.bibleInt = 10
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-        
-        
-        
-//
-//        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-//        churchDetailsViewController.categorieImageArray = self.imageArray2 as! Array<UIImage>
-//        churchDetailsViewController.categorieNamesArray = self.imageNameArray2
-//        churchDetailsViewController.bibleInt = 11
-//
-//        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-       
     }
-    
     func  categorieThreeClicked(_ sendre:UIButton) {
-        
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
         churchDetailsViewController.categorieImageArray = self.imageArray3 as! Array<UIImage>
         churchDetailsViewController.categorieNamesArray = self.imageNameArray3
         churchDetailsViewController.bibleInt = 12
-        
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-        
     }
     
-    
+ //MARK: Notification AND Cart Button Action
     @IBAction func notificationAndCartBtnAction(_ sender: UIBarButtonItem) {
         
         if self.userId != 0 {
-            
             if sender.tag == 0 {
-
                 let jobIDViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddToCartViewController") as! AddToCartViewController
-                
                 self.navigationController?.pushViewController(jobIDViewController, animated: true)
-                
             }
             else{
-                
-                
                 let notificationVC = self.storyboard?.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
-                
-                
                 self.navigationController?.pushViewController(notificationVC, animated: true)
-                
-                
             }
         }
-            
         else{
-            
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
                 let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 self.loginVC = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-                
                 self.loginVC.showNav = true
                 self.loginVC.navigationString = "homeString"
-                
                 self.navigationController?.pushViewController(self.loginVC, animated: true)
-                
             })
-            
-            
         }
-
     }
-    
-    
 }
 
-//MARK: -   CollectionView Delegate & DataSource Methods
+             //:::::::::::::::::::::::::::::::::::::::  CollectionView Delegate & DataSource Methods ::::::::::::::::::::::::::::::::::::::://
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
         if  collectionView.tag == 0 {
-            
             print(churchDetailsArray.count)
-            
             return churchDetailsArray.count
-
-            
         }
-            
         else if  collectionView.tag == 1 {
-
-            
             print(eventImageArray.count)
-            
             return eventImageArray.count
-            
         }
-            
-        else  {
-            
+        else {
             return cagegoriesArray.count
-            
         }
-        
     }
  
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView.tag  == 0 {
-            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChurchesCollectionViewCell", for: indexPath) as! ChurchesCollectionViewCell
-            
             let listStr:ChurchDetailsListResultVO = churchDetailsArray[indexPath.row]
-            
             cell.churchNameLbl.text  = listStr.name  == nil ? "" :  listStr.name
             cell.phNoLabel.text      = listStr.contactNumber == nil ? "" :  listStr.contactNumber
             cell.addressLabel.text   = listStr.email == nil ? "" :  listStr.email
             cell.stateLbl.text       = listStr.stateName == nil ? "" :  listStr.stateName
             cell.mandalLbl.text      = listStr.mandalName == nil ? "" :  listStr.mandalName
             cell.districtLbl.text    = listStr.districtName == nil ? "" :  listStr.districtName
-           // cell.timeLabel.text      = listStr.openingTime! + " - " + listStr.closingTime!
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss."
             let date = dateFormatter.date(from: listStr.openingTime!)
-            
             // To convert the date into an HH:mm format
             dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
             let dateString = dateFormatter.string(from: date!)
             print(dateString)
-            
             let dateFormatter1 = DateFormatter()
             dateFormatter1.dateFormat = "HH:mm:ss."
             let date1 = dateFormatter1.date(from: listStr.closingTime!)
-            
             // To convert the date into an HH:mm format
             dateFormatter1.dateFormat = "hh:mm a" // or //h:mm a
             let dateString1 = dateFormatter1.string(from: date1!)
             print(dateString1)
             
             cell.timeLabel.text = dateString + " - " + dateString1
-            
             let imgUrl = listStr.churchImage
-            
             let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
-            //    print("filteredUrlString:\(newString)")
-            
             if newString != nil {
-                
                 let url = URL(string:newString!)
-                
-                
                 if url != nil {
-                    
-                    
                     cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
-                    
                 }
-                else {
-                    
+                else{
                     cell.churchImage.image = #imageLiteral(resourceName: "church13")
                 }
             }
-            else {
-                
+            else{
                 cell.churchImage.image = #imageLiteral(resourceName: "church13")
             }
-            
             return cell
-            
         }
         if collectionView.tag  == 1 {
             
@@ -1419,124 +1156,78 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let eventImageString = eventImageArray[indexPath.row]
             
             let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
-            
-            
             if eventList.churchName  != nil {
                 if let churchName = eventList.churchName {
                     cell.churchNameLabel.text = churchName
                     cell.churchName.text = "Church Name".localize()
-                    
-                    
                 }else{
                     cell.churchName.text = ""
                 }
             }
             else if eventList.authorName != nil {
-                
                 if let authorName =  eventList.authorName {
-                    
                     cell.churchNameLabel.text = authorName
                     // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
                     cell.churchName.text = "Pastor Name".localize()
-                    
                 }else{
                     cell.churchNameLabel.text = ""
-                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
                 }
             }
             else{
                 cell.churchNameLabel.text = ""
-                
             }
-            
-            //cell.churchNameLabel.text = eventList.churchName
             cell.eventNameLabel.text = eventList.title
-            //cell.mobileNoLabel.text = eventList.contactNumber
-            
-            
             if eventList.contactNumber  != nil {
                 if let contactNumber = eventList.contactNumber {
                     cell.mobileNoLabel.text = contactNumber
                     cell.mobileNumber.text = "Contact Number".localize()
-                    
-                    
                 }else{
                     cell.mobileNoLabel.text = ""
                 }
             }
             else if eventList.mobileNumber != nil {
-                
                 if let mobileNumber =  eventList.mobileNumber {
-                    
                     cell.mobileNoLabel.text = mobileNumber
-                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
                     cell.mobileNumber.text = "Mobile Number".localize()
-                    
                 }else{
                     cell.mobileNoLabel.text = ""
-                    // listOfMonthEventCell.churchANDAuthorName.text = "authorName"
                 }
             }
             else{
                 cell.mobileNoLabel.text = ""
-                
             }
-            
-            
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: eventList.startDate!)
             cell.eventDateLabel.text = startAndEndDate1
-            
             let startAndEndDate2 =   returnEventDateWithoutTim1(selectedDateString: eventList.endDate!)
             cell.eventToLbl.text = startAndEndDate2
-            
             print(eventImageArray.count)
             if let url = URL(string:eventImageString) {
                 cell.autoScrollImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "upcomingevents4"))
             }else{
                 cell.autoScrollImage.image = #imageLiteral(resourceName: "upcomingevents4.jpg")
             }
-            
-            
             return cell
-            
         }
-            
-        else {
-            
+        else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-            
-            
             let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
-            
             cell.nameLabel.text = categoryList.categoryName
-            
             let imgUrl = categoryList.categoryImage
-            
             let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
-            
-            
             if newString != nil {
-                
                 let url = URL(string:newString!)
                 
                 if url != nil {
                     
-                    
                     cell.collectionImgView.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
-                    //cell.collectionImgView.image = UIImage(data: dataImg!)
-                    
-                    
                 }else{
                     cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
                 }
-                
             }
-                
-            else {
+            else{
                 
                 cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
             }
-            
             return cell
             
         }
@@ -1553,75 +1244,52 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 let listStr:ChurchDetailsListResultVO = churchDetailsArray[indexPath.row]
                 
                 let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
- 
                 holyBibleViewController.pasterUserId = listStr.pasterUserId ?? 0
                 holyBibleViewController.churchID = listStr.Id!
                 holyBibleViewController.isFromChruch = false
                 holyBibleViewController.nameStr = listStr.name!
-
                 self.navigationController?.pushViewController(holyBibleViewController, animated: true)
-                
             }
-            
         }
-        
         if collectionView.tag == 1{
             
             if upComingEventsArray.count > 0{
-                
                 let eventList: UpcomingEventsResultVO = upComingEventsArray[indexPath.row]
                 let eventDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
-                
                 eventDetailsViewController.eventID = eventList.id!
                 eventDetailsViewController.eventChurchName = eventList.churchName ?? "0"
                 eventDetailsViewController.eventName = eventList.title!
                 eventDetailsViewController.homeString = "homeString"
                 eventDetailsViewController.catgoryID = eventList.churchId ?? 0
                 
-                
                 self.navigationController?.pushViewController(eventDetailsViewController, animated: true)
-                
             }
-            
         }
-        
         if collectionView.tag  == 2 {
             
             if cagegoriesArray.count > 0 {
                 
                 let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
-                
                 let categoryId = categoryList.id
-                
                 let catImg = categoryList.categoryImage
-                
                 let catName = categoryList.categoryName
                 let textName = categoryList.categoryName
-                
-                
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoSongsViewController") as! VideoSongsViewController
-                
                 churchDetailsViewController.catgoryID = categoryId!
-                
                 churchDetailsViewController.catgoryName = catName!
-                
                 churchDetailsViewController.viewTitle = textName!
-                
                 
                 if catImg != nil {
                     
                     churchDetailsViewController.catgoryImg = catImg!
                 }
                 
-                
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
                 
             }
         }
-        
     }
     
-
     func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         
     }
@@ -1631,23 +1299,17 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView.tag  == 0 {
             
             return CGSize(width: self.view.frame.size.width, height: 140)
-    
         }
-            
         else if collectionView.tag  == 1 {
-            
             return CGSize(width: self.view.frame.size.width, height: 200)
         }
-            
-        else {
-            
+        else{
             return CGSize(width: 100, height: 100)
         }
         
     }
     
-    //MARK: -   Event Date Without Time
-    
+//MARK: - Convert Date and Time DateFormatter
     
     func returnEventDateWithoutTim1(selectedDateString : String) -> String{
         var newDateStr = ""
@@ -1687,23 +1349,19 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return newDateStr + "," + newDateStr1
     }
     
-    
+//MARK: - Convert DateFormatFrom24Hto12H
     func dateFormatFrom24Hto12H(selectedString : String) -> String{
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss."
         let date = dateFormatter.date(from: selectedString)
-        
         // To convert the date into an HH:mm format
         dateFormatter.dateFormat = "hh:mm a" // or //h:mm a
         let dateString = dateFormatter.string(from: date!)
         print(dateString)
         
-        
         return dateString
     }
-    
-   
 }
 
 

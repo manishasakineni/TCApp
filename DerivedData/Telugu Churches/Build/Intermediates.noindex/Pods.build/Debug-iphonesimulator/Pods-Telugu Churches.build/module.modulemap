@@ -1,0 +1,6 @@
+framework module Pods_Telugu_Churches {
+  umbrella header "Pods-Telugu Churches-umbrella.h"
+
+  export *
+  module * { export * }
+}

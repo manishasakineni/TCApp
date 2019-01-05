@@ -1,0 +1,596 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LocalizeJson"
+provides-nominal:
+- "8Localize0A4JsonC"
+provides-member:
+- ["8Localize0A4JsonC", ""]
+provides-dynamic-lookup:
+- "availableLanguages"
+- "localize"
+depends-top-level:
+- !private "!="
+- !private "&&"
+- !private "=="
+- !private "??"
+- !private "AnyObject"
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "Data"
+- !private "JSONSerialization"
+- "LocalizeCommonProtocol"
+- "LocalizeJson"
+- "LocalizeProtocol"
+- !private "NSDictionary"
+- !private "NSLocale"
+- "String"
+- !private "URL"
+- !private "UnicodeScalarType"
+- !private "print"
+depends-member:
+- !private ["Sa", "append"]
+- !private ["Sa", "subscript"]
+- !private ["s23BidirectionalCollectionP", "append"]
+- !private ["s23BidirectionalCollectionP", "components"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "subscript"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So6BundleC", "path"]
+- !private ["s7CVarArgP", "Data"]
+- !private ["s7CVarArgP", "JSONSerialization"]
+- !private ["s7CVarArgP", "NSLocale"]
+- !private ["s7CVarArgP", "ReadingOptions"]
+- !private ["s7CVarArgP", "URL"]
+- !private ["s7CVarArgP", "append"]
+- ["s7CVarArgP", "availableLanguages"]
+- !private ["s7CVarArgP", "availableLocaleIdentifiers"]
+- !private ["s7CVarArgP", "bundle"]
+- !private ["s7CVarArgP", "components"]
+- !private ["s7CVarArgP", "currentLanguage"]
+- ["s7CVarArgP", "defaultLanguage"]
+- ["s7CVarArgP", "displayNameForLanguage"]
+- !private ["s7CVarArgP", "fileName"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "jsonObject"]
+- ["s7CVarArgP", "language"]
+- ["s7CVarArgP", "localize"]
+- !private ["s7CVarArgP", "localizeFile"]
+- !private ["s7CVarArgP", "localizeLevel"]
+- !private ["s7CVarArgP", "path"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "readDefaultJSON"]
+- !private ["s7CVarArgP", "readJSON"]
+- ["s7CVarArgP", "resetLanguage"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "testing"]
+- ["s7CVarArgP", "testingMode"]
+- ["s7CVarArgP", "update"]
+- ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "append"]
+- !private ["s10CollectionP", "components"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "components"]
+- !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Data"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONSerialization"]
+- !private ["s28CustomDebugStringConvertibleP", "NSLocale"]
+- !private ["s28CustomDebugStringConvertibleP", "ReadingOptions"]
+- !private ["s28CustomDebugStringConvertibleP", "URL"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- ["s28CustomDebugStringConvertibleP", "availableLanguages"]
+- !private ["s28CustomDebugStringConvertibleP", "availableLocaleIdentifiers"]
+- !private ["s28CustomDebugStringConvertibleP", "bundle"]
+- !private ["s28CustomDebugStringConvertibleP", "components"]
+- !private ["s28CustomDebugStringConvertibleP", "currentLanguage"]
+- ["s28CustomDebugStringConvertibleP", "defaultLanguage"]
+- ["s28CustomDebugStringConvertibleP", "displayNameForLanguage"]
+- !private ["s28CustomDebugStringConvertibleP", "fileName"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "jsonObject"]
+- ["s28CustomDebugStringConvertibleP", "language"]
+- ["s28CustomDebugStringConvertibleP", "localize"]
+- !private ["s28CustomDebugStringConvertibleP", "localizeFile"]
+- !private ["s28CustomDebugStringConvertibleP", "localizeLevel"]
+- !private ["s28CustomDebugStringConvertibleP", "path"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "readDefaultJSON"]
+- !private ["s28CustomDebugStringConvertibleP", "readJSON"]
+- ["s28CustomDebugStringConvertibleP", "resetLanguage"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "testing"]
+- ["s28CustomDebugStringConvertibleP", "testingMode"]
+- ["s28CustomDebugStringConvertibleP", "update"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "components"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "components"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "Data"]
+- !private ["s23CustomStringConvertibleP", "JSONSerialization"]
+- !private ["s23CustomStringConvertibleP", "NSLocale"]
+- !private ["s23CustomStringConvertibleP", "ReadingOptions"]
+- !private ["s23CustomStringConvertibleP", "URL"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- ["s23CustomStringConvertibleP", "availableLanguages"]
+- !private ["s23CustomStringConvertibleP", "availableLocaleIdentifiers"]
+- !private ["s23CustomStringConvertibleP", "bundle"]
+- !private ["s23CustomStringConvertibleP", "components"]
+- !private ["s23CustomStringConvertibleP", "currentLanguage"]
+- ["s23CustomStringConvertibleP", "defaultLanguage"]
+- ["s23CustomStringConvertibleP", "displayNameForLanguage"]
+- !private ["s23CustomStringConvertibleP", "fileName"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "jsonObject"]
+- ["s23CustomStringConvertibleP", "language"]
+- ["s23CustomStringConvertibleP", "localize"]
+- !private ["s23CustomStringConvertibleP", "localizeFile"]
+- !private ["s23CustomStringConvertibleP", "localizeLevel"]
+- !private ["s23CustomStringConvertibleP", "path"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "readDefaultJSON"]
+- !private ["s23CustomStringConvertibleP", "readJSON"]
+- ["s23CustomStringConvertibleP", "resetLanguage"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "testing"]
+- ["s23CustomStringConvertibleP", "testingMode"]
+- ["s23CustomStringConvertibleP", "update"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["10Foundation4DataV", "init"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "append"]
+- !private ["s9DecodableP", "components"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subscript"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "append"]
+- !private ["s9EncodableP", "components"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "Data"]
+- !private ["s9EquatableP", "JSONSerialization"]
+- !private ["s9EquatableP", "NSLocale"]
+- !private ["s9EquatableP", "ReadingOptions"]
+- !private ["s9EquatableP", "URL"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- ["s9EquatableP", "availableLanguages"]
+- !private ["s9EquatableP", "availableLocaleIdentifiers"]
+- !private ["s9EquatableP", "bundle"]
+- !private ["s9EquatableP", "components"]
+- !private ["s9EquatableP", "currentLanguage"]
+- ["s9EquatableP", "defaultLanguage"]
+- ["s9EquatableP", "displayNameForLanguage"]
+- !private ["s9EquatableP", "fileName"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "jsonObject"]
+- ["s9EquatableP", "language"]
+- ["s9EquatableP", "localize"]
+- !private ["s9EquatableP", "localizeFile"]
+- !private ["s9EquatableP", "localizeLevel"]
+- !private ["s9EquatableP", "mutableContainers"]
+- !private ["s9EquatableP", "path"]
+- !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "readDefaultJSON"]
+- !private ["s9EquatableP", "readJSON"]
+- ["s9EquatableP", "resetLanguage"]
+- !private ["s9EquatableP", "subscript"]
+- ["s9EquatableP", "testing"]
+- ["s9EquatableP", "testingMode"]
+- ["s9EquatableP", "update"]
+- ["s9EquatableP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "mutableContainers"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "components"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "components"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "components"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "Data"]
+- !private ["s8HashableP", "JSONSerialization"]
+- !private ["s8HashableP", "NSLocale"]
+- !private ["s8HashableP", "ReadingOptions"]
+- !private ["s8HashableP", "URL"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- ["s8HashableP", "availableLanguages"]
+- !private ["s8HashableP", "availableLocaleIdentifiers"]
+- !private ["s8HashableP", "bundle"]
+- !private ["s8HashableP", "components"]
+- !private ["s8HashableP", "currentLanguage"]
+- ["s8HashableP", "defaultLanguage"]
+- ["s8HashableP", "displayNameForLanguage"]
+- !private ["s8HashableP", "fileName"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "jsonObject"]
+- ["s8HashableP", "language"]
+- ["s8HashableP", "localize"]
+- !private ["s8HashableP", "localizeFile"]
+- !private ["s8HashableP", "localizeLevel"]
+- !private ["s8HashableP", "path"]
+- !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "readDefaultJSON"]
+- !private ["s8HashableP", "readJSON"]
+- ["s8HashableP", "resetLanguage"]
+- !private ["s8HashableP", "subscript"]
+- ["s8HashableP", "testing"]
+- ["s8HashableP", "testingMode"]
+- ["s8HashableP", "update"]
+- ["s8HashableP", ""]
+- !private ["So17JSONSerializationC", "ReadingOptions"]
+- !private ["So17JSONSerializationC", "jsonObject"]
+- !private ["8Localize0A14CommonProtocolC", "AnyObject"]
+- !private ["8Localize0A14CommonProtocolC", "Data"]
+- !private ["8Localize0A14CommonProtocolC", "JSONSerialization"]
+- !private ["8Localize0A14CommonProtocolC", "NSDictionary"]
+- !private ["8Localize0A14CommonProtocolC", "NSLocale"]
+- ["8Localize0A14CommonProtocolC", "String"]
+- !private ["8Localize0A14CommonProtocolC", "URL"]
+- ["8Localize0A14CommonProtocolC", "availableLanguages"]
+- !private ["8Localize0A14CommonProtocolC", "bundle"]
+- !private ["8Localize0A14CommonProtocolC", "currentLanguage"]
+- ["8Localize0A14CommonProtocolC", "defaultLanguage"]
+- ["8Localize0A14CommonProtocolC", "displayNameForLanguage"]
+- !private ["8Localize0A14CommonProtocolC", "fileName"]
+- ["8Localize0A14CommonProtocolC", "init"]
+- ["8Localize0A14CommonProtocolC", "language"]
+- ["8Localize0A14CommonProtocolC", "localize"]
+- ["8Localize0A14CommonProtocolC", "localizeFile"]
+- ["8Localize0A14CommonProtocolC", "localizeLevel"]
+- !private ["8Localize0A14CommonProtocolC", "print"]
+- ["8Localize0A14CommonProtocolC", "readDefaultJSON"]
+- ["8Localize0A14CommonProtocolC", "readJSON"]
+- ["8Localize0A14CommonProtocolC", "resetLanguage"]
+- ["8Localize0A14CommonProtocolC", "testing"]
+- ["8Localize0A14CommonProtocolC", "testingMode"]
+- ["8Localize0A14CommonProtocolC", "update"]
+- ["8Localize0A14CommonProtocolC", ""]
+- !private ["8Localize0A4JsonC", "AnyObject"]
+- !private ["8Localize0A4JsonC", "Data"]
+- !private ["8Localize0A4JsonC", "JSONSerialization"]
+- !private ["8Localize0A4JsonC", "NSDictionary"]
+- !private ["8Localize0A4JsonC", "NSLocale"]
+- ["8Localize0A4JsonC", "String"]
+- !private ["8Localize0A4JsonC", "URL"]
+- ["8Localize0A4JsonC", "availableLanguages"]
+- !private ["8Localize0A4JsonC", "bundle"]
+- !private ["8Localize0A4JsonC", "currentLanguage"]
+- ["8Localize0A4JsonC", "defaultLanguage"]
+- ["8Localize0A4JsonC", "deinit"]
+- ["8Localize0A4JsonC", "displayNameForLanguage"]
+- !private ["8Localize0A4JsonC", "fileName"]
+- ["8Localize0A4JsonC", "init"]
+- ["8Localize0A4JsonC", "language"]
+- ["8Localize0A4JsonC", "localize"]
+- !private ["8Localize0A4JsonC", "localizeFile"]
+- !private ["8Localize0A4JsonC", "localizeLevel"]
+- !private ["8Localize0A4JsonC", "print"]
+- !private ["8Localize0A4JsonC", "readDefaultJSON"]
+- !private ["8Localize0A4JsonC", "readJSON"]
+- ["8Localize0A4JsonC", "resetLanguage"]
+- ["8Localize0A4JsonC", "testing"]
+- ["8Localize0A4JsonC", "testingMode"]
+- ["8Localize0A4JsonC", "update"]
+- !private ["8Localize0A8ProtocolP", "Data"]
+- !private ["8Localize0A8ProtocolP", "JSONSerialization"]
+- !private ["8Localize0A8ProtocolP", "NSLocale"]
+- !private ["8Localize0A8ProtocolP", "URL"]
+- ["8Localize0A8ProtocolP", "availableLanguages"]
+- !private ["8Localize0A8ProtocolP", "bundle"]
+- !private ["8Localize0A8ProtocolP", "currentLanguage"]
+- ["8Localize0A8ProtocolP", "defaultLanguage"]
+- ["8Localize0A8ProtocolP", "displayNameForLanguage"]
+- !private ["8Localize0A8ProtocolP", "fileName"]
+- ["8Localize0A8ProtocolP", "language"]
+- ["8Localize0A8ProtocolP", "localize"]
+- !private ["8Localize0A8ProtocolP", "localizeFile"]
+- !private ["8Localize0A8ProtocolP", "localizeLevel"]
+- !private ["8Localize0A8ProtocolP", "print"]
+- !private ["8Localize0A8ProtocolP", "readDefaultJSON"]
+- !private ["8Localize0A8ProtocolP", "readJSON"]
+- ["8Localize0A8ProtocolP", "resetLanguage"]
+- ["8Localize0A8ProtocolP", "testing"]
+- ["8Localize0A8ProtocolP", "testingMode"]
+- ["8Localize0A8ProtocolP", "update"]
+- ["8Localize0A8ProtocolP", ""]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "components"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "components"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "append"]
+- !private ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "subscript"]
+- !private ["So8NSCodingP", "availableLocaleIdentifiers"]
+- !private ["So8NSCodingP", "components"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "subscript"]
+- !private ["So9NSCopyingP", "availableLocaleIdentifiers"]
+- !private ["So9NSCopyingP", "components"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "subscript"]
+- !private ["So12NSDictionaryC", "subscript"]
+- !private ["So17NSFastEnumerationP", "subscript"]
+- !private ["So21NSItemProviderReadingP", "components"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "components"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So8NSLocaleC", "availableLocaleIdentifiers"]
+- !private ["So16NSMutableCopyingP", "components"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So16NSMutableCopyingP", "subscript"]
+- !private ["So8NSObjectC", "AnyObject"]
+- !private ["So8NSObjectC", "Data"]
+- !private ["So8NSObjectC", "JSONSerialization"]
+- !private ["So8NSObjectC", "NSDictionary"]
+- !private ["So8NSObjectC", "NSLocale"]
+- !private ["So8NSObjectC", "ReadingOptions"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "URL"]
+- ["So8NSObjectC", "availableLanguages"]
+- !private ["So8NSObjectC", "availableLocaleIdentifiers"]
+- !private ["So8NSObjectC", "bundle"]
+- !private ["So8NSObjectC", "components"]
+- !private ["So8NSObjectC", "currentLanguage"]
+- ["So8NSObjectC", "defaultLanguage"]
+- ["So8NSObjectC", "displayNameForLanguage"]
+- !private ["So8NSObjectC", "fileName"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "jsonObject"]
+- ["So8NSObjectC", "language"]
+- ["So8NSObjectC", "localize"]
+- ["So8NSObjectC", "localizeFile"]
+- ["So8NSObjectC", "localizeLevel"]
+- !private ["So8NSObjectC", "path"]
+- !private ["So8NSObjectC", "print"]
+- ["So8NSObjectC", "readDefaultJSON"]
+- ["So8NSObjectC", "readJSON"]
+- ["So8NSObjectC", "resetLanguage"]
+- !private ["So8NSObjectC", "subscript"]
+- ["So8NSObjectC", "testing"]
+- ["So8NSObjectC", "testingMode"]
+- ["So8NSObjectC", "update"]
+- !private ["So16NSObjectProtocolP", "Data"]
+- !private ["So16NSObjectProtocolP", "JSONSerialization"]
+- !private ["So16NSObjectProtocolP", "NSLocale"]
+- !private ["So16NSObjectProtocolP", "ReadingOptions"]
+- !private ["So16NSObjectProtocolP", "URL"]
+- ["So16NSObjectProtocolP", "availableLanguages"]
+- !private ["So16NSObjectProtocolP", "availableLocaleIdentifiers"]
+- !private ["So16NSObjectProtocolP", "bundle"]
+- !private ["So16NSObjectProtocolP", "components"]
+- !private ["So16NSObjectProtocolP", "currentLanguage"]
+- ["So16NSObjectProtocolP", "defaultLanguage"]
+- ["So16NSObjectProtocolP", "displayNameForLanguage"]
+- !private ["So16NSObjectProtocolP", "fileName"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "jsonObject"]
+- ["So16NSObjectProtocolP", "language"]
+- ["So16NSObjectProtocolP", "localize"]
+- !private ["So16NSObjectProtocolP", "localizeFile"]
+- !private ["So16NSObjectProtocolP", "localizeLevel"]
+- !private ["So16NSObjectProtocolP", "path"]
+- !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "readDefaultJSON"]
+- !private ["So16NSObjectProtocolP", "readJSON"]
+- ["So16NSObjectProtocolP", "resetLanguage"]
+- !private ["So16NSObjectProtocolP", "subscript"]
+- ["So16NSObjectProtocolP", "testing"]
+- ["So16NSObjectProtocolP", "testingMode"]
+- ["So16NSObjectProtocolP", "update"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "availableLocaleIdentifiers"]
+- !private ["So14NSSecureCodingP", "components"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "subscript"]
+- !private ["So8NSStringC", "components"]
+- !private ["So8NSStringC", "init"]
+- !private ["s9OptionSetP", "mutableContainers"]
+- !private ["s22RandomAccessCollectionP", "append"]
+- !private ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "subscript"]
+- !private ["s26RangeReplaceableCollectionP", "append"]
+- !private ["s26RangeReplaceableCollectionP", "components"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "subscript"]
+- !private ["s16RawRepresentableP", "mutableContainers"]
+- !private ["So17JSONSerializationC14ReadingOptionsV", "mutableContainers"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["s8SequenceP", "append"]
+- !private ["s8SequenceP", "components"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["s10SetAlgebraP", "mutableContainers"]
+- !private ["SS", "components"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "components"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "components"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "components"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["10Foundation3URLV", "init"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s23_BidirectionalIndexableP", "append"]
+- !private ["s23_BidirectionalIndexableP", "components"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "components"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "components"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "components"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "components"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "components"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "availableLocaleIdentifiers"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "components"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s10_IndexableP", "append"]
+- !private ["s10_IndexableP", "components"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "subscript"]
+- !private ["s14_IndexableBaseP", "append"]
+- !private ["s14_IndexableBaseP", "components"]
+- !private ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONSerialization"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSLocale"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ReadingOptions"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "URL"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "availableLanguages"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "availableLocaleIdentifiers"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "bundle"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "components"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "currentLanguage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "defaultLanguage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "displayNameForLanguage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fileName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "jsonObject"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "language"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "localize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizeFile"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizeLevel"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "path"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "readDefaultJSON"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "readJSON"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "resetLanguage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "subscript"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "testing"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "testingMode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "update"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s17_MutableIndexableP", "append"]
+- !private ["s17_MutableIndexableP", "init"]
+- !private ["s17_MutableIndexableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "components"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s22_RandomAccessIndexableP", "append"]
+- !private ["s22_RandomAccessIndexableP", "init"]
+- !private ["s22_RandomAccessIndexableP", "subscript"]
+- !private ["s26_RangeReplaceableIndexableP", "append"]
+- !private ["s26_RangeReplaceableIndexableP", "components"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "components"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- !private "So6BundleC"
+- "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation4DataV"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- !private "So17JSONSerializationC"
+- "8Localize0A14CommonProtocolC"
+- "8Localize0A4JsonC"
+- "8Localize0A8ProtocolP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So12NSDictionaryC"
+- !private "So17NSFastEnumerationP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So8NSLocaleC"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "s9OptionSetP"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "So17JSONSerializationC14ReadingOptionsV"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "s8SequenceP"
+- !private "s10SetAlgebraP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "10Foundation3URLV"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s34_ExpressibleByFileReferenceLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+- !private "subscript"
+depends-external:
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/Localize/Localize-umbrella.h"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Localize.build/unextended-module.modulemap"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "50302edce8038c7614f4363534990605"

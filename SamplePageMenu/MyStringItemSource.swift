@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//MARK: -  ActivityItem load Indicter for all Social Media Sites or Messages
 class MyStringItemSource: NSObject, UIActivityItemSource {
     
     public func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any

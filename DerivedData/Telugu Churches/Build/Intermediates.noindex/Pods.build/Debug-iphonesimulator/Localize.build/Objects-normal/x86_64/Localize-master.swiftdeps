@@ -1,0 +1,12 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "a716a809704b9e61844c29c6c618706a"
+build_time: [1546665217, 717154000]
+inputs:
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/Localize.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeCommonProtocol.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeExtensions.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeJson.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeProtocol.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeStatic.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeString.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Localize/Source/LocalizeStrings.swift": [1545722632, 0]

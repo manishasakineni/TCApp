@@ -943,8 +943,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "320"
             endingLineNumber = "320"
-            landmarkName = "HomeViewController"
-            landmarkType = "3">
+            landmarkName = "toolOkClicked(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -959,7 +959,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "314"
             endingLineNumber = "314"
-            landmarkName = "viewWillDisappear(_:)"
+            landmarkName = "toolOkClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1487,8 +1487,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "AddressViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1565,7 +1565,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
             endingLineNumber = "166"
-            landmarkName = "editaddressClicked(sender:)"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1581,72 +1581,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "563457466.7399549"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
-            landmarkName = "editaddressAPICall(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "563457466.740185"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
-            landmarkName = "editaddressAPICall(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "563457466.74041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "editaddressAPICall(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddressViewController.swift"
-            timestampString = "563457466.740636"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "editaddressAPICall(_:)"
-            landmarkType = "7">
+            landmarkName = "AddNewAddressViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1661,7 +1597,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "575"
             endingLineNumber = "575"
-            landmarkName = "getallstateAPICall()"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1704,28 +1640,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/AddNewAddressViewController.swift"
-            timestampString = "563457466.740999"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "740"
-            endingLineNumber = "740"
-            landmarkName = "saveAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddNewAddressViewController.swift"
             timestampString = "563457466.7410409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "669"
             endingLineNumber = "669"
-            landmarkName = "saveaddressAPICall()"
+            landmarkName = "getallCountryAPICall()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1933,22 +1853,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "704"
             endingLineNumber = "704"
-            landmarkName = "saveaddressAPICall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AddNewAddressViewController.swift"
-            timestampString = "563457466.741549"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
             landmarkName = "saveaddressAPICall()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2747,8 +2651,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "214"
             endingLineNumber = "214"
-            landmarkName = "addressAPICall()"
-            landmarkType = "7">
+            landmarkName = "AddressViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2763,7 +2667,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
             endingLineNumber = "231"
-            landmarkName = "addressAPICall()"
+            landmarkName = "editaddressClicked(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4395,8 +4299,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1361"
             endingLineNumber = "1361"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4411,7 +4315,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1370"
             endingLineNumber = "1370"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5259,7 +5163,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "553"
             endingLineNumber = "553"
-            landmarkName = "bannerImageScrollAPICall()"
+            landmarkName = "getAllCategoriesAPICall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

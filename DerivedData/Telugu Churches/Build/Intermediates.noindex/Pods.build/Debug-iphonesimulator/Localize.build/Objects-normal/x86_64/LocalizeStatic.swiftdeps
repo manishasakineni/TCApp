@@ -1,0 +1,155 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["8LocalizeAAC", ""]
+- ["8LocalizeAAC", "localize"]
+- ["8LocalizeAAC", "localize"]
+- ["8LocalizeAAC", "localize"]
+- ["8LocalizeAAC", "localize"]
+- ["8LocalizeAAC", "language"]
+- ["8LocalizeAAC", "update"]
+- ["8LocalizeAAC", "update"]
+- ["8LocalizeAAC", "update"]
+- ["8LocalizeAAC", "update"]
+- ["8LocalizeAAC", "resetLanguage"]
+- ["8LocalizeAAC", "availableLanguages"]
+- ["8LocalizeAAC", "displayNameForLanguage"]
+- ["8LocalizeAAC", "testingMode"]
+- ["8LocalizeAAC", "update"]
+provides-dynamic-lookup:
+- "availableLanguages"
+- "displayNameForLanguage"
+- "language"
+- "localize"
+- "resetLanguage"
+- "testingMode"
+- "update"
+depends-top-level:
+- "Bundle"
+- "Localize"
+- "LocalizeType"
+- "String"
+depends-member:
+- !private ["s7CVarArgP", "Localize"]
+- !private ["s7CVarArgP", "availableLanguages"]
+- !private ["s7CVarArgP", "displayNameForLanguage"]
+- !private ["s7CVarArgP", "language"]
+- !private ["s7CVarArgP", "localize"]
+- !private ["s7CVarArgP", "resetLanguage"]
+- !private ["s7CVarArgP", "shared"]
+- !private ["s7CVarArgP", "testingMode"]
+- !private ["s7CVarArgP", "update"]
+- !private ["s28CustomDebugStringConvertibleP", "Localize"]
+- !private ["s28CustomDebugStringConvertibleP", "availableLanguages"]
+- !private ["s28CustomDebugStringConvertibleP", "displayNameForLanguage"]
+- !private ["s28CustomDebugStringConvertibleP", "language"]
+- !private ["s28CustomDebugStringConvertibleP", "localize"]
+- !private ["s28CustomDebugStringConvertibleP", "resetLanguage"]
+- !private ["s28CustomDebugStringConvertibleP", "shared"]
+- !private ["s28CustomDebugStringConvertibleP", "testingMode"]
+- !private ["s28CustomDebugStringConvertibleP", "update"]
+- !private ["s23CustomStringConvertibleP", "Localize"]
+- !private ["s23CustomStringConvertibleP", "availableLanguages"]
+- !private ["s23CustomStringConvertibleP", "displayNameForLanguage"]
+- !private ["s23CustomStringConvertibleP", "language"]
+- !private ["s23CustomStringConvertibleP", "localize"]
+- !private ["s23CustomStringConvertibleP", "resetLanguage"]
+- !private ["s23CustomStringConvertibleP", "shared"]
+- !private ["s23CustomStringConvertibleP", "testingMode"]
+- !private ["s23CustomStringConvertibleP", "update"]
+- !private ["s9EquatableP", "Localize"]
+- !private ["s9EquatableP", "availableLanguages"]
+- !private ["s9EquatableP", "displayNameForLanguage"]
+- !private ["s9EquatableP", "language"]
+- !private ["s9EquatableP", "localize"]
+- !private ["s9EquatableP", "resetLanguage"]
+- !private ["s9EquatableP", "shared"]
+- !private ["s9EquatableP", "testingMode"]
+- !private ["s9EquatableP", "update"]
+- !private ["s8HashableP", "Localize"]
+- !private ["s8HashableP", "availableLanguages"]
+- !private ["s8HashableP", "displayNameForLanguage"]
+- !private ["s8HashableP", "language"]
+- !private ["s8HashableP", "localize"]
+- !private ["s8HashableP", "resetLanguage"]
+- !private ["s8HashableP", "shared"]
+- !private ["s8HashableP", "testingMode"]
+- !private ["s8HashableP", "update"]
+- ["8LocalizeAAC", "Bundle"]
+- !private ["8LocalizeAAC", "Localize"]
+- ["8LocalizeAAC", "LocalizeType"]
+- ["8LocalizeAAC", "String"]
+- ["8LocalizeAAC", "availableLanguages"]
+- ["8LocalizeAAC", "displayNameForLanguage"]
+- ["8LocalizeAAC", "language"]
+- ["8LocalizeAAC", "localize"]
+- ["8LocalizeAAC", "resetLanguage"]
+- !private ["8LocalizeAAC", "shared"]
+- ["8LocalizeAAC", "testingMode"]
+- ["8LocalizeAAC", "update"]
+- ["So8NSObjectC", "Bundle"]
+- !private ["So8NSObjectC", "Localize"]
+- ["So8NSObjectC", "LocalizeType"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "availableLanguages"]
+- ["So8NSObjectC", "displayNameForLanguage"]
+- ["So8NSObjectC", "language"]
+- ["So8NSObjectC", "localize"]
+- ["So8NSObjectC", "resetLanguage"]
+- !private ["So8NSObjectC", "shared"]
+- ["So8NSObjectC", "testingMode"]
+- ["So8NSObjectC", "update"]
+- !private ["So16NSObjectProtocolP", "Localize"]
+- !private ["So16NSObjectProtocolP", "availableLanguages"]
+- !private ["So16NSObjectProtocolP", "displayNameForLanguage"]
+- !private ["So16NSObjectProtocolP", "language"]
+- !private ["So16NSObjectProtocolP", "localize"]
+- !private ["So16NSObjectProtocolP", "resetLanguage"]
+- !private ["So16NSObjectProtocolP", "shared"]
+- !private ["So16NSObjectProtocolP", "testingMode"]
+- !private ["So16NSObjectProtocolP", "update"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Localize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "availableLanguages"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "displayNameForLanguage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "language"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "resetLanguage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "testingMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "update"]
+depends-nominal:
+- !private "s7CVarArgP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9EquatableP"
+- !private "s8HashableP"
+- "8LocalizeAAC"
+- "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/Localize/Localize-umbrella.h"
+- "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Localize.build/unextended-module.modulemap"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Users/praveendole/Desktop/Xcode9.0/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "b29b77b0ff344444d7b0cdeda2a3a6ad"

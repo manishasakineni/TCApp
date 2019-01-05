@@ -14,8 +14,7 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBOutlet weak var booksTableView: UITableView!
   
-     //MARK:- variable declaration
-    
+//MARK:- variable declaration
     var catgoryName:String = ""
     var appVersion:String = ""
     var showNav = false
@@ -25,9 +24,6 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     var bibleCArr = Array<Int>()
     var verseCArr = Array<Int>()
     var verseDetailArray = Array<String>()
-    
-    //    var verArray = Array<String>()
-    
     var verArray:[BibleResultVo] = Array<BibleResultVo>()
     var verseArrCount = Array<Int>()
     var bibleVerseCArr = Array<String>()
@@ -41,24 +37,19 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
     var versesCount : Dictionary = Dictionary<String,Any>()
     var verseStringCount : Dictionary = Dictionary<String,Any>()
     
-    //    var bibleCArr:[BibleChapterVo] = Array<BibleChapterVo>()
     
-    //MARK: -  view Did Load
-    
+//MARK: -  view Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
         
+        // Here calling BibleBook API_Service
         self.bibleBookAPICall()
         
-        //    self.bibleBookVerseAPICall()
-        
-        //   self.booksTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        
+        // Register Custom TableviewCell
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
         self.booksTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
-        
         
         booksTableView.delegate = self
         booksTableView.dataSource = self
@@ -66,15 +57,13 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         // Do any additional setup after loading the view.
     }
     
-   //MARK: -  view Will Appear
+//MARK: -  view Will Appear
     
         override func viewWillAppear(_ animated: Bool) {
     
             super.viewWillAppear(animated)
     
-    
            Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Holy Bible Books".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-    
         }
     
     
@@ -85,76 +74,52 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-     //MARK: - Table view delegate & data source Methods
-    
+//MARK: - ::::::::::::::::::::::::::::::::::::::::: Tableview Delegate & DataSource Methods ::::::::::::::::::::::::::::::::::::::::://
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
         return 1
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
         return bibleChaptersArr.count
-        
-        
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return  UITableViewAutomaticDimension
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
-            
             return 50.0
         }
-        else {
+        else{
             
             return 40.0
-            
-            
         }
-        
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BibleBooksTableViewCell", for: indexPath) as! BibleBooksTableViewCell
-        
-        
-        //        let cell:UITableViewCell = self.booksTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        
-        //        let booksList = bibleChaptersArr[indexPath.row]
-        
+   
         if LangText == "English" {
             
           cell.bibleBookLabel.text = self.bookList[indexPath.row]
         }
-        else {
+        else{
             
-            cell.bibleBookLabel.text = self.booksArray[indexPath.row]
+          cell.bibleBookLabel.text = self.booksArray[indexPath.row]
         }
-        
-        cell.chapterCountLabel.text = "\(self.bibleCArr[indexPath.row])"
-        
-        
-         cell.accessoryType = .disclosureIndicator
-        
-        
-        cell.selectionStyle = .none
-        
-        
-        
-        
+          cell.chapterCountLabel.text = "\(self.bibleCArr[indexPath.row])"
+          cell.accessoryType = .disclosureIndicator
+          cell.selectionStyle = .none
         return cell
     }
     
@@ -162,69 +127,44 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         
         
         let booksList:BibleChapterVo = bibleChaptersArr[indexPath.row]
-        
         let verseObj = booksList.Chapter
-        
         for objj in verseObj! {
-            
             let count = objj.Verse?.count
-            
             self.verseCArr.append(count!)
-            
             self.verArray = objj.Verse!
-            
-            
         }
-        
         for obj in self.verArray {
-            
             let vers = obj.Verse
-            
             self.verseDetailArray.append(vers!)
-            
         }
-        
-        
         let chapterViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleChaptersViewController") as! BibleChaptersViewController
-        
         chapterViewController.chapterCountStr = self.bibleCArr[indexPath.row]
         chapterViewController.indexCount = indexPath.row
         chapterViewController.verseCountStr = self.verseCArr
         chapterViewController.vDetailArray = self.verseDetailArray
         chapterViewController.verseStringCount = self.verseStringCount
-        
         chapterViewController.LangText = self.LangText
-        
          if LangText == "English" {
             
-            
             chapterViewController.backTitleStr = self.bookList[indexPath.row]
-            
         }
-         else {
-            
+         else{
             chapterViewController.backTitleStr = self.booksArray[indexPath.row]
         }
-        
         self.navigationController?.pushViewController(chapterViewController, animated: true)
-        
         
     }
     
-     //MARK: - bible Book API Call
-    
-    
+//MARK: - bible Book API Call
     func bibleBookAPICall(){
         
            if LangText == "English" {
             
             self.strUrl = BIBLEAPIENGLISHURL
         }
-        else {
-            
+        else{
             self.strUrl = BIBLEAPITELUGUURL
         }
-        
         print(strUrl)
         
          MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
@@ -232,16 +172,11 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
         serviceController.getRequest(strURL:self.strUrl, success:{(result) in
             DispatchQueue.main.async()
                 {
-                    //                    print(result)
-                    
                      MBProgressHUD.hide(for:appDelegate.window,animated:true)
                     
                     let respVO:BibleBookVo = Mapper().map(JSONObject: result)!
                     
                     let bookResp = respVO.Book
-                    
-                    // print("bookResp:\(String(describing: bookResp?.count))")
-                    
                     var i = 0
                     
                     for eachArray in bookResp! {
@@ -253,135 +188,75 @@ class BibleBooksViewController: UIViewController,UITableViewDataSource,UITableVi
                         let chapterArray = eachArray.Chapter
                         var j = 0
                         for eachChapter in chapterArray!{
-                            
                             let verseCount = eachChapter.Verse?.count
-                            
                             let verseDict = eachChapter.Verse
-                            
                             for eachVerseDict in verseDict!{
-                                
                                 print(eachVerseDict.Verse!)
-                                
                             }
                             self.versesCount.updateValue(verseDict!, forKey: "\(j)")
                             self.verseStringCount.updateValue(self.versesCount, forKey: "\(i)")
                             
                             j = j + 1
                         }
-                        
-                        
                         self.bibleCArr.append(countt!)
-                        
                         self.bibleChaptersArr.append(eachArray)
                         i = i + 1
-      
-                        
                     }
-                    
-                    
                     self.booksTableView.reloadData()
-                    
-                    
             }
-            
             
         }) { (failureMessage) in
             
-            
             print(failureMessage)
-            
         }
-        
     }
     
-    //MARK: - bible Book Verse API Call
-    
+//MARK: - bible Book Verse API Call
     func bibleBookVerseAPICall(){
-    
     self.strUrl = BIBLEAPIENGLISHURL
-        
-        
         MBProgressHUD.showAdded(to:appDelegate.window,animated:true)
         
         serviceController.getRequest(strURL:self.strUrl, success:{(result) in
             DispatchQueue.main.async()
                 {
-                    
                     MBProgressHUD.hide(for:appDelegate.window,animated:true)
                     
                     let respVO:BibleChapterVo = Mapper().map(JSONObject: result)!
                     
                     let bookResp = respVO.Chapter
-                    
-                    
                     for eachArray in bookResp! {
-                        
-                        
                         let Obbj = eachArray.Verse
-                        
                         print(Obbj!)
-                       
                         }
-                        
                     self.booksTableView.reloadData()
-                    
-
-                    
             }
-            
             
         }) { (failureMessage) in
             
-            
             print(failureMessage)
-            
         }
-        
     }
     
-  //MARK: - back Left Button Tapped
-    
+//MARK: - back Left Button Tapped
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
     }
     
-   //MARK: - home Left Button Tapped
-    
+//MARK: - home Left Button Tapped
     @IBAction func homeButtonTapped(_ sender:UIButton) {
-        
-        
-        UserDefaults.standard.removeObject(forKey: "1")        
+        UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        
         print("Home Button Clicked......")
-        
     }
-
-    
 }

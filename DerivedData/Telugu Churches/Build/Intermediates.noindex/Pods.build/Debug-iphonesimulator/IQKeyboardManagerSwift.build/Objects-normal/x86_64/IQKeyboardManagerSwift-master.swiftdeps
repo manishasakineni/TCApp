@@ -1,0 +1,20 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "b920ffcc3a755c191e6d17a90cb5e4cc"
+build_time: [1546665226, 56360000]
+inputs:
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQKeyboardManager.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQTextView/IQTextView.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift": [1545722632, 0]
+  "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIWindow+Hierarchy.swift": [1545722632, 0]

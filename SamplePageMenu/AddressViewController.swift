@@ -14,12 +14,11 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var addressTableview: UITableView!
     
     @IBOutlet weak var addNewAddressLbl: UILabel!
-    //MARK:- variable declaration
     
+    //MARK:- variable declaration
     var allitemsArray:[AddressInfoResultVO] = Array<AddressInfoResultVO>()
     var filtered:[AddressInfoResultVO] = []
     var editaddress:[EditAddressInfoResultVO] = []
-    
      var showNav = false
      var userId :  Int = 0
      var Id :  Int = 0
@@ -27,12 +26,12 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
      var selectedArry = Array<Int>()
     
    //MARK:- view Did Load
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done".localize()
 
+        // Register Custom TableviewCell
         let nibName1  = UINib(nibName: "AddressTableViewCell" , bundle: nil)
         addressTableview.register(nibName1, forCellReuseIdentifier: "AddressTableViewCell")
         
@@ -40,14 +39,9 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         addressTableview.delegate = self
         
         if UserDefaults.standard.value(forKey: kIdKey) != nil {
-            
             userId = UserDefaults.standard.value(forKey: kIdKey) as! Int
-            
         }
-        
-       // addressAPICall()
       // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,36 +50,31 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     //MARK:- view Will Appear
-    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         addressAPICall()
         addNewAddressLbl.isHidden = true
         
+       // Set navigationBar and NavigationTitle with Back Button
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Address".localize(), backTitle: " " , rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
         
     }
+    
 
-    //MARK:-  Table view data source and delegate methods
+ //MARK:-    :::::::::::::::::::::::::::::::::::::::::  Tableview DataSource And Delegate Methods ::::::::::::::::::::::::::::::::::::::::://
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-    
-    
-    
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if filtered.count > 0 {
-            
             return filtered.count
-            
         }
-        
         return allitemsArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,14 +83,12 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
         return UITableViewAutomaticDimension
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as! AddressTableViewCell
         
@@ -113,54 +100,36 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-checked_filled-1"), for: .normal)
         }
-        
         else{
-            
            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-unchecked_circle"), for: .normal)
         }
-      
-        
         let listStr:AddressInfoResultVO = filtered[indexPath.row]
         
         cell.fullNameLbl.text = listStr.fullName
         
         if listStr.address1 != nil && listStr.address2 != nil {
-            
             cell.addresslineLbl.text = listStr.address1! + ", " + listStr.address2!
-            
         }
-        
          if listStr.stateName != nil && listStr.countryName != nil {
             
             cell.statecountryLbl.text = listStr.stateName! + ", " + listStr.countryName!
         }
-       
-     
-      //  cell.pincodeLbl.text = "\(listStr.pinCode!)"
-        
         if listStr.pinCode != nil {
-            
             cell.pincodeLbl.text = "\(listStr.pinCode!)"
         }
-        
-        else {
-            
+        else{
             cell.pincodeLbl.text = ""
         }
         
         cell.mobileNoLbl.text = "\(listStr.mobileNumber!)"
         
        ///////  delete  ///////
-        
         cell.deleteBtn.addTarget(self, action: #selector(self.deleteaddressAPICall(_:)), for: UIControlEvents.touchUpInside)
         cell.deleteBtn.tag = indexPath.row
         
         
         ///////  edit ///////
-        
-    
         let editTap = UITapGestureRecognizer(target: self, action: #selector(self.editaddressClicked))
-        
         cell.editBtn.isUserInteractionEnabled = true
         cell.editBtn.addGestureRecognizer(editTap)
         cell.editBtn.tag = indexPath.row
@@ -170,28 +139,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let indexPath : IndexPath = IndexPath(row: indexPath.row, section: 0)
-//
-//        if let cell = addressTableview.cellForRow(at: indexPath) as? AddressTableViewCell {
-//
-//         if isAddressClicked == false {
-//
-//            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-checked_filled-1"), for: .normal)
-//            isAddressClicked = true
-//        }
-//
-//        else {
-//
-//            cell.rediationBtn.setImage( #imageLiteral(resourceName: "icons8-unchecked_circle"), for: .normal)
-//            isAddressClicked = false
-//
-//        }
-//
-//            addressTableview.rectForRow(at: indexPath)
-//
-//        }
-        
+
         for i in  0..<selectedArry.count{
             selectedArry[i] = 0
         }
@@ -260,7 +208,6 @@ func  editaddressClicked( sender:UIGestureRecognizer){
         
         self.navigationController?.popViewController(animated: true)
         
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
@@ -305,108 +252,72 @@ func  editaddressClicked( sender:UIGestureRecognizer){
                         self.addNewAddressLbl.isHidden = true
                     
                     for eachArray in listArr{
-                        
                         self.filtered.append(eachArray)
                         self.selectedArry.append(0)
-
                     }
                     
                     self.addressTableview.reloadData()
-                    
-                }else{
-                    
-                    self.addNewAddressLbl.isHidden = false
-                   // self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
-                    
                 }
-               
-                
+                else{
+                    self.addNewAddressLbl.isHidden = false
+                }
             }
-                
-            else {
-                
-                
+            else{
                 
             }
             
         }) { (failureMessage) in
-            
             
             print(failureMessage)
             
         }
     }
     
- //MARK:-  delete address API Call
+//MARK:-  delete address API Call
     
 func deleteaddressAPICall(_ sender : UIButton){
         
-    
     Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Are You Sure Want To Delete".localize(), clickAction: {
         
+//MARK:- Here calling DeleteAddress API-Service
         self.deleteAddressForIndex(sender.tag)
         
-        
     })
+}
 
-    }
-    
+//MARK:- Here DeleteAddress API-Service
     func deleteAddressForIndex( _ selectedIndex : Int){
         if(filtered.count > selectedIndex){
             
             let deleteAddressInfo  = filtered[selectedIndex]
-            
             let paramsDict = [
                 "id": deleteAddressInfo.id!,
                 "userId": userId,
-                
                 ] as [String : Any]
             
             let dictHeaders = ["":"","":""] as NSDictionary
             
-            
             serviceController.postRequest(strURL: DELETEADDRESSAPI as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
                 
                 print(result)
-                
                 let respVO:DeleteAddressInfoVO = Mapper().map(JSONObject: result)!
-                
                 let isSuccess = respVO.isSuccess
                 print("StatusCode:\(String(describing: isSuccess))")
-                
-                
                 if isSuccess == true {
-                    
                     let listArr = respVO.endUserMessage!
-                    
                     self.addressAPICall()
-                    
                     self.addressTableview.reloadData()
-                    
                     self.addNewAddressLbl.isHidden = false
-                   // self.addNewAddressLbl.text = "No Address Found Please Add Address".localize()
-                    
                 }
-                    
-                else {
-                    
-                    
-                    
+                else{
                 }
-                
             }) { (failureMessage) in
-                
-                
                 print(failureMessage)
-                
             }
         }
     }
-    
 
 //MARK:-  edit address API Call
-    
-    
 func editaddressAPICall( _ id : Int){
     
     serviceController.getRequest(strURL: EDITADDRESSAPI + "\(id)" , success: { (result) in
@@ -427,22 +338,9 @@ func editaddressAPICall( _ id : Int){
             jobIDViewController.addressInfo = listArr
             self.navigationController?.pushViewController(jobIDViewController, animated: true)
                     
-                }
-                    
-                
-            }) { (failureMessage) in
-                
-                
+                  }
+              }) { (failureMessage) in
                 print(failureMessage)
-                
-            }
-        
-   }
-    
- 
-
-    
-    
-    
-
+        }
+    }
 }

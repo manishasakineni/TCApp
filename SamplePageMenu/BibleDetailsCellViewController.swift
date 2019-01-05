@@ -18,8 +18,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
     
     @IBOutlet weak var noRecordsFoundLbl: UILabel!
     
-   //MARK: -  variable declaration
-    
+//MARK: -  variable declaration
     var catgoryName:String = ""
     var LangStr:String = ""
     var appVersion:String = ""
@@ -39,8 +38,7 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
     var bibleChaptersArr:[BibleDetailsCellVO] = Array<BibleDetailsCellVO>()
     var bibleVerseArr:[BibleDetailsCellIResultVo] = Array<BibleDetailsCellIResultVo>()
     
-    //MARK: -  view Did Load
-    
+//MARK: -  view Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,8 +47,10 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         self.noRecordsFoundLbl.isHidden = true
         print("verseCountStr:\(verseCountStr)")
         
+        // Here calling BibleDetails API-Service
         getBibleDetailsCellAPICall()
         
+        // Register for Custom TableviewCell
         let nibName  = UINib(nibName: "BibleBooksTableViewCell" , bundle: nil)
         self.bibleDetailsCellTableView.register(nibName, forCellReuseIdentifier: "BibleBooksTableViewCell")
         
@@ -65,34 +65,28 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     
-  //MARK: -  view Will Appear 
-    
+//MARK: -  view Will Appear
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-         self.navigationController?.navigationBar.isHidden = false
-        
+        self.navigationController?.navigationBar.isHidden = false
         Utilities.AllInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "\(nameStr)".localize(), backTitle: "  \(catgoryName)".localize(), rightImage: "homeImg", secondRightImage: "Up", thirdRightImage: "Up")
-        
     }
     
     
-   //MARK:- TableView  DataSource & Delegate Methods
+//MARK:- TableView  DataSource & Delegate Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
         return 1
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
         return bibleChaptersArr.count
-        
-        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -104,8 +98,6 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         
         return 40.0
-        
-        
     }
     
     
@@ -116,30 +108,20 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         
         cell.accessoryType = .disclosureIndicator
         cell.chapterCountLabel.text = ""
-        
         if LangStr == "11" {
-            
            cell.bibleBookLabel.text = "Chapter \(indexPath.row + 1)"
         }
-        else {
-            
+        else{
             cell.bibleBookLabel.text = "అధ్యాయము \(indexPath.row + 1)"
         }
-        
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        
         let booksList:BibleDetailsCellVO = bibleChaptersArr[indexPath.row]
-        
-        
         let verseCount = booksList.Verse?.count
         let verseViewController = self.storyboard?.instantiateViewController(withIdentifier: "BibleDetailsVerseViewController") as! BibleDetailsVerseViewController
-        
-        
         let versesDict = verseStringCount["\(indexCount)"] as? Dictionary<String,Any>
         let capter = versesDict?["\(indexPath.row)"] as? [BibleDetailsCellIResultVo]
         verseViewController.verseStringCount = capter!
@@ -147,26 +129,15 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
         verseViewController.nameStr = nameStr
         verseViewController.indexCount = indexPath.row
         verseViewController.bibleVerseArr = self.bibleVerseArr
-        
-        
         self.navigationController?.pushViewController(verseViewController, animated: true)
-        
-        
     }
-
     
-    //MARK: -    Get Bible Details Cell API Call
-    
+//MARK: -    Get Bible Details Cell API Call
     func getBibleDetailsCellAPICall(){
-        
-        
         let newString = listUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
         let newStr = newString.replacingOccurrences(of: " ", with: "", options: .backwards, range: nil)
         let bibleDetailsCellAPI = newStr
-        
-        
         serviceController.getRequest(strURL: bibleDetailsCellAPI, success: { (result) in
-            
             
             if result.count > 0 {
                 
@@ -189,92 +160,51 @@ class BibleDetailsCellViewController: UIViewController,UITableViewDelegate,UITab
                     let chapterArray = respVO.Chapter
                     var j = 0
                     for eachChapter in chapterArray!{
-                        
                         _ = eachChapter.Verse?.count
-                        
                         let verseDict = eachChapter.Verse
-                        
                         for eachVerseDict in verseDict!{
-                            
                             print(eachVerseDict.Verse!)
-                            
                         }
                         self.versesCount.updateValue(verseDict!, forKey: "\(j)")
                         self.verseStringCount.updateValue(self.versesCount, forKey: "\(i)")
                         
                         j = j + 1
                     }
-                    
                     self.bibleCArr.append(countt!)
-                    
-                    
                     i = i + 1
-                    
-                    
                     self.bibleDetailsCellTableView.reloadData()
                 }
-                else {
-                    
+                else{
                     self.noRecordsFoundLbl.isHidden = false
-                    
                     self.bibleDetailsCellTableView.isHidden = true
                 }
-                
-                
             }
-            
-            
         }) { (failureMassege) in
-            
             
         }
         
-        
     }
-    
   
-    //MARK: -    Back Left Button Tapped
-    
+//MARK: -    Back Left Button Tapped
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.synchronize()
-        
         UserDefaults.standard.set("1", forKey: "1")
         self.navigationController?.popViewController(animated: true)
         navigationItem.leftBarButtonItems = []
-        
         print("Back Button Clicked......")
-        
     }
     
-    //MARK: -    Home  Button Tapped
-    
+//MARK: -    Home  Button Tapped
     @IBAction func homeButtonTapped(_ sender:UIButton) {
-        
-        
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popViewController(animated: true)
-        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
         appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        
         print("Home Button Clicked......")
-        
     }
-
-    
-    
-    
-    
 }

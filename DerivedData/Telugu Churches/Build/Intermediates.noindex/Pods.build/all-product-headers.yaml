@@ -1,0 +1,652 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/FSCalendar/FSCalendar.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "FSCalendar-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/FSCalendar/FSCalendar.framework/Headers/FSCalendar-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendar-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/FSCalendar/FSCalendar-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendar.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendar.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarAppearance.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarAppearance.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarCalculator.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarCalculator.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarCell.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarCell.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarCollectionView.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarCollectionView.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarCollectionViewLayout.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarCollectionViewLayout.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarConstants.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarConstants.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarDelegationFactory.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarDelegationFactory.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarDelegationProxy.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarDelegationProxy.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarDynamicHeader.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarDynamicHeader.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarExtensions.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarExtensions.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarHeaderView.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarHeaderView.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarScopeHandle.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarScopeHandle.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarStickyHeader.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarStickyHeader.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarTransitionCoordinator.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarTransitionCoordinator.h"
+        },
+        {
+          'type': 'file',
+          'name': "FSCalendarWeekdayView.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/FSCalendar/FSCalendar/FSCalendarWeekdayView.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/FSCalendar/FSCalendar.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FSCalendar.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "IQKeyboardManagerSwift-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "IQKeyboardManagerSwift-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/IQKeyboardManagerSwift.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Localize/Localize.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Localize-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Localize/Localize.framework/Headers/Localize-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Localize-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/Localize/Localize-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Localize/Localize.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Localize.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Pods_Telugu_Churches.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Telugu Churches-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_Telugu_Churches-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Pods_Telugu_Churches.framework/Headers/Pods_Telugu_Churches-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/Pods_Telugu_Churches.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-Telugu Churches.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "NSData+ImageContentType.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/NSData+ImageContentType.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSImage+WebCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/NSImage+WebCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDImageCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDImageCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDImageCacheConfig.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDImageCacheConfig.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImage-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImage-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImage-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/SDWebImage/SDWebImage-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageCoder.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageCoder.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageCoderHelper.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageCoderHelper.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageCodersManager.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageCodersManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageCompat.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageDownloader.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageDownloaderOperation.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageFrame.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageFrame.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageGIFCoder.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageGIFCoder.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageImageIOCoder.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageImageIOCoder.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageManager.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageOperation.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageOperation.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImagePrefetcher.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.h"
+        },
+        {
+          'type': 'file',
+          'name': "SDWebImageWebPCoder.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/SDWebImageWebPCoder.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIButton+WebCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIButton+WebCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+ForceDecode.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImage+ForceDecode.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+GIF.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImage+GIF.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+MultiFormat.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImage+MultiFormat.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+WebP.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImage+WebP.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImageView+HighlightedWebCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImageView+WebCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIView+WebCache.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIView+WebCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIView+WebCacheOperation.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/SDWebImage/SDWebImage/UIView+WebCacheOperation.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SDWebImage.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "TextFieldEffects-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Headers/TextFieldEffects-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "TextFieldEffects-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/TextFieldEffects.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/libwebp/libwebp.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "alphai_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/alphai_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "animi.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/mux/animi.h"
+        },
+        {
+          'type': 'file',
+          'name': "backward_references_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/backward_references_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "bit_reader_inl_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/bit_reader_inl_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "bit_reader_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/bit_reader_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "bit_writer_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/bit_writer_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "color_cache_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/color_cache_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "common_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/common_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "common_sse2.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/common_sse2.h"
+        },
+        {
+          'type': 'file',
+          'name': "cost_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/cost_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "decode.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/decode.h"
+        },
+        {
+          'type': 'file',
+          'name': "delta_palettization_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/delta_palettization_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "demux.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/demux.h"
+        },
+        {
+          'type': 'file',
+          'name': "dsp.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/dsp.h"
+        },
+        {
+          'type': 'file',
+          'name': "encode.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/encode.h"
+        },
+        {
+          'type': 'file',
+          'name': "endian_inl_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/endian_inl_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "filters_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/filters_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "format_constants.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/format_constants.h"
+        },
+        {
+          'type': 'file',
+          'name': "histogram_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/histogram_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "huffman_encode_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/huffman_encode_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "huffman_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/huffman_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "libwebp-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/libwebp/libwebp.framework/Headers/libwebp-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "libwebp-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/libwebp/libwebp-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "lossless.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/lossless.h"
+        },
+        {
+          'type': 'file',
+          'name': "lossless_common.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/lossless_common.h"
+        },
+        {
+          'type': 'file',
+          'name': "mips_macro.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/mips_macro.h"
+        },
+        {
+          'type': 'file',
+          'name': "msa_macro.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/msa_macro.h"
+        },
+        {
+          'type': 'file',
+          'name': "mux.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/mux.h"
+        },
+        {
+          'type': 'file',
+          'name': "mux_types.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/mux_types.h"
+        },
+        {
+          'type': 'file',
+          'name': "muxi.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/mux/muxi.h"
+        },
+        {
+          'type': 'file',
+          'name': "neon.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/neon.h"
+        },
+        {
+          'type': 'file',
+          'name': "quant_levels_dec_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/quant_levels_dec_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "quant_levels_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/quant_levels_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "random_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/random_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "rescaler_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/rescaler_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "thread_utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/thread_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "types.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/webp/types.h"
+        },
+        {
+          'type': 'file',
+          'name': "utils.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/utils/utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "vp8_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/vp8_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "vp8i_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/vp8i_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "vp8i_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/vp8i_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "vp8li_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/vp8li_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "vp8li_enc.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/enc/vp8li_enc.h"
+        },
+        {
+          'type': 'file',
+          'name': "webpi_dec.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dec/webpi_dec.h"
+        },
+        {
+          'type': 'file',
+          'name': "yuv.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/libwebp/src/dsp/yuv.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/libwebp/libwebp.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/libwebp.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/youtube-ios-player-helper/youtube_ios_player_helper.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "YTPlayerView.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/youtube-ios-player-helper/Classes/YTPlayerView.h"
+        },
+        {
+          'type': 'file',
+          'name': "youtube-ios-player-helper-umbrella.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/Pods/Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "youtube_ios_player_helper-Swift.h",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/youtube-ios-player-helper/youtube_ios_player_helper.framework/Headers/youtube_ios_player_helper-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Products/Debug-iphonesimulator/youtube-ios-player-helper/youtube_ios_player_helper.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/praveendole/Documents/TCAPP-25:12:2018/DerivedData/Telugu Churches/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/youtube-ios-player-helper.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
