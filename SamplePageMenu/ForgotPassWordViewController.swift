@@ -11,9 +11,10 @@ import IQKeyboardManagerSwift
 
 class ForgotPassWordViewController: UIViewController {
 
-    var appVersion          : String = ""
+    var appVersion : String = ""
 
- //MARK: -   view Did Load
+
+//MARK: -   view Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,30 +27,22 @@ class ForgotPassWordViewController: UIViewController {
     }
     
 //MARK: -   view Will Appear
+    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         Utilities.forgotPassWordViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "forgot Password".localize(), backTitle: " forgot Password".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-
-        
     }
     
-   //MARK: -    Back Left Button Tapped
+//MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-    UserDefaults.standard.removeObject(forKey: "1")
-    UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-
-    UserDefaults.standard.set("1", forKey: "1")
-    UserDefaults.standard.synchronize()
-        
-    self.navigationController?.popViewController(animated: true)
-        
-        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        self.navigationController?.popViewController(animated: true)
         print("Back Button Clicked......")
-        
     }
-
 }

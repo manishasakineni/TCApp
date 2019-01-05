@@ -11,6 +11,7 @@ import UIKit
 class GetJobidHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var applyButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,10 +20,6 @@ class GetJobidHeaderTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
         applyButton.layer.cornerRadius = 6.0
-        
-        // Configure the view for the selected state
     }
-    
 }

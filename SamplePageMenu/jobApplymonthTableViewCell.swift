@@ -11,10 +11,8 @@ import UIKit
 class jobApplymonthTableViewCell: UITableViewCell {
     
     @IBOutlet weak var yearTF: UITextField!
-    
     @IBOutlet weak var monthTF: UITextField!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

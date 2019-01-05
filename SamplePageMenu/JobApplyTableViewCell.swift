@@ -12,7 +12,6 @@ class JobApplyTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var jobApplyTF: UITextField!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +23,4 @@ class JobApplyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

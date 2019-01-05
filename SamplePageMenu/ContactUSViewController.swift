@@ -59,10 +59,10 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
                 let mandal = respVO.mandal
                 let district = respVO.district
                 let state = respVO.state
-                let addressStr = address! + "," + companyName! + "," + landmark!
-                let addressStr1 = village! + "," + mandal!
-                let addressStr2 = district! + "," + state!
-                self.addressLbl.text   = addressStr + "," + addressStr1 + "," + addressStr2
+                let addressStr = address! + companyName! + landmark!
+                let addressStr1 = village! + mandal!
+                let addressStr2 = district! + state!
+                self.addressLbl.text   = addressStr + addressStr1 + addressStr2
             }
         }) { (failureMessage) in
             

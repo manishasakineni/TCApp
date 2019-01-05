@@ -11,13 +11,9 @@ import UIKit
 class GetAllJobDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var jobtitleLabel: UILabel!
-    
     @IBOutlet weak var qualificationLabel: UILabel!
-    
     @IBOutlet weak var churchNameLabel: UILabel!
-    
     @IBOutlet weak var cintactNumberLabel: UILabel!
-    
     @IBOutlet weak var lastdateToApplyLabel: UILabel!
 
     override func awakeFromNib() {

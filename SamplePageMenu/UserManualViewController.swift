@@ -78,7 +78,7 @@ class UserManualViewController: UIViewController,UIWebViewDelegate {
         serviceController.hideLoadingHUD(for_view: appDelegate.window!)
     }
     
-//MARK: -    Home Button Tapped
+//MARK: -    Back Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         

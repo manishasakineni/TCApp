@@ -12,15 +12,12 @@ class DocsCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var docsImage: UIImageView!
-    
-    
     @IBOutlet weak var closeBtn: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
 }
 
 
