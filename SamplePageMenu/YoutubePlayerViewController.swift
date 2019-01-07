@@ -1141,7 +1141,7 @@ func  likeButtonClick(_ sendre:UIButton) {
         
         popupview.isHidden = false
         secondview.isHidden = false
-        textviewOutLet.text = "Add a public replay...".localize()
+        textviewOutLet.text = "Add a public reply...".localize()
         textviewOutLet.textColor = UIColor.lightGray
         self.parentCommentId = self.commentingIdArray[sender.tag]
         self.comentId = 0
@@ -1363,7 +1363,7 @@ func editCommentBnClicked(sender : UIButton){
                         let resultArr = respVO.result?.commentDetails
                         for id in (respVO.result?.commentDetails)! {
                             self.commentingIdArray.append(id.id!)
-                            self.CommentsByUserArray.append(id.commentByUser!)
+                            self.CommentsByUserArray.append(id.commentByUser == nil ? "" : id.commentByUser!)
                             self.replyCountArray.append(id.replyCount!)
                             self.loginUseridsArray.append(id.userId!)
                             self.userImagesArray.append(id.userImage == nil ? "" : id.userImage!)

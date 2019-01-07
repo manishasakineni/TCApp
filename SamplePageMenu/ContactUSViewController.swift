@@ -119,8 +119,8 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
         
     }
     
-//MARK: - Cell Delegate
-
+//MARK: - Call to Number
+    
     func callToNumber(telePhoneNumber : String){
         
         // Making a Phone Call
@@ -149,7 +149,7 @@ class ContactUSViewController: UIViewController,MFMailComposeViewControllerDeleg
         }
     }
 
-//MARK: - Mail Delegate
+//MARK: - Mail Compose
     
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult, error: Error?) {
