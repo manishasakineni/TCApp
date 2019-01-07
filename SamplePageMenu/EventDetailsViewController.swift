@@ -714,7 +714,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
     }
      if indexPath.section == 1 {
         
-// MARK :- Register Custom CollectionviewCells
+            //Register Custom CollectionviewCells
             let cell = tableView.dequeueReusableCell(withIdentifier: "homeCategoriesCell", for: indexPath) as! homeCategoriesCell
             cell.homeCollectionView.register(UINib.init(nibName: "homeCategoriesCollectionCell", bundle: nil),
                                              forCellWithReuseIdentifier: "homeCategoriesCollectionCell")

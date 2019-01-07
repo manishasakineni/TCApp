@@ -13,7 +13,7 @@ class Utilities: NSObject {
     
     static let sharedInstance : Utilities = Utilities()
     
-    //MARK: - APP Color
+//MARK: - APP Color
     static let appColor: UIColor = #colorLiteral(red: 0.3843137255, green: 0.6862745098, blue: 0.8156862745, alpha: 1)
     
     static let appFontSize : UIFont = UIFont (name: "Helvetica Neue", size: 30)!
@@ -21,7 +21,7 @@ class Utilities: NSObject {
     static let bordrColor : CGColor = #colorLiteral(red: 0.3843137255, green: 0.6862745098, blue: 0.8156862745, alpha: 1).cgColor
     
 
-    //MARK: - Nil Check
+//MARK: - Nil Check
     
     func isObjectNull(_ object: AnyObject?) -> Bool {
         return !isNil(object) && !isNull(object)
@@ -66,7 +66,7 @@ class Utilities: NSObject {
     
 
     
-    //MARK:- UIAlert Controller Actions
+//MARK:- UIAlert Controller Actions
     
     func alertWithOkButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
         
@@ -82,7 +82,7 @@ class Utilities: NSObject {
         
     }
     
- 
+//MARK:::::::::::::::::::::::::::::::  Below Programmatically Set NavigationBar With Title and Back Button for All ViewController :::::::::::::::::::::::::::://
     
     class func setHoneViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
         
@@ -110,33 +110,20 @@ class Utilities: NSObject {
             cntr.navigationController!.isNavigationBarHidden = false
             cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
-            //            cntr.navigationController?.navigationBar.barStyle = .black
         }
-        
-        
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
-            
             leftButton.setImage(leftButtonImage, for: .normal)
         }
-       // leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
-      //  leftButton.addTarget(cntr, action: #selector(LoginViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-       // cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-        
-        
     }
     class func setLoginViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
-        
         var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
-        
         if (titlelabel == nil) {
-            
             titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
             titlelabel?.tag = 555
             titlelabel!.backgroundColor = UIColor.clear
@@ -148,19 +135,13 @@ class Utilities: NSObject {
             
             cntr.navigationController?.navigationBar.addSubview(titlelabel!)
         }
-        
         titlelabel!.text = title
-        
         if(cntr.navigationController != nil) {
-            
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
             cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
-            //            cntr.navigationController?.navigationBar.barStyle = .black
         }
-        
-        
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
@@ -173,9 +154,7 @@ class Utilities: NSObject {
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
         leftButton.addTarget(cntr, action: #selector(LoginViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-        
         
     }
     
@@ -184,7 +163,6 @@ class Utilities: NSObject {
         var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
         
         if (titlelabel == nil) {
-            
             titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
             titlelabel?.tag = 555
             titlelabel!.backgroundColor = UIColor.clear
@@ -193,21 +171,17 @@ class Utilities: NSObject {
             titlelabel!.textColor = UIColor.white
             titlelabel?.lineBreakMode = .byWordWrapping
             titlelabel?.numberOfLines = 0
-            
             cntr.navigationController?.navigationBar.addSubview(titlelabel!)
         }
         
         titlelabel!.text = title
         
         if(cntr.navigationController != nil) {
-            
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
             cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
-            //            cntr.navigationController?.navigationBar.barStyle = .black
         }
-        
         
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
@@ -218,17 +192,12 @@ class Utilities: NSObject {
         leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
         leftButton.setTitle(backTitle, for: .normal)
         if backTitle.characters.count > 0 {
-            
             leftButton.setImage(leftButtonImage, for: .normal)
         }
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
         
         leftButton.addTarget(cntr, action: #selector(SignUpViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
-        
-        
         rightButton.addTarget(cntr, action: #selector(SignUpViewController.homeButtonTapped(_:)), for: .touchUpInside)
-
-        
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
         
         let barbuttonitem2: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
@@ -242,12 +211,7 @@ class Utilities: NSObject {
             
             rightButton.setImage(rightButtonImage, for: .normal)
         }
-
         cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
-        
-        
-        
-        
         
     }
     
@@ -279,7 +243,6 @@ class Utilities: NSObject {
             cntr.navigationController!.isNavigationBarHidden = false
             cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
-            //            cntr.navigationController?.navigationBar.barStyle = .black
         }
         
         
@@ -295,9 +258,7 @@ class Utilities: NSObject {
         leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
         leftButton.addTarget(cntr, action: #selector(ChurchesInformaationViewControllers.backLeftButtonTapped(_:)), for: .touchUpInside)
         let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-        
         
     }
     
@@ -318,22 +279,16 @@ class Utilities: NSObject {
             titlelabel!.textColor = UIColor.white
             titlelabel?.lineBreakMode = .byWordWrapping
             titlelabel?.numberOfLines = 0
-            
             cntr.navigationController?.navigationBar.addSubview(titlelabel!)
         }
         
         titlelabel!.text = title
-        
         if(cntr.navigationController != nil) {
-            
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
             cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
-            //            cntr.navigationController?.navigationBar.barStyle = .black
         }
-        
-        
         let leftButtonImage: UIImage = UIImage(named: backImage!)!
         let leftButton: UIButton = UIButton(type: .custom)
         
@@ -1385,88 +1340,23 @@ class Utilities: NSObject {
         }
         
         cntr.navigationItem.rightBarButtonItems = [barbuttonitem2]
-        
-        
-        
-        
-        
     }
     
-//
-//    class func UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
-//        
-//        var titlelabel: UILabel? = cntr.navigationController?.navigationBar.viewWithTag(555) as? UILabel
-//        
-//        if (titlelabel == nil) {
-//            
-//            titlelabel = UILabel(frame: CGRect(x: 50.0, y: 0, width: ScreenSize.SCREEN_WIDTH - 100, height: 44.0))
-//            titlelabel?.tag = 555
-//            titlelabel!.backgroundColor = UIColor.clear
-//            titlelabel!.font =  UIFont(name: "HelveticaNeue", size: 15.0)
-//            titlelabel?.textAlignment = .center
-//            titlelabel!.textColor = UIColor.white
-//            titlelabel?.lineBreakMode = .byWordWrapping
-//            titlelabel?.numberOfLines = 0
-//            
-//            cntr.navigationController?.navigationBar.addSubview(titlelabel!)
-//        }
-//        
-//        titlelabel!.text = title
-//        
-//        if(cntr.navigationController != nil) {
-//            
-//            cntr.navigationController!.navigationBar.isTranslucent = false
-//            cntr.navigationController!.isNavigationBarHidden = false
-//            cntr.navigationController!.navigationBar.barTintColor = Utilities.appColor
-//            cntr.navigationController!.navigationBar.tintColor = UIColor.white
-//            //            cntr.navigationController?.navigationBar.barStyle = .black
-//        }
-//        
-//        
-//        let leftButtonImage: UIImage = UIImage(named: backImage!)!
-//        let leftButton: UIButton = UIButton(type: .custom)
-//        
-//        leftButton.frame = CGRect(x: 0, y: 0, width: leftButtonImage.size.width, height: leftButtonImage.size.height)
-//        leftButton.setTitle(backTitle, for: .normal)
-//        if backTitle.characters.count > 0 {
-//            
-//            leftButton.setImage(leftButtonImage, for: .normal)
-//        }
-//        leftButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
-//        
-//        leftButton.addTarget(cntr, action: #selector(AllEventsAndUpComingEventsViewController.backLeftButtonTapped(_:)), for: .touchUpInside)
-//        let barbuttonitem1: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-//        
-//        cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
-//        
-//        
-//    }
-    
+//MARK:- Set AlertController for "EndUserMessages" or "ErrorMessages" and "AlertMessages"
     
     func alertWithOkAndCancelButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
         
         let capsMsg  =  messege.capitalizingFirstLetter()
         let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
-        
         let okButton = UIAlertAction(title: "Ok".localize(), style: .default) { _ in
             clickAction()
-            
         }
         let cancelButton = UIAlertAction(title: "Cancel".localize(), style: .default) { _ in
-            
         }
         alrtControl.addAction(cancelButton)
         alrtControl.addAction(okButton)
         vc.present(alrtControl, animated: true, completion: nil)
-        
     }
-  
-    
-     
-    
-    
-    
-    
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
         let alertView:UIAlertView = UIAlertView();
@@ -1475,10 +1365,6 @@ class Utilities: NSObject {
         alertView.addButton(withTitle: buttonTitle)
         alertView.show()
     }
-    
-    
-    
-    
 }
 
 //MARK: - DateFormatter Extensions

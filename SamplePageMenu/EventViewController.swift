@@ -377,7 +377,7 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
       })
 }
     
- // MARK: - Here initializing method of ChurchEventsGetEventDetailsInfoByChurchIdMonthYear API-Service
+// MARK: - Here initializing method of ChurchEventsGetEventDetailsInfoByChurchIdMonthYear API-Service
     func getChurchEventsGetEventDetailsInfoByChurchIdMonthYearApiCall(_monthStr : String, _yearStr: String){
         let getChurchEventsAPI = CHURCHEVENTSAPI + "" + "\(churchID)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
             serviceController.getRequest(strURL: getChurchEventsAPI, success: { (result) in
@@ -456,7 +456,7 @@ func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
         return newDateStr + "," + newDateStr1
     }
 
-  //MARK: -    Back Left Button Tapped
+//MARK: -    Back Left Button Tapped
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
@@ -615,7 +615,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
                 yearFormatter.timeZone = NSTimeZone.local
                 let yearString = yearFormatter.string(from: calendar.currentPage)
                 
-//MARK: -  Here calling EventInfoByChurchIdMonthYear API-Service
+              //Here calling EventInfoByChurchIdMonthYear API-Service
                 GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
      
             }
