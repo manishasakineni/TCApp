@@ -18,47 +18,47 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
 //MARK: -  variable declaration
     
-    var linksA = [String]()
-    var streamLink : String!
-    var first : String!
-    var secend : String!
-    let utillites =  Utilities()
+    var linksA      = [String]()
+    var streamLink  : String!
+    var first       : String!
+    var secend      : String!
+    let utillites   =  Utilities()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var appVersion          : String = ""
+    var appVersion   : String = ""
     var selectedDate : String = ""
     var base64String : String = ""
-    var alertTag = Int()
-    var showNav = false
-    let isActive : Bool = true
-    var btneditClick = false
-    let dateFormatter = DateFormatter()
-    var placeholdersAry  = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize(),"Dob".localize()]
-    var userID   : String = ""
+    var alertTag    = Int()
+    var showNav     = false
+    let isActive            = true
+    var btneditClick        = false
+    let dateFormatter       = DateFormatter()
+    var placeholdersAry     = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize(),"Dob".localize()]
+    var userID      : String = ""
     var firstName   : String = ""
     var middleName  : String = ""
     var lastName    : String = ""
-    var mobileNumber    : String = ""
+    var mobileNumber : String = ""
     var email       : String = ""
-    var DOB       : String = ""
-    var loginid      : Int = 0
-    var password       : String = ""
-    var activeTextField = UITextField()
-    let picker = UIImagePickerController()
-    var isImageSave:Bool = false
-    var sectionsTitle : [String] = [""]
-    var imgVW = UIImageView()
-    var profileimage:UIImage = UIImage()
-    var imageString = String()
-    var pickerData : Array<String> = Array()
+    var DOB         : String = ""
+    var loginid     : Int = 0
+    var password    : String = ""
+    var activeTextField     =   UITextField()
+    let picker              =   UIImagePickerController()
+    var isImageSave         =   false
+    var sectionsTitle       :   [String] = [""]
+    var imgVW               =   UIImageView()
+    var profileimage        :   UIImage = UIImage()
+    var imageString         =   String()
+    var pickerData          :   Array<String> = Array()
     var selectedtitleTypeStr  = ""
-    var titletypeIdAry = Array<String>()
-    var titleTypeID    : Int    = 0
-    let datepicker = UIDatePicker()
-    var dateofBirth:String = ""
-    var gender : String = ""
-    var male = Bool()
-    var female = Bool()
-    var genderTypeID:Int = 0
+    var titletypeIdAry      =   Array<String>()
+    var titleTypeID         :   Int    = 0
+    let datepicker          =   UIDatePicker()
+    var dateofBirth         :   String = ""
+    var gender              :   String = ""
+    var male                =   Bool()
+    var female              =   Bool()
+    var genderTypeID:Int    =   0
     
 
 //MARK: -   View DidLoad
@@ -102,20 +102,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         // Registering Tableview Cell
 
-        let nibName  = UINib(nibName: "EditProfileTableViewCell" , bundle: nil)
+        let nibName     = UINib(nibName: "EditProfileTableViewCell" , bundle: nil)
         editProfileTableView.register(nibName, forCellReuseIdentifier: "EditProfileTableViewCell")
-        let nibName1  = UINib(nibName: "menuTableViewCell" , bundle: nil)
+        let nibName1    = UINib(nibName: "menuTableViewCell" , bundle: nil)
         editProfileTableView.register(nibName1, forCellReuseIdentifier: "menuTableViewCell")
-        let nibName2  = UINib(nibName: "HeaderProfileCell" , bundle: nil)
+        let nibName2    = UINib(nibName: "HeaderProfileCell" , bundle: nil)
         editProfileTableView.register(nibName2, forCellReuseIdentifier: "HeaderProfileCell")
-        let nibName3  = UINib(nibName: "GenderTableViewCell" , bundle: nil)
+        let nibName3    = UINib(nibName: "GenderTableViewCell" , bundle: nil)
         editProfileTableView.register(nibName3, forCellReuseIdentifier: "GenderTableViewCell")
-        self.loginid = UserDefaults.standard.value(forKey: kIdKey) as! Int
+        self.loginid    = UserDefaults.standard.value(forKey: kIdKey) as! Int
         UserDefaults.standard.synchronize()
+        
         print(self.loginid)
         editProfileTableView.dataSource = self
         editProfileTableView.delegate = self
         activeTextField.delegate = self
+        
+        // Calling get progile api
+        
         getProfileInfoAPIService()
     }
     
@@ -136,15 +140,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if (listArr?.count)! > 0 {
                     let statusCode = respVO.isSuccess
                     print("StatusCode:\(String(describing: statusCode))")
-                    self.userID = (respVO.listResult?[0].UserName)!
-                    self.firstName = (respVO.listResult?[0].FirstName)!
+                    self.userID     = (respVO.listResult?[0].UserName)!
+                    self.firstName  = (respVO.listResult?[0].FirstName)!
                     self.middleName = (respVO.listResult?[0].MiddleName) == nil ? "" :  (respVO.listResult?[0].MiddleName)!
-                    self.lastName = (respVO.listResult?[0].Lastname)!
+                    self.lastName   = (respVO.listResult?[0].Lastname)!
                     self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
-                    self.email = (respVO.listResult?[0].Email)!
-                    var userImgURL : String = ""
-                    userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
-                    let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
+                    self.email      = (respVO.listResult?[0].Email)!
+                    var userImgURL  : String = ""
+                    userImgURL      = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
+                    let newString   = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
                    
                     if newString != "" {
                         let url = URL(string:newString)
@@ -432,10 +436,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if indexPath.row == 0{
                 profileCell.cameraOutLet.addTarget(self, action: #selector(self.cameraBtnClicked), for: .touchDown)
                 profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
-                profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
-                profileCell.progileImageView.layer.borderWidth = 1
-                profileCell.progileImageView.clipsToBounds = true
-                profileCell.progileImageView.image = profileimage
+                profileCell.progileImageView.layer.borderColor  = UIColor.gray.cgColor
+                profileCell.progileImageView.layer.borderWidth  = 1
+                profileCell.progileImageView.clipsToBounds      = true
+                profileCell.progileImageView.image              = profileimage
                 profileCell.editBtnOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
             }
             return profileCell
@@ -470,81 +474,85 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     signUPCell.editProfileTF.tag = 1
                     if btneditClick == false {
                         signUPCell.editProfileTF.placeholder = "Full Name*".localize()
-                        signUPCell.editProfileTF.text = self.firstName + " " + self.middleName + " " + self.lastName
+                        signUPCell.editProfileTF.text        = self.firstName + " " + self.middleName + " " + self.lastName
                     }
                     else {
                         signUPCell.editProfileTF.placeholder = "First Name*".localize()
-                        signUPCell.editProfileTF.text = self.firstName
+                        signUPCell.editProfileTF.text        = self.firstName
                     }
                 }
                 else if indexPath.row == 2{
                         signUPCell.editProfileTF.placeholder = "Middle Name".localize()
-                        signUPCell.editProfileTF.text = self.middleName
-                        signUPCell.editProfileTF.tag = 2
+                        signUPCell.editProfileTF.text        = self.middleName
+                        signUPCell.editProfileTF.tag         = 2
                 }
                 else if indexPath.row == 3{
                         signUPCell.editProfileTF.placeholder = "Last Name*".localize()
-                        signUPCell.editProfileTF.text = self.lastName
-                        signUPCell.editProfileTF.tag = 3
+                        signUPCell.editProfileTF.text        = self.lastName
+                        signUPCell.editProfileTF.tag         = 3
                 }
                 else if indexPath.row == 4{
-                        signUPCell.editProfileTF.placeholder = "Mobile Number*".localize()
+                        signUPCell.editProfileTF.placeholder    = "Mobile Number*".localize()
                         signUPCell.editProfileTF.isUserInteractionEnabled = false
-                        signUPCell.editProfileTF.textColor = UIColor.lightGray
-                        signUPCell.editProfileTF.text = self.mobileNumber
+                        signUPCell.editProfileTF.textColor      = UIColor.lightGray
+                        signUPCell.editProfileTF.text           = self.mobileNumber
                 }
                 else if indexPath.row == 5{
                         signUPCell.editProfileTF.placeholder = "E-mail*".localize()
-                        signUPCell.editProfileTF.text = self.email
-                        signUPCell.editProfileTF.tag = 5
+                        signUPCell.editProfileTF.text        = self.email
+                        signUPCell.editProfileTF.tag         = 5
                 }
                 else if indexPath.row == 6{
                         signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
-                        signUPCell.editProfileTF.text = selectedDate
-                        signUPCell.editProfileTF.tag = 6
+                        signUPCell.editProfileTF.text        = selectedDate
+                        signUPCell.editProfileTF.tag         = 6
                 }
             return signUPCell
         }
         else {
             let signUPCell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as! GenderTableViewCell
-            signUPCell.selectionStyle = .none
-            signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
-            signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+            
+                signUPCell.selectionStyle = .none
+                signUPCell.femaleUnCheck.tintColor  = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+                signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
+            
             if(btneditClick == true){
-                signUPCell.maleUnCheckBtn.isUserInteractionEnabled = false
-                signUPCell.femaleUnCheck.isUserInteractionEnabled = false
-                signUPCell.maleBtn.isUserInteractionEnabled = true
-                signUPCell.femaleBtn.isUserInteractionEnabled = true
+                signUPCell.maleUnCheckBtn.isUserInteractionEnabled  = false
+                signUPCell.femaleUnCheck.isUserInteractionEnabled   = false
+                signUPCell.maleBtn.isUserInteractionEnabled         = true
+                signUPCell.femaleBtn.isUserInteractionEnabled       = true
             }
             else{
-                signUPCell.femaleUnCheck.isUserInteractionEnabled = true
-                signUPCell.maleUnCheckBtn.isUserInteractionEnabled = true
-                signUPCell.femaleBtn.isUserInteractionEnabled = false
-                signUPCell.maleBtn.isUserInteractionEnabled = false
+                signUPCell.femaleUnCheck.isUserInteractionEnabled   = true
+                signUPCell.maleUnCheckBtn.isUserInteractionEnabled  = true
+                signUPCell.femaleBtn.isUserInteractionEnabled       = false
+                signUPCell.maleBtn.isUserInteractionEnabled         = false
             }
-        if genderTypeID == 30 {
-                signUPCell.femaleUnCheck.image = UIImage(named:"checked_83366")
+            if genderTypeID == 30 {
+                signUPCell.femaleUnCheck.image  = UIImage(named:"checked_83366")
                 signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
-                male = false
+                male   = false
                 female = true
-        }
-        if genderTypeID == 27 {
+            }
+            if genderTypeID == 27 {
                 signUPCell.maleUnCheckBtn.image = UIImage(named:"checked_83366")
-                signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
-                male = true
+                signUPCell.femaleUnCheck.image  = UIImage(named:"icons8-Unchecked Circle-50")
+                male   = true
                 female = false
-        }
-        if genderTypeID == 0 {
+            }
+            if genderTypeID == 0 {
                 signUPCell.maleUnCheckBtn.image = UIImage(named:"icons8-Unchecked Circle-50")
-                signUPCell.femaleUnCheck.image = UIImage(named:"icons8-Unchecked Circle-50")
-                male = false
+                signUPCell.femaleUnCheck.image  = UIImage(named:"icons8-Unchecked Circle-50")
+                male   = false
                 female = false
-        }
-        signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
-        signUPCell.maleBtn.tag = 27
-        signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
-        signUPCell.femaleBtn.tag = 30
-        return signUPCell
+            }
+            
+            signUPCell.maleBtn.addTarget(self, action: #selector(self.maleBtnClicked), for: .touchUpInside)
+            signUPCell.maleBtn.tag = 27
+            signUPCell.femaleBtn.addTarget(self, action: #selector(self.femaleBtnClicked), for: .touchUpInside)
+            signUPCell.femaleBtn.tag = 30
+            
+            return signUPCell
         }
     }
     
@@ -580,8 +588,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func editBtnClicked(_ sender: UIButton?){
         
         if(btneditClick == false){
-        btneditClick = true
-        editProfileTableView.reloadData()
+            btneditClick = true
+            editProfileTableView.reloadData()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
                 self.focusItemNumberTextField()
             })
@@ -593,7 +601,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let indexPath = IndexPath.init(row: 1, section: 1)
             if let profileCell = editProfileTableView.cellForRow(at: indexPath) as? EditProfileTableViewCell {
-            profileCell.editProfileTF.becomeFirstResponder()
+                   profileCell.editProfileTF.becomeFirstResponder()
         }
     }
     
@@ -617,30 +625,33 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
          let imageData = UIImagePNGRepresentation(profileimage)
          base64String = (imageData?.base64EncodedString())!
          let null = NSNull()
+        
          let updateProfiledictParams = [
-            "imageString": base64String,
-            "id": self.loginid,
-            "userId":null,
-            "firstName": self.firstName,
-            "lastname": self.lastName,
-            "middleName": self.middleName,
-            "mobileNumber": self.mobileNumber,
-            "genderTypeId": self.genderTypeID == 0 ? "" :  self.genderTypeID,
-            "dob": self.selectedDate,
-            "userName": null,
-            "password": null,
-            "description" : null,
-            "roleId": 3,
-            "email": self.email,
-            "fileLocation": null,
-            "fileName": null,
-            "fileExtention": ".jpg",
-            "isActive": true,
-            "createdByUserId": self.loginid,
-            "createdDate": "2018-03-05",
-            "updatedByUserId": self.loginid,
-            "updatedDate": "2018-03-05"
+            "imageString"   :   base64String,
+            "id"            :   self.loginid,
+            "userId"        :   null,
+            "firstName"     :   self.firstName,
+            "lastname"      :   self.lastName,
+            "middleName"    :   self.middleName,
+            "mobileNumber"  :   self.mobileNumber,
+            "genderTypeId"  :   self.genderTypeID == 0 ? "" :  self.genderTypeID,
+            "dob"           :   self.selectedDate,
+            "userName"      :   null,
+            "password"      :   null,
+            "description"   :   null,
+            "roleId"        :   3,
+            "email"         :   self.email,
+            "fileLocation"  :   null,
+            "fileName"      :   null,
+            "fileExtention" :   ".jpg",
+            "isActive"      :   true,
+            "createdByUserId"   :   self.loginid,
+            "createdDate"       :   "2018-03-05",
+            "updatedByUserId"   :   self.loginid,
+            "updatedDate"       :   "2018-03-05"
+            
             ] as [String : Any]
+        
         print(updateProfiledictParams)
         let dictHeaders = ["":"","":""] as NSDictionary
         serviceController.postRequest(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
@@ -711,14 +722,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func validateAllFields() -> Bool {
         
         var errorMessage:NSString?
-        let firstName:NSString = self.firstName   as NSString
+        let firstName:NSString  = self.firstName   as NSString
         let middleName:NSString =  self.middleName  as NSString
-        let lastName:NSString =  self.lastName  as NSString
+        let lastName:NSString   =  self.lastName  as NSString
         let mobileNumber:NSString =  self.mobileNumber  as NSString
-        let emailID:NSString = self.email as NSString
+        let emailID:NSString    = self.email as NSString
+        
         if (firstName.length <= 2){
             alertTag = 0
-            errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
+            errorMessage = GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
         }
         else  if (lastName.length <= 0){
             alertTag = 2
@@ -753,7 +765,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let indexPath : IndexPath = IndexPath(row: self.alertTag, section: 1)
             self.editProfileTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
             if let cell = self.editProfileTableView.cellForRow(at: indexPath) as? EditProfileTableViewCell {
-                cell.editProfileTF.becomeFirstResponder()
+                   cell.editProfileTF.becomeFirstResponder()
             }
         });
         alert.addAction(action)
@@ -768,7 +780,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        dateofBirth = dateFormatter.string(from: datepicker.date)
+        dateofBirth  = dateFormatter.string(from: datepicker.date)
         selectedDate = dateFormatter.string(from: datepicker.date)
         activeTextField.text = selectedDate
         print(selectedDate)
@@ -899,7 +911,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         editProfileTableView.reloadRows(at: [indexPath], with: .fade)
     }
     
- //MARK:- resize Image
+//MARK:- resize Image
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         

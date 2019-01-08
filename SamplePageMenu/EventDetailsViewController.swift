@@ -1526,7 +1526,8 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         else{
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login To Share".localize(), clickAction: {
-               self.navigationController?.pushViewController(self.loginVC, animated: true)
+                
+                self.navigationController?.pushViewController(self.loginVC, animated: true)
             })
         }
     }
@@ -1578,10 +1579,10 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
             
             if statusCode == true
             {
-                let  successMsg = respVO.endUserMessage
+                let  successMsg     = respVO.endUserMessage
                 let  createdComment = respVO.result
-                self.commentString = "Add a public comment...".localize()
-                self.comentId = 0
+                self.commentString  = "Add a public comment...".localize()
+                self.comentId       = 0
                 self.parentCommentId = 0
                 self.getViewAllCommentsAPICall(tag: 0)
             }
@@ -1599,7 +1600,7 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
 //MARK: -  "Cancel" Button Action Form StoryBoard
     @IBAction func cancleAction(_ sender: Any) {
         
-        popupview.isHidden = true
+        popupview.isHidden  = true
         secondview.isHidden = true
     }
     
@@ -1608,17 +1609,18 @@ class EventDetailsViewController: UIViewController,UITableViewDelegate,UITableVi
         
        
         self.eventDetailsTableView.endEditing(true)
-        self.sendCommentClick = false
-        self.textviewOutLet.text = self.commentString
-        popupview.isHidden = true
-        secondview.isHidden = true
+        self.sendCommentClick       = false
+        self.textviewOutLet.text    = self.commentString
+        popupview.isHidden          = true
+        secondview.isHidden         = true
+        
         if (self.commentString == "" || self.commentString == "Add a public comment...".localize()){
             Utilities.sharedInstance.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Add Reply".localize(), clickAction: {
             })
             return
         }
         if !(self.userID == 0) {
-            self.comentId = self.comentId != 0 ? self.comentId : 0
+            self.comentId        = self.comentId != 0 ? self.comentId : 0
             self.parentCommentId = self.parentCommentId != 0 ? self.parentCommentId : 0
             commentSendBtnAPIService(textComment: self.commentString)
              self.textviewOutLet.text = ""
@@ -1766,7 +1768,6 @@ extension EventDetailsViewController : UICollectionViewDelegate, UICollectionVie
                 
                 if dataImg != nil {
                     
-                    
                     imageView.image = UIImage(data: dataImg!)
                     imageView.frame = self.view.bounds
                     imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -1799,7 +1800,7 @@ extension EventDetailsViewController : UICollectionViewDelegate, UICollectionVie
             let newString = embededUrlImage?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
             
             if newString != nil {
-                
+
                 savePDFWithUrl(newString!)
                 
             }
@@ -1824,10 +1825,10 @@ extension EventDetailsViewController : UICollectionViewDelegate, UICollectionVie
                 
                 let audioViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AudioViewController") as! AudioViewController
                 
-                audioViewController.audioIDArr = newString!
-                audioViewController.audioIDNameArr = title!
-                audioViewController.audioID = audioID!
-                audioViewController.categoryID = categoryId ?? 0
+                audioViewController.audioIDArr      = newString!
+                audioViewController.audioIDNameArr  = title!
+                audioViewController.audioID         = audioID!
+                audioViewController.categoryID      = categoryId ?? 0
                 
                 self.navigationController?.pushViewController(audioViewController, animated: true)
             }
@@ -1849,7 +1850,6 @@ extension EventDetailsViewController : UICollectionViewDelegate, UICollectionVie
                 
                 let thumbnillImage : String = embededUrlImage
                 
-                
                 self.audioIDArray = thumbnillImage.components(separatedBy: "embed/")
                 
                 self.thumbnailImageURL = "https://img.youtube.com/vi/\(self.audioIDArray[1])/default.jpg"
@@ -1868,10 +1868,8 @@ extension EventDetailsViewController : UICollectionViewDelegate, UICollectionVie
                             {
                                 
                                 let  videosVC =  YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
-                                
-                                videosVC.videoEmbededIDStr = self.audioIDArray[1]
-                                videosVC.videoNameStr = title!
-                                
+                                     videosVC.videoEmbededIDStr = self.audioIDArray[1]
+                                     videosVC.videoNameStr = title!
                                 
                                 kUserDefaults.set(categoryId, forKey: "categoryId")
                                 kUserDefaults.set(userID, forKey: "userID")
@@ -1897,6 +1895,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
             sender.view?.removeFromSuperview()
         }
+    
     private func openPDFinPDFReader() {
             
         }
@@ -1909,106 +1908,100 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
                 
     if let url = URL.init(string: urlString) {
                     
-    let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        let documentDirUrlString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
                     
-    if let documentDirUrl = URL.init(string: documentDirUrlString) {
+        if let documentDirUrl = URL.init(string: documentDirUrlString) {
                         
-    let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
+            let pdfNameArray = urlString.characters.split(separator: "/").map(String.init)
                         
-    if let pdfName = pdfNameArray.last {
+            if let pdfName = pdfNameArray.last {
                             
-    let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
-    self.saveLocationString = saveLocation.absoluteString
-    filePath = URL.init(fileURLWithPath: saveLocation.path)
-    print( self.saveLocationString)
+                let saveLocation = documentDirUrl.appendingPathComponent(pdfName)
+                self.saveLocationString = saveLocation.absoluteString
+                filePath = URL.init(fileURLWithPath: saveLocation.path)
+                print( self.saveLocationString)
                             
-    let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
+                let fileExists = FileManager().fileExists(atPath: self.saveLocationString)
                             
-    if fileExists {
+                if fileExists {
                                 
-    if !self.isSavingPDF {
+                    if !self.isSavingPDF {
                                     
-    DispatchQueue.main.async {
-                                        
-                                        
-    self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
-    print( self.saveLocationString)
-    print(  self.openSelectedDocumentFromURL)
-                                        
-    self.openPDFinPDFReader()
-        }
-     }
-      else{
-           DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
-      })
-    }
-  }
-   else{
+                        DispatchQueue.main.async {
+        
+                            self.openSelectedDocumentFromURL(documentURLString: self.saveLocationString)
+                            print(self.saveLocationString)
+                            print(self.openSelectedDocumentFromURL)
+                            self.openPDFinPDFReader()
+                        }
+                    }
+                    else{
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                        })
+                    }
+                }
+                else{
                                 
-    do{
-    self.isDownloadingOnProgress = true
+                    do{
+                        self.isDownloadingOnProgress = true
                                     
-    let imageData : Data? = try Data.init(contentsOf: url)
+                        let imageData : Data? = try Data.init(contentsOf: url)
                                     
-    if imageData == nil {
+                        if imageData == nil {
         
-    self.isDownloadingOnProgress = false
+                            self.isDownloadingOnProgress = false
                                         
-    DispatchQueue.main.async {
+                            DispatchQueue.main.async {
         
-    }
-}else
-    {
+                            }
+                        }else
+                        {
+                            do {
+                                            
+                                try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
+                                            
+                                if !self.isSavingPDF {
+                                                
+                                    self.isDownloadingOnProgress = false
+                                                
+                                    DispatchQueue.main.async {
+                                        self.openPDFinPDFReader()
+                                    }
+                                }
+                                else{
+                                                
+                                    self.isDownloadingOnProgress = false
+                                                
+                                    DispatchQueue.main.async {
+        
+                                    }
+                                }
+                            } catch let error {
+                                
+                                print(error.localizedDescription)
+                                self.isDownloadingOnProgress = false
+                                DispatchQueue.main.async {
+                                }
+                            }
+                        }
+                                    
+                    } catch let error {
+                                    
+                        print(error.localizedDescription)
+                                    
+                        self.isDownloadingOnProgress = false
+                                    
+                        DispatchQueue.main.async {
                                         
-   do {
-                                            
-    try imageData?.write(to: filePath!, options: Data.WritingOptions.withoutOverwriting)
-                                            
-    if !self.isSavingPDF {
-                                                
-    self.isDownloadingOnProgress = false
-                                                
-    DispatchQueue.main.async {
-                                                    
-    self.openPDFinPDFReader()
-    }
-        
-}
-else{
-                                                
-    self.isDownloadingOnProgress = false
-                                                
-    DispatchQueue.main.async {
-        
-    }
-  }
-} catch let error {
-                                            
-    self.isDownloadingOnProgress = false
-                                            
-    DispatchQueue.main.async {
-                                                
-        
-        }
-    }
-}
-                                    
-} catch let error {
-                                    
-    print(error.localizedDescription)
-                                    
-    self.isDownloadingOnProgress = false
-                                    
-DispatchQueue.main.async {
-                                        
-                  }
-               }
+                        }
+                    }
+                    }
+                 }
+             }
             }
-         }
-       }
+        }
     }
-  }
-}
+    
 // Mark :- Read Document From Url Method
 func openSelectedDocumentFromURL(documentURLString: String) {
             let documentURL: NSURL = NSURL(fileURLWithPath: documentURLString)
@@ -2020,6 +2013,7 @@ func openSelectedDocumentFromURL(documentURLString: String) {
             return self
         }
     }
+
 
 // Mark :- HideKeyboard Method
 extension EventDetailsViewController
@@ -2035,11 +2029,5 @@ extension EventDetailsViewController
     }
 }
 
-    
-    
-    
-    
-    
-    
     
 

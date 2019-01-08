@@ -11,8 +11,6 @@ import UIKit
 class BaseViewController: UIViewController {
 
     
-    
-    
     var appDelegate = AppDelegate()
     let sharedController = ServiceController()
     
@@ -44,10 +42,10 @@ class BaseViewController: UIViewController {
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
         let alertView:UIAlertView = UIAlertView();
-        alertView.title=title
-        alertView.message=message
-        alertView.addButton(withTitle: buttonTitle)
-        alertView.show()
+            alertView.title=title
+            alertView.message=message
+            alertView.addButton(withTitle: buttonTitle)
+            alertView.show()
     }
     
     func showAlertViewWithTitleAndButtons(_ title:String,message:String,arrButtons:
@@ -55,27 +53,21 @@ class BaseViewController: UIViewController {
         NSArray,delegate:AnyObject)
     {
         let alertView:UIAlertView = UIAlertView();
-        alertView.title=title
-        alertView.message=message
-        alertView.delegate=delegate
+            alertView.title=title
+            alertView.message=message
+            alertView.delegate=delegate
+        
         for  buttonTitle in arrButtons
         {
-            alertView.addButton(withTitle: buttonTitle as! String)
+            alertView.addButton(withTitle: buttonTitle as? String)
         }
         alertView.show()
     }
-    
-    
- 
-    
+  
 }
-
-
-
- 
 
 extension BaseViewController{
     
     
-}
+ }
    

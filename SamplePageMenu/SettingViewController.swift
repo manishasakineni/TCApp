@@ -16,7 +16,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     var menuArray = ["About-US","Notifications","Help"]
     var delegate : SttingPopOverHomeDelegate?
 
- //MARK: -   View DidLoad
+//MARK: -   View DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()

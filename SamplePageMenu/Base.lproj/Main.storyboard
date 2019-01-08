@@ -3657,6 +3657,7 @@
                                     <constraint firstAttribute="trailing" secondItem="04a-mr-CzT" secondAttribute="trailing" constant="8" id="hc7-pZ-nlz"/>
                                     <constraint firstItem="uVu-2v-dx2" firstAttribute="leading" secondItem="EEX-2k-Cac" secondAttribute="leading" id="iB9-3Q-azW"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zay-ev-OXI" secondAttribute="bottom" constant="8" id="j5B-Sd-EdW"/>
+                                    <constraint firstItem="5Hx-zR-mpl" firstAttribute="top" secondItem="04a-mr-CzT" secondAttribute="top" id="lVI-Ra-IKG"/>
                                     <constraint firstAttribute="trailing" secondItem="EWP-BM-peF" secondAttribute="trailing" constant="8" id="pIL-jF-KWR"/>
                                     <constraint firstItem="EWP-BM-peF" firstAttribute="leading" secondItem="04a-mr-CzT" secondAttribute="leading" id="tQx-gg-XKE"/>
                                     <constraint firstItem="uVu-2v-dx2" firstAttribute="top" secondItem="EEX-2k-Cac" secondAttribute="bottom" constant="10" id="w6h-uE-BbA"/>
@@ -3687,7 +3688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Cz-77-Gya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11517.6" y="-455.62218890554726"/>
+            <point key="canvasLocation" x="11662" y="-560"/>
         </scene>
         <!--Author Events View Controller-->
         <scene sceneID="dGs-xT-ONL">

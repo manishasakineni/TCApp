@@ -39,15 +39,15 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             userId = uid
             print("defaults savedString: \(userId)")
         }
-        backGroundView.layer.cornerRadius = 3.0
-        backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
-        backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        backGroundView.layer.shadowOpacity = 0.6
-        backGroundView.layer.shadowRadius = 2.0
-        forgotPasswordTableView.delegate = self
-        forgotPasswordTableView.dataSource = self
-        activeTextField.delegate = self
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        backGroundView.layer.cornerRadius   = 3.0
+        backGroundView.layer.shadowColor    = UIColor.lightGray.cgColor
+        backGroundView.layer.shadowOffset   = CGSize(width: 0, height: 3)
+        backGroundView.layer.shadowOpacity  = 0.6
+        backGroundView.layer.shadowRadius   = 2.0
+        forgotPasswordTableView.delegate    = self
+        forgotPasswordTableView.dataSource  = self
+        activeTextField.delegate            = self
+        self.view.backgroundColor           = UIColor.black.withAlphaComponent(0.4)
 
         // Registering Tableview Cells
         
@@ -63,29 +63,28 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         activeTextField = textField
         if activeTextField.tag == 0 {
-            textField.text = oldPassWordString
-            textField.maxLengthTextField = 25
-            textField.clearButtonMode = .never
-            textField.keyboardType = .default
-            textField.isSecureTextEntry = true
+            textField.text                 = oldPassWordString
+            textField.maxLengthTextField   = 25
+            textField.clearButtonMode      = .never
+            textField.keyboardType         = .default
+            textField.isSecureTextEntry    = true
         }
         else if activeTextField.tag == 1 {
-            textField.text = newPassWordString
-            textField.maxLengthTextField = 25
-            textField.clearButtonMode = .never
-            textField.keyboardType = .default
-            textField.isSecureTextEntry = true
-            
-            textField.rightViewMode = .always
-            textField.rightView = PwButton
+            textField.text                 = newPassWordString
+            textField.maxLengthTextField   = 25
+            textField.clearButtonMode      = .never
+            textField.keyboardType         = .default
+            textField.isSecureTextEntry    = true
+            textField.rightViewMode        = .always
+            textField.rightView            = PwButton
             textField.setLeftPaddingPoints(4)
         }
         else if activeTextField.tag == 2 {
-            textField.text = confirmPassWordString
+            textField.text               = confirmPassWordString
             textField.maxLengthTextField = 25
-            textField.clearButtonMode = .never
-            textField.keyboardType = .default
-            textField.isSecureTextEntry = true
+            textField.clearButtonMode    = .never
+            textField.keyboardType       = .default
+            textField.isSecureTextEntry  = true
         }
     }
     
@@ -162,7 +161,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if (section == 0){
             let headerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:100))
             headerView.backgroundColor =  UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
-            let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
+            let section1HeaderLabel2   = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
             section1HeaderLabel2.textColor = UIColor.white
             section1HeaderLabel2.text = "Change Password".localize()
             section1HeaderLabel2.textAlignment = .center
@@ -197,25 +196,26 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if indexPath.section == 0 {
             let forgotPasswordCell = tableView.dequeueReusableCell(withIdentifier: "ForgotPasswordCell", for: indexPath) as! ForgotPasswordCell
-            forgotPasswordCell.resetPasswordTF.delegate = self
-            forgotPasswordCell.resetPasswordTF.tag = indexPath.row
-            forgotPasswordCell.eyeButtonOutlet.tag = indexPath.row
-            forgotPasswordCell.eyeButtonOutlet.isHidden = true
+                forgotPasswordCell.resetPasswordTF.delegate = self
+                forgotPasswordCell.resetPasswordTF.tag      = indexPath.row
+                forgotPasswordCell.eyeButtonOutlet.tag      = indexPath.row
+                forgotPasswordCell.eyeButtonOutlet.isHidden = true
+            
             if indexPath.row == 0 {
-                forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
-                forgotPasswordCell.resetPasswordTF.text = oldPassWordString
+                forgotPasswordCell.resetPasswordTF.placeholder  = "Old Password".localize()
+                forgotPasswordCell.resetPasswordTF.text         = oldPassWordString
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
                 return forgotPasswordCell
             }
             else if indexPath.row == 1 {
-                forgotPasswordCell.resetPasswordTF.placeholder = "New Password".localize()
-                forgotPasswordCell.resetPasswordTF.text = newPassWordString
+                forgotPasswordCell.resetPasswordTF.placeholder  = "New Password".localize()
+                forgotPasswordCell.resetPasswordTF.text         = newPassWordString
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
                 return forgotPasswordCell
             }
             else if indexPath.row == 2 {
-                forgotPasswordCell.resetPasswordTF.placeholder = "Confirm Password".localize()
-                forgotPasswordCell.resetPasswordTF.text = confirmPassWordString
+                forgotPasswordCell.resetPasswordTF.placeholder  = "Confirm Password".localize()
+                forgotPasswordCell.resetPasswordTF.text         = confirmPassWordString
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
                 return forgotPasswordCell
             }
@@ -270,9 +270,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func validateAllFields() -> Bool{
         
-        var errorMessage:NSString?
-        let oldePassWordStr:NSString = oldPassWordString as NSString
-        let newPassWordStr:NSString = newPassWordString as NSString
+        var errorMessage : NSString?
+        let oldePassWordStr : NSString = oldPassWordString as NSString
+        let newPassWordStr  : NSString  = newPassWordString as NSString
         let confirmPassWordStr : NSString = confirmPassWordString as NSString
         if (oldePassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankOldPasswordErrorMessage() as String as String as NSString?
@@ -311,9 +311,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         let  strUrl = CHANGEPASSWORDURL
         let dictParams = [
-            "UserId": userId,
-            "OldPassword": oldPassWordString,
-            "NewPassword": newPassWordString,
+            "UserId"        :   userId,
+            "OldPassword"   :   oldPassWordString,
+            "NewPassword"   :   newPassWordString,
             "ConfirmPassword": confirmPassWordString
             ] as [String : Any]
         print("dic params \(dictParams)")
@@ -337,8 +337,10 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                     self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                     return
                     }
-                    }
+                }
         }, failureHandler: {(error) in
+            
+            print(error)
         })
     }
     
@@ -354,9 +356,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String){
         
-        let alertView:UIAlertView = UIAlertView();
-        alertView.title=title
-        alertView.message=message
+        let alertView:UIAlertView   = UIAlertView();
+        alertView.title             =   title
+        alertView.message           =   message
         alertView.addButton(withTitle: buttonTitle)
         alertView.show()
     }
@@ -382,7 +384,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     }
     }
 
- //MARK:- set Left Padding Points
+//MARK:- set Left Padding Points
 
 extension UITextField {
     
